@@ -1,4 +1,4 @@
-# InvestiNator
+# InvestiNator — AI DataOps Incident Investigation Copilot
 
 **AI-powered DataOps Observability, Investigation & Controlled Remediation**
 
@@ -20,7 +20,13 @@ InvestiNator follows a signal across infrastructure, pipelines, and datasets, ga
 
 The dark interface uses a shared [cyberpunk design system](docs/design-system.md) with accessible neon controls, terminal panels, and responsive layouts.
 
-Explore the [public GitHub Pages UI preview](https://minaadelmarkos.github.io/Enterprise-DataOps-Incident-Resolution-Copilot/) with synthetic data, or follow the [detailed user guide](docs/user-guide.md) to run the complete API-backed demo locally. The preview source and deployment workflow live in `apps/showcase` and `.github/workflows/pages.yml`.
+Explore the [public GitHub Pages UI preview](https://minaadelmarkos.github.io/Investinator-Enterprise-DataOps-Incident-Resolution/) with synthetic data, or follow the [detailed user guide](docs/user-guide.md) to run the complete API-backed demo locally. The preview source and deployment workflow live in `apps/showcase` and `.github/workflows/pages.yml`.
+
+## Engineering evidence
+
+- **Author:** [Mina Markos](https://minaadelmarkos.github.io/MinaMarkos/). See the [architecture](docs/architecture.md) for the service and evidence flow.
+- **Reproduce a case:** Run the documented [Kafka disk-pressure replay](docs/user-guide.md) with synthetic orders. The [API smoke script](scripts/smoke_demo.py) exercises investigation, approval and verification.
+- **Evaluate safely:** The [offline fixtures](eval/test_incidents.jsonl) and [workflow tests](tests/test_workflow.py) cover demo behavior. Use the [security notes](docs/security.md) to understand the demo identity and remediation boundaries.
 
 ## Run the full demo
 
