@@ -17,7 +17,7 @@ from .safety import redact_sensitive
 def search_logs(tenant: str, query: str, window_minutes: int = 60) -> dict:
     url = os.getenv("INVESTINATOR_ELASTICSEARCH_URL", "").strip().rstrip("/")
     index = os.getenv("INVESTINATOR_ELASTICSEARCH_INDEX", "logs-*").strip()
-    tenant_field = os.getenv("INVESTINATOR_ELASTICSEARCH_TENANT_FIELD", "tenant_id.keyword").strip()
+    tenant_field = os.getenv("INVESTINATOR_ELASTICSEARCH_TENANT_FIELD", "tenant_id").strip()
     if not url:
         return {"status": "unavailable", "reason": "Log search backend not configured", "items": []}
     parsed = urlsplit(url)
