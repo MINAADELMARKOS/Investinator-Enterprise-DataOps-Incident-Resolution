@@ -145,3 +145,14 @@ def test_elasticsearch_search_keeps_simulated_provenance(monkeypatch):
         {"term": {"tenant_id": "demo"}} in captured["body"]["query"]["bool"]["filter"]
     )
     assert "/logs-investinator-demo/_search" in captured["url"]
+
+
+def test_upstream_dependencies_reveal_non_kafka_origins(client):
+    from incident_copilot.db import session
+    from incident_copilot.tools import execute_tool
+
+    with session() as db:
+        result = execute_tool(db, "demo", "get_upstream_dependencies", {"entity_id": "broker-02"})
+    upstream = {item["id"] for item in result["upstream"]}
+    assert "controller-01" in upstream
+    assert "network-link-01" in upstream
