@@ -125,7 +125,7 @@ def run_chat(db: Session, tenant: str, question: str, history: list[dict[str, st
                 "model": model,
                 "input": messages,
                 "store": settings.openai_store,
-                "max_output_tokens": 1100,
+                "max_output_tokens": 1600,
                 "include": ["reasoning.encrypted_content"],
             }
             if turn < settings.max_ai_calls:
@@ -145,7 +145,14 @@ def run_chat(db: Session, tenant: str, question: str, history: list[dict[str, st
             if turn >= settings.max_ai_calls:
                 status = "tool_limit"
                 break
-            for call in calls[:6]:
+            for index, call in enumerate(calls):
+                if index >= 6:
+                    messages.append({
+                        "type": "function_call_output",
+                        "call_id": call.call_id,
+                        "output": '{"status":"denied","reason":"per-turn tool limit"}',
+                    })
+                    continue
                 try:
                     arguments = json.loads(call.arguments)
                     if not isinstance(arguments, dict):
@@ -167,8 +174,9 @@ def run_chat(db: Session, tenant: str, question: str, history: list[dict[str, st
                     "output": redact_sensitive(json.dumps(value, default=str))[:7500],
                 })
         if not answer:
-            answer = ("Investigation reached the configured tool/response limit. "
-                      "Review collected evidence and narrow the question.")
+            status = "empty_response" if status == "ok" else status
+            answer = ("No complete GPT investigation could be produced within the "
+                      "configured limits. Review collected evidence and narrow the question.")
         cited = set(EVIDENCE_ID.findall(answer))
         if cited - allowed_ids:
             # A model cannot turn an unobserved reference into evidence.
