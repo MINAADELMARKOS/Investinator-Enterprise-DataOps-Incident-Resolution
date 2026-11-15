@@ -4,7 +4,7 @@ import { useState } from "react";
 import type { Incident } from "@/lib/api";
 import { Badge } from "@/components/ui";
 
-type Message = { role: "user" | "assistant"; content: string; evidence_ids?: string[] };
+type Message = { role: "user" | "assistant"; content: string; evidence_ids?: string[]; response_mode?: string; model?: string | null; tool_calls?: { name: string; status: string }[] };
 export default function InvestigatorChat({ incidents, defaultIncident }: { incidents: Incident[]; defaultIncident?: string }) {
   const [incidentId, setIncidentId] = useState(defaultIncident || incidents[0]?.incident_id || "");
   const [conversationId, setConversationId] = useState<string | null>(null);
@@ -19,13 +19,13 @@ export default function InvestigatorChat({ incidents, defaultIncident }: { incid
     const value=input.trim();setInput("");setMessages(items=>[...items,{role:"user",content:value}]);setBusy(true);setError(null);
     try { const response=await fetch("/api/v1/investigator/messages",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({conversation_id:conversationId,incident_id:incidentId||null,mode,message:value})});
       const data=await response.json();if(!response.ok)throw new Error(data.detail??"Investigator unavailable");
-      setConversationId(data.conversation_id);setMessages(items=>[...items,{role:"assistant",content:data.answer,evidence_ids:data.evidence_ids}]);
+      setConversationId(data.conversation_id);setMessages(items=>[...items,{role:"assistant",content:data.answer,evidence_ids:data.evidence_ids,response_mode:data.response_mode,model:data.model,tool_calls:data.tool_calls}]);
     }catch(cause){setError(cause instanceof Error?cause.message:"Investigator unavailable");}finally{setBusy(false);}
   }
   return <div className="chat-layout"><section className="panel chat-pane"><div className="panel-heading"><h2>Investigation conversation</h2><Badge tone="info">Evidence first</Badge></div>
     <div className="chat-mode">{["ask","investigate","fix"].map(value=><button key={value} type="button" className={mode===value?"selected":""} onClick={()=>setMode(value)}>{value.toUpperCase()}</button>)}</div>
     <div className="chat-messages" aria-live="polite">{messages.length===0&&<div className="callout"><strong>Start with a question.</strong><p>Select an incident and ask what changed, what evidence supports the hypothesis, or how to recover safely.</p></div>}
-      {messages.map((item,index)=><div key={index} className={`chat-bubble ${item.role}`}><div className="small text-faint" style={{marginBottom:5}}>{item.role==="user"?"YOU":"INVESTINATOR"}</div>{item.content}{item.evidence_ids?.length? <div className="small text-faint" style={{marginTop:8}}>Evidence: {item.evidence_ids.join(", ")}</div>:null}</div>)}
+      {messages.map((item,index)=><div key={index} className={`chat-bubble ${item.role}`}><div className="small text-faint" style={{marginBottom:5}}>{item.role==="user"?"YOU":"INVESTINATOR"}</div>{item.content}{item.evidence_ids?.length? <div className="small text-faint" style={{marginTop:8}}>Evidence: {item.evidence_ids.join(", ")}</div>:null}{item.role==="assistant"&&item.response_mode?<div className="small text-faint" style={{marginTop:8}}>{item.response_mode==="openai"?`GPT · ${item.model ?? "configured model"}`:"Deterministic fallback"}{item.tool_calls?.length? ` · Tools: ${item.tool_calls.map(call=>`${call.name} (${call.status})`).join(", ")}`:""}</div>:null}</div>)}
       {busy&&<div className="chat-bubble assistant">Checking incident context and evidence…</div>}
     </div>{error&&<div className="error-box" role="alert">{error}</div>}
     <form className="chat-compose" onSubmit={send}><div className="terminal-input-wrap"><input className="form-input" aria-label="Message InvestiNator" placeholder="Ask about the incident…" value={input} onChange={event=>setInput(event.target.value)} /></div><button className="button button-primary" disabled={busy||!input.trim()}>Send →</button></form>
