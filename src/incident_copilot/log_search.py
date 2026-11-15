@@ -36,7 +36,7 @@ def search_logs(tenant: str, query: str, window_minutes: int = 60) -> dict:
         "size": 10,
         "sort": [{"@timestamp": {"order": "desc", "unmapped_type": "date"}}],
         "_source": ["@timestamp", "message", "log.original", "log.level", "service.name",
-                    "host.name", "error.message", "event.dataset"],
+                    "host.name", "error.message", "event.dataset", "source_mode", "environment"],
         "query": {"bool": {"filter": [
             {"term": {tenant_field: tenant}},
             {"range": {"@timestamp": {"gte": f"now-{safe_window}m", "lte": "now"}}},
@@ -68,8 +68,10 @@ def search_logs(tenant: str, query: str, window_minutes: int = 60) -> dict:
                 "observed_at": source.get("@timestamp"),
                 "service": (source.get("service") or {}).get("name"),
                 "message": redact_sensitive(str(raw_message)[:900]),
-                "mode": "live",
+                "mode": str(source.get("source_mode") or "external"),
+                "retrieval_mode": "live",
+                "environment": source.get("environment"),
             })
-        return {"status": "ok", "source": "elasticsearch", "items": items, "mode": "live"}
+        return {"status": "ok", "source": "elasticsearch", "items": items, "retrieval_mode": "live"}
     except (httpx.HTTPError, ValueError, TypeError):
         return {"status": "unavailable", "reason": "Log backend request failed", "items": []}
