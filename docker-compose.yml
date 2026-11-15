@@ -24,6 +24,9 @@ services:
       INVESTINATOR_OPENAI_FAST_MODEL: ${INVESTINATOR_OPENAI_FAST_MODEL:-}
       INVESTINATOR_OPENAI_REASONING_MODEL: ${INVESTINATOR_OPENAI_REASONING_MODEL:-}
       OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      INVESTINATOR_ELASTICSEARCH_URL: ${INVESTINATOR_ELASTICSEARCH_URL:-}
+      INVESTINATOR_ELASTICSEARCH_INDEX: ${INVESTINATOR_ELASTICSEARCH_INDEX:-logs-investinator-demo}
+      INVESTINATOR_ELASTICSEARCH_API_KEY: ${INVESTINATOR_ELASTICSEARCH_API_KEY:-}
       OTEL_EXPORTER_OTLP_ENDPOINT: http://otel-collector:4318
     ports:
       - "8000:8000"
@@ -66,6 +69,25 @@ services:
     ports:
       - "9092:9092"
 
+  # Optional local log backend. Only for isolated development; security is disabled.
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.17.4
+    profiles: ["log-search"]
+    environment:
+      discovery.type: single-node
+      xpack.security.enabled: "false"
+      ES_JAVA_OPTS: "-Xms512m -Xmx512m"
+    mem_limit: 1400m
+    ports:
+      - "127.0.0.1:9200:9200"
+    volumes:
+      - elasticsearch_demo_data:/usr/share/elasticsearch/data
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:9200/_cluster/health >/dev/null"]
+      interval: 15s
+      timeout: 5s
+      retries: 20
+
   demo-producer:
     image: investinator-api:demo
     build: .
@@ -107,3 +129,4 @@ services:
 
 volumes:
   postgres_data:
+  elasticsearch_demo_data:
