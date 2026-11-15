@@ -3,6 +3,7 @@ import json
 import os
 import re
 from time import perf_counter
+from typing import Any
 
 from sqlalchemy.orm import Session
 
@@ -120,7 +121,7 @@ def run_chat(db: Session, tenant: str, question: str, history: list[dict[str, st
         client = OpenAI(timeout=30.0, max_retries=1)
         answer = ""
         for turn in range(settings.max_ai_calls + 1):
-            request = {
+            request: dict[str, Any] = {
                 "model": model,
                 "input": messages,
                 "store": settings.openai_store,
