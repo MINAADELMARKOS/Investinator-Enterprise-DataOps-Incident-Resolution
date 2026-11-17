@@ -31,6 +31,16 @@ Explore the [public GitHub Pages UI preview](https://minaadelmarkos.github.io/In
 - **Reproduce a case:** Run the documented [Kafka disk-pressure replay](docs/user-guide.md) with synthetic orders. The [API smoke script](scripts/smoke_demo.py) exercises investigation, approval and verification.
 - **Evaluate safely:** The [offline fixtures](eval/test_incidents.jsonl) and [workflow tests](tests/test_workflow.py) cover demo behavior. Use the [security notes](docs/security.md) to understand the demo identity and remediation boundaries.
 
+## Java AI architecture — next implementation stages
+
+The current `main` runtime is Python/FastAPI with Next.js. The Java 21/Spring Boot modules described in the user-reported local Prompt 03–09 reports **have not yet been pushed to this repository**. Java should remain an opt-in, private-schema migration with Python as the fallback until the independently verified stage gates pass.
+
+- [Five-layer Java architecture v2](docs/roadmap/JAVA_AI_ARCHITECTURE_V2.md): Infrastructure, Model, Platform, Agent, Application, including verified-vs-reported status.
+- [Version 2 execution prompts (09A–16)](docs/roadmap/POST_P09_PROMPTS_V2.md): Sync and evaluation first, then monitoring, remediation, frontend, E2E, security, handover and optional cutover.
+- [Safe synchronization of the local Codex Java worktree](docs/roadmap/SYNC_JAVA_WORKTREE.md): recover local commits and incorporate main without force-pushing or deleting work.
+
+The public Pages experience remains an explicitly synthetic static preview; it does not host the Java API or live GPT connections.
+
 ## Run the full demo
 
 Requires Docker Desktop with its engine running. From the repository root:
