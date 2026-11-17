@@ -13,3 +13,6 @@ apps/showcase/dist/
 src/*.egg-info/
 
 .runtime/
+
+# TypeScript incremental compiler output from npm run lint.
+*.tsbuildinfo

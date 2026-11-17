@@ -1,6 +1,7 @@
 # Implementation state
 
-Updated 2026-11-17. Scope authorized: Prompts 00–09; user explicitly requested 07, 08 and 09 together.
+Updated 2026-11-17. Current scope: Architecture v2 Prompt 09A only; Prompts 00–09 preserved.
+V2 supersedes the original sequence from 09A onward; human review remains pending.
 Branch: `feature/java-ai-audit` (chosen because no feature branch name was supplied).
 Base and observed remote main: `920fefe1b86e55f038fb0a7e56dd0b42e9d34118`.
 
@@ -139,3 +140,21 @@ See [report](prompt09/REPORT.md), [review worksheet](prompt09/GOLD_REVIEW.md) an
 [readiness](READINESS_07_09.md). Release remains blocked by critical Next.js,
 production identity/security and private integration gates. No paid provider call,
 production change, push/merge or environment publication performed.
+
+
+## Prompt 09A — local reconciliation PASS; publication/PR/CI pending
+
+User explicitly authorized normal merge, backup, verification, feature push and
+PR creation. Backup `backup/java-pre-sync-09a-20261117` preserves `3d5e14f`.
+Fetched main `ef0268b` merged without textual conflicts; all ten Java stage commits
+and all private Flyway migrations remain. Main Python/GPT/Elasticsearch/default
+routing and patched Next.js 16.4.5 package+lock are retained exactly. Java 78,
+CLI 14, Python 12, fixture evaluation 7/7, lint/types and frontend install/build/
+audit pass. Actual local health/doctor/smoke, persistence restart/proxy/outage,
+evidence pipeline and scoped BM25 pass. npm audit reports zero vulnerabilities:
+the historical critical Next.js blocker is cleared for this synchronized checkout.
+
+See [SYNC_REPORT.md](SYNC_REPORT.md) and prompt09a/ evidence. Git push dry run
+succeeds; GitHub API is blocked by proxy destination policy, so PR/hosted CI need
+separate verification. No 09B or 10 started, no production/main merge/routing
+change. Pending human review blocks measured AI-quality claims, not this sync.

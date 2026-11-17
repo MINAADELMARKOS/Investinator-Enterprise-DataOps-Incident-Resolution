@@ -1,5 +1,19 @@
 # Gaps and readiness
 
+## Current synchronized assessment — Prompt 09A
+
+Local Java 00–09 is preserved and passes 78 Java/14 CLI tests. Remote-main Python
+GPT/search and Next.js 16.4.5 are reconciled; Python 12 tests and frontend
+install/build/types/audit pass, zero npm vulnerabilities. Java topology, bounded
+SDK loop, BM25/review/feedback and CLI are implemented. See [sync report](SYNC_REPORT.md).
+Remote branch publication/PR/hosted CI must be verified independently. API access
+is currently blocked by network policy; private enterprise services/provider remain
+NOT_CONFIGURED. Independent human review is pending; no measured RCA quality claim.
+Production auth/cutover/security gates remain; Prompt 09B/10 have not started.
+
+## Historical audit and stage-by-stage gaps (before 09A)
+
+
 | Capability | Status | Required next evidence |
 |---|---|---|
 | API, durable records, UI, audit | implemented; SQLite tests pass | snapshot/differential Java contracts |

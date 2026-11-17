@@ -257,3 +257,21 @@ Eight implementation-authored cases provide reproducible functional measurements
 not an independent gold set. Human review is explicitly pending and blocks empirical
 quality sign-off. An automated role-boundary test is never described as human review.
 Production identity/security and provider validation remain separate gates.
+
+
+## ADR 017 — Preserve both histories and apply Architecture v2 from 09A
+
+User authorized 09A repository reconciliation and feature publication only.
+Preserve original Java commits behind a local backup, then normally merge fetched
+main rather than regenerate/rebase implementation. Main's Python GPT/search and
+Next.js 16.4.5 security patch are authoritative for those paths; Java private-schema
+ownership and opted-in lab remain unchanged. Keep historical reports immutable
+and distinguish their old security findings from the current clean npm audit.
+The original OpenAPI differs only by an added route description, recorded in a
+separate synchronized snapshot with a strict structural comparison.
+
+V2 makes human gold review a measurement gate, not a development synchronization
+blocker. Do not invent sign-off, provider calls or hosted CI success. Git repository
+push and GitHub API access are separate capabilities; a proxy CONNECT denial is
+not proof that the backing credential is invalid. No production/main merge or
+configuration publication is authorized by 09A.

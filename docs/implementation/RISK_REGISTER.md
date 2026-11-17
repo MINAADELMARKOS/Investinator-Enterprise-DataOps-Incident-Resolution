@@ -2,7 +2,7 @@
 
 | ID | Severity / owner role | Evidence and risk | Required mitigation / gate |
 |---|---|---|---|
-| R1 | Critical / frontend maintainer | web audit exit 1, Next 16.3.8 | patched lockfile + build/regression/audit before release |
+| R1 | Resolved locally in 09A / frontend maintainer | Main patch Next 16.4.5 retained; fresh npm ci/build/types/audit pass, zero vulnerabilities | hosted CI verification pending; historical audit below remains preserved |
 | R2 | Critical / security lead | fixed demo actor, PG trust | OIDC/RBAC, TLS/credentials, network isolation before enterprise exposure |
 | R3 | High / AI lead | PR regex citations, no total deadline | typed membership, prompt injection and budget tests before port acceptance |
 | R4 | High / SRE | platform missing metrics default healthy | freshness/UNKNOWN semantics and dependency failure tests |
@@ -63,3 +63,12 @@ precision on these fixtures is not production accuracy. No embedding benefit cla
 Demo capability tokens do not establish enterprise identities or group authorization;
 index certificates, review-role ownership, retention, key rotation and security audit
 remain deployment gates. R1 critical Next.js remains unresolved. No Prompt 10 work.
+
+
+Prompt 09A current assessment supersedes historical Next.js status above: R1 is
+cleared locally by main's exact 16.4.5 package/lock and a clean fresh npm audit.
+Publication/PR/hosted CI are distinct gates: repository Git is available, but
+api.github.com CONNECT is denied by the environment destination allowlist. Do not
+misreport credential invalidity or hosted success. R10 human review remains open;
+V2 permits scoped development while prohibiting measured accuracy claims. Production
+identity, private cluster certification, provider validation and cutover remain gates.

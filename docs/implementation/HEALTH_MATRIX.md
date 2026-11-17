@@ -1,4 +1,21 @@
-# Integration health matrix — after Prompts 05/06
+# Integration health matrix
+
+## Prompt 09A current observations
+
+| Component | Current result | Boundary |
+|---|---|---|
+| Java/API + CLI | 78 Java / 14 CLI tests, actual doctor/health/smoke PASS | local; no enterprise identity claim |
+| Python | 12 tests, lint/mypy, seven fixtures and 74-step API exercise PASS | remote-main code preserved |
+| Next.js 16.4.5 | install/build/types/audit PASS; zero vulnerabilities | patched main lock retained, default Python route |
+| PostgreSQL | actual restart/private-schema/transactions/outage PASS | no migration of existing Python data |
+| OpenSearch/OTel/Fluent Bit/Prometheus | actual pipeline/scoped evidence/knowledge PASS | SIMULATED source data on LIVE local transport |
+| Provider | SDK protocol mocks PASS; actual live NOT_CONFIGURED | no paid calls |
+| GitHub Git/API/CI | Git read/dry-run PASS; API proxy CONNECT denied | push and hosted status recorded in SYNC_REPORT.md |
+| Independent AI quality | PENDING human review | fixture metrics are provisional |
+
+Detailed current artifacts: [sync report](SYNC_REPORT.md).
+
+## Historical matrix — after Prompts 05/06
 
 These are local development acceptance observations, not production health. The optional local lab is isolated; persisted user data and default UI routing remain Python.
 
