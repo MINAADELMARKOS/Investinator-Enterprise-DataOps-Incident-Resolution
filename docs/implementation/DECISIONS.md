@@ -236,3 +236,24 @@ pool with waiting chat requests. CI forces provider calls off except explicit
 loopback WireMock test configurations. Paid probing is solely explicit CLI --live,
 uses the Java SDK and no incident data, and is locally rate limited. The no-key
 acceptance case is NOT_CONFIGURED, never a fabricated successful provider proof.
+
+## ADR 016 — Reviewed BM25 corpus with authoritative citation revalidation
+
+Prompt 09 keeps corpus revisions and outcomes in the Java-owned PostgreSQL schema;
+OpenSearch is a replaceable BM25 projection. SQL approval and index publication
+are separate states. Tenant-specific content hashes, deterministic chunks and
+create-only writes make retries safe. SQL revalidation of every native hit/citation
+prevents stale ACLs, revoked versions or tampered projection content being trusted.
+A revocation is a tombstone across earlier revisions; model continuation is reset
+when policy epochs change. Specific version/mode advice outranks generic advice.
+
+Separate ingestion, feedback and reviewer credentials enforce review mechanics;
+quarantine cannot self-approve. Reviewed feedback remains historical user evidence.
+Validated-action promotion additionally requires actual stored resolution/execution
+records, not a model claim. No automatic learning or vector infrastructure is
+introduced without evaluated need. Raw config text is redacted before hashing.
+
+Eight implementation-authored cases provide reproducible functional measurements,
+not an independent gold set. Human review is explicitly pending and blocks empirical
+quality sign-off. An automated role-boundary test is never described as human review.
+Production identity/security and provider validation remain separate gates.

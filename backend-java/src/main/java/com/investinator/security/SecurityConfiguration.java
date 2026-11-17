@@ -21,6 +21,10 @@ public class SecurityConfiguration {
             @Value("${CONNECTOR_API_TOKEN:}") String connectorToken,
             @Value("${INVESTIGATION_API_TOKEN:}") String investigationToken,
             @Value("${GRAPH_ADMIN_TOKEN:}") String graphAdminToken,
+            @Value("${KNOWLEDGE_WRITE_TOKEN:}") String knowledgeWrite,
+            @Value("${KNOWLEDGE_REVIEW_TOKEN:}") String knowledgeReview,
+            @Value("${KNOWLEDGE_READ_TOKEN:}") String knowledgeRead,
+            @Value("${KNOWLEDGE_FEEDBACK_TOKEN:}") String feedbackToken,
             @Value("${investinator.persistence.enabled:false}") boolean persistence,
             @Value("${investinator.demo-mode:true}") boolean demo) throws Exception {
         return http.sessionManagement(session -> session.sessionCreationPolicy(org.springframework.security.config.http.SessionCreationPolicy.STATELESS))
@@ -30,6 +34,12 @@ public class SecurityConfiguration {
                 .accessDeniedHandler((request,response,exception) -> reject(request,response,persistence&&!demo)))
             .authorizeHttpRequests(a -> a
             .requestMatchers("/actuator/health/liveness", "/actuator/health/readiness", "/api/v1/platform/health").permitAll()
+            .requestMatchers(org.springframework.http.HttpMethod.POST,"/api/v1/knowledge/revisions/*/*/review","/api/v1/knowledge/feedback/*/review").access((auth,context)->new AuthorizationDecision(demo&&matches(knowledgeReview,context.getRequest().getHeader("Authorization"))))
+            .requestMatchers(org.springframework.http.HttpMethod.POST,"/api/v1/knowledge/revisions","/api/v1/knowledge/revisions/*/*/publish").access((auth,context)->new AuthorizationDecision(demo&&matches(knowledgeWrite,context.getRequest().getHeader("Authorization"))))
+            .requestMatchers(org.springframework.http.HttpMethod.POST,"/api/v1/knowledge/feedback").access((auth,context)->new AuthorizationDecision(demo&&matches(feedbackToken,context.getRequest().getHeader("Authorization"))))
+            .requestMatchers(org.springframework.http.HttpMethod.GET,"/api/v1/knowledge/revisions/**").access((auth,context)->new AuthorizationDecision(demo&&(matches(knowledgeWrite,context.getRequest().getHeader("Authorization"))||matches(knowledgeReview,context.getRequest().getHeader("Authorization")))))
+            .requestMatchers(org.springframework.http.HttpMethod.GET,"/api/v1/knowledge/search","/api/v1/knowledge/documents/**","/api/v1/knowledge/feedback/**").access((auth,context)->new AuthorizationDecision(demo&&matches(knowledgeRead,context.getRequest().getHeader("Authorization"))))
+            .requestMatchers("/api/v1/knowledge/documents/**","/api/v1/knowledge/revisions","/api/v1/knowledge/revisions/**","/api/v1/knowledge/search","/api/v1/knowledge/feedback","/api/v1/knowledge/feedback/**").denyAll()
             .requestMatchers(org.springframework.http.HttpMethod.POST,"/api/v1/dependencies/fixtures").access((auth,context)->new AuthorizationDecision(demo&&matches(graphAdminToken,context.getRequest().getHeader("Authorization"))))
             .requestMatchers(org.springframework.http.HttpMethod.GET,"/api/v1/dependencies/**").access((auth,context)->new AuthorizationDecision(demo&&matches(investigationToken,context.getRequest().getHeader("Authorization"))))
             .requestMatchers("/api/v1/dependencies/**").denyAll()

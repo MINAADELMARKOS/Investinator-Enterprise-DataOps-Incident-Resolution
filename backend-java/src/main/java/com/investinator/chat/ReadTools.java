@@ -19,8 +19,8 @@ import java.util.*;
 @Service @ConditionalOnProperty(name="investinator.persistence.enabled",havingValue="true")
 public class ReadTools {
     public static class Context {
-        public final String tenant,incident;public String sourceMode;public long deadlineNanos=Long.MAX_VALUE;public final Map<String,InvestigationAnswer.Citation> citations=new LinkedHashMap<>();
-        public Context(String tenant,String incident,String sourceMode){this.tenant=tenant;this.incident=incident;this.sourceMode=sourceMode;}
+        public final String tenant,incident,principal;public String sourceMode;public long deadlineNanos=Long.MAX_VALUE;public final Map<String,InvestigationAnswer.Citation> citations=new LinkedHashMap<>();
+        public Context(String tenant,String incident,String sourceMode){this.tenant=tenant;this.incident=incident;this.principal=tenant+".senior_sre";this.sourceMode=sourceMode;}
         public void observeMode(String mode){if(Set.of("LIVE","SIMULATED").contains(mode)&&!sourceMode.equals(mode))sourceMode="MIXED";}
     }
     private final WorkflowService workflows;private final Store db;private final CorrelationService correlations;private final ConnectorRegistry connectors;private final HealthAggregator health;private final ObjectProvider<EvidenceSearch> search;private final ObjectProvider<ReadToolExtension> extensions;private final Set<String> services;
@@ -50,7 +50,8 @@ public class ReadTools {
         }catch(Exception e){return obj("status","UNAVAILABLE","error_type",e instanceof SecurityException?"SERVICE_SCOPE_DENIED":e.getClass().getSimpleName());}
     }
     public void capture(Context context,InvestigationAnswer.Citation citation,Map<String,Object> facts){if(facts.get("source_mode")!=null)context.observeMode(facts.get("source_mode").toString());db.jdbc.update("insert into citation_evidence(tenant_id,incident_id,evidence_id,payload) values(?,?,?,?::jsonb) on conflict do nothing",context.tenant,context.incident,citation.evidence_id(),encode(obj("citation",citation,"facts",Redaction.object(facts))));context.citations.put(citation.evidence_id(),citation);}
-    public boolean citationAllowed(Context context,InvestigationAnswer.Citation citation){if(citation.equals(context.citations.get(citation.evidence_id())))return true;if(context.incident==null)return false;var rows=db.jdbc.queryForList("select payload::text from citation_evidence where tenant_id=? and incident_id=? and evidence_id=?",String.class,context.tenant,context.incident,citation.evidence_id());if(rows.isEmpty())return false;var value=map(Json.decode(rows.getFirst()));var facts=map(value.get("facts"));if(facts.containsKey("service")&&!services.contains(facts.get("service").toString()))return false;return Json.decode(encode(value.get("citation")),InvestigationAnswer.Citation.class).equals(citation);}
+    public boolean citationAllowed(Context context,InvestigationAnswer.Citation citation){if(!citation.evidence_id().matches("KB-[a-f0-9]{64}")&&citation.equals(context.citations.get(citation.evidence_id())))return true;if(context.incident==null)return false;var rows=db.jdbc.queryForList("select payload::text from citation_evidence where tenant_id=? and incident_id=? and evidence_id=?",String.class,context.tenant,context.incident,citation.evidence_id());if(rows.isEmpty())return false;var value=map(Json.decode(rows.getFirst()));var facts=map(value.get("facts"));if(citation.evidence_id().matches("KB-[a-f0-9]{64}")){var decisions=extensions.orderedStream().map(e->e.authorizeCitation(context,citation,facts)).flatMap(Optional::stream).toList();return !decisions.isEmpty()&&decisions.stream().allMatch(Boolean::booleanValue);}
+        if(facts.containsKey("service")&&!services.contains(facts.get("service").toString()))return false;return Json.decode(encode(value.get("citation")),InvestigationAnswer.Citation.class).equals(citation);}
     private static String bounded(String value,int max){String safe=Redaction.redact(value==null?"":value);return safe.substring(0,Math.min(max,safe.length()));}
     private Map<String,Object> denied(String reason){return obj("status","DENIED","error_type",reason,"never_executed",true);}
 }

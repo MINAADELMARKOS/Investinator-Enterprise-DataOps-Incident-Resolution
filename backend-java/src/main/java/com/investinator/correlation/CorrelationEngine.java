@@ -3,7 +3,7 @@ import java.time.*;
 import java.util.*;
 /** Ranking is deterministic, bounded and explicitly non-causal; observations are data, never instructions. */
 public final class CorrelationEngine {
-    public enum Signal { NETWORK_UNSTABLE,QUORUM_UNAVAILABLE,ZK_SESSION_EXPIRED,DISK_EXHAUSTED,BROKER_ERROR,CONSUMER_LAG,SPARK_DELAY,DATASET_STALE,UNKNOWN }
+    public enum Signal { NETWORK_UNSTABLE,QUORUM_UNAVAILABLE,ZK_SESSION_EXPIRED,DISK_EXHAUSTED,BROKER_ERROR,CONSUMER_LAG,SPARK_DELAY,DATASET_STALE,HDFS_HA_UNAVAILABLE,HDFS_MISSING_BLOCKS,KUDU_TABLET_UNAVAILABLE,NIFI_BACKPRESSURE,SPARK_EXECUTOR_OOM,HIVE_METADATA_FAILURE,UNKNOWN }
     public enum State { ABNORMAL,HEALTHY,RECOVERED }
     public record Observation(String id,String tenant_id,String incident_id,String entity_id,Signal signal,State state,String observed_at,String source_mode,double intensity,String signature) {
         public Observation {if(id==null||id.isBlank()||id.length()>150||tenant_id==null||incident_id==null||entity_id==null||signal==null||state==null||!Set.of("SIMULATED","LIVE").contains(source_mode)||!Double.isFinite(intensity)||intensity<0||intensity>1||signature==null||signature.length()>500)throw new IllegalArgumentException("Invalid observation");Instant.parse(observed_at);}
@@ -14,7 +14,7 @@ public final class CorrelationEngine {
     private final Duration skew,window;
     public CorrelationEngine(){this(Duration.ofSeconds(30),Duration.ofHours(4));}
     public CorrelationEngine(Duration skew,Duration window){if(skew.isNegative()||skew.compareTo(Duration.ofMinutes(5))>0||window.isNegative()||window.isZero()||window.compareTo(Duration.ofHours(4))>0)throw new IllegalArgumentException("Invalid correlation bounds");this.skew=skew;this.window=window;}
-    public static Signal normalize(String text){String value=text.toLowerCase(Locale.ROOT);if(value.contains("diskerror")||value.contains("no space left")||value.contains("disk exhausted"))return Signal.DISK_EXHAUSTED;if(value.contains("sessionexpired")||value.contains("session expired"))return Signal.ZK_SESSION_EXPIRED;if(value.contains("quorum")&&(value.contains("no leader")||value.contains("unavailable")))return Signal.QUORUM_UNAVAILABLE;if(value.contains("network")&&(value.contains("unstable")||value.contains("packet loss")))return Signal.NETWORK_UNSTABLE;return Signal.UNKNOWN;}
+    public static Signal normalize(String text){String value=text.toLowerCase(Locale.ROOT);if(value.contains("no active namenode"))return Signal.HDFS_HA_UNAVAILABLE;if(value.contains("missing blocks"))return Signal.HDFS_MISSING_BLOCKS;if(value.contains("tablet unavailable"))return Signal.KUDU_TABLET_UNAVAILABLE;if(value.contains("backpressure"))return Signal.NIFI_BACKPRESSURE;if(value.contains("outofmemory")||value.contains("executor oom"))return Signal.SPARK_EXECUTOR_OOM;if(value.contains("metastore unavailable")||value.contains("metadata failure"))return Signal.HIVE_METADATA_FAILURE;if(value.contains("diskerror")||value.contains("no space left")||value.contains("disk exhausted"))return Signal.DISK_EXHAUSTED;if(value.contains("sessionexpired")||value.contains("session expired"))return Signal.ZK_SESSION_EXPIRED;if(value.contains("quorum")&&(value.contains("no leader")||value.contains("unavailable")))return Signal.QUORUM_UNAVAILABLE;if(value.contains("network")&&(value.contains("unstable")||value.contains("packet loss")))return Signal.NETWORK_UNSTABLE;return Signal.UNKNOWN;}
     private record Ranked(int score,Candidate value) {}
     public Investigation investigate(String tenant,String incident,DependencyGraph graph,List<Observation> supplied) {
         if(supplied.size()>1000)throw new IllegalArgumentException("Observation limit");
@@ -26,7 +26,7 @@ public final class CorrelationEngine {
         var nodes=new HashSet<String>();graph.nodes().forEach(n->nodes.add(n.id()));
         var ranked=new ArrayList<Ranked>();
         for(var origin:observations) {
-            if(origin.state!=State.ABNORMAL||!Set.of(Signal.NETWORK_UNSTABLE,Signal.QUORUM_UNAVAILABLE,Signal.ZK_SESSION_EXPIRED,Signal.DISK_EXHAUSTED,Signal.BROKER_ERROR).contains(origin.signal))continue;
+            if(origin.state!=State.ABNORMAL||!Set.of(Signal.NETWORK_UNSTABLE,Signal.QUORUM_UNAVAILABLE,Signal.ZK_SESSION_EXPIRED,Signal.DISK_EXHAUSTED,Signal.BROKER_ERROR,Signal.HDFS_HA_UNAVAILABLE,Signal.HDFS_MISSING_BLOCKS,Signal.KUDU_TABLET_UNAVAILABLE,Signal.NIFI_BACKPRESSURE,Signal.SPARK_EXECUTOR_OOM,Signal.HIVE_METADATA_FAILURE).contains(origin.signal))continue;
             if(origin.signal==Signal.ZK_SESSION_EXPIRED&&!graph.metadata_mode().equals("LEGACY_ZOOKEEPER")||origin.signal==Signal.QUORUM_UNAVAILABLE&&!graph.metadata_mode().equals("KRAFT")){unknowns.add("Ignored incompatible coordination observation "+origin.id);continue;}
             if(!graph.source_mode().equals(origin.source_mode)){unknowns.add("Source-mode mismatch; simulated and live evidence are not combined");continue;}
             if(!nodes.contains(origin.entity_id)){unknowns.add("Missing graph node for "+origin.id);continue;}

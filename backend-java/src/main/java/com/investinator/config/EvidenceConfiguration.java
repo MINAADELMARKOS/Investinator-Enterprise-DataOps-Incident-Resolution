@@ -15,7 +15,7 @@ import org.springframework.context.annotation.*;
 @Configuration
 @ConditionalOnProperty(name="investinator.evidence.enabled",havingValue="true")
 public class EvidenceConfiguration {
-    @Bean(destroyMethod="close") OpenSearchTransport evidenceTransport(
+    @Bean(destroyMethod="close") public OpenSearchTransport evidenceTransport(
         @Value("${investinator.evidence.url}") String url,@Value("${investinator.evidence.username}") String username,
         @Value("${investinator.evidence.password}") String password,@Value("${investinator.demo-mode:true}") boolean demo) {
         URI target=URI.create(url);

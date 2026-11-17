@@ -26,7 +26,7 @@ public class ChatService {
         var context=new ReadTools.Context(tenant,incidentId,incidentId==null?"NOT_TESTED":"SIMULATED");tools.initialize(context);
         List<com.openai.models.responses.ResponseInputItem> previous=List.of();String epoch=tools.epoch(tenant);
         var state=db.jdbc.queryForList("select ciphertext from provider_conversation_state where tenant_id=? and conversation_id=?",String.class,tenant,conversation);
-        if(cipher.configured()&&!scopeChanged&&!state.isEmpty())try{var envelope=map(Json.decode(cipher.decrypt(tenant,conversation,state.getFirst())));if(epoch.equals(envelope.get("policy_epoch")))previous=ChatGateway.deserialize(envelope.get("items").toString());}catch(Exception ignored){previous=List.of();}
+        if(cipher.configured()&&!scopeChanged&&!state.isEmpty())try{var envelope=map(Json.decode(cipher.decrypt(tenant,conversation,state.getFirst())));if(epoch.equals(envelope.get("policy_epoch")))previous=ChatGateway.deserialize(envelope.get("items").toString());else history.removeIf(message->!"user".equals(message.get("role")));}catch(Exception ignored){previous=List.of();}
         db.insert(Table.MESSAGES,tenant,obj("conversation_id",conversation,"role","user","content",Redaction.redact(input.message()),"payload",obj("mode",input.mode())));
         long before=System.nanoTime();var result=gateway.turn(context,input.message(),input.mode(),incident==null?"P4":incident.severity.name(),history,previous,fallback);
         var ids=result.analysis()==null?(incident==null?List.of():incident.evidence.stream().limit(5).map(Evidence::id).toList()):result.analysis().observed_evidence().stream().map(InvestigationAnswer.Citation::evidence_id).distinct().toList();

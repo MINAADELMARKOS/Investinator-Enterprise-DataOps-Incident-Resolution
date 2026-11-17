@@ -41,6 +41,15 @@ VOLUMES = (
     "forwarder_state",
     "kafka_data",
 )
+KNOWLEDGE_SECRET_KEYS = (
+    "GRAPH_ADMIN_TOKEN",
+    "INVESTIGATION_API_TOKEN",
+    "KNOWLEDGE_WRITE_TOKEN",
+    "KNOWLEDGE_REVIEW_TOKEN",
+    "KNOWLEDGE_READ_TOKEN",
+    "KNOWLEDGE_FEEDBACK_TOKEN",
+    "KNOWLEDGE_WRITER_PASSWORD",
+)
 OPENER = urllib.request.build_opener(urllib.request.ProxyHandler({}))
 PORTS = {
     "LAB_API_PORT": 18081,
@@ -120,7 +129,11 @@ def load_state(create=False):
             )
         if create:
             changed = False
-            for key in ("CONNECTOR_API_TOKEN", "KAFKA_DIAGNOSTIC_PASSWORD"):
+            for key in (
+                "CONNECTOR_API_TOKEN",
+                "KAFKA_DIAGNOSTIC_PASSWORD",
+                *KNOWLEDGE_SECRET_KEYS,
+            ):
                 if key not in state["secrets"]:
                     state["secrets"][key] = "Aa1!" + secrets.token_urlsafe(24)
                     changed = True
@@ -158,6 +171,7 @@ def load_state(create=False):
                 "LAB_KAFKA_PASSWORD",
                 "CONNECTOR_API_TOKEN",
                 "KAFKA_DIAGNOSTIC_PASSWORD",
+                *KNOWLEDGE_SECRET_KEYS,
             )
         },
         "cluster_id": base64.urlsafe_b64encode(uuid.uuid4().bytes).decode().rstrip("="),
@@ -571,6 +585,32 @@ def up():
                 ],
                 env=values,
             )
+        # Renew only generated SIMULATED evidence, at most once/hour. Preserve old files/data.
+        newest = max(
+            (path.stat().st_mtime for path in fixture.glob("*.ndjson")), default=0
+        )
+        refresh = fixture / f"refresh-{int(time.time() // 3600)}.ndjson"
+        if time.time() - newest > 3600 and not refresh.exists():
+            with tempfile.TemporaryDirectory(dir=RUNTIME) as folder:
+                values = java_env()
+                binary = (
+                    str(Path(values["JAVA_HOME"]) / "bin/java")
+                    if values.get("JAVA_HOME")
+                    else "java"
+                )
+                run(
+                    [
+                        binary,
+                        "-cp",
+                        classpath(),
+                        "com.investinator.evidence.EvidenceFixtureGenerator",
+                        folder,
+                    ],
+                    env=values,
+                    capture=True,
+                )
+                with refresh.open("xb") as output:
+                    output.write((Path(folder) / "evidence.ndjson").read_bytes())
         fixture.chmod(0o755)
         for path in fixture.glob("*.ndjson"):
             path.chmod(0o644)
@@ -601,6 +641,14 @@ def up():
             state["secrets"]["EVIDENCE_ADMIN_PASSWORD"],
             state["secrets"]["EVIDENCE_WRITER_PASSWORD"],
             state["secrets"]["EVIDENCE_READER_PASSWORD"],
+        )
+        import knowledge_bootstrap
+
+        knowledge_bootstrap.bootstrap(
+            module,
+            base,
+            state["secrets"]["EVIDENCE_ADMIN_PASSWORD"],
+            state["secrets"]["KNOWLEDGE_WRITER_PASSWORD"],
         )
         compose(
             state,

@@ -54,3 +54,12 @@ Prompt 08: SDK protocol/history and native read-tool integration are verified wi
 a mocked provider. Real OpenAI key/model are absent; live paid proof remains
 NOT_CONFIGURED. Review encryption-key rotation/retention and provider budgets before
 production enablement. No provider capability authorizes infrastructure mutation.
+
+Prompt 09: native BM25, SQL tenant/ACL/version checks, review separation, revocation
+and non-promotion of rejected feedback pass functional tests. R10 remains open:
+eight provisional simulated cases have no independent human gold reviewer; quality
+sign-off is BLOCKED pending the review record in prompt09/GOLD_REVIEW.md. BM25
+precision on these fixtures is not production accuracy. No embedding benefit claim.
+Demo capability tokens do not establish enterprise identities or group authorization;
+index certificates, review-role ownership, retention, key rotation and security audit
+remain deployment gates. R1 critical Next.js remains unresolved. No Prompt 10 work.

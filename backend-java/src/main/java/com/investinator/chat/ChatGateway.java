@@ -93,7 +93,7 @@ public class ChatGateway {
     private void validate(InvestigationAnswer answer,ReadTools.Context context)throws Limit {
         if(!answer.source_mode().equals(context.sourceMode))throw new Limit("SOURCE_MODE_MISMATCH");
         var cited=new HashSet<String>();for(var citation:answer.observed_evidence()){if(!tools.citationAllowed(context,citation))throw new Limit("UNSUPPORTED_CITATION");cited.add(citation.evidence_id());}
-        for(var cause:answer.probable_originating_causes())if(cause.statement()==null||cause.evidence_ids()==null||cause.evidence_ids().isEmpty()||!cited.containsAll(cause.evidence_ids()))throw new Limit("UNSUPPORTED_CITATION");
+        for(var cause:answer.probable_originating_causes())if(cause.statement()==null||cause.evidence_ids()==null||cause.evidence_ids().isEmpty()||!cited.containsAll(cause.evidence_ids())||cause.evidence_ids().stream().noneMatch(id->answer.observed_evidence().stream().anyMatch(c->c.evidence_id().equals(id)&&c.kind().equals("OBSERVATION"))))throw new Limit("UNSUPPORTED_CITATION");
         String all=encode(answer);if(java.util.regex.Pattern.compile("(?i)\\b(?:I|we)\\s+(?:have\\s+)?(?:approved|executed|restarted|deleted)\\b|\\bapproved\\s+by\\b|\\bapproval\\s+(?:is\\s+)?(?:granted|recorded|complete)\\b|\\bconfirmed (?:root )?cause\\b").matcher(all).find())throw new Limit("POLICY_VIOLATION");
         var idMatcher=java.util.regex.Pattern.compile("\\b(?:EV-|HC-|KB-)[A-Za-z0-9:_-]+").matcher(answer.summary()+answer.business_impact()+answer.safe_remediation_proposal());while(idMatcher.find())if(!cited.contains(idMatcher.group()))throw new Limit("UNSUPPORTED_CITATION");
     }

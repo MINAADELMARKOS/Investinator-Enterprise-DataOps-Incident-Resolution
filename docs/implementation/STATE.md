@@ -125,3 +125,17 @@ negative/provider cases and actual Kafka tool execution pass using WireMock for
 the provider. ai-check exit 2 / key+model absent; no real paid call and no claim
 of live provider proof. [Report](prompt08/REPORT.md). Critical Next.js, production
 identity and private integration gates remain. Prompt 09 may start after commit.
+
+## Prompt 09 — functional PASS; human evaluation sign-off BLOCKED/PENDING
+
+Prompt 08 gate committed da7e6b3. Reviewed versioned knowledge, native BM25,
+server-bound ACL/version/mode scope, readable historical citations, revocation,
+feedback and review boundaries are implemented. 78 Java tests and 14 CLI tests
+pass, no Java failures/errors/skips. Owned-lab doctor/API/smoke pass; eight
+implementation-authored simulated evaluation cases pass provisional checks.
+They are not an independently human-reviewed gold set. That quality sign-off
+remains BLOCKED; no Prompt 10 progression. Real provider NOT_CONFIGURED.
+See [report](prompt09/REPORT.md), [review worksheet](prompt09/GOLD_REVIEW.md) and
+[readiness](READINESS_07_09.md). Release remains blocked by critical Next.js,
+production identity/security and private integration gates. No paid provider call,
+production change, push/merge or environment publication performed.
