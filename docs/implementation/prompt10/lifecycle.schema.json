@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "string",
+  "enum": [
+    "NEW",
+    "TRIAGED",
+    "INVESTIGATING",
+    "MITIGATING",
+    "AWAITING_APPROVAL",
+    "VERIFYING",
+    "RESOLVED",
+    "CLOSED_UNRESOLVED"
+  ]
+}

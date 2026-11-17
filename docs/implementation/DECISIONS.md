@@ -301,3 +301,23 @@ read-only capabilities and independent authorization. User requested local 09B
 commit only; no new hosted validation or publishing claim. V2 allows subsequent
 flagged/read-only development on explicit request while human/provider quality
 claims and enterprise deployment stay gated.
+
+
+## ADR 019 — Durable replay monitoring, independent native health, no implicit spend
+
+Use the existing private PostgreSQL store as queue/checkpoint/outbox. Per-tenant
+transactions and an active-scope unique index make parallel processing one logical
+incident without a new Kafka consumer/microservice. Capability/mode checks precede
+thresholds; missing values remain UNKNOWN. Component scope groups related symptoms;
+sliding event-time windows/hysteresis/cooldown avoid flapping, preserve late evidence
+and allow new causes after closure. Immutable graph/time correlation remains a
+hypothesis and never resolves an incident. Monitoring IDs cannot reuse the legacy
+analyzer's deterministic API IDs across graphs.
+
+Health reports are actual bounded native samples stored separately from simulated
+replay incidents. Live semantic ingestion needs verified graph/identity adapters;
+public events cannot claim LIVE. Operator-only bounded chat follows durable gated
+investigation intents; no automatic spend, even when keys appear. LOCAL_FAKE is the
+only default delivery, console explicit opt-in, remote recipients unsupported.
+New lifecycle maps to old statuses and public resolution is denied; independent
+verification must own success. Retain queue/evidence/offsets on rollback.

@@ -21,6 +21,7 @@ public class SecurityConfiguration {
             @Value("${CONNECTOR_API_TOKEN:}") String connectorToken,
             @Value("${INVESTIGATION_API_TOKEN:}") String investigationToken,
             @Value("${GRAPH_ADMIN_TOKEN:}") String graphAdminToken,
+            @Value("${MONITOR_API_TOKEN:}") String monitorToken,
             @Value("${KNOWLEDGE_WRITE_TOKEN:}") String knowledgeWrite,
             @Value("${KNOWLEDGE_REVIEW_TOKEN:}") String knowledgeReview,
             @Value("${KNOWLEDGE_READ_TOKEN:}") String knowledgeRead,
@@ -33,6 +34,7 @@ public class SecurityConfiguration {
                 .authenticationEntryPoint((request,response,exception) -> reject(request,response,persistence&&!demo))
                 .accessDeniedHandler((request,response,exception) -> reject(request,response,persistence&&!demo)))
             .authorizeHttpRequests(a -> a
+            .requestMatchers("/api/v1/monitor/**").access((auth,context)->new AuthorizationDecision(demo&&matches(monitorToken,context.getRequest().getHeader("Authorization"))))
             .requestMatchers("/actuator/health/liveness", "/actuator/health/readiness", "/api/v1/platform/health").permitAll()
             .requestMatchers(org.springframework.http.HttpMethod.POST,"/api/v1/knowledge/revisions/*/*/review","/api/v1/knowledge/feedback/*/review").access((auth,context)->new AuthorizationDecision(demo&&matches(knowledgeReview,context.getRequest().getHeader("Authorization"))))
             .requestMatchers(org.springframework.http.HttpMethod.POST,"/api/v1/knowledge/revisions","/api/v1/knowledge/revisions/*/*/publish").access((auth,context)->new AuthorizationDecision(demo&&matches(knowledgeWrite,context.getRequest().getHeader("Authorization"))))

@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "actual_health_samples": 1,
+  "prometheus_gauges": "PASS",
+  "source_mode": "SIMULATED",
+  "actual_transport": "local PostgreSQL + restarted Java process",
+  "duplicate_deliveries": 100,
+  "unique_processed": 2,
+  "logical_incidents": 1,
+  "offset_survives_restart": true,
+  "duplicate_after_restart": true,
+  "external_action": false,
+  "paid_provider_calls": 0
+}

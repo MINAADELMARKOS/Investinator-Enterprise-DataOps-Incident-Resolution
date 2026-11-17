@@ -48,6 +48,7 @@ KNOWLEDGE_SECRET_KEYS = (
     "KNOWLEDGE_REVIEW_TOKEN",
     "KNOWLEDGE_READ_TOKEN",
     "KNOWLEDGE_FEEDBACK_TOKEN",
+    "MONITOR_API_TOKEN",
     "KNOWLEDGE_WRITER_PASSWORD",
 )
 OPENER = urllib.request.build_opener(urllib.request.ProxyHandler({}))
@@ -1028,6 +1029,7 @@ def main(argv=None):
             "demo",
             "ai-check",
             "reset-demo",
+            "monitor",
         ],
     )
     parser.add_argument("target", nargs="?")
@@ -1058,8 +1060,30 @@ def main(argv=None):
         ],
     )
     parser.add_argument("--live", action="store_true")
+    parser.add_argument("--demo", action="store_true")
     parser.add_argument("--confirm-destroy-demo-data", action="store_true")
     args = parser.parse_args(argv)
+    if args.command == "monitor":
+        if not args.demo or args.target not in {"status", "pause", "resume"}:
+            parser.error("Use monitor status|pause|resume --demo")
+        state = load_state()
+        token = state["secrets"].get("MONITOR_API_TOKEN")
+        if not token:
+            raise RuntimeError(
+                "Configure an owned demo MONITOR_API_TOKEN and enable monitoring explicitly"
+            )
+        print(
+            json.dumps(
+                http(
+                    api(state),
+                    "/api/v1/monitor/" + args.target,
+                    None if args.target == "status" else {},
+                    token,
+                )
+            )
+        )
+        return 0
+
     if args.command in ("logs", "restart") and args.target not in SERVICES:
         parser.error("Select an allowlisted local service: " + ", ".join(SERVICES))
     if args.command == "ai-check":

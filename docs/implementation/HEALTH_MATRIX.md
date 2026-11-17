@@ -57,3 +57,12 @@ partial results, circuit breakers, freshness thresholds, optional-versus-require
 dependencies and no paid GPT/writes by default. That prompt has not started.
 
 Current scope and evidence: [Prompt 05](prompt05/REPORT.md), [Prompt 06](prompt06/REPORT.md). A successful read surface does not verify the explicitly missing semantic dimensions.
+
+
+Prompt 10: local opt-in monitoring gate passes; see prompt10/REPORT.md and failure
+matrix. Durable dedupe/checkpoint, capability-aware rules, actual health samples,
+local fake notifications, rate/incident/evidence budgets and guarded lifecycle are
+verified. Native LIVE semantic ingestion and automatic paid investigation are not
+enabled; operator budget and verified native topology remain prerequisites. Remote
+email/webhook, production identity, retention/load/DR and independent quality gates
+remain deployment gaps. Python/default routing and patched Next.js stay intact.

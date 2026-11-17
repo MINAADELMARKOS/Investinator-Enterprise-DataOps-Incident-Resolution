@@ -1,6 +1,6 @@
 # Implementation state
 
-Updated 2026-11-17. Current scope: Architecture v2 Prompt 09B only; Prompts 00–09 preserved.
+Updated 2026-11-17. Current scope: Architecture v2 Prompts 10 and 11 sequentially; Prompts 00–09 preserved.
 V2 supersedes the original sequence from 09A onward; human review remains pending.
 Branch: `feature/java-ai-audit` (chosen because no feature branch name was supplied).
 Base and observed remote main: `920fefe1b86e55f038fb0a7e56dd0b42e9d34118`.
@@ -200,3 +200,22 @@ block remains a separate follow-up. READY for expressly authorized flagged,
 read-only Prompt 10 development under v2; NOT_STARTED and no deployment authority.
 No production code/schema/default-route changes, push, merge, environment
 publication or production action in 09B. Stop after this stage.
+
+
+## Prompt 10 — PASS (opt-in local monitoring gate)
+
+User authorized 10 and 11. Java durable queue/offset/outbox, 15 versioned rules,
+capability-aware UNKNOWN semantics, event-time hysteresis/window/cooldown, unique
+component incident scope, audited lifecycle, actual health sampling and safe CLI
+are implemented. Default disabled/paused; only SIMULATED events accepted publicly.
+89 Java regression tests, final focused monitoring 9/9, CLI 26/26, Python 12,
+Ruff/mypy and evaluation replay pass. Actual Java process restart preserves offset
+and one logical incident after 100 duplicate submissions; real PG health samples
+and Prometheus gauges pass. A 1004-delivery fixture yields one incident and no GPT
+calls. Notification outages stop after three fake attempts. No external notification,
+production change or provider request. [Report](prompt10/REPORT.md).
+
+Monitoring semantic intents are NOT_CONFIGURED or operator-budget gated; no auto-
+spend adapter is enabled. Native live incident ingestion, OIDC, remote notifications,
+retention/load certification and human/provider quality gates remain explicit.
+No deployment readiness claim. Prompt 11 may begin only after this stage is committed.

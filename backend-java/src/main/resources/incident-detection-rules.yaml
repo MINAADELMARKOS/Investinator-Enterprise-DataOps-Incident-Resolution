@@ -1,0 +1,20 @@
+version: 1
+hysteresis_samples: 2
+window_seconds: 600
+cooldown_seconds: 120
+rules:
+  - {id: network, signal: NETWORK_UNSTABLE, mode: ANY, thresholds: {network_loss_percent: 5}}
+  - {id: kraft-controller, signal: QUORUM_UNAVAILABLE, mode: KRAFT, thresholds: {controller_unavailable: 0}}
+  - {id: legacy-session, signal: ZK_SESSION_EXPIRED, mode: LEGACY_ZOOKEEPER, thresholds: {zk_session_expired: 0}}
+  - {id: lag-isr, signal: BROKER_ERROR, mode: ANY, thresholds: {consumer_lag: 10000, shrinking_isr: 0}}
+  - {id: spark-retries, signal: SPARK_RETRY_STORM, mode: ANY, thresholds: {spark_retry_count: 5}}
+  - {id: spark-oom, signal: SPARK_EXECUTOR_OOM, mode: ANY, thresholds: {executor_oom_count: 0}}
+  - {id: hdfs-blocks, signal: HDFS_MISSING_BLOCKS, mode: ANY, thresholds: {missing_blocks: 0}}
+  - {id: hdfs-ha, signal: HDFS_HA_UNAVAILABLE, mode: ANY, thresholds: {no_active_namenode: 0}}
+  - {id: yarn-pressure, signal: YARN_QUEUE_SATURATED, mode: ANY, thresholds: {queue_utilization_percent: 90}}
+  - {id: nifi-pressure, signal: NIFI_BACKPRESSURE, mode: ANY, thresholds: {queue_utilization_percent: 90}}
+  - {id: kudu-tserver, signal: KUDU_TSERVER_FAILURE, mode: ANY, thresholds: {unavailable_tservers: 0}}
+  - {id: hive-partition, signal: HIVE_PARTITION_MISSING, mode: ANY, thresholds: {missing_expected_partitions: 0}}
+  - {id: freshness, signal: DATASET_STALE, mode: ANY, thresholds: {freshness_sla_overdue_minutes: 0}}
+  - {id: disk, signal: DISK_EXHAUSTED, mode: ANY, thresholds: {disk_percent: 95}}
+  - {id: rollout-conflict, signal: ROLLOUT_CONFLICT, mode: ANY, thresholds: {recent_rollout: 0, error_rate_percent: 5}}

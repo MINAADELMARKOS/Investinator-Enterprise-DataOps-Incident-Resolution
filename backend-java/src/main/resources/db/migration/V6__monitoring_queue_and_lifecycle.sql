@@ -1,0 +1,10 @@
+CREATE TABLE monitor_controls (tenant_id text PRIMARY KEY, paused boolean NOT NULL DEFAULT true, updated_at timestamptz NOT NULL DEFAULT now());
+CREATE TABLE monitor_events (seq bigserial PRIMARY KEY, tenant_id text NOT NULL, event_id text NOT NULL, digest text NOT NULL, payload jsonb NOT NULL, state text NOT NULL DEFAULT 'QUEUED', detail text, incident_id text, created_at timestamptz NOT NULL DEFAULT now(), UNIQUE(tenant_id,event_id));
+CREATE INDEX monitor_pending ON monitor_events(tenant_id,seq) WHERE state='QUEUED';
+CREATE TABLE monitor_offsets (tenant_id text PRIMARY KEY, last_seq bigint NOT NULL DEFAULT 0);
+CREATE TABLE monitor_incidents (tenant_id text NOT NULL, id text NOT NULL, scope_key text NOT NULL, fingerprint text NOT NULL, active boolean NOT NULL DEFAULT true, lifecycle text NOT NULL DEFAULT 'NEW', graph_id text NOT NULL, graph_revision int NOT NULL, environment text NOT NULL, cluster_id text NOT NULL, source_mode text NOT NULL, rules jsonb NOT NULL DEFAULT '[]', result jsonb NOT NULL DEFAULT '{}', updated_at timestamptz NOT NULL DEFAULT now(), closed_at timestamptz, PRIMARY KEY(tenant_id,id));
+CREATE UNIQUE INDEX monitor_one_active ON monitor_incidents(tenant_id,scope_key) WHERE active;
+CREATE TABLE monitor_streaks (tenant_id text NOT NULL, scope_key text NOT NULL, rule_id text NOT NULL, resource text NOT NULL, bad_count int NOT NULL DEFAULT 0, last_event timestamptz NOT NULL, PRIMARY KEY(tenant_id,scope_key,rule_id,resource));
+CREATE TABLE monitor_outbox (tenant_id text NOT NULL, id text NOT NULL, incident_id text NOT NULL, kind text NOT NULL, state text NOT NULL DEFAULT 'PENDING', attempts int NOT NULL DEFAULT 0, detail text, created_at timestamptz NOT NULL DEFAULT now(), PRIMARY KEY(tenant_id,id));
+CREATE TABLE monitor_deliveries (tenant_id text NOT NULL, outbox_id text NOT NULL, destination text NOT NULL, delivered_at timestamptz NOT NULL DEFAULT now(), PRIMARY KEY(tenant_id,outbox_id));
+CREATE TABLE monitor_health_samples (seq bigserial PRIMARY KEY, tenant_id text NOT NULL, payload jsonb NOT NULL, observed_at timestamptz NOT NULL DEFAULT now());

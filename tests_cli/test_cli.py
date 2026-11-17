@@ -238,3 +238,22 @@ class LocalSafetyTest(unittest.TestCase):
             with self.assertRaisesRegex(RuntimeError, "one request per minute"):
                 cli.ai_check(True)
             self.assertEqual(1, run.call_count)
+
+
+class MonitorCliTest(unittest.TestCase):
+    def test_monitor_requires_demo_and_allowlisted_operation(self):
+        for args in (["monitor", "resume"], ["monitor", "outside-url", "--demo"]):
+            with self.assertRaises(SystemExit):
+                cli.main(args)
+
+    def test_monitor_uses_owned_token_and_fixed_path(self):
+        state = {"secrets": {"MONITOR_API_TOKEN": "fixture-monitor"}}
+        with (
+            patch.object(cli, "load_state", return_value=state),
+            patch.object(cli, "api", return_value="http://127.0.0.1:18081"),
+            patch.object(cli, "http", return_value={"paused": True}) as http,
+        ):
+            self.assertEqual(0, cli.main(["monitor", "pause", "--demo"]))
+            http.assert_called_once_with(
+                "http://127.0.0.1:18081", "/api/v1/monitor/pause", {}, "fixture-monitor"
+            )

@@ -56,3 +56,12 @@ Prompts 03/04 now have local acceptance evidence. Java demo restart durability,
 74 Python differential requests and real OpenSearch/collector/Prometheus forwarding
 are verified. No live provider, existing-data cutover, enterprise deployment or
 production writes are certified. Default Python/Next.js behavior is preserved.
+
+
+Prompt 10: local opt-in monitoring gate passes; see prompt10/REPORT.md and failure
+matrix. Durable dedupe/checkpoint, capability-aware rules, actual health samples,
+local fake notifications, rate/incident/evidence budgets and guarded lifecycle are
+verified. Native LIVE semantic ingestion and automatic paid investigation are not
+enabled; operator budget and verified native topology remain prerequisites. Remote
+email/webhook, production identity, retention/load/DR and independent quality gates
+remain deployment gaps. Python/default routing and patched Next.js stay intact.
