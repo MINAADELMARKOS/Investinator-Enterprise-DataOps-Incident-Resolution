@@ -68,7 +68,11 @@ services:
     image: apache/kafka:4.3.1@sha256:77e3df9054047a88b520d0cc46e16696d3b22022e1d580aeccd2632df6532837
     environment:
       KAFKA_NODE_ID: 1
+      KAFKA_LOG_DIRS: /var/lib/kafka/data
       KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_AUTHORIZER_CLASS_NAME: org.apache.kafka.metadata.authorizer.StandardAuthorizer
+      KAFKA_SUPER_USERS: User:lab;User:ANONYMOUS
+      KAFKA_ALLOW_EVERYONE_IF_NO_ACL_FOUND: "false"
       KAFKA_LISTENERS: CONTROLLER://:29093,INTERNAL://:19092,EXTERNAL://:9092
       KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka:19092,EXTERNAL://127.0.0.1:${LAB_KAFKA_PORT:-19092}
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,INTERNAL:SASL_PLAINTEXT,EXTERNAL:SASL_PLAINTEXT
@@ -77,8 +81,8 @@ services:
       KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:29093
       KAFKA_SASL_ENABLED_MECHANISMS: PLAIN
       KAFKA_SASL_MECHANISM_INTER_BROKER_PROTOCOL: PLAIN
-      KAFKA_LISTENER_NAME_INTERNAL_PLAIN_SASL_JAAS_CONFIG: org.apache.kafka.common.security.plain.PlainLoginModule required username="lab" password="${LAB_KAFKA_PASSWORD}" user_lab="${LAB_KAFKA_PASSWORD}";
-      KAFKA_LISTENER_NAME_EXTERNAL_PLAIN_SASL_JAAS_CONFIG: org.apache.kafka.common.security.plain.PlainLoginModule required username="lab" password="${LAB_KAFKA_PASSWORD}" user_lab="${LAB_KAFKA_PASSWORD}";
+      KAFKA_LISTENER_NAME_INTERNAL_PLAIN_SASL_JAAS_CONFIG: org.apache.kafka.common.security.plain.PlainLoginModule required username="lab" password="${LAB_KAFKA_PASSWORD}" user_lab="${LAB_KAFKA_PASSWORD}" user_health="${KAFKA_DIAGNOSTIC_PASSWORD}";
+      KAFKA_LISTENER_NAME_EXTERNAL_PLAIN_SASL_JAAS_CONFIG: org.apache.kafka.common.security.plain.PlainLoginModule required username="lab" password="${LAB_KAFKA_PASSWORD}" user_lab="${LAB_KAFKA_PASSWORD}" user_health="${KAFKA_DIAGNOSTIC_PASSWORD}";
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
       KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
@@ -100,6 +104,7 @@ services:
       EVIDENCE_SEARCH_PASSWORD: ${EVIDENCE_READER_PASSWORD}
       EVIDENCE_API_TOKEN: ${EVIDENCE_API_TOKEN}
       HEALTH_API_TOKEN: ${HEALTH_API_TOKEN}
+      CONNECTOR_API_TOKEN: ${CONNECTOR_API_TOKEN}
       HEALTH_SCHEDULED: "true"
       HEALTH_WEB_URL: http://web:3000
       HEALTH_OTEL_URL: http://collector:13133
@@ -107,7 +112,7 @@ services:
       KAFKA_BOOTSTRAP_SERVERS: kafka:19092
       KAFKA_SECURITY_PROTOCOL: SASL_PLAINTEXT
       KAFKA_SASL_MECHANISM: PLAIN
-      KAFKA_SASL_JAAS_CONFIG: org.apache.kafka.common.security.plain.PlainLoginModule required username="lab" password="${LAB_KAFKA_PASSWORD}";
+      KAFKA_SASL_JAAS_CONFIG: org.apache.kafka.common.security.plain.PlainLoginModule required username="health" password="${KAFKA_DIAGNOSTIC_PASSWORD}";
     ports: ["127.0.0.1:${LAB_API_PORT:-18081}:8081"]
     depends_on:
       db:

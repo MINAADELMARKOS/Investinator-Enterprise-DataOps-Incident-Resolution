@@ -162,3 +162,40 @@ cluster is acceptable; absent/stale evidence and missing traces are degraded.
 Provider health checks presence only unless a user explicitly runs a cost-bounded,
 rate-limited live probe. The known Next.js audit failure stays a release blocker
 independent of a healthy local runtime. Native Windows validation is NOT_TESTED.
+
+## ADR 013 — Trusted read-only, version-aware connector SPI
+
+Accepted for Prompt 06. Keep `DiagnosticConnector` in the Java Platform layer,
+implemented through official native clients or fixed documented GET contracts.
+Infrastructure supplies endpoints/credentials, Model has no credentials, and Agent
+capability exposure is a later stage. A declared capability never implies that a
+live cluster was tested. Default credentials are absent; unsupported/unconfigured
+capabilities remain NOT_TESTED/NOT_CONFIGURED. API callers cannot supply endpoints,
+SQL, tenant, raw payloads or commands. A distinct read token and server-side service
+allowlist gate the demo API; production identity remains fail-closed.
+
+Kafka config and metadata API evidence determine KRaft/legacy mode. The ZooKeeper
+adapter refuses KRaft and unknown modes before any ZK request, and is intentionally
+restricted to an isolated loopback legacy fixture. Separate simulated signatures
+record the two dependency chains without implementing Prompt 07 correlation.
+A real ZooKeeper server plus simulated legacy Kafka metadata tests this guard;
+it is not represented as a real legacy Kafka broker deployment.
+
+The local Kafka health principal is separate from the setup principal and has only
+Describe/DescribeConfigs metadata permissions, not Produce/Create/Alter/Delete.
+Owned-lab fixture setup remains a separate explicit CLI action, verifies cluster
+identity, ensures ACLs idempotently and avoids duplicate seed records/offsets.
+Negative authorization tests prove topic creation and record production are denied.
+Testing found Apache Kafka's default `/tmp/kraft-combined-logs` was outside the
+mounted named volume; set `KAFKA_LOG_DIRS=/var/lib/kafka/data` explicitly and verify
+five records/committed offset five survive down/up. Earlier fixture records were
+simulated; no existing Python or user data was migrated or deleted.
+
+HMS and HiveServer2 are distinct probes: SASL-protected Thrift namespace metadata
+versus optional JDBC `SELECT 1`. Kudu uses official authenticated encrypted RPC;
+it does not pretend that master discovery proves every quorum/replica or exact
+server release. REST adapters return selected aggregates plus capability gaps.
+Optional Ranger remains unsupported until a distribution/version contract is
+verified, rather than inventing an endpoint. Scoped reads can pass while unobserved
+streaming/queue-age/worker/quorum dimensions remain explicitly unverified. Private
+Kerberos/mTLS/scopes and production readiness require independent validation.

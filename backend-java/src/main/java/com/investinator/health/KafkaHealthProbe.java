@@ -19,9 +19,10 @@ public class KafkaHealthProbe implements HealthProbe {
         var keys=Map.of("KAFKA_SECURITY_PROTOCOL","security.protocol","KAFKA_SASL_MECHANISM","sasl.mechanism","KAFKA_SASL_JAAS_CONFIG","sasl.jaas.config","KAFKA_SSL_TRUSTSTORE_LOCATION","ssl.truststore.location","KAFKA_SSL_TRUSTSTORE_PASSWORD","ssl.truststore.password","KAFKA_SSL_KEYSTORE_LOCATION","ssl.keystore.location","KAFKA_SSL_KEYSTORE_PASSWORD","ssl.keystore.password");
         keys.forEach((key,target)->{String value=env.getProperty(key);if(value!=null&&!value.isBlank())props.put(target,value);});return props;
     }
+    protected Admin openAdmin(Map<String,Object> props){return Admin.create(props);}
     public HealthCheckResult check() throws Exception {
         var props=configuration(env);if(props.get("bootstrap.servers").toString().isBlank())return ProbeCatalog.absent("kafka","Set KAFKA_BOOTSTRAP_SERVERS and scoped Kafka authentication");
-        Admin admin=Admin.create(props);
+        Admin admin=openAdmin(props);
         try {
             var cluster=admin.describeCluster();var nodes=cluster.nodes().get(2,TimeUnit.SECONDS);
             if(nodes.isEmpty())return ProbeCatalog.fail("kafka",false,"No broker was discovered","BROKER_MISSING");

@@ -1,0 +1,8 @@
+{
+  "source_mode": "SIMULATED",
+  "purpose": "Mode-specific candidate signatures; correlation and confirmed root causes belong to Prompt 07",
+  "signatures": [
+    {"id": "kafka-kraft-quorum-instability", "requires_metadata_mode": "KRAFT", "observations": ["network-instability", "metadata-quorum-no-leader", "broker-metadata-errors", "consumer-lag", "spark-input-delay", "dataset-stale"], "forbidden_inference": "No ZooKeeper dependency is inferred"},
+    {"id": "kafka-legacy-zk-session-instability", "requires_metadata_mode": "LEGACY_ZOOKEEPER", "observations": ["zookeeper-session-expired", "legacy-broker-coordination-errors", "consumer-lag", "spark-input-delay", "dataset-stale"], "forbidden_inference": "No KRaft quorum dependency is inferred"}
+  ]
+}

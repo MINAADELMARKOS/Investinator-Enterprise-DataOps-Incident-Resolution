@@ -29,3 +29,18 @@ transport dependencies and enabled Spring context are regression tested.
 
 Critical Next.js R1 remains a release blocker. No Java dependency CVE audit or
 production security signoff was performed; passing compatibility tests is not that audit.
+
+
+Prompt 05/06 updates: local health/CLI, eight dependency outages, real KRaft
+metadata/lag/auth and read-only authorization/persistence are verified. R7 is
+further reduced for the isolated lab, not for private or production clusters.
+
+| ID | Severity / owner role | Evidence and risk | Required mitigation / gate |
+|---|---|---|---|
+| R15 | High / connector owner | private live credentials/Kerberos/mTLS, full Kudu quorum/version and advanced service semantics unverified; optional Ranger unsupported | scope adapters to declared capabilities; independent live version/role/TLS validation before deployment |
+| R16 | Medium / build owner | native Windows and cold-cache second-host CLI not run; optional Hive driver changes dependency surface | host-specific acceptance and dependency/security audit before release |
+| R17 | High / SRE/security lead | demo Kafka controller listener remains private plaintext with lab-only authorization; search bundled demo security persists | no production exposure; provision separate authenticated/TLS controller and broker identities/ACLs through authorized deployment |
+
+Prompt 06 fixes the Kafka image log-directory/named-volume mismatch and verifies
+retained records/offsets across teardown. This is local fixture durability, not a
+backup/restore or production disaster-recovery certification.

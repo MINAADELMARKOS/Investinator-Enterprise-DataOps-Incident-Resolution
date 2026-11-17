@@ -61,8 +61,8 @@ real local application; Kafka's observed metadata mode remains KRaft. The legacy
 command writes a separate, explicitly SIMULATED coordination/session fixture,
 without claiming a live ZooKeeper cluster. It never queries ZooKeeper on KRaft.
 `smoke` tests persistence, tenant search, the UI proxy and the stored approval
-boundary, then performs only allowlisted simulated recovery. Each successful
-smoke run leaves its incident resolved and preserves the audit history.
+boundary, then performs only allowlisted simulated recovery. A pending run recorded by this CLI can be resumed; an unrelated active run is
+refused. Each successful smoke run leaves its incident resolved and preserves the audit history.
 
 Health report contract: [JSON schema](implementation/prompt05/health-report.schema.json).
 `GET /api/v1/health/integrations` requires the backend-only `HEALTH_API_TOKEN` bearer
@@ -109,3 +109,14 @@ It stops and restores each local dependency and fails on unexpected restarts or
 missing diagnostics. This is an opt-in test script; ordinary health never injects
 faults. Native Windows, cold image pulls on another host and private enterprise
 clusters need independent validation; this Linux run is evidence for this host.
+
+
+Prompt 06 adds the distinct backend-only `CONNECTOR_API_TOKEN` and a separate
+Kafka diagnostic principal with metadata-only ACLs. `up` upgrades only this owned
+lab's private configuration, ensures local ACLs and checks the existing five-record
+fixture without reseeding duplicates. Kafka log storage is explicitly in the
+named volume; connector acceptance verifies record and group-offset retention
+across down/up. See the [connector deployment matrix](implementation/prompt06/CONNECTORS.md)
+for private endpoint/authentication variables, supported versions and unverified
+semantic dimensions. Run `python scripts/verify_connectors_lab.py` for the explicit
+owned-lab authorization/durability acceptance (it tears down/restarts this lab).

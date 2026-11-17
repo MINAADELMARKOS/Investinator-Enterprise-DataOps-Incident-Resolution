@@ -26,7 +26,7 @@ Validation: clean initial working tree; feature branch created; state and rules 
 
 Read AUDIT.md, PR3_REVIEW.md, API_PARITY_MATRIX.md, HEALTH_MATRIX.md, GAPS.md,
 RISK_REGISTER.md, ARCHITECTURE.md, MIGRATION_PLAN.md and DECISIONS.md.
-Specification retained verbatim in SPECIFICATION.md; Prompts 00–05 completed; Prompt 06 is authorized after the Prompt 05 commit.
+Specification retained verbatim in SPECIFICATION.md; Prompts 00–06 stage gates completed; production readiness remains partial (see Prompt 06).
 Baseline commands, logs, contract and schema are under baseline/. Reproduction generators
 run from repository root with .venv/bin/python. Schema output is read-only metadata,
 not a claim of deployed PostgreSQL parity. UI and Python source unchanged.
@@ -72,7 +72,7 @@ and unsafe-input denials, pagination and truthful outage behavior. Elasticsearch
 incompatible with this kernel; OpenSearch 3.4.0 / official Java 3.11.0 is verified.
 See prompt04/REPORT.md and infra/evidence/README.md. Default Python/UI routing and
 existing data remain untouched. No provider, production execution or environment
-publication. Prompts after 04 are not authorized; stop here. Release remains BLOCKED.
+publication. Later prompts were not authorized at that checkpoint; subsequent scope is recorded below. Release remains BLOCKED.
 
 ## Prompt 05 — PASS (local operational acceptance); release remains BLOCKED
 
@@ -85,3 +85,22 @@ Reports and JSON schema: [prompt05](prompt05/REPORT.md); ADR 012 and operations 
 record policy and limits. Private integrations/GPT NOT_CONFIGURED; paid calls and
 native Windows NOT_TESTED. Critical Next.js release gate remains failed. No push,
 merge, environment publication or production infrastructure change performed.
+
+## Prompt 06 — PASS (declared read-only adapter acceptance); production readiness partial
+
+Prompt 05 gate committed as b14dd6f. Implemented trusted read-only connector SPI,
+service-specific adapters, authentication/version checks and representative tests.
+No Prompt 07 work is authorized.
+
+Prompt 06 checkpoint: 49 Java tests and 13 CLI tests pass with no Java skips.
+Scoped connector API, real SASL KRaft metadata/lag reads, denied topic creation and
+record production, retained five records/offset five across down/up, and all eight
+outages PASS. Official optional Hive JDBC profile resolves/loads and fails an absent
+TLS endpoint within deadline; private query NOT_TESTED. Real ZK/digest and encrypted
+SASL Thrift fixtures pass; private REST/JDBC/Kudu cases use explicit representative
+mocks, never production claims. Full contracts/limitations: [prompt06](prompt06/REPORT.md).
+Unsupported Ranger, Kudu full quorum/exact version and advanced semantic dimensions
+remain explicit NOT_TESTED/gaps; live private services NOT_CONFIGURED. Production
+identity, security audit, native Windows and critical Next.js release gates remain.
+No production actions, paid provider calls, push/merge or environment publication.
+Stop after Prompt 06; Prompt 07 is not authorized.

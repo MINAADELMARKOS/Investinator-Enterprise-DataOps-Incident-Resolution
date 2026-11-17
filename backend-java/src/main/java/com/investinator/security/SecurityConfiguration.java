@@ -18,6 +18,7 @@ public class SecurityConfiguration {
             @Value("${investinator.metrics.token:}") String token,
             @Value("${investinator.evidence.token:}") String evidenceToken,
             @Value("${investinator.health.token:}") String healthToken,
+            @Value("${CONNECTOR_API_TOKEN:}") String connectorToken,
             @Value("${investinator.persistence.enabled:false}") boolean persistence,
             @Value("${investinator.demo-mode:true}") boolean demo) throws Exception {
         return http.sessionManagement(session -> session.sessionCreationPolicy(org.springframework.security.config.http.SessionCreationPolicy.STATELESS))
@@ -27,6 +28,12 @@ public class SecurityConfiguration {
                 .accessDeniedHandler((request,response,exception) -> reject(request,response,persistence&&!demo)))
             .authorizeHttpRequests(a -> a
             .requestMatchers("/actuator/health/liveness", "/actuator/health/readiness", "/api/v1/platform/health").permitAll()
+            .requestMatchers(org.springframework.http.HttpMethod.GET,"/api/v1/connectors","/api/v1/connectors/**").access((auth,context) -> {
+                String header=context.getRequest().getHeader("Authorization");
+                return new AuthorizationDecision(!connectorToken.isBlank()&&header!=null&&demo&&MessageDigest.isEqual(
+                    ("Bearer "+connectorToken).getBytes(StandardCharsets.UTF_8),header.getBytes(StandardCharsets.UTF_8)));
+            })
+            .requestMatchers("/api/v1/connectors","/api/v1/connectors/**").denyAll()
             .requestMatchers("/api/v1/health/integrations").access((auth,context) -> {
                 String header=context.getRequest().getHeader("Authorization");
                 return new AuthorizationDecision(!healthToken.isBlank()&&header!=null&&demo&&MessageDigest.isEqual(
