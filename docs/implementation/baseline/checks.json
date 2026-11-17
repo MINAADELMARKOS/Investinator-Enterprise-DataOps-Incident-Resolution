@@ -1,0 +1,89 @@
+[
+  {
+    "check": "pytest",
+    "command": [
+      ".venv/bin/pytest",
+      "-q"
+    ],
+    "cwd": ".",
+    "exit_code": 0
+  },
+  {
+    "check": "ruff",
+    "command": [
+      ".venv/bin/ruff",
+      "check",
+      "src",
+      "tests"
+    ],
+    "cwd": ".",
+    "exit_code": 0
+  },
+  {
+    "check": "mypy",
+    "command": [
+      ".venv/bin/mypy",
+      "src"
+    ],
+    "cwd": ".",
+    "exit_code": 0
+  },
+  {
+    "check": "evaluation",
+    "command": [
+      ".venv/bin/python",
+      "-m",
+      "incident_copilot.evaluation",
+      "eval/test_incidents.jsonl"
+    ],
+    "cwd": ".",
+    "exit_code": 0
+  },
+  {
+    "check": "compose",
+    "command": [
+      "docker",
+      "compose",
+      "config",
+      "--quiet"
+    ],
+    "cwd": ".",
+    "exit_code": 0
+  },
+  {
+    "check": "web-build",
+    "command": [
+      "npm",
+      "run",
+      "build"
+    ],
+    "cwd": "apps/web",
+    "exit_code": 0
+  },
+  {
+    "check": "web-audit",
+    "command": [
+      "npm",
+      "audit",
+      "--audit-level=high",
+      "--json",
+      "--cache",
+      "/workspace/.cache/npm"
+    ],
+    "cwd": "apps/web",
+    "exit_code": 1
+  },
+  {
+    "check": "showcase-audit",
+    "command": [
+      "npm",
+      "audit",
+      "--audit-level=high",
+      "--json",
+      "--cache",
+      "/workspace/.cache/npm"
+    ],
+    "cwd": "apps/showcase",
+    "exit_code": 0
+  }
+]
