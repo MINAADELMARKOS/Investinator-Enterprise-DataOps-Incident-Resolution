@@ -89,3 +89,21 @@ No enterprise identity or production write authorization is implied.
 Use a separate opt-in Compose overlay and host port; preserve base Compose/Python/UI.
 The non-root digest-pinned runtime image packages the locally verified jar. Rollback:
 stop java-api only; all current traffic and migrations remain owned by Python.
+
+## ADR-010 — Prompt 03 persistence and parity
+
+Use explicit Hikari/JDBC and typed incident/request/evidence/action contracts with
+the Python-compatible JSON payloads. Flyway V1 mirrors bf50bd87cb88; V2 is additive
+idempotency/execution uniqueness. Java has a separate fresh schema/database; never
+adopt public or Alembic-owned data. Tests prove ownership refusal and transaction
+rollback. Tenant-scoped advisory locks serialize mutations and keep audit, approval,
+verification and request-key writes atomic. Optional Idempotency-Key responses are
+durable; changed payload reuse returns 409. All infrastructure actions remain absent;
+only simulated telemetry can be repaired after stored approval.
+
+Retain Python as the default and data owner for existing records. Compare actual
+Python fixture traces against Java/PostgreSQL through MockMvc, retaining semantic
+values and order where specified. Do not fabricate provider equivalence: Java's
+model-enabled investigation remains fallback until its own stage; users needing
+provider behavior keep that workflow on Python. Unknown-error details remain
+sanitized; input validation uses 422 but does not echo Pydantic's sensitive payload.

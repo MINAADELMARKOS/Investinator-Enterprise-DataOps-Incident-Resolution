@@ -24,12 +24,20 @@ management:
         liveness:
           include: livenessState
         readiness:
-          include: readinessState
+          include: readinessState,corePersistence
 logging:
   structured:
     format:
       console: ecs
 investinator:
+  demo-mode: ${INVESTINATOR_DEMO_MODE:true}
+  demo-tenant: ${INVESTINATOR_DEMO_TENANT:demo}
+  persistence:
+    enabled: ${JAVA_PERSISTENCE_ENABLED:false}
+    url: ${JAVA_DATABASE_URL:}
+    username: ${JAVA_DATABASE_USER:}
+    password: ${JAVA_DATABASE_PASSWORD:}
+    schema: ${JAVA_DATABASE_SCHEMA:investinator_java}
   metrics:
     token: ${METRICS_TOKEN:}
   openai:

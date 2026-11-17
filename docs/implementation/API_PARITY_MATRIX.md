@@ -1,54 +1,54 @@
 # API parity matrix
 
-Generated from main FastAPI routes; Java implementation/parity: NOT_IMPLEMENTED for every row.
+Generated from main FastAPI routes; Prompt 03 adds the local deterministic Java API behind persistence opt-in; see the status notes below.
 OpenAPI snapshot preserves request schemas and declared responses. Many responses are generic dict/list; handler source is authoritative, not a complete typed contract. All aliases below remain in scope.
 
 | Method | Route | Handler / source | Declared response | Java parity |
 |---|---|---|---|---|
-| GET | `/api/v1/health` | `health` (src/incident_copilot/api.py:112) | `<class 'dict'>` | NOT_IMPLEMENTED |
-| GET | `/health` | `health` (src/incident_copilot/api.py:112) | `<class 'dict'>` | NOT_IMPLEMENTED |
-| GET | `/api/v1/about` | `about` (src/incident_copilot/api.py:119) | `<class 'dict'>` | NOT_IMPLEMENTED |
-| GET | `/command-center` | `platform_health` (src/incident_copilot/api.py:129) | `<class 'dict'>` | NOT_IMPLEMENTED |
-| GET | `/api/v1/platform/health` | `platform_health` (src/incident_copilot/api.py:129) | `<class 'dict'>` | NOT_IMPLEMENTED |
-| GET | `/pulse` | `metrics` (src/incident_copilot/api.py:155) | `<class 'dict'>` | NOT_IMPLEMENTED |
-| GET | `/api/v1/telemetry/metrics` | `metrics` (src/incident_copilot/api.py:155) | `<class 'dict'>` | NOT_IMPLEMENTED |
-| POST | `/api/v1/telemetry/metrics` | `post_metric` (src/incident_copilot/api.py:161) | `<class 'dict'>` | NOT_IMPLEMENTED |
-| GET | `/api/v1/telemetry/{signal_type}` | `telemetry` (src/incident_copilot/api.py:169) | `<class 'dict'>` | NOT_IMPLEMENTED |
-| GET | `/nerve-map` | `topology` (src/incident_copilot/api.py:183) | `<class 'dict'>` | NOT_IMPLEMENTED |
-| GET | `/api/v1/topology` | `topology` (src/incident_copilot/api.py:183) | `<class 'dict'>` | NOT_IMPLEMENTED |
-| GET | `/api/v1/topology/{entity_id}/blast-radius` | `impact` (src/incident_copilot/api.py:196) | `<class 'dict'>` | NOT_IMPLEMENTED |
-| GET | `/api/v1/alerts` | `alerts` (src/incident_copilot/api.py:201) | `list[dict]` | NOT_IMPLEMENTED |
-| GET | `/incidents` | `incidents` (src/incident_copilot/api.py:210) | `list[incident_copilot.schemas.IncidentResponse]` | NOT_IMPLEMENTED |
-| GET | `/api/v1/incidents` | `incidents` (src/incident_copilot/api.py:210) | `list[incident_copilot.schemas.IncidentResponse]` | NOT_IMPLEMENTED |
-| POST | `/incidents/analyze` | `analyze_incident` (src/incident_copilot/api.py:216) | `<class 'incident_copilot.schemas.IncidentResponse'>` | NOT_IMPLEMENTED |
-| POST | `/api/v1/incidents/analyze` | `analyze_incident` (src/incident_copilot/api.py:216) | `<class 'incident_copilot.schemas.IncidentResponse'>` | NOT_IMPLEMENTED |
-| GET | `/incidents/{incident_id}` | `incident` (src/incident_copilot/api.py:228) | `<class 'incident_copilot.schemas.IncidentResponse'>` | NOT_IMPLEMENTED |
-| GET | `/api/v1/incidents/{incident_id}` | `incident` (src/incident_copilot/api.py:228) | `<class 'incident_copilot.schemas.IncidentResponse'>` | NOT_IMPLEMENTED |
-| GET | `/api/v1/incidents/{incident_id}/timeline` | `incident_timeline` (src/incident_copilot/api.py:235) | `list[dict]` | NOT_IMPLEMENTED |
-| GET | `/api/v1/incidents/{incident_id}/evidence` | `incident_evidence` (src/incident_copilot/api.py:241) | `list[dict]` | NOT_IMPLEMENTED |
-| POST | `/api/v1/incidents/{incident_id}/investigate` | `investigate_incident` (src/incident_copilot/api.py:247) | `<class 'dict'>` | NOT_IMPLEMENTED |
-| POST | `/api/v1/investigator/messages` | `chat_message` (src/incident_copilot/api.py:254) | `<class 'dict'>` | NOT_IMPLEMENTED |
-| GET | `/api/v1/investigator/conversations/{conversation_id}` | `conversation_messages` (src/incident_copilot/api.py:294) | `<class 'dict'>` | NOT_IMPLEMENTED |
-| GET | `/api/v1/replay/scenarios` | `replay_scenarios` (src/incident_copilot/api.py:310) | `list[dict]` | NOT_IMPLEMENTED |
-| POST | `/api/v1/replay/runs` | `replay_start` (src/incident_copilot/api.py:315) | `<class 'dict'>` | NOT_IMPLEMENTED |
-| GET | `/api/v1/replay/runs` | `replay_runs` (src/incident_copilot/api.py:325) | `list[dict]` | NOT_IMPLEMENTED |
-| POST | `/incidents/{incident_id}/actions/{action_id}/approval` | `decide_approval` (src/incident_copilot/api.py:333) | `<class 'dict'>` | NOT_IMPLEMENTED |
-| POST | `/api/v1/incidents/{incident_id}/actions/{action_id}/approval` | `decide_approval` (src/incident_copilot/api.py:333) | `<class 'dict'>` | NOT_IMPLEMENTED |
-| GET | `/api/v1/approvals` | `approvals` (src/incident_copilot/api.py:364) | `list[dict]` | NOT_IMPLEMENTED |
-| POST | `/api/v1/incidents/{incident_id}/actions/{action_id}/execute` | `execute_action` (src/incident_copilot/api.py:373) | `<class 'dict'>` | NOT_IMPLEMENTED |
-| POST | `/incidents/{incident_id}/verify` | `verify_incident` (src/incident_copilot/api.py:401) | `<class 'dict'>` | NOT_IMPLEMENTED |
-| POST | `/api/v1/incidents/{incident_id}/verify` | `verify_incident` (src/incident_copilot/api.py:401) | `<class 'dict'>` | NOT_IMPLEMENTED |
-| GET | `/api/v1/incidents/{incident_id}/postmortem` | `postmortem` (src/incident_copilot/api.py:414) | `<class 'dict'>` | NOT_IMPLEMENTED |
-| GET | `/api/v1/runbooks` | `knowledge` (src/incident_copilot/api.py:433) | `list[dict]` | NOT_IMPLEMENTED |
-| GET | `/api/v1/knowledge` | `knowledge` (src/incident_copilot/api.py:433) | `list[dict]` | NOT_IMPLEMENTED |
-| GET | `/api/v1/evaluations` | `evaluations` (src/incident_copilot/api.py:441) | `list[dict]` | NOT_IMPLEMENTED |
-| GET | `/ai/health` | `ai_usage` (src/incident_copilot/api.py:449) | `<class 'dict'>` | NOT_IMPLEMENTED |
-| GET | `/api/v1/ai/usage` | `ai_usage` (src/incident_copilot/api.py:449) | `<class 'dict'>` | NOT_IMPLEMENTED |
-| GET | `/api/v1/integrations` | `integrations` (src/incident_copilot/api.py:464) | `list[dict]` | NOT_IMPLEMENTED |
-| GET | `/api/v1/integrations/kafka/health` | `integration_kafka_health` (src/incident_copilot/api.py:478) | `<class 'dict'>` | NOT_IMPLEMENTED |
-| GET | `/audit` | `audit_events` (src/incident_copilot/api.py:483) | `list[dict]` | NOT_IMPLEMENTED |
-| GET | `/api/v1/audit` | `audit_events` (src/incident_copilot/api.py:483) | `list[dict]` | NOT_IMPLEMENTED |
-| GET | `/metrics` | `prometheus_metrics` (src/incident_copilot/api.py:493) | `<class 'str'>` | NOT_IMPLEMENTED |
+| GET | `/api/v1/health` | `health` (src/incident_copilot/api.py:112) | `<class 'dict'>` | DEMO_PARITY_TESTED |
+| GET | `/health` | `health` (src/incident_copilot/api.py:112) | `<class 'dict'>` | DEMO_PARITY_TESTED |
+| GET | `/api/v1/about` | `about` (src/incident_copilot/api.py:119) | `<class 'dict'>` | DEMO_PARITY_TESTED |
+| GET | `/command-center` | `platform_health` (src/incident_copilot/api.py:129) | `<class 'dict'>` | DEMO_PARITY_TESTED |
+| GET | `/api/v1/platform/health` | `platform_health` (src/incident_copilot/api.py:129) | `<class 'dict'>` | DEMO_PARITY_TESTED |
+| GET | `/pulse` | `metrics` (src/incident_copilot/api.py:155) | `<class 'dict'>` | DEMO_PARITY_TESTED |
+| GET | `/api/v1/telemetry/metrics` | `metrics` (src/incident_copilot/api.py:155) | `<class 'dict'>` | DEMO_PARITY_TESTED |
+| POST | `/api/v1/telemetry/metrics` | `post_metric` (src/incident_copilot/api.py:161) | `<class 'dict'>` | DEMO_PARITY_TESTED |
+| GET | `/api/v1/telemetry/{signal_type}` | `telemetry` (src/incident_copilot/api.py:169) | `<class 'dict'>` | DEMO_PARITY_TESTED |
+| GET | `/nerve-map` | `topology` (src/incident_copilot/api.py:183) | `<class 'dict'>` | DEMO_PARITY_TESTED |
+| GET | `/api/v1/topology` | `topology` (src/incident_copilot/api.py:183) | `<class 'dict'>` | DEMO_PARITY_TESTED |
+| GET | `/api/v1/topology/{entity_id}/blast-radius` | `impact` (src/incident_copilot/api.py:196) | `<class 'dict'>` | DEMO_PARITY_TESTED |
+| GET | `/api/v1/alerts` | `alerts` (src/incident_copilot/api.py:201) | `list[dict]` | DEMO_PARITY_TESTED |
+| GET | `/incidents` | `incidents` (src/incident_copilot/api.py:210) | `list[incident_copilot.schemas.IncidentResponse]` | DEMO_PARITY_TESTED |
+| GET | `/api/v1/incidents` | `incidents` (src/incident_copilot/api.py:210) | `list[incident_copilot.schemas.IncidentResponse]` | DEMO_PARITY_TESTED |
+| POST | `/incidents/analyze` | `analyze_incident` (src/incident_copilot/api.py:216) | `<class 'incident_copilot.schemas.IncidentResponse'>` | DEMO_PARITY_TESTED |
+| POST | `/api/v1/incidents/analyze` | `analyze_incident` (src/incident_copilot/api.py:216) | `<class 'incident_copilot.schemas.IncidentResponse'>` | DEMO_PARITY_TESTED |
+| GET | `/incidents/{incident_id}` | `incident` (src/incident_copilot/api.py:228) | `<class 'incident_copilot.schemas.IncidentResponse'>` | DEMO_PARITY_TESTED |
+| GET | `/api/v1/incidents/{incident_id}` | `incident` (src/incident_copilot/api.py:228) | `<class 'incident_copilot.schemas.IncidentResponse'>` | DEMO_PARITY_TESTED |
+| GET | `/api/v1/incidents/{incident_id}/timeline` | `incident_timeline` (src/incident_copilot/api.py:235) | `list[dict]` | DEMO_PARITY_TESTED |
+| GET | `/api/v1/incidents/{incident_id}/evidence` | `incident_evidence` (src/incident_copilot/api.py:241) | `list[dict]` | DEMO_PARITY_TESTED |
+| POST | `/api/v1/incidents/{incident_id}/investigate` | `investigate_incident` (src/incident_copilot/api.py:247) | `<class 'dict'>` | DEMO_PARITY_TESTED |
+| POST | `/api/v1/investigator/messages` | `chat_message` (src/incident_copilot/api.py:254) | `<class 'dict'>` | DEMO_PARITY_TESTED |
+| GET | `/api/v1/investigator/conversations/{conversation_id}` | `conversation_messages` (src/incident_copilot/api.py:294) | `<class 'dict'>` | DEMO_PARITY_TESTED |
+| GET | `/api/v1/replay/scenarios` | `replay_scenarios` (src/incident_copilot/api.py:310) | `list[dict]` | DEMO_PARITY_TESTED |
+| POST | `/api/v1/replay/runs` | `replay_start` (src/incident_copilot/api.py:315) | `<class 'dict'>` | DEMO_PARITY_TESTED |
+| GET | `/api/v1/replay/runs` | `replay_runs` (src/incident_copilot/api.py:325) | `list[dict]` | DEMO_PARITY_TESTED |
+| POST | `/incidents/{incident_id}/actions/{action_id}/approval` | `decide_approval` (src/incident_copilot/api.py:333) | `<class 'dict'>` | DEMO_PARITY_TESTED |
+| POST | `/api/v1/incidents/{incident_id}/actions/{action_id}/approval` | `decide_approval` (src/incident_copilot/api.py:333) | `<class 'dict'>` | DEMO_PARITY_TESTED |
+| GET | `/api/v1/approvals` | `approvals` (src/incident_copilot/api.py:364) | `list[dict]` | DEMO_PARITY_TESTED |
+| POST | `/api/v1/incidents/{incident_id}/actions/{action_id}/execute` | `execute_action` (src/incident_copilot/api.py:373) | `<class 'dict'>` | DEMO_PARITY_TESTED |
+| POST | `/incidents/{incident_id}/verify` | `verify_incident` (src/incident_copilot/api.py:401) | `<class 'dict'>` | DEMO_PARITY_TESTED |
+| POST | `/api/v1/incidents/{incident_id}/verify` | `verify_incident` (src/incident_copilot/api.py:401) | `<class 'dict'>` | DEMO_PARITY_TESTED |
+| GET | `/api/v1/incidents/{incident_id}/postmortem` | `postmortem` (src/incident_copilot/api.py:414) | `<class 'dict'>` | DEMO_PARITY_TESTED |
+| GET | `/api/v1/runbooks` | `knowledge` (src/incident_copilot/api.py:433) | `list[dict]` | DEMO_PARITY_TESTED |
+| GET | `/api/v1/knowledge` | `knowledge` (src/incident_copilot/api.py:433) | `list[dict]` | DEMO_PARITY_TESTED |
+| GET | `/api/v1/evaluations` | `evaluations` (src/incident_copilot/api.py:441) | `list[dict]` | DEMO_PARITY_TESTED |
+| GET | `/ai/health` | `ai_usage` (src/incident_copilot/api.py:449) | `<class 'dict'>` | DEMO_PARITY_TESTED |
+| GET | `/api/v1/ai/usage` | `ai_usage` (src/incident_copilot/api.py:449) | `<class 'dict'>` | DEMO_PARITY_TESTED |
+| GET | `/api/v1/integrations` | `integrations` (src/incident_copilot/api.py:464) | `list[dict]` | DEMO_PARITY_TESTED |
+| GET | `/api/v1/integrations/kafka/health` | `integration_kafka_health` (src/incident_copilot/api.py:478) | `<class 'dict'>` | DEMO_PARITY_TESTED |
+| GET | `/audit` | `audit_events` (src/incident_copilot/api.py:483) | `list[dict]` | DEMO_PARITY_TESTED |
+| GET | `/api/v1/audit` | `audit_events` (src/incident_copilot/api.py:483) | `list[dict]` | DEMO_PARITY_TESTED |
+| GET | `/metrics` | `prometheus_metrics` (src/incident_copilot/api.py:493) | `<class 'str'>` | DEMO_PARITY_TESTED |
 
 ## Frontend consumers (exact call-site evidence)
 
@@ -201,3 +201,23 @@ const response = await fetch(`${backend}/api/v1${path}`, { cache: "no-store", si
 ## Behavioral parity requirements
 
 Preserve 404 for missing/cross-tenant records, 409 for active replay/action state and unavailable verification, 403 for unapproved or non-ACT-DEMO execution, and 503 for protected endpoints outside demo mode. Preserve server tenant override, response keys, simulation labels, X-Request-ID and security headers. Tests in test_platform.py are behavioral evidence. IncidentResponse/Pydantic definitions are in the snapshot. Dictionary response shapes and conditional errors require differential fixtures before each Java cutover; no endpoint is certified migrated.
+
+## Prompt 03 parity scope (2026-11-17)
+
+All 44 declared Python operations/aliases are implemented for the deterministic local
+demo. The differential test replays 74 requests captured from the actual Python API,
+including seeded reads, metric writes, manual investigations, chat/history, three
+replays, approvals, denial, verification, postmortems and text metrics. Timestamp
+precision/UTC notation, generated UUIDs/incident IDs and unspecified collection
+ordering are normalized; field presence, semantic values, timeline/history order,
+evidence order and status codes are compared. Real PostgreSQL workflow/tenant/audit
+tests complement the fixture comparison. This is tested demo parity, not proof of
+all possible input combinations or live provider/cluster parity.
+
+OpenAI-enabled calls remain owned by Python until Prompt 08; Java reports explicit
+deterministic fallback and makes no model call. Basic Kafka connectivity exists but
+was only compared in NOT_CONFIGURED mode; semantic/live broker health is not certified.
+Validation errors use sanitized 422 responses rather than copying Pydantic's detailed
+validation payload. Unknown timestamps in the SQLite reference lose timezone on
+read; Java emits explicit UTC. Idempotency-Key support is additive, tenant/route scoped.
+Existing default Next.js routing remains Python; no mixed-database automatic cutover.

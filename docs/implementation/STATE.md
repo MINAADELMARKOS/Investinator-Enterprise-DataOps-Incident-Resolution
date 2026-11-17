@@ -1,6 +1,6 @@
 # Implementation state
 
-Updated 2026-11-17. Scope authorized: Prompts 00–02 (user explicitly requested Prompt 02).
+Updated 2026-11-17. Scope authorized: Prompts 00–04; user requested 03 and 04 together.
 Branch: `feature/java-ai-audit` (chosen because no feature branch name was supplied).
 Base and observed remote main: `920fefe1b86e55f038fb0a7e56dd0b42e9d34118`.
 
@@ -49,3 +49,14 @@ No Python/Next.js business logic, base Compose, schema or traffic ownership chan
 No Java business API parity, live connector/provider or production readiness claim.
 The critical Next.js release blocker remains unresolved. CI changes are locally
 specified, not a claim that hosted CI ran. No stage after 02 is authorized yet.
+
+## Prompt 03 — PASS (local migration gate)
+
+Fresh PostgreSQL schema only; preserve Alembic and current routing. Prompt 04 is authorized but must wait for the Prompt 03 gate. No environment draft or publication changes requested.
+
+Prompt 03 checkpoint: 17 Java tests including live PostgreSQL and 74 differential
+Python API steps pass with no skips. Restart/proxy/outage acceptance passes; schema
+ownership refusal, tenant isolation, idempotency, approval and audit tested. Python
+8 tests, lint/type checks pass. No existing data or default traffic switched.
+See prompt03/REPORT.md and MIGRATION_AND_ROLLBACK.md. Critical Next.js release
+blocker and enterprise/provider limitations remain. Prompt 04 is now eligible.

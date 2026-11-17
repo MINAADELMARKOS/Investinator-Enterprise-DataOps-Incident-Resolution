@@ -11,7 +11,7 @@ class ErrorMappingTest {
         var detail = handler.failure(new RuntimeException("sensitive-provider-value"));
         assertEquals(500, detail.getStatus());
         assertEquals("Request failed", detail.getDetail());
-        assertEquals(400, handler.invalid(
+        assertEquals(422, handler.invalid(
             new ConstraintViolationException("sensitive-input", Set.of())).getStatus());
     }
 }

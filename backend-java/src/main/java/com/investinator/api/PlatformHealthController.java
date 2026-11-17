@@ -4,6 +4,7 @@ import java.util.Map;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 @RestController
+@org.springframework.boot.autoconfigure.condition.ConditionalOnProperty(name="investinator.persistence.enabled",havingValue="false",matchIfMissing=true)
 public class PlatformHealthController {
     public record OverallHealth(Integer score) {}
     public record PlatformHealth(String product, String mode, String status, String source_mode,

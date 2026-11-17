@@ -1,7 +1,7 @@
-# Java scaffold — Prompt 02
+# Java backend — Prompts 02 and 03
 
 Java 21 JDK, Spring Boot 4.1.2, Maven Wrapper 3.9.11 (SHA-256 pinned).
-This is a separate modular monolith on port 8081. Python still owns all existing
+This is a separate modular monolith on port 8081. Persistence remains opt-in; the default is the Prompt 02 health scaffold. Python still owns all existing
 application behavior and Alembic schema migrations. Next.js routing is unchanged.
 
 From the repository root, with a **JDK** 21 on JAVA_HOME:
@@ -109,3 +109,23 @@ For a fresh managed machine, use supplied proxy/CA guidance to prepare local Mav
 settings and a JDK without committing credentials or machine endpoints. Wrapper and
 Maven dependencies retain HTTPS/checksum verification. Do not infer that JRE availability
 means javac is installed. No environment snapshot/publication was performed this stage.
+
+## Prompt 03 — PostgreSQL demo and workflow parity
+
+The opt-in persistence mode ports the 13 operational tables, typed incident and
+request contracts, seeded reads, deterministic investigation, chat/history, metric
+ingestion, replay, approval, audit and verified simulated recovery. A dedicated
+Flyway schema and additive idempotency/execution records preserve transaction
+boundaries. No existing Python data or traffic has moved.
+
+See [migration ownership, local commands and rollback](../docs/implementation/prompt03/MIGRATION_AND_ROLLBACK.md).
+For an isolated restart/proxy/outage acceptance run after building:
+
+```bash
+python3 backend-java/scripts/verify_persistence.py --with-web
+```
+
+The optional web check uses the already installed/built Next.js app without editing
+its source. Java live OpenAI behavior remains unported until Prompt 08; provider-enabled
+workflows stay on Python. Local deterministic demo parity is tested against captured
+Python API traces; it is not a production-readiness claim.

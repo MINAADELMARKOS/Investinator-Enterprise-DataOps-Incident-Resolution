@@ -1,0 +1,4028 @@
+[
+  {
+    "method": "GET",
+    "path": "/health",
+    "body": null,
+    "status": 200,
+    "response": {
+      "status": "ok",
+      "product": "InvestiNator",
+      "mode": "simulated-demo"
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/health",
+    "body": null,
+    "status": 200,
+    "response": {
+      "status": "ok",
+      "product": "InvestiNator",
+      "mode": "simulated-demo"
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/about",
+    "body": null,
+    "status": 200,
+    "response": {
+      "product": "InvestiNator",
+      "tagline": "See the signal. Find the cause. Fix with confidence.",
+      "statement": "AI-powered DataOps Observability, Investigation & Controlled Remediation Platform",
+      "creator": {
+        "name": "Mina Adel Markos",
+        "title": "Senior Big Data Engineer",
+        "github_url": "https://github.com/MINAADELMARKOS",
+        "linkedin_url": "https://www.linkedin.com/in/mina-markos-343b8b171",
+        "portfolio_url": null
+      }
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/platform/health",
+    "body": null,
+    "status": 200,
+    "response": {
+      "product": "InvestiNator",
+      "mode": "simulated-demo",
+      "overall_health": {
+        "score": 98
+      },
+      "services": [
+        {
+          "name": "Kafka",
+          "status": "healthy",
+          "score": 99
+        },
+        {
+          "name": "Spark",
+          "status": "healthy",
+          "score": 98
+        },
+        {
+          "name": "Data health",
+          "status": "healthy",
+          "score": 98
+        }
+      ],
+      "active_incidents": [],
+      "active_p1": 0,
+      "active_p2": 0,
+      "systems_degraded": 0,
+      "datasets_delayed": 0,
+      "business_impact": {
+        "affected_dashboards": 0,
+        "slo_at_risk": false,
+        "mode": "simulated"
+      },
+      "operations": {
+        "mttd_seconds": null,
+        "mtti_seconds": null,
+        "mttr_seconds": null,
+        "alert_compression_ratio": null
+      }
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/command-center",
+    "body": null,
+    "status": 200,
+    "response": {
+      "product": "InvestiNator",
+      "mode": "simulated-demo",
+      "overall_health": {
+        "score": 98
+      },
+      "services": [
+        {
+          "name": "Kafka",
+          "status": "healthy",
+          "score": 99
+        },
+        {
+          "name": "Spark",
+          "status": "healthy",
+          "score": 98
+        },
+        {
+          "name": "Data health",
+          "status": "healthy",
+          "score": 98
+        }
+      ],
+      "active_incidents": [],
+      "active_p1": 0,
+      "active_p2": 0,
+      "systems_degraded": 0,
+      "datasets_delayed": 0,
+      "business_impact": {
+        "affected_dashboards": 0,
+        "slo_at_risk": false,
+        "mode": "simulated"
+      },
+      "operations": {
+        "mttd_seconds": null,
+        "mtti_seconds": null,
+        "mttr_seconds": null,
+        "alert_compression_ratio": null
+      }
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/telemetry/metrics",
+    "body": null,
+    "status": 200,
+    "response": {
+      "items": [
+        {
+          "id": "abdcad47-fbb5-4513-ae7c-494e2541e481",
+          "entity_id": "order_stream_job",
+          "name": "spark_gc_percent",
+          "value": 4.0,
+          "unit": "%",
+          "observed_at": "2026-11-17T03:00:36.209185",
+          "mode": "simulated"
+        },
+        {
+          "id": "dc4a2d77-2948-4218-9049-c1000dac4ae6",
+          "entity_id": "order_stream_job",
+          "name": "spark_executor_memory_percent",
+          "value": 48.0,
+          "unit": "%",
+          "observed_at": "2026-11-17T03:00:36.209183",
+          "mode": "simulated"
+        },
+        {
+          "id": "dc7806bd-3bde-4713-ae87-f4ecd1d00e21",
+          "entity_id": "fact_orders",
+          "name": "dataset_freshness_minutes",
+          "value": 2.0,
+          "unit": "min",
+          "observed_at": "2026-11-17T03:00:36.209180",
+          "mode": "simulated"
+        },
+        {
+          "id": "5139ea32-3b6c-45b8-9a53-1d5d13ee3e02",
+          "entity_id": "order_stream_job",
+          "name": "spark_input_delay_seconds",
+          "value": 2.0,
+          "unit": "s",
+          "observed_at": "2026-11-17T03:00:36.209177",
+          "mode": "simulated"
+        },
+        {
+          "id": "ef5be153-ae1e-4fd6-9309-0222787b402e",
+          "entity_id": "orders-consumer",
+          "name": "kafka_consumer_lag",
+          "value": 220.0,
+          "unit": "records",
+          "observed_at": "2026-11-17T03:00:36.209174",
+          "mode": "simulated"
+        },
+        {
+          "id": "9fd6e6fe-c9ea-4836-8543-d593647482b0",
+          "entity_id": "orders.events",
+          "name": "kafka_isr_percent",
+          "value": 100.0,
+          "unit": "%",
+          "observed_at": "2026-11-17T03:00:36.209171",
+          "mode": "simulated"
+        },
+        {
+          "id": "1dc54bc1-00ec-4abb-81ae-b77aa25b8acc",
+          "entity_id": "broker-02",
+          "name": "kafka_disk_percent",
+          "value": 47.0,
+          "unit": "%",
+          "observed_at": "2026-11-17T03:00:36.209165",
+          "mode": "simulated"
+        }
+      ],
+      "mode": "simulated-demo"
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/pulse",
+    "body": null,
+    "status": 200,
+    "response": {
+      "items": [
+        {
+          "id": "abdcad47-fbb5-4513-ae7c-494e2541e481",
+          "entity_id": "order_stream_job",
+          "name": "spark_gc_percent",
+          "value": 4.0,
+          "unit": "%",
+          "observed_at": "2026-11-17T03:00:36.209185",
+          "mode": "simulated"
+        },
+        {
+          "id": "dc4a2d77-2948-4218-9049-c1000dac4ae6",
+          "entity_id": "order_stream_job",
+          "name": "spark_executor_memory_percent",
+          "value": 48.0,
+          "unit": "%",
+          "observed_at": "2026-11-17T03:00:36.209183",
+          "mode": "simulated"
+        },
+        {
+          "id": "dc7806bd-3bde-4713-ae87-f4ecd1d00e21",
+          "entity_id": "fact_orders",
+          "name": "dataset_freshness_minutes",
+          "value": 2.0,
+          "unit": "min",
+          "observed_at": "2026-11-17T03:00:36.209180",
+          "mode": "simulated"
+        },
+        {
+          "id": "5139ea32-3b6c-45b8-9a53-1d5d13ee3e02",
+          "entity_id": "order_stream_job",
+          "name": "spark_input_delay_seconds",
+          "value": 2.0,
+          "unit": "s",
+          "observed_at": "2026-11-17T03:00:36.209177",
+          "mode": "simulated"
+        },
+        {
+          "id": "ef5be153-ae1e-4fd6-9309-0222787b402e",
+          "entity_id": "orders-consumer",
+          "name": "kafka_consumer_lag",
+          "value": 220.0,
+          "unit": "records",
+          "observed_at": "2026-11-17T03:00:36.209174",
+          "mode": "simulated"
+        },
+        {
+          "id": "9fd6e6fe-c9ea-4836-8543-d593647482b0",
+          "entity_id": "orders.events",
+          "name": "kafka_isr_percent",
+          "value": 100.0,
+          "unit": "%",
+          "observed_at": "2026-11-17T03:00:36.209171",
+          "mode": "simulated"
+        },
+        {
+          "id": "1dc54bc1-00ec-4abb-81ae-b77aa25b8acc",
+          "entity_id": "broker-02",
+          "name": "kafka_disk_percent",
+          "value": 47.0,
+          "unit": "%",
+          "observed_at": "2026-11-17T03:00:36.209165",
+          "mode": "simulated"
+        }
+      ],
+      "mode": "simulated-demo"
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/telemetry/logs",
+    "body": null,
+    "status": 200,
+    "response": {
+      "items": [],
+      "mode": "simulated-demo"
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/telemetry/events",
+    "body": null,
+    "status": 200,
+    "response": {
+      "items": [],
+      "mode": "simulated-demo"
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/telemetry/traces",
+    "body": null,
+    "status": 200,
+    "response": {
+      "items": [],
+      "mode": "simulated-demo"
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/topology",
+    "body": null,
+    "status": 200,
+    "response": {
+      "nodes": [
+        {
+          "id": "orders-producer",
+          "name": "Orders producer",
+          "type": "APPLICATION",
+          "criticality": 2
+        },
+        {
+          "id": "broker-02",
+          "name": "broker-02",
+          "type": "KAFKA_BROKER",
+          "criticality": 3
+        },
+        {
+          "id": "orders.events",
+          "name": "orders.events",
+          "type": "KAFKA_TOPIC",
+          "criticality": 3
+        },
+        {
+          "id": "orders-consumer",
+          "name": "orders-consumer",
+          "type": "CONSUMER_GROUP",
+          "criticality": 3
+        },
+        {
+          "id": "order_stream_job",
+          "name": "order_stream_job",
+          "type": "SPARK_JOB",
+          "criticality": 3
+        },
+        {
+          "id": "fact_orders",
+          "name": "fact_orders",
+          "type": "DATASET",
+          "criticality": 3
+        },
+        {
+          "id": "revenue-dashboard",
+          "name": "Revenue dashboard",
+          "type": "DASHBOARD",
+          "criticality": 3
+        }
+      ],
+      "edges": [
+        {
+          "from": "orders-producer",
+          "to": "orders.events",
+          "relationship": "PRODUCES_TO"
+        },
+        {
+          "from": "broker-02",
+          "to": "orders.events",
+          "relationship": "HOSTED_ON"
+        },
+        {
+          "from": "orders.events",
+          "to": "orders-consumer",
+          "relationship": "FEEDS"
+        },
+        {
+          "from": "orders-consumer",
+          "to": "order_stream_job",
+          "relationship": "FEEDS"
+        },
+        {
+          "from": "order_stream_job",
+          "to": "fact_orders",
+          "relationship": "WRITES_TO"
+        },
+        {
+          "from": "fact_orders",
+          "to": "revenue-dashboard",
+          "relationship": "FEEDS"
+        }
+      ],
+      "mode": "simulated-demo"
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/nerve-map",
+    "body": null,
+    "status": 200,
+    "response": {
+      "nodes": [
+        {
+          "id": "orders-producer",
+          "name": "Orders producer",
+          "type": "APPLICATION",
+          "criticality": 2
+        },
+        {
+          "id": "broker-02",
+          "name": "broker-02",
+          "type": "KAFKA_BROKER",
+          "criticality": 3
+        },
+        {
+          "id": "orders.events",
+          "name": "orders.events",
+          "type": "KAFKA_TOPIC",
+          "criticality": 3
+        },
+        {
+          "id": "orders-consumer",
+          "name": "orders-consumer",
+          "type": "CONSUMER_GROUP",
+          "criticality": 3
+        },
+        {
+          "id": "order_stream_job",
+          "name": "order_stream_job",
+          "type": "SPARK_JOB",
+          "criticality": 3
+        },
+        {
+          "id": "fact_orders",
+          "name": "fact_orders",
+          "type": "DATASET",
+          "criticality": 3
+        },
+        {
+          "id": "revenue-dashboard",
+          "name": "Revenue dashboard",
+          "type": "DASHBOARD",
+          "criticality": 3
+        }
+      ],
+      "edges": [
+        {
+          "from": "orders-producer",
+          "to": "orders.events",
+          "relationship": "PRODUCES_TO"
+        },
+        {
+          "from": "broker-02",
+          "to": "orders.events",
+          "relationship": "HOSTED_ON"
+        },
+        {
+          "from": "orders.events",
+          "to": "orders-consumer",
+          "relationship": "FEEDS"
+        },
+        {
+          "from": "orders-consumer",
+          "to": "order_stream_job",
+          "relationship": "FEEDS"
+        },
+        {
+          "from": "order_stream_job",
+          "to": "fact_orders",
+          "relationship": "WRITES_TO"
+        },
+        {
+          "from": "fact_orders",
+          "to": "revenue-dashboard",
+          "relationship": "FEEDS"
+        }
+      ],
+      "mode": "simulated-demo"
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/topology/broker-02/blast-radius",
+    "body": null,
+    "status": 200,
+    "response": {
+      "root": "broker-02",
+      "downstream": [
+        {
+          "id": "broker-02",
+          "name": "broker-02",
+          "kind": "KAFKA_BROKER",
+          "criticality": 3
+        },
+        {
+          "id": "orders.events",
+          "name": "orders.events",
+          "kind": "KAFKA_TOPIC",
+          "criticality": 3
+        },
+        {
+          "id": "orders-consumer",
+          "name": "orders-consumer",
+          "kind": "CONSUMER_GROUP",
+          "criticality": 3
+        },
+        {
+          "id": "order_stream_job",
+          "name": "order_stream_job",
+          "kind": "SPARK_JOB",
+          "criticality": 3
+        },
+        {
+          "id": "fact_orders",
+          "name": "fact_orders",
+          "kind": "DATASET",
+          "criticality": 3
+        },
+        {
+          "id": "revenue-dashboard",
+          "name": "Revenue dashboard",
+          "kind": "DASHBOARD",
+          "criticality": 3
+        }
+      ],
+      "mode": "simulated-demo"
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/alerts",
+    "body": null,
+    "status": 200,
+    "response": []
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/incidents",
+    "body": null,
+    "status": 200,
+    "response": []
+  },
+  {
+    "method": "GET",
+    "path": "/incidents",
+    "body": null,
+    "status": 200,
+    "response": []
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/knowledge",
+    "body": null,
+    "status": 200,
+    "response": [
+      {
+        "id": "9cef3337-7b6a-455b-b73b-623dabc8bc82",
+        "title": "Kafka Disk Pressure",
+        "technology": "Kafka",
+        "source": "runbooks/kafka_disk_pressure.md",
+        "content": "Kafka DiskErrorException commonly indicates broker volume pressure or failed log directory."
+      },
+      {
+        "id": "17f19af7-8e43-4741-ba65-3ae4c4bd3049",
+        "title": "Hdfs Safe Mode",
+        "technology": "HDFS",
+        "source": "runbooks/hdfs_safe_mode.md",
+        "content": "HDFS safe mode after NameNode restart blocks writes until under-replicated blocks recover."
+      },
+      {
+        "id": "62aee8db-9c1a-4718-8691-e61b0f76d81a",
+        "title": "Spark Executor Loss",
+        "technology": "Spark",
+        "source": "runbooks/spark_executor_loss.md",
+        "content": "Spark executor loss with container killed messages often maps to memory overhead pressure."
+      },
+      {
+        "id": "41247b9c-7278-4bc6-a9fc-d0f5b55edd98",
+        "title": "Nifi Backpressure",
+        "technology": "NiFi",
+        "source": "runbooks/nifi_backpressure.md",
+        "content": "NiFi queues applying backpressure can stop upstream processors and increase flow-file age."
+      },
+      {
+        "id": "59e663fa-2cc7-4f7a-8d67-987f0218eb3a",
+        "title": "Kudu Tablet Unavailable",
+        "technology": "Kudu",
+        "source": "runbooks/kudu_tablet_unavailable.md",
+        "content": "Kudu tablet unavailable errors require checking tablet-server health and consensus state."
+      },
+      {
+        "id": "6ef7468b-3593-4033-8ab1-e389f748387a",
+        "title": "Api 5Xx",
+        "technology": "API",
+        "source": "runbooks/api_5xx.md",
+        "content": "API 5xx spikes should be correlated with dependency latency and recent deployments."
+      },
+      {
+        "id": "4895abc6-4d7f-48eb-957c-577ff09f05de",
+        "title": "Data Freshness",
+        "technology": "Data",
+        "source": "runbooks/data_freshness.md",
+        "content": "Dataset freshness failure can occur while infrastructure is healthy; inspect record arrival, upstream lag and ingestion checkpoints."
+      }
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/runbooks",
+    "body": null,
+    "status": 200,
+    "response": [
+      {
+        "id": "9cef3337-7b6a-455b-b73b-623dabc8bc82",
+        "title": "Kafka Disk Pressure",
+        "technology": "Kafka",
+        "source": "runbooks/kafka_disk_pressure.md",
+        "content": "Kafka DiskErrorException commonly indicates broker volume pressure or failed log directory."
+      },
+      {
+        "id": "17f19af7-8e43-4741-ba65-3ae4c4bd3049",
+        "title": "Hdfs Safe Mode",
+        "technology": "HDFS",
+        "source": "runbooks/hdfs_safe_mode.md",
+        "content": "HDFS safe mode after NameNode restart blocks writes until under-replicated blocks recover."
+      },
+      {
+        "id": "62aee8db-9c1a-4718-8691-e61b0f76d81a",
+        "title": "Spark Executor Loss",
+        "technology": "Spark",
+        "source": "runbooks/spark_executor_loss.md",
+        "content": "Spark executor loss with container killed messages often maps to memory overhead pressure."
+      },
+      {
+        "id": "41247b9c-7278-4bc6-a9fc-d0f5b55edd98",
+        "title": "Nifi Backpressure",
+        "technology": "NiFi",
+        "source": "runbooks/nifi_backpressure.md",
+        "content": "NiFi queues applying backpressure can stop upstream processors and increase flow-file age."
+      },
+      {
+        "id": "59e663fa-2cc7-4f7a-8d67-987f0218eb3a",
+        "title": "Kudu Tablet Unavailable",
+        "technology": "Kudu",
+        "source": "runbooks/kudu_tablet_unavailable.md",
+        "content": "Kudu tablet unavailable errors require checking tablet-server health and consensus state."
+      },
+      {
+        "id": "6ef7468b-3593-4033-8ab1-e389f748387a",
+        "title": "Api 5Xx",
+        "technology": "API",
+        "source": "runbooks/api_5xx.md",
+        "content": "API 5xx spikes should be correlated with dependency latency and recent deployments."
+      },
+      {
+        "id": "4895abc6-4d7f-48eb-957c-577ff09f05de",
+        "title": "Data Freshness",
+        "technology": "Data",
+        "source": "runbooks/data_freshness.md",
+        "content": "Dataset freshness failure can occur while infrastructure is healthy; inspect record arrival, upstream lag and ingestion checkpoints."
+      }
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/replay/scenarios",
+    "body": null,
+    "status": 200,
+    "response": [
+      {
+        "id": "kafka_disk_pressure",
+        "name": "Kafka broker disk pressure",
+        "systems": [
+          "Kafka",
+          "Spark",
+          "Data health"
+        ],
+        "difficulty": "Intermediate",
+        "expected_root_cause": "broker-02 storage pressure",
+        "mode": "simulated"
+      },
+      {
+        "id": "spark_executor_oom",
+        "name": "Spark executor memory pressure",
+        "systems": [
+          "Spark",
+          "Data health"
+        ],
+        "difficulty": "Intermediate",
+        "expected_root_cause": "executor memory pressure",
+        "mode": "simulated"
+      },
+      {
+        "id": "data_freshness_failure",
+        "name": "Data freshness failure",
+        "systems": [
+          "Data health"
+        ],
+        "difficulty": "Introductory",
+        "expected_root_cause": "orders dataset stopped receiving records",
+        "mode": "simulated"
+      }
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/replay/runs",
+    "body": null,
+    "status": 200,
+    "response": []
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/approvals",
+    "body": null,
+    "status": 200,
+    "response": []
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/audit",
+    "body": null,
+    "status": 200,
+    "response": []
+  },
+  {
+    "method": "GET",
+    "path": "/audit",
+    "body": null,
+    "status": 200,
+    "response": []
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/evaluations",
+    "body": null,
+    "status": 200,
+    "response": []
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/ai/usage",
+    "body": null,
+    "status": 200,
+    "response": {
+      "model_calls": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "failures": 0,
+      "recent": [],
+      "mode": "deterministic-fallback"
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/ai/health",
+    "body": null,
+    "status": 200,
+    "response": {
+      "model_calls": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "failures": 0,
+      "recent": [],
+      "mode": "deterministic-fallback"
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/integrations",
+    "body": null,
+    "status": 200,
+    "response": [
+      {
+        "name": "ReplayLab telemetry",
+        "status": "connected-demo",
+        "capabilities": [
+          "metrics",
+          "alerts",
+          "recovery"
+        ],
+        "last_sync": null
+      },
+      {
+        "name": "OpenAI",
+        "status": "not-configured",
+        "capabilities": [
+          "investigation"
+        ],
+        "last_sync": null
+      },
+      {
+        "name": "Kafka",
+        "status": "not-configured",
+        "capabilities": [],
+        "last_sync": null
+      },
+      {
+        "name": "Spark",
+        "status": "planned",
+        "capabilities": [],
+        "last_sync": null
+      },
+      {
+        "name": "Prometheus",
+        "status": "compose-available",
+        "capabilities": [
+          "API scrape"
+        ],
+        "last_sync": null
+      },
+      {
+        "name": "OpenTelemetry",
+        "status": "not-configured",
+        "capabilities": [
+          "HTTP traces"
+        ],
+        "last_sync": null
+      }
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/integrations/kafka/health",
+    "body": null,
+    "status": 200,
+    "response": {
+      "status": "not-configured",
+      "brokers": 0,
+      "topics": [],
+      "mode": "read-only"
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/metrics",
+    "body": null,
+    "status": 200,
+    "response": "# TYPE investinator_incidents_total gauge\ninvestinator_incidents_total 0\n# TYPE investinator_alerts_total gauge\ninvestinator_alerts_total 0\n"
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/incidents/analyze",
+    "body": {
+      "description": "Kafka lag high",
+      "logs": "DiskErrorException broker-02",
+      "tenant_id": "forged"
+    },
+    "status": 200,
+    "response": {
+      "incident_id": "INC-9A78A5BA",
+      "status": "investigating",
+      "technology": "Kafka",
+      "severity": "P2",
+      "confidence": 0.91,
+      "environment": "demo",
+      "tenant_id": "demo",
+      "likely_root_causes": [
+        "Kafka DiskErrorException commonly indicates broker volume pressure or failed log directory."
+      ],
+      "evidence": [
+        {
+          "id": "KB-001",
+          "source": "runbooks/kafka_disk_pressure.md",
+          "kind": "runbook",
+          "snippet": "Kafka DiskErrorException commonly indicates broker volume pressure or failed log directory.",
+          "score": 0.9500000000000001,
+          "observed_at": null
+        },
+        {
+          "id": "LOG-001",
+          "source": "request.logs",
+          "kind": "log",
+          "snippet": "Log signature observed: DiskErrorException",
+          "score": 0.95,
+          "observed_at": "2026-11-17T03:00:36.348554+00:00"
+        }
+      ],
+      "recovery_actions": [
+        {
+          "id": "ACT-001",
+          "action": "Collect current health status using read-only checks",
+          "rationale": "Establish current blast radius before changing state",
+          "risk": "low",
+          "dangerous": false,
+          "requires_approval": false,
+          "status": "proposed"
+        },
+        {
+          "id": "ACT-002",
+          "action": "Check broker disk usage and offline log directories",
+          "rationale": "Validate the storage hypothesis",
+          "risk": "low",
+          "dangerous": false,
+          "requires_approval": false,
+          "status": "proposed"
+        },
+        {
+          "id": "ACT-003",
+          "action": "Review consumer lag, ISR, and affected topic health",
+          "rationale": "Measure downstream impact",
+          "risk": "low",
+          "dangerous": false,
+          "requires_approval": false,
+          "status": "proposed"
+        },
+        {
+          "id": "ACT-004",
+          "action": "Restart affected Kafka broker after human approval",
+          "rationale": "Restart may rebalance partitions and affect clients",
+          "risk": "high",
+          "dangerous": true,
+          "requires_approval": true,
+          "status": "proposed"
+        }
+      ],
+      "approval_required": true,
+      "affected_entities": [
+        "broker-02"
+      ],
+      "timeline": [
+        {
+          "at": "2026-11-17T03:00:36.348609+00:00",
+          "event": "Investigation started",
+          "kind": "system"
+        },
+        {
+          "at": "2026-11-17T03:00:36.348609+00:00",
+          "event": "Evidence gathered: KB-001",
+          "kind": "evidence",
+          "evidence_id": "KB-001"
+        },
+        {
+          "at": "2026-11-17T03:00:36.348609+00:00",
+          "event": "Evidence gathered: LOG-001",
+          "kind": "evidence",
+          "evidence_id": "LOG-001"
+        },
+        {
+          "at": "2026-11-17T03:00:36.348609+00:00",
+          "event": "Root cause hypothesis generated",
+          "kind": "hypothesis"
+        }
+      ],
+      "engineering_report": "Technology=Kafka; findings=['DiskErrorException']; evidence_count=2; approval_required=True.",
+      "executive_summary": "P2 Kafka incident; evidence-backed investigation is ready for review. A high-risk action requires approval."
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/incidents/{incident}",
+    "body": null,
+    "status": 200,
+    "response": {
+      "incident_id": "INC-9A78A5BA",
+      "status": "investigating",
+      "technology": "Kafka",
+      "severity": "P2",
+      "confidence": 0.91,
+      "environment": "demo",
+      "tenant_id": "demo",
+      "likely_root_causes": [
+        "Kafka DiskErrorException commonly indicates broker volume pressure or failed log directory."
+      ],
+      "evidence": [
+        {
+          "id": "KB-001",
+          "source": "runbooks/kafka_disk_pressure.md",
+          "kind": "runbook",
+          "snippet": "Kafka DiskErrorException commonly indicates broker volume pressure or failed log directory.",
+          "score": 0.9500000000000001,
+          "observed_at": null
+        },
+        {
+          "id": "LOG-001",
+          "source": "request.logs",
+          "kind": "log",
+          "snippet": "Log signature observed: DiskErrorException",
+          "score": 0.95,
+          "observed_at": "2026-11-17T03:00:36.348554+00:00"
+        }
+      ],
+      "recovery_actions": [
+        {
+          "id": "ACT-001",
+          "action": "Collect current health status using read-only checks",
+          "rationale": "Establish current blast radius before changing state",
+          "risk": "low",
+          "dangerous": false,
+          "requires_approval": false,
+          "status": "proposed"
+        },
+        {
+          "id": "ACT-002",
+          "action": "Check broker disk usage and offline log directories",
+          "rationale": "Validate the storage hypothesis",
+          "risk": "low",
+          "dangerous": false,
+          "requires_approval": false,
+          "status": "proposed"
+        },
+        {
+          "id": "ACT-003",
+          "action": "Review consumer lag, ISR, and affected topic health",
+          "rationale": "Measure downstream impact",
+          "risk": "low",
+          "dangerous": false,
+          "requires_approval": false,
+          "status": "proposed"
+        },
+        {
+          "id": "ACT-004",
+          "action": "Restart affected Kafka broker after human approval",
+          "rationale": "Restart may rebalance partitions and affect clients",
+          "risk": "high",
+          "dangerous": true,
+          "requires_approval": true,
+          "status": "proposed"
+        }
+      ],
+      "approval_required": true,
+      "affected_entities": [
+        "broker-02"
+      ],
+      "timeline": [
+        {
+          "at": "2026-11-17T03:00:36.348609+00:00",
+          "event": "Investigation started",
+          "kind": "system"
+        },
+        {
+          "at": "2026-11-17T03:00:36.348609+00:00",
+          "event": "Evidence gathered: KB-001",
+          "kind": "evidence",
+          "evidence_id": "KB-001"
+        },
+        {
+          "at": "2026-11-17T03:00:36.348609+00:00",
+          "event": "Evidence gathered: LOG-001",
+          "kind": "evidence",
+          "evidence_id": "LOG-001"
+        },
+        {
+          "at": "2026-11-17T03:00:36.348609+00:00",
+          "event": "Root cause hypothesis generated",
+          "kind": "hypothesis"
+        }
+      ],
+      "engineering_report": "Technology=Kafka; findings=['DiskErrorException']; evidence_count=2; approval_required=True.",
+      "executive_summary": "P2 Kafka incident; evidence-backed investigation is ready for review. A high-risk action requires approval."
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/incidents/{incident}",
+    "body": null,
+    "status": 200,
+    "response": {
+      "incident_id": "INC-9A78A5BA",
+      "status": "investigating",
+      "technology": "Kafka",
+      "severity": "P2",
+      "confidence": 0.91,
+      "environment": "demo",
+      "tenant_id": "demo",
+      "likely_root_causes": [
+        "Kafka DiskErrorException commonly indicates broker volume pressure or failed log directory."
+      ],
+      "evidence": [
+        {
+          "id": "KB-001",
+          "source": "runbooks/kafka_disk_pressure.md",
+          "kind": "runbook",
+          "snippet": "Kafka DiskErrorException commonly indicates broker volume pressure or failed log directory.",
+          "score": 0.9500000000000001,
+          "observed_at": null
+        },
+        {
+          "id": "LOG-001",
+          "source": "request.logs",
+          "kind": "log",
+          "snippet": "Log signature observed: DiskErrorException",
+          "score": 0.95,
+          "observed_at": "2026-11-17T03:00:36.348554+00:00"
+        }
+      ],
+      "recovery_actions": [
+        {
+          "id": "ACT-001",
+          "action": "Collect current health status using read-only checks",
+          "rationale": "Establish current blast radius before changing state",
+          "risk": "low",
+          "dangerous": false,
+          "requires_approval": false,
+          "status": "proposed"
+        },
+        {
+          "id": "ACT-002",
+          "action": "Check broker disk usage and offline log directories",
+          "rationale": "Validate the storage hypothesis",
+          "risk": "low",
+          "dangerous": false,
+          "requires_approval": false,
+          "status": "proposed"
+        },
+        {
+          "id": "ACT-003",
+          "action": "Review consumer lag, ISR, and affected topic health",
+          "rationale": "Measure downstream impact",
+          "risk": "low",
+          "dangerous": false,
+          "requires_approval": false,
+          "status": "proposed"
+        },
+        {
+          "id": "ACT-004",
+          "action": "Restart affected Kafka broker after human approval",
+          "rationale": "Restart may rebalance partitions and affect clients",
+          "risk": "high",
+          "dangerous": true,
+          "requires_approval": true,
+          "status": "proposed"
+        }
+      ],
+      "approval_required": true,
+      "affected_entities": [
+        "broker-02"
+      ],
+      "timeline": [
+        {
+          "at": "2026-11-17T03:00:36.348609+00:00",
+          "event": "Investigation started",
+          "kind": "system"
+        },
+        {
+          "at": "2026-11-17T03:00:36.348609+00:00",
+          "event": "Evidence gathered: KB-001",
+          "kind": "evidence",
+          "evidence_id": "KB-001"
+        },
+        {
+          "at": "2026-11-17T03:00:36.348609+00:00",
+          "event": "Evidence gathered: LOG-001",
+          "kind": "evidence",
+          "evidence_id": "LOG-001"
+        },
+        {
+          "at": "2026-11-17T03:00:36.348609+00:00",
+          "event": "Root cause hypothesis generated",
+          "kind": "hypothesis"
+        }
+      ],
+      "engineering_report": "Technology=Kafka; findings=['DiskErrorException']; evidence_count=2; approval_required=True.",
+      "executive_summary": "P2 Kafka incident; evidence-backed investigation is ready for review. A high-risk action requires approval."
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/incidents/{incident}/timeline",
+    "body": null,
+    "status": 200,
+    "response": [
+      {
+        "at": "2026-11-17T03:00:36.348609+00:00",
+        "event": "Investigation started",
+        "kind": "system"
+      },
+      {
+        "at": "2026-11-17T03:00:36.348609+00:00",
+        "event": "Evidence gathered: KB-001",
+        "kind": "evidence",
+        "evidence_id": "KB-001"
+      },
+      {
+        "at": "2026-11-17T03:00:36.348609+00:00",
+        "event": "Evidence gathered: LOG-001",
+        "kind": "evidence",
+        "evidence_id": "LOG-001"
+      },
+      {
+        "at": "2026-11-17T03:00:36.348609+00:00",
+        "event": "Root cause hypothesis generated",
+        "kind": "hypothesis"
+      }
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/incidents/{incident}/evidence",
+    "body": null,
+    "status": 200,
+    "response": [
+      {
+        "id": "KB-001",
+        "source": "runbooks/kafka_disk_pressure.md",
+        "kind": "runbook",
+        "snippet": "Kafka DiskErrorException commonly indicates broker volume pressure or failed log directory.",
+        "score": 0.9500000000000001,
+        "observed_at": null
+      },
+      {
+        "id": "LOG-001",
+        "source": "request.logs",
+        "kind": "log",
+        "snippet": "Log signature observed: DiskErrorException",
+        "score": 0.95,
+        "observed_at": "2026-11-17T03:00:36.348554+00:00"
+      }
+    ]
+  },
+  {
+    "method": "POST",
+    "path": "/incidents/{incident}/verify",
+    "body": null,
+    "status": 409,
+    "response": {
+      "detail": "No verification adapter is configured for this incident"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/incidents/{incident}/actions/ACT-004/execute",
+    "body": null,
+    "status": 403,
+    "response": {
+      "detail": "Only the allowlisted ReplayLab recovery can execute"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/incidents/{incident}/investigate",
+    "body": null,
+    "status": 200,
+    "response": {
+      "mode": "deterministic-fallback",
+      "available": false,
+      "message": "AI investigation temporarily unavailable; evidence and deterministic analysis remain available.",
+      "analysis": {
+        "summary": "P2 Kafka incident; evidence-backed investigation is ready for review. A high-risk action requires approval.",
+        "root_causes": [
+          {
+            "title": "Kafka DiskErrorException commonly indicates broker volume pressure or failed log directory.",
+            "explanation": "Deterministic runbook hypothesis",
+            "confidence": 0.91,
+            "evidence_ids": [
+              "KB-001",
+              "LOG-001"
+            ]
+          }
+        ],
+        "next_checks": [
+          "Collect current health status using read-only checks",
+          "Check broker disk usage and offline log directories",
+          "Review consumer lag, ISR, and affected topic health"
+        ],
+        "uncertainty": "No model call was made; inspect evidence before accepting the hypothesis."
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/investigator/messages",
+    "body": {
+      "incident_id": "INC-9A78A5BA",
+      "message": "What changed?",
+      "mode": "ask"
+    },
+    "status": 200,
+    "response": {
+      "conversation_id": "ca7adb72-7c38-43b4-88cb-5891a5b7212b",
+      "incident_id": "INC-9A78A5BA",
+      "answer": "P2 Kafka incident; evidence-backed investigation is ready for review. A high-risk action requires approval.",
+      "evidence_ids": [
+        "KB-001",
+        "LOG-001"
+      ]
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/investigator/conversations/{conversation}",
+    "body": null,
+    "status": 200,
+    "response": {
+      "id": "ca7adb72-7c38-43b4-88cb-5891a5b7212b",
+      "incident_id": "INC-9A78A5BA",
+      "messages": [
+        {
+          "role": "user",
+          "content": "What changed?",
+          "created_at": "2026-11-17T03:00:36.394608",
+          "mode": "ask"
+        },
+        {
+          "role": "assistant",
+          "content": "P2 Kafka incident; evidence-backed investigation is ready for review. A high-risk action requires approval.",
+          "created_at": "2026-11-17T03:00:36.394614",
+          "evidence_ids": [
+            "KB-001",
+            "LOG-001"
+          ],
+          "mode": "deterministic-fallback"
+        }
+      ]
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/replay/runs",
+    "body": {
+      "scenario": "kafka_disk_pressure"
+    },
+    "status": 200,
+    "response": {
+      "id": "c10d6834-ae6d-4724-9ec7-5dfc3226c258",
+      "scenario": "kafka_disk_pressure",
+      "status": "awaiting_approval",
+      "incident_id": "INC-B79ADF9E",
+      "mode": "simulated",
+      "steps": [
+        {
+          "metric": "kafka_disk_percent",
+          "value": 97.8,
+          "alert": {
+            "id": "0676d363-f6dd-4505-b3a6-69339677b18c",
+            "rule_id": "kafka_disk_percent",
+            "severity": "P1",
+            "message": "Kafka broker disk pressure"
+          }
+        },
+        {
+          "metric": "kafka_isr_percent",
+          "value": 78.0,
+          "alert": {
+            "id": "1efafec6-f87d-4ded-906e-4696b8edb4ac",
+            "rule_id": "kafka_isr_percent",
+            "severity": "P2",
+            "message": "Kafka in-sync replicas degraded"
+          }
+        },
+        {
+          "metric": "kafka_consumer_lag",
+          "value": 2400000.0,
+          "alert": {
+            "id": "5e80307e-cf88-4abc-8c87-18941135017a",
+            "rule_id": "kafka_consumer_lag",
+            "severity": "P2",
+            "message": "Kafka consumer lag high"
+          }
+        },
+        {
+          "metric": "spark_input_delay_seconds",
+          "value": 141.0,
+          "alert": {
+            "id": "0560575b-8e2a-4bd7-829c-d715748583d2",
+            "rule_id": "spark_input_delay_seconds",
+            "severity": "P2",
+            "message": "Spark input processing delayed"
+          }
+        },
+        {
+          "metric": "dataset_freshness_minutes",
+          "value": 37.0,
+          "alert": {
+            "id": "8cc7175f-3e8e-49ed-a881-87ea4c27c95f",
+            "rule_id": "dataset_freshness_minutes",
+            "severity": "P2",
+            "message": "Dataset freshness SLA breached"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/incidents/{incident}",
+    "body": null,
+    "status": 200,
+    "response": {
+      "incident_id": "INC-B79ADF9E",
+      "status": "investigating",
+      "technology": "Kafka",
+      "severity": "P1",
+      "confidence": 0.99,
+      "environment": "demo",
+      "tenant_id": "demo",
+      "likely_root_causes": [
+        "Kafka DiskErrorException commonly indicates broker volume pressure or failed log directory."
+      ],
+      "evidence": [
+        {
+          "id": "KB-001",
+          "source": "runbooks/kafka_disk_pressure.md",
+          "kind": "runbook",
+          "snippet": "Kafka DiskErrorException commonly indicates broker volume pressure or failed log directory.",
+          "score": 0.9600000000000001,
+          "observed_at": null
+        },
+        {
+          "id": "METRIC-001",
+          "source": "request.metrics.kafka_disk_percent",
+          "kind": "metric",
+          "snippet": "Observed kafka_disk_percent = 97.8",
+          "score": 1.0,
+          "observed_at": "2026-11-17T03:00:36.412706+00:00"
+        },
+        {
+          "id": "LOG-001",
+          "source": "request.logs",
+          "kind": "log",
+          "snippet": "Log signature observed: DiskErrorException",
+          "score": 0.95,
+          "observed_at": "2026-11-17T03:00:36.412706+00:00"
+        },
+        {
+          "id": "METRIC-4822a942",
+          "source": "telemetry/4822a942-f301-449b-934f-58effabac006",
+          "kind": "metric",
+          "snippet": "kafka_disk_percent = 97.8 %",
+          "score": 1.0,
+          "observed_at": "2026-11-17T03:00:36.409800+00:00"
+        },
+        {
+          "id": "METRIC-d8e514ae",
+          "source": "telemetry/d8e514ae-2d3c-4551-a465-e4119d87dfbf",
+          "kind": "metric",
+          "snippet": "kafka_isr_percent = 78.0 %",
+          "score": 1.0,
+          "observed_at": "2026-11-17T03:00:36.416436+00:00"
+        },
+        {
+          "id": "METRIC-ae222449",
+          "source": "telemetry/ae222449-62d8-454f-854c-5c019b71130f",
+          "kind": "metric",
+          "snippet": "kafka_consumer_lag = 2400000.0 records",
+          "score": 1.0,
+          "observed_at": "2026-11-17T03:00:36.420352+00:00"
+        },
+        {
+          "id": "METRIC-3dad898d",
+          "source": "telemetry/3dad898d-4bcf-4648-88a2-1fe1170a7f31",
+          "kind": "metric",
+          "snippet": "spark_input_delay_seconds = 141.0 s",
+          "score": 1.0,
+          "observed_at": "2026-11-17T03:00:36.424638+00:00"
+        },
+        {
+          "id": "METRIC-a450d36c",
+          "source": "telemetry/a450d36c-e66a-49cb-b190-77071296db54",
+          "kind": "metric",
+          "snippet": "dataset_freshness_minutes = 37.0 min",
+          "score": 1.0,
+          "observed_at": "2026-11-17T03:00:36.428370+00:00"
+        }
+      ],
+      "recovery_actions": [
+        {
+          "id": "ACT-001",
+          "action": "Collect current health status using read-only checks",
+          "rationale": "Establish current blast radius before changing state",
+          "risk": "low",
+          "dangerous": false,
+          "requires_approval": false,
+          "status": "proposed"
+        },
+        {
+          "id": "ACT-002",
+          "action": "Check broker disk usage and offline log directories",
+          "rationale": "Validate the storage hypothesis",
+          "risk": "low",
+          "dangerous": false,
+          "requires_approval": false,
+          "status": "proposed"
+        },
+        {
+          "id": "ACT-003",
+          "action": "Review consumer lag, ISR, and affected topic health",
+          "rationale": "Measure downstream impact",
+          "risk": "low",
+          "dangerous": false,
+          "requires_approval": false,
+          "status": "proposed"
+        },
+        {
+          "id": "ACT-004",
+          "action": "Restart affected Kafka broker after human approval",
+          "rationale": "Restart may rebalance partitions and affect clients",
+          "risk": "high",
+          "dangerous": true,
+          "requires_approval": true,
+          "status": "proposed"
+        },
+        {
+          "id": "ACT-DEMO",
+          "action": "Apply allowlisted ReplayLab recovery to simulated telemetry",
+          "rationale": "Restore the simulated signal to its known healthy baseline and verify every symptom",
+          "risk": "medium",
+          "dangerous": true,
+          "requires_approval": true,
+          "status": "proposed"
+        }
+      ],
+      "approval_required": true,
+      "affected_entities": [
+        "broker-02",
+        "orders.events",
+        "orders-consumer",
+        "order_stream_job",
+        "fact_orders",
+        "revenue-dashboard"
+      ],
+      "timeline": [
+        {
+          "at": "2026-11-17T03:00:36.412752+00:00",
+          "event": "Investigation started",
+          "kind": "system"
+        },
+        {
+          "at": "2026-11-17T03:00:36.412752+00:00",
+          "event": "Evidence gathered: KB-001",
+          "kind": "evidence",
+          "evidence_id": "KB-001"
+        },
+        {
+          "at": "2026-11-17T03:00:36.412752+00:00",
+          "event": "Evidence gathered: METRIC-001",
+          "kind": "evidence",
+          "evidence_id": "METRIC-001"
+        },
+        {
+          "at": "2026-11-17T03:00:36.412752+00:00",
+          "event": "Evidence gathered: LOG-001",
+          "kind": "evidence",
+          "evidence_id": "LOG-001"
+        },
+        {
+          "at": "2026-11-17T03:00:36.412752+00:00",
+          "event": "Root cause hypothesis generated",
+          "kind": "hypothesis"
+        },
+        {
+          "at": "2026-11-17T03:00:36.409800+00:00",
+          "event": "Kafka broker disk pressure",
+          "kind": "alert"
+        },
+        {
+          "at": "2026-11-17T03:00:36.416436+00:00",
+          "event": "Kafka in-sync replicas degraded",
+          "kind": "alert"
+        },
+        {
+          "at": "2026-11-17T03:00:36.420352+00:00",
+          "event": "Kafka consumer lag high",
+          "kind": "alert"
+        },
+        {
+          "at": "2026-11-17T03:00:36.424638+00:00",
+          "event": "Spark input processing delayed",
+          "kind": "alert"
+        },
+        {
+          "at": "2026-11-17T03:00:36.428370+00:00",
+          "event": "Dataset freshness SLA breached",
+          "kind": "alert"
+        }
+      ],
+      "engineering_report": "Technology=Kafka; evidence_count=8; affected_entities=6; approval_required=True.",
+      "executive_summary": "P1 Kafka incident; evidence-backed investigation is ready for review. A high-risk action requires approval."
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/incidents/{incident}/verify",
+    "body": {
+      "checks": {
+        "passed": true
+      }
+    },
+    "status": 200,
+    "response": {
+      "incident_id": "INC-B79ADF9E",
+      "passed": false,
+      "checks": {
+        "kafka_disk_percent": {
+          "observed": 97.8,
+          "passed": false
+        },
+        "kafka_isr_percent": {
+          "observed": 78.0,
+          "passed": false
+        },
+        "kafka_consumer_lag": {
+          "observed": 2400000.0,
+          "passed": false
+        },
+        "spark_input_delay_seconds": {
+          "observed": 141.0,
+          "passed": false
+        },
+        "dataset_freshness_minutes": {
+          "observed": 37.0,
+          "passed": false
+        }
+      },
+      "status": "investigating"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/incidents/{incident}/actions/ACT-DEMO/execute",
+    "body": null,
+    "status": 403,
+    "response": {
+      "detail": "Approved action is required"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/incidents/{incident}/actions/ACT-DEMO/approval",
+    "body": {
+      "decision": "approve",
+      "decided_by": "client-actor",
+      "reason": "reviewed"
+    },
+    "status": 200,
+    "response": {
+      "incident_id": "INC-B79ADF9E",
+      "action_id": "ACT-DEMO",
+      "status": "approved",
+      "execution": "requires_separate_request",
+      "mode": "simulated-demo"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/incidents/{incident}/actions/ACT-DEMO/execute",
+    "body": null,
+    "status": 200,
+    "response": {
+      "run_id": "c10d6834-ae6d-4724-9ec7-5dfc3226c258",
+      "action": "demo_recovery",
+      "mode": "simulated",
+      "verification": {
+        "incident_id": "INC-B79ADF9E",
+        "passed": true,
+        "checks": {
+          "kafka_disk_percent": {
+            "observed": 63.0,
+            "passed": true
+          },
+          "kafka_isr_percent": {
+            "observed": 100.0,
+            "passed": true
+          },
+          "kafka_consumer_lag": {
+            "observed": 8300.0,
+            "passed": true
+          },
+          "spark_input_delay_seconds": {
+            "observed": 4.0,
+            "passed": true
+          },
+          "dataset_freshness_minutes": {
+            "observed": 3.0,
+            "passed": true
+          }
+        },
+        "status": "resolved"
+      }
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/incidents/{incident}/postmortem",
+    "body": null,
+    "status": 200,
+    "response": {
+      "incident_id": "INC-B79ADF9E",
+      "mode": "generated-draft",
+      "editable": false,
+      "summary": "P1 Kafka incident; evidence-backed investigation is ready for review. A high-risk action requires approval.",
+      "impact": [
+        "broker-02",
+        "orders.events",
+        "orders-consumer",
+        "order_stream_job",
+        "fact_orders",
+        "revenue-dashboard"
+      ],
+      "timeline": [
+        {
+          "at": "2026-11-17T03:00:36.412752+00:00",
+          "event": "Investigation started",
+          "kind": "system"
+        },
+        {
+          "at": "2026-11-17T03:00:36.412752+00:00",
+          "event": "Evidence gathered: KB-001",
+          "kind": "evidence",
+          "evidence_id": "KB-001"
+        },
+        {
+          "at": "2026-11-17T03:00:36.412752+00:00",
+          "event": "Evidence gathered: METRIC-001",
+          "kind": "evidence",
+          "evidence_id": "METRIC-001"
+        },
+        {
+          "at": "2026-11-17T03:00:36.412752+00:00",
+          "event": "Evidence gathered: LOG-001",
+          "kind": "evidence",
+          "evidence_id": "LOG-001"
+        },
+        {
+          "at": "2026-11-17T03:00:36.412752+00:00",
+          "event": "Root cause hypothesis generated",
+          "kind": "hypothesis"
+        },
+        {
+          "at": "2026-11-17T03:00:36.409800+00:00",
+          "event": "Kafka broker disk pressure",
+          "kind": "alert"
+        },
+        {
+          "at": "2026-11-17T03:00:36.416436+00:00",
+          "event": "Kafka in-sync replicas degraded",
+          "kind": "alert"
+        },
+        {
+          "at": "2026-11-17T03:00:36.420352+00:00",
+          "event": "Kafka consumer lag high",
+          "kind": "alert"
+        },
+        {
+          "at": "2026-11-17T03:00:36.424638+00:00",
+          "event": "Spark input processing delayed",
+          "kind": "alert"
+        },
+        {
+          "at": "2026-11-17T03:00:36.428370+00:00",
+          "event": "Dataset freshness SLA breached",
+          "kind": "alert"
+        },
+        {
+          "at": "2026-11-17T03:00:36.444479+00:00",
+          "event": "Recovery verification failed",
+          "kind": "verification"
+        },
+        {
+          "at": "2026-11-17T03:00:36.456998+00:00",
+          "event": "Action approved by demo.senior_sre",
+          "kind": "approval"
+        },
+        {
+          "at": "2026-11-17T03:00:36.465718+00:00",
+          "event": "Allowlisted demo recovery executed",
+          "kind": "action"
+        },
+        {
+          "at": "2026-11-17T03:00:36.470014+00:00",
+          "event": "Recovery verified",
+          "kind": "verification"
+        }
+      ],
+      "probable_root_cause": [
+        "Kafka DiskErrorException commonly indicates broker volume pressure or failed log directory."
+      ],
+      "evidence_ids": [
+        "KB-001",
+        "METRIC-001",
+        "LOG-001",
+        "METRIC-4822a942",
+        "METRIC-d8e514ae",
+        "METRIC-ae222449",
+        "METRIC-3dad898d",
+        "METRIC-a450d36c"
+      ],
+      "verification": "Recovery criteria passed",
+      "preventive_actions": [
+        "Alert on early broker storage pressure",
+        "Review Kafka capacity and pipeline freshness SLOs"
+      ]
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/platform/health",
+    "body": null,
+    "status": 200,
+    "response": {
+      "product": "InvestiNator",
+      "mode": "simulated-demo",
+      "overall_health": {
+        "score": 98
+      },
+      "services": [
+        {
+          "name": "Kafka",
+          "status": "healthy",
+          "score": 99
+        },
+        {
+          "name": "Spark",
+          "status": "healthy",
+          "score": 98
+        },
+        {
+          "name": "Data health",
+          "status": "healthy",
+          "score": 98
+        }
+      ],
+      "active_incidents": [
+        {
+          "incident_id": "INC-9A78A5BA",
+          "status": "investigating",
+          "technology": "Kafka",
+          "severity": "P2",
+          "confidence": 0.91,
+          "environment": "demo",
+          "tenant_id": "demo",
+          "likely_root_causes": [
+            "Kafka DiskErrorException commonly indicates broker volume pressure or failed log directory."
+          ],
+          "evidence": [
+            {
+              "id": "KB-001",
+              "source": "runbooks/kafka_disk_pressure.md",
+              "kind": "runbook",
+              "snippet": "Kafka DiskErrorException commonly indicates broker volume pressure or failed log directory.",
+              "score": 0.9500000000000001,
+              "observed_at": null
+            },
+            {
+              "id": "LOG-001",
+              "source": "request.logs",
+              "kind": "log",
+              "snippet": "Log signature observed: DiskErrorException",
+              "score": 0.95,
+              "observed_at": "2026-11-17T03:00:36.348554+00:00"
+            }
+          ],
+          "recovery_actions": [
+            {
+              "id": "ACT-001",
+              "action": "Collect current health status using read-only checks",
+              "rationale": "Establish current blast radius before changing state",
+              "risk": "low",
+              "dangerous": false,
+              "requires_approval": false,
+              "status": "proposed"
+            },
+            {
+              "id": "ACT-002",
+              "action": "Check broker disk usage and offline log directories",
+              "rationale": "Validate the storage hypothesis",
+              "risk": "low",
+              "dangerous": false,
+              "requires_approval": false,
+              "status": "proposed"
+            },
+            {
+              "id": "ACT-003",
+              "action": "Review consumer lag, ISR, and affected topic health",
+              "rationale": "Measure downstream impact",
+              "risk": "low",
+              "dangerous": false,
+              "requires_approval": false,
+              "status": "proposed"
+            },
+            {
+              "id": "ACT-004",
+              "action": "Restart affected Kafka broker after human approval",
+              "rationale": "Restart may rebalance partitions and affect clients",
+              "risk": "high",
+              "dangerous": true,
+              "requires_approval": true,
+              "status": "proposed"
+            }
+          ],
+          "approval_required": true,
+          "affected_entities": [
+            "broker-02"
+          ],
+          "timeline": [
+            {
+              "at": "2026-11-17T03:00:36.348609+00:00",
+              "event": "Investigation started",
+              "kind": "system"
+            },
+            {
+              "at": "2026-11-17T03:00:36.348609+00:00",
+              "event": "Evidence gathered: KB-001",
+              "kind": "evidence",
+              "evidence_id": "KB-001"
+            },
+            {
+              "at": "2026-11-17T03:00:36.348609+00:00",
+              "event": "Evidence gathered: LOG-001",
+              "kind": "evidence",
+              "evidence_id": "LOG-001"
+            },
+            {
+              "at": "2026-11-17T03:00:36.348609+00:00",
+              "event": "Root cause hypothesis generated",
+              "kind": "hypothesis"
+            }
+          ],
+          "engineering_report": "Technology=Kafka; findings=['DiskErrorException']; evidence_count=2; approval_required=True.",
+          "executive_summary": "P2 Kafka incident; evidence-backed investigation is ready for review. A high-risk action requires approval."
+        }
+      ],
+      "active_p1": 0,
+      "active_p2": 1,
+      "systems_degraded": 0,
+      "datasets_delayed": 0,
+      "business_impact": {
+        "affected_dashboards": 0,
+        "slo_at_risk": false,
+        "mode": "simulated"
+      },
+      "operations": {
+        "mttd_seconds": null,
+        "mtti_seconds": null,
+        "mttr_seconds": null,
+        "alert_compression_ratio": null
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/replay/runs",
+    "body": {
+      "scenario": "spark_executor_oom"
+    },
+    "status": 200,
+    "response": {
+      "id": "77969915-b8f5-45dc-b8fb-380ba2eef4fe",
+      "scenario": "spark_executor_oom",
+      "status": "awaiting_approval",
+      "incident_id": "INC-34FE599B",
+      "mode": "simulated",
+      "steps": [
+        {
+          "metric": "spark_executor_memory_percent",
+          "value": 98.0,
+          "alert": {
+            "id": "3241bb73-66ce-4e8f-83d1-1ba300f2d390",
+            "rule_id": "spark_executor_memory_percent",
+            "severity": "P2",
+            "message": "Spark executor memory pressure"
+          }
+        },
+        {
+          "metric": "spark_gc_percent",
+          "value": 44.0,
+          "alert": {
+            "id": "2f3e6ded-fca5-4a88-8b2e-5d2d7d409e7d",
+            "rule_id": "spark_gc_percent",
+            "severity": "P2",
+            "message": "Spark GC pressure"
+          }
+        },
+        {
+          "metric": "spark_input_delay_seconds",
+          "value": 192.0,
+          "alert": {
+            "id": "1d1fad07-8a98-495f-9972-02963247f67d",
+            "rule_id": "spark_input_delay_seconds",
+            "severity": "P2",
+            "message": "Spark input processing delayed"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/incidents/{incident}",
+    "body": null,
+    "status": 200,
+    "response": {
+      "incident_id": "INC-34FE599B",
+      "status": "investigating",
+      "technology": "Spark",
+      "severity": "P2",
+      "confidence": 0.99,
+      "environment": "demo",
+      "tenant_id": "demo",
+      "likely_root_causes": [
+        "Spark executor loss with container killed messages often maps to memory overhead pressure."
+      ],
+      "evidence": [
+        {
+          "id": "KB-003",
+          "source": "runbooks/spark_executor_loss.md",
+          "kind": "runbook",
+          "snippet": "Spark executor loss with container killed messages often maps to memory overhead pressure.",
+          "score": 0.9,
+          "observed_at": null
+        },
+        {
+          "id": "METRIC-001",
+          "source": "request.metrics.spark_executor_memory_percent",
+          "kind": "metric",
+          "snippet": "Observed spark_executor_memory_percent = 98.0",
+          "score": 1.0,
+          "observed_at": "2026-11-17T03:00:36.495689+00:00"
+        },
+        {
+          "id": "LOG-001",
+          "source": "request.logs",
+          "kind": "log",
+          "snippet": "Log signature observed: OutOfMemoryError",
+          "score": 0.95,
+          "observed_at": "2026-11-17T03:00:36.495689+00:00"
+        },
+        {
+          "id": "METRIC-88101399",
+          "source": "telemetry/88101399-b747-4305-932e-f87e9368afa5",
+          "kind": "metric",
+          "snippet": "spark_executor_memory_percent = 98.0 %",
+          "score": 1.0,
+          "observed_at": "2026-11-17T03:00:36.494245+00:00"
+        },
+        {
+          "id": "METRIC-425f8370",
+          "source": "telemetry/425f8370-cc8e-46e3-af68-ad75477b9cad",
+          "kind": "metric",
+          "snippet": "spark_gc_percent = 44.0 %",
+          "score": 1.0,
+          "observed_at": "2026-11-17T03:00:36.498335+00:00"
+        },
+        {
+          "id": "METRIC-1b045bb3",
+          "source": "telemetry/1b045bb3-5bcb-4727-a70b-8527cb14772d",
+          "kind": "metric",
+          "snippet": "spark_input_delay_seconds = 192.0 s",
+          "score": 1.0,
+          "observed_at": "2026-11-17T03:00:36.501650+00:00"
+        }
+      ],
+      "recovery_actions": [
+        {
+          "id": "ACT-001",
+          "action": "Collect current health status using read-only checks",
+          "rationale": "Establish current blast radius before changing state",
+          "risk": "low",
+          "dangerous": false,
+          "requires_approval": false,
+          "status": "proposed"
+        },
+        {
+          "id": "ACT-002",
+          "action": "Inspect failed stages, executor memory, and GC metrics",
+          "rationale": "Confirm executor pressure before changing job settings",
+          "risk": "low",
+          "dangerous": false,
+          "requires_approval": false,
+          "status": "proposed"
+        },
+        {
+          "id": "ACT-DEMO",
+          "action": "Apply allowlisted ReplayLab recovery to simulated telemetry",
+          "rationale": "Restore the simulated signal to its known healthy baseline and verify every symptom",
+          "risk": "medium",
+          "dangerous": true,
+          "requires_approval": true,
+          "status": "proposed"
+        }
+      ],
+      "approval_required": true,
+      "affected_entities": [
+        "order_stream_job",
+        "fact_orders",
+        "revenue-dashboard"
+      ],
+      "timeline": [
+        {
+          "at": "2026-11-17T03:00:36.495723+00:00",
+          "event": "Investigation started",
+          "kind": "system"
+        },
+        {
+          "at": "2026-11-17T03:00:36.495723+00:00",
+          "event": "Evidence gathered: KB-003",
+          "kind": "evidence",
+          "evidence_id": "KB-003"
+        },
+        {
+          "at": "2026-11-17T03:00:36.495723+00:00",
+          "event": "Evidence gathered: METRIC-001",
+          "kind": "evidence",
+          "evidence_id": "METRIC-001"
+        },
+        {
+          "at": "2026-11-17T03:00:36.495723+00:00",
+          "event": "Evidence gathered: LOG-001",
+          "kind": "evidence",
+          "evidence_id": "LOG-001"
+        },
+        {
+          "at": "2026-11-17T03:00:36.495723+00:00",
+          "event": "Root cause hypothesis generated",
+          "kind": "hypothesis"
+        },
+        {
+          "at": "2026-11-17T03:00:36.494245+00:00",
+          "event": "Spark executor memory pressure",
+          "kind": "alert"
+        },
+        {
+          "at": "2026-11-17T03:00:36.498335+00:00",
+          "event": "Spark GC pressure",
+          "kind": "alert"
+        },
+        {
+          "at": "2026-11-17T03:00:36.501650+00:00",
+          "event": "Spark input processing delayed",
+          "kind": "alert"
+        }
+      ],
+      "engineering_report": "Technology=Spark; evidence_count=6; affected_entities=3; approval_required=True.",
+      "executive_summary": "P2 Spark incident; evidence-backed investigation is ready for review. Only read-only next steps are proposed."
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/incidents/{incident}/verify",
+    "body": {
+      "checks": {
+        "passed": true
+      }
+    },
+    "status": 200,
+    "response": {
+      "incident_id": "INC-34FE599B",
+      "passed": false,
+      "checks": {
+        "spark_executor_memory_percent": {
+          "observed": 98.0,
+          "passed": false
+        },
+        "spark_gc_percent": {
+          "observed": 44.0,
+          "passed": false
+        },
+        "spark_input_delay_seconds": {
+          "observed": 192.0,
+          "passed": false
+        }
+      },
+      "status": "investigating"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/incidents/{incident}/actions/ACT-DEMO/execute",
+    "body": null,
+    "status": 403,
+    "response": {
+      "detail": "Approved action is required"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/incidents/{incident}/actions/ACT-DEMO/approval",
+    "body": {
+      "decision": "approve",
+      "decided_by": "client-actor",
+      "reason": "reviewed"
+    },
+    "status": 200,
+    "response": {
+      "incident_id": "INC-34FE599B",
+      "action_id": "ACT-DEMO",
+      "status": "approved",
+      "execution": "requires_separate_request",
+      "mode": "simulated-demo"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/incidents/{incident}/actions/ACT-DEMO/execute",
+    "body": null,
+    "status": 200,
+    "response": {
+      "run_id": "77969915-b8f5-45dc-b8fb-380ba2eef4fe",
+      "action": "demo_recovery",
+      "mode": "simulated",
+      "verification": {
+        "incident_id": "INC-34FE599B",
+        "passed": true,
+        "checks": {
+          "spark_executor_memory_percent": {
+            "observed": 58.0,
+            "passed": true
+          },
+          "spark_gc_percent": {
+            "observed": 7.0,
+            "passed": true
+          },
+          "spark_input_delay_seconds": {
+            "observed": 4.0,
+            "passed": true
+          }
+        },
+        "status": "resolved"
+      }
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/incidents/{incident}/postmortem",
+    "body": null,
+    "status": 200,
+    "response": {
+      "incident_id": "INC-34FE599B",
+      "mode": "generated-draft",
+      "editable": false,
+      "summary": "P2 Spark incident; evidence-backed investigation is ready for review. Only read-only next steps are proposed.",
+      "impact": [
+        "order_stream_job",
+        "fact_orders",
+        "revenue-dashboard"
+      ],
+      "timeline": [
+        {
+          "at": "2026-11-17T03:00:36.495723+00:00",
+          "event": "Investigation started",
+          "kind": "system"
+        },
+        {
+          "at": "2026-11-17T03:00:36.495723+00:00",
+          "event": "Evidence gathered: KB-003",
+          "kind": "evidence",
+          "evidence_id": "KB-003"
+        },
+        {
+          "at": "2026-11-17T03:00:36.495723+00:00",
+          "event": "Evidence gathered: METRIC-001",
+          "kind": "evidence",
+          "evidence_id": "METRIC-001"
+        },
+        {
+          "at": "2026-11-17T03:00:36.495723+00:00",
+          "event": "Evidence gathered: LOG-001",
+          "kind": "evidence",
+          "evidence_id": "LOG-001"
+        },
+        {
+          "at": "2026-11-17T03:00:36.495723+00:00",
+          "event": "Root cause hypothesis generated",
+          "kind": "hypothesis"
+        },
+        {
+          "at": "2026-11-17T03:00:36.494245+00:00",
+          "event": "Spark executor memory pressure",
+          "kind": "alert"
+        },
+        {
+          "at": "2026-11-17T03:00:36.498335+00:00",
+          "event": "Spark GC pressure",
+          "kind": "alert"
+        },
+        {
+          "at": "2026-11-17T03:00:36.501650+00:00",
+          "event": "Spark input processing delayed",
+          "kind": "alert"
+        },
+        {
+          "at": "2026-11-17T03:00:36.518686+00:00",
+          "event": "Recovery verification failed",
+          "kind": "verification"
+        },
+        {
+          "at": "2026-11-17T03:00:36.633810+00:00",
+          "event": "Action approved by demo.senior_sre",
+          "kind": "approval"
+        },
+        {
+          "at": "2026-11-17T03:00:36.643929+00:00",
+          "event": "Allowlisted demo recovery executed",
+          "kind": "action"
+        },
+        {
+          "at": "2026-11-17T03:00:36.647103+00:00",
+          "event": "Recovery verified",
+          "kind": "verification"
+        }
+      ],
+      "probable_root_cause": [
+        "Spark executor loss with container killed messages often maps to memory overhead pressure."
+      ],
+      "evidence_ids": [
+        "KB-003",
+        "METRIC-001",
+        "LOG-001",
+        "METRIC-88101399",
+        "METRIC-425f8370",
+        "METRIC-1b045bb3"
+      ],
+      "verification": "Recovery criteria passed",
+      "preventive_actions": [
+        "Review executor memory and GC baselines",
+        "Alert on input delay before the freshness SLO is breached"
+      ]
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/platform/health",
+    "body": null,
+    "status": 200,
+    "response": {
+      "product": "InvestiNator",
+      "mode": "simulated-demo",
+      "overall_health": {
+        "score": 98
+      },
+      "services": [
+        {
+          "name": "Kafka",
+          "status": "healthy",
+          "score": 99
+        },
+        {
+          "name": "Spark",
+          "status": "healthy",
+          "score": 98
+        },
+        {
+          "name": "Data health",
+          "status": "healthy",
+          "score": 98
+        }
+      ],
+      "active_incidents": [
+        {
+          "incident_id": "INC-9A78A5BA",
+          "status": "investigating",
+          "technology": "Kafka",
+          "severity": "P2",
+          "confidence": 0.91,
+          "environment": "demo",
+          "tenant_id": "demo",
+          "likely_root_causes": [
+            "Kafka DiskErrorException commonly indicates broker volume pressure or failed log directory."
+          ],
+          "evidence": [
+            {
+              "id": "KB-001",
+              "source": "runbooks/kafka_disk_pressure.md",
+              "kind": "runbook",
+              "snippet": "Kafka DiskErrorException commonly indicates broker volume pressure or failed log directory.",
+              "score": 0.9500000000000001,
+              "observed_at": null
+            },
+            {
+              "id": "LOG-001",
+              "source": "request.logs",
+              "kind": "log",
+              "snippet": "Log signature observed: DiskErrorException",
+              "score": 0.95,
+              "observed_at": "2026-11-17T03:00:36.348554+00:00"
+            }
+          ],
+          "recovery_actions": [
+            {
+              "id": "ACT-001",
+              "action": "Collect current health status using read-only checks",
+              "rationale": "Establish current blast radius before changing state",
+              "risk": "low",
+              "dangerous": false,
+              "requires_approval": false,
+              "status": "proposed"
+            },
+            {
+              "id": "ACT-002",
+              "action": "Check broker disk usage and offline log directories",
+              "rationale": "Validate the storage hypothesis",
+              "risk": "low",
+              "dangerous": false,
+              "requires_approval": false,
+              "status": "proposed"
+            },
+            {
+              "id": "ACT-003",
+              "action": "Review consumer lag, ISR, and affected topic health",
+              "rationale": "Measure downstream impact",
+              "risk": "low",
+              "dangerous": false,
+              "requires_approval": false,
+              "status": "proposed"
+            },
+            {
+              "id": "ACT-004",
+              "action": "Restart affected Kafka broker after human approval",
+              "rationale": "Restart may rebalance partitions and affect clients",
+              "risk": "high",
+              "dangerous": true,
+              "requires_approval": true,
+              "status": "proposed"
+            }
+          ],
+          "approval_required": true,
+          "affected_entities": [
+            "broker-02"
+          ],
+          "timeline": [
+            {
+              "at": "2026-11-17T03:00:36.348609+00:00",
+              "event": "Investigation started",
+              "kind": "system"
+            },
+            {
+              "at": "2026-11-17T03:00:36.348609+00:00",
+              "event": "Evidence gathered: KB-001",
+              "kind": "evidence",
+              "evidence_id": "KB-001"
+            },
+            {
+              "at": "2026-11-17T03:00:36.348609+00:00",
+              "event": "Evidence gathered: LOG-001",
+              "kind": "evidence",
+              "evidence_id": "LOG-001"
+            },
+            {
+              "at": "2026-11-17T03:00:36.348609+00:00",
+              "event": "Root cause hypothesis generated",
+              "kind": "hypothesis"
+            }
+          ],
+          "engineering_report": "Technology=Kafka; findings=['DiskErrorException']; evidence_count=2; approval_required=True.",
+          "executive_summary": "P2 Kafka incident; evidence-backed investigation is ready for review. A high-risk action requires approval."
+        }
+      ],
+      "active_p1": 0,
+      "active_p2": 1,
+      "systems_degraded": 0,
+      "datasets_delayed": 0,
+      "business_impact": {
+        "affected_dashboards": 0,
+        "slo_at_risk": false,
+        "mode": "simulated"
+      },
+      "operations": {
+        "mttd_seconds": null,
+        "mtti_seconds": null,
+        "mttr_seconds": null,
+        "alert_compression_ratio": null
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/replay/runs",
+    "body": {
+      "scenario": "data_freshness_failure"
+    },
+    "status": 200,
+    "response": {
+      "id": "4f56ceae-8dcc-4319-b1cd-7366ee1f7d61",
+      "scenario": "data_freshness_failure",
+      "status": "awaiting_approval",
+      "incident_id": "INC-75AE22E6",
+      "mode": "simulated",
+      "steps": [
+        {
+          "metric": "dataset_freshness_minutes",
+          "value": 49.0,
+          "alert": {
+            "id": "60f31cca-0cde-45bf-867b-be1972038915",
+            "rule_id": "dataset_freshness_minutes",
+            "severity": "P2",
+            "message": "Dataset freshness SLA breached"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/incidents/{incident}",
+    "body": null,
+    "status": 200,
+    "response": {
+      "incident_id": "INC-75AE22E6",
+      "status": "investigating",
+      "technology": "Data",
+      "severity": "P2",
+      "confidence": 0.79,
+      "environment": "demo",
+      "tenant_id": "demo",
+      "likely_root_causes": [
+        "Dataset freshness failure can occur while infrastructure is healthy; inspect record arrival, upstream lag and ingestion checkpoints."
+      ],
+      "evidence": [
+        {
+          "id": "KB-007",
+          "source": "runbooks/data_freshness.md",
+          "kind": "runbook",
+          "snippet": "Dataset freshness failure can occur while infrastructure is healthy; inspect record arrival, upstream lag and ingestion checkpoints.",
+          "score": 0.92,
+          "observed_at": null
+        },
+        {
+          "id": "METRIC-001",
+          "source": "request.metrics.dataset_freshness_minutes",
+          "kind": "metric",
+          "snippet": "Observed dataset_freshness_minutes = 49.0",
+          "score": 1.0,
+          "observed_at": "2026-11-17T03:00:36.669953+00:00"
+        },
+        {
+          "id": "METRIC-2e0f3e2e",
+          "source": "telemetry/2e0f3e2e-1c86-4d16-8325-0e2c5868b1c5",
+          "kind": "metric",
+          "snippet": "dataset_freshness_minutes = 49.0 min",
+          "score": 1.0,
+          "observed_at": "2026-11-17T03:00:36.668831+00:00"
+        }
+      ],
+      "recovery_actions": [
+        {
+          "id": "ACT-001",
+          "action": "Collect current health status using read-only checks",
+          "rationale": "Establish current blast radius before changing state",
+          "risk": "low",
+          "dangerous": false,
+          "requires_approval": false,
+          "status": "proposed"
+        },
+        {
+          "id": "ACT-002",
+          "action": "Follow Data runbook validation steps",
+          "rationale": "Use technology-specific read-only checks",
+          "risk": "low",
+          "dangerous": false,
+          "requires_approval": false,
+          "status": "proposed"
+        },
+        {
+          "id": "ACT-DEMO",
+          "action": "Apply allowlisted ReplayLab recovery to simulated telemetry",
+          "rationale": "Restore the simulated signal to its known healthy baseline and verify every symptom",
+          "risk": "medium",
+          "dangerous": true,
+          "requires_approval": true,
+          "status": "proposed"
+        }
+      ],
+      "approval_required": true,
+      "affected_entities": [
+        "fact_orders",
+        "revenue-dashboard"
+      ],
+      "timeline": [
+        {
+          "at": "2026-11-17T03:00:36.669985+00:00",
+          "event": "Investigation started",
+          "kind": "system"
+        },
+        {
+          "at": "2026-11-17T03:00:36.669985+00:00",
+          "event": "Evidence gathered: KB-007",
+          "kind": "evidence",
+          "evidence_id": "KB-007"
+        },
+        {
+          "at": "2026-11-17T03:00:36.669985+00:00",
+          "event": "Evidence gathered: METRIC-001",
+          "kind": "evidence",
+          "evidence_id": "METRIC-001"
+        },
+        {
+          "at": "2026-11-17T03:00:36.669985+00:00",
+          "event": "Root cause hypothesis generated",
+          "kind": "hypothesis"
+        },
+        {
+          "at": "2026-11-17T03:00:36.668831+00:00",
+          "event": "Dataset freshness SLA breached",
+          "kind": "alert"
+        }
+      ],
+      "engineering_report": "Technology=Data; evidence_count=3; affected_entities=2; approval_required=True.",
+      "executive_summary": "P3 Data incident; evidence-backed investigation is ready for review. Only read-only next steps are proposed."
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/incidents/{incident}/verify",
+    "body": {
+      "checks": {
+        "passed": true
+      }
+    },
+    "status": 200,
+    "response": {
+      "incident_id": "INC-75AE22E6",
+      "passed": false,
+      "checks": {
+        "dataset_freshness_minutes": {
+          "observed": 49.0,
+          "passed": false
+        }
+      },
+      "status": "investigating"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/incidents/{incident}/actions/ACT-DEMO/execute",
+    "body": null,
+    "status": 403,
+    "response": {
+      "detail": "Approved action is required"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/incidents/{incident}/actions/ACT-DEMO/approval",
+    "body": {
+      "decision": "approve",
+      "decided_by": "client-actor",
+      "reason": "reviewed"
+    },
+    "status": 200,
+    "response": {
+      "incident_id": "INC-75AE22E6",
+      "action_id": "ACT-DEMO",
+      "status": "approved",
+      "execution": "requires_separate_request",
+      "mode": "simulated-demo"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/incidents/{incident}/actions/ACT-DEMO/execute",
+    "body": null,
+    "status": 200,
+    "response": {
+      "run_id": "4f56ceae-8dcc-4319-b1cd-7366ee1f7d61",
+      "action": "demo_recovery",
+      "mode": "simulated",
+      "verification": {
+        "incident_id": "INC-75AE22E6",
+        "passed": true,
+        "checks": {
+          "dataset_freshness_minutes": {
+            "observed": 3.0,
+            "passed": true
+          }
+        },
+        "status": "resolved"
+      }
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/incidents/{incident}/postmortem",
+    "body": null,
+    "status": 200,
+    "response": {
+      "incident_id": "INC-75AE22E6",
+      "mode": "generated-draft",
+      "editable": false,
+      "summary": "P3 Data incident; evidence-backed investigation is ready for review. Only read-only next steps are proposed.",
+      "impact": [
+        "fact_orders",
+        "revenue-dashboard"
+      ],
+      "timeline": [
+        {
+          "at": "2026-11-17T03:00:36.669985+00:00",
+          "event": "Investigation started",
+          "kind": "system"
+        },
+        {
+          "at": "2026-11-17T03:00:36.669985+00:00",
+          "event": "Evidence gathered: KB-007",
+          "kind": "evidence",
+          "evidence_id": "KB-007"
+        },
+        {
+          "at": "2026-11-17T03:00:36.669985+00:00",
+          "event": "Evidence gathered: METRIC-001",
+          "kind": "evidence",
+          "evidence_id": "METRIC-001"
+        },
+        {
+          "at": "2026-11-17T03:00:36.669985+00:00",
+          "event": "Root cause hypothesis generated",
+          "kind": "hypothesis"
+        },
+        {
+          "at": "2026-11-17T03:00:36.668831+00:00",
+          "event": "Dataset freshness SLA breached",
+          "kind": "alert"
+        },
+        {
+          "at": "2026-11-17T03:00:36.684809+00:00",
+          "event": "Recovery verification failed",
+          "kind": "verification"
+        },
+        {
+          "at": "2026-11-17T03:00:36.696190+00:00",
+          "event": "Action approved by demo.senior_sre",
+          "kind": "approval"
+        },
+        {
+          "at": "2026-11-17T03:00:36.703804+00:00",
+          "event": "Allowlisted demo recovery executed",
+          "kind": "action"
+        },
+        {
+          "at": "2026-11-17T03:00:36.706046+00:00",
+          "event": "Recovery verified",
+          "kind": "verification"
+        }
+      ],
+      "probable_root_cause": [
+        "Dataset freshness failure can occur while infrastructure is healthy; inspect record arrival, upstream lag and ingestion checkpoints."
+      ],
+      "evidence_ids": [
+        "KB-007",
+        "METRIC-001",
+        "METRIC-2e0f3e2e"
+      ],
+      "verification": "Recovery criteria passed",
+      "preventive_actions": [
+        "Add dataset freshness checks at ingestion",
+        "Trace missing records through the upstream pipeline"
+      ]
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/platform/health",
+    "body": null,
+    "status": 200,
+    "response": {
+      "product": "InvestiNator",
+      "mode": "simulated-demo",
+      "overall_health": {
+        "score": 98
+      },
+      "services": [
+        {
+          "name": "Kafka",
+          "status": "healthy",
+          "score": 99
+        },
+        {
+          "name": "Spark",
+          "status": "healthy",
+          "score": 98
+        },
+        {
+          "name": "Data health",
+          "status": "healthy",
+          "score": 98
+        }
+      ],
+      "active_incidents": [
+        {
+          "incident_id": "INC-9A78A5BA",
+          "status": "investigating",
+          "technology": "Kafka",
+          "severity": "P2",
+          "confidence": 0.91,
+          "environment": "demo",
+          "tenant_id": "demo",
+          "likely_root_causes": [
+            "Kafka DiskErrorException commonly indicates broker volume pressure or failed log directory."
+          ],
+          "evidence": [
+            {
+              "id": "KB-001",
+              "source": "runbooks/kafka_disk_pressure.md",
+              "kind": "runbook",
+              "snippet": "Kafka DiskErrorException commonly indicates broker volume pressure or failed log directory.",
+              "score": 0.9500000000000001,
+              "observed_at": null
+            },
+            {
+              "id": "LOG-001",
+              "source": "request.logs",
+              "kind": "log",
+              "snippet": "Log signature observed: DiskErrorException",
+              "score": 0.95,
+              "observed_at": "2026-11-17T03:00:36.348554+00:00"
+            }
+          ],
+          "recovery_actions": [
+            {
+              "id": "ACT-001",
+              "action": "Collect current health status using read-only checks",
+              "rationale": "Establish current blast radius before changing state",
+              "risk": "low",
+              "dangerous": false,
+              "requires_approval": false,
+              "status": "proposed"
+            },
+            {
+              "id": "ACT-002",
+              "action": "Check broker disk usage and offline log directories",
+              "rationale": "Validate the storage hypothesis",
+              "risk": "low",
+              "dangerous": false,
+              "requires_approval": false,
+              "status": "proposed"
+            },
+            {
+              "id": "ACT-003",
+              "action": "Review consumer lag, ISR, and affected topic health",
+              "rationale": "Measure downstream impact",
+              "risk": "low",
+              "dangerous": false,
+              "requires_approval": false,
+              "status": "proposed"
+            },
+            {
+              "id": "ACT-004",
+              "action": "Restart affected Kafka broker after human approval",
+              "rationale": "Restart may rebalance partitions and affect clients",
+              "risk": "high",
+              "dangerous": true,
+              "requires_approval": true,
+              "status": "proposed"
+            }
+          ],
+          "approval_required": true,
+          "affected_entities": [
+            "broker-02"
+          ],
+          "timeline": [
+            {
+              "at": "2026-11-17T03:00:36.348609+00:00",
+              "event": "Investigation started",
+              "kind": "system"
+            },
+            {
+              "at": "2026-11-17T03:00:36.348609+00:00",
+              "event": "Evidence gathered: KB-001",
+              "kind": "evidence",
+              "evidence_id": "KB-001"
+            },
+            {
+              "at": "2026-11-17T03:00:36.348609+00:00",
+              "event": "Evidence gathered: LOG-001",
+              "kind": "evidence",
+              "evidence_id": "LOG-001"
+            },
+            {
+              "at": "2026-11-17T03:00:36.348609+00:00",
+              "event": "Root cause hypothesis generated",
+              "kind": "hypothesis"
+            }
+          ],
+          "engineering_report": "Technology=Kafka; findings=['DiskErrorException']; evidence_count=2; approval_required=True.",
+          "executive_summary": "P2 Kafka incident; evidence-backed investigation is ready for review. A high-risk action requires approval."
+        }
+      ],
+      "active_p1": 0,
+      "active_p2": 1,
+      "systems_degraded": 0,
+      "datasets_delayed": 0,
+      "business_impact": {
+        "affected_dashboards": 0,
+        "slo_at_risk": false,
+        "mode": "simulated"
+      },
+      "operations": {
+        "mttd_seconds": null,
+        "mtti_seconds": null,
+        "mttr_seconds": null,
+        "alert_compression_ratio": null
+      }
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/alerts",
+    "body": null,
+    "status": 200,
+    "response": [
+      {
+        "id": "60f31cca-0cde-45bf-867b-be1972038915",
+        "incident_id": "INC-75AE22E6",
+        "rule_id": "dataset_freshness_minutes",
+        "entity_id": "fact_orders",
+        "severity": "P2",
+        "observed_at": "2026-11-17T03:00:36.668831",
+        "message": "Dataset freshness SLA breached",
+        "observed_value": 49.0,
+        "threshold": 15,
+        "signal_id": "2e0f3e2e-1c86-4d16-8325-0e2c5868b1c5"
+      },
+      {
+        "id": "1d1fad07-8a98-495f-9972-02963247f67d",
+        "incident_id": "INC-34FE599B",
+        "rule_id": "spark_input_delay_seconds",
+        "entity_id": "order_stream_job",
+        "severity": "P2",
+        "observed_at": "2026-11-17T03:00:36.501650",
+        "message": "Spark input processing delayed",
+        "observed_value": 192.0,
+        "threshold": 60,
+        "signal_id": "1b045bb3-5bcb-4727-a70b-8527cb14772d"
+      },
+      {
+        "id": "2f3e6ded-fca5-4a88-8b2e-5d2d7d409e7d",
+        "incident_id": "INC-34FE599B",
+        "rule_id": "spark_gc_percent",
+        "entity_id": "order_stream_job",
+        "severity": "P2",
+        "observed_at": "2026-11-17T03:00:36.498335",
+        "message": "Spark GC pressure",
+        "observed_value": 44.0,
+        "threshold": 35,
+        "signal_id": "425f8370-cc8e-46e3-af68-ad75477b9cad"
+      },
+      {
+        "id": "3241bb73-66ce-4e8f-83d1-1ba300f2d390",
+        "incident_id": "INC-34FE599B",
+        "rule_id": "spark_executor_memory_percent",
+        "entity_id": "order_stream_job",
+        "severity": "P2",
+        "observed_at": "2026-11-17T03:00:36.494245",
+        "message": "Spark executor memory pressure",
+        "observed_value": 98.0,
+        "threshold": 90,
+        "signal_id": "88101399-b747-4305-932e-f87e9368afa5"
+      },
+      {
+        "id": "8cc7175f-3e8e-49ed-a881-87ea4c27c95f",
+        "incident_id": "INC-B79ADF9E",
+        "rule_id": "dataset_freshness_minutes",
+        "entity_id": "fact_orders",
+        "severity": "P2",
+        "observed_at": "2026-11-17T03:00:36.428370",
+        "message": "Dataset freshness SLA breached",
+        "observed_value": 37.0,
+        "threshold": 15,
+        "signal_id": "a450d36c-e66a-49cb-b190-77071296db54"
+      },
+      {
+        "id": "0560575b-8e2a-4bd7-829c-d715748583d2",
+        "incident_id": "INC-B79ADF9E",
+        "rule_id": "spark_input_delay_seconds",
+        "entity_id": "order_stream_job",
+        "severity": "P2",
+        "observed_at": "2026-11-17T03:00:36.424638",
+        "message": "Spark input processing delayed",
+        "observed_value": 141.0,
+        "threshold": 60,
+        "signal_id": "3dad898d-4bcf-4648-88a2-1fe1170a7f31"
+      },
+      {
+        "id": "5e80307e-cf88-4abc-8c87-18941135017a",
+        "incident_id": "INC-B79ADF9E",
+        "rule_id": "kafka_consumer_lag",
+        "entity_id": "orders-consumer",
+        "severity": "P2",
+        "observed_at": "2026-11-17T03:00:36.420352",
+        "message": "Kafka consumer lag high",
+        "observed_value": 2400000.0,
+        "threshold": 100000,
+        "signal_id": "ae222449-62d8-454f-854c-5c019b71130f"
+      },
+      {
+        "id": "1efafec6-f87d-4ded-906e-4696b8edb4ac",
+        "incident_id": "INC-B79ADF9E",
+        "rule_id": "kafka_isr_percent",
+        "entity_id": "orders.events",
+        "severity": "P2",
+        "observed_at": "2026-11-17T03:00:36.416436",
+        "message": "Kafka in-sync replicas degraded",
+        "observed_value": 78.0,
+        "threshold": 95,
+        "signal_id": "d8e514ae-2d3c-4551-a465-e4119d87dfbf"
+      },
+      {
+        "id": "0676d363-f6dd-4505-b3a6-69339677b18c",
+        "incident_id": "INC-B79ADF9E",
+        "rule_id": "kafka_disk_percent",
+        "entity_id": "broker-02",
+        "severity": "P1",
+        "observed_at": "2026-11-17T03:00:36.409800",
+        "message": "Kafka broker disk pressure",
+        "observed_value": 97.8,
+        "threshold": 90,
+        "signal_id": "4822a942-f301-449b-934f-58effabac006"
+      }
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/replay/runs",
+    "body": null,
+    "status": 200,
+    "response": [
+      {
+        "id": "4f56ceae-8dcc-4319-b1cd-7366ee1f7d61",
+        "scenario": "data_freshness_failure",
+        "status": "completed",
+        "incident_id": "INC-75AE22E6",
+        "created_at": "2026-11-17T03:00:36.668186",
+        "mode": "simulated",
+        "steps": [
+          {
+            "metric": "dataset_freshness_minutes",
+            "value": 49.0,
+            "alert": {
+              "id": "60f31cca-0cde-45bf-867b-be1972038915",
+              "rule_id": "dataset_freshness_minutes",
+              "severity": "P2",
+              "message": "Dataset freshness SLA breached"
+            }
+          }
+        ],
+        "ground_truth": "orders dataset stopped receiving records",
+        "recovery": {
+          "incident_id": "INC-75AE22E6",
+          "passed": true,
+          "checks": {
+            "dataset_freshness_minutes": {
+              "observed": 3.0,
+              "passed": true
+            }
+          },
+          "status": "resolved"
+        }
+      },
+      {
+        "id": "77969915-b8f5-45dc-b8fb-380ba2eef4fe",
+        "scenario": "spark_executor_oom",
+        "status": "completed",
+        "incident_id": "INC-34FE599B",
+        "created_at": "2026-11-17T03:00:36.493654",
+        "mode": "simulated",
+        "steps": [
+          {
+            "metric": "spark_executor_memory_percent",
+            "value": 98.0,
+            "alert": {
+              "id": "3241bb73-66ce-4e8f-83d1-1ba300f2d390",
+              "rule_id": "spark_executor_memory_percent",
+              "severity": "P2",
+              "message": "Spark executor memory pressure"
+            }
+          },
+          {
+            "metric": "spark_gc_percent",
+            "value": 44.0,
+            "alert": {
+              "id": "2f3e6ded-fca5-4a88-8b2e-5d2d7d409e7d",
+              "rule_id": "spark_gc_percent",
+              "severity": "P2",
+              "message": "Spark GC pressure"
+            }
+          },
+          {
+            "metric": "spark_input_delay_seconds",
+            "value": 192.0,
+            "alert": {
+              "id": "1d1fad07-8a98-495f-9972-02963247f67d",
+              "rule_id": "spark_input_delay_seconds",
+              "severity": "P2",
+              "message": "Spark input processing delayed"
+            }
+          }
+        ],
+        "ground_truth": "executor memory pressure",
+        "recovery": {
+          "incident_id": "INC-34FE599B",
+          "passed": true,
+          "checks": {
+            "spark_executor_memory_percent": {
+              "observed": 58.0,
+              "passed": true
+            },
+            "spark_gc_percent": {
+              "observed": 7.0,
+              "passed": true
+            },
+            "spark_input_delay_seconds": {
+              "observed": 4.0,
+              "passed": true
+            }
+          },
+          "status": "resolved"
+        }
+      },
+      {
+        "id": "c10d6834-ae6d-4724-9ec7-5dfc3226c258",
+        "scenario": "kafka_disk_pressure",
+        "status": "completed",
+        "incident_id": "INC-B79ADF9E",
+        "created_at": "2026-11-17T03:00:36.408676",
+        "mode": "simulated",
+        "steps": [
+          {
+            "metric": "kafka_disk_percent",
+            "value": 97.8,
+            "alert": {
+              "id": "0676d363-f6dd-4505-b3a6-69339677b18c",
+              "rule_id": "kafka_disk_percent",
+              "severity": "P1",
+              "message": "Kafka broker disk pressure"
+            }
+          },
+          {
+            "metric": "kafka_isr_percent",
+            "value": 78.0,
+            "alert": {
+              "id": "1efafec6-f87d-4ded-906e-4696b8edb4ac",
+              "rule_id": "kafka_isr_percent",
+              "severity": "P2",
+              "message": "Kafka in-sync replicas degraded"
+            }
+          },
+          {
+            "metric": "kafka_consumer_lag",
+            "value": 2400000.0,
+            "alert": {
+              "id": "5e80307e-cf88-4abc-8c87-18941135017a",
+              "rule_id": "kafka_consumer_lag",
+              "severity": "P2",
+              "message": "Kafka consumer lag high"
+            }
+          },
+          {
+            "metric": "spark_input_delay_seconds",
+            "value": 141.0,
+            "alert": {
+              "id": "0560575b-8e2a-4bd7-829c-d715748583d2",
+              "rule_id": "spark_input_delay_seconds",
+              "severity": "P2",
+              "message": "Spark input processing delayed"
+            }
+          },
+          {
+            "metric": "dataset_freshness_minutes",
+            "value": 37.0,
+            "alert": {
+              "id": "8cc7175f-3e8e-49ed-a881-87ea4c27c95f",
+              "rule_id": "dataset_freshness_minutes",
+              "severity": "P2",
+              "message": "Dataset freshness SLA breached"
+            }
+          }
+        ],
+        "ground_truth": "broker-02 storage pressure",
+        "recovery": {
+          "incident_id": "INC-B79ADF9E",
+          "passed": true,
+          "checks": {
+            "kafka_disk_percent": {
+              "observed": 63.0,
+              "passed": true
+            },
+            "kafka_isr_percent": {
+              "observed": 100.0,
+              "passed": true
+            },
+            "kafka_consumer_lag": {
+              "observed": 8300.0,
+              "passed": true
+            },
+            "spark_input_delay_seconds": {
+              "observed": 4.0,
+              "passed": true
+            },
+            "dataset_freshness_minutes": {
+              "observed": 3.0,
+              "passed": true
+            }
+          },
+          "status": "resolved"
+        }
+      }
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/approvals",
+    "body": null,
+    "status": 200,
+    "response": [
+      {
+        "incident_id": "INC-75AE22E6",
+        "action_id": "ACT-DEMO",
+        "decision": "approve",
+        "actor": "demo.senior_sre",
+        "reason": "reviewed",
+        "created_at": "2026-11-17T03:00:36.696449"
+      },
+      {
+        "incident_id": "INC-34FE599B",
+        "action_id": "ACT-DEMO",
+        "decision": "approve",
+        "actor": "demo.senior_sre",
+        "reason": "reviewed",
+        "created_at": "2026-11-17T03:00:36.634156"
+      },
+      {
+        "incident_id": "INC-B79ADF9E",
+        "action_id": "ACT-DEMO",
+        "decision": "approve",
+        "actor": "demo.senior_sre",
+        "reason": "reviewed",
+        "created_at": "2026-11-17T03:00:36.457838"
+      }
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/audit",
+    "body": null,
+    "status": 200,
+    "response": [
+      {
+        "id": "776277f2-83e4-4737-a38a-d00fb33e9939",
+        "event": "action_executed",
+        "actor": "demo.senior_sre",
+        "incident_id": "INC-75AE22E6",
+        "created_at": "2026-11-17T03:00:36.712738",
+        "details": {
+          "action_id": "ACT-DEMO",
+          "mode": "simulated"
+        }
+      },
+      {
+        "id": "33125188-aeeb-4b39-bec5-0014edb81493",
+        "event": "demo_recovery_executed",
+        "actor": "system",
+        "incident_id": "INC-75AE22E6",
+        "created_at": "2026-11-17T03:00:36.708738",
+        "details": {
+          "scenario": "data_freshness_failure",
+          "verification_passed": true
+        }
+      },
+      {
+        "id": "a81d0bbb-ebd9-4e63-90e5-a1d6312fc374",
+        "event": "verification",
+        "actor": "system",
+        "incident_id": "INC-75AE22E6",
+        "created_at": "2026-11-17T03:00:36.707022",
+        "details": {
+          "checks": {
+            "dataset_freshness_minutes": {
+              "observed": 3.0,
+              "passed": true
+            }
+          },
+          "passed": true
+        }
+      },
+      {
+        "id": "974ac3c0-b951-4e1a-bbbc-8dd5425d2999",
+        "event": "approval_decision",
+        "actor": "demo.senior_sre",
+        "incident_id": "INC-75AE22E6",
+        "created_at": "2026-11-17T03:00:36.697804",
+        "details": {
+          "action_id": "ACT-DEMO",
+          "decision": "approve"
+        }
+      },
+      {
+        "id": "62f9b2ae-b530-4b81-8dfa-49514a90585a",
+        "event": "verification",
+        "actor": "system",
+        "incident_id": "INC-75AE22E6",
+        "created_at": "2026-11-17T03:00:36.686052",
+        "details": {
+          "checks": {
+            "dataset_freshness_minutes": {
+              "observed": 49.0,
+              "passed": false
+            }
+          },
+          "passed": false
+        }
+      },
+      {
+        "id": "197174c3-518a-4486-8e67-af67c90b8480",
+        "event": "replay_started",
+        "actor": "system",
+        "incident_id": "INC-75AE22E6",
+        "created_at": "2026-11-17T03:00:36.672899",
+        "details": {
+          "scenario": "data_freshness_failure",
+          "run_id": "4f56ceae-8dcc-4319-b1cd-7366ee1f7d61"
+        }
+      },
+      {
+        "id": "11b13715-92b4-436d-bfc2-931a26e1bac8",
+        "event": "alert_detected",
+        "actor": "system",
+        "incident_id": "INC-75AE22E6",
+        "created_at": "2026-11-17T03:00:36.672894",
+        "details": {
+          "rule_id": "dataset_freshness_minutes",
+          "entity_id": "fact_orders",
+          "alert_id": "60f31cca-0cde-45bf-867b-be1972038915"
+        }
+      },
+      {
+        "id": "2c4f0f12-d02b-4d82-99f4-12b8d8558acc",
+        "event": "action_executed",
+        "actor": "demo.senior_sre",
+        "incident_id": "INC-34FE599B",
+        "created_at": "2026-11-17T03:00:36.653409",
+        "details": {
+          "action_id": "ACT-DEMO",
+          "mode": "simulated"
+        }
+      },
+      {
+        "id": "03f031b0-702f-4ab5-b44c-f370cfe495c8",
+        "event": "demo_recovery_executed",
+        "actor": "system",
+        "incident_id": "INC-34FE599B",
+        "created_at": "2026-11-17T03:00:36.649754",
+        "details": {
+          "scenario": "spark_executor_oom",
+          "verification_passed": true
+        }
+      },
+      {
+        "id": "f318d2ef-f8aa-4869-8890-08151cfdf3a6",
+        "event": "verification",
+        "actor": "system",
+        "incident_id": "INC-34FE599B",
+        "created_at": "2026-11-17T03:00:36.648027",
+        "details": {
+          "checks": {
+            "spark_executor_memory_percent": {
+              "observed": 58.0,
+              "passed": true
+            },
+            "spark_gc_percent": {
+              "observed": 7.0,
+              "passed": true
+            },
+            "spark_input_delay_seconds": {
+              "observed": 4.0,
+              "passed": true
+            }
+          },
+          "passed": true
+        }
+      },
+      {
+        "id": "30192072-c292-43fd-8c58-2ad5080284fd",
+        "event": "approval_decision",
+        "actor": "demo.senior_sre",
+        "incident_id": "INC-34FE599B",
+        "created_at": "2026-11-17T03:00:36.636955",
+        "details": {
+          "action_id": "ACT-DEMO",
+          "decision": "approve"
+        }
+      },
+      {
+        "id": "ac75c27e-b9b2-459d-94aa-13da77c2fd71",
+        "event": "verification",
+        "actor": "system",
+        "incident_id": "INC-34FE599B",
+        "created_at": "2026-11-17T03:00:36.520044",
+        "details": {
+          "checks": {
+            "spark_executor_memory_percent": {
+              "observed": 98.0,
+              "passed": false
+            },
+            "spark_gc_percent": {
+              "observed": 44.0,
+              "passed": false
+            },
+            "spark_input_delay_seconds": {
+              "observed": 192.0,
+              "passed": false
+            }
+          },
+          "passed": false
+        }
+      },
+      {
+        "id": "7353470c-f4a9-425d-9bb5-97e0307d6502",
+        "event": "replay_started",
+        "actor": "system",
+        "incident_id": "INC-34FE599B",
+        "created_at": "2026-11-17T03:00:36.505699",
+        "details": {
+          "scenario": "spark_executor_oom",
+          "run_id": "77969915-b8f5-45dc-b8fb-380ba2eef4fe"
+        }
+      },
+      {
+        "id": "5d8ceec0-935f-48dc-9a83-faaa0a03bdc1",
+        "event": "alert_detected",
+        "actor": "system",
+        "incident_id": "INC-34FE599B",
+        "created_at": "2026-11-17T03:00:36.505693",
+        "details": {
+          "rule_id": "spark_input_delay_seconds",
+          "entity_id": "order_stream_job",
+          "alert_id": "1d1fad07-8a98-495f-9972-02963247f67d"
+        }
+      },
+      {
+        "id": "561745a2-81d1-42a6-b928-87c8cd464946",
+        "event": "alert_detected",
+        "actor": "system",
+        "incident_id": "INC-34FE599B",
+        "created_at": "2026-11-17T03:00:36.501793",
+        "details": {
+          "rule_id": "spark_gc_percent",
+          "entity_id": "order_stream_job",
+          "alert_id": "2f3e6ded-fca5-4a88-8b2e-5d2d7d409e7d"
+        }
+      },
+      {
+        "id": "0ef55208-2eb1-47eb-a418-95d976cb0c6b",
+        "event": "alert_detected",
+        "actor": "system",
+        "incident_id": "INC-34FE599B",
+        "created_at": "2026-11-17T03:00:36.498479",
+        "details": {
+          "rule_id": "spark_executor_memory_percent",
+          "entity_id": "order_stream_job",
+          "alert_id": "3241bb73-66ce-4e8f-83d1-1ba300f2d390"
+        }
+      },
+      {
+        "id": "99ccc9d4-47b7-4733-9e65-7911eda7d47f",
+        "event": "action_executed",
+        "actor": "demo.senior_sre",
+        "incident_id": "INC-B79ADF9E",
+        "created_at": "2026-11-17T03:00:36.477882",
+        "details": {
+          "action_id": "ACT-DEMO",
+          "mode": "simulated"
+        }
+      },
+      {
+        "id": "1c52b320-03a5-4972-a4d8-1c6385179ae1",
+        "event": "demo_recovery_executed",
+        "actor": "system",
+        "incident_id": "INC-B79ADF9E",
+        "created_at": "2026-11-17T03:00:36.473514",
+        "details": {
+          "scenario": "kafka_disk_pressure",
+          "verification_passed": true
+        }
+      },
+      {
+        "id": "9c67a776-f855-4217-a68d-00bf08e3dd07",
+        "event": "verification",
+        "actor": "system",
+        "incident_id": "INC-B79ADF9E",
+        "created_at": "2026-11-17T03:00:36.471251",
+        "details": {
+          "checks": {
+            "kafka_disk_percent": {
+              "observed": 63.0,
+              "passed": true
+            },
+            "kafka_isr_percent": {
+              "observed": 100.0,
+              "passed": true
+            },
+            "kafka_consumer_lag": {
+              "observed": 8300.0,
+              "passed": true
+            },
+            "spark_input_delay_seconds": {
+              "observed": 4.0,
+              "passed": true
+            },
+            "dataset_freshness_minutes": {
+              "observed": 3.0,
+              "passed": true
+            }
+          },
+          "passed": true
+        }
+      },
+      {
+        "id": "16d65824-2f78-4a4f-8598-857970bf2768",
+        "event": "approval_decision",
+        "actor": "demo.senior_sre",
+        "incident_id": "INC-B79ADF9E",
+        "created_at": "2026-11-17T03:00:36.459746",
+        "details": {
+          "action_id": "ACT-DEMO",
+          "decision": "approve"
+        }
+      },
+      {
+        "id": "5b66c506-233f-4efb-b685-a93fcc1bf4cb",
+        "event": "verification",
+        "actor": "system",
+        "incident_id": "INC-B79ADF9E",
+        "created_at": "2026-11-17T03:00:36.446134",
+        "details": {
+          "checks": {
+            "kafka_disk_percent": {
+              "observed": 97.8,
+              "passed": false
+            },
+            "kafka_isr_percent": {
+              "observed": 78.0,
+              "passed": false
+            },
+            "kafka_consumer_lag": {
+              "observed": 2400000.0,
+              "passed": false
+            },
+            "spark_input_delay_seconds": {
+              "observed": 141.0,
+              "passed": false
+            },
+            "dataset_freshness_minutes": {
+              "observed": 37.0,
+              "passed": false
+            }
+          },
+          "passed": false
+        }
+      },
+      {
+        "id": "f069d127-1dcd-4dd5-8492-649bc801da76",
+        "event": "replay_started",
+        "actor": "system",
+        "incident_id": "INC-B79ADF9E",
+        "created_at": "2026-11-17T03:00:36.432364",
+        "details": {
+          "scenario": "kafka_disk_pressure",
+          "run_id": "c10d6834-ae6d-4724-9ec7-5dfc3226c258"
+        }
+      },
+      {
+        "id": "98e18923-19e4-4063-9b77-765a3e9ddbfd",
+        "event": "alert_detected",
+        "actor": "system",
+        "incident_id": "INC-B79ADF9E",
+        "created_at": "2026-11-17T03:00:36.432359",
+        "details": {
+          "rule_id": "dataset_freshness_minutes",
+          "entity_id": "fact_orders",
+          "alert_id": "8cc7175f-3e8e-49ed-a881-87ea4c27c95f"
+        }
+      },
+      {
+        "id": "5c3791f4-83d3-4a09-b036-449d6d52dda9",
+        "event": "alert_detected",
+        "actor": "system",
+        "incident_id": "INC-B79ADF9E",
+        "created_at": "2026-11-17T03:00:36.428556",
+        "details": {
+          "rule_id": "spark_input_delay_seconds",
+          "entity_id": "order_stream_job",
+          "alert_id": "0560575b-8e2a-4bd7-829c-d715748583d2"
+        }
+      },
+      {
+        "id": "ac3c86ad-9d62-4e6e-b20e-fa3435a2a6d3",
+        "event": "alert_detected",
+        "actor": "system",
+        "incident_id": "INC-B79ADF9E",
+        "created_at": "2026-11-17T03:00:36.424793",
+        "details": {
+          "rule_id": "kafka_consumer_lag",
+          "entity_id": "orders-consumer",
+          "alert_id": "5e80307e-cf88-4abc-8c87-18941135017a"
+        }
+      },
+      {
+        "id": "8b4b7beb-39ee-492a-928b-9fce84dd2fe1",
+        "event": "alert_detected",
+        "actor": "system",
+        "incident_id": "INC-B79ADF9E",
+        "created_at": "2026-11-17T03:00:36.420636",
+        "details": {
+          "rule_id": "kafka_isr_percent",
+          "entity_id": "orders.events",
+          "alert_id": "1efafec6-f87d-4ded-906e-4696b8edb4ac"
+        }
+      },
+      {
+        "id": "fdf7daae-dd3b-485e-99c0-903b41318870",
+        "event": "alert_detected",
+        "actor": "system",
+        "incident_id": "INC-B79ADF9E",
+        "created_at": "2026-11-17T03:00:36.416645",
+        "details": {
+          "rule_id": "kafka_disk_percent",
+          "entity_id": "broker-02",
+          "alert_id": "0676d363-f6dd-4505-b3a6-69339677b18c"
+        }
+      },
+      {
+        "id": "40dfc7a6-9f27-4d7b-aff6-ea0339005a72",
+        "event": "chat_message",
+        "actor": "demo.senior_sre",
+        "incident_id": "INC-9A78A5BA",
+        "created_at": "2026-11-17T03:00:36.393877",
+        "details": {
+          "conversation_id": "ca7adb72-7c38-43b4-88cb-5891a5b7212b",
+          "mode": "ask"
+        }
+      },
+      {
+        "id": "8f68ba41-1584-4f2b-bc0b-b0b34e309720",
+        "event": "investigation_created",
+        "actor": "demo.senior_sre",
+        "incident_id": "INC-9A78A5BA",
+        "created_at": "2026-11-17T03:00:36.353130",
+        "details": {}
+      }
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/evaluations",
+    "body": null,
+    "status": 200,
+    "response": [
+      {
+        "id": "0abe5a00-2b3d-4144-a585-f81f092d24d6",
+        "replay_id": "4f56ceae-8dcc-4319-b1cd-7366ee1f7d61",
+        "score": 1.0,
+        "created_at": "2026-11-17T03:00:36.709544",
+        "detection": true,
+        "correlation": true,
+        "approval_required": true,
+        "verification": true,
+        "mode": "simulated"
+      },
+      {
+        "id": "f057291a-29c0-408c-bfe5-7d079e021c09",
+        "replay_id": "77969915-b8f5-45dc-b8fb-380ba2eef4fe",
+        "score": 1.0,
+        "created_at": "2026-11-17T03:00:36.650383",
+        "detection": true,
+        "correlation": true,
+        "approval_required": true,
+        "verification": true,
+        "mode": "simulated"
+      },
+      {
+        "id": "1446ad09-9a8c-4c87-a293-5d6b4dce571e",
+        "replay_id": "c10d6834-ae6d-4724-9ec7-5dfc3226c258",
+        "score": 1.0,
+        "created_at": "2026-11-17T03:00:36.474532",
+        "detection": true,
+        "correlation": true,
+        "approval_required": true,
+        "verification": true,
+        "mode": "simulated"
+      }
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/telemetry/events",
+    "body": null,
+    "status": 200,
+    "response": {
+      "items": [
+        {
+          "id": "69c2f4be-68bc-41e5-b9b6-0286b5148a20",
+          "entity_id": "fact_orders",
+          "observed_at": "2026-11-17T03:00:36.705215",
+          "message": "Allowlisted simulated recovery executed for data_freshness_failure",
+          "mode": "simulated"
+        },
+        {
+          "id": "7f949594-ee42-4745-9425-3e2cb51262b6",
+          "entity_id": "fact_orders",
+          "observed_at": "2026-11-17T03:00:36.673360",
+          "message": "ReplayLab started data_freshness_failure",
+          "mode": "simulated"
+        },
+        {
+          "id": "6fe0efe6-29cd-49a7-a968-8706a50443eb",
+          "entity_id": "order_stream_job",
+          "observed_at": "2026-11-17T03:00:36.646257",
+          "message": "Allowlisted simulated recovery executed for spark_executor_oom",
+          "mode": "simulated"
+        },
+        {
+          "id": "ad55b3d1-5fc8-4284-a2aa-eb6b0221b6fd",
+          "entity_id": "order_stream_job",
+          "observed_at": "2026-11-17T03:00:36.506031",
+          "message": "ReplayLab started spark_executor_oom",
+          "mode": "simulated"
+        },
+        {
+          "id": "8221ac8a-fd2f-410b-a283-789ab9f2b513",
+          "entity_id": "broker-02",
+          "observed_at": "2026-11-17T03:00:36.469377",
+          "message": "Allowlisted simulated recovery executed for kafka_disk_pressure",
+          "mode": "simulated"
+        },
+        {
+          "id": "e39dd751-f9cf-45d1-91b2-ec1bd1340f52",
+          "entity_id": "broker-02",
+          "observed_at": "2026-11-17T03:00:36.433061",
+          "message": "ReplayLab started kafka_disk_pressure",
+          "mode": "simulated"
+        }
+      ],
+      "mode": "simulated-demo"
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/telemetry/logs",
+    "body": null,
+    "status": 200,
+    "response": {
+      "items": [
+        {
+          "id": "d2470228-5fcf-4dbb-89dc-a4cac9d845c1",
+          "entity_id": "fact_orders",
+          "observed_at": "2026-11-17T03:00:36.673354",
+          "message": "fact_orders did not receive expected records",
+          "mode": "simulated"
+        },
+        {
+          "id": "0e450409-8d51-4152-bad3-47d437f1af50",
+          "entity_id": "order_stream_job",
+          "observed_at": "2026-11-17T03:00:36.506026",
+          "message": "OutOfMemoryError order_stream_job executor lost",
+          "mode": "simulated"
+        },
+        {
+          "id": "6a40add6-868c-4cb6-975f-ddc4248befd5",
+          "entity_id": "broker-02",
+          "observed_at": "2026-11-17T03:00:36.433056",
+          "message": "DiskErrorException broker-02: log directory unavailable",
+          "mode": "simulated"
+        }
+      ],
+      "mode": "simulated-demo"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/telemetry/metrics",
+    "body": {
+      "entity_id": "broker-02",
+      "name": "custom_metric",
+      "value": 12
+    },
+    "status": 200,
+    "response": {
+      "metric_id": "c6023bb6-d4f5-4e88-886b-4e574f228cb4",
+      "alert": null,
+      "incident_id": null
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/incidents/analyze",
+    "body": {
+      "description": "Something odd happened"
+    },
+    "status": 200,
+    "response": {
+      "incident_id": "INC-B26EA7CA",
+      "status": "investigating",
+      "technology": "Unknown",
+      "severity": "P4",
+      "confidence": 0.2,
+      "environment": "demo",
+      "tenant_id": "demo",
+      "likely_root_causes": [
+        "insufficient_evidence"
+      ],
+      "evidence": [],
+      "recovery_actions": [
+        {
+          "id": "ACT-001",
+          "action": "Collect current health status using read-only checks",
+          "rationale": "Establish current blast radius before changing state",
+          "risk": "low",
+          "dangerous": false,
+          "requires_approval": false,
+          "status": "proposed"
+        }
+      ],
+      "approval_required": false,
+      "affected_entities": [],
+      "timeline": [
+        {
+          "at": "2026-11-17T03:00:36.763210+00:00",
+          "event": "Investigation started",
+          "kind": "system"
+        },
+        {
+          "at": "2026-11-17T03:00:36.763210+00:00",
+          "event": "Root cause hypothesis generated",
+          "kind": "hypothesis"
+        }
+      ],
+      "engineering_report": "Technology=Unknown; findings=['none']; evidence_count=0; approval_required=False.",
+      "executive_summary": "P4 Unknown incident; evidence-backed investigation is inconclusive. Only read-only next steps are proposed."
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/incidents/analyze",
+    "body": {
+      "description": "HDFS unavailable",
+      "logs": "safe mode",
+      "metrics": {
+        "blocks": 12
+      }
+    },
+    "status": 200,
+    "response": {
+      "incident_id": "INC-C3AB05E0",
+      "status": "investigating",
+      "technology": "HDFS",
+      "severity": "P1",
+      "confidence": 0.79,
+      "environment": "demo",
+      "tenant_id": "demo",
+      "likely_root_causes": [
+        "HDFS safe mode after NameNode restart blocks writes until under-replicated blocks recover."
+      ],
+      "evidence": [
+        {
+          "id": "KB-002",
+          "source": "runbooks/hdfs_safe_mode.md",
+          "kind": "runbook",
+          "snippet": "HDFS safe mode after NameNode restart blocks writes until under-replicated blocks recover.",
+          "score": 0.92,
+          "observed_at": null
+        },
+        {
+          "id": "METRIC-001",
+          "source": "request.metrics.blocks",
+          "kind": "metric",
+          "snippet": "Observed blocks = 12",
+          "score": 1.0,
+          "observed_at": "2026-11-17T03:00:36.769999+00:00"
+        },
+        {
+          "id": "LOG-001",
+          "source": "request.logs",
+          "kind": "log",
+          "snippet": "Log signature observed: safe mode",
+          "score": 0.95,
+          "observed_at": "2026-11-17T03:00:36.769999+00:00"
+        }
+      ],
+      "recovery_actions": [
+        {
+          "id": "ACT-001",
+          "action": "Collect current health status using read-only checks",
+          "rationale": "Establish current blast radius before changing state",
+          "risk": "low",
+          "dangerous": false,
+          "requires_approval": false,
+          "status": "proposed"
+        },
+        {
+          "id": "ACT-002",
+          "action": "Verify NameNode safe mode and under-replicated block counts",
+          "rationale": "Write failures often follow safe mode or replication issues",
+          "risk": "low",
+          "dangerous": false,
+          "requires_approval": false,
+          "status": "proposed"
+        }
+      ],
+      "approval_required": false,
+      "affected_entities": [],
+      "timeline": [
+        {
+          "at": "2026-11-17T03:00:36.770032+00:00",
+          "event": "Investigation started",
+          "kind": "system"
+        },
+        {
+          "at": "2026-11-17T03:00:36.770032+00:00",
+          "event": "Evidence gathered: KB-002",
+          "kind": "evidence",
+          "evidence_id": "KB-002"
+        },
+        {
+          "at": "2026-11-17T03:00:36.770032+00:00",
+          "event": "Evidence gathered: METRIC-001",
+          "kind": "evidence",
+          "evidence_id": "METRIC-001"
+        },
+        {
+          "at": "2026-11-17T03:00:36.770032+00:00",
+          "event": "Evidence gathered: LOG-001",
+          "kind": "evidence",
+          "evidence_id": "LOG-001"
+        },
+        {
+          "at": "2026-11-17T03:00:36.770032+00:00",
+          "event": "Root cause hypothesis generated",
+          "kind": "hypothesis"
+        }
+      ],
+      "engineering_report": "Technology=HDFS; findings=['safe mode']; evidence_count=3; approval_required=False.",
+      "executive_summary": "P1 HDFS incident; evidence-backed investigation is ready for review. Only read-only next steps are proposed."
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/incidents/analyze",
+    "body": {
+      "description": "Spark executor lost",
+      "logs": "OutOfMemoryError",
+      "metrics": {
+        "memory": 92.0
+      }
+    },
+    "status": 200,
+    "response": {
+      "incident_id": "INC-2C4FC08B",
+      "status": "investigating",
+      "technology": "Spark",
+      "severity": "P2",
+      "confidence": 0.91,
+      "environment": "demo",
+      "tenant_id": "demo",
+      "likely_root_causes": [
+        "Spark executor loss with container killed messages often maps to memory overhead pressure."
+      ],
+      "evidence": [
+        {
+          "id": "KB-003",
+          "source": "runbooks/spark_executor_loss.md",
+          "kind": "runbook",
+          "snippet": "Spark executor loss with container killed messages often maps to memory overhead pressure.",
+          "score": 0.89,
+          "observed_at": null
+        },
+        {
+          "id": "METRIC-001",
+          "source": "request.metrics.memory",
+          "kind": "metric",
+          "snippet": "Observed memory = 92.0",
+          "score": 1.0,
+          "observed_at": "2026-11-17T03:00:36.777274+00:00"
+        },
+        {
+          "id": "LOG-001",
+          "source": "request.logs",
+          "kind": "log",
+          "snippet": "Log signature observed: OutOfMemoryError",
+          "score": 0.95,
+          "observed_at": "2026-11-17T03:00:36.777274+00:00"
+        }
+      ],
+      "recovery_actions": [
+        {
+          "id": "ACT-001",
+          "action": "Collect current health status using read-only checks",
+          "rationale": "Establish current blast radius before changing state",
+          "risk": "low",
+          "dangerous": false,
+          "requires_approval": false,
+          "status": "proposed"
+        },
+        {
+          "id": "ACT-002",
+          "action": "Inspect failed stages, executor memory, and GC metrics",
+          "rationale": "Confirm executor pressure before changing job settings",
+          "risk": "low",
+          "dangerous": false,
+          "requires_approval": false,
+          "status": "proposed"
+        }
+      ],
+      "approval_required": false,
+      "affected_entities": [],
+      "timeline": [
+        {
+          "at": "2026-11-17T03:00:36.777304+00:00",
+          "event": "Investigation started",
+          "kind": "system"
+        },
+        {
+          "at": "2026-11-17T03:00:36.777304+00:00",
+          "event": "Evidence gathered: KB-003",
+          "kind": "evidence",
+          "evidence_id": "KB-003"
+        },
+        {
+          "at": "2026-11-17T03:00:36.777304+00:00",
+          "event": "Evidence gathered: METRIC-001",
+          "kind": "evidence",
+          "evidence_id": "METRIC-001"
+        },
+        {
+          "at": "2026-11-17T03:00:36.777304+00:00",
+          "event": "Evidence gathered: LOG-001",
+          "kind": "evidence",
+          "evidence_id": "LOG-001"
+        },
+        {
+          "at": "2026-11-17T03:00:36.777304+00:00",
+          "event": "Root cause hypothesis generated",
+          "kind": "hypothesis"
+        }
+      ],
+      "engineering_report": "Technology=Spark; findings=['OutOfMemoryError']; evidence_count=3; approval_required=False.",
+      "executive_summary": "P2 Spark incident; evidence-backed investigation is ready for review. Only read-only next steps are proposed."
+    }
+  }
+]

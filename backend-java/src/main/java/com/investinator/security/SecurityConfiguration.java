@@ -15,8 +15,15 @@ public class SecurityConfiguration {
         return name -> { throw new UsernameNotFoundException("Interactive authentication is not configured"); };
     }
     @Bean SecurityFilterChain security(HttpSecurity http,
-            @Value("${investinator.metrics.token:}") String token) throws Exception {
-        return http.authorizeHttpRequests(a -> a
+            @Value("${investinator.metrics.token:}") String token,
+            @Value("${investinator.persistence.enabled:false}") boolean persistence,
+            @Value("${investinator.demo-mode:true}") boolean demo) throws Exception {
+        return http.sessionManagement(session -> session.sessionCreationPolicy(org.springframework.security.config.http.SessionCreationPolicy.STATELESS))
+            .csrf(csrf -> { if(persistence && demo) csrf.ignoringRequestMatchers("/api/v1/**", "/incidents/**"); })
+            .exceptionHandling(errors -> errors
+                .authenticationEntryPoint((request,response,exception) -> reject(request,response,persistence&&!demo))
+                .accessDeniedHandler((request,response,exception) -> reject(request,response,persistence&&!demo)))
+            .authorizeHttpRequests(a -> a
             .requestMatchers("/actuator/health/liveness", "/actuator/health/readiness", "/api/v1/platform/health").permitAll()
             .requestMatchers("/actuator/prometheus").access((auth, context) -> {
                 String header = context.getRequest().getHeader("Authorization");
@@ -24,6 +31,13 @@ public class SecurityConfiguration {
                     ("Bearer " + token).getBytes(StandardCharsets.UTF_8), header.getBytes(StandardCharsets.UTF_8));
                 return new AuthorizationDecision(allowed);
             })
+            .requestMatchers("/health", "/api/v1/**", "/incidents", "/incidents/**", "/command-center", "/pulse", "/nerve-map", "/ai/health", "/audit", "/metrics")
+                .access((auth,context) -> new AuthorizationDecision(persistence && demo))
             .anyRequest().denyAll()).build();
+    }
+    private static void reject(jakarta.servlet.http.HttpServletRequest request,jakarta.servlet.http.HttpServletResponse response,boolean nonDemo) throws java.io.IOException {
+        boolean missingIdentity=nonDemo&&!request.getRequestURI().startsWith("/actuator/");
+        response.setStatus(missingIdentity?503:403);response.setContentType("application/json");
+        response.getWriter().write(missingIdentity?"{\"detail\":\"OIDC identity provider is required when demo mode is disabled\"}":"{\"detail\":\"Access denied\"}");
     }
 }
