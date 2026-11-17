@@ -1,4 +1,4 @@
-# InvestiNator
+# InvestiNator — AI DataOps Incident Investigation Copilot
 
 **AI-powered DataOps Observability, Investigation & Controlled Remediation**
 
@@ -13,14 +13,23 @@ InvestiNator follows a signal across infrastructure, pipelines, and datasets, ga
 | Telemetry and Pulse | API ingestion, seeded metrics/logs/events, threshold alerts, Prometheus API scrape, optional OpenTelemetry HTTP traces | ReplayLab fault signals are simulated; no live Spark, HDFS, NiFi, or Kudu connector |
 | Kafka | Real local producer, consumer, and read-only broker health in Compose | Broker disk pressure and lag failure scenarios are injected demo signals |
 | Correlation and NerveMap | Persistent topology, correlated alerts, incident evidence, blast radius, dataset freshness | Seed lineage graph; no automatic discovery |
-| Investigator and memory | Read-only tool registry, searchable seed knowledge, deterministic analysis, optional OpenAI Responses structured investigation | OpenAI needs a key and model name; no paid call is required for the demo |
+| Investigator and memory | Read-only tool registry, saved multi-turn chat, real GPT Responses tool-calling when configured, plus deterministic fallback | Requires an OpenAI API key and configured model; source metrics can still be simulated |
 | Fix and verification | Deterministic policy, recorded approvals, one allowlisted simulated recovery, metric-based verification, audit trail | No production shell or infrastructure write executor |
 | ReplayLab and evaluation | Three replay scenarios, saved run/evaluation records, offline regression dataset | Scenario results describe demo behavior only |
 | Interface | Next.js Command Center, Pulse, Incident Room, Investigator, NerveMap, ReplayLab, Approvals, Knowledge, AI Observability and more | Demo identity is fixed server-side; OIDC/RBAC is not implemented |
 
+For a **real GPT-backed local chatbot** and optional Elasticsearch log retrieval, follow the [Live Investigator setup](docs/live-investigator.md). The public GitHub Pages UI is a static preview, not an API-connected live demo.
+
 The dark interface uses a shared [cyberpunk design system](docs/design-system.md) with accessible neon controls, terminal panels, and responsive layouts.
 
-Explore the [public GitHub Pages UI preview](https://minaadelmarkos.github.io/Enterprise-DataOps-Incident-Resolution-Copilot/) with synthetic data, or follow the [detailed user guide](docs/user-guide.md) to run the complete API-backed demo locally. The preview source and deployment workflow live in `apps/showcase` and `.github/workflows/pages.yml`.
+Explore the [public GitHub Pages UI preview](https://minaadelmarkos.github.io/Investinator-Enterprise-DataOps-Incident-Resolution/) with synthetic data, or follow the [detailed user guide](docs/user-guide.md) to run the complete API-backed demo locally. The preview source and deployment workflow live in `apps/showcase` and `.github/workflows/pages.yml`.
+
+
+## Engineering evidence
+
+- **Author:** [Mina Markos](https://minaadelmarkos.github.io/MinaMarkos/). See the [architecture](docs/architecture.md) for the service and evidence flow.
+- **Reproduce a case:** Run the documented [Kafka disk-pressure replay](docs/user-guide.md) with synthetic orders. The [API smoke script](scripts/smoke_demo.py) exercises investigation, approval and verification.
+- **Evaluate safely:** The [offline fixtures](eval/test_incidents.jsonl) and [workflow tests](tests/test_workflow.py) cover demo behavior. Use the [security notes](docs/security.md) to understand the demo identity and remediation boundaries.
 
 ## Run the full demo
 

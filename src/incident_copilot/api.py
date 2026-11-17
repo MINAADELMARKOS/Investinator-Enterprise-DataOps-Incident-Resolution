@@ -14,6 +14,7 @@ from sqlalchemy.orm import Session
 
 from .agents import run_workflow
 from .ai_gateway import investigate
+from .chat_runtime import run_chat
 from .config import get_settings
 from .db import (
     AIUsageRow,
@@ -254,41 +255,55 @@ def investigate_incident(incident_id: str, identity: tuple[str, str] = Depends(d
 @app.post("/api/v1/investigator/messages")
 def chat_message(request: ChatMessage, identity: tuple[str, str] = Depends(demo_identity),
                  db: Session = Depends(db_session)) -> dict:
+    """Real GPT conversation when configured; explicit deterministic fallback otherwise."""
     tenant, actor = identity
-    conversation = None
     if request.conversation_id:
-        conversation = db.scalar(select(ConversationRow).where(ConversationRow.id == request.conversation_id,
-                                                               ConversationRow.tenant_id == tenant))
+        conversation = db.scalar(select(ConversationRow).where(
+            ConversationRow.id == request.conversation_id,
+            ConversationRow.tenant_id == tenant,
+        ))
         if conversation is None:
             raise HTTPException(status_code=404, detail="Conversation not found")
+        if request.incident_id and conversation.incident_id and request.incident_id != conversation.incident_id:
+            raise HTTPException(status_code=400, detail="Incident does not match conversation")
+        if not conversation.incident_id and request.incident_id:
+            conversation.incident_id = request.incident_id
     else:
         conversation = ConversationRow(tenant_id=tenant, incident_id=request.incident_id)
         db.add(conversation)
         db.flush()
-    incident_id = request.incident_id or conversation.incident_id
+
+    incident_id = conversation.incident_id
     relevant = require_incident(db, tenant, incident_id) if incident_id else None
-    db.add(MessageRow(conversation_id=conversation.id, tenant_id=tenant,
-                      role="user", content=redact_sensitive(request.message), payload={"mode": request.mode}))
-    if relevant:
-        analysis = investigate(db, tenant, relevant) if request.mode == "investigate" else None
-        if request.mode == "fix":
-            response = "Proposed actions are shown in the Incident Room. Human approval is required for risky steps."
-        elif analysis and analysis.get("available"):
-            response = analysis["analysis"]["summary"]
-        else:
-            response = relevant.executive_summary
-        evidence_ids = [item.id for item in relevant.evidence[:5]]
-    else:
-        response = "Select an incident to investigate evidence, impact, and safe next steps."
-        evidence_ids = []
-    db.add(MessageRow(conversation_id=conversation.id, tenant_id=tenant,
-                      role="assistant", content=response,
-                      payload={"evidence_ids": evidence_ids, "mode": "deterministic-fallback"}))
-    audit(db, tenant, "chat_message", actor=actor, incident_id=incident_id,
-          details={"conversation_id": conversation.id, "mode": request.mode})
+    previous = db.scalars(select(MessageRow).where(
+        MessageRow.conversation_id == conversation.id,
+        MessageRow.tenant_id == tenant,
+    ).order_by(MessageRow.created_at.desc(), MessageRow.id.desc()).limit(12)).all()
+    history = [{"role": item.role, "content": item.content} for item in reversed(previous)]
+    result = run_chat(db, tenant, request.message, history, relevant, request.mode)
+    db.add(MessageRow(
+        conversation_id=conversation.id, tenant_id=tenant, role="user",
+        content=redact_sensitive(request.message), payload={"mode": request.mode},
+    ))
+    db.add(MessageRow(
+        conversation_id=conversation.id, tenant_id=tenant, role="assistant",
+        content=result["answer"][:10000],
+        payload={
+            "evidence_ids": result["evidence_ids"],
+            "mode": result["response_mode"],
+            "model": result["model"],
+            "tool_calls": result["tool_calls"],
+        },
+    ))
+    audit(db, tenant, "chat_message", actor=actor, incident_id=incident_id, details={
+        "conversation_id": conversation.id,
+        "mode": request.mode,
+        "response_mode": result["response_mode"],
+        "model": result["model"],
+        "tool_count": len(result["tool_calls"]),
+    })
     db.commit()
-    return {"conversation_id": conversation.id, "incident_id": incident_id,
-            "answer": response, "evidence_ids": evidence_ids}
+    return {"conversation_id": conversation.id, "incident_id": incident_id, **result}
 
 
 @app.get("/api/v1/investigator/conversations/{conversation_id}")

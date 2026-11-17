@@ -28,6 +28,8 @@ from .schemas import (
 )
 
 GRAPH_NODES = [
+    ("network-link-01", "NETWORK", "Network link (synthetic demo dependency)", 3),
+    ("controller-01", "KRAFT_CONTROLLER", "KRaft controller (synthetic demo dependency)", 3),
     ("orders-producer", "APPLICATION", "Orders producer", 2),
     ("broker-02", "KAFKA_BROKER", "broker-02", 3),
     ("orders.events", "KAFKA_TOPIC", "orders.events", 3),
@@ -37,6 +39,8 @@ GRAPH_NODES = [
     ("revenue-dashboard", "DASHBOARD", "Revenue dashboard", 3),
 ]
 GRAPH_EDGES = [
+    ("network-link-01", "controller-01", "NETWORK_DEPENDENCY"),
+    ("controller-01", "broker-02", "METADATA_CONTROL_PLANE"),
     ("orders-producer", "orders.events", "PRODUCES_TO"),
     ("broker-02", "orders.events", "HOSTED_ON"),
     ("orders.events", "orders-consumer", "FEEDS"),
