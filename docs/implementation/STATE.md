@@ -1,6 +1,6 @@
 # Implementation state
 
-Updated 2026-11-17. Scope authorized: Prompts 00–04; user requested 03 and 04 together.
+Updated 2026-11-17. Scope authorized: Prompts 00–06; user explicitly requested 05 and 06 together.
 Branch: `feature/java-ai-audit` (chosen because no feature branch name was supplied).
 Base and observed remote main: `920fefe1b86e55f038fb0a7e56dd0b42e9d34118`.
 
@@ -26,7 +26,7 @@ Validation: clean initial working tree; feature branch created; state and rules 
 
 Read AUDIT.md, PR3_REVIEW.md, API_PARITY_MATRIX.md, HEALTH_MATRIX.md, GAPS.md,
 RISK_REGISTER.md, ARCHITECTURE.md, MIGRATION_PLAN.md and DECISIONS.md.
-Specification retained verbatim in SPECIFICATION.md; prompts after 04 are not executed.
+Specification retained verbatim in SPECIFICATION.md; Prompts 00–05 completed; Prompt 06 is authorized after the Prompt 05 commit.
 Baseline commands, logs, contract and schema are under baseline/. Reproduction generators
 run from repository root with .venv/bin/python. Schema output is read-only metadata,
 not a claim of deployed PostgreSQL parity. UI and Python source unchanged.
@@ -73,3 +73,15 @@ incompatible with this kernel; OpenSearch 3.4.0 / official Java 3.11.0 is verifi
 See prompt04/REPORT.md and infra/evidence/README.md. Default Python/UI routing and
 existing data remain untouched. No provider, production execution or environment
 publication. Prompts after 04 are not authorized; stop here. Release remains BLOCKED.
+
+## Prompt 05 — PASS (local operational acceptance); release remains BLOCKED
+
+Build the bounded diagnostic engine and local CLI; Prompt 06 waits for this stage gate. Existing application/default routing and production execution boundaries remain.
+
+Prompt 05 checkpoint: 36 Java tests and 10 CLI tests pass, no skipped Java tests.
+Fresh-volume up/doctor/smoke and unchanged reruns pass with stable container IDs.
+Eight dependency-stop tests identify failure and recover without cascading restarts.
+Reports and JSON schema: [prompt05](prompt05/REPORT.md); ADR 012 and operations guide
+record policy and limits. Private integrations/GPT NOT_CONFIGURED; paid calls and
+native Windows NOT_TESTED. Critical Next.js release gate remains failed. No push,
+merge, environment publication or production infrastructure change performed.

@@ -11,3 +11,5 @@ apps/web/.next/
 apps/showcase/node_modules/
 apps/showcase/dist/
 src/*.egg-info/
+
+.runtime/

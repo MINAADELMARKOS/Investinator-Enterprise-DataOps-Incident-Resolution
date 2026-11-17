@@ -1,0 +1,15 @@
+{
+  "java": {
+    "tests": 36,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "cli": {
+    "tests": 10,
+    "failures": 0
+  },
+  "python_and_ui_source": "unchanged",
+  "paid_openai_request": "NOT_TESTED; no request made",
+  "windows_native": "NOT_TESTED; no PowerShell runtime on this host"
+}

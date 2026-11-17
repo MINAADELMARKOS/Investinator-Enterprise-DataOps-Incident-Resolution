@@ -30,6 +30,13 @@ logging:
     format:
       console: ecs
 investinator:
+  health:
+    token: ${HEALTH_API_TOKEN:}
+    scheduled: ${HEALTH_SCHEDULED:false}
+    interval-ms: ${HEALTH_INTERVAL_MS:20000}
+    timeout-ms: ${HEALTH_TIMEOUT_MS:6000}
+    deadline-ms: ${HEALTH_DEADLINE_MS:12000}
+    freshness-seconds: ${HEALTH_FRESHNESS_SECONDS:86400}
   evidence:
     enabled: ${EVIDENCE_SEARCH_ENABLED:false}
     token: ${EVIDENCE_API_TOKEN:}

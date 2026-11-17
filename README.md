@@ -89,3 +89,11 @@ See [architecture](docs/architecture.md), [AI design](docs/ai-design.md), [secur
 ## Creator
 
 Created by **Mina Adel Markos**, Senior Big Data Engineer. [GitHub](https://github.com/MINAADELMARKOS) · [LinkedIn](https://www.linkedin.com/in/mina-markos-343b8b171).
+
+## Local Java integration operations
+
+Run `./investinator up && ./investinator doctor && ./investinator smoke` for the
+isolated Java/PostgreSQL/Kafka/search/telemetry/Next.js lab. Windows uses
+`./investinator.ps1`. See [operations](docs/operations.md) for prerequisites,
+JSON health reports, safe teardown and explicit demo reset. This optional profile
+preserves the existing Python deployment; local samples remain SIMULATED.

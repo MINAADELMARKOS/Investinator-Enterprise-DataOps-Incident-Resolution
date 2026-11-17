@@ -1,0 +1,7 @@
+{
+  "fresh_volumes_up_doctor_smoke": "PASS",
+  "unchanged_up_doctor_smoke": "PASS",
+  "container_ids_stable": true,
+  "down_preserves_volumes": "covered by CLI tests and explicit local teardown",
+  "destructive_reset": "own generated demo volumes only; confirmation flag required"
+}

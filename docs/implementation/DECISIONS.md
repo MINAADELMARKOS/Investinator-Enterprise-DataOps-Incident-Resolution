@@ -135,3 +135,30 @@ are visible local-demo settings, not an exactly-once production guarantee.
 Profiles are isolated demos with loopback publication and backend-only credentials.
 Enterprise evidence service startup/access remains disabled until identity/TLS review.
 Existing Python/UI defaults and production execution stay unchanged.
+
+## ADR 012 — Separate read-only diagnostic health from restart decisions
+
+Accepted for Prompt 05. Introduce typed service probes with bounded concurrency,
+queue, deadlines, jittered transient retry, per-service circuit cooldown and
+optional interval refresh. Never make external Kafka/search/GPT health part of
+Spring liveness. Core readiness keeps the dedicated database/schema checks.
+Optional missing integrations remain explicit, and a requested missing service
+fails its specific CLI check. Cached delivery is labeled; stale cache is UNKNOWN.
+Diagnostics never produce Kafka records, mutate infrastructure, invoke recovery
+or spend provider tokens. An explicit separate local fixture seeder verifies a
+random owned cluster identity. Production identity remains fail-closed.
+
+The root Bash/PowerShell wrappers share a small Python standard-library operations
+core rather than duplicating lifecycle policy. Local-only Docker, fixed service
+allowlist, checkout/project ownership, generated private credentials and volume
+labels bound its scope. `down` preserves data; destructive reset requires the
+spelled-out confirmation flag and prints exact volume names. A dedicated Compose
+file avoids altering the existing Python/Next default deployment. Cached build
+fingerprints avoid unnecessary rebuilds/replacements on unchanged `up` runs.
+
+A LIVE service response does not make its incident data production data: sample
+logs, metrics, traces and recovery stay SIMULATED. A single-node yellow search
+cluster is acceptable; absent/stale evidence and missing traces are degraded.
+Provider health checks presence only unless a user explicitly runs a cost-bounded,
+rate-limited live probe. The known Next.js audit failure stays a release blocker
+independent of a healthy local runtime. Native Windows validation is NOT_TESTED.
