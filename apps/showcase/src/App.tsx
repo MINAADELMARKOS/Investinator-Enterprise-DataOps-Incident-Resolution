@@ -28,7 +28,7 @@ import mark from "../../web/public/brand/investinator-mark.svg";
 import { entities, links, routeGroups, scenarios, type Scenario } from "./data";
 
 const repository =
-  "https://github.com/MINAADELMARKOS/Enterprise-DataOps-Incident-Resolution-Copilot";
+  "https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution";
 const page = (route: string) => `#${route}`;
 const icons: Record<string, typeof Activity> = {
   "/": LayoutDashboard,
