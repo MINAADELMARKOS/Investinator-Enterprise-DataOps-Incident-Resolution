@@ -28,9 +28,10 @@ public class OperationalController {
     private final boolean demo;
     private final String configuredTenant;
     private final Environment env;
+    private final org.springframework.beans.factory.ObjectProvider<com.investinator.correlation.CorrelationService> correlations;
     public OperationalController(WorkflowService service,@Value("${investinator.demo-mode:true}") boolean demo,
-        @Value("${investinator.demo-tenant:demo}") String tenant,Environment env) {
-        this.service=service;this.db=service.db;this.demo=demo;this.configuredTenant=tenant;this.env=env;
+        @Value("${investinator.demo-tenant:demo}") String tenant,Environment env,org.springframework.beans.factory.ObjectProvider<com.investinator.correlation.CorrelationService> correlations) {
+        this.service=service;this.db=service.db;this.demo=demo;this.configuredTenant=tenant;this.env=env;this.correlations=correlations;
         if(!tenant.matches("[A-Za-z0-9_-]{1,100}"))throw new IllegalArgumentException("Invalid demo tenant");
     }
     @Bean ApplicationRunner initializeDemo() {return args->{if(demo)service.seed(configuredTenant);};}
@@ -64,7 +65,11 @@ public class OperationalController {
         return read(()->obj("items",db.select(Table.TELEMETRY,tenant(),"signal_type=?",kind.substring(0,kind.length()-1)).stream().limit(limit).map(r->{var p=obj("id",r.get("id"),"entity_id",external(r.get("entity_id")),"observed_at",r.get("observed_at"));p.putAll(map(r.get("payload")));return p;}).toList(),"mode","simulated-demo"));
     }
     private String external(Object id){String value=id.toString(),prefix=tenant()+":";return value.startsWith(prefix)?value.substring(prefix.length()):value;}
-    @GetMapping({"/api/v1/topology","/nerve-map"}) public Object topology(){return read(()->service.topology(tenant()));}
+    @GetMapping({"/api/v1/topology","/nerve-map"}) public Object topology(){return read(()->{
+        String selected=env.getProperty("INVESTINATOR_TOPOLOGY_GRAPH","");if(selected.isBlank())return service.topology(tenant());
+        var graph=correlations.getObject().graph(tenant(),selected,null);
+        return obj("nodes",graph.nodes().stream().map(n->obj("id",n.id(),"name",n.name(),"type",n.type().name().toLowerCase(Locale.ROOT),"criticality",1)).toList(),"edges",graph.at(java.time.Instant.now()).stream().map(e->obj("from",e.from(),"to",e.to(),"relationship",e.type().name())).toList(),"mode",graph.source_mode().equals("SIMULATED")?"simulated-demo":"live");
+    });}
     @GetMapping("/api/v1/topology/{entity}/blast-radius") public Object blast(@PathVariable String entity){return read(()->obj("root",entity,"downstream",service.blast(tenant(),entity),"mode","simulated-demo"));}
     @GetMapping("/api/v1/alerts") public Object alerts(){return read(()->db.all(Table.ALERTS,tenant()).stream().limit(100).map(r->{var p=select(r,"id","incident_id","rule_id","severity","observed_at");p.put("entity_id",external(r.get("entity_id")));p.putAll(map(r.get("payload")));return p;}).toList());}
     @GetMapping({"/api/v1/incidents","/incidents"}) public Object incidents(){return read(()->service.incidents(tenant()));}

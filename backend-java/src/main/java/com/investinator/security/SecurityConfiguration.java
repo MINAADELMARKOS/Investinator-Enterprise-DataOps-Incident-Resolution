@@ -19,6 +19,8 @@ public class SecurityConfiguration {
             @Value("${investinator.evidence.token:}") String evidenceToken,
             @Value("${investinator.health.token:}") String healthToken,
             @Value("${CONNECTOR_API_TOKEN:}") String connectorToken,
+            @Value("${INVESTIGATION_API_TOKEN:}") String investigationToken,
+            @Value("${GRAPH_ADMIN_TOKEN:}") String graphAdminToken,
             @Value("${investinator.persistence.enabled:false}") boolean persistence,
             @Value("${investinator.demo-mode:true}") boolean demo) throws Exception {
         return http.sessionManagement(session -> session.sessionCreationPolicy(org.springframework.security.config.http.SessionCreationPolicy.STATELESS))
@@ -28,6 +30,9 @@ public class SecurityConfiguration {
                 .accessDeniedHandler((request,response,exception) -> reject(request,response,persistence&&!demo)))
             .authorizeHttpRequests(a -> a
             .requestMatchers("/actuator/health/liveness", "/actuator/health/readiness", "/api/v1/platform/health").permitAll()
+            .requestMatchers(org.springframework.http.HttpMethod.POST,"/api/v1/dependencies/fixtures").access((auth,context)->new AuthorizationDecision(demo&&matches(graphAdminToken,context.getRequest().getHeader("Authorization"))))
+            .requestMatchers(org.springframework.http.HttpMethod.GET,"/api/v1/dependencies/**").access((auth,context)->new AuthorizationDecision(demo&&matches(investigationToken,context.getRequest().getHeader("Authorization"))))
+            .requestMatchers("/api/v1/dependencies/**").denyAll()
             .requestMatchers(org.springframework.http.HttpMethod.GET,"/api/v1/connectors","/api/v1/connectors/**").access((auth,context) -> {
                 String header=context.getRequest().getHeader("Authorization");
                 return new AuthorizationDecision(!connectorToken.isBlank()&&header!=null&&demo&&MessageDigest.isEqual(
@@ -54,6 +59,7 @@ public class SecurityConfiguration {
                 .access((auth,context) -> new AuthorizationDecision(persistence && demo))
             .anyRequest().denyAll()).build();
     }
+    private static boolean matches(String token,String header){return !token.isBlank()&&header!=null&&MessageDigest.isEqual(("Bearer "+token).getBytes(StandardCharsets.UTF_8),header.getBytes(StandardCharsets.UTF_8));}
     private static void reject(jakarta.servlet.http.HttpServletRequest request,jakarta.servlet.http.HttpServletResponse response,boolean nonDemo) throws java.io.IOException {
         boolean missingIdentity=nonDemo&&!request.getRequestURI().startsWith("/actuator/");
         response.setStatus(missingIdentity?503:403);response.setContentType("application/json");

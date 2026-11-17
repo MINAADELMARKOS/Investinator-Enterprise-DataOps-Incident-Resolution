@@ -44,3 +44,8 @@ further reduced for the isolated lab, not for private or production clusters.
 Prompt 06 fixes the Kafka image log-directory/named-volume mismatch and verifies
 retained records/offsets across teardown. This is local fixture durability, not a
 backup/restore or production disaster-recovery certification.
+
+Prompt 07: deterministic graph/time correlation passes simulated and adversarial
+cases; it does not prove causation. Graph discovery and production topology
+provenance remain unverified. Qualitative hypothesis bands must not be presented
+as statistical causal probabilities. R1 remains a release blocker.

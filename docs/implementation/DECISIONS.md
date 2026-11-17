@@ -199,3 +199,17 @@ Optional Ranger remains unsupported until a distribution/version contract is
 verified, rather than inventing an endpoint. Scoped reads can pass while unobserved
 streaming/queue-age/worker/quorum dimensions remain explicitly unverified. Private
 Kerberos/mTLS/scopes and production readiness require independent validation.
+
+## ADR 014 — Immutable graph observations and conservative causal hypotheses
+
+Prompt 07 uses Java-owned PostgreSQL graph revisions/evidence with explicit
+incident bindings, independent from the legacy topology projection. Relationship
+direction defines impact traversal; validity and discovery times gate edges.
+Public fixture imports require a separate admin token and SIMULATED provenance.
+Production discovery is not invented from seeded entities or model text.
+Ranking uses distinct reachable components, temporal precedence/skew, bounded
+intensity, recovery and contradictions. Repeated lines cannot vote for high
+confidence. Source modes are not combined for corroboration. Confidence is a
+qualitative evidence band; RootCause remains distinct and unconfirmed. No model,
+remediation or external infrastructure mutation is involved. Default frontend/
+Python behavior is preserved; typed graph projection is explicitly configured.

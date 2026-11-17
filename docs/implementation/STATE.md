@@ -1,6 +1,6 @@
 # Implementation state
 
-Updated 2026-11-17. Scope authorized: Prompts 00–06; user explicitly requested 05 and 06 together.
+Updated 2026-11-17. Scope authorized: Prompts 00–09; user explicitly requested 07, 08 and 09 together.
 Branch: `feature/java-ai-audit` (chosen because no feature branch name was supplied).
 Base and observed remote main: `920fefe1b86e55f038fb0a7e56dd0b42e9d34118`.
 
@@ -104,3 +104,13 @@ remain explicit NOT_TESTED/gaps; live private services NOT_CONFIGURED. Productio
 identity, security audit, native Windows and critical Next.js release gates remain.
 No production actions, paid provider calls, push/merge or environment publication.
 Stop after Prompt 06; Prompt 07 is not authorized.
+
+## Prompt 07 — PASS (local deterministic correlation gate)
+
+User authorized 07–09. Implement versioned graph, deterministic temporal correlation and adversarial tests before advancing to 08.
+
+Prompt 07 checkpoint: 57 Java tests and 13 CLI tests PASS, no skips. Independent
+KRaft/legacy upstream ranking, disk-vs-healthy-ZK, mixed provenance, contradictions,
+version validity and tenant/incident scope pass. PostgreSQL Java queries/persistence
+pass. Reports: [prompt07](prompt07/REPORT.md). Production graph discovery, identity
+and critical Next.js release gates remain. Prompt 08 may now start after commit.

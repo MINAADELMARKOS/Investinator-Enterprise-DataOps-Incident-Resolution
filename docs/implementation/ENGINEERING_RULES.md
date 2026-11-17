@@ -1,8 +1,8 @@
 # Engineering execution contract
 
 Read STATE.md and DECISIONS.md before changing code in every session. The user
-now authorizes stages 00–06; later specification prompts are a roadmap,
-not permission to implement stages 07 onward. Keep one commit per completed stage and stop at
+now authorizes stages 00–09; later specification prompts are a roadmap,
+not permission to implement stages 10 onward. Keep one commit per completed stage and stop at
 failed acceptance gates. Never push or merge main without authorization.
 
 Preserve Next.js design, APIs and aliases, data, audit, demo scenarios and approval
