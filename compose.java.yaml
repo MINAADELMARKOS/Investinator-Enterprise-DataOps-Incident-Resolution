@@ -1,0 +1,10 @@
+# Additive, opt-in Java scaffold. Existing Python and web routing are unchanged.
+services:
+  java-api:
+    profiles: [java]
+    build: ./backend-java
+    image: investinator-java:scaffold
+    environment:
+      SPRING_PROFILES_ACTIVE: demo
+    ports:
+      - "127.0.0.1:${JAVA_HOST_PORT:-8081}:8081"

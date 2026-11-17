@@ -1,0 +1,3 @@
+# demo: connector credentials are environment-only. No schema migration or production executor.
+investinator:
+  environment: demo

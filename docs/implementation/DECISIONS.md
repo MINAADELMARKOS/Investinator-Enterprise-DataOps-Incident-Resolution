@@ -64,3 +64,28 @@ approval, allowlisting, expiry/idempotency and independent post-state verificati
 Prompts 00–01 add rules, source-backed artifacts and plans only. Record baseline failures
 without modifying the app to make the audit pass. Critical Next.js findings block release;
 no migration phase is started in this task. Python and Next.js remain the rollback path.
+
+## ADR-009 — Prompt 02 verified scaffold (2026-11-17)
+
+User explicitly authorized Prompt 02. Maven Central contains stable Boot 4.1.2;
+resolve and test it on JDK 21 rather than using the 4.2 release candidate. Use Maven
+Wrapper 3.9.11/3.3.4 with distribution checksum; BOM-managed versions and explicit vendor
+pins are captured in prompt02/dependency-tree.txt. Use JDBC dependencies without a
+DataSource or Flyway runner until Prompt 03; no schema ownership changes now.
+
+Compatibility experiment: JUnit 5.13.4 fails Spring 7's ExtensionContext.Store usage
+with NoSuchMethodError. Choose Boot-managed JUnit 6.0.3/Jupiter as the supported
+alternative; preserve failure evidence. OpenAI client has close() but is not
+AutoCloseable, verified by javap and client-construction test. The SDK bean declares
+close as its destroy method. OTel is installed but export disabled by default.
+
+A health-only scaffold keeps top-level platform contract keys, explicitly marks
+unmigrated behavior and leaves measurements null. It must not receive existing UI
+traffic. Readiness excludes nonexistent persistence and optional connectors. Restrict
+Actuator exposure, deny unknown routes, require an external bearer secret for metrics,
+keep forwarded-header trust off, and require external TLS bundle in enterprise mode.
+No enterprise identity or production write authorization is implied.
+
+Use a separate opt-in Compose overlay and host port; preserve base Compose/Python/UI.
+The non-root digest-pinned runtime image packages the locally verified jar. Rollback:
+stop java-api only; all current traffic and migrations remain owned by Python.

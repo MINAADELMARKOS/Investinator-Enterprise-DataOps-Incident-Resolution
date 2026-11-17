@@ -13,7 +13,7 @@ Audit observations are not production health. No service startup was performed t
 | Prometheus | Compose /metrics scrape config | NOT_TESTED | scrape target + PromQL functional check |
 | OTel | optional HTTP exporter, debug collector | NOT_CONFIGURED | end-to-end retained trace arrival |
 | GPT | main optional structured parse, PR tool loop | NOT_CONFIGURED; fake PR tests only | opt-in live provider and strict loop negative tests |
-| Java | not scaffolded | NOT_IMPLEMENTED | Java 21 wrapper verify, Actuator, container smoke |
+| Java | Prompt 02 health-only scaffold | JDK21 verify and HTTP/container smoke PASS | no migrated business APIs or live connectors; see prompt02/REPORT.md |
 | Spark/YARN/HDFS/Hive/Kudu/NiFi/Airflow | runbook text / simulation only | NOT_CONFIGURED | real authenticated version-aware adapters |
 | ZooKeeper | absent; KRaft Compose | NOT_CONFIGURED | legacy-only fixture and mode detection |
 

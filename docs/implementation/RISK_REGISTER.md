@@ -7,7 +7,7 @@
 | R3 | High / AI lead | PR regex citations, no total deadline | typed membership, prompt injection and budget tests before port acceptance |
 | R4 | High / SRE | platform missing metrics default healthy | freshness/UNKNOWN semantics and dependency failure tests |
 | R5 | High / data owner | Alembic/Flyway and JSON/schema parity | one migration owner, backup/restore and compatibility tests before writes |
-| R6 | High / platform lead | Boot/SDK/client versions unverified | official pins, Java21 wrapper verify and container smoke |
+| R6 | High / platform lead | Prompt 02 pins, JDK21 wrapper verify and container smoke pass; live connector compatibility remains unverified | retain per-connector integration gates; JUnit6 compatibility decision in ADR-009 |
 | R7 | High / integration lead | no live big-data/search proof | version-aware credential-scoped functional tests; label unconfigured |
 | R8 | High / security + change owner | demo approvals are not independent auth | production executor stays absent; separate authorization required |
 | R9 | Medium / UI/API lead | generic dict contracts, proxy drops identity/request headers | explicit contracts and routing/auth propagation tests |

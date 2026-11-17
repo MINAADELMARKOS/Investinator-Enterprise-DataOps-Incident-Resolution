@@ -1,0 +1,7 @@
+# Fail closed without an externally configured TLS bundle. No forwarded headers trusted.
+investinator:
+  environment: enterprise
+server:
+  ssl:
+    enabled: true
+    bundle: ${JAVA_TLS_BUNDLE}

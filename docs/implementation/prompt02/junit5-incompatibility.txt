@@ -1,0 +1,98 @@
+[INFO] Scanning for projects...
+[INFO]
+[INFO] -------------------< com.investinator:backend-java >--------------------
+[INFO] Building backend-java 0.1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/junit/jupiter/junit-jupiter/5.13.4/junit-jupiter-5.13.4.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/jupiter/junit-jupiter/5.13.4/junit-jupiter-5.13.4.pom (3.2 kB at 6.5 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/junit/jupiter/junit-jupiter-api/5.13.4/junit-jupiter-api-5.13.4.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/jupiter/junit-jupiter-api/5.13.4/junit-jupiter-api-5.13.4.pom (3.2 kB at 47 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-commons/1.13.4/junit-platform-commons-1.13.4.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-commons/1.13.4/junit-platform-commons-1.13.4.pom (2.9 kB at 43 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/junit/jupiter/junit-jupiter-params/5.13.4/junit-jupiter-params-5.13.4.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/jupiter/junit-jupiter-params/5.13.4/junit-jupiter-params-5.13.4.pom (3.0 kB at 39 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/junit/jupiter/junit-jupiter-engine/5.13.4/junit-jupiter-engine-5.13.4.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/jupiter/junit-jupiter-engine/5.13.4/junit-jupiter-engine-5.13.4.pom (3.2 kB at 61 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-engine/1.13.4/junit-platform-engine-1.13.4.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-engine/1.13.4/junit-platform-engine-1.13.4.pom (3.2 kB at 48 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/junit/jupiter/junit-jupiter/5.13.4/junit-jupiter-5.13.4.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/jupiter/junit-jupiter/5.13.4/junit-jupiter-5.13.4.jar (6.4 kB at 120 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/junit/jupiter/junit-jupiter-api/5.13.4/junit-jupiter-api-5.13.4.jar
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-commons/1.13.4/junit-platform-commons-1.13.4.jar
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/junit/jupiter/junit-jupiter-params/5.13.4/junit-jupiter-params-5.13.4.jar
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/junit/jupiter/junit-jupiter-engine/5.13.4/junit-jupiter-engine-5.13.4.jar
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-engine/1.13.4/junit-platform-engine-1.13.4.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/jupiter/junit-jupiter-api/5.13.4/junit-jupiter-api-5.13.4.jar (240 kB at 1.7 MB/s)
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-commons/1.13.4/junit-platform-commons-1.13.4.jar (159 kB at 692 kB/s)
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/jupiter/junit-jupiter-engine/5.13.4/junit-jupiter-engine-5.13.4.jar (341 kB at 1.2 MB/s)
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-engine/1.13.4/junit-platform-engine-1.13.4.jar (269 kB at 939 kB/s)
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/jupiter/junit-jupiter-params/5.13.4/junit-jupiter-params-5.13.4.jar (661 kB at 2.1 MB/s)
+[INFO]
+[INFO] --- resources:3.5.0:resources (default-resources) @ backend-java ---
+[INFO] Copying 5 resources from src/main/resources to target/classes
+[INFO] Copying 0 resource from src/main/resources to target/classes
+[INFO]
+[INFO] --- compiler:3.15.0:compile (default-compile) @ backend-java ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO]
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ backend-java ---
+[INFO] skip non existing resourceDirectory /workspace/Investinator-Enterprise-DataOps-Incident-Resolution/backend-java/src/test/resources
+[INFO]
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ backend-java ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO]
+[INFO] --- surefire:3.5.6:test (default-test) @ backend-java ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-launcher/1.13.4/junit-platform-launcher-1.13.4.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-launcher/1.13.4/junit-platform-launcher-1.13.4.pom (3.0 kB at 39 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-launcher/1.13.4/junit-platform-launcher-1.13.4.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-launcher/1.13.4/junit-platform-launcher-1.13.4.jar (223 kB at 2.6 MB/s)
+[INFO]
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.investinator.DependencyCompatibilityTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.184 s -- in com.investinator.DependencyCompatibilityTest
+[INFO] Running com.investinator.ConnectorConfigurationTest
+02:10:00.047 [main] INFO org.hibernate.validator.internal.util.Version -- HV000001: Hibernate Validator 9.1.5.Final
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.237 s -- in com.investinator.ConnectorConfigurationTest
+[INFO] Running com.investinator.api.ErrorMappingTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s -- in com.investinator.api.ErrorMappingTest
+[INFO] Running com.investinator.ScaffoldTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.005 s <<< FAILURE! -- in com.investinator.ScaffoldTest
+[ERROR] com.investinator.ScaffoldTest -- Time elapsed: 0.005 s <<< ERROR!
+java.lang.NoSuchMethodError: 'java.lang.Object org.junit.jupiter.api.extension.ExtensionContext$Store.computeIfAbsent(java.lang.Object, java.util.function.Function, java.lang.Class)'
+	at org.springframework.test.context.junit.jupiter.SpringExtension.getTestContextManager(SpringExtension.java:466)
+	at org.springframework.test.context.junit.jupiter.SpringExtension.beforeAll(SpringExtension.java:209)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	Suppressed: java.lang.NoSuchMethodError: 'java.lang.Object org.junit.jupiter.api.extension.ExtensionContext$Store.computeIfAbsent(java.lang.Object, java.util.function.Function, java.lang.Class)'
+		at org.springframework.test.context.junit.jupiter.SpringExtension.getTestContextManager(SpringExtension.java:466)
+		at org.springframework.test.context.junit.jupiter.SpringExtension.afterAll(SpringExtension.java:220)
+		... 1 more
+
+[INFO]
+[INFO] Results:
+[INFO]
+[ERROR] Errors:
+[ERROR]   ScaffoldTest » NoSuchMethod 'java.lang.Object org.junit.jupiter.api.extension.ExtensionContext$Store.computeIfAbsent(java.lang.Object, java.util.function.Function, java.lang.Class)'
+[INFO]
+[ERROR] Tests run: 5, Failures: 0, Errors: 1, Skipped: 0
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  6.819 s
+[INFO] Finished at: 2026-11-17T02:10:00Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.5.6:test (default-test) on project backend-java:
+[ERROR]
+[ERROR] See /workspace/Investinator-Enterprise-DataOps-Incident-Resolution/backend-java/target/surefire-reports for the individual test results.
+[ERROR] See dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

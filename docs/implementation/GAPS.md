@@ -12,11 +12,11 @@
 | Multi-system connectors / discovery | not implemented | least-privilege endpoints + integration fixtures |
 | Enterprise authorization | not implemented | OIDC/RBAC, per-resource identity, independent approval |
 | Production execution | disabled / absent | separately authorized controlled change system |
-| Java backend / safe CLI | planned | Prompts 02 and 05 gates |
+| Java backend / safe CLI | health scaffold implemented; CLI planned | Prompt 02 evidence; Prompt 05 CLI gate |
 | Dependency security | release BLOCKED | patched locked Next.js, rebuild/regression/audit |
 
 Prompt 01 can complete as an audit with documented failures; it does not certify
-application or production readiness. Prompt 02 has not been started. No critical
+application or production readiness. Prompt 02 is now implemented as a health-only scaffold; see prompt02/REPORT.md. No critical
 finding is waived. Obtain a separate security fix task before release and do not
 claim Java dependency compatibility until measured. Missing live credentials do not
 block fixture-based development, but prevent live integration readiness claims.

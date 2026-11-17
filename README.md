@@ -60,6 +60,12 @@ npm run dev
 
 Copy `.env.example` to `.env` to configure optional models or a different database. Environment files are ignored by Git. The web app proxies API calls server-side; the OpenAI key stays in the API environment.
 
+## Optional Java scaffold
+
+Prompt 02 adds an independent Java 21 / Spring Boot service on port 8081.
+Python still serves the application; the Next.js interface is unchanged.
+See [Java setup, smoke checks and limitations](backend-java/README.md).
+
 ## Verify and evaluate
 
 ```bash

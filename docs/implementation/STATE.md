@@ -1,6 +1,6 @@
 # Implementation state
 
-Updated 2026-11-17. Scope authorized: Prompt 00 and Prompt 01 only.
+Updated 2026-11-17. Scope authorized: Prompts 00–02 (user explicitly requested Prompt 02).
 Branch: `feature/java-ai-audit` (chosen because no feature branch name was supplied).
 Base and observed remote main: `920fefe1b86e55f038fb0a7e56dd0b42e9d34118`.
 
@@ -26,10 +26,26 @@ Validation: clean initial working tree; feature branch created; state and rules 
 
 Read AUDIT.md, PR3_REVIEW.md, API_PARITY_MATRIX.md, HEALTH_MATRIX.md, GAPS.md,
 RISK_REGISTER.md, ARCHITECTURE.md, MIGRATION_PLAN.md and DECISIONS.md.
-Specification retained verbatim in SPECIFICATION.md; later prompts are not executed.
+Specification retained verbatim in SPECIFICATION.md; prompts after 02 are not executed.
 Baseline commands, logs, contract and schema are under baseline/. Reproduction generators
 run from repository root with .venv/bin/python. Schema output is read-only metadata,
 not a claim of deployed PostgreSQL parity. UI and Python source unchanged.
 
-Next action requires the next user instruction; do not begin Prompt 02 automatically.
+Prompt 02 is now authorized; do not begin Prompt 03 automatically.
 No main push/merge, production writes or paid provider calls performed.
+
+## Prompt 02 — PASS (scaffold acceptance); release remains BLOCKED
+
+User requested Prompt 02 explicitly. Delivered independent backend-java service,
+checksum-pinned wrapper, Boot 4.1.2/JDK21, module boundaries, health/security/logging,
+profiles, validation, conditional SDK, Docker/Compose, smoke and additive CI.
+Eight Java tests pass with no errors/failures/skips. JUnit5 was incompatible with
+Spring 7 and replaced by supported Boot-managed JUnit6; failed experiment retained.
+Container HTTP, local/demo/integration profiles, fail-closed enterprise configuration,
+invalid model/budget rejection and live Python coexistence pass. Python regressions
+8/8, lint/type checks and 7/7 evaluation cases pass. See prompt02/REPORT.md.
+
+No Python/Next.js business logic, base Compose, schema or traffic ownership changed.
+No Java business API parity, live connector/provider or production readiness claim.
+The critical Next.js release blocker remains unresolved. CI changes are locally
+specified, not a claim that hosted CI ran. No stage after 02 is authorized yet.

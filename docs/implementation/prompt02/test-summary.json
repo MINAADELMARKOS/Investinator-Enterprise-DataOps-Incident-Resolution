@@ -1,0 +1,30 @@
+[
+  {
+    "name": "com.investinator.DependencyCompatibilityTest",
+    "tests": "2",
+    "errors": "0",
+    "skipped": "0",
+    "failures": "0"
+  },
+  {
+    "name": "com.investinator.ConnectorConfigurationTest",
+    "tests": "1",
+    "errors": "0",
+    "skipped": "0",
+    "failures": "0"
+  },
+  {
+    "name": "com.investinator.ScaffoldTest",
+    "tests": "4",
+    "errors": "0",
+    "skipped": "0",
+    "failures": "0"
+  },
+  {
+    "name": "com.investinator.api.ErrorMappingTest",
+    "tests": "1",
+    "errors": "0",
+    "skipped": "0",
+    "failures": "0"
+  }
+]

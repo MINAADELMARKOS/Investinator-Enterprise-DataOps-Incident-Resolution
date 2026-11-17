@@ -1,0 +1,47 @@
+spring:
+  application:
+    name: investinator-java
+  profiles:
+    default: local
+server:
+  address: ${JAVA_BIND_ADDRESS:127.0.0.1}
+  port: ${JAVA_PORT:8081}
+  forward-headers-strategy: none
+  error:
+    include-message: never
+    include-stacktrace: never
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,prometheus
+  endpoint:
+    health:
+      show-details: never
+      probes:
+        enabled: true
+      group:
+        liveness:
+          include: livenessState
+        readiness:
+          include: readinessState
+logging:
+  structured:
+    format:
+      console: ecs
+investinator:
+  metrics:
+    token: ${METRICS_TOKEN:}
+  openai:
+    enabled: ${INVESTINATOR_OPENAI_ENABLED:false}
+    model: ${INVESTINATOR_OPENAI_MODEL:}
+    max-requests: ${INVESTINATOR_MAX_AI_CALLS:3}
+otel:
+  sdk:
+    disabled: true
+  traces:
+    exporter: none
+  metrics:
+    exporter: none
+  logs:
+    exporter: none
