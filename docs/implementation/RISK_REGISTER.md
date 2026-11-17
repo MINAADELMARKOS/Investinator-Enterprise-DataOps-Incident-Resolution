@@ -82,3 +82,22 @@ NOT_TESTED; align explicitly in Prompt 12 before opting into provider-backed UI.
 backend/CLI and frontend jobs, observed through public GitHub job statuses.
 Authenticated logs and PR creation remain blocked by api.github.com destination
 policy; report-only follow-up commits do not alter the validated implementation.
+
+
+Prompt 09B: R10 remains open: human reviewer/approval null, no held-out set and only
+seven fault/one healthy developer fixtures. Independent scorer integrity and
+functional negative checks pass, not production quality. Live key/model/approved
+budget absent, so provider integration remains NOT_CONFIGURED despite mocked
+protocol tests. R1 remains cleared for the exact patched 16.4.5 lock/fresh clean
+audit. Original historical artifacts remain inspectable.
+
+| ID | Severity / owner role | Evidence and risk | Required mitigation / gate |
+|---|---|---|---|
+| R18 | Medium / knowledge + SRE | Eight queries DEGRADED after stale projection rejection; fixed 30-hit native bound may starve newer approved sources at scale | reviewed retention/reindex and load/adversarial retrieval evaluation before deployment |
+| R19 | Medium / AI-quality owner | returned precision 8/9; one irrelevant healthy runbook; optimistic query/corpus overlap, no independent labels | held-out expert review before relevance tuning or embedding claims |
+| R20 | Low / correlation owner | UNKNOWN-mode uncertainty text mentions Kafka on non-Kafka cases | domain-aware uncertainty wording; do not infer complete capability coverage |
+
+09B does not change application routing, schemas or production capabilities. R9
+Java provider UI metadata alignment, enterprise identity/private connector security
+and 09A PR access remain unresolved. Flagged read-only development may proceed only
+when requested; notification/write/production deployment approvals remain separate.

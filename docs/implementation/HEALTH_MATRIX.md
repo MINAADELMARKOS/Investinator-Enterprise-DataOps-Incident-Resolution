@@ -1,6 +1,18 @@
 # Integration health matrix
 
-## Prompt 09A current observations
+## Prompt 09B current observations
+
+| Surface | Verified now | Remaining boundary |
+|---|---|---|
+| Java / CLI | full 81 Java, final focused 5 RAG, final 24 CLI tests PASS | new hosted 09B NOT_RUN |
+| Reviewed knowledge | native SQL/BM25, exact hash/ACL/version/citation diagnostics PASS | sources SIMULATED, human approval null, no held-out set |
+| Knowledge freshness | 0/9 stale/unauthorized returned; all eight queries DEGRADED/partial after stale rejection | projection cleanup and larger-scale candidate-bound validation |
+| GPT protocol | two turns, real scoped read, multi-call, citation/outage/timeout/fallback PASS with mocked provider | actual provider NOT_CONFIGURED; no approved budget or paid call |
+| Prompt 05 artifacts / current probes | all original files match original commit; current doctor/health/schema PASS | original outages historical; Windows/second-host acceptance not rerun |
+| Python / frontend security | 12 Python tests, Ruff/mypy; fresh npm audit zero, 16.4.5 lock matches main | enterprise security/private scopes remain gated |
+| AI quality | reviewable proposed cases and denominator-based reports | independent expert review PENDING; production accuracy unknown |
+
+## Prompt 09A observations
 
 | Component | Current result | Boundary |
 |---|---|---|

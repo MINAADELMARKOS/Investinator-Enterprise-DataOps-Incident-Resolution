@@ -12,7 +12,7 @@ jobs:
           python-version: '3.12'
       - run: python -m pip install -e '.[dev]'
       - run: pytest -q
-      - run: ruff check src tests scripts/investinator_cli.py scripts/verify_health_lab.py scripts/verify_connectors_lab.py scripts/knowledge_bootstrap.py scripts/verify_knowledge_lab.py tests_cli
+      - run: ruff check src tests scripts/investinator_cli.py scripts/verify_health_lab.py scripts/verify_connectors_lab.py scripts/knowledge_bootstrap.py scripts/verify_knowledge_lab.py scripts/evaluate_knowledge_quality.py tests_cli
       - run: python -m unittest discover -s tests_cli
       - run: mypy src
       - run: python -m incident_copilot.evaluation eval/test_incidents.jsonl
@@ -44,6 +44,7 @@ jobs:
           cache: maven
           cache-dependency-path: backend-java/pom.xml
       - run: ./backend-java/mvnw -B -f backend-java/pom.xml verify
+      - run: python3 scripts/evaluate_knowledge_quality.py --output backend-java/target/quality-evaluation-ci.json
       - run: docker compose -f docker-compose.yml -f compose.java.yaml --profile java config --quiet
       - run: docker compose -p investinator-java-ci -f docker-compose.yml -f compose.java.yaml --profile java up --build --no-deps --wait --wait-timeout 90 java-api
       - run: python3 backend-java/scripts/smoke.py

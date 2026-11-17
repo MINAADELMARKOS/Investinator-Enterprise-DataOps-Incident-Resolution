@@ -275,3 +275,29 @@ blocker. Do not invent sign-off, provider calls or hosted CI success. Git reposi
 push and GitHub API access are separate capabilities; a proxy CONNECT denial is
 not proof that the backing credential is invalid. No production/main merge or
 configuration publication is authorized by 09A.
+
+
+## ADR 018 — Evaluation provenance and independent review remain separate
+
+09B preserves the original eight-case dataset and adds a separately hashed review
+fixture manifest with exact graphs, scoped evidence, proposed competing labels and
+counterevidence. Tests capture actual local SQL/native BM25 outputs and canonical
+corpus/chunks; a standard-library scorer independently checks hashes, references,
+tenancy, versions and explicit denominators. Missing denominators return null,
+never perfect scores; healthy cases are excluded from fault-cause accuracy. Do not
+change algorithms, weights or thresholds to fit these labels. No vector work is
+justified without independent/held-out evidence of a material benefit.
+
+All labels remain developer proposals. Expert metrics and approvals stay unfilled;
+reject attempts to launder a fixture input as human-approved, live or production
+quality. Functional isolation/citation/abstention failures make the scorer fail;
+fixture ranking metrics do not confer independent review. Stale SQL-rejected index
+records remain visible as partial/degraded, and the extra irrelevant BM25 hit is
+reported. Preserve old audit artifacts while linking current security status.
+
+No key/model and no approved budget means no provider traffic. Extend mocked SDK
+multi-call/timeout tests without claiming a live result; preserve encrypted history,
+read-only capabilities and independent authorization. User requested local 09B
+commit only; no new hosted validation or publishing claim. V2 allows subsequent
+flagged/read-only development on explicit request while human/provider quality
+claims and enterprise deployment stay gated.

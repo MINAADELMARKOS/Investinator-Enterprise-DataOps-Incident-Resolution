@@ -1,0 +1,49 @@
+{
+  "java_full_checkpoint": {
+    "tests": 81,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "command": "./investinator test"
+  },
+  "final_focused_rag": {
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "command": "JDK21 backend-java/mvnw -B -f backend-java/pom.xml -Dtest=KnowledgeIntegrationTest test; managed cache/CA options documented in backend-java/README.md"
+  },
+  "latest_java_xml_aggregate": {
+    "tests": 81,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "cli_final": {
+    "tests": 24,
+    "failures": 0,
+    "command": ".venv/bin/python -m unittest discover -s tests_cli"
+  },
+  "python": {
+    "pytest": 12,
+    "mypy_source_files": 17,
+    "fixture_evaluations_passed": 7
+  },
+  "ruff": "PASS",
+  "fresh_npm_audit": "PASS_ZERO_VULNERABILITIES",
+  "package_lock_match_main": true,
+  "actual_local_doctor": "PASS",
+  "health_schema_historical_and_current": "PASS",
+  "original_prompt05_artifact_hashes": "PASS",
+  "paid_provider_requests": 0,
+  "live_provider": "NOT_CONFIGURED",
+  "budget_configured": false,
+  "human_approval": null,
+  "human_reviewer": null,
+  "expert_review": "PENDING",
+  "operational_evaluation_gate": "PASS_FUNCTIONAL_ONLY",
+  "hosted_09b_ci": "NOT_RUN_LOCAL_COMMIT_ONLY",
+  "production_readiness": "BLOCKED",
+  "checked_artifact_replay": "PASS_EXACT_JSON_MATCH",
+  "all_review_deliverable_links": "PASS"
+}

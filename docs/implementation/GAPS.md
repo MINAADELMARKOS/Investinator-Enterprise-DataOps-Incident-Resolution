@@ -1,6 +1,19 @@
 # Gaps and readiness
 
-## Current synchronized assessment — Prompt 09A
+## Current assessment — Prompt 09B
+
+Functional evaluation harness PASS: inspect [review package](prompt09/QUALITY_REVIEW_PACKAGE.md),
+[diagnostics](prompt09/EVAL_REPORT.json) and [acceptance](prompt09b/REPORT.md).
+Expert review/held-out data absent, live GPT key/model/budget absent; no production
+accuracy claim. Native BM25 returns one extra irrelevant source (precision 8/9);
+all eight queries are degraded/partial after stale-revision SQL rejection. Fixed
+30-hit retrieval plus stale projection accumulation needs reviewed maintenance/load
+coverage. UNKNOWN metadata-mode warnings are Kafka-specific even on non-Kafka
+fixtures. No embeddings or threshold tuning. Current Next.js audit clean.
+09B local only: new hosted CI NOT_RUN; 09A PR/API access issue remains. Prompt 10
+is ready for an explicit read-only/flagged development request, not started here.
+
+## Previous synchronized assessment — Prompt 09A
 
 Local Java 00–09 is preserved and passes 78 Java/14 CLI tests. Remote-main Python
 GPT/search and Next.js 16.4.5 are reconciled; Python 12 tests and frontend

@@ -1,10 +1,10 @@
 # Engineering execution contract
 
 Read STATE.md and DECISIONS.md before changing code in every session. The user
-authorizes completed stages 00–09 and Architecture v2 Prompt 09A only in this
-session. Read docs/roadmap/JAVA_AI_ARCHITECTURE_V2.md and POST_P09_PROMPTS_V2.md;
-the v2 sequence supersedes the original chain from 09A onward. Prompt 09B and
-10 onward require a subsequent request. Prompt 09 human review remains pending
+authorizes completed stages 00–09/09A and Architecture v2 Prompt 09B only in
+this session (review package, diagnostics and opt-in provider preflight). Read docs/roadmap/JAVA_AI_ARCHITECTURE_V2.md and POST_P09_PROMPTS_V2.md;
+the v2 sequence supersedes the original chain from 09A onward. Prompt 10 onward requires a subsequent request. No live provider request without
+configured credentials and an independently approved testing budget. Prompt 09 human review remains pending
 and blocks measured AI-quality claims, not repository synchronization. Keep one commit per completed stage and stop at
 failed acceptance gates. The user explicitly authorizes pushing feature/java-ai-audit and opening its PR
 after verification for 09A. Never force-push or merge main without authorization.

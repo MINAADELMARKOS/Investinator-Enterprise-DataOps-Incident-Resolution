@@ -1,6 +1,6 @@
 # Implementation state
 
-Updated 2026-11-17. Current scope: Architecture v2 Prompt 09A only; Prompts 00–09 preserved.
+Updated 2026-11-17. Current scope: Architecture v2 Prompt 09B only; Prompts 00–09 preserved.
 V2 supersedes the original sequence from 09A onward; human review remains pending.
 Branch: `feature/java-ai-audit` (chosen because no feature branch name was supplied).
 Base and observed remote main: `920fefe1b86e55f038fb0a7e56dd0b42e9d34118`.
@@ -160,3 +160,43 @@ frontend jobs. The final report follow-up changes documentation only. PR creatio
 blocked by proxy destination policy; authenticated logs unavailable. The 09A gate
 remains incomplete until PR creation is possible; implementation CI is verified. No 09B or 10 started, no production/main merge/routing
 change. Pending human review blocks measured AI-quality claims, not this sync.
+
+
+## Prompt 09B — functional PASS; human review PENDING; live GPT NOT_CONFIGURED
+
+User explicitly authorized 09B after reading v2; initial local/remote feature head
+6e981b9 and remote main ef0268b match the inspected documents. Reports 03–09,
+Prompt 05's actual artifacts, source hashes and graph/SDK/knowledge code reviewed.
+Eight review fixtures now include exact evidence/time/graph, competing hypotheses,
+contradictions, blind spots and unfilled reviewer fields. Original dataset retained.
+Native PostgreSQL/OpenSearch diagnostics and independent scorer produce
+[review package](prompt09/QUALITY_REVIEW_PACKAGE.md),
+[evaluation](prompt09/EVAL_REPORT.json), [provider report](prompt09/GPT_LIVE_REPORT.md)
+and [Prompt 05 audit](prompt09/PROMPT05_AUDIT.md). Full acceptance:
+[prompt09b/REPORT.md](prompt09b/REPORT.md).
+
+81 Java tests pass (no failures/errors/skips), focused final RAG 5/5 and final
+CLI/scorer 24/24, Python 12, seven evaluation fixtures, Ruff/mypy and current
+health/schema checks pass. Fresh npm audit zero vulnerabilities; Next 16.4.5
+package/lock match patched main. Historical 03/04/06 reports now link that current
+security assessment. Prompt 05 artifacts are present and match their original
+commit; original eight outages are historical, not rerun in 09B.
+
+Fixture-only outcomes: causal top-1/top-3 7/7 faults, healthy FP 0/1, retrieval@1
+8/8, returned precision 8/9, citation membership 70/70, unauthorized/stale returned
+0/9, missing-data abstention 2/2 and injection denial 2/2. All eight retrievals
+truthfully DEGRADED/partial due to rejecting stale index revisions. These are
+optimistic developer fixtures, not human gold, held-out or production accuracy.
+No model/correlation/retrieval thresholds changed; no embeddings introduced.
+
+Key/model and approved testing budget absent: actual live GPT NOT_CONFIGURED,
+zero paid calls. SDK two-turn/scoped tool/continuation/invalid citation/outage/
+timeout/fallback checks pass with MOCKED provider and actual local PG/Kafka reads.
+Human reviewer/approval fields remain null. Production identity/security/private
+connector/cutover gates remain; old Next.js issue is cleared for this lockfile.
+
+09B changes committed locally only; hosted 09B CI NOT_RUN. 09A's PR/API access
+block remains a separate follow-up. READY for expressly authorized flagged,
+read-only Prompt 10 development under v2; NOT_STARTED and no deployment authority.
+No production code/schema/default-route changes, push, merge, environment
+publication or production action in 09B. Stop after this stage.
