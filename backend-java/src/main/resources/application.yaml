@@ -30,6 +30,13 @@ logging:
     format:
       console: ecs
 investinator:
+  evidence:
+    enabled: ${EVIDENCE_SEARCH_ENABLED:false}
+    token: ${EVIDENCE_API_TOKEN:}
+    url: ${EVIDENCE_SEARCH_URL:}
+    index: ${EVIDENCE_INDEX:investinator-evidence}
+    username: ${EVIDENCE_SEARCH_USER:}
+    password: ${EVIDENCE_SEARCH_PASSWORD:}
   demo-mode: ${INVESTINATOR_DEMO_MODE:true}
   demo-tenant: ${INVESTINATOR_DEMO_TENANT:demo}
   persistence:

@@ -1,0 +1,203 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:investinator:normalized-evidence:1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "evidence_id",
+    "tenant_id",
+    "environment",
+    "resource_id",
+    "cluster_id",
+    "technology",
+    "operation",
+    "sensitivity",
+    "record_pointer",
+    "source_mode",
+    "@timestamp",
+    "ingested_at",
+    "trace_id",
+    "span_id",
+    "incident_id",
+    "source_url",
+    "service",
+    "host",
+    "log",
+    "event",
+    "error",
+    "ingestion_lag_ms",
+    "quality_flags"
+  ],
+  "properties": {
+    "evidence_id": {
+      "type": "string",
+      "pattern": "^EV-[a-f0-9]{64}$"
+    },
+    "tenant_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_-]{1,100}$"
+    },
+    "environment": {
+      "type": "string",
+      "maxLength": 512
+    },
+    "resource_id": {
+      "type": "string",
+      "maxLength": 512
+    },
+    "cluster_id": {
+      "type": "string",
+      "maxLength": 512
+    },
+    "technology": {
+      "type": "string",
+      "maxLength": 512
+    },
+    "operation": {
+      "type": "string",
+      "maxLength": 512
+    },
+    "sensitivity": {
+      "type": "string",
+      "maxLength": 512
+    },
+    "record_pointer": {
+      "type": "string",
+      "maxLength": 512
+    },
+    "source_mode": {
+      "enum": [
+        "LIVE",
+        "SIMULATED",
+        "CACHED",
+        "NOT_CONFIGURED",
+        "NOT_TESTED"
+      ]
+    },
+    "@timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "ingested_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "trace_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[a-f0-9]{32}$"
+    },
+    "span_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[a-f0-9]{16}$"
+    },
+    "incident_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 512
+    },
+    "source_url": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 512
+    },
+    "service": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "version"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "maxLength": 128
+        },
+        "version": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 128
+        }
+      }
+    },
+    "host": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "maxLength": 512
+        }
+      }
+    },
+    "log": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "level"
+      ],
+      "properties": {
+        "level": {
+          "type": "string",
+          "maxLength": 512
+        }
+      }
+    },
+    "event": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "original"
+      ],
+      "properties": {
+        "original": {
+          "type": "string",
+          "maxLength": 8192
+        }
+      }
+    },
+    "error": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "signature",
+        "category"
+      ],
+      "properties": {
+        "signature": {
+          "type": "string",
+          "maxLength": 512
+        },
+        "category": {
+          "type": "string",
+          "maxLength": 512
+        }
+      }
+    },
+    "ingestion_lag_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "quality_flags": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

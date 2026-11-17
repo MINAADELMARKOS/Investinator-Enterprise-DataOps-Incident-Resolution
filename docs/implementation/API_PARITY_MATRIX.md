@@ -221,3 +221,16 @@ Validation errors use sanitized 422 responses rather than copying Pydantic's det
 validation payload. Unknown timestamps in the SQLite reference lose timezone on
 read; Java emits explicit UTC. Idempotency-Key support is additive, tenant/route scoped.
 Existing default Next.js routing remains Python; no mixed-database automatic cutover.
+
+## Prompt 04 additive operations
+
+| Method / route | Request / scope | Response / current acceptance |
+|---|---|---|
+| GET /api/v1/evidence/search | Bearer EVIDENCE_API_TOKEN; q, service, from, to, page, size only; server tenant/index | status, retrieval_mode, checked_at, duration_ms, normalized items, pagination, total, invalid_records/partial; real lab PASS |
+| GET /api/v1/evidence/health | same bearer-bound server scope | observed cluster/mapping status; unconfigured/outage is non-success; real lab PASS |
+
+These are additive; no old endpoint is rerouted. Normalized item schema is in
+infra/evidence/schema.json. Unknown caller tenant/index/URL/DSL parameters are 422;
+wrong/missing credential is 403. Backend unavailable/not configured is 503; upstream
+rate limit is 429. LIVE retrieval and per-item SIMULATED provenance remain distinct.
+The API has no evidence write/delete or native cross-tenant trace query operation.

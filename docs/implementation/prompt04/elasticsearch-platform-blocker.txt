@@ -1,0 +1,17 @@
+Observed with official Elasticsearch 9.5.5 image, security enabled:
+fatal exception while booting Elasticsearch
+java.lang.RuntimeException: Could not set coredump filter
+Caused by: java.nio.file.NoSuchFileException: /proc/self/coredump_filter
+
+The same proc file is absent on the managed host. 9.4.8 and 9.2.2 source also
+calls setCoredumpFilter unconditionally on Linux. No fake proc interface, verification
+bypass, privilege escalation or host-kernel modification was used.
+Source inspected:
+https://raw.githubusercontent.com/elastic/elasticsearch/v9.5.5/server/src/main/java/org/elasticsearch/bootstrap/Elasticsearch.java
+https://raw.githubusercontent.com/elastic/elasticsearch/v9.4.8/server/src/main/java/org/elasticsearch/bootstrap/Elasticsearch.java
+https://raw.githubusercontent.com/elastic/elasticsearch/v9.2.2/server/src/main/java/org/elasticsearch/bootstrap/Elasticsearch.java
+
+OpenSearch 3.4.0 starts and accepts authenticated requests on this runtime.
+Official Java client compatibility:
+https://github.com/opensearch-project/opensearch-java/blob/main/COMPATIBILITY.md
+Client 3.x supports OpenSearch 1.x-3.x and JDK21; official Java 3.11.0 used.

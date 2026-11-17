@@ -26,7 +26,7 @@ Validation: clean initial working tree; feature branch created; state and rules 
 
 Read AUDIT.md, PR3_REVIEW.md, API_PARITY_MATRIX.md, HEALTH_MATRIX.md, GAPS.md,
 RISK_REGISTER.md, ARCHITECTURE.md, MIGRATION_PLAN.md and DECISIONS.md.
-Specification retained verbatim in SPECIFICATION.md; prompts after 02 are not executed.
+Specification retained verbatim in SPECIFICATION.md; prompts after 04 are not executed.
 Baseline commands, logs, contract and schema are under baseline/. Reproduction generators
 run from repository root with .venv/bin/python. Schema output is read-only metadata,
 not a claim of deployed PostgreSQL parity. UI and Python source unchanged.
@@ -48,7 +48,7 @@ invalid model/budget rejection and live Python coexistence pass. Python regressi
 No Python/Next.js business logic, base Compose, schema or traffic ownership changed.
 No Java business API parity, live connector/provider or production readiness claim.
 The critical Next.js release blocker remains unresolved. CI changes are locally
-specified, not a claim that hosted CI ran. No stage after 02 is authorized yet.
+specified, not a claim that hosted CI ran. At completion of Prompt 02, no later stage had been authorized; subsequent authorization/results follow below.
 
 ## Prompt 03 — PASS (local migration gate)
 
@@ -60,3 +60,16 @@ ownership refusal, tenant isolation, idempotency, approval and audit tested. Pyt
 8 tests, lint/type checks pass. No existing data or default traffic switched.
 See prompt03/REPORT.md and MIGRATION_AND_ROLLBACK.md. Critical Next.js release
 blocker and enterprise/provider limitations remain. Prompt 04 is now eligible.
+
+## Prompt 04 — PASS (local evidence gate)
+
+Prompt 03 gate committed. Implement normalized evidence collection and authenticated bounded tenant-filtered search; no production deployment or environment publication.
+
+Prompt 04 checkpoint: 25 Java tests pass with zero failures/errors/skips. The real
+collector/OpenSearch/Prometheus lab passes: four unique normalized documents, three
+tenant-visible simulated records, actual trace arrival and metric query, role/auth
+and unsafe-input denials, pagination and truthful outage behavior. Elasticsearch was
+incompatible with this kernel; OpenSearch 3.4.0 / official Java 3.11.0 is verified.
+See prompt04/REPORT.md and infra/evidence/README.md. Default Python/UI routing and
+existing data remain untouched. No provider, production execution or environment
+publication. Prompts after 04 are not authorized; stop here. Release remains BLOCKED.

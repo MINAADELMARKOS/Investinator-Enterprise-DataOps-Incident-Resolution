@@ -1,25 +1,29 @@
-# Integration health matrix
+# Integration health matrix — after Prompts 03/04
 
-Audit observations are not production health. No service startup was performed this stage.
+These are local development acceptance observations, not production health. Test
+resources were disposable; persisted user data and default UI routing remain Python.
 
-| Component | Present implementation | Evidence/provenance | Missing acceptance |
+| Component | Implemented / verified | Provenance | Remaining acceptance |
 |---|---|---|---|
-| API | /health always ok in demo | code; NOT_TESTED live this stage | functional DB readiness and negative dependency tests |
-| Next.js | HTTP app and API proxy | build PASS | runtime/proxy smoke this stage NOT_TESTED |
-| DB | SQLite/PG SQLAlchemy | tests LIVE temporary SQLite with SIMULATED fixtures | PG SELECT 1, schema/version, persistence/restore |
-| Kafka | list_topics/describe_cluster | NOT_CONFIGURED in audit environment | version, SASL/TLS, ISR, lag, quorum and failures |
-| Platform status | seeded threshold scores | SIMULATED | missing metrics currently default healthy; require UNKNOWN/freshness |
-| Search | absent main; PR bounded query | NOT_CONFIGURED | authenticated search, mapping, freshness and real ingestion |
-| Prometheus | Compose /metrics scrape config | NOT_TESTED | scrape target + PromQL functional check |
-| OTel | optional HTTP exporter, debug collector | NOT_CONFIGURED | end-to-end retained trace arrival |
-| GPT | main optional structured parse, PR tool loop | NOT_CONFIGURED; fake PR tests only | opt-in live provider and strict loop negative tests |
-| Java | Prompt 02 health-only scaffold | JDK21 verify and HTTP/container smoke PASS | no migrated business APIs or live connectors; see prompt02/REPORT.md |
-| Spark/YARN/HDFS/Hive/Kudu/NiFi/Airflow | runbook text / simulation only | NOT_CONFIGURED | real authenticated version-aware adapters |
-| ZooKeeper | absent; KRaft Compose | NOT_CONFIGURED | legacy-only fixture and mode detection |
+| Java API | live embedded HTTP, liveness/readiness, workflow contracts | LIVE API / SIMULATED demo data | enterprise identity, load/SLOs |
+| Next.js | unchanged page and GET/POST proxy against Java demo | LIVE local requests | Java provider-backed UI path |
+| PostgreSQL | Flyway schema, SELECT 1/readiness, restart persistence, transactions, ownership refusal | LIVE disposable PostgreSQL | existing-data import, backup/restore/cutover review |
+| Kafka | basic metadata adapter | NOT_CONFIGURED in local parity gate | semantic KRaft/ISR/lag/auth and failure tests |
+| Platform status | Python-equivalent seeded threshold scores | SIMULATED | universal health/freshness/UNKNOWN engine in 05 |
+| Search | authenticated OpenSearch, strict mapping, actual file forwarding, Java tenant-filtered read-only search, unavailable 503 | LIVE retrieval / SIMULATED source | enterprise ingress/TLS, HA, production retention |
+| Prometheus | actual OTel metric exporter scrape and bounded PromQL query | LIVE transport / SIMULATED fixture metric | production target coverage/SLOs |
+| OTel/traces | actual OTLP trace batch -> private file -> Fluent Bit -> separate search index | LIVE transport / SIMULATED spans | tenant-aware native trace query API, real service instrumentation |
+| GPT | Python optional path retained; Java deterministic fallback | live provider NOT_CONFIGURED/NOT_TESTED | official tool loop and opt-in provider gate in 08 |
+| Java runtime | JDK21/Boot4.1.2 and 25 passing tests, real collector/index lab | LIVE local acceptance | hosted CI and Java CVE audit not run |
+| Spark/YARN/HDFS/Hive/Kudu/NiFi/Airflow | runbook text / simulated signals | NOT_CONFIGURED | real version-aware least-privilege adapters |
+| ZooKeeper | absent, main Compose is KRaft | NOT_CONFIGURED | legacy-only fixture and mode detection |
 
-Proposed health results: HEALTHY/DEGRADED/UNHEALTHY/UNKNOWN/NOT_CONFIGURED/NOT_TESTED,
-source_mode, checked_at, duration, evidence references, diagnosis, next safe action,
-required_for_readiness. Bounded parallel checks with deadlines, partial results and
-circuit breakers; no writes or paid GPT requests in doctor. Implement in Prompt 05,
-not this audit. CLI up/down/status/doctor/health/smoke/test/logs/restart/demo/ai-check
-must target allowlisted local services, preserve volumes and return useful exit codes.
+Prompt 04 search health reports observed cluster/mapping status; green/yellow on
+single-node search is accepted. This does not claim source observations are live.
+Per-record source mode, timestamps and pointers are returned independently. Missing
+backend configuration and outage return explicit non-success; liveness excludes
+optional systems. Detailed health and search require the backend bearer credential.
+
+The planned universal runner/CLI belongs to Prompt 05: bounded parallel probes,
+partial results, circuit breakers, freshness thresholds, optional-versus-required
+dependencies and no paid GPT/writes by default. That prompt has not started.

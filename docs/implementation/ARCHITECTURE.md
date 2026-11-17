@@ -61,7 +61,7 @@ flowchart LR
   Route --> Java[Platform and Agent: Java 21 Spring Boot monolith]
   Py --> DB[(PostgreSQL: one migration owner)]
   Java --> DB
-  Java --> Search[(Elasticsearch proposed)]
+  Java --> Search[(OpenSearch 3.4.0)]
   Java --> SDK[Model: official OpenAI Java SDK]
   SDK --> OpenAI[OpenAI Responses API]
   Infra[Infrastructure: Kafka / OTel / Prometheus] --> Java
@@ -117,7 +117,7 @@ implemented by the current fixed demo identity.
 
 Current deployment: isolated Compose or direct Python/SQLite plus Next.js; static
 Pages showcase separate. Target: local Compose Java/Python coexistence, PostgreSQL,
-Kafka KRaft, search, collector and Prometheus. Separate legacy-ZK profile only. Enterprise
+Kafka KRaft, OpenSearch (ADR-011), collectors and Prometheus. Separate legacy-ZK profile only. Enterprise
 requires OIDC/TLS, least privilege, backups/restore, retention, resource limits and
 security review. No production deployment has been performed.
 

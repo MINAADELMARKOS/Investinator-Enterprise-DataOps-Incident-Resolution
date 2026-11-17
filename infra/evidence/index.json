@@ -1,0 +1,129 @@
+{
+  "settings": {
+    "number_of_shards": 1,
+    "number_of_replicas": 0
+  },
+  "mappings": {
+    "dynamic": "strict",
+    "_meta": {
+      "schema_version": 1
+    },
+    "properties": {
+      "evidence_id": {
+        "type": "keyword",
+        "ignore_above": 512
+      },
+      "tenant_id": {
+        "type": "keyword",
+        "ignore_above": 512
+      },
+      "environment": {
+        "type": "keyword",
+        "ignore_above": 512
+      },
+      "source_mode": {
+        "type": "keyword",
+        "ignore_above": 512
+      },
+      "resource_id": {
+        "type": "keyword",
+        "ignore_above": 512
+      },
+      "cluster_id": {
+        "type": "keyword",
+        "ignore_above": 512
+      },
+      "trace_id": {
+        "type": "keyword",
+        "ignore_above": 512
+      },
+      "span_id": {
+        "type": "keyword",
+        "ignore_above": 512
+      },
+      "incident_id": {
+        "type": "keyword",
+        "ignore_above": 512
+      },
+      "technology": {
+        "type": "keyword",
+        "ignore_above": 512
+      },
+      "operation": {
+        "type": "keyword",
+        "ignore_above": 512
+      },
+      "sensitivity": {
+        "type": "keyword",
+        "ignore_above": 512
+      },
+      "source_url": {
+        "type": "keyword",
+        "ignore_above": 512
+      },
+      "record_pointer": {
+        "type": "keyword",
+        "ignore_above": 512
+      },
+      "quality_flags": {
+        "type": "keyword",
+        "ignore_above": 512
+      },
+      "service": {
+        "properties": {
+          "name": {
+            "type": "keyword",
+            "ignore_above": 512
+          },
+          "version": {
+            "type": "keyword",
+            "ignore_above": 512
+          }
+        }
+      },
+      "host": {
+        "properties": {
+          "name": {
+            "type": "keyword",
+            "ignore_above": 512
+          }
+        }
+      },
+      "log": {
+        "properties": {
+          "level": {
+            "type": "keyword",
+            "ignore_above": 512
+          }
+        }
+      },
+      "event": {
+        "properties": {
+          "original": {
+            "type": "text"
+          }
+        }
+      },
+      "error": {
+        "properties": {
+          "signature": {
+            "type": "text"
+          },
+          "category": {
+            "type": "keyword",
+            "ignore_above": 512
+          }
+        }
+      },
+      "@timestamp": {
+        "type": "date_nanos"
+      },
+      "ingested_at": {
+        "type": "date_nanos"
+      },
+      "ingestion_lag_ms": {
+        "type": "long"
+      }
+    }
+  }
+}

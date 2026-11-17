@@ -1,0 +1,51 @@
+{
+  "description": "Normalized evidence v1 for OpenSearch; preserve event time and detect lag/skew",
+  "processors": [
+    {
+      "set": {
+        "field": "ingested_at",
+        "value": "{{_ingest.timestamp}}"
+      }
+    },
+    {
+      "gsub": {
+        "field": "event.original",
+        "pattern": "(?i)(password|secret|token|api[_-]?key)\\s*[=:]\\s*\\S+",
+        "replacement": "[REDACTED]",
+        "ignore_missing": true
+      }
+    },
+    {
+      "gsub": {
+        "field": "event.original",
+        "pattern": "\\b[\\w.-]+@[\\w.-]+\\.\\w+\\b",
+        "replacement": "[REDACTED]",
+        "ignore_missing": true
+      }
+    },
+    {
+      "script": {
+        "lang": "painless",
+        "params": {
+          "required": [
+            "evidence_id",
+            "tenant_id",
+            "source_mode",
+            "service",
+            "event",
+            "@timestamp",
+            "record_pointer"
+          ],
+          "modes": [
+            "LIVE",
+            "SIMULATED",
+            "CACHED",
+            "NOT_CONFIGURED",
+            "NOT_TESTED"
+          ]
+        },
+        "source": "for (def field : params.required) { if (!ctx.containsKey(field) || ctx[field] == null) { throw new IllegalArgumentException('Required normalized evidence field missing'); } }\nif (!ctx.evidence_id.startsWith('EV-') || ctx.evidence_id.length() != 67 || ctx.tenant_id.length() == 0 || ctx.tenant_id.length() > 100) { throw new IllegalArgumentException('Invalid normalized identity'); }\nif (!params.modes.contains(ctx.source_mode)) { throw new IllegalArgumentException('Unknown source provenance'); }\nInstant eventTime = Instant.parse(ctx['@timestamp']);\nInstant received = Instant.parse(ctx.ingested_at);\nctx.ingested_at = received.toString();\nlong lag = received.toEpochMilli() - eventTime.toEpochMilli();\nctx.ingestion_lag_ms = Math.max(0L, lag);\nif (ctx.quality_flags == null) { ctx.quality_flags = []; }\nif (lag < -300000 && !ctx.quality_flags.contains('FUTURE_CLOCK_SKEW')) { ctx.quality_flags.add('FUTURE_CLOCK_SKEW'); }\nif (lag > 900000 && !ctx.quality_flags.contains('LATE_ARRIVAL')) { ctx.quality_flags.add('LATE_ARRIVAL'); }\n"
+      }
+    }
+  ]
+}

@@ -45,6 +45,7 @@ jobs:
       - run: docker compose -f docker-compose.yml -f compose.java.yaml --profile java config --quiet
       - run: docker compose -p investinator-java-ci -f docker-compose.yml -f compose.java.yaml --profile java up --build --no-deps --wait --wait-timeout 90 java-api
       - run: python3 backend-java/scripts/smoke.py
+      - run: python3 backend-java/scripts/evidence_lab.py verify
       - if: always()
         run: docker compose -p investinator-java-ci -f docker-compose.yml -f compose.java.yaml --profile java logs --no-color java-api
       - if: always()

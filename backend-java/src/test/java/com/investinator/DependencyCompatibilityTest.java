@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import com.github.tomakehurst.wiremock.WireMockServer;
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import com.openai.client.okhttp.OpenAIOkHttpClient;
-import co.elastic.clients.elasticsearch.core.SearchRequest;
+import org.opensearch.client.opensearch.core.SearchRequest;
 import org.flywaydb.core.Flyway;
 import org.apache.kafka.clients.admin.AdminClientConfig;
 

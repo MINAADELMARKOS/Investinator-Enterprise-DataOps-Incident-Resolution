@@ -64,7 +64,9 @@ Copy `.env.example` to `.env` to configure optional models or a different databa
 
 Prompt 02 adds an independent Java 21 / Spring Boot service on port 8081.
 Python still serves the application; the Next.js interface is unchanged.
-See [Java setup, smoke checks and limitations](backend-java/README.md).
+See [Java setup, persistence and smoke checks](backend-java/README.md), plus the
+[normalized evidence lab](infra/evidence/README.md). Both remain opt-in; production
+execution and automatic UI cutover are disabled.
 
 ## Verify and evaluate
 

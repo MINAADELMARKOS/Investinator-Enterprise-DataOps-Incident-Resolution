@@ -1,4 +1,4 @@
-# Java backend — Prompts 02 and 03
+# Java backend — Prompts 02–04
 
 Java 21 JDK, Spring Boot 4.1.2, Maven Wrapper 3.9.11 (SHA-256 pinned).
 This is a separate modular monolith on port 8081. Persistence remains opt-in; the default is the Prompt 02 health scaffold. Python still owns all existing
@@ -38,8 +38,8 @@ requests occur in startup/tests/smoke.
 
 Other routes, including detailed Actuator health/env and unmigrated application
 routes, are denied. Platform health is a scaffold response, **not API parity or
-connector health**. No data-source bean, automatic Flyway migration or database
-connection is created. Add essential DB readiness only when persistence routes are
+connector health**. With persistence disabled (the default), no data-source bean, Flyway migration
+or database connection is created. Prompt 03 enables these only for its dedicated schema. Add essential DB readiness only when persistence routes are
 introduced in Prompt 03. Readiness is not a claim that Kafka/search/GPT are available.
 
 Default `local`, explicit `demo`, `integration` and `enterprise` profiles exist.
@@ -77,18 +77,20 @@ production executors, model calls or arbitrary command endpoints are installed.
 ## Dependencies and compatibility evidence
 
 Boot BOM pins framework, JDBC/PostgreSQL, Flyway, Kafka, Prometheus and test libraries.
-Explicit pins: OpenAI Java 4.106.0, Elasticsearch Java 9.5.6 (target server 9.5.6,
-real server compatibility NOT_TESTED), OTel starter 2.33.1, WireMock standalone 3.13.2.
+Explicit pins: OpenAI Java 4.106.0, OpenSearch Java 3.11.0 (verified against server 3.4.0),
+Reactive Streams 1.0.4, OTel starter 2.33.1, WireMock standalone 3.13.2. Reactor Core is
+Boot-managed and needed for SDK bean introspection. Elasticsearch from Prompt 02 was
+replaced by OpenSearch after a demonstrated kernel incompatibility (ADR-011).
 JDBC is chosen over JPA for the scaffold: no entities or schema ownership are ported.
-No agent framework is added. Full resolved tree: ../docs/implementation/prompt02/dependency-tree.txt.
+No agent framework is added. Current resolved tree: ../docs/implementation/prompt04/dependency-tree.txt; Prompt 02 artifacts retain the historical baseline.
 
 **JUnit compatibility adjustment:** Boot 4.1.2 / Spring 7 test extension fails with
 JUnit 5.13.4 (missing Store.computeIfAbsent). Use Boot-managed JUnit 6.0.3 with its
 Jupiter API. Failure evidence is retained; Mockito and Testcontainers are BOM-managed.
-Eight tests cover real embedded HTTP, denied access, config validation, error redaction,
-correlation and vendor class/client construction. WireMock is explicitly a simulated
-HTTP fixture, not a live cluster. No Testcontainers database tests until persistence
-is introduced; merely including the dependency does not establish PostgreSQL behavior.
+Prompt 02 had eight tests. The current 25-test suite also covers PostgreSQL workflows,
+74 Python differential requests, normalization and the enabled search SDK context. WireMock is explicitly a simulated
+HTTP fixture, not a live cluster. Prompt 03 now exercises real PostgreSQL with Testcontainers; the Prompt 04 lab exercises
+real collectors and search. Neither is proof of existing-data production cutover.
 
 ## Managed cloud reproduction
 
@@ -129,3 +131,19 @@ The optional web check uses the already installed/built Next.js app without edit
 its source. Java live OpenAI behavior remains unported until Prompt 08; provider-enabled
 workflows stay on Python. Local deterministic demo parity is tested against captured
 Python API traces; it is not a production-readiness claim.
+
+## Prompt 04 — normalized evidence and authenticated search
+
+See [the local evidence lab](../infra/evidence/README.md) for collector/index ownership,
+credentials, safe startup/stop, retention, query bounds and the real ingestion gate.
+The default remains the original Python application; no existing data or routing is
+changed. With Docker/JDK21 and the verified jar/classpath built by Maven:
+
+```bash
+python3 backend-java/scripts/evidence_lab.py verify
+```
+
+This starts disposable local services and checks actual collection, tenant filtering,
+read-only roles, provenance, metrics/traces and unavailable-backend behavior. It makes
+no paid model call. `/api/v1/evidence/search` and `/health` under that evidence prefix
+require EVIDENCE_API_TOKEN; credentials/index/tenant remain server configuration.

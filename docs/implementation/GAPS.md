@@ -8,11 +8,11 @@
 | Detection and incident correlation | implemented deterministic; seeded graph | causal counterexamples, skew/freshness, dedup/alert budgets |
 | Replay recovery | SIMULATED | preserve approval and independent metric verification |
 | Real broker workload | code implemented; NOT_TESTED this stage | live broker smoke and semantic probes |
-| Search / RAG | absent main; PR HTTP search | collection pipeline, BM25, tenant ACLs, ingestion proof |
+| Search / RAG | Prompt 04 log collection/search gate passes locally; RAG not implemented | enterprise ingestion, retrieval evaluation and knowledge stage |
 | Multi-system connectors / discovery | not implemented | least-privilege endpoints + integration fixtures |
 | Enterprise authorization | not implemented | OIDC/RBAC, per-resource identity, independent approval |
 | Production execution | disabled / absent | separately authorized controlled change system |
-| Java backend / safe CLI | health scaffold implemented; CLI planned | Prompt 02 evidence; Prompt 05 CLI gate |
+| Java backend / safe CLI | Prompt 03 persistence/workflows and Prompt 04 evidence implemented; universal CLI planned | reports 03/04; Prompt 05 CLI gate |
 | Dependency security | release BLOCKED | patched locked Next.js, rebuild/regression/audit |
 
 Prompt 01 can complete as an audit with documented failures; it does not certify
@@ -20,3 +20,8 @@ application or production readiness. Prompt 02 is now implemented as a health-on
 finding is waived. Obtain a separate security fix task before release and do not
 claim Java dependency compatibility until measured. Missing live credentials do not
 block fixture-based development, but prevent live integration readiness claims.
+
+Prompts 03/04 now have local acceptance evidence. Java demo restart durability,
+74 Python differential requests and real OpenSearch/collector/Prometheus forwarding
+are verified. No live provider, existing-data cutover, enterprise deployment or
+production writes are certified. Default Python/Next.js behavior is preserved.

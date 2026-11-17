@@ -107,3 +107,31 @@ values and order where specified. Do not fabricate provider equivalence: Java's
 model-enabled investigation remains fallback until its own stage; users needing
 provider behavior keep that workflow on Python. Unknown-error details remain
 sanitized; input validation uses 422 but does not echo Pydantic's sensitive payload.
+
+## ADR-011 — Prompt 04 search backend compatibility
+
+Choose OpenSearch 3.4.0 and official opensearch-java 3.11.0 (official compatibility
+matrix supports client 3.x with server 1–3 and JDK21). Elasticsearch 9.5.5 was
+attempted, but this runtime lacks /proc/self/coredump_filter, which its bootstrap
+unconditionally requires. 9.4/9.2 source has the same requirement. Do not fake that
+OS interface or disable integrity verification. OpenSearch started with authentication
+enabled in an isolated local test. Remove the now-unused Elasticsearch SDK dependency
+rather than assuming cross-vendor Java-client compatibility.
+
+Use Fluent Bit's OpenSearch output for normalized log files and OTel Collector for
+OTLP metrics/traces. OTel rotates native trace batches to a private volume, then
+Fluent Bit forwards them to a separate trace index; Prometheus scrapes the OTel
+metric exporter. Native traces are not exposed as a cross-tenant query API. Logs
+use the normalized evidence contract and a fixed configured index; Java holds only
+reader credentials and enforces a server-bound tenant and bounded time/service/page
+filters. Admin bootstrap and writer data-plane identities are separate.
+
+Version-1 strict mappings and an ingest pipeline reject malformed identity/schema,
+redact source text, stamp actual ingestion time and preserve event time/skew flags.
+Create-only stable document IDs deduplicate retries. No default search-data deletion:
+retention attachment requires explicit operator confirmation. Queue/rotation limits
+are visible local-demo settings, not an exactly-once production guarantee.
+
+Profiles are isolated demos with loopback publication and backend-only credentials.
+Enterprise evidence service startup/access remains disabled until identity/TLS review.
+Existing Python/UI defaults and production execution stay unchanged.

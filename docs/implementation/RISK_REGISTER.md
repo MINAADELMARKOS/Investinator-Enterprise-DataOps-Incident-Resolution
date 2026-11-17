@@ -15,3 +15,17 @@
 | R11 | Medium / build owner | Python minimum-only dependencies | reproducible lock strategy and Python dependency audit before release |
 
 Owner roles are proposed responsibilities, not assignments to named people.
+
+Prompt 04 updates: search/trace/metric transport is verified locally with simulated
+inputs, so R7 is partially addressed for the lab only. OpenSearch 3.4.0 / official
+Java 3.11.0 replaces unavailable Elasticsearch on this kernel (ADR-011). Reactive
+transport dependencies and enabled Spring context are regression tested.
+
+| ID | Severity / owner role | Evidence and risk | Required mitigation / gate |
+|---|---|---|---|
+| R12 | High / SRE | bounded file buffers/retries can drop data on prolonged outage; create-only duplicate conflicts retry whole batches | monitor errors/drop counters and add production quarantine/replay coverage |
+| R13 | High / security lead | local demo uses bundled OpenSearch security/certificates and private plaintext HTTP; no enterprise authenticated ingestion | identity/TLS/certificate/role/secret review before exposure; enterprise evidence mode disabled |
+| R14 | Medium / data owner | native trace batches are stored separately but have no tenant-aware query API | keep index credentials private; add scoped trace adapters before exposing queries |
+
+Critical Next.js R1 remains a release blocker. No Java dependency CVE audit or
+production security signoff was performed; passing compatibility tests is not that audit.
