@@ -10,6 +10,6 @@ import org.springframework.context.annotation.Configuration;
 public class ConnectorConfiguration {
     // No network call or paid probe on startup. Model and credentials remain backend environment settings.
     @Bean(destroyMethod = "close")
-    @ConditionalOnProperty(name = "investinator.openai.enabled", havingValue = "true")
-    OpenAIClient openAIClient(OpenAiProperties properties) { return OpenAIOkHttpClient.fromEnv(); }
+    @org.springframework.context.annotation.Conditional(com.investinator.model.ProviderConfigured.class)
+    OpenAIClient openAIClient(OpenAiProperties properties,org.springframework.core.env.Environment env) { return com.investinator.model.ProviderClients.create(env); }
 }

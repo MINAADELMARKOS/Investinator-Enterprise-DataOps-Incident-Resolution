@@ -98,11 +98,10 @@ runtime checks pass.
 No OpenAI request is made by health, doctor, up, smoke or test. `ai-check` inspects
 only presence by default. An operator may supply the provider secret and model
 through backend environment/secret injection (not chat) and explicitly run
-`ai-check --live`. That command uses the official Python OpenAI SDK from the
-locked backend environment, sends only a one-word probe with `store=false`, has
-10s timeout, zero SDK retries, 64 maximum output tokens, and a per-checkout limit
-of one request/minute. It may incur a small charge. This diagnostic does not
-implement the later agent/tool-calling loop. No paid probe was run during this stage.
+`ai-check --live`. That command uses the official Java OpenAI Responses SDK, sends only a one-word probe with `store=false`, has
+8s SDK timeout, zero SDK retries, 64 maximum output tokens, and a per-checkout limit
+of one request/minute. It may incur a small charge. The Java chat API also implements the bounded read-only function loop when explicitly
+enabled and configured. No paid probe was run during implementation.
 
 For the explicit owned-lab outage test, run `python scripts/verify_health_lab.py`.
 It stops and restores each local dependency and fails on unexpected restarts or
@@ -120,3 +119,7 @@ across down/up. See the [connector deployment matrix](implementation/prompt06/CO
 for private endpoint/authentication variables, supported versions and unverified
 semantic dimensions. Run `python scripts/verify_connectors_lab.py` for the explicit
 owned-lab authorization/durability acceptance (it tears down/restarts this lab).
+
+Provider setup and limits: [Prompt 08](implementation/prompt08/REPORT.md). Provider
+keys belong in backend secret storage; never paste them in chat. Chat requires
+the private state-encryption key as well as provider/model configuration.

@@ -114,3 +114,14 @@ KRaft/legacy upstream ranking, disk-vs-healthy-ZK, mixed provenance, contradicti
 version validity and tenant/incident scope pass. PostgreSQL Java queries/persistence
 pass. Reports: [prompt07](prompt07/REPORT.md). Production graph discovery, identity
 and critical Next.js release gates remain. Prompt 08 may now start after commit.
+
+## Prompt 08 — PASS (SDK/tool/history gate); live provider NOT_CONFIGURED
+
+Prompt 07 gate committed ad5173c. Implementing official SDK function loop and private persisted continuation; no paid call without explicit ai-check --live.
+
+Prompt 08 checkpoint: 69 Java and 14 CLI tests PASS with zero skips. Official SDK
+function loops, reasoning continuation, encrypted PostgreSQL history, tenant scope,
+negative/provider cases and actual Kafka tool execution pass using WireMock for
+the provider. ai-check exit 2 / key+model absent; no real paid call and no claim
+of live provider proof. [Report](prompt08/REPORT.md). Critical Next.js, production
+identity and private integration gates remain. Prompt 09 may start after commit.

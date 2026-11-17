@@ -213,3 +213,26 @@ confidence. Source modes are not combined for corroboration. Confidence is a
 qualitative evidence band; RootCause remains distinct and unconfirmed. No model,
 remediation or external infrastructure mutation is involved. Default frontend/
 Python behavior is preserved; typed graph projection is explicitly configured.
+
+## ADR 015 — Stateless Responses protocol, private continuation, read-only capabilities
+
+Prompt 08 uses the official Java client bean with explicit store=false, encrypted
+reasoning inclusion, zero transport retries and bounded requests/tokens/time/rate.
+All supported output protocol items are retained across function loops and turns;
+unknown output kinds are rejected rather than silently omitted. Private state uses
+AES-GCM with tenant/conversation authenticated data; public history stores only
+redacted user text and final assistant text. Model reasoning is not public audit.
+Missing optional key/model does not prevent core startup, superseding the scaffold's
+earlier model-required startup validation. A state key is required for enabled chat.
+
+Caller tenant/incident/service scope is bound on the server. No model-controlled
+endpoint, SQL, shell, approval or remediation exists. Exact citation source/time/
+identity is revalidated, including persisted read-tool evidence. Simulated incident
+observations plus actual diagnostic reads are labeled MIXED; no live-source claim
+is inferred from merely calling a real model. Provider errors and deterministic
+fallback stay explicit, with legacy response fields/audit behavior preserved.
+Admission precedes taking database connections so provider latency cannot fill the
+pool with waiting chat requests. CI forces provider calls off except explicit
+loopback WireMock test configurations. Paid probing is solely explicit CLI --live,
+uses the Java SDK and no incident data, and is locally rate limited. The no-key
+acceptance case is NOT_CONFIGURED, never a fabricated successful provider proof.

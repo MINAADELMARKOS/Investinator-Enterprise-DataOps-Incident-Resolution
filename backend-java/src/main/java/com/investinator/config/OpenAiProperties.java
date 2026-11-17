@@ -7,6 +7,5 @@ import org.springframework.validation.annotation.Validated;
 @Validated
 @ConfigurationProperties("investinator.openai")
 public record OpenAiProperties(boolean enabled, String model, @Min(1) @Max(10) int maxRequests) {
-    @AssertTrue(message = "An enabled OpenAI connector requires a backend model setting")
-    public boolean isConfigurationValid() { return !enabled || (model != null && !model.isBlank()); }
+    // Missing optional provider configuration is reported, not a core startup failure.
 }

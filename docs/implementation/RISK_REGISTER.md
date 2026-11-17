@@ -49,3 +49,8 @@ Prompt 07: deterministic graph/time correlation passes simulated and adversarial
 cases; it does not prove causation. Graph discovery and production topology
 provenance remain unverified. Qualitative hypothesis bands must not be presented
 as statistical causal probabilities. R1 remains a release blocker.
+
+Prompt 08: SDK protocol/history and native read-tool integration are verified with
+a mocked provider. Real OpenAI key/model are absent; live paid proof remains
+NOT_CONFIGURED. Review encryption-key rotation/retention and provider budgets before
+production enablement. No provider capability authorizes infrastructure mutation.

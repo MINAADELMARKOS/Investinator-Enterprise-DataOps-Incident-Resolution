@@ -206,3 +206,35 @@ class LocalSafetyTest(unittest.TestCase):
 
     def test_smoke_resumes_after_approval_without_duplicate_approval(self):
         self._resume_owned_smoke(True)
+
+    def test_java_live_probe_requires_explicit_opt_in_and_rate_limits_repeats(self):
+        state_env = {
+            "OPENAI_API_KEY": "test-only",
+            "INVESTINATOR_OPENAI_MODEL": "fixture-model",
+        }
+        with (
+            tempfile.TemporaryDirectory() as temp,
+            patch.dict(os.environ, state_env),
+            patch.object(cli, "RUNTIME", Path(temp)),
+            patch.object(
+                cli, "java_env", return_value={"JAVA_HOME": "/fixture/jdk", **state_env}
+            ),
+            patch.object(cli, "classpath", return_value="fixture-classpath"),
+            patch.object(cli, "maven"),
+            patch.object(
+                cli,
+                "run",
+                return_value='{"status":"HEALTHY","paid_call_made":true,"text":"OK"}',
+            ) as run,
+        ):
+            self.assertEqual(0, cli.ai_check(False))
+            run.assert_not_called()
+            self.assertEqual(0, cli.ai_check(True))
+            self.assertIn(
+                "com.investinator.model.OpenAiLiveProbe", run.call_args.args[0]
+            )
+            self.assertIn("--live", run.call_args.args[0])
+            self.assertNotIn("test-only", str(run.call_args.args[0]))
+            with self.assertRaisesRegex(RuntimeError, "one request per minute"):
+                cli.ai_check(True)
+            self.assertEqual(1, run.call_count)

@@ -113,7 +113,7 @@ class PersistenceWorkflowTest {
         }finally{pool.shutdownNow();}
     }
     @Test void unknownProductionActionsAndMigrationOwnershipAreNotPermitted() {
-        assertEquals(3,store.jdbc.queryForObject("select count(*) from flyway_schema_history where type='SQL' and success",Integer.class));
+        assertEquals(4,store.jdbc.queryForObject("select count(*) from flyway_schema_history where type='SQL' and success",Integer.class));
         assertEquals(0,store.jdbc.queryForObject("select count(*) from information_schema.tables where table_schema='public' and table_name='incidents'",Integer.class));
         assertThrows(ApiFailure.class,()->store.write("demo",()->{service.analyze("demo",new IncidentRequest("Kafka",null,null,"production","demo"));throw new ApiFailure(409,"rollback");}));
         assertTrue(store.all(Table.INCIDENTS,"demo").isEmpty());
@@ -132,7 +132,9 @@ class PersistenceWorkflowTest {
             var response=mvc.perform(req).andReturn().getResponse();
             assertEquals(((Number)step.get("status")).intValue(),response.getStatus(),"HTTP "+path+": "+response.getContentAsString());
             Object actual=step.get("response") instanceof String?response.getContentAsString():Json.decode(response.getContentAsString());
-            assertEquals(normalize(step.get("response"),""),normalize(actual,""),"Contract step "+(++count)+" "+path);
+            Object comparable=actual;
+            if(path.equals("/api/v1/investigator/messages")&&response.getStatus()==200&&actual instanceof Map<?,?> row){var legacy=new LinkedHashMap<String,Object>();for(String field:List.of("conversation_id","incident_id","answer","evidence_ids"))legacy.put(field,row.get(field));comparable=legacy;}
+            assertEquals(normalize(step.get("response"),""),normalize(comparable,""),"Contract step "+(++count)+" "+path);
             if(actual instanceof Map<?,?> result&&response.getStatus()==200) {
                 if(result.get("incident_id")!=null)incident=result.get("incident_id").toString();
                 if(result.get("conversation_id")!=null)conversation=result.get("conversation_id").toString();

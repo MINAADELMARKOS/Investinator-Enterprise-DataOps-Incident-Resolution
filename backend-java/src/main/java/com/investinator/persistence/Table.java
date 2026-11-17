@@ -1,7 +1,7 @@
 package com.investinator.persistence;
 import java.util.*;
 public enum Table {
-AI_USAGE("ai_usage", "id,tenant_id,incident_id,task,model,latency_ms,input_tokens,output_tokens,status,created_at"),
+AI_USAGE("ai_usage", "id,tenant_id,incident_id,task,model,latency_ms,input_tokens,output_tokens,status,request_count,created_at"),
 APPROVALS("approvals", "id,tenant_id,incident_id,action_id,decision,actor,reason,created_at"),
 AUDIT_EVENTS("audit_events", "id,tenant_id,incident_id,actor,event,payload,created_at"),
 CONVERSATIONS("conversations", "id,tenant_id,incident_id,created_at"),

@@ -8,7 +8,7 @@ class ConnectorConfigurationTest {
         try (var factory = Validation.buildDefaultValidatorFactory()) {
             var validator = factory.getValidator();
             assertTrue(validator.validate(new OpenAiProperties(false, "", 3)).isEmpty());
-            assertFalse(validator.validate(new OpenAiProperties(true, "", 3)).isEmpty());
+            assertTrue(validator.validate(new OpenAiProperties(true, "", 3)).isEmpty());
             assertFalse(validator.validate(new OpenAiProperties(false, "", 0)).isEmpty());
             assertFalse(validator.validate(new OpenAiProperties(false, "", 11)).isEmpty());
         }

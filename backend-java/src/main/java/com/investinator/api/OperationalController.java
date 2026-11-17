@@ -28,10 +28,11 @@ public class OperationalController {
     private final boolean demo;
     private final String configuredTenant;
     private final Environment env;
+    private final com.investinator.chat.ChatService chats;
     private final org.springframework.beans.factory.ObjectProvider<com.investinator.correlation.CorrelationService> correlations;
     public OperationalController(WorkflowService service,@Value("${investinator.demo-mode:true}") boolean demo,
-        @Value("${investinator.demo-tenant:demo}") String tenant,Environment env,org.springframework.beans.factory.ObjectProvider<com.investinator.correlation.CorrelationService> correlations) {
-        this.service=service;this.db=service.db;this.demo=demo;this.configuredTenant=tenant;this.env=env;this.correlations=correlations;
+        @Value("${investinator.demo-tenant:demo}") String tenant,Environment env,org.springframework.beans.factory.ObjectProvider<com.investinator.correlation.CorrelationService> correlations,com.investinator.chat.ChatService chats) {
+        this.service=service;this.db=service.db;this.demo=demo;this.configuredTenant=tenant;this.env=env;this.correlations=correlations;this.chats=chats;
         if(!tenant.matches("[A-Za-z0-9_-]{1,100}"))throw new IllegalArgumentException("Invalid demo tenant");
     }
     @Bean ApplicationRunner initializeDemo() {return args->{if(demo)service.seed(configuredTenant);};}
@@ -98,27 +99,14 @@ public class OperationalController {
     @GetMapping("/api/v1/evaluations") public Object evaluations(){return read(()->db.all(Table.EVALUATIONS,tenant()).stream().limit(50).map(r->withPayload(r,"id","replay_id","score","created_at")).toList());}
     @GetMapping({"/api/v1/ai/usage","/ai/health"}) public Object usage(){return read(()->{
         var rows=db.all(Table.AI_USAGE,tenant()).stream().limit(100).toList();
-        return obj("model_calls",rows.size(),"input_tokens",rows.stream().mapToInt(r->((Number)r.get("input_tokens")).intValue()).sum(),"output_tokens",rows.stream().mapToInt(r->((Number)r.get("output_tokens")).intValue()).sum(),"failures",rows.stream().filter(r->!r.get("status").equals("ok")).count(),"recent",rows.stream().map(r->select(r,"model","task","latency_ms","input_tokens","output_tokens","status")).toList(),"mode","deterministic-fallback");
+        return obj("model_calls",rows.stream().mapToInt(r->((Number)r.get("request_count")).intValue()).sum(),"input_tokens",rows.stream().mapToInt(r->((Number)r.get("input_tokens")).intValue()).sum(),"output_tokens",rows.stream().mapToInt(r->((Number)r.get("output_tokens")).intValue()).sum(),"failures",rows.stream().filter(r->!r.get("status").equals("ok")).count(),"recent",rows.stream().map(r->select(r,"model","task","latency_ms","input_tokens","output_tokens","status")).toList(),"mode",rows.stream().anyMatch(r->r.get("status").equals("ok"))?"gpt":"deterministic-fallback");
     });}
     @PostMapping("/api/v1/incidents/{id}/investigate") public Object investigate(@PathVariable String id,HttpServletRequest request){return command(request,Map.of(),()->fallback(service.incident(tenant(),id)));}
     private Object fallback(Incident item) {
         return obj("mode","deterministic-fallback","available",false,"message","AI investigation temporarily unavailable; evidence and deterministic analysis remain available.","analysis",obj("summary",item.executive_summary,
             "root_causes",item.likely_root_causes.stream().filter(c->!c.equals("insufficient_evidence")).map(c->obj("title",c,"explanation","Deterministic runbook hypothesis","confidence",item.confidence,"evidence_ids",item.evidence.stream().limit(2).map(Evidence::id).toList())).toList(),"next_checks",item.recovery_actions.stream().filter(a->!a.dangerous).map(a->a.action).toList(),"uncertainty","No model call was made; inspect evidence before accepting the hypothesis."));
     }
-    @PostMapping("/api/v1/investigator/messages") public Object chat(@Valid @RequestBody ChatMessage input,HttpServletRequest request){return command(request,input,()->{
-        String conversation=input.conversation_id(),incidentId=input.incident_id();
-        if(conversation!=null) {
-            var existing=db.select(Table.CONVERSATIONS,tenant(),"id=?",conversation);if(existing.isEmpty())throw new ApiFailure(404,"Conversation not found");
-            if(incidentId==null)incidentId=(String)existing.getFirst().get("incident_id");
-        }else {conversation=id();db.insert(Table.CONVERSATIONS,tenant(),obj("id",conversation,"incident_id",incidentId));}
-        var incident=incidentId==null?null:service.incident(tenant(),incidentId);
-        db.insert(Table.MESSAGES,tenant(),obj("conversation_id",conversation,"role","user","content",Redaction.redact(input.message()),"payload",obj("mode",input.mode())));
-        String answer=incident==null?"Select an incident to investigate evidence, impact, and safe next steps.":input.mode().equals("fix")?"Proposed actions are shown in the Incident Room. Human approval is required for risky steps.":incident.executive_summary;
-        var ids=incident==null?List.of():incident.evidence.stream().limit(5).map(Evidence::id).toList();
-        db.insert(Table.MESSAGES,tenant(),obj("conversation_id",conversation,"role","assistant","content",answer,"payload",obj("evidence_ids",ids,"mode","deterministic-fallback")));
-        service.audit(tenant(),"chat_message",incidentId,"demo.senior_sre",obj("conversation_id",conversation,"mode",input.mode()));
-        return obj("conversation_id",conversation,"incident_id",incidentId,"answer",answer,"evidence_ids",ids);
-    });}
+    @PostMapping("/api/v1/investigator/messages") public Object chat(@Valid @RequestBody ChatMessage input,HttpServletRequest request){return chats.admit(()->command(request,input,()->chats.handle(tenant(),input)));}
     @GetMapping("/api/v1/investigator/conversations/{id}") public Object conversation(@PathVariable String id){return read(()->{
         var row=db.select(Table.CONVERSATIONS,tenant(),"id=?",id);if(row.isEmpty())throw new ApiFailure(404,"Conversation not found");
         var messages=new ArrayList<>(db.select(Table.MESSAGES,tenant(),"conversation_id=?",id));Collections.reverse(messages);
@@ -128,7 +116,7 @@ public class OperationalController {
     @GetMapping("/api/v1/integrations") public Object integrations() {
         tenant();var kafka=Json.map(kafkaHealth());
         return List.of(obj("name","ReplayLab telemetry","status","connected-demo","capabilities",List.of("metrics","alerts","recovery"),"last_sync",null),
-            obj("name","OpenAI","status","not-configured","capabilities",List.of("investigation"),"last_sync",null),
+            obj("name","OpenAI","status",chats.configurationStatus().toLowerCase(Locale.ROOT).replace('_','-'),"capabilities",List.of("investigation"),"last_sync",null),
             obj("name","Kafka","status",kafka.get("status"),"capabilities",kafka.get("status").equals("connected")?List.of("read-only health","demo workload"):List.of(),"last_sync",null),
             obj("name","Spark","status","planned","capabilities",List.of(),"last_sync",null),
             obj("name","Prometheus","status","compose-available","capabilities",List.of("API scrape"),"last_sync",null),

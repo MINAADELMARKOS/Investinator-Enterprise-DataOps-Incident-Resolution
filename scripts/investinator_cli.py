@@ -124,6 +124,11 @@ def load_state(create=False):
                 if key not in state["secrets"]:
                     state["secrets"][key] = "Aa1!" + secrets.token_urlsafe(24)
                     changed = True
+            if "INVESTINATOR_CHAT_STATE_KEY" not in state["secrets"]:
+                state["secrets"]["INVESTINATOR_CHAT_STATE_KEY"] = base64.b64encode(
+                    secrets.token_bytes(32)
+                ).decode()
+                changed = True
             if changed:
                 with tempfile.NamedTemporaryFile(
                     mode="w", dir=RUNTIME, delete=False
@@ -157,6 +162,9 @@ def load_state(create=False):
         },
         "cluster_id": base64.urlsafe_b64encode(uuid.uuid4().bytes).decode().rstrip("="),
     }
+    state["secrets"]["INVESTINATOR_CHAT_STATE_KEY"] = base64.b64encode(
+        secrets.token_bytes(32)
+    ).decode()
     if any(value < 1024 or value > 65535 for value in state["ports"].values()) or len(
         set(state["ports"].values())
     ) != len(PORTS):
@@ -867,52 +875,51 @@ def ai_check(live):
             )
         )
         return 0
-    # Exactly one explicit opt-in, low-token provider request. No logs/incident data is sent.
-    try:
-        from openai import OpenAI
-    except ImportError:
-        raise RuntimeError(
-            "Install the locked Python backend dependencies and invoke ai-check with that Python environment"
-        ) from None
+    # The rate gate precedes every invocation; no provider call during builds/health.
     with lock():
         rate = RUNTIME / "ai-check-last-request"
         if rate.exists() and time.time() - float(rate.read_text()) < 60:
             raise RuntimeError(
                 "Paid AI health probe limited to one request per minute per checkout"
             )
+        if not (
+            ROOT
+            / "backend-java/target/classes/com/investinator/model/OpenAiLiveProbe.class"
+        ).exists():
+            maven("-DskipTests", "package")
         rate.write_text(str(time.time()))
-    with OpenAI(timeout=10, max_retries=0) as client:
+        values = java_env()
+        trust = Path("/etc/ssl/certs/java/cacerts")
+        if trust.exists():
+            values["JAVA_TOOL_OPTIONS"] = (
+                values.get("JAVA_TOOL_OPTIONS", "")
+                + f" -Djavax.net.ssl.trustStore={trust}"
+            )
+        binary = (
+            str(Path(values["JAVA_HOME"]) / "bin/java")
+            if values.get("JAVA_HOME")
+            else "java"
+        )
+        raw = run(
+            [
+                binary,
+                "-cp",
+                classpath(),
+                "com.investinator.model.OpenAiLiveProbe",
+                "--live",
+            ],
+            env=values,
+            capture=True,
+            timeout=15,
+        )
         try:
-            response = client.responses.create(
-                model=model,
-                input="Reply with the single word OK.",
-                max_output_tokens=64,
-                store=False,
-            )
-            if not response.output_text:
-                raise RuntimeError("No provider text returned")
-            print(
-                json.dumps(
-                    {
-                        "status": "HEALTHY",
-                        "source_mode": "LIVE",
-                        "paid_call_made": True,
-                        "output_present": True,
-                    }
-                )
-            )
-            return 0
-        except Exception as error:
-            print(
-                json.dumps(
-                    {
-                        "status": "UNHEALTHY",
-                        "error_type": type(error).__name__,
-                        "paid_call_made": True,
-                    }
-                )
-            )
-            return 1
+            report = json.loads(raw.splitlines()[-1])
+        except (ValueError, IndexError):
+            raise RuntimeError(
+                "Java live probe returned an invalid diagnostic; no provider output was echoed"
+            ) from None
+        print(json.dumps(report))
+        return 0 if report["status"] == "HEALTHY" else 1
 
 
 def reset(state, confirmed):

@@ -52,6 +52,8 @@ public class HealthAggregator {
             latest=new Report(UUID.randomUUID().toString(),Instant.now().toString(),"LIVE",success,partial,List.copyOf(checks));workers.purge();running.complete(latest);return latest;
         }finally{if(!running.isDone())running.completeExceptionally(new IllegalStateException("Diagnostic refresh did not finish"));inFlight.compareAndSet(running,null);}
     }
+    public HealthCheckResult diagnose(HealthProbe probe){return diagnose(probe,settings.timeoutMs+200L);}
+    public HealthCheckResult diagnose(HealthProbe probe,long waitMs){var pending=submit(probe);try{return pending.get(Math.min(waitMs,settings.timeoutMs+200L),TimeUnit.MILLISECONDS);}catch(Exception e){pending.cancel(true);return failure(probe,Status.UNKNOWN,"DEADLINE_EXCEEDED",Math.min(waitMs,settings.timeoutMs));}}
     private CompletableFuture<HealthCheckResult> submit(HealthProbe probe) {
         var result=new CompletableFuture<HealthCheckResult>();var circuit=circuits.computeIfAbsent(probe.service(),key->new Circuit());
         synchronized(circuit){if(System.nanoTime()<circuit.openedUntil){result.complete(failure(probe,Status.UNKNOWN,"CIRCUIT_OPEN",0));return result;}}
@@ -73,7 +75,7 @@ public class HealthAggregator {
             }));
             if(result.isDone())handle.get().cancel(true);
         }catch(RejectedExecutionException ignored){result.complete(failure(probe,Status.UNKNOWN,"SATURATED",0));}
-        result.whenComplete((value,error)->timer.cancel(false));return result;
+        result.whenComplete((value,error)->{timer.cancel(false);if(result.isCancelled()){var task=handle.get();if(task!=null)task.cancel(true);}});return result;
     }
     private void record(Circuit circuit,boolean success){synchronized(circuit){if(success){circuit.failures=0;circuit.openedUntil=0;}else if(++circuit.failures>=settings.failureThreshold){circuit.openedUntil=System.nanoTime()+TimeUnit.MILLISECONDS.toNanos(settings.cooldownMs);circuit.failures=0;}}}
     private HealthCheckResult failure(HealthProbe probe,Status status,String error,long duration) {

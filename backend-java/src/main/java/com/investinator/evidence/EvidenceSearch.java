@@ -19,7 +19,9 @@ public class EvidenceSearch {
         this.client=client;this.index=index;
         if(!index.matches("[a-z][a-z0-9_-]{0,80}"))throw new IllegalArgumentException("A single configured evidence index is required");
     }
-    public Map<String,Object> search(String tenant,String text,String service,String from,String to,int page,int size) {
+    public Map<String,Object> search(String tenant,String text,String service,String from,String to,int page,int size) {return query(tenant,null,text,service,from,to,page,size);}
+    public Map<String,Object> searchForIncident(String tenant,String incident,String text){return query(tenant,incident,text,null,null,null,0,10);}
+    private Map<String,Object> query(String tenant,String incident,String text,String service,String from,String to,int page,int size) {
         if(text==null||text.length()>200||text.contains("://")||text.strip().startsWith("{"))throw new ApiFailure(422,"Use bounded plain search text, not URLs or DSL");
         if(service!=null&&!service.matches("[A-Za-z0-9._-]{1,128}"))throw new ApiFailure(422,"Invalid service filter");
         if(size<1||size>50||page<0||(long)page*size>1000)throw new ApiFailure(422,"Pagination exceeds allowed bounds");
@@ -29,6 +31,7 @@ public class EvidenceSearch {
         var filters=new ArrayList<Query>();
         filters.add(Query.of(q->q.term(t->t.field("tenant_id").value(v->v.stringValue(tenant)))));
         filters.add(Query.of(q -> q.range(r -> r.field("@timestamp").gte(org.opensearch.client.json.JsonData.of(start.toString())).lte(org.opensearch.client.json.JsonData.of(end.toString())))));
+        if(incident!=null)filters.add(Query.of(q->q.term(t->t.field("incident_id").value(v->v.stringValue(incident)))));
         if(service!=null)filters.add(Query.of(q->q.term(t->t.field("service.name").value(v->v.stringValue(service)))));
         Query query=Query.of(q->q.bool(b->{b.filter(filters);if(!text.isBlank())b.must(m->m.multiMatch(mm->mm.query(text).fields("event.original","service.name","error.signature")));return b;}));
         long before=System.nanoTime();
