@@ -116,4 +116,4 @@ A Kafka 4.x KRaft controller failure must never be diagnosed as a ZooKeeper outa
 
 - [Updated prompts after Prompt 09](POST_P09_PROMPTS_V2.md)
 - [Safe handoff of local Java code to GitHub](SYNC_JAVA_WORKTREE.md)
-- [Original full prompt chain](../../README.md) (the original chain was shared in conversation; link to the new checked-in chain for the current stages).
+- [Current repository README](../../README.md) — as-is Python stack and demo. The previous complete 00–15 prompt chain was provided separately in the conversation; this repository document supersedes stages 09A onward.
