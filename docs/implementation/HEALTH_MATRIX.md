@@ -10,7 +10,7 @@
 | PostgreSQL | actual restart/private-schema/transactions/outage PASS | no migration of existing Python data |
 | OpenSearch/OTel/Fluent Bit/Prometheus | actual pipeline/scoped evidence/knowledge PASS | SIMULATED source data on LIVE local transport |
 | Provider | SDK protocol mocks PASS; actual live NOT_CONFIGURED | no paid calls |
-| GitHub Git/API/CI | Git read/dry-run PASS; API proxy CONNECT denied | push and hosted status recorded in SYNC_REPORT.md |
+| GitHub Git/API/CI | feature pushed and remote SHA verified; Java/backend/CLI/frontend hosted PASS (run 44102365986); API CONNECT denied | PR creation blocked; latest hosted status in SYNC_REPORT.md |
 | Independent AI quality | PENDING human review | fixture metrics are provisional |
 
 Detailed current artifacts: [sync report](SYNC_REPORT.md).

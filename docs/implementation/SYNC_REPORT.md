@@ -1,7 +1,7 @@
 # Prompt 09A — Java worktree synchronization
 
-2026-11-17. Local verification PASS; remote publication/PR/CI status is recorded
-below. Only Prompt 09A is in scope. No main merge, cutover or production change.
+2026-11-17. Local verification and remote publication PASS; hosted CI for implementation
+head 08cc387 PASS; PR creation BLOCKED by API destination policy. Only Prompt 09A is in scope. No main merge, cutover or production change.
 
 ## Recovery point and source commits
 
@@ -63,36 +63,74 @@ Only blank/example `.env.example` is tracked; no `.env`, .runtime secrets, actua
 private key/certificate or generated database file is included. This is a scoped
 publication check, not an enterprise security audit.
 
-Initial failures were recorded and corrected: npm default cache unavailable
+Initial failures were recorded and corrected: frontend build-log whitespace
+(normalized before push); npm default cache unavailable
 (use writable cache); missing placeholder variables in a Compose syntax check;
 known OpenAPI description drift (retain original and synchronized snapshots).
 No tests, TLS checks, audit steps or security guards were disabled.
 
 ## GitHub publication
 
-Publication is pending the verified merge commit. Git push dry run succeeds.
-GitHub REST/GraphQL calls through `gh` fail at the inherited proxy CONNECT layer:
-`api.github.com` is absent from the configured destination allowlist and returns
-403 Forbidden before GitHub responds. `gh auth status` consequently cannot establish
-credential validity; no assertion of an actually invalid GitHub token is made.
-The authorized repository's HTTPS Git route is independently available.
+- Normal merge commit: `b3fd893` (parents: original Java head and fetched main).
+- Verified initial pushed head: `08cc387538ac16828bb89a4f457d919383262024`
+  (merge plus build-log whitespace normalization).
+- `git push -u origin feature/java-ai-audit`: exit 0.
+- Independent `git ls-remote origin refs/heads/feature/java-ai-audit`: same SHA.
+- [Remote branch](https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/tree/feature/java-ai-audit).
+- All original Java commits and fetched main are ancestors of the pushed head.
+- The initial clone fetched only main; added feature/java-ai-audit to its fetch
+  tracking and fetched the remote feature ref, which also matches the local head.
 
-PR URL: NOT_CREATED pending an allowed authenticated API route.
-Hosted CI run IDs/results: NOT_VERIFIED pending publication and API access.
-No PR merge or Pages/environment publication was performed.
+PR creation was attempted with `gh pr create --draft --base main --head
+feature/java-ai-audit` and the [reviewable body](prompt09a/PR_BODY.md). It failed
+before reaching GitHub: `Post https://api.github.com/graphql: Forbidden`.
+The inherited proxy denies CONNECT to api.github.com, absent from its destination
+allowlist. `gh auth status` cannot establish credential validity through this
+blocked route; this is not proof that the actual backing credential is invalid.
+The authorized repository's HTTPS Git route is independently verified.
+
+PR URL: **NOT_CREATED / BLOCKED by API access**. An authenticated route to
+api.github.com is needed. No merge was attempted. The exact
+[PR creation page](https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/compare/main...feature/java-ai-audit?expand=1)
+is a preparation link, not an existing PR. To finish, allow api.github.com in the
+running environment network settings and then verify the configured GitHub
+identity has repository PR access; do not paste credentials into source or chat.
+
+Hosted CI did trigger on the pushed branch:
+[run 44102365986, CI #60](https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/actions/runs/44102365986)
+for `08cc387`. The public GitHub Actions HTML verifies **all three jobs completed successfully**:
+backend (including CLI), frontend and java-scaffold (Maven/Testcontainers, Compose,
+HTTP smoke and native evidence pipeline). Authenticated job log download
+is blocked by API access; public statuses are observed independently, not fabricated
+from local tests. See [hosted-ci.json](prompt09a/hosted-ci.json) for exact job URLs and observed
+status. This subsequent report commit changes documentation only; it does not
+claim that run 44102365986 tested its own later documentation commit.
+Warnings about legacy action Node runtimes and the ubuntu-latest image transition
+are non-failing maintenance items; no actions or audits were disabled.
+No Pages/environment publication occurred; Pages triggers only on main/manual.
 
 ## Readiness and rollback
 
 09B can begin when requested: source/case/review artifacts are intact; human review
 and actual paid-provider proof remain PENDING/NOT_CONFIGURED. Do not fabricate either.
 Prompt 10 is NOT_STARTED. V2 permits flagged, read-only development despite pending
-human AI-quality sign-off, but requires remote branch/CI evidence first. Until
-hosted checks are verified, the 09A remote gate remains incomplete.
+human AI-quality sign-off, but requires remote branch/CI evidence first. The implementation
+checks passed locally and remotely; 09A remains incomplete solely because PR
+creation is blocked. Subsequent documentation-only pushes may queue additional CI;
+run 44102365986 is the verified implementation result.
 
 Production identity/RBAC, certificate/role audits, backup/restore/cutover, private
 connector certification and real provider verification remain separate blockers.
+Python's optional Elasticsearch profile was syntax-validated and its source/tests
+preserved; a fresh native Elasticsearch integration is NOT_TESTED in 09A. The
+verified native evidence/knowledge transport here is Java OpenSearch.
 Current npm audit clears the historical Next.js blocker locally; this does not
-certify production readiness or all dependencies.
+certify production readiness or all dependencies. Main's new chat UI recognizes
+Python `response_mode=openai` and `tool_calls`; Java's existing additive contract
+uses `response_mode=gpt` and `tool_trace`. The default Python flow is preserved,
+and opt-in Java proxy/fallback smoke passes, but provider-enabled Java UI status/
+trace rendering is not certified. Track alignment in Prompt 12 rather than silently
+switch traffic or rewrite either backend during synchronization.
 
 Rollback is the preserved backup branch and unchanged Python/default route. Do not
 reset the active branch, drop schemas or delete volumes. A synchronization change

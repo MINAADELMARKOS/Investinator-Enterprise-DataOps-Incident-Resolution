@@ -72,3 +72,13 @@ api.github.com CONNECT is denied by the environment destination allowlist. Do no
 misreport credential invalidity or hosted success. R10 human review remains open;
 V2 permits scoped development while prohibiting measured accuracy claims. Production
 identity, private cluster certification, provider validation and cutover remain gates.
+
+R9 follow-up in 09A: fetched main's new UI labels response_mode=openai and uses
+tool_calls; existing Java returns gpt/tool_trace. Default Python is unchanged and
+Java fallback proxy smoke passes. Java provider-backed presentation remains
+NOT_TESTED; align explicitly in Prompt 12 before opting into provider-backed UI.
+
+09A hosted result: run 44102365986 for implementation head 08cc387 passed Java,
+backend/CLI and frontend jobs, observed through public GitHub job statuses.
+Authenticated logs and PR creation remain blocked by api.github.com destination
+policy; report-only follow-up commits do not alter the validated implementation.

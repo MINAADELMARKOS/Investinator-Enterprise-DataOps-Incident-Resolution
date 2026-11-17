@@ -6,10 +6,14 @@ Local Java 00–09 is preserved and passes 78 Java/14 CLI tests. Remote-main Pyt
 GPT/search and Next.js 16.4.5 are reconciled; Python 12 tests and frontend
 install/build/types/audit pass, zero npm vulnerabilities. Java topology, bounded
 SDK loop, BM25/review/feedback and CLI are implemented. See [sync report](SYNC_REPORT.md).
-Remote branch publication/PR/hosted CI must be verified independently. API access
-is currently blocked by network policy; private enterprise services/provider remain
+Remote feature branch is pushed and SHA verified; Java/backend/CLI/frontend hosted
+jobs pass (run 44102365986 for 08cc387). PR creation/authenticated logs are blocked by API
+destination policy; private enterprise services/provider remain
 NOT_CONFIGURED. Independent human review is pending; no measured RCA quality claim.
 Production auth/cutover/security gates remain; Prompt 09B/10 have not started.
+New Python chat metadata (`openai`, `tool_calls`) differs from Java (`gpt`,
+`tool_trace`). Default Python UI is intact; opt-in Java provider-label/trace
+rendering needs the explicitly scoped Prompt 12 adapter, not an implicit cutover.
 
 ## Historical audit and stage-by-stage gaps (before 09A)
 

@@ -142,7 +142,7 @@ production identity/security and private integration gates. No paid provider cal
 production change, push/merge or environment publication performed.
 
 
-## Prompt 09A — local reconciliation PASS; publication/PR/CI pending
+## Prompt 09A — synchronized and pushed; hosted CI PASS; PR blocked
 
 User explicitly authorized normal merge, backup, verification, feature push and
 PR creation. Backup `backup/java-pre-sync-09a-20261117` preserves `3d5e14f`.
@@ -154,7 +154,9 @@ audit pass. Actual local health/doctor/smoke, persistence restart/proxy/outage,
 evidence pipeline and scoped BM25 pass. npm audit reports zero vulnerabilities:
 the historical critical Next.js blocker is cleared for this synchronized checkout.
 
-See [SYNC_REPORT.md](SYNC_REPORT.md) and prompt09a/ evidence. Git push dry run
-succeeds; GitHub API is blocked by proxy destination policy, so PR/hosted CI need
-separate verification. No 09B or 10 started, no production/main merge/routing
+See [SYNC_REPORT.md](SYNC_REPORT.md) and prompt09a/ evidence. Normal merge b3fd893 and publication head 08cc387 are pushed; ls-remote confirms
+local/remote identity. Hosted CI run 44102365986 for 08cc387 has successful Java, backend/CLI and
+frontend jobs. The final report follow-up changes documentation only. PR creation failed because api.github.com is
+blocked by proxy destination policy; authenticated logs unavailable. The 09A gate
+remains incomplete until PR creation is possible; implementation CI is verified. No 09B or 10 started, no production/main merge/routing
 change. Pending human review blocks measured AI-quality claims, not this sync.
