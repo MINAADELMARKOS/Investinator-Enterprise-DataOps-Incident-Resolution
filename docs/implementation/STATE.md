@@ -1,3 +1,36 @@
+Current authoritative checkpoint — Prompt 14B (2026-11-19, Africa/Cairo).
+**Local engineering verified; topic publication / hosted CI pending. Production BLOCKED.**
+See [14B report](prompt14b/REPORT.md), [per-risk matrix](prompt14b/GAP_CLOSURE_MATRIX.json),
+[actual commands](prompt14b/VALIDATION.json) and [release decision](prompt14b/RELEASE_DECISION.md).
+Initial main e5ca171 and source Java e7be724 (includes completed P15) were preserved;
+backup pre-p14b-e7be724 and normal merges 1ca09a1/0f75a45 reconcile newer main 06d036d.
+No merge into main, routing cutover, deployment, credential setup or paid model call.
+
+Local checks: Java141 (0 failure/error/skip), CLI34, Python12/Ruff/mypy, frontend13/
+type/build/audit, public Worker15/check/dry-run, showcase build/audit; browser14,
+eight owned outages, physical restarts, native evidence pipeline, 3000 duplicate burst,
+500 paced reads, snapshot41 tables/1120 fixture rows, disposable WAL/PITR and retained
+volume down/up27 identical incident IDs. Scope/source/failed reruns remain explicit.
+BM25 fixture stale degradation reduced8/8 to0/8; returned precision stays8/9; human
+gold/holdout unsigned. Native ingestion DISABLED/NOT_CERTIFIED, new tenants paused,
+production actions hard-denied, only two named ReplayLab simulations. Provider actual
+keys/models/approved policy NOT_CONFIGURED locally; calls by this work ZERO.
+
+P14-01..09 remain externally blocked/partial; P14-10 regressions retained. Local OSV
+is BLOCKED by egress, image scan DB Forbidden (no clean result); current hosted scans
+pending. Shaded Hive contents/licenses, private IdP/connector/network/HA certification,
+legal retention/external audit, actual costs and production SLO/ROI are unverified.
+Newer main Pages operational views stay SIMULATED. Its separate optional public Worker
+is preserved and off by repository default; external deployment/live traffic NOT_VERIFIED.
+No Java financial certificate covers Python/public Worker. No human signoff is inferred.
+
+Historical corrections: old Next.js critical warnings and 09A unpublished-branch claims
+are superseded: Next16.4.5 fresh audit clean; Java work is pushed on its source branch.
+Earlier stage records remain historical, not current gates. Completed P15 is preserved.
+The current master authorizes 14B only; stop after publication/review, no next prompt.
+
+Historical checkpoints / earlier decisions follow:
+
 Prompt 14B remote reconciliation: newer main 06d036d merged normally, preserving
 Pages v2 and the separate public gateway. Its 14 tests, showcase build/audit and
 Worker bundle dry-run pass. Public cost/data-transfer flags default off; body

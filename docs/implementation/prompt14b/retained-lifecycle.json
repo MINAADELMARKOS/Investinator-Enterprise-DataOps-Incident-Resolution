@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "source_sha": "e38938e2550ca63fa4cb7adffc2f10daed692433",
+  "commands": [
+    {
+      "command": "./investinator down",
+      "exit_status": 0
+    },
+    {
+      "command": "./investinator up",
+      "exit_status": 0
+    }
+  ],
+  "source_mode": "ACTUAL_OWNED_LOCAL_CONTAINERS_ON_SIMULATED_DATA",
+  "incident_count_preserved": 27,
+  "incident_id_set_equal": true,
+  "all_owned_volumes_preserved": true,
+  "volume_deletion_requested": false,
+  "production_routing_changed": false,
+  "paid_calls": 0,
+  "elapsed_seconds": 117.199
+}

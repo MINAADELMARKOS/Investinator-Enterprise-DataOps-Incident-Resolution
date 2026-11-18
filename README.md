@@ -13,6 +13,15 @@ See the [handover](docs/handover/README.md), [build/status matrix](docs/handover
 [Prompt 14B scope](docs/roadmap/PROMPT_14B_SINGLE_REMEDIATION_AND_PUSH.md)
 and [production release gates](docs/implementation/prompt14/RELEASE_RISKS.json).
 
+## Prompt 14B engineering checkpoint
+
+Bounded current-revision retrieval, disabled native provenance/certification contracts,
+strict temporal hysteresis, redacted audit export, durable Java budget reservations,
+explicit mock/unknown UI metadata, default-deny data use, disposable WAL recovery and
+bounded workload/SBOM evidence are in the [14B report](docs/implementation/prompt14b/REPORT.md).
+Production remains BLOCKED. Actual paid calls by this work: zero. Topic hosted CI
+and release-owner decisions are separate from local test success.
+
 ## One-command Java laboratory
 
 Prerequisites: local Docker Engine/Desktop with Compose v2, Python 3.11+, a **JDK

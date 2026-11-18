@@ -1,0 +1,797 @@
+{
+  "status": "PASS",
+  "commands": [
+    {
+      "args": [
+        "up"
+      ],
+      "exit_code": 0,
+      "expected": 0,
+      "seconds": 74.333,
+      "stdout_sha256": "4eecd1af5d7094467e1e73a59e034d68cabbc93ba590dfb4572829794764e789"
+    },
+    {
+      "args": [
+        "up"
+      ],
+      "exit_code": 0,
+      "expected": 0,
+      "seconds": 10.811,
+      "stdout_sha256": "d5559edc77c0b0799d862e379439d91ad8b66a7efb72c3574478285fa42de53a"
+    },
+    {
+      "args": [
+        "doctor",
+        "--json"
+      ],
+      "exit_code": 0,
+      "expected": 0,
+      "seconds": 0.507,
+      "stdout_sha256": "ba9d43795f0f5b7ab236cbe651aa246b9ad58596a1e3716f9ebe798b5a201242"
+    },
+    {
+      "args": [
+        "health",
+        "--all",
+        "--json"
+      ],
+      "exit_code": 0,
+      "expected": 0,
+      "seconds": 0.205,
+      "stdout_sha256": "ce385c3312850ea203fc45d9cd775aec9f9b7f133f4d0db24e9924c6869799e2"
+    },
+    {
+      "args": [
+        "smoke"
+      ],
+      "exit_code": 0,
+      "expected": 0,
+      "seconds": 0.612,
+      "stdout_sha256": "2c750f8dcaffd6ca6039c8e036ee2efdc0d0b9153d03394fe5d9046c31982d9c"
+    },
+    {
+      "args": [
+        "demo",
+        "kafka-kraft"
+      ],
+      "exit_code": 0,
+      "expected": 0,
+      "seconds": 0.111,
+      "stdout_sha256": "ca7cd4d24bd627ba631aa60ff88cd977779d4184734bf40344398a501c5a9234"
+    },
+    {
+      "args": [
+        "investigate",
+        "30d2f57a-a87e-450d-87ec-4e32aeccd80d"
+      ],
+      "exit_code": 0,
+      "expected": 0,
+      "seconds": 0.333,
+      "stdout_sha256": "30d606ca61deef2ce4941660f5d985b9e4596ec67d7a2d4065300cbcdbd9c5da"
+    },
+    {
+      "args": [
+        "demo",
+        "kafka-legacy"
+      ],
+      "exit_code": 0,
+      "expected": 0,
+      "seconds": 0.11,
+      "stdout_sha256": "0c8bfa91177a8b087a9cf141ff3b5bd2aed367f27c19fb1590710c3a96c3ca3d"
+    },
+    {
+      "args": [
+        "investigate",
+        "6857f365-f26a-4419-87c4-025055c707da"
+      ],
+      "exit_code": 0,
+      "expected": 0,
+      "seconds": 0.155,
+      "stdout_sha256": "bf68c553a8e03950acab3d27e859c7197db1186f6bf4d282b2a0f7d45cbb860e"
+    },
+    {
+      "args": [
+        "restart",
+        "api"
+      ],
+      "exit_code": 0,
+      "expected": 0,
+      "seconds": 0.993,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "args": [
+        "investigate",
+        "kafka-kraft"
+      ],
+      "exit_code": 0,
+      "expected": 0,
+      "seconds": 0.256,
+      "stdout_sha256": "6bd9066ee07543b8758c0505edd4c51160d0332001328897e5473b2e2080abde"
+    },
+    {
+      "args": [
+        "ai-check",
+        "--live"
+      ],
+      "exit_code": 2,
+      "expected": 2,
+      "seconds": 0.098,
+      "stdout_sha256": "e0aac89cef00e95cc987622ff0980eb27e870c0d515afb65d4a62a7a041534cf"
+    }
+  ],
+  "production_actions": 0,
+  "paid_provider_calls": 0,
+  "provenance": "actual owned local transport; all faults/incident content SIMULATED",
+  "initial_commit": "820844ac258e91ac1f8356779cbf715a1a63acde",
+  "idempotent_up": true,
+  "historical_markers_preserved": [
+    "kafka-kraft",
+    "kafka-legacy"
+  ],
+  "golden_cases": {
+    "kafka-kraft": {
+      "incident_count": 1,
+      "source_mode": "SIMULATED",
+      "event_count": 10,
+      "metadata_mode": "KRAFT",
+      "origin_hypothesis": {
+        "entity_id": "network",
+        "signal": "NETWORK_UNSTABLE",
+        "status": "HYPOTHESIS",
+        "confidence": "CORROBORATED_HYPOTHESIS",
+        "confidence_reasons": [
+          "Distinct reachable components: 5 (repeated symptom count does not raise confidence)",
+          "Edge validity and discovery time checked; skew tolerance 30 seconds"
+        ],
+        "supporting": [
+          {
+            "evidence_id": "MON-8c78bd6eafae9aee40fcc106e87938eeb67b3a8a",
+            "entity_id": "network",
+            "observed_at": "2026-11-18T23:19:40.817421+00:00",
+            "reason": "Direct originating symptom"
+          },
+          {
+            "evidence_id": "MON-2992cd376818e27c5b8daccaa79faf142f54853b",
+            "entity_id": "network",
+            "observed_at": "2026-11-18T23:19:43.817421+00:00",
+            "reason": "Directionally reachable symptom follows within skew/window"
+          },
+          {
+            "evidence_id": "MON-a8dd65b6fd74e616527dbf4c04972a71ae9126da",
+            "entity_id": "controller",
+            "observed_at": "2026-11-18T23:19:52.817421+00:00",
+            "reason": "Directionally reachable symptom follows within skew/window"
+          },
+          {
+            "evidence_id": "MON-5ce14c6f7e6aaba500aba933b585fa3f9b9e98d1",
+            "entity_id": "controller",
+            "observed_at": "2026-11-18T23:19:55.817421+00:00",
+            "reason": "Directionally reachable symptom follows within skew/window"
+          },
+          {
+            "evidence_id": "MON-088c31f039530fdc4a70dd1922ae509feec15227",
+            "entity_id": "broker",
+            "observed_at": "2026-11-18T23:20:04.817421+00:00",
+            "reason": "Directionally reachable symptom follows within skew/window"
+          },
+          {
+            "evidence_id": "MON-51b819382b738984241a84a49ece78af30885467",
+            "entity_id": "broker",
+            "observed_at": "2026-11-18T23:20:07.817421+00:00",
+            "reason": "Directionally reachable symptom follows within skew/window"
+          },
+          {
+            "evidence_id": "MON-0f7560e8514bc5e64cf776343fb351b9e00e2197",
+            "entity_id": "stream",
+            "observed_at": "2026-11-18T23:20:16.817421+00:00",
+            "reason": "Directionally reachable symptom follows within skew/window"
+          },
+          {
+            "evidence_id": "MON-1c72b12ad11b6d18c0a3761dbc4bafeee578dceb",
+            "entity_id": "stream",
+            "observed_at": "2026-11-18T23:20:19.817421+00:00",
+            "reason": "Directionally reachable symptom follows within skew/window"
+          },
+          {
+            "evidence_id": "MON-956a9d8d24f0d3b88e4d3ad43c3516d0bd9a0770",
+            "entity_id": "dataset",
+            "observed_at": "2026-11-18T23:20:28.817421+00:00",
+            "reason": "Directionally reachable symptom follows within skew/window"
+          },
+          {
+            "evidence_id": "MON-1f23805589a7442539457e8efd1faf270993056f",
+            "entity_id": "dataset",
+            "observed_at": "2026-11-18T23:20:31.817421+00:00",
+            "reason": "Directionally reachable symptom follows within skew/window"
+          }
+        ],
+        "contradicting": [],
+        "impact_radius": [
+          "broker",
+          "consumer",
+          "controller",
+          "dashboard",
+          "dataset",
+          "stream"
+        ],
+        "next_read_only_checks": [
+          "Inspect scoped NETWORK_UNSTABLE metrics and contemporaneous healthy counterevidence",
+          "Verify source clocks and graph provenance"
+        ],
+        "prevention_opportunities": [
+          "Monitor originating capability and downstream freshness",
+          "Review redundancy/capacity based on verified observations"
+        ],
+        "risk": "Unconfirmed causal attribution; no automatic remediation"
+      },
+      "alternatives": [
+        {
+          "entity_id": "controller",
+          "signal": "QUORUM_UNAVAILABLE",
+          "status": "HYPOTHESIS",
+          "confidence": "CORROBORATED_HYPOTHESIS",
+          "confidence_reasons": [
+            "Distinct reachable components: 4 (repeated symptom count does not raise confidence)",
+            "Edge validity and discovery time checked; skew tolerance 30 seconds"
+          ],
+          "supporting": [
+            {
+              "evidence_id": "MON-a8dd65b6fd74e616527dbf4c04972a71ae9126da",
+              "entity_id": "controller",
+              "observed_at": "2026-11-18T23:19:52.817421+00:00",
+              "reason": "Direct originating symptom"
+            },
+            {
+              "evidence_id": "MON-5ce14c6f7e6aaba500aba933b585fa3f9b9e98d1",
+              "entity_id": "controller",
+              "observed_at": "2026-11-18T23:19:55.817421+00:00",
+              "reason": "Directionally reachable symptom follows within skew/window"
+            },
+            {
+              "evidence_id": "MON-088c31f039530fdc4a70dd1922ae509feec15227",
+              "entity_id": "broker",
+              "observed_at": "2026-11-18T23:20:04.817421+00:00",
+              "reason": "Directionally reachable symptom follows within skew/window"
+            },
+            {
+              "evidence_id": "MON-51b819382b738984241a84a49ece78af30885467",
+              "entity_id": "broker",
+              "observed_at": "2026-11-18T23:20:07.817421+00:00",
+              "reason": "Directionally reachable symptom follows within skew/window"
+            },
+            {
+              "evidence_id": "MON-0f7560e8514bc5e64cf776343fb351b9e00e2197",
+              "entity_id": "stream",
+              "observed_at": "2026-11-18T23:20:16.817421+00:00",
+              "reason": "Directionally reachable symptom follows within skew/window"
+            },
+            {
+              "evidence_id": "MON-1c72b12ad11b6d18c0a3761dbc4bafeee578dceb",
+              "entity_id": "stream",
+              "observed_at": "2026-11-18T23:20:19.817421+00:00",
+              "reason": "Directionally reachable symptom follows within skew/window"
+            },
+            {
+              "evidence_id": "MON-956a9d8d24f0d3b88e4d3ad43c3516d0bd9a0770",
+              "entity_id": "dataset",
+              "observed_at": "2026-11-18T23:20:28.817421+00:00",
+              "reason": "Directionally reachable symptom follows within skew/window"
+            },
+            {
+              "evidence_id": "MON-1f23805589a7442539457e8efd1faf270993056f",
+              "entity_id": "dataset",
+              "observed_at": "2026-11-18T23:20:31.817421+00:00",
+              "reason": "Directionally reachable symptom follows within skew/window"
+            }
+          ],
+          "contradicting": [],
+          "impact_radius": [
+            "broker",
+            "consumer",
+            "dashboard",
+            "dataset",
+            "stream"
+          ],
+          "next_read_only_checks": [
+            "Inspect scoped QUORUM_UNAVAILABLE metrics and contemporaneous healthy counterevidence",
+            "Verify source clocks and graph provenance"
+          ],
+          "prevention_opportunities": [
+            "Monitor originating capability and downstream freshness",
+            "Review redundancy/capacity based on verified observations"
+          ],
+          "risk": "Unconfirmed causal attribution; no automatic remediation"
+        },
+        {
+          "entity_id": "broker",
+          "signal": "BROKER_ERROR",
+          "status": "HYPOTHESIS",
+          "confidence": "CORROBORATED_HYPOTHESIS",
+          "confidence_reasons": [
+            "Distinct reachable components: 3 (repeated symptom count does not raise confidence)",
+            "Edge validity and discovery time checked; skew tolerance 30 seconds"
+          ],
+          "supporting": [
+            {
+              "evidence_id": "MON-088c31f039530fdc4a70dd1922ae509feec15227",
+              "entity_id": "broker",
+              "observed_at": "2026-11-18T23:20:04.817421+00:00",
+              "reason": "Direct originating symptom"
+            },
+            {
+              "evidence_id": "MON-51b819382b738984241a84a49ece78af30885467",
+              "entity_id": "broker",
+              "observed_at": "2026-11-18T23:20:07.817421+00:00",
+              "reason": "Directionally reachable symptom follows within skew/window"
+            },
+            {
+              "evidence_id": "MON-0f7560e8514bc5e64cf776343fb351b9e00e2197",
+              "entity_id": "stream",
+              "observed_at": "2026-11-18T23:20:16.817421+00:00",
+              "reason": "Directionally reachable symptom follows within skew/window"
+            },
+            {
+              "evidence_id": "MON-1c72b12ad11b6d18c0a3761dbc4bafeee578dceb",
+              "entity_id": "stream",
+              "observed_at": "2026-11-18T23:20:19.817421+00:00",
+              "reason": "Directionally reachable symptom follows within skew/window"
+            },
+            {
+              "evidence_id": "MON-956a9d8d24f0d3b88e4d3ad43c3516d0bd9a0770",
+              "entity_id": "dataset",
+              "observed_at": "2026-11-18T23:20:28.817421+00:00",
+              "reason": "Directionally reachable symptom follows within skew/window"
+            },
+            {
+              "evidence_id": "MON-1f23805589a7442539457e8efd1faf270993056f",
+              "entity_id": "dataset",
+              "observed_at": "2026-11-18T23:20:31.817421+00:00",
+              "reason": "Directionally reachable symptom follows within skew/window"
+            }
+          ],
+          "contradicting": [],
+          "impact_radius": [
+            "consumer",
+            "dashboard",
+            "dataset",
+            "stream"
+          ],
+          "next_read_only_checks": [
+            "Inspect scoped BROKER_ERROR metrics and contemporaneous healthy counterevidence",
+            "Verify source clocks and graph provenance"
+          ],
+          "prevention_opportunities": [
+            "Monitor originating capability and downstream freshness",
+            "Review redundancy/capacity based on verified observations"
+          ],
+          "risk": "Unconfirmed causal attribution; no automatic remediation"
+        },
+        {
+          "entity_id": "stream",
+          "signal": "SPARK_RETRY_STORM",
+          "status": "HYPOTHESIS",
+          "confidence": "LIMITED_HYPOTHESIS",
+          "confidence_reasons": [
+            "Distinct reachable components: 2 (repeated symptom count does not raise confidence)",
+            "Edge validity and discovery time checked; skew tolerance 30 seconds"
+          ],
+          "supporting": [
+            {
+              "evidence_id": "MON-0f7560e8514bc5e64cf776343fb351b9e00e2197",
+              "entity_id": "stream",
+              "observed_at": "2026-11-18T23:20:16.817421+00:00",
+              "reason": "Direct originating symptom"
+            },
+            {
+              "evidence_id": "MON-1c72b12ad11b6d18c0a3761dbc4bafeee578dceb",
+              "entity_id": "stream",
+              "observed_at": "2026-11-18T23:20:19.817421+00:00",
+              "reason": "Directionally reachable symptom follows within skew/window"
+            },
+            {
+              "evidence_id": "MON-956a9d8d24f0d3b88e4d3ad43c3516d0bd9a0770",
+              "entity_id": "dataset",
+              "observed_at": "2026-11-18T23:20:28.817421+00:00",
+              "reason": "Directionally reachable symptom follows within skew/window"
+            },
+            {
+              "evidence_id": "MON-1f23805589a7442539457e8efd1faf270993056f",
+              "entity_id": "dataset",
+              "observed_at": "2026-11-18T23:20:31.817421+00:00",
+              "reason": "Directionally reachable symptom follows within skew/window"
+            }
+          ],
+          "contradicting": [],
+          "impact_radius": [
+            "dashboard",
+            "dataset"
+          ],
+          "next_read_only_checks": [
+            "Inspect scoped SPARK_RETRY_STORM metrics and contemporaneous healthy counterevidence",
+            "Verify source clocks and graph provenance"
+          ],
+          "prevention_opportunities": [
+            "Monitor originating capability and downstream freshness",
+            "Review redundancy/capacity based on verified observations"
+          ],
+          "risk": "Unconfirmed causal attribution; no automatic remediation"
+        }
+      ],
+      "human_accuracy": "NOT_EVALUATED"
+    },
+    "kafka-legacy": {
+      "incident_count": 1,
+      "source_mode": "SIMULATED",
+      "event_count": 10,
+      "metadata_mode": "LEGACY_ZOOKEEPER",
+      "origin_hypothesis": {
+        "entity_id": "network",
+        "signal": "NETWORK_UNSTABLE",
+        "status": "HYPOTHESIS",
+        "confidence": "CORROBORATED_HYPOTHESIS",
+        "confidence_reasons": [
+          "Distinct reachable components: 5 (repeated symptom count does not raise confidence)",
+          "Edge validity and discovery time checked; skew tolerance 30 seconds"
+        ],
+        "supporting": [
+          {
+            "evidence_id": "MON-3bb640c29c3e2e63b6f3e116b196a97f842c6cba",
+            "entity_id": "network",
+            "observed_at": "2026-11-18T23:19:42.400517+00:00",
+            "reason": "Direct originating symptom"
+          },
+          {
+            "evidence_id": "MON-b01da756ebb49fdc232e58107f1291c3fc27daa3",
+            "entity_id": "network",
+            "observed_at": "2026-11-18T23:19:45.400517+00:00",
+            "reason": "Directionally reachable symptom follows within skew/window"
+          },
+          {
+            "evidence_id": "MON-7f174fcf2e6c1c28a169fdc2ef6bfabba302bffc",
+            "entity_id": "zookeeper",
+            "observed_at": "2026-11-18T23:19:54.400517+00:00",
+            "reason": "Directionally reachable symptom follows within skew/window"
+          },
+          {
+            "evidence_id": "MON-562cf8091f23f4d9185895ee60107cfadae29fae",
+            "entity_id": "zookeeper",
+            "observed_at": "2026-11-18T23:19:57.400517+00:00",
+            "reason": "Directionally reachable symptom follows within skew/window"
+          },
+          {
+            "evidence_id": "MON-db34c6cfbf024e8a5c565ad270050fd528b2a3c3",
+            "entity_id": "broker",
+            "observed_at": "2026-11-18T23:20:06.400517+00:00",
+            "reason": "Directionally reachable symptom follows within skew/window"
+          },
+          {
+            "evidence_id": "MON-9787b4842bf381724e61bb6170112086f0e082ca",
+            "entity_id": "broker",
+            "observed_at": "2026-11-18T23:20:09.400517+00:00",
+            "reason": "Directionally reachable symptom follows within skew/window"
+          },
+          {
+            "evidence_id": "MON-cd1e0b4c19d1716df9d1c1d7c3b1a0211d1a3049",
+            "entity_id": "stream",
+            "observed_at": "2026-11-18T23:20:18.400517+00:00",
+            "reason": "Directionally reachable symptom follows within skew/window"
+          },
+          {
+            "evidence_id": "MON-b48b672ab79e5d72900565ff645d3d97386c0869",
+            "entity_id": "stream",
+            "observed_at": "2026-11-18T23:20:21.400517+00:00",
+            "reason": "Directionally reachable symptom follows within skew/window"
+          },
+          {
+            "evidence_id": "MON-3730ecfb6f2faed495b5c1fcc9f7e99f05a2807e",
+            "entity_id": "dataset",
+            "observed_at": "2026-11-18T23:20:30.400517+00:00",
+            "reason": "Directionally reachable symptom follows within skew/window"
+          },
+          {
+            "evidence_id": "MON-0d3142d63233935e3c7b55db03a303e6888c0d7a",
+            "entity_id": "dataset",
+            "observed_at": "2026-11-18T23:20:33.400517+00:00",
+            "reason": "Directionally reachable symptom follows within skew/window"
+          }
+        ],
+        "contradicting": [],
+        "impact_radius": [
+          "broker",
+          "consumer",
+          "dashboard",
+          "dataset",
+          "stream",
+          "zookeeper"
+        ],
+        "next_read_only_checks": [
+          "Inspect scoped NETWORK_UNSTABLE metrics and contemporaneous healthy counterevidence",
+          "Verify source clocks and graph provenance"
+        ],
+        "prevention_opportunities": [
+          "Monitor originating capability and downstream freshness",
+          "Review redundancy/capacity based on verified observations"
+        ],
+        "risk": "Unconfirmed causal attribution; no automatic remediation"
+      },
+      "alternatives": [
+        {
+          "entity_id": "zookeeper",
+          "signal": "ZK_SESSION_EXPIRED",
+          "status": "HYPOTHESIS",
+          "confidence": "CORROBORATED_HYPOTHESIS",
+          "confidence_reasons": [
+            "Distinct reachable components: 4 (repeated symptom count does not raise confidence)",
+            "Edge validity and discovery time checked; skew tolerance 30 seconds"
+          ],
+          "supporting": [
+            {
+              "evidence_id": "MON-7f174fcf2e6c1c28a169fdc2ef6bfabba302bffc",
+              "entity_id": "zookeeper",
+              "observed_at": "2026-11-18T23:19:54.400517+00:00",
+              "reason": "Direct originating symptom"
+            },
+            {
+              "evidence_id": "MON-562cf8091f23f4d9185895ee60107cfadae29fae",
+              "entity_id": "zookeeper",
+              "observed_at": "2026-11-18T23:19:57.400517+00:00",
+              "reason": "Directionally reachable symptom follows within skew/window"
+            },
+            {
+              "evidence_id": "MON-db34c6cfbf024e8a5c565ad270050fd528b2a3c3",
+              "entity_id": "broker",
+              "observed_at": "2026-11-18T23:20:06.400517+00:00",
+              "reason": "Directionally reachable symptom follows within skew/window"
+            },
+            {
+              "evidence_id": "MON-9787b4842bf381724e61bb6170112086f0e082ca",
+              "entity_id": "broker",
+              "observed_at": "2026-11-18T23:20:09.400517+00:00",
+              "reason": "Directionally reachable symptom follows within skew/window"
+            },
+            {
+              "evidence_id": "MON-cd1e0b4c19d1716df9d1c1d7c3b1a0211d1a3049",
+              "entity_id": "stream",
+              "observed_at": "2026-11-18T23:20:18.400517+00:00",
+              "reason": "Directionally reachable symptom follows within skew/window"
+            },
+            {
+              "evidence_id": "MON-b48b672ab79e5d72900565ff645d3d97386c0869",
+              "entity_id": "stream",
+              "observed_at": "2026-11-18T23:20:21.400517+00:00",
+              "reason": "Directionally reachable symptom follows within skew/window"
+            },
+            {
+              "evidence_id": "MON-3730ecfb6f2faed495b5c1fcc9f7e99f05a2807e",
+              "entity_id": "dataset",
+              "observed_at": "2026-11-18T23:20:30.400517+00:00",
+              "reason": "Directionally reachable symptom follows within skew/window"
+            },
+            {
+              "evidence_id": "MON-0d3142d63233935e3c7b55db03a303e6888c0d7a",
+              "entity_id": "dataset",
+              "observed_at": "2026-11-18T23:20:33.400517+00:00",
+              "reason": "Directionally reachable symptom follows within skew/window"
+            }
+          ],
+          "contradicting": [],
+          "impact_radius": [
+            "broker",
+            "consumer",
+            "dashboard",
+            "dataset",
+            "stream"
+          ],
+          "next_read_only_checks": [
+            "Inspect scoped ZK_SESSION_EXPIRED metrics and contemporaneous healthy counterevidence",
+            "Verify source clocks and graph provenance"
+          ],
+          "prevention_opportunities": [
+            "Monitor originating capability and downstream freshness",
+            "Review redundancy/capacity based on verified observations"
+          ],
+          "risk": "Unconfirmed causal attribution; no automatic remediation"
+        },
+        {
+          "entity_id": "broker",
+          "signal": "BROKER_ERROR",
+          "status": "HYPOTHESIS",
+          "confidence": "CORROBORATED_HYPOTHESIS",
+          "confidence_reasons": [
+            "Distinct reachable components: 3 (repeated symptom count does not raise confidence)",
+            "Edge validity and discovery time checked; skew tolerance 30 seconds"
+          ],
+          "supporting": [
+            {
+              "evidence_id": "MON-db34c6cfbf024e8a5c565ad270050fd528b2a3c3",
+              "entity_id": "broker",
+              "observed_at": "2026-11-18T23:20:06.400517+00:00",
+              "reason": "Direct originating symptom"
+            },
+            {
+              "evidence_id": "MON-9787b4842bf381724e61bb6170112086f0e082ca",
+              "entity_id": "broker",
+              "observed_at": "2026-11-18T23:20:09.400517+00:00",
+              "reason": "Directionally reachable symptom follows within skew/window"
+            },
+            {
+              "evidence_id": "MON-cd1e0b4c19d1716df9d1c1d7c3b1a0211d1a3049",
+              "entity_id": "stream",
+              "observed_at": "2026-11-18T23:20:18.400517+00:00",
+              "reason": "Directionally reachable symptom follows within skew/window"
+            },
+            {
+              "evidence_id": "MON-b48b672ab79e5d72900565ff645d3d97386c0869",
+              "entity_id": "stream",
+              "observed_at": "2026-11-18T23:20:21.400517+00:00",
+              "reason": "Directionally reachable symptom follows within skew/window"
+            },
+            {
+              "evidence_id": "MON-3730ecfb6f2faed495b5c1fcc9f7e99f05a2807e",
+              "entity_id": "dataset",
+              "observed_at": "2026-11-18T23:20:30.400517+00:00",
+              "reason": "Directionally reachable symptom follows within skew/window"
+            },
+            {
+              "evidence_id": "MON-0d3142d63233935e3c7b55db03a303e6888c0d7a",
+              "entity_id": "dataset",
+              "observed_at": "2026-11-18T23:20:33.400517+00:00",
+              "reason": "Directionally reachable symptom follows within skew/window"
+            }
+          ],
+          "contradicting": [],
+          "impact_radius": [
+            "consumer",
+            "dashboard",
+            "dataset",
+            "stream"
+          ],
+          "next_read_only_checks": [
+            "Inspect scoped BROKER_ERROR metrics and contemporaneous healthy counterevidence",
+            "Verify source clocks and graph provenance"
+          ],
+          "prevention_opportunities": [
+            "Monitor originating capability and downstream freshness",
+            "Review redundancy/capacity based on verified observations"
+          ],
+          "risk": "Unconfirmed causal attribution; no automatic remediation"
+        },
+        {
+          "entity_id": "stream",
+          "signal": "SPARK_RETRY_STORM",
+          "status": "HYPOTHESIS",
+          "confidence": "LIMITED_HYPOTHESIS",
+          "confidence_reasons": [
+            "Distinct reachable components: 2 (repeated symptom count does not raise confidence)",
+            "Edge validity and discovery time checked; skew tolerance 30 seconds"
+          ],
+          "supporting": [
+            {
+              "evidence_id": "MON-cd1e0b4c19d1716df9d1c1d7c3b1a0211d1a3049",
+              "entity_id": "stream",
+              "observed_at": "2026-11-18T23:20:18.400517+00:00",
+              "reason": "Direct originating symptom"
+            },
+            {
+              "evidence_id": "MON-b48b672ab79e5d72900565ff645d3d97386c0869",
+              "entity_id": "stream",
+              "observed_at": "2026-11-18T23:20:21.400517+00:00",
+              "reason": "Directionally reachable symptom follows within skew/window"
+            },
+            {
+              "evidence_id": "MON-3730ecfb6f2faed495b5c1fcc9f7e99f05a2807e",
+              "entity_id": "dataset",
+              "observed_at": "2026-11-18T23:20:30.400517+00:00",
+              "reason": "Directionally reachable symptom follows within skew/window"
+            },
+            {
+              "evidence_id": "MON-0d3142d63233935e3c7b55db03a303e6888c0d7a",
+              "entity_id": "dataset",
+              "observed_at": "2026-11-18T23:20:33.400517+00:00",
+              "reason": "Directionally reachable symptom follows within skew/window"
+            }
+          ],
+          "contradicting": [],
+          "impact_radius": [
+            "dashboard",
+            "dataset"
+          ],
+          "next_read_only_checks": [
+            "Inspect scoped SPARK_RETRY_STORM metrics and contemporaneous healthy counterevidence",
+            "Verify source clocks and graph provenance"
+          ],
+          "prevention_opportunities": [
+            "Monitor originating capability and downstream freshness",
+            "Review redundancy/capacity based on verified observations"
+          ],
+          "risk": "Unconfirmed causal attribution; no automatic remediation"
+        }
+      ],
+      "human_accuracy": "NOT_EVALUATED"
+    }
+  },
+  "duplicate_deliveries": 200,
+  "api_restart_retains_incident_and_correlation": true,
+  "native_auth_and_tenant_negatives": "PASS",
+  "browser": {
+    "status": "PASS",
+    "checks": [
+      {
+        "name": "anonymous boundaries",
+        "result": "PASS",
+        "provenance": "LIVE_LOCAL_TRANSPORT / SIMULATED_DATA"
+      },
+      {
+        "name": "viewer role and CSRF boundaries",
+        "result": "PASS",
+        "provenance": "LIVE_LOCAL_TRANSPORT / SIMULATED_DATA"
+      },
+      {
+        "name": "native health rendering",
+        "result": "PASS",
+        "provenance": "LIVE_LOCAL_TRANSPORT / SIMULATED_DATA"
+      },
+      {
+        "name": "unavailable diagnostics preserve uncertainty",
+        "result": "PASS",
+        "provenance": "MOCKED_BROWSER_OUTAGE"
+      },
+      {
+        "name": "general chat and safe message rendering",
+        "result": "PASS",
+        "provenance": "LIVE_LOCAL_TRANSPORT / SIMULATED_DATA"
+      },
+      {
+        "name": "browser bundle secret isolation",
+        "result": "PASS",
+        "provenance": "LIVE_LOCAL_TRANSPORT / SIMULATED_DATA"
+      },
+      {
+        "name": "stale conversation",
+        "result": "PASS",
+        "provenance": "LIVE_LOCAL_TRANSPORT / SIMULATED_DATA"
+      },
+      {
+        "name": "incident chat evidence and history",
+        "result": "PASS",
+        "provenance": "LIVE_LOCAL_TRANSPORT / SIMULATED_DATA"
+      },
+      {
+        "name": "actual monitor controls",
+        "result": "PASS",
+        "provenance": "LIVE_LOCAL_TRANSPORT / SIMULATED_DATA"
+      },
+      {
+        "name": "bound incident graph and uncertainty",
+        "result": "PASS",
+        "provenance": "LIVE_LOCAL_TRANSPORT / SIMULATED_DATA"
+      },
+      {
+        "name": "distinct demo capabilities and independent verification",
+        "result": "PASS",
+        "provenance": "LIVE_LOCAL_TRANSPORT / SIMULATED_DATA"
+      },
+      {
+        "name": "separate named rollback with independent sample",
+        "result": "PASS",
+        "provenance": "LIVE_LOCAL_TRANSPORT / SIMULATED_DATA"
+      },
+      {
+        "name": "tampered cookie",
+        "result": "PASS",
+        "provenance": "LIVE_LOCAL_TRANSPORT / SIMULATED_DATA"
+      },
+      {
+        "name": "actual default Python browser compatibility",
+        "result": "PASS",
+        "provenance": "LIVE_LOCAL_TRANSPORT / SIMULATED_DATA"
+      }
+    ],
+    "paid_provider_calls": 0,
+    "production_actions": 0,
+    "enterprise_identity": "NOT_CERTIFIED",
+    "python_browser": "PASS"
+  },
+  "eight_owned_service_outages": "PASS"
+}

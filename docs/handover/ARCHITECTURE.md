@@ -1,3 +1,18 @@
+> Prompt14B update: [current report](../implementation/prompt14b/REPORT.md). Newer main
+> adds an optional separate public Worker; operational Pages views remain SIMULATED.
+> No deployment/live-provider proof or private Java authority is inferred.
+
+```mermaid
+flowchart LR
+  Preview[Simulated Pages operational preview] -. optional public educational chat .-> Worker[Public Worker: repository default off]
+  Worker -. separate cost / privacy / deployment approval .-> Provider[Configured provider: no live proof here]
+  Next[Next: backend selection] --> Python[Preserved Python default]
+  Next -- explicit opt-in --> Java[Private Java monolith: no production execution]
+  Java --> Ledger[Private V9 budget reservations: no seeded approvals]
+  Java --> SQL[SQL current knowledge and tenant authority]
+  SQL --> BM25[Revision-filtered bounded BM25 projection]
+```
+
 # Versioned architecture — v2 handover, 2026-11-19
 
 One Java 21/Spring Boot modular monolith coexists with the preserved Python API.

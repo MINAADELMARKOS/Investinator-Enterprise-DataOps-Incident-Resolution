@@ -1,307 +1,876 @@
 {
-  "assessment": "IN_PROGRESS",
+  "assessment": "LOCAL_ENGINEERING_VERIFIED_HOSTED_PENDING",
   "production": "BLOCKED",
-  "baseline_sha": "1ca09a1ace415afeee2f64d00cd00ababde480e9",
+  "immutable_starting_release_inventory_sha256": "50307131ee049d76ac4ccefdf7d7425dbf68a54c4c55a6b582a024d84daa6c00",
+  "owner_roles_are_proposed_not_human_signoffs": true,
+  "source_feature_sha": "e7be72442112643206d09766e67a665e79691c75",
+  "initial_main_sha": "e5ca1717b93ed2f104f46be18824f34ece09b099",
+  "reconciled_main_sha": "06d036da27704a00559503bbd28fc3ad6b28347a",
   "rows": [
     {
       "gap_id": "P14-01",
+      "stage": "P14",
       "source_ref": "docs/implementation/prompt14/RELEASE_RISKS.json@e7be724",
       "existing_implementation": "EnterpriseIngressTest + RemediationIntegrationTest; OIDC certificate NOT_TESTED",
-      "reproduction": "EnterpriseIngressTest + RemediationIntegrationTest; OIDC certificate NOT_TESTED",
+      "reproduction": [
+        "StagingJwtValidatorTest",
+        "EnterpriseIngressTest"
+      ],
       "failure": "OIDC/RBAC and independent enterprise change identity absent",
-      "security_owner": "security/identity lead",
-      "scope": "production certification and bounded local regression",
+      "security_owner": "security/identity lead (proposed role; no signoff)",
+      "scope": "Local engineering; independent production certification excluded",
       "priority": "CRITICAL_FOR_PRODUCTION",
       "proposed_patch": "Keep enterprise ingress and executors blocked; certify issuer/audience/scopes/tenancy and independent approval",
+      "actual_patch": "Offline pinned-RSA staging experiment; NOT installed as API auth",
       "required_evidence": "Keep enterprise ingress and executors blocked; certify issuer/audience/scopes/tenancy and independent approval",
-      "external_dependency": "security/identity lead independent evidence",
-      "acceptance": "Tested local controls; external gates stay BLOCKED without owner evidence",
-      "safe_rollback": "Disable opt-in capability; keep Python default and retain schemas/data",
-      "status": "BLOCKED_EXTERNAL",
-      "changed_code": [],
-      "tests": [],
-      "evidence": [],
-      "blocker": "OIDC/RBAC and independent enterprise change identity absent"
+      "external_dependency": "Real IdP/discovery/rotation, shared replay, tenant roles, independent humans/change control",
+      "acceptance": "Named functional checks; independent release owner must supply external evidence",
+      "safe_rollback": "Disable opt-ins; normal revert after review; retain all Java/Python data, V9 and uncertain reservations",
+      "status": "PARTIALLY_IMPLEMENTED",
+      "release_disposition": "BLOCKED",
+      "changed_code": [
+        "backend-java/src/main/java/com/investinator/security/StagingJwtValidator.java"
+      ],
+      "tests": [
+        "StagingJwtValidatorTest",
+        "EnterpriseIngressTest"
+      ],
+      "evidence": [
+        "VALIDATION.json",
+        "junit-summary.json"
+      ],
+      "blocker": "Real IdP/discovery/rotation, shared replay, tenant roles, independent humans/change control"
     },
     {
       "gap_id": "P14-02",
+      "stage": "P14",
       "source_ref": "docs/implementation/prompt14/RELEASE_RISKS.json@e7be724",
       "existing_implementation": "AUTH_MATRIX.md; local protocol and MOCKED adapter tests only",
-      "reproduction": "AUTH_MATRIX.md; local protocol and MOCKED adapter tests only",
+      "reproduction": [
+        "ConnectorCertificationTest",
+        "ConnectorApiSecurityTest",
+        "KafkaModeTest",
+        "RestDiagnosticConnectorTest",
+        "NativeConnectorTest",
+        "HiveMetastoreConnectorTest",
+        "LegacyZooKeeperConnectorTest"
+      ],
       "failure": "Private connector certs/realms/rotation and external multi-tenant ACLs unverified",
-      "security_owner": "integration and security leads",
-      "scope": "production certification and bounded local regression",
+      "security_owner": "integration and security leads (proposed role; no signoff)",
+      "scope": "Local engineering; independent production certification excluded",
       "priority": "HIGH",
       "proposed_patch": "Per-target least-privilege native certification, Kerberos/TLS/mTLS/refresh/negative tests",
+      "actual_patch": "Fixed read-contract certification inventory always denies native/enterprise certification",
       "required_evidence": "Per-target least-privilege native certification, Kerberos/TLS/mTLS/refresh/negative tests",
-      "external_dependency": "integration and security leads independent evidence",
-      "acceptance": "Tested local controls; external gates stay BLOCKED without owner evidence",
-      "safe_rollback": "Disable opt-in capability; keep Python default and retain schemas/data",
-      "status": "BLOCKED_EXTERNAL",
-      "changed_code": [],
-      "tests": [],
-      "evidence": [],
-      "blocker": "Private connector certs/realms/rotation and external multi-tenant ACLs unverified"
+      "external_dependency": "Representative private target, version/mode, TLS/Kerberos/rotation, negative ACL evidence and security owner",
+      "acceptance": "Named functional checks; independent release owner must supply external evidence",
+      "safe_rollback": "Disable opt-ins; normal revert after review; retain all Java/Python data, V9 and uncertain reservations",
+      "status": "PARTIALLY_IMPLEMENTED",
+      "release_disposition": "BLOCKED",
+      "changed_code": [
+        "backend-java/src/main/java/com/investinator/connectors/ConnectorCertification.java",
+        "backend-java/src/main/java/com/investinator/monitoring/NativeSignalContract.java"
+      ],
+      "tests": [
+        "ConnectorCertificationTest",
+        "ConnectorApiSecurityTest",
+        "KafkaModeTest",
+        "RestDiagnosticConnectorTest",
+        "NativeConnectorTest",
+        "HiveMetastoreConnectorTest",
+        "LegacyZooKeeperConnectorTest"
+      ],
+      "evidence": [
+        "VALIDATION.json",
+        "junit-summary.json"
+      ],
+      "blocker": "Representative private target, version/mode, TLS/Kerberos/rotation, negative ACL evidence and security owner"
     },
     {
       "gap_id": "P14-03",
+      "stage": "P14",
       "source_ref": "docs/implementation/prompt14/RELEASE_RISKS.json@e7be724",
       "existing_implementation": "backup-restore.json proves isolated snapshot only; extended/replica tests NOT_TESTED",
-      "reproduction": "backup-restore.json proves isolated snapshot only; extended/replica tests NOT_TESTED",
+      "reproduction": [
+        "pitr-fixture.json",
+        "backup-restore.json",
+        "MigrationOwnershipTest"
+      ],
       "failure": "No encrypted offsite/PITR/HA restoration or long-duration loss evidence",
-      "security_owner": "SRE/data lead",
-      "scope": "production certification and bounded local regression",
+      "security_owner": "SRE/data lead (proposed role; no signoff)",
+      "scope": "Local engineering; independent production certification excluded",
       "priority": "HIGH",
       "proposed_patch": "Approve RPO/RTO; stage restore of separate owners, WAL recovery, search rebuild and sustained partition/replica drills",
+      "actual_patch": "Disposable native WAL/PITR and private-schema snapshot restore; no source writes",
       "required_evidence": "Approve RPO/RTO; stage restore of separate owners, WAL recovery, search rebuild and sustained partition/replica drills",
-      "external_dependency": "SRE/data lead independent evidence",
-      "acceptance": "Tested local controls; external gates stay BLOCKED without owner evidence",
-      "safe_rollback": "Disable opt-in capability; keep Python default and retain schemas/data",
-      "status": "BLOCKED_EXTERNAL",
-      "changed_code": [],
-      "tests": [],
-      "evidence": [],
-      "blocker": "No encrypted offsite/PITR/HA restoration or long-duration loss evidence"
+      "external_dependency": "Encrypted offsite HA/replicas, search full-rebuild disaster rehearsal, approved and independently observed RPO/RTO",
+      "acceptance": "Named functional checks; independent release owner must supply external evidence",
+      "safe_rollback": "Disable opt-ins; normal revert after review; retain all Java/Python data, V9 and uncertain reservations",
+      "status": "PARTIALLY_IMPLEMENTED",
+      "release_disposition": "BLOCKED",
+      "changed_code": [
+        "scripts/verify_pitr_fixture.py",
+        "scripts/verify_backup_restore.py"
+      ],
+      "tests": [
+        "pitr-fixture.json",
+        "backup-restore.json",
+        "MigrationOwnershipTest"
+      ],
+      "evidence": [
+        "VALIDATION.json",
+        "junit-summary.json"
+      ],
+      "blocker": "Encrypted offsite HA/replicas, search full-rebuild disaster rehearsal, approved and independently observed RPO/RTO"
     },
     {
       "gap_id": "P14-04",
+      "stage": "P14",
       "source_ref": "docs/implementation/prompt14/RELEASE_RISKS.json@e7be724",
       "existing_implementation": "FINOPS.json; MOCKED request/tool/rate/429 tests; actual GPT NOT_CONFIGURED",
-      "reproduction": "FINOPS.json; MOCKED request/tool/rate/429 tests; actual GPT NOT_CONFIGURED",
+      "reproduction": [
+        "ProviderBudgetTest",
+        "ChatGatewayTest",
+        "tests_cli/test_cli.py"
+      ],
       "failure": "No durable distributed monetary cap or approved live model budget",
-      "security_owner": "AI platform/FinOps lead",
-      "scope": "production certification and bounded local regression",
+      "security_owner": "AI platform/FinOps lead (proposed role; no signoff)",
+      "scope": "Local engineering; independent production certification excluded",
       "priority": "HIGH",
       "proposed_patch": "Provider policy, legal/PII review, budget/price approvals, daily reconciliation and key rotation",
+      "actual_patch": "Durable Java global + tenant/model reserve/reconcile, conservative UNKNOWN holds; zero-call CLI preflight",
       "required_evidence": "Provider policy, legal/PII review, budget/price approvals, daily reconciliation and key rotation",
-      "external_dependency": "AI platform/FinOps lead independent evidence",
-      "acceptance": "Tested local controls; external gates stay BLOCKED without owner evidence",
-      "safe_rollback": "Disable opt-in capability; keep Python default and retain schemas/data",
-      "status": "BLOCKED_EXTERNAL",
-      "changed_code": [],
-      "tests": [],
-      "evidence": [],
-      "blocker": "No durable distributed monetary cap or approved live model budget"
+      "external_dependency": "Actual keys/models/owner approval, model pricing/token bounds/invoice certification; no shared Java budget across Python/public Worker",
+      "acceptance": "Named functional checks; independent release owner must supply external evidence",
+      "safe_rollback": "Disable opt-ins; normal revert after review; retain all Java/Python data, V9 and uncertain reservations",
+      "status": "PARTIALLY_IMPLEMENTED",
+      "release_disposition": "BLOCKED",
+      "changed_code": [
+        "backend-java/src/main/java/com/investinator/model/ProviderBudget.java",
+        "backend-java/src/main/resources/db/migration/V9__durable_provider_budget.sql",
+        "backend-java/src/main/java/com/investinator/model/OpenAiLiveProbe.java"
+      ],
+      "tests": [
+        "ProviderBudgetTest",
+        "ChatGatewayTest",
+        "tests_cli/test_cli.py"
+      ],
+      "evidence": [
+        "VALIDATION.json",
+        "junit-summary.json"
+      ],
+      "blocker": "Actual keys/models/owner approval, model pricing/token bounds/invoice certification; no shared Java budget across Python/public Worker"
     },
     {
       "gap_id": "P14-05",
+      "stage": "P14",
       "source_ref": "docs/implementation/prompt14/RELEASE_RISKS.json@e7be724",
       "existing_implementation": "Prompt09 review package pending; no synthetic approval",
-      "reproduction": "Prompt09 review package pending; no synthetic approval",
+      "reproduction": [
+        "quality-evaluation.json",
+        "retrieval-end-state.json"
+      ],
       "failure": "Human gold-set review and production RCA accuracy absent",
-      "security_owner": "independent SRE/domain reviewers",
-      "scope": "production certification and bounded local regression",
+      "security_owner": "independent SRE/domain reviewers (proposed role; no signoff)",
+      "scope": "Local engineering; independent production certification excluded",
       "priority": "HIGH",
       "proposed_patch": "Independent signed held-out review; preserve abstention and contradictory evidence",
+      "actual_patch": "Eight developer cases reviewer-ready and unsigned; no tuning or human approval",
       "required_evidence": "Independent signed held-out review; preserve abstention and contradictory evidence",
-      "external_dependency": "independent SRE/domain reviewers independent evidence",
-      "acceptance": "Tested local controls; external gates stay BLOCKED without owner evidence",
-      "safe_rollback": "Disable opt-in capability; keep Python default and retain schemas/data",
+      "external_dependency": "Independent reviewer identities/labels/signatures, unseen holdout, representative real evidence; extra healthy-context hit still present",
+      "acceptance": "Named functional checks; independent release owner must supply external evidence",
+      "safe_rollback": "Disable opt-ins; normal revert after review; retain all Java/Python data, V9 and uncertain reservations",
       "status": "BLOCKED_EXTERNAL",
-      "changed_code": [],
-      "tests": [],
-      "evidence": [],
-      "blocker": "Human gold-set review and production RCA accuracy absent"
+      "release_disposition": "BLOCKED",
+      "changed_code": [
+        "docs/implementation/prompt14b/INDEPENDENT_REVIEW_PACKET.json"
+      ],
+      "tests": [
+        "quality-evaluation.json",
+        "retrieval-end-state.json"
+      ],
+      "evidence": [
+        "VALIDATION.json",
+        "junit-summary.json"
+      ],
+      "blocker": "Independent reviewer identities/labels/signatures, unseen holdout, representative real evidence; extra healthy-context hit still present"
     },
     {
       "gap_id": "P14-06",
+      "stage": "P14",
       "source_ref": "docs/implementation/prompt14/RELEASE_RISKS.json@e7be724",
       "existing_implementation": "loopback Compose + byte-limited proxy + non-demo deny tests; enterprise network policy NOT_TESTED",
-      "reproduction": "loopback Compose + byte-limited proxy + non-demo deny tests; enterprise network policy NOT_TESTED",
+      "reproduction": [
+        "EnterpriseIngressTest",
+        "apps/web/tests/bounded-body.test.ts",
+        "services/public-investigator/tests/gateway.test.mjs"
+      ],
       "failure": "Demo plaintext/trust DB, no certified perimeter body/rate policy or egress firewall",
-      "security_owner": "security/platform lead",
-      "scope": "production certification and bounded local regression",
+      "security_owner": "security/platform lead (proposed role; no signoff)",
+      "scope": "Local engineering; independent production certification excluded",
       "priority": "HIGH",
       "proposed_patch": "Loopback only now; reviewed identity/TLS/mTLS/gateway limits and network allowlists before exposure",
+      "actual_patch": "Existing loopback/private gates retained; inherited public Worker now has strict stream/UTF8 bounds and default-off cost/data-use opt-in",
       "required_evidence": "Loopback only now; reviewed identity/TLS/mTLS/gateway limits and network allowlists before exposure",
-      "external_dependency": "security/platform lead independent evidence",
-      "acceptance": "Tested local controls; external gates stay BLOCKED without owner evidence",
-      "safe_rollback": "Disable opt-in capability; keep Python default and retain schemas/data",
-      "status": "BLOCKED_EXTERNAL",
-      "changed_code": [],
-      "tests": [],
-      "evidence": [],
-      "blocker": "Demo plaintext/trust DB, no certified perimeter body/rate policy or egress firewall"
+      "external_dependency": "Real TLS/mTLS ingress/egress network/body/rate and platform certification; demo DB trust is not enterprise perimeter",
+      "acceptance": "Named functional checks; independent release owner must supply external evidence",
+      "safe_rollback": "Disable opt-ins; normal revert after review; retain all Java/Python data, V9 and uncertain reservations",
+      "status": "PARTIALLY_IMPLEMENTED",
+      "release_disposition": "BLOCKED",
+      "changed_code": [
+        "services/public-investigator/src/index.mjs",
+        "backend-java/src/main/java/com/investinator/security/SecurityConfiguration.java",
+        "apps/web/lib/bounded-body.ts"
+      ],
+      "tests": [
+        "EnterpriseIngressTest",
+        "apps/web/tests/bounded-body.test.ts",
+        "services/public-investigator/tests/gateway.test.mjs"
+      ],
+      "evidence": [
+        "VALIDATION.json",
+        "junit-summary.json"
+      ],
+      "blocker": "Real TLS/mTLS ingress/egress network/body/rate and platform certification; demo DB trust is not enterprise perimeter"
     },
     {
       "gap_id": "P14-07",
+      "stage": "P14",
       "source_ref": "docs/implementation/prompt14/RELEASE_RISKS.json@e7be724",
       "existing_implementation": "RECOVERY_AND_DATA.md; redaction tests are not legal/DLP certification",
-      "reproduction": "RECOVERY_AND_DATA.md; redaction tests are not legal/DLP certification",
+      "reproduction": [
+        "DataUsePolicyTest",
+        "RemediationIntegrationTest"
+      ],
       "failure": "No approved retention/erasure/legal hold, immutable audit or runbook licensing policy",
-      "security_owner": "data governance/legal lead",
-      "scope": "production certification and bounded local regression",
+      "security_owner": "data governance/legal lead (proposed role; no signoff)",
+      "scope": "Local engineering; independent production certification excluded",
       "priority": "HIGH",
       "proposed_patch": "Approve data classes/source licenses, external audit, retention/backups/model transfer policy",
+      "actual_patch": "Default-deny Java data transfer; non-executable deletion/hold policy and redacted audit export",
       "required_evidence": "Approve data classes/source licenses, external audit, retention/backups/model transfer policy",
-      "external_dependency": "data governance/legal lead independent evidence",
-      "acceptance": "Tested local controls; external gates stay BLOCKED without owner evidence",
-      "safe_rollback": "Disable opt-in capability; keep Python default and retain schemas/data",
-      "status": "BLOCKED_EXTERNAL",
-      "changed_code": [],
-      "tests": [],
-      "evidence": [],
-      "blocker": "No approved retention/erasure/legal hold, immutable audit or runbook licensing policy"
+      "external_dependency": "Privacy/legal retention minima, legal hold/erasure propagation, source licenses/provider terms, external immutable audit; public quota/platform retention",
+      "acceptance": "Named functional checks; independent release owner must supply external evidence",
+      "safe_rollback": "Disable opt-ins; normal revert after review; retain all Java/Python data, V9 and uncertain reservations",
+      "status": "PARTIALLY_IMPLEMENTED",
+      "release_disposition": "BLOCKED",
+      "changed_code": [
+        "backend-java/src/main/java/com/investinator/security/DataUsePolicy.java",
+        "backend-java/src/main/java/com/investinator/remediation/RemediationPolicy.java"
+      ],
+      "tests": [
+        "DataUsePolicyTest",
+        "RemediationIntegrationTest"
+      ],
+      "evidence": [
+        "VALIDATION.json",
+        "junit-summary.json"
+      ],
+      "blocker": "Privacy/legal retention minima, legal hold/erasure propagation, source licenses/provider terms, external immutable audit; public quota/platform retention"
     },
     {
       "gap_id": "P14-08",
+      "stage": "P14",
       "source_ref": "docs/implementation/prompt14/RELEASE_RISKS.json@e7be724",
       "existing_implementation": "default Maven/Python/npm scans; optional profile NOT_CERTIFIED",
-      "reproduction": "default Maven/Python/npm scans; optional profile NOT_CERTIFIED",
+      "reproduction": [
+        "tests_cli/test_java_sbom.py",
+        "sbom-default.cdx.json",
+        "sbom-hive.cdx.json",
+        "image-security.json"
+      ],
       "failure": "Python minimum-only constraints and optional shaded Hive profile not comprehensively audited; container OS/image CVE scan and independent penetration test not performed",
-      "security_owner": "build/security lead",
-      "scope": "production certification and bounded local regression",
+      "security_owner": "build/security lead (proposed role; no signoff)",
+      "scope": "Local engineering; independent production certification excluded",
       "priority": "MEDIUM",
       "proposed_patch": "Platform-specific reproducible constraints and vendor SBOM/shaded dependency review",
+      "actual_patch": "Default + optional Hive resolved metadata SBOM/OSV CI; Python/Next/showcase audits preserved",
       "required_evidence": "Platform-specific reproducible constraints and vendor SBOM/shaded dependency review",
-      "external_dependency": "build/security lead independent evidence",
-      "acceptance": "Tested local controls; external gates stay BLOCKED without owner evidence",
-      "safe_rollback": "Disable opt-in capability; keep Python default and retain schemas/data",
-      "status": "BLOCKED_EXTERNAL",
-      "changed_code": [],
-      "tests": [],
-      "evidence": [],
-      "blocker": "Python minimum-only constraints and optional shaded Hive profile not comprehensively audited; container OS/image CVE scan and independent penetration test not performed"
+      "external_dependency": "Image vulnerability DB forbidden; shaded internal classes/licenses and every deployed image NOT_CERTIFIED; Python reproducible constraints and pentest pending",
+      "acceptance": "Named functional checks; independent release owner must supply external evidence",
+      "safe_rollback": "Disable opt-ins; normal revert after review; retain all Java/Python data, V9 and uncertain reservations",
+      "status": "PARTIALLY_IMPLEMENTED",
+      "release_disposition": "BLOCKED",
+      "changed_code": [
+        "scripts/generate_java_sbom.py",
+        ".github/workflows/ci.yml"
+      ],
+      "tests": [
+        "tests_cli/test_java_sbom.py",
+        "sbom-default.cdx.json",
+        "sbom-hive.cdx.json",
+        "image-security.json"
+      ],
+      "evidence": [
+        "VALIDATION.json",
+        "junit-summary.json"
+      ],
+      "blocker": "Image vulnerability DB forbidden; shaded internal classes/licenses and every deployed image NOT_CERTIFIED; Python reproducible constraints and pentest pending"
     },
     {
       "gap_id": "P14-09",
+      "stage": "P14",
       "source_ref": "docs/implementation/prompt14/RELEASE_RISKS.json@e7be724",
       "existing_implementation": "SLOS.md and operational-baseline.json",
-      "reproduction": "SLOS.md and operational-baseline.json",
+      "reproduction": [
+        "MonitoringIntegrationTest",
+        "monitor-burst.json",
+        "read-soak.json",
+        "infra/operations/slo-rules-test.yaml"
+      ],
       "failure": "SLOs proposed; no 30-day window, production latency/false-positive/ROI evidence",
-      "security_owner": "SRE/product owner",
-      "scope": "production certification and bounded local regression",
+      "security_owner": "SRE/product owner (proposed role; no signoff)",
+      "scope": "Local engineering; independent production certification excluded",
       "priority": "MEDIUM",
       "proposed_patch": "Approve indicators, collect bounded telemetry, run staging load/soak and review error budgets",
+      "actual_patch": "Fixed event-state metrics, short 3000-duplicate burst and paced 500-read sampled-budget harness",
       "required_evidence": "Approve indicators, collect bounded telemetry, run staging load/soak and review error budgets",
-      "external_dependency": "SRE/product owner independent evidence",
-      "acceptance": "Tested local controls; external gates stay BLOCKED without owner evidence",
-      "safe_rollback": "Disable opt-in capability; keep Python default and retain schemas/data",
-      "status": "BLOCKED_EXTERNAL",
-      "changed_code": [],
-      "tests": [],
-      "evidence": [],
-      "blocker": "SLOs proposed; no 30-day window, production latency/false-positive/ROI evidence"
+      "external_dependency": "Long-duration/staging/private workloads, continuously observed peaks, owner-approved SLOs/30-day availability and actual customer/financial baselines",
+      "acceptance": "Named functional checks; independent release owner must supply external evidence",
+      "safe_rollback": "Disable opt-ins; normal revert after review; retain all Java/Python data, V9 and uncertain reservations",
+      "status": "PARTIALLY_IMPLEMENTED",
+      "release_disposition": "BLOCKED",
+      "changed_code": [
+        "scripts/verify_read_soak.py",
+        "backend-java/src/main/java/com/investinator/monitoring/MonitoringMetrics.java"
+      ],
+      "tests": [
+        "MonitoringIntegrationTest",
+        "monitor-burst.json",
+        "read-soak.json",
+        "infra/operations/slo-rules-test.yaml"
+      ],
+      "evidence": [
+        "VALIDATION.json",
+        "junit-summary.json"
+      ],
+      "blocker": "Long-duration/staging/private workloads, continuously observed peaks, owner-approved SLOs/30-day availability and actual customer/financial baselines"
     },
     {
       "gap_id": "P14-10",
+      "stage": "P14",
       "source_ref": "docs/implementation/prompt14/RELEASE_RISKS.json@e7be724",
       "existing_implementation": "EnterpriseIngressTest; bounded-body and secureCookie tests; Compose configuration",
-      "reproduction": "EnterpriseIngressTest; bounded-body and secureCookie tests; Compose configuration",
+      "reproduction": [
+        "EnterpriseIngressTest",
+        "InvestigationMetricsTest",
+        "apps/web/tests/bounded-body.test.ts",
+        "apps/web/tests/operator-contracts.test.ts"
+      ],
       "failure": "Non-demo platform-health bypass, proxy stream bounds, HTTPS public-origin cookie and wildcard demo binds corrected",
-      "security_owner": "application security lead",
-      "scope": "production certification and bounded local regression",
+      "security_owner": "application security lead (proposed role; no signoff)",
+      "scope": "Local engineering; independent production certification excluded",
       "priority": "HIGH",
       "proposed_patch": "Retain deny/stream/cookie tests and loopback binds",
+      "actual_patch": "Retain prior non-demo health deny, stream bound, HTTPS cookie, loopback and private/redacted telemetry regressions",
       "required_evidence": "Retain deny/stream/cookie tests and loopback binds",
-      "external_dependency": "application security lead independent evidence",
-      "acceptance": "Tested local controls; external gates stay BLOCKED without owner evidence",
-      "safe_rollback": "Disable opt-in capability; keep Python default and retain schemas/data",
-      "status": "NOT_TESTED",
-      "changed_code": [],
-      "tests": [],
-      "evidence": [],
-      "blocker": "Non-demo platform-health bypass, proxy stream bounds, HTTPS public-origin cookie and wildcard demo binds corrected"
+      "external_dependency": "Does not certify the other production release gates",
+      "acceptance": "Named functional checks; independent release owner must supply external evidence",
+      "safe_rollback": "Disable opt-ins; normal revert after review; retain all Java/Python data, V9 and uncertain reservations",
+      "status": "FIXED_AND_TESTED",
+      "release_disposition": "RETAIN_REGRESSION_ONLY",
+      "changed_code": [
+        "backend-java/src/main/java/com/investinator/security/SecurityConfiguration.java",
+        "apps/web/lib/bounded-body.ts",
+        "apps/web/lib/session-codec.ts",
+        "docker-compose.yml"
+      ],
+      "tests": [
+        "EnterpriseIngressTest",
+        "InvestigationMetricsTest",
+        "apps/web/tests/bounded-body.test.ts",
+        "apps/web/tests/operator-contracts.test.ts"
+      ],
+      "evidence": [
+        "VALIDATION.json",
+        "junit-summary.json"
+      ],
+      "blocker": "Does not certify the other production release gates"
     },
     {
-      "gap_id": "P10-native",
-      "source_ref": "docs/roadmap/POST_P14_GAP_AUDIT_2026-11-18.md",
-      "existing_implementation": "SIMULATED durable events only; native health separate",
-      "reproduction": "Existing named integration suite and current baseline",
-      "failure": "Reproduce before patch; no assumed current failure",
-      "security_owner": "platform/SRE/security reviewer (proposed role)",
-      "scope": "local lab only",
+      "gap_id": "P09B-01",
+      "stage": "P09B",
+      "source_ref": "docs/roadmap/POST_P14_GAP_AUDIT_2026-11-18.md / user Prompt14B",
+      "existing_implementation": "Preserved completed P03\u201315 work; see inspection-manifest.json",
+      "reproduction": "KnowledgeIntegrationTest; KnowledgeUnavailableTest; CorrelationEngineTest",
+      "failure": "Stale projections crowd current candidates",
+      "security_owner": "platform/SRE/security lead (proposed role)",
+      "scope": "Owned local lab or explicitly labeled fixtures",
       "priority": "P1",
-      "proposed_patch": "Default-deny fixed capability signal contract; explicit queue/watermark/restart limits",
-      "required_evidence": "Focused negative tests plus current full regression and hosted CI",
-      "external_dependency": "Human/enterprise certification separately blocked",
-      "acceptance": "No ACL/mode leak, no hidden degradation, no production or paid action",
-      "safe_rollback": "Revert logical commit on topic branch; retain all persisted data",
-      "status": "NOT_TESTED",
-      "changed_code": [],
-      "tests": [],
-      "evidence": [],
-      "blocker": "Baseline verification in progress"
+      "proposed_patch": "Current SQL-authorized latest revision chunk filter before BM25, 128-document bound, partial and epoch reporting; domain-neutral UNKNOWN",
+      "actual_patch": "Current SQL-authorized latest revision chunk filter before BM25, 128-document bound, partial and epoch reporting; domain-neutral UNKNOWN",
+      "required_evidence": "KnowledgeIntegrationTest; KnowledgeUnavailableTest; CorrelationEngineTest",
+      "external_dependency": "No source deletion; historical retention/scale review still needed",
+      "acceptance": "No ACL/stale/mode leak or hidden degradation; no production/billing authority",
+      "safe_rollback": "Disable optional capability; preserve source/data/history; normal reviewed revert",
+      "status": "FIXED_AND_TESTED",
+      "release_disposition": "BLOCKED",
+      "changed_code": [
+        "backend-java/src/main/java/com/investinator/knowledge/KnowledgeService.java"
+      ],
+      "tests": [
+        "KnowledgeIntegrationTest",
+        " KnowledgeUnavailableTest",
+        " CorrelationEngineTest"
+      ],
+      "evidence": [
+        "VALIDATION.json"
+      ],
+      "blocker": "No source deletion; historical retention/scale review still needed"
     },
     {
-      "gap_id": "P11-audit",
-      "source_ref": "docs/roadmap/POST_P14_GAP_AUDIT_2026-11-18.md",
-      "existing_implementation": "Two simulators, local DB audit, manual ambiguous-effect recovery",
-      "reproduction": "Existing named integration suite and current baseline",
-      "failure": "Reproduce before patch; no assumed current failure",
-      "security_owner": "platform/SRE/security reviewer (proposed role)",
-      "scope": "local lab only",
+      "gap_id": "P09B-02",
+      "stage": "P09B",
+      "source_ref": "docs/roadmap/POST_P14_GAP_AUDIT_2026-11-18.md / user Prompt14B",
+      "existing_implementation": "Preserved completed P03\u201315 work; see inspection-manifest.json",
+      "reproduction": "quality-evaluation.json",
+      "failure": "Unrelated healthy-context advice and unsigned quality",
+      "security_owner": "platform/SRE/security lead (proposed role)",
+      "scope": "Owned local lab or explicitly labeled fixtures",
       "priority": "P1",
-      "proposed_patch": "Bounded tenant redacted audit export and recovery explanations",
-      "required_evidence": "Focused negative tests plus current full regression and hosted CI",
-      "external_dependency": "Human/enterprise certification separately blocked",
-      "acceptance": "No ACL/mode leak, no hidden degradation, no production or paid action",
-      "safe_rollback": "Revert logical commit on topic branch; retain all persisted data",
-      "status": "NOT_TESTED",
-      "changed_code": [],
-      "tests": [],
-      "evidence": [],
-      "blocker": "Baseline verification in progress"
+      "proposed_patch": "Report precision 8/9 separately from recall@k, citation validity, stale/unauthorized and abstention; independent packet",
+      "actual_patch": "Report precision 8/9 separately from recall@k, citation validity, stale/unauthorized and abstention; independent packet",
+      "required_evidence": "quality-evaluation.json",
+      "external_dependency": "Human labels and unseen holdout required; no production RCA claim",
+      "acceptance": "No ACL/stale/mode leak or hidden degradation; no production/billing authority",
+      "safe_rollback": "Disable optional capability; preserve source/data/history; normal reviewed revert",
+      "status": "BLOCKED_EXTERNAL",
+      "release_disposition": "BLOCKED",
+      "changed_code": [
+        "docs/implementation/prompt14b/INDEPENDENT_REVIEW_PACKET.json"
+      ],
+      "tests": [
+        "quality-evaluation.json"
+      ],
+      "evidence": [
+        "VALIDATION.json"
+      ],
+      "blocker": "Human labels and unseen holdout required; no production RCA claim"
     },
     {
-      "gap_id": "P12-provider",
-      "source_ref": "docs/roadmap/POST_P14_GAP_AUDIT_2026-11-18.md",
-      "existing_implementation": "Typed envelopes, default Python, signed demo session, unknown usage",
-      "reproduction": "Existing named integration suite and current baseline",
-      "failure": "Reproduce before patch; no assumed current failure",
-      "security_owner": "platform/SRE/security reviewer (proposed role)",
-      "scope": "local lab only",
+      "gap_id": "P10-01",
+      "stage": "P10",
+      "source_ref": "docs/roadmap/POST_P14_GAP_AUDIT_2026-11-18.md / user Prompt14B",
+      "existing_implementation": "Preserved completed P03\u201315 work; see inspection-manifest.json",
+      "reproduction": "NativeSignalContractTest; ConnectorCertificationTest",
+      "failure": "Native ingestion lacks certification",
+      "security_owner": "platform/SRE/security lead (proposed role)",
+      "scope": "Owned local lab or explicitly labeled fixtures",
       "priority": "P1",
-      "proposed_patch": "Zero-call budget preflight and negative contracts",
-      "required_evidence": "Focused negative tests plus current full regression and hosted CI",
-      "external_dependency": "Human/enterprise certification separately blocked",
-      "acceptance": "No ACL/mode leak, no hidden degradation, no production or paid action",
-      "safe_rollback": "Revert logical commit on topic branch; retain all persisted data",
-      "status": "NOT_TESTED",
-      "changed_code": [],
-      "tests": [],
-      "evidence": [],
-      "blocker": "Baseline verification in progress"
+      "proposed_patch": "Fixture-only tenant/cluster/service/version/mode/evidence/time/freshness binding; asserted LIVE denied; DISABLED or NOT_CERTIFIED",
+      "actual_patch": "Fixture-only tenant/cluster/service/version/mode/evidence/time/freshness binding; asserted LIVE denied; DISABLED or NOT_CERTIFIED",
+      "required_evidence": "NativeSignalContractTest; ConnectorCertificationTest",
+      "external_dependency": "No certified native adapter-to-incident ingress",
+      "acceptance": "No ACL/stale/mode leak or hidden degradation; no production/billing authority",
+      "safe_rollback": "Disable optional capability; preserve source/data/history; normal reviewed revert",
+      "status": "PARTIALLY_IMPLEMENTED",
+      "release_disposition": "BLOCKED",
+      "changed_code": [
+        "backend-java/src/main/java/com/investinator/monitoring/NativeSignalContract.java"
+      ],
+      "tests": [
+        "NativeSignalContractTest",
+        " ConnectorCertificationTest"
+      ],
+      "evidence": [
+        "VALIDATION.json"
+      ],
+      "blocker": "No certified native adapter-to-incident ingress"
     },
     {
-      "gap_id": "P13-regression",
-      "source_ref": "docs/roadmap/POST_P14_GAP_AUDIT_2026-11-18.md",
-      "existing_implementation": "Five hosted jobs, 8 owned outages, browser, process restart",
-      "reproduction": "Existing named integration suite and current baseline",
-      "failure": "Reproduce before patch; no assumed current failure",
-      "security_owner": "platform/SRE/security reviewer (proposed role)",
-      "scope": "local lab only",
+      "gap_id": "P10-02",
+      "stage": "P10",
+      "source_ref": "docs/roadmap/POST_P14_GAP_AUDIT_2026-11-18.md / user Prompt14B",
+      "existing_implementation": "Preserved completed P03\u201315 work; see inspection-manifest.json",
+      "reproduction": "MonitoringIntegrationTest.equalTimestampAndDelayedSamplesCannotSupplyIndependentHysteresisVotes",
+      "failure": "Equal/delayed samples can vote after DB precision rounding",
+      "security_owner": "platform/SRE/security lead (proposed role)",
+      "scope": "Owned local lab or explicitly labeled fixtures",
       "priority": "P1",
-      "proposed_patch": "Re-run on exact new topic SHA; preserve security gates",
-      "required_evidence": "Focused negative tests plus current full regression and hosted CI",
-      "external_dependency": "Human/enterprise certification separately blocked",
-      "acceptance": "No ACL/mode leak, no hidden degradation, no production or paid action",
-      "safe_rollback": "Revert logical commit on topic branch; retain all persisted data",
-      "status": "NOT_TESTED",
-      "changed_code": [],
-      "tests": [],
-      "evidence": [],
-      "blocker": "Baseline verification in progress"
+      "proposed_patch": "Strictly newer microsecond hysteresis, no new incident from old samples; active evidence remains bounded",
+      "actual_patch": "Strictly newer microsecond hysteresis, no new incident from old samples; active evidence remains bounded",
+      "required_evidence": "MonitoringIntegrationTest.equalTimestampAndDelayedSamplesCannotSupplyIndependentHysteresisVotes",
+      "external_dependency": "Native event-time holdback buffer is NOT_IMPLEMENTED",
+      "acceptance": "No ACL/stale/mode leak or hidden degradation; no production/billing authority",
+      "safe_rollback": "Disable optional capability; preserve source/data/history; normal reviewed revert",
+      "status": "FIXED_AND_TESTED",
+      "release_disposition": "BLOCKED",
+      "changed_code": [
+        "backend-java/src/main/java/com/investinator/monitoring/MonitoringService.java"
+      ],
+      "tests": [
+        "MonitoringIntegrationTest.equalTimestampAndDelayedSamplesCannotSupplyIndependentHysteresisVotes"
+      ],
+      "evidence": [
+        "VALIDATION.json"
+      ],
+      "blocker": "Native event-time holdback buffer is NOT_IMPLEMENTED"
     },
     {
-      "gap_id": "P09B-retrieval",
-      "source_ref": "docs/roadmap/POST_P14_GAP_AUDIT_2026-11-18.md",
-      "existing_implementation": "SQL rejects stale projections after top30 BM25 candidates",
-      "reproduction": "Existing named integration suite and current baseline",
-      "failure": "Reproduce before patch; no assumed current failure",
-      "security_owner": "platform/SRE/security reviewer (proposed role)",
-      "scope": "local lab only",
+      "gap_id": "P10-03",
+      "stage": "P10",
+      "source_ref": "docs/roadmap/POST_P14_GAP_AUDIT_2026-11-18.md / user Prompt14B",
+      "existing_implementation": "Preserved completed P03\u201315 work; see inspection-manifest.json",
+      "reproduction": "MonitoringIntegrationTest; monitor-process.json; monitor-burst.json",
+      "failure": "Lifetime retention/drop accounting/long soak absent",
+      "security_owner": "platform/SRE/security lead (proposed role)",
+      "scope": "Owned local lab or explicitly labeled fixtures",
       "priority": "P1",
-      "proposed_patch": "Bounded current authorized revision candidate filter before BM25; report truncation and pending publication",
-      "required_evidence": "Focused negative tests plus current full regression and hosted CI",
-      "external_dependency": "Human/enterprise certification separately blocked",
-      "acceptance": "No ACL/mode leak, no hidden degradation, no production or paid action",
-      "safe_rollback": "Revert logical commit on topic branch; retain all persisted data",
+      "proposed_patch": "Explicit capacity1000, ingestion-order checkpoint vs event-time watermark, 4h/skew, backpressure429 and no silent deletion",
+      "actual_patch": "Explicit capacity1000, ingestion-order checkpoint vs event-time watermark, 4h/skew, backpressure429 and no silent deletion",
+      "required_evidence": "MonitoringIntegrationTest; monitor-process.json; monitor-burst.json",
+      "external_dependency": "History grows; no approved retention or certified native drop/checkpoint contract",
+      "acceptance": "No ACL/stale/mode leak or hidden degradation; no production/billing authority",
+      "safe_rollback": "Disable optional capability; preserve source/data/history; normal reviewed revert",
+      "status": "PARTIALLY_IMPLEMENTED",
+      "release_disposition": "BLOCKED",
+      "changed_code": [
+        "docs/implementation/prompt14b/MONITORING_CONTRACT.md"
+      ],
+      "tests": [
+        "MonitoringIntegrationTest",
+        " monitor-process.json",
+        " monitor-burst.json"
+      ],
+      "evidence": [
+        "VALIDATION.json"
+      ],
+      "blocker": "History grows; no approved retention or certified native drop/checkpoint contract"
+    },
+    {
+      "gap_id": "P10-04",
+      "stage": "P10",
+      "source_ref": "docs/roadmap/POST_P14_GAP_AUDIT_2026-11-18.md / user Prompt14B",
+      "existing_implementation": "Preserved completed P03\u201315 work; see inspection-manifest.json",
+      "reproduction": "MonitoringIntegrationTest",
+      "failure": "Remote notification destination and identity absent",
+      "security_owner": "platform/SRE/security lead (proposed role)",
+      "scope": "Owned local lab or explicitly labeled fixtures",
+      "priority": "P1",
+      "proposed_patch": "Keep LOCAL_FAKE only, bounded retries/outage tests; no automatic email/webhook",
+      "actual_patch": "Keep LOCAL_FAKE only, bounded retries/outage tests; no automatic email/webhook",
+      "required_evidence": "MonitoringIntegrationTest",
+      "external_dependency": "Authorized destination, notification owner and delivery certification needed",
+      "acceptance": "No ACL/stale/mode leak or hidden degradation; no production/billing authority",
+      "safe_rollback": "Disable optional capability; preserve source/data/history; normal reviewed revert",
+      "status": "BLOCKED_EXTERNAL",
+      "release_disposition": "BLOCKED",
+      "changed_code": [
+        "backend-java/src/main/java/com/investinator/monitoring/MonitoringService.java"
+      ],
+      "tests": [
+        "MonitoringIntegrationTest"
+      ],
+      "evidence": [
+        "VALIDATION.json"
+      ],
+      "blocker": "Authorized destination, notification owner and delivery certification needed"
+    },
+    {
+      "gap_id": "P10-05",
+      "stage": "P10",
+      "source_ref": "docs/roadmap/POST_P14_GAP_AUDIT_2026-11-18.md / user Prompt14B",
+      "existing_implementation": "Preserved completed P03\u201315 work; see inspection-manifest.json",
+      "reproduction": "MonitoringIntegrationTest; provider-preflight.json",
+      "failure": "Automatic model budget/actual provider absent",
+      "security_owner": "platform/SRE/security lead (proposed role)",
+      "scope": "Owned local lab or explicitly labeled fixtures",
+      "priority": "P1",
+      "proposed_patch": "Monitor outbox stays NOT_CONFIGURED/AWAITING_OPERATOR_BUDGET; no autonomous provider calls",
+      "actual_patch": "Monitor outbox stays NOT_CONFIGURED/AWAITING_OPERATOR_BUDGET; no autonomous provider calls",
+      "required_evidence": "MonitoringIntegrationTest; provider-preflight.json",
+      "external_dependency": "Actual separately approved operator budget/key/model required",
+      "acceptance": "No ACL/stale/mode leak or hidden degradation; no production/billing authority",
+      "safe_rollback": "Disable optional capability; preserve source/data/history; normal reviewed revert",
+      "status": "NOT_CONFIGURED",
+      "release_disposition": "BLOCKED",
+      "changed_code": [
+        "backend-java/src/main/java/com/investinator/monitoring/MonitoringService.java"
+      ],
+      "tests": [
+        "MonitoringIntegrationTest",
+        " provider-preflight.json"
+      ],
+      "evidence": [
+        "VALIDATION.json"
+      ],
+      "blocker": "Actual separately approved operator budget/key/model required"
+    },
+    {
+      "gap_id": "P11-01",
+      "stage": "P11",
+      "source_ref": "docs/roadmap/POST_P14_GAP_AUDIT_2026-11-18.md / user Prompt14B",
+      "existing_implementation": "Preserved completed P03\u201315 work; see inspection-manifest.json",
+      "reproduction": "RemediationIntegrationTest.auditExportIsTenantScopedRedactedBoundedAndCannotApprove",
+      "failure": "Audit export and manual recovery evidence incomplete",
+      "security_owner": "platform/SRE/security lead (proposed role)",
+      "scope": "Owned local lab or explicitly labeled fixtures",
+      "priority": "P1",
+      "proposed_patch": "Tenant-plan filtered, cursor-bounded metadata-only audit envelope; database-admin mutable, sink absent",
+      "actual_patch": "Tenant-plan filtered, cursor-bounded metadata-only audit envelope; database-admin mutable, sink absent",
+      "required_evidence": "RemediationIntegrationTest.auditExportIsTenantScopedRedactedBoundedAndCannotApprove",
+      "external_dependency": "External immutability/retention are P14-07 blockers",
+      "acceptance": "No ACL/stale/mode leak or hidden degradation; no production/billing authority",
+      "safe_rollback": "Disable optional capability; preserve source/data/history; normal reviewed revert",
+      "status": "FIXED_AND_TESTED",
+      "release_disposition": "BLOCKED",
+      "changed_code": [
+        "backend-java/src/main/java/com/investinator/remediation/RemediationPolicy.java"
+      ],
+      "tests": [
+        "RemediationIntegrationTest.auditExportIsTenantScopedRedactedBoundedAndCannotApprove"
+      ],
+      "evidence": [
+        "VALIDATION.json"
+      ],
+      "blocker": "External immutability/retention are P14-07 blockers"
+    },
+    {
+      "gap_id": "P11-02",
+      "stage": "P11",
+      "source_ref": "docs/roadmap/POST_P14_GAP_AUDIT_2026-11-18.md / user Prompt14B",
+      "existing_implementation": "Preserved completed P03\u201315 work; see inspection-manifest.json",
+      "reproduction": "RemediationIntegrationTest; remediation-process.json",
+      "failure": "Ambiguous effect recovery must never autoretry",
+      "security_owner": "platform/SRE/security lead (proposed role)",
+      "scope": "Owned local lab or explicitly labeled fixtures",
+      "priority": "P1",
+      "proposed_patch": "Manual before/after-receipt guidance, independent samples, named separate rollback; physical Java restart tests retained",
+      "actual_patch": "Manual before/after-receipt guidance, independent samples, named separate rollback; physical Java restart tests retained",
+      "required_evidence": "RemediationIntegrationTest; remediation-process.json",
+      "external_dependency": "Full enterprise disaster/action recovery not certified",
+      "acceptance": "No ACL/stale/mode leak or hidden degradation; no production/billing authority",
+      "safe_rollback": "Disable optional capability; preserve source/data/history; normal reviewed revert",
+      "status": "FIXED_AND_TESTED",
+      "release_disposition": "BLOCKED",
+      "changed_code": [
+        "docs/implementation/prompt14b/RECOVERY_RUNBOOK.md"
+      ],
+      "tests": [
+        "RemediationIntegrationTest",
+        " remediation-process.json"
+      ],
+      "evidence": [
+        "VALIDATION.json"
+      ],
+      "blocker": "Full enterprise disaster/action recovery not certified"
+    },
+    {
+      "gap_id": "P11-03",
+      "stage": "P11",
+      "source_ref": "docs/roadmap/POST_P14_GAP_AUDIT_2026-11-18.md / user Prompt14B",
+      "existing_implementation": "Preserved completed P03\u201315 work; see inspection-manifest.json",
+      "reproduction": "RemediationIntegrationTest; EnterpriseIngressTest",
+      "failure": "No independently authenticated enterprise execution approval",
+      "security_owner": "platform/SRE/security lead (proposed role)",
+      "scope": "Owned local lab or explicitly labeled fixtures",
+      "priority": "P1",
+      "proposed_patch": "Production/native LIVE hard denied; only two fixed SIMULATED actions remain",
+      "actual_patch": "Production/native LIVE hard denied; only two fixed SIMULATED actions remain",
+      "required_evidence": "RemediationIntegrationTest; EnterpriseIngressTest",
+      "external_dependency": "Real OIDC + independent humans/change control; no native executor added",
+      "acceptance": "No ACL/stale/mode leak or hidden degradation; no production/billing authority",
+      "safe_rollback": "Disable optional capability; preserve source/data/history; normal reviewed revert",
+      "status": "BLOCKED_EXTERNAL",
+      "release_disposition": "BLOCKED",
+      "changed_code": [
+        "backend-java/src/main/java/com/investinator/remediation/ActionRegistry.java"
+      ],
+      "tests": [
+        "RemediationIntegrationTest",
+        " EnterpriseIngressTest"
+      ],
+      "evidence": [
+        "VALIDATION.json"
+      ],
+      "blocker": "Real OIDC + independent humans/change control; no native executor added"
+    },
+    {
+      "gap_id": "P12-01",
+      "stage": "P12",
+      "source_ref": "docs/roadmap/POST_P14_GAP_AUDIT_2026-11-18.md / user Prompt14B",
+      "existing_implementation": "Preserved completed P03\u201315 work; see inspection-manifest.json",
+      "reproduction": "ChatPersistenceTest; 13 frontend contracts/type/build",
+      "failure": "Old saved/mocked provenance and missing usage can mislead",
+      "security_owner": "platform/SRE/security lead (proposed role)",
+      "scope": "Owned local lab or explicitly labeled fixtures",
+      "priority": "P1",
+      "proposed_patch": "Preserve nested turn metadata, explicit MOCKED_PROVIDER separate from data mode, unknown status/tokens/cost",
+      "actual_patch": "Preserve nested turn metadata, explicit MOCKED_PROVIDER separate from data mode, unknown status/tokens/cost",
+      "required_evidence": "ChatPersistenceTest; 13 frontend contracts/type/build",
+      "external_dependency": "Actual provider entitlement/quality remains conditional",
+      "acceptance": "No ACL/stale/mode leak or hidden degradation; no production/billing authority",
+      "safe_rollback": "Disable optional capability; preserve source/data/history; normal reviewed revert",
+      "status": "FIXED_AND_TESTED",
+      "release_disposition": "BLOCKED",
+      "changed_code": [
+        "apps/web/lib/operator-contracts.ts"
+      ],
+      "tests": [
+        "ChatPersistenceTest",
+        " 13 frontend contracts/type/build"
+      ],
+      "evidence": [
+        "VALIDATION.json"
+      ],
+      "blocker": "Actual provider entitlement/quality remains conditional"
+    },
+    {
+      "gap_id": "P12-02",
+      "stage": "P12",
+      "source_ref": "docs/roadmap/POST_P14_GAP_AUDIT_2026-11-18.md / user Prompt14B",
+      "existing_implementation": "Preserved completed P03\u201315 work; see inspection-manifest.json",
+      "reproduction": "14 browser flows; frontend contracts; KnowledgeIntegrationTest",
+      "failure": "Proxy/session/citation security regressions must remain",
+      "security_owner": "platform/SRE/security lead (proposed role)",
+      "scope": "Owned local lab or explicitly labeled fixtures",
+      "priority": "P1",
+      "proposed_patch": "Preserve fixed origin, role routes, byte stream/cookie/CSRF/tenant/signature denials; canonical citation recheck",
+      "actual_patch": "Preserve fixed origin, role routes, byte stream/cookie/CSRF/tenant/signature denials; canonical citation recheck",
+      "required_evidence": "14 browser flows; frontend contracts; KnowledgeIntegrationTest",
+      "external_dependency": "Formal accessibility and real enterprise perimeter review NOT_TESTED",
+      "acceptance": "No ACL/stale/mode leak or hidden degradation; no production/billing authority",
+      "safe_rollback": "Disable optional capability; preserve source/data/history; normal reviewed revert",
+      "status": "FIXED_AND_TESTED",
+      "release_disposition": "BLOCKED",
+      "changed_code": [
+        "apps/web/lib/backend.ts"
+      ],
+      "tests": [
+        "14 browser flows",
+        " frontend contracts",
+        " KnowledgeIntegrationTest"
+      ],
+      "evidence": [
+        "VALIDATION.json"
+      ],
+      "blocker": "Formal accessibility and real enterprise perimeter review NOT_TESTED"
+    },
+    {
+      "gap_id": "P12-03",
+      "stage": "P12",
+      "source_ref": "docs/roadmap/POST_P14_GAP_AUDIT_2026-11-18.md / user Prompt14B",
+      "existing_implementation": "Preserved completed P03\u201315 work; see inspection-manifest.json",
+      "reproduction": "provider-preflight.json; ChatGatewayTest",
+      "failure": "No verified live GPT conversation",
+      "security_owner": "platform/SRE/security lead (proposed role)",
+      "scope": "Owned local lab or explicitly labeled fixtures",
+      "priority": "P1",
+      "proposed_patch": "Budget-only CLI, explicit fallback and mock source; zero real calls",
+      "actual_patch": "Budget-only CLI, explicit fallback and mock source; zero real calls",
+      "required_evidence": "provider-preflight.json; ChatGatewayTest",
+      "external_dependency": "Actual key/model/approved cost and data-transfer policy absent",
+      "acceptance": "No ACL/stale/mode leak or hidden degradation; no production/billing authority",
+      "safe_rollback": "Disable optional capability; preserve source/data/history; normal reviewed revert",
+      "status": "NOT_CONFIGURED",
+      "release_disposition": "BLOCKED",
+      "changed_code": [
+        "backend-java/src/main/java/com/investinator/model/OpenAiLiveProbe.java"
+      ],
+      "tests": [
+        "provider-preflight.json",
+        " ChatGatewayTest"
+      ],
+      "evidence": [
+        "VALIDATION.json"
+      ],
+      "blocker": "Actual key/model/approved cost and data-transfer policy absent"
+    },
+    {
+      "gap_id": "P13-01",
+      "stage": "P13",
+      "source_ref": "docs/roadmap/POST_P14_GAP_AUDIT_2026-11-18.md / user Prompt14B",
+      "existing_implementation": "Preserved completed P03\u201315 work; see inspection-manifest.json",
+      "reproduction": "junit-summary.json; e2e.json; outages.json; retained-lifecycle.json",
+      "failure": "Current-source integration and hosted CI must be verified",
+      "security_owner": "platform/SRE/security lead (proposed role)",
+      "scope": "Owned local lab or explicitly labeled fixtures",
+      "priority": "P1",
+      "proposed_patch": "141 Java,34 CLI,12 Python,13 frontend; actual E2E/browser8 outages/process/evidence/recovery; hosted current SHA pending",
+      "actual_patch": "141 Java,34 CLI,12 Python,13 frontend; actual E2E/browser8 outages/process/evidence/recovery; hosted current SHA pending",
+      "required_evidence": "junit-summary.json; e2e.json; outages.json; retained-lifecycle.json",
+      "external_dependency": "Hosted latest topic CI pending at initial report commit; not inferred green from old SHA",
+      "acceptance": "No ACL/stale/mode leak or hidden degradation; no production/billing authority",
+      "safe_rollback": "Disable optional capability; preserve source/data/history; normal reviewed revert",
+      "status": "PARTIALLY_IMPLEMENTED",
+      "release_disposition": "BLOCKED",
+      "changed_code": [
+        "docs/implementation/prompt14b/VALIDATION.json"
+      ],
+      "tests": [
+        "junit-summary.json",
+        " e2e.json",
+        " outages.json",
+        " retained-lifecycle.json"
+      ],
+      "evidence": [
+        "VALIDATION.json"
+      ],
+      "blocker": "Hosted latest topic CI pending at initial report commit; not inferred green from old SHA"
+    },
+    {
+      "gap_id": "P13-02",
+      "stage": "P13",
+      "source_ref": "docs/roadmap/POST_P14_GAP_AUDIT_2026-11-18.md / user Prompt14B",
+      "existing_implementation": "Preserved completed P03\u201315 work; see inspection-manifest.json",
+      "reproduction": "VALIDATION.json",
+      "failure": "Cold-host/Windows/private topology and long-lived faults unverified",
+      "security_owner": "platform/SRE/security lead (proposed role)",
+      "scope": "Owned local lab or explicitly labeled fixtures",
+      "priority": "P1",
+      "proposed_patch": "Keep honest local/fresh-hosted fixture provenance; do not waive absent scans",
+      "actual_patch": "Keep honest local/fresh-hosted fixture provenance; do not waive absent scans",
+      "required_evidence": "VALIDATION.json",
+      "external_dependency": "Independent target infrastructure and platform matrix required",
+      "acceptance": "No ACL/stale/mode leak or hidden degradation; no production/billing authority",
+      "safe_rollback": "Disable optional capability; preserve source/data/history; normal reviewed revert",
       "status": "NOT_TESTED",
-      "changed_code": [],
-      "tests": [],
-      "evidence": [],
-      "blocker": "Baseline verification in progress"
+      "release_disposition": "BLOCKED",
+      "changed_code": [
+        "docs/implementation/prompt14b/RELEASE_DECISION.md"
+      ],
+      "tests": [
+        "VALIDATION.json"
+      ],
+      "evidence": [
+        "VALIDATION.json"
+      ],
+      "blocker": "Independent target infrastructure and platform matrix required"
+    },
+    {
+      "gap_id": "P13-03",
+      "stage": "P13",
+      "source_ref": "docs/roadmap/POST_P14_GAP_AUDIT_2026-11-18.md / user Prompt14B",
+      "existing_implementation": "Preserved completed P03\u201315 work; see inspection-manifest.json",
+      "reproduction": "34 CLI; E2E rerun;14 public tests;showcase build/audit;Worker dry-run",
+      "failure": "New main work and legacy markers must not be overwritten",
+      "security_owner": "platform/SRE/security lead (proposed role)",
+      "scope": "Owned local lab or explicitly labeled fixtures",
+      "priority": "P1",
+      "proposed_patch": "Normal merges preserve new public modules/seven CI jobs; separate namespace preserves older marker hashes; public stream/cost safeguards tested",
+      "actual_patch": "Normal merges preserve new public modules/seven CI jobs; separate namespace preserves older marker hashes; public stream/cost safeguards tested",
+      "required_evidence": "34 CLI; E2E rerun;14 public tests;showcase build/audit;Worker dry-run",
+      "external_dependency": "No Pages publication, Cloudflare deployment or live-provider certificate",
+      "acceptance": "No ACL/stale/mode leak or hidden degradation; no production/billing authority",
+      "safe_rollback": "Disable optional capability; preserve source/data/history; normal reviewed revert",
+      "status": "FIXED_AND_TESTED",
+      "release_disposition": "BLOCKED",
+      "changed_code": [
+        "scripts/verify_e2e_lab.py"
+      ],
+      "tests": [
+        "34 CLI",
+        " E2E rerun",
+        "15 public tests",
+        "showcase build/audit",
+        "Worker dry-run"
+      ],
+      "evidence": [
+        "VALIDATION.json"
+      ],
+      "blocker": "No Pages publication, Cloudflare deployment or live-provider certificate"
     }
-  ]
+  ],
+  "latest_local_implementation_sha": "045e14c549c73de0ec0a435758435a1ab965e018",
+  "source_publication": "PENDING_PUSH"
 }
