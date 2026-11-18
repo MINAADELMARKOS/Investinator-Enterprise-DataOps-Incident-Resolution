@@ -27,3 +27,6 @@ dataset revision/hash, source references, corrected labels, accepted limitations
 and approval/rejection with rationale. No reviewer identity or approval has been
 invented. Until that record exists, empirical model-quality sign-off remains
 BLOCKED. Functional isolation/review/retrieval tests are separate acceptance.
+
+Prompt 14B provides an additional [eight-case reviewer packet](../prompt14b/INDEPENDENT_REVIEW_PACKET.json).
+All independent label and signature fields remain null; no approval is inferred.

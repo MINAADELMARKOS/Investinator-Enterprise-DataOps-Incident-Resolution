@@ -19,7 +19,7 @@ public final class CorrelationEngine {
     public Investigation investigate(String tenant,String incident,DependencyGraph graph,List<Observation> supplied) {
         if(supplied.size()>1000)throw new IllegalArgumentException("Observation limit");
         var unknowns=new LinkedHashSet<String>();unknowns.add("Temporal/graph association is not proof of causation; no cause is automatically confirmed");
-        if(graph.metadata_mode().equals("UNKNOWN"))unknowns.add("Kafka metadata mode unverified; no coordination-chain hypothesis enabled");
+        if(graph.metadata_mode().equals("UNKNOWN"))unknowns.add("Platform mode unverified for "+graph.platform_version()+"; incompatible coordination-chain hypotheses remain disabled");
         var byId=new LinkedHashMap<String,Observation>();for(var o:supplied){if(!tenant.equals(o.tenant_id)||!incident.equals(o.incident_id))throw new IllegalArgumentException("Cross-tenant/incident evidence denied");var old=byId.putIfAbsent(o.id,o);if(old!=null&&!old.equals(o))throw new IllegalArgumentException("Conflicting evidence ID");}
         var observations=byId.values().stream().sorted(Comparator.comparing(Observation::observed_at).thenComparing(Observation::id)).toList();
         if(observations.isEmpty())unknowns.add("No authorized observations available");

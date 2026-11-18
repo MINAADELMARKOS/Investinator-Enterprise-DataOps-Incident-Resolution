@@ -35,14 +35,37 @@ public class KnowledgeService {
     public Map<String,Object> draft(String tenant,String id,int revision){var row=required(tenant,id,revision);var document=document(row);return obj("metadata",metadata(row),"document",document,"related_outcomes",document.incident_id()==null?List.of():outcomes(tenant,document.incident_id()));}
     public Map<String,Object> readableDocument(String tenant,String principal,String id,int revision){var row=required(tenant,id,revision);var document=document(row);Integer latest=db.jdbc.queryForObject("select max(revision) from knowledge_revisions where tenant_id=? and document_id=? and review_state in ('APPROVED','REVOKED')",Integer.class,tenant,id);if(!"APPROVED".equals(row.get("review_state"))||latest==null||latest!=revision||!document.acl_principals().contains(principal))throw new ApiFailure(403,"Knowledge revision is not readable in this scope");return obj("metadata",metadata(row),"document",document,"evidence_kind","HISTORICAL_ADVICE");}
     public Map<String,Object> search(String tenant,String principal,String text,SearchScope scope) {
-        var found=index.search(tenant,principal,text,scope.technology,scope.version,scope.mode);var verified=new ArrayList<Map<String,Object>>();int rejected=0;
+        String revision=policyEpoch(tenant);
+        // Bound both SQL materialization and the index terms filter. Never delete old source revisions.
+        // Latest approved/revoked revision wins even when a replacement is not yet published.
+        var candidates=db.read(()->{
+            db.jdbc.execute("set local statement_timeout='1500ms'");
+            return db.jdbc.queryForList("""
+                select k.payload::text as body,k.indexed from knowledge_revisions k
+                where k.tenant_id=? and k.review_state='APPROVED'
+                  and k.payload->>'technology'=? and k.payload->'acl_principals' @> ?::jsonb
+                  and (k.payload->>'metadata_mode'='ANY' or k.payload->>'metadata_mode'=?)
+                  and (k.payload->>'platform_version'='ANY' or k.payload->>'platform_version'=?
+                       or starts_with(?,(k.payload->>'platform_version')||'.'))
+                  and not exists(select 1 from knowledge_revisions n where n.tenant_id=k.tenant_id
+                      and n.document_id=k.document_id and n.revision>k.revision
+                      and n.review_state in ('APPROVED','REVOKED'))
+                order by k.document_id,k.revision desc limit 129
+                """,tenant,scope.technology,encode(List.of(principal)),scope.mode,scope.version,scope.version);
+        });
+        boolean exhausted=candidates.size()>128;
+        var eligible=candidates.stream().limit(128).toList();
+        long pending=eligible.stream().filter(r->!Boolean.TRUE.equals(r.get("indexed"))).count();
+        var chunkIds=eligible.stream().filter(r->Boolean.TRUE.equals(r.get("indexed"))).flatMap(r->document(r).chunks(tenant).stream()).map(c->c.get("chunk_id").toString()).toList();
+        var found=index.search(tenant,principal,text,scope.technology,scope.version,scope.mode,chunkIds);var verified=new ArrayList<Map<String,Object>>();int rejected=0;
         for(var hit:found.hits())try {
             var raw=hit.document();String doc=raw.get("document_id").toString();int rev=((Number)raw.get("revision")).intValue();var chunk=authorizeChunk(tenant,principal,doc,rev,raw.get("chunk_id").toString(),scope);if(chunk==null||!Objects.equals(raw.get("tenant_id"),tenant)||!Objects.equals(raw.get("content_hash"),chunk.get("content_hash"))||!Objects.equals(raw.get("text"),chunk.get("text"))){rejected++;continue;}
             var item=new LinkedHashMap<>(chunk);double score=hit.score()+(scope.version.equals(item.get("platform_version"))?3:0)+(scope.mode.equals(item.get("metadata_mode"))?3:0);item.put("rank_score",score);item.put("evidence_kind","HISTORICAL_ADVICE");item.put("reference","knowledge:"+doc+"@"+rev+"#"+item.get("chunk_index"));verified.add(item);
         }catch(Exception ignored){rejected++;}
         verified.sort(Comparator.<Map<String,Object>>comparingDouble(v->((Number)v.get("rank_score")).doubleValue()).reversed().thenComparing(v->v.get("chunk_id").toString()));var unique=new LinkedHashMap<String,Map<String,Object>>();for(var item:verified)unique.putIfAbsent(item.get("document_id")+":"+item.get("revision"),item);
-        long pending=db.jdbc.queryForObject("select count(*) from knowledge_revisions where tenant_id=? and review_state='APPROVED' and not indexed",Long.class,tenant);String status=found.status();if(status.equals("HEALTHY")&&(rejected>0||pending>0))status="DEGRADED";
-        return obj("status",status,"retrieval_mode",Set.of("HEALTHY","DEGRADED").contains(found.status())?"LIVE":"NOT_TESTED","source_mode","HISTORICAL_ADVICE","items",unique.values().stream().limit(5).toList(),"rejected_records",rejected,"pending_index_revisions",pending,"partial",found.partial()||rejected>0||pending>0,"ranking","BM25 plus version/mode specificity; no vectors or embeddings");
+        boolean changed=!revision.equals(policyEpoch(tenant));if(changed)unique.clear();
+        String status=found.status();if(status.equals("HEALTHY")&&(rejected>0||pending>0||exhausted||changed))status="DEGRADED";
+        return obj("status",status,"retrieval_mode",Set.of("HEALTHY","DEGRADED").contains(found.status())?"LIVE":"NOT_TESTED","source_mode","HISTORICAL_ADVICE","items",unique.values().stream().limit(5).toList(),"rejected_records",rejected,"pending_index_revisions",pending,"partial",found.partial()||rejected>0||pending>0||exhausted||changed,"corpus_revision",revision,"candidate_budget_exhausted",exhausted,"policy_changed_during_retrieval",changed,"candidate_document_limit",128,"pending_count_is_bounded",true,"ranking","BM25 plus version/mode specificity; no vectors or embeddings");
     }
     private Map<String,Object> authorizeChunk(String tenant,String principal,String id,int revision,String chunkId,SearchScope scope){
         var candidates=rows(tenant,id,revision);if(candidates.isEmpty())return null;var row=candidates.getFirst();if(!row.get("review_state").equals("APPROVED"))return null;

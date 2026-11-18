@@ -1,0 +1,97 @@
+{
+  "production_gate": "BLOCKED",
+  "paid_provider_calls": 0,
+  "commands": [
+    {
+      "stage": "baseline",
+      "command": "JDK21 Maven verify (prepared Maven settings/cache)",
+      "sha": "1ca09a1ace415afeee2f64d00cd00ababde480e9",
+      "exit_status": 0,
+      "test_number": 112,
+      "source_provenance": "LIVE_LOCAL_TESTCONTAINERS; SIMULATED/MOCKED source fixtures",
+      "evidence_excerpt": "ime-classpath.txt'.  No changes found.\n[INFO] \n[INFO] --- jar:3.5.1:jar (default-jar) @ backend-java ---\n[INFO] \n[INFO] --- spring-boot:4.1.2:repackage (repackage) @ backend-java ---\n[INFO] Replacing main artifact /workspace/Investinator-Enterprise-DataOps-Incident-Resolution/backend-java/target/backend-java-0.1.0-SNAPSHOT.jar with repackaged archive, adding nested dependencies in BOOT-INF/.\n[INFO] The original artifact has been renamed to /workspace/Investinator-Enterprise-DataOps-Incident-Resolution/backend-java/target/backend-java-0.1.0-SNAPSHOT.jar.original\n[INFO] ------------------------------------------------------------------------\n[INFO] BUILD SUCCESS\n[INFO] ------------------------------------------------------------------------\n[INFO] Total time:  04:03 min\n[INFO] Finished at: 2026-11-18T22:35:34Z\n[INFO] ------------------------------------------------------------------------\n",
+      "ci_run_link": null
+    },
+    {
+      "stage": "baseline",
+      "command": ".venv/bin/python -m pytest -q",
+      "sha": "1ca09a1ace415afeee2f64d00cd00ababde480e9",
+      "exit_status": 0,
+      "test_number": 12,
+      "source_provenance": "SIMULATED fixture",
+      "evidence_excerpt": "............                                                             [100%]\n12 passed in 3.83s\n",
+      "ci_run_link": null
+    },
+    {
+      "stage": "baseline",
+      "command": ".venv/bin/python -m unittest discover -s tests_cli",
+      "sha": "1ca09a1ace415afeee2f64d00cd00ababde480e9",
+      "exit_status": 0,
+      "test_number": 29,
+      "source_provenance": "UNIT; paid_call_made field in mocks is not provider traffic",
+      "evidence_excerpt": "--live] [--demo] [--confirm-destroy-demo-data]\n                          {up,down,status,doctor,health,smoke,test,logs,restart,demo,ai-check,reset-demo,monitor,investigate}\n                          [target]\npython -m unittest: error: Use monitor status|pause|resume --demo\n............\n----------------------------------------------------------------------\nRan 29 tests in 0.157s\n\nOK\n{\"status\": \"NOT_TESTED\", \"configured\": true, \"paid_call_made\": false}\n{\"status\": \"NOT_TESTED\", \"configured\": true, \"paid_call_made\": false}\n{\"status\": \"HEALTHY\", \"paid_call_made\": true, \"text\": \"OK\"}\nPASS: live local API/DB/search/metrics/proxy and approved SIMULATED recovery; no production action\nPASS: live local API/DB/search/metrics/proxy and approved SIMULATED recovery; no production action\n{\"status\": \"NOT_CONFIGURED\", \"key_present\": false, \"model_present\": false, \"paid_call_made\": false}\n{\"paused\": true}\n",
+      "ci_run_link": null
+    },
+    {
+      "stage": "baseline",
+      "command": "npm --prefix apps/web test",
+      "sha": "1ca09a1ace415afeee2f64d00cd00ababde480e9",
+      "exit_status": 0,
+      "test_number": 11,
+      "source_provenance": "UNIT",
+      "evidence_excerpt": "ive routes are never exposed (1.839547ms)\n\u2714 query scope cannot choose tenant, endpoint or arbitrary index (0.957395ms)\n\u2714 signed role cannot be changed or replayed beyond expiry (1.553925ms)\n\u2714 short, absent and malformed credentials fail closed (0.600833ms)\n\u2714 Java and Python provider names normalize without inventing provenance (0.432958ms)\n\u2714 fallback and old history do not fabricate a live provider or measured cost (0.331051ms)\n\u2714 malformed and future health cannot become a green default (0.699803ms)\n\u2714 configured HTTPS origin requires secure cookies behind TLS termination (0.364876ms)\n\u2139 tests 11\n\u2139 suites 0\n\u2139 pass 11\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 213.970539\nnpm notice\nnpm notice New major version of npm available! 11.9.0 -> 12.2.3\nnpm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.3\nnpm notice To update run: npm install -g npm@12.2.3\nnpm notice\n",
+      "ci_run_link": null
+    },
+    {
+      "stage": "baseline",
+      "command": "npm ci --prefix apps/web --cache /workspace/.cache/npm && npm --prefix apps/web run lint && npm --prefix apps/web run build",
+      "sha": "1ca09a1ace415afeee2f64d00cd00ababde480e9",
+      "exit_status": 0,
+      "test_number": null,
+      "source_provenance": "LOCAL_BUILD",
+      "evidence_excerpt": "ing TypeScript ...\n  Finished TypeScript in 1995ms ...\n  Collecting page data using 4 workers ...\n  Generating static pages using 4 workers (0/2) ...\n\u2713 Generating static pages using 4 workers (2/2) in 148ms\n  Finalizing page optimization ...\n\nRoute (app)\n\u250c \u0192 /\n\u251c \u0192 /_not-found\n\u251c \u0192 /about\n\u251c \u0192 /administration\n\u251c \u0192 /ai-observability\n\u251c \u0192 /api/operator/session\n\u251c \u0192 /api/v1/[...path]\n\u251c \u0192 /approvals\n\u251c \u0192 /automations\n\u251c \u0192 /explore\n\u251c \u0192 /incidents\n\u251c \u0192 /incidents/[id]\n\u251c \u0192 /incidents/[id]/postmortem\n\u251c \u0192 /integrations\n\u251c \u0192 /investigator\n\u251c \u0192 /knowledge\n\u251c \u0192 /monitoring\n\u251c \u0192 /nervemap\n\u251c \u0192 /operator/login\n\u251c \u0192 /pulse\n\u251c \u0192 /replaylab\n\u251c \u0192 /runbooks\n\u2514 \u0192 /system-health\n\n\n\u0192  (Dynamic)  server-rendered on demand\n\nnpm notice\nnpm notice New major version of npm available! 11.9.0 -> 12.2.3\nnpm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.3\nnpm notice To update run: npm install -g npm@12.2.3\nnpm notice\n",
+      "ci_run_link": null
+    },
+    {
+      "stage": "baseline",
+      "command": "npm --prefix apps/web audit --audit-level=high",
+      "sha": "1ca09a1ace415afeee2f64d00cd00ababde480e9",
+      "exit_status": 0,
+      "test_number": null,
+      "source_provenance": "SCANNER; zero findings",
+      "evidence_excerpt": "found 0 vulnerabilities\nnpm notice\nnpm notice New major version of npm available! 11.9.0 -> 12.2.3\nnpm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.3\nnpm notice To update run: npm install -g npm@12.2.3\nnpm notice\n",
+      "ci_run_link": null
+    },
+    {
+      "stage": "baseline",
+      "command": ".venv/bin/ruff check src tests scripts backend-java/scripts tests_cli",
+      "sha": "1ca09a1ace415afeee2f64d00cd00ababde480e9",
+      "exit_status": 0,
+      "test_number": null,
+      "source_provenance": "STATIC",
+      "evidence_excerpt": "All checks passed!\n",
+      "ci_run_link": null
+    },
+    {
+      "stage": "baseline",
+      "command": ".venv/bin/mypy src",
+      "sha": "1ca09a1ace415afeee2f64d00cd00ababde480e9",
+      "exit_status": 0,
+      "test_number": 17,
+      "source_provenance": "STATIC source files",
+      "evidence_excerpt": "Success: no issues found in 17 source files\n",
+      "ci_run_link": null
+    },
+    {
+      "stage": "retrieval-fix",
+      "command": "JDK21 Maven -Dtest=KnowledgeIntegrationTest,KnowledgeUnavailableTest,CorrelationEngineTest test",
+      "sha": "1ca09a1ace415afeee2f64d00cd00ababde480e9",
+      "working_tree_changes": true,
+      "exit_status": 0,
+      "test_number": 16,
+      "source_provenance": "LIVE_LOCAL_POSTGRESQL_OPENSEARCH; SIMULATED data",
+      "ci_run_link": null,
+      "evidence_excerpt": "BUILD SUCCESS; 16 tests, 0 failures/errors/skips; 2m49s"
+    }
+  ]
+}

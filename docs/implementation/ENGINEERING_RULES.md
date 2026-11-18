@@ -1,3 +1,8 @@
+Current authorization (2026-11-19): execute the user’s Prompt 14B gap-closure master only,
+preserve completed Prompt 15, push a new reviewed topic branch and prepare its PR.
+No merge into main, production deployment, credential setup or paid provider call is authorized.
+The older stage limits below are historical; all safety controls remain applicable.
+
 # Engineering execution contract
 
 Read STATE.md and DECISIONS.md before changing code in every session. The user

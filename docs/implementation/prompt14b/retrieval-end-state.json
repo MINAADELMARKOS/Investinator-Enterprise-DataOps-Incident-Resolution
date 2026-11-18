@@ -1,0 +1,1844 @@
+{
+  "source_mode": "SIMULATED",
+  "provider_calls": 0,
+  "transport": "LIVE_LOCAL_POSTGRESQL_OPENSEARCH_BM25",
+  "cases": [
+    {
+      "case_id": "kafka-kraft",
+      "investigation": {
+        "incident_id": "QUALITY-kafka-kraft",
+        "graph_id": "quality-kafka-kraft",
+        "graph_revision": 1,
+        "metadata_mode": "KRAFT",
+        "platform_version": "Kafka 4.3",
+        "source_mode": "SIMULATED",
+        "observed_symptoms": [
+          {
+            "id": "Q-kafka-kraft-00",
+            "tenant_id": "demo",
+            "incident_id": "QUALITY-kafka-kraft",
+            "entity_id": "network",
+            "signal": "NETWORK_UNSTABLE",
+            "state": "ABNORMAL",
+            "observed_at": "2026-11-17T00:00:00Z",
+            "source_mode": "SIMULATED",
+            "intensity": 0.8,
+            "signature": "SIMULATED developer-authored quality fixture"
+          },
+          {
+            "id": "Q-kafka-kraft-01",
+            "tenant_id": "demo",
+            "incident_id": "QUALITY-kafka-kraft",
+            "entity_id": "quorum",
+            "signal": "QUORUM_UNAVAILABLE",
+            "state": "ABNORMAL",
+            "observed_at": "2026-11-17T00:00:40Z",
+            "source_mode": "SIMULATED",
+            "intensity": 0.8,
+            "signature": "SIMULATED developer-authored quality fixture"
+          },
+          {
+            "id": "Q-kafka-kraft-02",
+            "tenant_id": "demo",
+            "incident_id": "QUALITY-kafka-kraft",
+            "entity_id": "broker",
+            "signal": "BROKER_ERROR",
+            "state": "ABNORMAL",
+            "observed_at": "2026-11-17T00:01:20Z",
+            "source_mode": "SIMULATED",
+            "intensity": 0.8,
+            "signature": "SIMULATED developer-authored quality fixture"
+          },
+          {
+            "id": "Q-kafka-kraft-06",
+            "tenant_id": "demo",
+            "incident_id": "QUALITY-kafka-kraft",
+            "entity_id": "broker",
+            "signal": "DISK_EXHAUSTED",
+            "state": "HEALTHY",
+            "observed_at": "2026-11-17T00:01:25Z",
+            "source_mode": "SIMULATED",
+            "intensity": 0.0,
+            "signature": "SIMULATED developer-authored quality fixture"
+          },
+          {
+            "id": "Q-kafka-kraft-03",
+            "tenant_id": "demo",
+            "incident_id": "QUALITY-kafka-kraft",
+            "entity_id": "consumer",
+            "signal": "CONSUMER_LAG",
+            "state": "ABNORMAL",
+            "observed_at": "2026-11-17T00:02:00Z",
+            "source_mode": "SIMULATED",
+            "intensity": 0.8,
+            "signature": "SIMULATED developer-authored quality fixture"
+          },
+          {
+            "id": "Q-kafka-kraft-04",
+            "tenant_id": "demo",
+            "incident_id": "QUALITY-kafka-kraft",
+            "entity_id": "spark",
+            "signal": "SPARK_DELAY",
+            "state": "ABNORMAL",
+            "observed_at": "2026-11-17T00:02:40Z",
+            "source_mode": "SIMULATED",
+            "intensity": 0.8,
+            "signature": "SIMULATED developer-authored quality fixture"
+          },
+          {
+            "id": "Q-kafka-kraft-05",
+            "tenant_id": "demo",
+            "incident_id": "QUALITY-kafka-kraft",
+            "entity_id": "dataset",
+            "signal": "DATASET_STALE",
+            "state": "ABNORMAL",
+            "observed_at": "2026-11-17T00:03:20Z",
+            "source_mode": "SIMULATED",
+            "intensity": 0.8,
+            "signature": "SIMULATED developer-authored quality fixture"
+          }
+        ],
+        "candidate_causes": [
+          {
+            "entity_id": "network",
+            "signal": "NETWORK_UNSTABLE",
+            "status": "HYPOTHESIS",
+            "confidence": "CORROBORATED_HYPOTHESIS",
+            "confidence_reasons": [
+              "Distinct reachable components: 6 (repeated symptom count does not raise confidence)",
+              "Edge validity and discovery time checked; skew tolerance 30 seconds"
+            ],
+            "supporting": [
+              {
+                "evidence_id": "Q-kafka-kraft-00",
+                "entity_id": "network",
+                "observed_at": "2026-11-17T00:00:00Z",
+                "reason": "Direct originating symptom"
+              },
+              {
+                "evidence_id": "Q-kafka-kraft-01",
+                "entity_id": "quorum",
+                "observed_at": "2026-11-17T00:00:40Z",
+                "reason": "Directionally reachable symptom follows within skew/window"
+              },
+              {
+                "evidence_id": "Q-kafka-kraft-02",
+                "entity_id": "broker",
+                "observed_at": "2026-11-17T00:01:20Z",
+                "reason": "Directionally reachable symptom follows within skew/window"
+              },
+              {
+                "evidence_id": "Q-kafka-kraft-03",
+                "entity_id": "consumer",
+                "observed_at": "2026-11-17T00:02:00Z",
+                "reason": "Directionally reachable symptom follows within skew/window"
+              },
+              {
+                "evidence_id": "Q-kafka-kraft-04",
+                "entity_id": "spark",
+                "observed_at": "2026-11-17T00:02:40Z",
+                "reason": "Directionally reachable symptom follows within skew/window"
+              },
+              {
+                "evidence_id": "Q-kafka-kraft-05",
+                "entity_id": "dataset",
+                "observed_at": "2026-11-17T00:03:20Z",
+                "reason": "Directionally reachable symptom follows within skew/window"
+              }
+            ],
+            "contradicting": [],
+            "impact_radius": [
+              "broker",
+              "consumer",
+              "dataset",
+              "quorum",
+              "spark"
+            ],
+            "next_read_only_checks": [
+              "Inspect scoped NETWORK_UNSTABLE metrics and contemporaneous healthy counterevidence",
+              "Verify source clocks and graph provenance"
+            ],
+            "prevention_opportunities": [
+              "Monitor originating capability and downstream freshness",
+              "Review redundancy/capacity based on verified observations"
+            ],
+            "risk": "Unconfirmed causal attribution; no automatic remediation"
+          },
+          {
+            "entity_id": "quorum",
+            "signal": "QUORUM_UNAVAILABLE",
+            "status": "HYPOTHESIS",
+            "confidence": "CORROBORATED_HYPOTHESIS",
+            "confidence_reasons": [
+              "Distinct reachable components: 5 (repeated symptom count does not raise confidence)",
+              "Edge validity and discovery time checked; skew tolerance 30 seconds"
+            ],
+            "supporting": [
+              {
+                "evidence_id": "Q-kafka-kraft-01",
+                "entity_id": "quorum",
+                "observed_at": "2026-11-17T00:00:40Z",
+                "reason": "Direct originating symptom"
+              },
+              {
+                "evidence_id": "Q-kafka-kraft-02",
+                "entity_id": "broker",
+                "observed_at": "2026-11-17T00:01:20Z",
+                "reason": "Directionally reachable symptom follows within skew/window"
+              },
+              {
+                "evidence_id": "Q-kafka-kraft-03",
+                "entity_id": "consumer",
+                "observed_at": "2026-11-17T00:02:00Z",
+                "reason": "Directionally reachable symptom follows within skew/window"
+              },
+              {
+                "evidence_id": "Q-kafka-kraft-04",
+                "entity_id": "spark",
+                "observed_at": "2026-11-17T00:02:40Z",
+                "reason": "Directionally reachable symptom follows within skew/window"
+              },
+              {
+                "evidence_id": "Q-kafka-kraft-05",
+                "entity_id": "dataset",
+                "observed_at": "2026-11-17T00:03:20Z",
+                "reason": "Directionally reachable symptom follows within skew/window"
+              }
+            ],
+            "contradicting": [],
+            "impact_radius": [
+              "broker",
+              "consumer",
+              "dataset",
+              "spark"
+            ],
+            "next_read_only_checks": [
+              "Inspect scoped QUORUM_UNAVAILABLE metrics and contemporaneous healthy counterevidence",
+              "Verify source clocks and graph provenance"
+            ],
+            "prevention_opportunities": [
+              "Monitor originating capability and downstream freshness",
+              "Review redundancy/capacity based on verified observations"
+            ],
+            "risk": "Unconfirmed causal attribution; no automatic remediation"
+          },
+          {
+            "entity_id": "broker",
+            "signal": "BROKER_ERROR",
+            "status": "HYPOTHESIS",
+            "confidence": "CORROBORATED_HYPOTHESIS",
+            "confidence_reasons": [
+              "Distinct reachable components: 4 (repeated symptom count does not raise confidence)",
+              "Edge validity and discovery time checked; skew tolerance 30 seconds"
+            ],
+            "supporting": [
+              {
+                "evidence_id": "Q-kafka-kraft-02",
+                "entity_id": "broker",
+                "observed_at": "2026-11-17T00:01:20Z",
+                "reason": "Direct originating symptom"
+              },
+              {
+                "evidence_id": "Q-kafka-kraft-03",
+                "entity_id": "consumer",
+                "observed_at": "2026-11-17T00:02:00Z",
+                "reason": "Directionally reachable symptom follows within skew/window"
+              },
+              {
+                "evidence_id": "Q-kafka-kraft-04",
+                "entity_id": "spark",
+                "observed_at": "2026-11-17T00:02:40Z",
+                "reason": "Directionally reachable symptom follows within skew/window"
+              },
+              {
+                "evidence_id": "Q-kafka-kraft-05",
+                "entity_id": "dataset",
+                "observed_at": "2026-11-17T00:03:20Z",
+                "reason": "Directionally reachable symptom follows within skew/window"
+              }
+            ],
+            "contradicting": [],
+            "impact_radius": [
+              "consumer",
+              "dataset",
+              "spark"
+            ],
+            "next_read_only_checks": [
+              "Inspect scoped BROKER_ERROR metrics and contemporaneous healthy counterevidence",
+              "Verify source clocks and graph provenance"
+            ],
+            "prevention_opportunities": [
+              "Monitor originating capability and downstream freshness",
+              "Review redundancy/capacity based on verified observations"
+            ],
+            "risk": "Unconfirmed causal attribution; no automatic remediation"
+          }
+        ],
+        "unknowns": [
+          "Temporal/graph association is not proof of causation; no cause is automatically confirmed"
+        ],
+        "impact_radius": [
+          "broker",
+          "consumer",
+          "dataset",
+          "quorum",
+          "spark"
+        ],
+        "next_read_only_checks": [
+          "Gather missing scoped metrics without changing services"
+        ],
+        "prevention_opportunities": [
+          "Validate causal claims against healthy and recovery counterexamples"
+        ],
+        "risk": "Hypotheses only; independent authorization and verification required for any production change",
+        "confirmed_cause": null
+      },
+      "retrieval": {
+        "status": "HEALTHY",
+        "retrieval_mode": "LIVE",
+        "source_mode": "HISTORICAL_ADVICE",
+        "items": [
+          {
+            "chunk_id": "KB-346cdbe2b1391a646c6c0ab443fbf37cde040ba79c3825fe262e4912e2375801",
+            "tenant_id": "demo",
+            "document_id": "review-kafka-kraft",
+            "revision": 2,
+            "content_hash": "d3d5890a2e8c819cfd7e2359961219dc6406db1c7e0c1402434832518342b03f",
+            "chunk_index": 0,
+            "text": "Network packet loss destabilizes KRaft metadata quorum. Read controller quorum, broker ISR and consumer lag before proposing changes.",
+            "title": "review-kafka-kraft review fixture",
+            "technology": "Kafka",
+            "platform_version": "4.3",
+            "metadata_mode": "KRAFT",
+            "source": "repo:eval/knowledge_review_cases.json",
+            "owner": "implementation-review-fixture",
+            "source_time": "2026-11-17T00:00:00Z",
+            "acl_principals": [
+              "demo.senior_sre"
+            ],
+            "review_state": "APPROVED",
+            "source_type": "RUNBOOK",
+            "source_mode": "SIMULATED",
+            "rank_score": 12.145982700000001,
+            "evidence_kind": "HISTORICAL_ADVICE",
+            "reference": "knowledge:review-kafka-kraft@2#0"
+          },
+          {
+            "chunk_id": "KB-9e81dfcd9e40fa8876e03fc513a3d990b182006d7c8e7c0876fa5f20c9eaba14",
+            "tenant_id": "demo",
+            "document_id": "review-healthy-false-positive",
+            "revision": 2,
+            "content_hash": "7a037946eccdbad6737e8f2d6fe1913b6ccf649750289adc0dde088588edd8de",
+            "chunk_index": 0,
+            "text": "A healthy Kafka baseline with no failure must not be attributed to ZooKeeper, disk or network merely from related historical advice.",
+            "title": "review-healthy-false-positive review fixture",
+            "technology": "Kafka",
+            "platform_version": "4.3",
+            "metadata_mode": "KRAFT",
+            "source": "repo:eval/knowledge_review_cases.json",
+            "owner": "implementation-review-fixture",
+            "source_time": "2026-11-17T00:00:00Z",
+            "acl_principals": [
+              "demo.senior_sre"
+            ],
+            "review_state": "APPROVED",
+            "source_type": "RUNBOOK",
+            "source_mode": "SIMULATED",
+            "rank_score": 8.6099389,
+            "evidence_kind": "HISTORICAL_ADVICE",
+            "reference": "knowledge:review-healthy-false-positive@2#0"
+          }
+        ],
+        "rejected_records": 0,
+        "pending_index_revisions": 0,
+        "partial": false,
+        "corpus_revision": "32",
+        "candidate_budget_exhausted": false,
+        "policy_changed_during_retrieval": false,
+        "candidate_document_limit": 128,
+        "pending_count_is_bounded": true,
+        "ranking": "BM25 plus version/mode specificity; no vectors or embeddings"
+      }
+    },
+    {
+      "case_id": "legacy-zookeeper",
+      "investigation": {
+        "incident_id": "QUALITY-legacy-zookeeper",
+        "graph_id": "quality-legacy-zookeeper",
+        "graph_revision": 1,
+        "metadata_mode": "LEGACY_ZOOKEEPER",
+        "platform_version": "Kafka 3.9",
+        "source_mode": "SIMULATED",
+        "observed_symptoms": [
+          {
+            "id": "Q-legacy-zookeeper-00",
+            "tenant_id": "demo",
+            "incident_id": "QUALITY-legacy-zookeeper",
+            "entity_id": "network",
+            "signal": "NETWORK_UNSTABLE",
+            "state": "HEALTHY",
+            "observed_at": "2026-11-17T00:00:00Z",
+            "source_mode": "SIMULATED",
+            "intensity": 0.0,
+            "signature": "SIMULATED developer-authored quality fixture"
+          },
+          {
+            "id": "Q-legacy-zookeeper-01",
+            "tenant_id": "demo",
+            "incident_id": "QUALITY-legacy-zookeeper",
+            "entity_id": "zk",
+            "signal": "ZK_SESSION_EXPIRED",
+            "state": "ABNORMAL",
+            "observed_at": "2026-11-17T00:00:00Z",
+            "source_mode": "SIMULATED",
+            "intensity": 0.8,
+            "signature": "SIMULATED developer-authored quality fixture"
+          },
+          {
+            "id": "Q-legacy-zookeeper-02",
+            "tenant_id": "demo",
+            "incident_id": "QUALITY-legacy-zookeeper",
+            "entity_id": "broker",
+            "signal": "BROKER_ERROR",
+            "state": "ABNORMAL",
+            "observed_at": "2026-11-17T00:01:00Z",
+            "source_mode": "SIMULATED",
+            "intensity": 0.8,
+            "signature": "SIMULATED developer-authored quality fixture"
+          },
+          {
+            "id": "Q-legacy-zookeeper-03",
+            "tenant_id": "demo",
+            "incident_id": "QUALITY-legacy-zookeeper",
+            "entity_id": "consumer",
+            "signal": "CONSUMER_LAG",
+            "state": "ABNORMAL",
+            "observed_at": "2026-11-17T00:02:00Z",
+            "source_mode": "SIMULATED",
+            "intensity": 0.8,
+            "signature": "SIMULATED developer-authored quality fixture"
+          },
+          {
+            "id": "Q-legacy-zookeeper-04",
+            "tenant_id": "demo",
+            "incident_id": "QUALITY-legacy-zookeeper",
+            "entity_id": "spark",
+            "signal": "SPARK_DELAY",
+            "state": "ABNORMAL",
+            "observed_at": "2026-11-17T00:02:40Z",
+            "source_mode": "SIMULATED",
+            "intensity": 0.8,
+            "signature": "SIMULATED developer-authored quality fixture"
+          },
+          {
+            "id": "Q-legacy-zookeeper-05",
+            "tenant_id": "demo",
+            "incident_id": "QUALITY-legacy-zookeeper",
+            "entity_id": "dataset",
+            "signal": "DATASET_STALE",
+            "state": "ABNORMAL",
+            "observed_at": "2026-11-17T00:03:20Z",
+            "source_mode": "SIMULATED",
+            "intensity": 0.8,
+            "signature": "SIMULATED developer-authored quality fixture"
+          }
+        ],
+        "candidate_causes": [
+          {
+            "entity_id": "zk",
+            "signal": "ZK_SESSION_EXPIRED",
+            "status": "HYPOTHESIS",
+            "confidence": "CORROBORATED_HYPOTHESIS",
+            "confidence_reasons": [
+              "Distinct reachable components: 5 (repeated symptom count does not raise confidence)",
+              "Edge validity and discovery time checked; skew tolerance 30 seconds"
+            ],
+            "supporting": [
+              {
+                "evidence_id": "Q-legacy-zookeeper-01",
+                "entity_id": "zk",
+                "observed_at": "2026-11-17T00:00:00Z",
+                "reason": "Direct originating symptom"
+              },
+              {
+                "evidence_id": "Q-legacy-zookeeper-02",
+                "entity_id": "broker",
+                "observed_at": "2026-11-17T00:01:00Z",
+                "reason": "Directionally reachable symptom follows within skew/window"
+              },
+              {
+                "evidence_id": "Q-legacy-zookeeper-03",
+                "entity_id": "consumer",
+                "observed_at": "2026-11-17T00:02:00Z",
+                "reason": "Directionally reachable symptom follows within skew/window"
+              },
+              {
+                "evidence_id": "Q-legacy-zookeeper-04",
+                "entity_id": "spark",
+                "observed_at": "2026-11-17T00:02:40Z",
+                "reason": "Directionally reachable symptom follows within skew/window"
+              },
+              {
+                "evidence_id": "Q-legacy-zookeeper-05",
+                "entity_id": "dataset",
+                "observed_at": "2026-11-17T00:03:20Z",
+                "reason": "Directionally reachable symptom follows within skew/window"
+              }
+            ],
+            "contradicting": [],
+            "impact_radius": [
+              "broker",
+              "consumer",
+              "dataset",
+              "spark"
+            ],
+            "next_read_only_checks": [
+              "Inspect scoped ZK_SESSION_EXPIRED metrics and contemporaneous healthy counterevidence",
+              "Verify source clocks and graph provenance"
+            ],
+            "prevention_opportunities": [
+              "Monitor originating capability and downstream freshness",
+              "Review redundancy/capacity based on verified observations"
+            ],
+            "risk": "Unconfirmed causal attribution; no automatic remediation"
+          },
+          {
+            "entity_id": "broker",
+            "signal": "BROKER_ERROR",
+            "status": "HYPOTHESIS",
+            "confidence": "CORROBORATED_HYPOTHESIS",
+            "confidence_reasons": [
+              "Distinct reachable components: 4 (repeated symptom count does not raise confidence)",
+              "Edge validity and discovery time checked; skew tolerance 30 seconds"
+            ],
+            "supporting": [
+              {
+                "evidence_id": "Q-legacy-zookeeper-02",
+                "entity_id": "broker",
+                "observed_at": "2026-11-17T00:01:00Z",
+                "reason": "Direct originating symptom"
+              },
+              {
+                "evidence_id": "Q-legacy-zookeeper-03",
+                "entity_id": "consumer",
+                "observed_at": "2026-11-17T00:02:00Z",
+                "reason": "Directionally reachable symptom follows within skew/window"
+              },
+              {
+                "evidence_id": "Q-legacy-zookeeper-04",
+                "entity_id": "spark",
+                "observed_at": "2026-11-17T00:02:40Z",
+                "reason": "Directionally reachable symptom follows within skew/window"
+              },
+              {
+                "evidence_id": "Q-legacy-zookeeper-05",
+                "entity_id": "dataset",
+                "observed_at": "2026-11-17T00:03:20Z",
+                "reason": "Directionally reachable symptom follows within skew/window"
+              }
+            ],
+            "contradicting": [],
+            "impact_radius": [
+              "consumer",
+              "dataset",
+              "spark"
+            ],
+            "next_read_only_checks": [
+              "Inspect scoped BROKER_ERROR metrics and contemporaneous healthy counterevidence",
+              "Verify source clocks and graph provenance"
+            ],
+            "prevention_opportunities": [
+              "Monitor originating capability and downstream freshness",
+              "Review redundancy/capacity based on verified observations"
+            ],
+            "risk": "Unconfirmed causal attribution; no automatic remediation"
+          }
+        ],
+        "unknowns": [
+          "Temporal/graph association is not proof of causation; no cause is automatically confirmed"
+        ],
+        "impact_radius": [
+          "broker",
+          "consumer",
+          "dataset",
+          "spark"
+        ],
+        "next_read_only_checks": [
+          "Gather missing scoped metrics without changing services"
+        ],
+        "prevention_opportunities": [
+          "Validate causal claims against healthy and recovery counterexamples"
+        ],
+        "risk": "Hypotheses only; independent authorization and verification required for any production change",
+        "confirmed_cause": null
+      },
+      "retrieval": {
+        "status": "HEALTHY",
+        "retrieval_mode": "LIVE",
+        "source_mode": "HISTORICAL_ADVICE",
+        "items": [
+          {
+            "chunk_id": "KB-edd0f74abfba47bf28a7be28653fbd5e336131d9ed69743a81a91352bc5055c2",
+            "tenant_id": "demo",
+            "document_id": "review-legacy-zookeeper",
+            "revision": 2,
+            "content_hash": "754f8b0cd5aa38630ec89bee266f61745aa0d9a907c798e9c8ca8ccdde480923",
+            "chunk_index": 0,
+            "text": "Legacy Kafka ZooKeeper session expiration affects broker coordination. Inspect authenticated legacy session evidence; do not attach this runbook to KRaft.",
+            "title": "review-legacy-zookeeper review fixture",
+            "technology": "Kafka",
+            "platform_version": "3.9",
+            "metadata_mode": "LEGACY_ZOOKEEPER",
+            "source": "repo:eval/knowledge_review_cases.json",
+            "owner": "implementation-review-fixture",
+            "source_time": "2026-11-17T00:00:00Z",
+            "acl_principals": [
+              "demo.senior_sre"
+            ],
+            "review_state": "APPROVED",
+            "source_type": "RUNBOOK",
+            "source_mode": "SIMULATED",
+            "rank_score": 13.852381699999999,
+            "evidence_kind": "HISTORICAL_ADVICE",
+            "reference": "knowledge:review-legacy-zookeeper@2#0"
+          }
+        ],
+        "rejected_records": 0,
+        "pending_index_revisions": 0,
+        "partial": false,
+        "corpus_revision": "32",
+        "candidate_budget_exhausted": false,
+        "policy_changed_during_retrieval": false,
+        "candidate_document_limit": 128,
+        "pending_count_is_bounded": true,
+        "ranking": "BM25 plus version/mode specificity; no vectors or embeddings"
+      }
+    },
+    {
+      "case_id": "hdfs-ha",
+      "investigation": {
+        "incident_id": "QUALITY-hdfs-ha",
+        "graph_id": "quality-hdfs-ha",
+        "graph_revision": 1,
+        "metadata_mode": "UNKNOWN",
+        "platform_version": "HDFS 3.4",
+        "source_mode": "SIMULATED",
+        "observed_symptoms": [
+          {
+            "id": "Q-hdfs-ha-00",
+            "tenant_id": "demo",
+            "incident_id": "QUALITY-hdfs-ha",
+            "entity_id": "namenode",
+            "signal": "HDFS_HA_UNAVAILABLE",
+            "state": "ABNORMAL",
+            "observed_at": "2026-11-17T00:00:00Z",
+            "source_mode": "SIMULATED",
+            "intensity": 0.8,
+            "signature": "SIMULATED developer-authored quality fixture"
+          },
+          {
+            "id": "Q-hdfs-ha-01",
+            "tenant_id": "demo",
+            "incident_id": "QUALITY-hdfs-ha",
+            "entity_id": "datanode",
+            "signal": "HDFS_MISSING_BLOCKS",
+            "state": "ABNORMAL",
+            "observed_at": "2026-11-17T00:01:00Z",
+            "source_mode": "SIMULATED",
+            "intensity": 0.8,
+            "signature": "SIMULATED developer-authored quality fixture"
+          },
+          {
+            "id": "Q-hdfs-ha-02",
+            "tenant_id": "demo",
+            "incident_id": "QUALITY-hdfs-ha",
+            "entity_id": "pipeline",
+            "signal": "SPARK_DELAY",
+            "state": "ABNORMAL",
+            "observed_at": "2026-11-17T00:02:00Z",
+            "source_mode": "SIMULATED",
+            "intensity": 0.8,
+            "signature": "SIMULATED developer-authored quality fixture"
+          },
+          {
+            "id": "Q-hdfs-ha-03",
+            "tenant_id": "demo",
+            "incident_id": "QUALITY-hdfs-ha",
+            "entity_id": "dataset",
+            "signal": "DATASET_STALE",
+            "state": "ABNORMAL",
+            "observed_at": "2026-11-17T00:03:00Z",
+            "source_mode": "SIMULATED",
+            "intensity": 0.8,
+            "signature": "SIMULATED developer-authored quality fixture"
+          }
+        ],
+        "candidate_causes": [
+          {
+            "entity_id": "namenode",
+            "signal": "HDFS_HA_UNAVAILABLE",
+            "status": "HYPOTHESIS",
+            "confidence": "CORROBORATED_HYPOTHESIS",
+            "confidence_reasons": [
+              "Distinct reachable components: 4 (repeated symptom count does not raise confidence)",
+              "Edge validity and discovery time checked; skew tolerance 30 seconds"
+            ],
+            "supporting": [
+              {
+                "evidence_id": "Q-hdfs-ha-00",
+                "entity_id": "namenode",
+                "observed_at": "2026-11-17T00:00:00Z",
+                "reason": "Direct originating symptom"
+              },
+              {
+                "evidence_id": "Q-hdfs-ha-01",
+                "entity_id": "datanode",
+                "observed_at": "2026-11-17T00:01:00Z",
+                "reason": "Directionally reachable symptom follows within skew/window"
+              },
+              {
+                "evidence_id": "Q-hdfs-ha-02",
+                "entity_id": "pipeline",
+                "observed_at": "2026-11-17T00:02:00Z",
+                "reason": "Directionally reachable symptom follows within skew/window"
+              },
+              {
+                "evidence_id": "Q-hdfs-ha-03",
+                "entity_id": "dataset",
+                "observed_at": "2026-11-17T00:03:00Z",
+                "reason": "Directionally reachable symptom follows within skew/window"
+              }
+            ],
+            "contradicting": [],
+            "impact_radius": [
+              "datanode",
+              "dataset",
+              "pipeline"
+            ],
+            "next_read_only_checks": [
+              "Inspect scoped HDFS_HA_UNAVAILABLE metrics and contemporaneous healthy counterevidence",
+              "Verify source clocks and graph provenance"
+            ],
+            "prevention_opportunities": [
+              "Monitor originating capability and downstream freshness",
+              "Review redundancy/capacity based on verified observations"
+            ],
+            "risk": "Unconfirmed causal attribution; no automatic remediation"
+          },
+          {
+            "entity_id": "datanode",
+            "signal": "HDFS_MISSING_BLOCKS",
+            "status": "HYPOTHESIS",
+            "confidence": "CORROBORATED_HYPOTHESIS",
+            "confidence_reasons": [
+              "Distinct reachable components: 3 (repeated symptom count does not raise confidence)",
+              "Edge validity and discovery time checked; skew tolerance 30 seconds"
+            ],
+            "supporting": [
+              {
+                "evidence_id": "Q-hdfs-ha-01",
+                "entity_id": "datanode",
+                "observed_at": "2026-11-17T00:01:00Z",
+                "reason": "Direct originating symptom"
+              },
+              {
+                "evidence_id": "Q-hdfs-ha-02",
+                "entity_id": "pipeline",
+                "observed_at": "2026-11-17T00:02:00Z",
+                "reason": "Directionally reachable symptom follows within skew/window"
+              },
+              {
+                "evidence_id": "Q-hdfs-ha-03",
+                "entity_id": "dataset",
+                "observed_at": "2026-11-17T00:03:00Z",
+                "reason": "Directionally reachable symptom follows within skew/window"
+              }
+            ],
+            "contradicting": [],
+            "impact_radius": [
+              "dataset",
+              "pipeline"
+            ],
+            "next_read_only_checks": [
+              "Inspect scoped HDFS_MISSING_BLOCKS metrics and contemporaneous healthy counterevidence",
+              "Verify source clocks and graph provenance"
+            ],
+            "prevention_opportunities": [
+              "Monitor originating capability and downstream freshness",
+              "Review redundancy/capacity based on verified observations"
+            ],
+            "risk": "Unconfirmed causal attribution; no automatic remediation"
+          }
+        ],
+        "unknowns": [
+          "Temporal/graph association is not proof of causation; no cause is automatically confirmed",
+          "Platform mode unverified for HDFS 3.4; incompatible coordination-chain hypotheses remain disabled"
+        ],
+        "impact_radius": [
+          "datanode",
+          "dataset",
+          "pipeline"
+        ],
+        "next_read_only_checks": [
+          "Gather missing scoped metrics without changing services"
+        ],
+        "prevention_opportunities": [
+          "Validate causal claims against healthy and recovery counterexamples"
+        ],
+        "risk": "Hypotheses only; independent authorization and verification required for any production change",
+        "confirmed_cause": null
+      },
+      "retrieval": {
+        "status": "HEALTHY",
+        "retrieval_mode": "LIVE",
+        "source_mode": "HISTORICAL_ADVICE",
+        "items": [
+          {
+            "chunk_id": "KB-a20730b4bd2cffb0b7adf30932f0fe3e5476e4a7e60dc4248504d7def396b5d1",
+            "tenant_id": "demo",
+            "document_id": "review-hdfs-ha",
+            "revision": 2,
+            "content_hash": "06fad57afbbb7740c240879b25997f5ab416ff320e37606bfbba4db5e2fb0c9e",
+            "chunk_index": 0,
+            "text": "When HDFS has no active NameNode during an HA failover, inspect active standby state, journal quorum and DataNode liveness. Never trigger failover from diagnosis.",
+            "title": "review-hdfs-ha review fixture",
+            "technology": "HDFS",
+            "platform_version": "3.4",
+            "metadata_mode": "ANY",
+            "source": "repo:eval/knowledge_review_cases.json",
+            "owner": "implementation-review-fixture",
+            "source_time": "2026-11-17T00:00:00Z",
+            "acl_principals": [
+              "demo.senior_sre"
+            ],
+            "review_state": "APPROVED",
+            "source_type": "RUNBOOK",
+            "source_mode": "SIMULATED",
+            "rank_score": 9.852381699999999,
+            "evidence_kind": "HISTORICAL_ADVICE",
+            "reference": "knowledge:review-hdfs-ha@2#0"
+          }
+        ],
+        "rejected_records": 0,
+        "pending_index_revisions": 0,
+        "partial": false,
+        "corpus_revision": "32",
+        "candidate_budget_exhausted": false,
+        "policy_changed_during_retrieval": false,
+        "candidate_document_limit": 128,
+        "pending_count_is_bounded": true,
+        "ranking": "BM25 plus version/mode specificity; no vectors or embeddings"
+      }
+    },
+    {
+      "case_id": "kudu-tablet",
+      "investigation": {
+        "incident_id": "QUALITY-kudu-tablet",
+        "graph_id": "quality-kudu-tablet",
+        "graph_revision": 1,
+        "metadata_mode": "UNKNOWN",
+        "platform_version": "Kudu 1.18",
+        "source_mode": "SIMULATED",
+        "observed_symptoms": [
+          {
+            "id": "Q-kudu-tablet-00",
+            "tenant_id": "demo",
+            "incident_id": "QUALITY-kudu-tablet",
+            "entity_id": "tserver",
+            "signal": "KUDU_TABLET_UNAVAILABLE",
+            "state": "ABNORMAL",
+            "observed_at": "2026-11-17T00:00:00Z",
+            "source_mode": "SIMULATED",
+            "intensity": 0.8,
+            "signature": "SIMULATED developer-authored quality fixture"
+          },
+          {
+            "id": "Q-kudu-tablet-01",
+            "tenant_id": "demo",
+            "incident_id": "QUALITY-kudu-tablet",
+            "entity_id": "pipeline",
+            "signal": "SPARK_DELAY",
+            "state": "ABNORMAL",
+            "observed_at": "2026-11-17T00:01:00Z",
+            "source_mode": "SIMULATED",
+            "intensity": 0.8,
+            "signature": "SIMULATED developer-authored quality fixture"
+          },
+          {
+            "id": "Q-kudu-tablet-02",
+            "tenant_id": "demo",
+            "incident_id": "QUALITY-kudu-tablet",
+            "entity_id": "dataset",
+            "signal": "DATASET_STALE",
+            "state": "ABNORMAL",
+            "observed_at": "2026-11-17T00:02:00Z",
+            "source_mode": "SIMULATED",
+            "intensity": 0.8,
+            "signature": "SIMULATED developer-authored quality fixture"
+          },
+          {
+            "id": "Q-kudu-tablet-03",
+            "tenant_id": "demo",
+            "incident_id": "QUALITY-kudu-tablet",
+            "entity_id": "network",
+            "signal": "NETWORK_UNSTABLE",
+            "state": "ABNORMAL",
+            "observed_at": "2026-11-17T00:08:20Z",
+            "source_mode": "SIMULATED",
+            "intensity": 0.8,
+            "signature": "SIMULATED developer-authored quality fixture"
+          }
+        ],
+        "candidate_causes": [
+          {
+            "entity_id": "tserver",
+            "signal": "KUDU_TABLET_UNAVAILABLE",
+            "status": "HYPOTHESIS",
+            "confidence": "CORROBORATED_HYPOTHESIS",
+            "confidence_reasons": [
+              "Distinct reachable components: 3 (repeated symptom count does not raise confidence)",
+              "Edge validity and discovery time checked; skew tolerance 30 seconds"
+            ],
+            "supporting": [
+              {
+                "evidence_id": "Q-kudu-tablet-00",
+                "entity_id": "tserver",
+                "observed_at": "2026-11-17T00:00:00Z",
+                "reason": "Direct originating symptom"
+              },
+              {
+                "evidence_id": "Q-kudu-tablet-01",
+                "entity_id": "pipeline",
+                "observed_at": "2026-11-17T00:01:00Z",
+                "reason": "Directionally reachable symptom follows within skew/window"
+              },
+              {
+                "evidence_id": "Q-kudu-tablet-02",
+                "entity_id": "dataset",
+                "observed_at": "2026-11-17T00:02:00Z",
+                "reason": "Directionally reachable symptom follows within skew/window"
+              }
+            ],
+            "contradicting": [],
+            "impact_radius": [
+              "dataset",
+              "pipeline"
+            ],
+            "next_read_only_checks": [
+              "Inspect scoped KUDU_TABLET_UNAVAILABLE metrics and contemporaneous healthy counterevidence",
+              "Verify source clocks and graph provenance"
+            ],
+            "prevention_opportunities": [
+              "Monitor originating capability and downstream freshness",
+              "Review redundancy/capacity based on verified observations"
+            ],
+            "risk": "Unconfirmed causal attribution; no automatic remediation"
+          },
+          {
+            "entity_id": "network",
+            "signal": "NETWORK_UNSTABLE",
+            "status": "HYPOTHESIS",
+            "confidence": "LIMITED_HYPOTHESIS",
+            "confidence_reasons": [
+              "Distinct reachable components: 1 (repeated symptom count does not raise confidence)",
+              "Edge validity and discovery time checked; skew tolerance 30 seconds"
+            ],
+            "supporting": [
+              {
+                "evidence_id": "Q-kudu-tablet-03",
+                "entity_id": "network",
+                "observed_at": "2026-11-17T00:08:20Z",
+                "reason": "Direct originating symptom"
+              }
+            ],
+            "contradicting": [
+              {
+                "evidence_id": "Q-kudu-tablet-00",
+                "entity_id": "tserver",
+                "observed_at": "2026-11-17T00:00:00Z",
+                "reason": "Downstream failure predates candidate beyond clock-skew tolerance"
+              },
+              {
+                "evidence_id": "Q-kudu-tablet-01",
+                "entity_id": "pipeline",
+                "observed_at": "2026-11-17T00:01:00Z",
+                "reason": "Downstream failure predates candidate beyond clock-skew tolerance"
+              },
+              {
+                "evidence_id": "Q-kudu-tablet-02",
+                "entity_id": "dataset",
+                "observed_at": "2026-11-17T00:02:00Z",
+                "reason": "Downstream failure predates candidate beyond clock-skew tolerance"
+              }
+            ],
+            "impact_radius": [
+              "dataset",
+              "pipeline",
+              "tserver"
+            ],
+            "next_read_only_checks": [
+              "Inspect scoped NETWORK_UNSTABLE metrics and contemporaneous healthy counterevidence",
+              "Verify source clocks and graph provenance"
+            ],
+            "prevention_opportunities": [
+              "Monitor originating capability and downstream freshness",
+              "Review redundancy/capacity based on verified observations"
+            ],
+            "risk": "Conflicting evidence; do not act on this attribution"
+          }
+        ],
+        "unknowns": [
+          "Temporal/graph association is not proof of causation; no cause is automatically confirmed",
+          "Platform mode unverified for Kudu 1.18; incompatible coordination-chain hypotheses remain disabled"
+        ],
+        "impact_radius": [
+          "dataset",
+          "pipeline"
+        ],
+        "next_read_only_checks": [
+          "Gather missing scoped metrics without changing services"
+        ],
+        "prevention_opportunities": [
+          "Validate causal claims against healthy and recovery counterexamples"
+        ],
+        "risk": "Hypotheses only; independent authorization and verification required for any production change",
+        "confirmed_cause": null
+      },
+      "retrieval": {
+        "status": "HEALTHY",
+        "retrieval_mode": "LIVE",
+        "source_mode": "HISTORICAL_ADVICE",
+        "items": [
+          {
+            "chunk_id": "KB-7b52a27f3493a83c32b5ed437b93a770374abbe1a06b28e754b97edfff351861",
+            "tenant_id": "demo",
+            "document_id": "review-kudu-tablet",
+            "revision": 2,
+            "content_hash": "0f939e49167919fe5962a0d2a2faaf926f75a719c2f54f702ce0b7ebbdb0bf22",
+            "chunk_index": 0,
+            "text": "Kudu tablet unavailable requires read-only tablet leader, replica and tserver evidence. Master connectivity alone does not prove tablet quorum.",
+            "title": "review-kudu-tablet review fixture",
+            "technology": "Kudu",
+            "platform_version": "1.18",
+            "metadata_mode": "ANY",
+            "source": "repo:eval/knowledge_review_cases.json",
+            "owner": "implementation-review-fixture",
+            "source_time": "2026-11-17T00:00:00Z",
+            "acl_principals": [
+              "demo.senior_sre"
+            ],
+            "review_state": "APPROVED",
+            "source_type": "RUNBOOK",
+            "source_mode": "SIMULATED",
+            "rank_score": 9.852381699999999,
+            "evidence_kind": "HISTORICAL_ADVICE",
+            "reference": "knowledge:review-kudu-tablet@2#0"
+          }
+        ],
+        "rejected_records": 0,
+        "pending_index_revisions": 0,
+        "partial": false,
+        "corpus_revision": "32",
+        "candidate_budget_exhausted": false,
+        "policy_changed_during_retrieval": false,
+        "candidate_document_limit": 128,
+        "pending_count_is_bounded": true,
+        "ranking": "BM25 plus version/mode specificity; no vectors or embeddings"
+      }
+    },
+    {
+      "case_id": "nifi-backpressure",
+      "investigation": {
+        "incident_id": "QUALITY-nifi-backpressure",
+        "graph_id": "quality-nifi-backpressure",
+        "graph_revision": 1,
+        "metadata_mode": "UNKNOWN",
+        "platform_version": "NiFi 2.0",
+        "source_mode": "SIMULATED",
+        "observed_symptoms": [
+          {
+            "id": "Q-nifi-backpressure-00",
+            "tenant_id": "demo",
+            "incident_id": "QUALITY-nifi-backpressure",
+            "entity_id": "storage",
+            "signal": "HDFS_MISSING_BLOCKS",
+            "state": "ABNORMAL",
+            "observed_at": "2026-11-17T00:00:00Z",
+            "source_mode": "SIMULATED",
+            "intensity": 0.8,
+            "signature": "SIMULATED developer-authored quality fixture"
+          },
+          {
+            "id": "Q-nifi-backpressure-01",
+            "tenant_id": "demo",
+            "incident_id": "QUALITY-nifi-backpressure",
+            "entity_id": "nifi",
+            "signal": "NIFI_BACKPRESSURE",
+            "state": "ABNORMAL",
+            "observed_at": "2026-11-17T00:01:00Z",
+            "source_mode": "SIMULATED",
+            "intensity": 0.8,
+            "signature": "SIMULATED developer-authored quality fixture"
+          },
+          {
+            "id": "Q-nifi-backpressure-02",
+            "tenant_id": "demo",
+            "incident_id": "QUALITY-nifi-backpressure",
+            "entity_id": "pipeline",
+            "signal": "SPARK_DELAY",
+            "state": "ABNORMAL",
+            "observed_at": "2026-11-17T00:02:00Z",
+            "source_mode": "SIMULATED",
+            "intensity": 0.8,
+            "signature": "SIMULATED developer-authored quality fixture"
+          },
+          {
+            "id": "Q-nifi-backpressure-03",
+            "tenant_id": "demo",
+            "incident_id": "QUALITY-nifi-backpressure",
+            "entity_id": "dataset",
+            "signal": "DATASET_STALE",
+            "state": "ABNORMAL",
+            "observed_at": "2026-11-17T00:03:00Z",
+            "source_mode": "SIMULATED",
+            "intensity": 0.8,
+            "signature": "SIMULATED developer-authored quality fixture"
+          }
+        ],
+        "candidate_causes": [
+          {
+            "entity_id": "storage",
+            "signal": "HDFS_MISSING_BLOCKS",
+            "status": "HYPOTHESIS",
+            "confidence": "CORROBORATED_HYPOTHESIS",
+            "confidence_reasons": [
+              "Distinct reachable components: 4 (repeated symptom count does not raise confidence)",
+              "Edge validity and discovery time checked; skew tolerance 30 seconds"
+            ],
+            "supporting": [
+              {
+                "evidence_id": "Q-nifi-backpressure-00",
+                "entity_id": "storage",
+                "observed_at": "2026-11-17T00:00:00Z",
+                "reason": "Direct originating symptom"
+              },
+              {
+                "evidence_id": "Q-nifi-backpressure-01",
+                "entity_id": "nifi",
+                "observed_at": "2026-11-17T00:01:00Z",
+                "reason": "Directionally reachable symptom follows within skew/window"
+              },
+              {
+                "evidence_id": "Q-nifi-backpressure-02",
+                "entity_id": "pipeline",
+                "observed_at": "2026-11-17T00:02:00Z",
+                "reason": "Directionally reachable symptom follows within skew/window"
+              },
+              {
+                "evidence_id": "Q-nifi-backpressure-03",
+                "entity_id": "dataset",
+                "observed_at": "2026-11-17T00:03:00Z",
+                "reason": "Directionally reachable symptom follows within skew/window"
+              }
+            ],
+            "contradicting": [],
+            "impact_radius": [
+              "dataset",
+              "nifi",
+              "pipeline"
+            ],
+            "next_read_only_checks": [
+              "Inspect scoped HDFS_MISSING_BLOCKS metrics and contemporaneous healthy counterevidence",
+              "Verify source clocks and graph provenance"
+            ],
+            "prevention_opportunities": [
+              "Monitor originating capability and downstream freshness",
+              "Review redundancy/capacity based on verified observations"
+            ],
+            "risk": "Unconfirmed causal attribution; no automatic remediation"
+          },
+          {
+            "entity_id": "nifi",
+            "signal": "NIFI_BACKPRESSURE",
+            "status": "HYPOTHESIS",
+            "confidence": "CORROBORATED_HYPOTHESIS",
+            "confidence_reasons": [
+              "Distinct reachable components: 3 (repeated symptom count does not raise confidence)",
+              "Edge validity and discovery time checked; skew tolerance 30 seconds"
+            ],
+            "supporting": [
+              {
+                "evidence_id": "Q-nifi-backpressure-01",
+                "entity_id": "nifi",
+                "observed_at": "2026-11-17T00:01:00Z",
+                "reason": "Direct originating symptom"
+              },
+              {
+                "evidence_id": "Q-nifi-backpressure-02",
+                "entity_id": "pipeline",
+                "observed_at": "2026-11-17T00:02:00Z",
+                "reason": "Directionally reachable symptom follows within skew/window"
+              },
+              {
+                "evidence_id": "Q-nifi-backpressure-03",
+                "entity_id": "dataset",
+                "observed_at": "2026-11-17T00:03:00Z",
+                "reason": "Directionally reachable symptom follows within skew/window"
+              }
+            ],
+            "contradicting": [],
+            "impact_radius": [
+              "dataset",
+              "pipeline"
+            ],
+            "next_read_only_checks": [
+              "Inspect scoped NIFI_BACKPRESSURE metrics and contemporaneous healthy counterevidence",
+              "Verify source clocks and graph provenance"
+            ],
+            "prevention_opportunities": [
+              "Monitor originating capability and downstream freshness",
+              "Review redundancy/capacity based on verified observations"
+            ],
+            "risk": "Unconfirmed causal attribution; no automatic remediation"
+          }
+        ],
+        "unknowns": [
+          "Temporal/graph association is not proof of causation; no cause is automatically confirmed",
+          "Platform mode unverified for NiFi 2.0; incompatible coordination-chain hypotheses remain disabled"
+        ],
+        "impact_radius": [
+          "dataset",
+          "nifi",
+          "pipeline"
+        ],
+        "next_read_only_checks": [
+          "Gather missing scoped metrics without changing services"
+        ],
+        "prevention_opportunities": [
+          "Validate causal claims against healthy and recovery counterexamples"
+        ],
+        "risk": "Hypotheses only; independent authorization and verification required for any production change",
+        "confirmed_cause": null
+      },
+      "retrieval": {
+        "status": "HEALTHY",
+        "retrieval_mode": "LIVE",
+        "source_mode": "HISTORICAL_ADVICE",
+        "items": [
+          {
+            "chunk_id": "KB-39c3c2b70d675a1a62618dbd64240abfa439454a1bdbf02f55428b58bc6533cf",
+            "tenant_id": "demo",
+            "document_id": "review-nifi-backpressure",
+            "revision": 2,
+            "content_hash": "93557dc96133b3e285fcbfd92f824eb44429b2a58a584209c0865989122bd6b9",
+            "chunk_index": 0,
+            "text": "NiFi backpressure and queue age indicate flow backlog. Inspect connection capacity and bulletins without dropping queues or restarting processors.",
+            "title": "review-nifi-backpressure review fixture",
+            "technology": "NiFi",
+            "platform_version": "2.0",
+            "metadata_mode": "ANY",
+            "source": "repo:eval/knowledge_review_cases.json",
+            "owner": "implementation-review-fixture",
+            "source_time": "2026-11-17T00:00:00Z",
+            "acl_principals": [
+              "demo.senior_sre"
+            ],
+            "review_state": "APPROVED",
+            "source_type": "RUNBOOK",
+            "source_mode": "SIMULATED",
+            "rank_score": 9.852381699999999,
+            "evidence_kind": "HISTORICAL_ADVICE",
+            "reference": "knowledge:review-nifi-backpressure@2#0"
+          }
+        ],
+        "rejected_records": 0,
+        "pending_index_revisions": 0,
+        "partial": false,
+        "corpus_revision": "32",
+        "candidate_budget_exhausted": false,
+        "policy_changed_during_retrieval": false,
+        "candidate_document_limit": 128,
+        "pending_count_is_bounded": true,
+        "ranking": "BM25 plus version/mode specificity; no vectors or embeddings"
+      }
+    },
+    {
+      "case_id": "spark-oom",
+      "investigation": {
+        "incident_id": "QUALITY-spark-oom",
+        "graph_id": "quality-spark-oom",
+        "graph_revision": 1,
+        "metadata_mode": "UNKNOWN",
+        "platform_version": "Spark 4.0",
+        "source_mode": "SIMULATED",
+        "observed_symptoms": [
+          {
+            "id": "Q-spark-oom-00",
+            "tenant_id": "demo",
+            "incident_id": "QUALITY-spark-oom",
+            "entity_id": "executor",
+            "signal": "SPARK_EXECUTOR_OOM",
+            "state": "ABNORMAL",
+            "observed_at": "2026-11-17T00:00:00Z",
+            "source_mode": "SIMULATED",
+            "intensity": 0.8,
+            "signature": "SIMULATED developer-authored quality fixture"
+          },
+          {
+            "id": "Q-spark-oom-01",
+            "tenant_id": "demo",
+            "incident_id": "QUALITY-spark-oom",
+            "entity_id": "pipeline",
+            "signal": "SPARK_DELAY",
+            "state": "ABNORMAL",
+            "observed_at": "2026-11-17T00:01:00Z",
+            "source_mode": "SIMULATED",
+            "intensity": 0.8,
+            "signature": "SIMULATED developer-authored quality fixture"
+          },
+          {
+            "id": "Q-spark-oom-02",
+            "tenant_id": "demo",
+            "incident_id": "QUALITY-spark-oom",
+            "entity_id": "dataset",
+            "signal": "DATASET_STALE",
+            "state": "ABNORMAL",
+            "observed_at": "2026-11-17T00:02:00Z",
+            "source_mode": "SIMULATED",
+            "intensity": 0.8,
+            "signature": "SIMULATED developer-authored quality fixture"
+          },
+          {
+            "id": "Q-spark-oom-03",
+            "tenant_id": "demo",
+            "incident_id": "QUALITY-spark-oom",
+            "entity_id": "network",
+            "signal": "NETWORK_UNSTABLE",
+            "state": "ABNORMAL",
+            "observed_at": "2026-11-17T00:08:20Z",
+            "source_mode": "SIMULATED",
+            "intensity": 0.8,
+            "signature": "SIMULATED developer-authored quality fixture"
+          }
+        ],
+        "candidate_causes": [
+          {
+            "entity_id": "executor",
+            "signal": "SPARK_EXECUTOR_OOM",
+            "status": "HYPOTHESIS",
+            "confidence": "CORROBORATED_HYPOTHESIS",
+            "confidence_reasons": [
+              "Distinct reachable components: 3 (repeated symptom count does not raise confidence)",
+              "Edge validity and discovery time checked; skew tolerance 30 seconds"
+            ],
+            "supporting": [
+              {
+                "evidence_id": "Q-spark-oom-00",
+                "entity_id": "executor",
+                "observed_at": "2026-11-17T00:00:00Z",
+                "reason": "Direct originating symptom"
+              },
+              {
+                "evidence_id": "Q-spark-oom-01",
+                "entity_id": "pipeline",
+                "observed_at": "2026-11-17T00:01:00Z",
+                "reason": "Directionally reachable symptom follows within skew/window"
+              },
+              {
+                "evidence_id": "Q-spark-oom-02",
+                "entity_id": "dataset",
+                "observed_at": "2026-11-17T00:02:00Z",
+                "reason": "Directionally reachable symptom follows within skew/window"
+              }
+            ],
+            "contradicting": [],
+            "impact_radius": [
+              "dataset",
+              "pipeline"
+            ],
+            "next_read_only_checks": [
+              "Inspect scoped SPARK_EXECUTOR_OOM metrics and contemporaneous healthy counterevidence",
+              "Verify source clocks and graph provenance"
+            ],
+            "prevention_opportunities": [
+              "Monitor originating capability and downstream freshness",
+              "Review redundancy/capacity based on verified observations"
+            ],
+            "risk": "Unconfirmed causal attribution; no automatic remediation"
+          },
+          {
+            "entity_id": "network",
+            "signal": "NETWORK_UNSTABLE",
+            "status": "HYPOTHESIS",
+            "confidence": "LIMITED_HYPOTHESIS",
+            "confidence_reasons": [
+              "Distinct reachable components: 1 (repeated symptom count does not raise confidence)",
+              "Edge validity and discovery time checked; skew tolerance 30 seconds"
+            ],
+            "supporting": [
+              {
+                "evidence_id": "Q-spark-oom-03",
+                "entity_id": "network",
+                "observed_at": "2026-11-17T00:08:20Z",
+                "reason": "Direct originating symptom"
+              }
+            ],
+            "contradicting": [
+              {
+                "evidence_id": "Q-spark-oom-00",
+                "entity_id": "executor",
+                "observed_at": "2026-11-17T00:00:00Z",
+                "reason": "Downstream failure predates candidate beyond clock-skew tolerance"
+              },
+              {
+                "evidence_id": "Q-spark-oom-01",
+                "entity_id": "pipeline",
+                "observed_at": "2026-11-17T00:01:00Z",
+                "reason": "Downstream failure predates candidate beyond clock-skew tolerance"
+              },
+              {
+                "evidence_id": "Q-spark-oom-02",
+                "entity_id": "dataset",
+                "observed_at": "2026-11-17T00:02:00Z",
+                "reason": "Downstream failure predates candidate beyond clock-skew tolerance"
+              }
+            ],
+            "impact_radius": [
+              "dataset",
+              "executor",
+              "pipeline"
+            ],
+            "next_read_only_checks": [
+              "Inspect scoped NETWORK_UNSTABLE metrics and contemporaneous healthy counterevidence",
+              "Verify source clocks and graph provenance"
+            ],
+            "prevention_opportunities": [
+              "Monitor originating capability and downstream freshness",
+              "Review redundancy/capacity based on verified observations"
+            ],
+            "risk": "Conflicting evidence; do not act on this attribution"
+          }
+        ],
+        "unknowns": [
+          "Temporal/graph association is not proof of causation; no cause is automatically confirmed",
+          "Platform mode unverified for Spark 4.0; incompatible coordination-chain hypotheses remain disabled"
+        ],
+        "impact_radius": [
+          "dataset",
+          "pipeline"
+        ],
+        "next_read_only_checks": [
+          "Gather missing scoped metrics without changing services"
+        ],
+        "prevention_opportunities": [
+          "Validate causal claims against healthy and recovery counterexamples"
+        ],
+        "risk": "Hypotheses only; independent authorization and verification required for any production change",
+        "confirmed_cause": null
+      },
+      "retrieval": {
+        "status": "HEALTHY",
+        "retrieval_mode": "LIVE",
+        "source_mode": "HISTORICAL_ADVICE",
+        "items": [
+          {
+            "chunk_id": "KB-ac457d6b6803c531f6a866168730679469807f86cf7b126d99dd599ed9b77307",
+            "tenant_id": "demo",
+            "document_id": "review-spark-oom",
+            "revision": 2,
+            "content_hash": "d198902b0732607222a69c023c134603d2f3026c4781c4061cdad1cf9296aa2e",
+            "chunk_index": 0,
+            "text": "Spark executor OutOfMemory and lost executors can delay stages and datasets. Inspect executor memory, GC and failed stages before recommending resource changes.",
+            "title": "review-spark-oom review fixture",
+            "technology": "Spark",
+            "platform_version": "4.0",
+            "metadata_mode": "ANY",
+            "source": "repo:eval/knowledge_review_cases.json",
+            "owner": "implementation-review-fixture",
+            "source_time": "2026-11-17T00:00:00Z",
+            "acl_principals": [
+              "demo.senior_sre"
+            ],
+            "review_state": "APPROVED",
+            "source_type": "RUNBOOK",
+            "source_mode": "SIMULATED",
+            "rank_score": 7.8714914,
+            "evidence_kind": "HISTORICAL_ADVICE",
+            "reference": "knowledge:review-spark-oom@2#0"
+          }
+        ],
+        "rejected_records": 0,
+        "pending_index_revisions": 0,
+        "partial": false,
+        "corpus_revision": "32",
+        "candidate_budget_exhausted": false,
+        "policy_changed_during_retrieval": false,
+        "candidate_document_limit": 128,
+        "pending_count_is_bounded": true,
+        "ranking": "BM25 plus version/mode specificity; no vectors or embeddings"
+      }
+    },
+    {
+      "case_id": "hive-metadata",
+      "investigation": {
+        "incident_id": "QUALITY-hive-metadata",
+        "graph_id": "quality-hive-metadata",
+        "graph_revision": 1,
+        "metadata_mode": "UNKNOWN",
+        "platform_version": "Hive 4.0",
+        "source_mode": "SIMULATED",
+        "observed_symptoms": [
+          {
+            "id": "Q-hive-metadata-00",
+            "tenant_id": "demo",
+            "incident_id": "QUALITY-hive-metadata",
+            "entity_id": "hms",
+            "signal": "HIVE_METADATA_FAILURE",
+            "state": "ABNORMAL",
+            "observed_at": "2026-11-17T00:00:00Z",
+            "source_mode": "SIMULATED",
+            "intensity": 0.8,
+            "signature": "SIMULATED developer-authored quality fixture"
+          },
+          {
+            "id": "Q-hive-metadata-01",
+            "tenant_id": "demo",
+            "incident_id": "QUALITY-hive-metadata",
+            "entity_id": "hs2",
+            "signal": "UNKNOWN",
+            "state": "ABNORMAL",
+            "observed_at": "2026-11-17T00:01:00Z",
+            "source_mode": "SIMULATED",
+            "intensity": 0.8,
+            "signature": "SIMULATED developer-authored quality fixture"
+          },
+          {
+            "id": "Q-hive-metadata-02",
+            "tenant_id": "demo",
+            "incident_id": "QUALITY-hive-metadata",
+            "entity_id": "pipeline",
+            "signal": "SPARK_DELAY",
+            "state": "ABNORMAL",
+            "observed_at": "2026-11-17T00:02:00Z",
+            "source_mode": "SIMULATED",
+            "intensity": 0.8,
+            "signature": "SIMULATED developer-authored quality fixture"
+          },
+          {
+            "id": "Q-hive-metadata-03",
+            "tenant_id": "demo",
+            "incident_id": "QUALITY-hive-metadata",
+            "entity_id": "dataset",
+            "signal": "DATASET_STALE",
+            "state": "ABNORMAL",
+            "observed_at": "2026-11-17T00:03:00Z",
+            "source_mode": "SIMULATED",
+            "intensity": 0.8,
+            "signature": "SIMULATED developer-authored quality fixture"
+          },
+          {
+            "id": "Q-hive-metadata-04",
+            "tenant_id": "demo",
+            "incident_id": "QUALITY-hive-metadata",
+            "entity_id": "database",
+            "signal": "DISK_EXHAUSTED",
+            "state": "ABNORMAL",
+            "observed_at": "2026-11-17T00:08:20Z",
+            "source_mode": "SIMULATED",
+            "intensity": 0.8,
+            "signature": "SIMULATED developer-authored quality fixture"
+          }
+        ],
+        "candidate_causes": [
+          {
+            "entity_id": "hms",
+            "signal": "HIVE_METADATA_FAILURE",
+            "status": "HYPOTHESIS",
+            "confidence": "CORROBORATED_HYPOTHESIS",
+            "confidence_reasons": [
+              "Distinct reachable components: 4 (repeated symptom count does not raise confidence)",
+              "Edge validity and discovery time checked; skew tolerance 30 seconds"
+            ],
+            "supporting": [
+              {
+                "evidence_id": "Q-hive-metadata-00",
+                "entity_id": "hms",
+                "observed_at": "2026-11-17T00:00:00Z",
+                "reason": "Direct originating symptom"
+              },
+              {
+                "evidence_id": "Q-hive-metadata-01",
+                "entity_id": "hs2",
+                "observed_at": "2026-11-17T00:01:00Z",
+                "reason": "Directionally reachable symptom follows within skew/window"
+              },
+              {
+                "evidence_id": "Q-hive-metadata-02",
+                "entity_id": "pipeline",
+                "observed_at": "2026-11-17T00:02:00Z",
+                "reason": "Directionally reachable symptom follows within skew/window"
+              },
+              {
+                "evidence_id": "Q-hive-metadata-03",
+                "entity_id": "dataset",
+                "observed_at": "2026-11-17T00:03:00Z",
+                "reason": "Directionally reachable symptom follows within skew/window"
+              }
+            ],
+            "contradicting": [],
+            "impact_radius": [
+              "dataset",
+              "hs2",
+              "pipeline"
+            ],
+            "next_read_only_checks": [
+              "Inspect scoped HIVE_METADATA_FAILURE metrics and contemporaneous healthy counterevidence",
+              "Verify source clocks and graph provenance"
+            ],
+            "prevention_opportunities": [
+              "Monitor originating capability and downstream freshness",
+              "Review redundancy/capacity based on verified observations"
+            ],
+            "risk": "Unconfirmed causal attribution; no automatic remediation"
+          },
+          {
+            "entity_id": "database",
+            "signal": "DISK_EXHAUSTED",
+            "status": "HYPOTHESIS",
+            "confidence": "LIMITED_HYPOTHESIS",
+            "confidence_reasons": [
+              "Distinct reachable components: 1 (repeated symptom count does not raise confidence)",
+              "Edge validity and discovery time checked; skew tolerance 30 seconds"
+            ],
+            "supporting": [
+              {
+                "evidence_id": "Q-hive-metadata-04",
+                "entity_id": "database",
+                "observed_at": "2026-11-17T00:08:20Z",
+                "reason": "Direct originating symptom"
+              }
+            ],
+            "contradicting": [
+              {
+                "evidence_id": "Q-hive-metadata-00",
+                "entity_id": "hms",
+                "observed_at": "2026-11-17T00:00:00Z",
+                "reason": "Downstream failure predates candidate beyond clock-skew tolerance"
+              },
+              {
+                "evidence_id": "Q-hive-metadata-01",
+                "entity_id": "hs2",
+                "observed_at": "2026-11-17T00:01:00Z",
+                "reason": "Downstream failure predates candidate beyond clock-skew tolerance"
+              },
+              {
+                "evidence_id": "Q-hive-metadata-02",
+                "entity_id": "pipeline",
+                "observed_at": "2026-11-17T00:02:00Z",
+                "reason": "Downstream failure predates candidate beyond clock-skew tolerance"
+              },
+              {
+                "evidence_id": "Q-hive-metadata-03",
+                "entity_id": "dataset",
+                "observed_at": "2026-11-17T00:03:00Z",
+                "reason": "Downstream failure predates candidate beyond clock-skew tolerance"
+              }
+            ],
+            "impact_radius": [
+              "dataset",
+              "hms",
+              "hs2",
+              "pipeline"
+            ],
+            "next_read_only_checks": [
+              "Inspect scoped DISK_EXHAUSTED metrics and contemporaneous healthy counterevidence",
+              "Verify source clocks and graph provenance"
+            ],
+            "prevention_opportunities": [
+              "Monitor originating capability and downstream freshness",
+              "Review redundancy/capacity based on verified observations"
+            ],
+            "risk": "Conflicting evidence; do not act on this attribution"
+          }
+        ],
+        "unknowns": [
+          "Temporal/graph association is not proof of causation; no cause is automatically confirmed",
+          "Platform mode unverified for Hive 4.0; incompatible coordination-chain hypotheses remain disabled"
+        ],
+        "impact_radius": [
+          "dataset",
+          "hs2",
+          "pipeline"
+        ],
+        "next_read_only_checks": [
+          "Gather missing scoped metrics without changing services"
+        ],
+        "prevention_opportunities": [
+          "Validate causal claims against healthy and recovery counterexamples"
+        ],
+        "risk": "Hypotheses only; independent authorization and verification required for any production change",
+        "confirmed_cause": null
+      },
+      "retrieval": {
+        "status": "HEALTHY",
+        "retrieval_mode": "LIVE",
+        "source_mode": "HISTORICAL_ADVICE",
+        "items": [
+          {
+            "chunk_id": "KB-be3f903361ae6e40f69f122cc09af35ed7f55c1fabe1497c21921a16320f0d5d",
+            "tenant_id": "demo",
+            "document_id": "review-hive-metadata",
+            "revision": 2,
+            "content_hash": "007572137c1afceedcbe6fceee11a54f770a94a0fca28fee7bc6fd4d1b86c3a1",
+            "chunk_index": 0,
+            "text": "Hive metastore unavailable is distinct from HiveServer2 SELECT responsiveness. Inspect SASL metastore namespace reads and backing database separately.",
+            "title": "review-hive-metadata review fixture",
+            "technology": "Hive",
+            "platform_version": "4.0",
+            "metadata_mode": "ANY",
+            "source": "repo:eval/knowledge_review_cases.json",
+            "owner": "implementation-review-fixture",
+            "source_time": "2026-11-17T00:00:00Z",
+            "acl_principals": [
+              "demo.senior_sre"
+            ],
+            "review_state": "APPROVED",
+            "source_type": "RUNBOOK",
+            "source_mode": "SIMULATED",
+            "rank_score": 9.852381699999999,
+            "evidence_kind": "HISTORICAL_ADVICE",
+            "reference": "knowledge:review-hive-metadata@2#0"
+          }
+        ],
+        "rejected_records": 0,
+        "pending_index_revisions": 0,
+        "partial": false,
+        "corpus_revision": "32",
+        "candidate_budget_exhausted": false,
+        "policy_changed_during_retrieval": false,
+        "candidate_document_limit": 128,
+        "pending_count_is_bounded": true,
+        "ranking": "BM25 plus version/mode specificity; no vectors or embeddings"
+      }
+    },
+    {
+      "case_id": "healthy-false-positive",
+      "investigation": {
+        "incident_id": "QUALITY-healthy-false-positive",
+        "graph_id": "quality-healthy-false-positive",
+        "graph_revision": 1,
+        "metadata_mode": "KRAFT",
+        "platform_version": "Kafka 4.3",
+        "source_mode": "SIMULATED",
+        "observed_symptoms": [
+          {
+            "id": "Q-healthy-false-positive-00",
+            "tenant_id": "demo",
+            "incident_id": "QUALITY-healthy-false-positive",
+            "entity_id": "network",
+            "signal": "NETWORK_UNSTABLE",
+            "state": "HEALTHY",
+            "observed_at": "2026-11-17T00:00:00Z",
+            "source_mode": "SIMULATED",
+            "intensity": 0.0,
+            "signature": "SIMULATED developer-authored quality fixture"
+          },
+          {
+            "id": "Q-healthy-false-positive-01",
+            "tenant_id": "demo",
+            "incident_id": "QUALITY-healthy-false-positive",
+            "entity_id": "quorum",
+            "signal": "QUORUM_UNAVAILABLE",
+            "state": "HEALTHY",
+            "observed_at": "2026-11-17T00:00:40Z",
+            "source_mode": "SIMULATED",
+            "intensity": 0.0,
+            "signature": "SIMULATED developer-authored quality fixture"
+          },
+          {
+            "id": "Q-healthy-false-positive-02",
+            "tenant_id": "demo",
+            "incident_id": "QUALITY-healthy-false-positive",
+            "entity_id": "broker",
+            "signal": "DISK_EXHAUSTED",
+            "state": "HEALTHY",
+            "observed_at": "2026-11-17T00:01:20Z",
+            "source_mode": "SIMULATED",
+            "intensity": 0.0,
+            "signature": "SIMULATED developer-authored quality fixture"
+          },
+          {
+            "id": "Q-healthy-false-positive-03",
+            "tenant_id": "demo",
+            "incident_id": "QUALITY-healthy-false-positive",
+            "entity_id": "dataset",
+            "signal": "DATASET_STALE",
+            "state": "HEALTHY",
+            "observed_at": "2026-11-17T00:02:00Z",
+            "source_mode": "SIMULATED",
+            "intensity": 0.0,
+            "signature": "SIMULATED developer-authored quality fixture"
+          }
+        ],
+        "candidate_causes": [],
+        "unknowns": [
+          "Temporal/graph association is not proof of causation; no cause is automatically confirmed",
+          "Insufficient compatible upstream observations; no originating candidate selected"
+        ],
+        "impact_radius": [],
+        "next_read_only_checks": [
+          "Gather missing scoped metrics without changing services"
+        ],
+        "prevention_opportunities": [
+          "Validate causal claims against healthy and recovery counterexamples"
+        ],
+        "risk": "Hypotheses only; independent authorization and verification required for any production change",
+        "confirmed_cause": null
+      },
+      "retrieval": {
+        "status": "HEALTHY",
+        "retrieval_mode": "LIVE",
+        "source_mode": "HISTORICAL_ADVICE",
+        "items": [
+          {
+            "chunk_id": "KB-9e81dfcd9e40fa8876e03fc513a3d990b182006d7c8e7c0876fa5f20c9eaba14",
+            "tenant_id": "demo",
+            "document_id": "review-healthy-false-positive",
+            "revision": 2,
+            "content_hash": "7a037946eccdbad6737e8f2d6fe1913b6ccf649750289adc0dde088588edd8de",
+            "chunk_index": 0,
+            "text": "A healthy Kafka baseline with no failure must not be attributed to ZooKeeper, disk or network merely from related historical advice.",
+            "title": "review-healthy-false-positive review fixture",
+            "technology": "Kafka",
+            "platform_version": "4.3",
+            "metadata_mode": "KRAFT",
+            "source": "repo:eval/knowledge_review_cases.json",
+            "owner": "implementation-review-fixture",
+            "source_time": "2026-11-17T00:00:00Z",
+            "acl_principals": [
+              "demo.senior_sre"
+            ],
+            "review_state": "APPROVED",
+            "source_type": "RUNBOOK",
+            "source_mode": "SIMULATED",
+            "rank_score": 16.17558,
+            "evidence_kind": "HISTORICAL_ADVICE",
+            "reference": "knowledge:review-healthy-false-positive@2#0"
+          }
+        ],
+        "rejected_records": 0,
+        "pending_index_revisions": 0,
+        "partial": false,
+        "corpus_revision": "32",
+        "candidate_budget_exhausted": false,
+        "policy_changed_during_retrieval": false,
+        "candidate_document_limit": 128,
+        "pending_count_is_bounded": true,
+        "ranking": "BM25 plus version/mode specificity; no vectors or embeddings"
+      }
+    }
+  ],
+  "human_reviewer": null,
+  "human_approval": null,
+  "usable_for_production_accuracy_claims": false
+}

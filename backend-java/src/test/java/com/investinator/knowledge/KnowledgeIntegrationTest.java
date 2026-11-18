@@ -97,4 +97,25 @@ public class KnowledgeIntegrationTest {
         Files.writeString(Path.of("target/quality-review-observations.json"),encode(raw));
     }
 
+
+    @Test void staleProjectionCannotCrowdOutCurrentRevisionAndAclReplacementDoesNotResurrectOldAdvice(){
+        var scope=new KnowledgeService.SearchScope("Kafka","4.3","KRAFT");
+        // Insert many obsolete published projections; the old top-30 path starved the current revision.
+        for(int rev=1;rev<=35;rev++)publish("demo",doc("crowded",rev,"Kafka","4","KRAFT",List.of("demo.senior_sre"),"quorum network packet loss"));
+        var result=service.search("demo","demo.senior_sre","quorum network",scope);
+        assertEquals("HEALTHY",result.get("status"));assertEquals(false,result.get("partial"));assertEquals(0,result.get("rejected_records"));assertEquals(35,Json.rows(result.get("items")).getFirst().get("revision"));
+        // Latest ACL removes access. Even an unpublished replacement must invalidate the old projection.
+        var next=doc("crowded",36,"Kafka","4","KRAFT",List.of("demo.private"),"quorum network packet loss");service.ingest("demo","demo.ingestor",next);service.review("demo","demo.reviewer","crowded",36,"APPROVE","Explicit fixture ACL replacement; not independent human signoff");
+        assertTrue(Json.rows(service.search("demo","demo.senior_sre","quorum network",scope).get("items")).isEmpty());
+        var pending=service.search("demo","demo.private","quorum network",scope);assertEquals("DEGRADED",pending.get("status"));assertEquals(1L,pending.get("pending_index_revisions"));assertTrue(Json.rows(pending.get("items")).isEmpty());
+        assertThrows(Exception.class,()->service.readableDocument("demo","demo.senior_sre","crowded",35));
+    }
+    @Test void emptyCorpusAndHighCardinalityStayBoundedAndTiesAreRepeatable(){
+        var scope=new KnowledgeService.SearchScope("Kafka","4.3","KRAFT");var empty=service.search("demo","demo.senior_sre","quorum",scope);assertEquals("HEALTHY",empty.get("status"));assertTrue(Json.rows(empty.get("items")).isEmpty());
+        for(String id:List.of("tie-a","tie-b"))publish("demo",doc(id,1,"Kafka","4","KRAFT",List.of("demo.senior_sre"),"quorum network exact shared content"));
+        var first=Json.rows(service.search("demo","demo.senior_sre","quorum network",scope).get("items"));var second=Json.rows(service.search("demo","demo.senior_sre","quorum network",scope).get("items"));assertEquals(first,second);
+        // Unpublished high-cardinality revisions: no fabricated successful indexing, no unbounded count.
+        for(int n=0;n<140;n++){var d=doc("budget-"+String.format("%03d",n),1,"Kafka","4","KRAFT",List.of("demo.senior_sre"),"quorum");service.ingest("demo","demo.ingestor",d);service.review("demo","demo.reviewer",d.document_id(),1,"APPROVE","Fixture pending publication; not human gold review");}
+        var exhausted=service.search("demo","demo.senior_sre","quorum",scope);assertEquals("DEGRADED",exhausted.get("status"));assertEquals(true,exhausted.get("partial"));assertEquals(true,exhausted.get("candidate_budget_exhausted"));assertEquals(128L,exhausted.get("pending_index_revisions"));
+    }
 }

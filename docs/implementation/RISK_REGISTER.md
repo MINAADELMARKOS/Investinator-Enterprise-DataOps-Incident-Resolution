@@ -1,3 +1,9 @@
+Prompt 14B checkpoint (2026-11-19): current-revision retrieval filters pass 16 focused
+Java cases after a green 112-test baseline. SQL candidates are bounded and authorized
+before BM25; stale/revoked revisions cannot crowd out current guidance. Domain-neutral
+UNKNOWN wording fixed. Independent human quality and production release remain BLOCKED.
+See [14B evidence](prompt14b/RETRIEVAL_DESIGN.md). Earlier stage entries below are historical.
+
 # Risk register
 
 Current 12/13 disposition: isolated demo gates and all five hosted jobs PASS on

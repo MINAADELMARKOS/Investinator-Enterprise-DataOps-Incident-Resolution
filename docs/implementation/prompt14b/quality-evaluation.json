@@ -1,0 +1,633 @@
+{
+  "operational_gate": "PASS_FUNCTIONAL_ONLY",
+  "report_version": "09B-1",
+  "dataset_sha256": "a0e7a4b5fa5bdfd6ae4c5983ab0b405dcf7cda77447a02118ff4ddf9fc29394a",
+  "source_dataset_sha256": "fc301b09ae1fea6d1053fc8e7084bd1d15be02d517937f55c513a417426b37d0",
+  "human_reviewer": null,
+  "human_approval": null,
+  "review_state": "PENDING_HUMAN_REVIEW",
+  "usable_for_production_accuracy_claims": false,
+  "fixture_tests": {
+    "source_mode": "SIMULATED",
+    "label_author": "implementation author; not independent expert",
+    "held_out_set": false,
+    "threshold_tuning_performed": false,
+    "detection_definition": "Presence of a deterministic upstream correlation candidate; not Prompt 10 monitoring",
+    "precision_at_k_definition": "Relevant distinct documents / k, including unfilled slots; recall uses all proposed relevant documents",
+    "causal_denominator": "Fault cases only; healthy cases excluded from causal top-k",
+    "confusion_matrix": {
+      "tp": 7,
+      "fp": 0,
+      "fn": 0,
+      "tn": 1
+    },
+    "diagnostics": {
+      "returned_retrieval_precision": {
+        "numerator": 8,
+        "denominator": 9,
+        "value": 0.8888888888888888,
+        "status": "MEASURED_FIXTURE_ONLY"
+      },
+      "detection_precision": {
+        "numerator": 7,
+        "denominator": 7,
+        "value": 1.0,
+        "status": "MEASURED_FIXTURE_ONLY"
+      },
+      "detection_recall": {
+        "numerator": 7,
+        "denominator": 7,
+        "value": 1.0,
+        "status": "MEASURED_FIXTURE_ONLY"
+      },
+      "false_positive_rate": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0,
+        "status": "MEASURED_FIXTURE_ONLY"
+      },
+      "upstream_cause_top1": {
+        "numerator": 7,
+        "denominator": 7,
+        "value": 1.0,
+        "status": "MEASURED_FIXTURE_ONLY"
+      },
+      "upstream_cause_top3": {
+        "numerator": 7,
+        "denominator": 7,
+        "value": 1.0,
+        "status": "MEASURED_FIXTURE_ONLY"
+      },
+      "evidence_citation_validity": {
+        "numerator": 70,
+        "denominator": 70,
+        "value": 1.0,
+        "status": "MEASURED_FIXTURE_ONLY"
+      },
+      "unauthorized_knowledge_rate": {
+        "numerator": 0,
+        "denominator": 9,
+        "value": 0.0,
+        "status": "MEASURED_FIXTURE_ONLY"
+      },
+      "outdated_or_incompatible_knowledge_rate": {
+        "numerator": 0,
+        "denominator": 9,
+        "value": 0.0,
+        "status": "MEASURED_FIXTURE_ONLY"
+      },
+      "missing_data_abstention": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0,
+        "status": "MEASURED_FIXTURE_ONLY"
+      },
+      "prompt_injection_rejection": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0,
+        "status": "MEASURED_FIXTURE_ONLY"
+      }
+    },
+    "retrieval": {
+      "1": {
+        "precision": {
+          "numerator": 8,
+          "denominator": 8,
+          "value": 1.0,
+          "status": "MEASURED_FIXTURE_ONLY"
+        },
+        "recall": {
+          "numerator": 8,
+          "denominator": 8,
+          "value": 1.0,
+          "status": "MEASURED_FIXTURE_ONLY"
+        }
+      },
+      "3": {
+        "precision": {
+          "numerator": 8,
+          "denominator": 24,
+          "value": 0.3333333333333333,
+          "status": "MEASURED_FIXTURE_ONLY"
+        },
+        "recall": {
+          "numerator": 8,
+          "denominator": 8,
+          "value": 1.0,
+          "status": "MEASURED_FIXTURE_ONLY"
+        }
+      },
+      "5": {
+        "precision": {
+          "numerator": 8,
+          "denominator": 40,
+          "value": 0.2,
+          "status": "MEASURED_FIXTURE_ONLY"
+        },
+        "recall": {
+          "numerator": 8,
+          "denominator": 8,
+          "value": 1.0,
+          "status": "MEASURED_FIXTURE_ONLY"
+        }
+      }
+    },
+    "cases": [
+      {
+        "case_id": "kafka-kraft",
+        "expected_origin": "network:NETWORK_UNSTABLE",
+        "candidate_ranking": [
+          "network:NETWORK_UNSTABLE",
+          "quorum:QUORUM_UNAVAILABLE",
+          "broker:BROKER_ERROR"
+        ],
+        "detected": true,
+        "retrieved_documents": [
+          "review-kafka-kraft",
+          "review-healthy-false-positive"
+        ],
+        "retrieval": {
+          "1": {
+            "precision": {
+              "numerator": 1,
+              "denominator": 1,
+              "value": 1.0,
+              "status": "MEASURED_FIXTURE_ONLY"
+            },
+            "recall": {
+              "numerator": 1,
+              "denominator": 1,
+              "value": 1.0,
+              "status": "MEASURED_FIXTURE_ONLY"
+            }
+          },
+          "3": {
+            "precision": {
+              "numerator": 1,
+              "denominator": 3,
+              "value": 0.3333333333333333,
+              "status": "MEASURED_FIXTURE_ONLY"
+            },
+            "recall": {
+              "numerator": 1,
+              "denominator": 1,
+              "value": 1.0,
+              "status": "MEASURED_FIXTURE_ONLY"
+            }
+          },
+          "5": {
+            "precision": {
+              "numerator": 1,
+              "denominator": 5,
+              "value": 0.2,
+              "status": "MEASURED_FIXTURE_ONLY"
+            },
+            "recall": {
+              "numerator": 1,
+              "denominator": 1,
+              "value": 1.0,
+              "status": "MEASURED_FIXTURE_ONLY"
+            }
+          }
+        },
+        "retrieval_status": "HEALTHY",
+        "partial": false,
+        "rejected_index_records": 0,
+        "human_approval": null
+      },
+      {
+        "case_id": "legacy-zookeeper",
+        "expected_origin": "zk:ZK_SESSION_EXPIRED",
+        "candidate_ranking": [
+          "zk:ZK_SESSION_EXPIRED",
+          "broker:BROKER_ERROR"
+        ],
+        "detected": true,
+        "retrieved_documents": [
+          "review-legacy-zookeeper"
+        ],
+        "retrieval": {
+          "1": {
+            "precision": {
+              "numerator": 1,
+              "denominator": 1,
+              "value": 1.0,
+              "status": "MEASURED_FIXTURE_ONLY"
+            },
+            "recall": {
+              "numerator": 1,
+              "denominator": 1,
+              "value": 1.0,
+              "status": "MEASURED_FIXTURE_ONLY"
+            }
+          },
+          "3": {
+            "precision": {
+              "numerator": 1,
+              "denominator": 3,
+              "value": 0.3333333333333333,
+              "status": "MEASURED_FIXTURE_ONLY"
+            },
+            "recall": {
+              "numerator": 1,
+              "denominator": 1,
+              "value": 1.0,
+              "status": "MEASURED_FIXTURE_ONLY"
+            }
+          },
+          "5": {
+            "precision": {
+              "numerator": 1,
+              "denominator": 5,
+              "value": 0.2,
+              "status": "MEASURED_FIXTURE_ONLY"
+            },
+            "recall": {
+              "numerator": 1,
+              "denominator": 1,
+              "value": 1.0,
+              "status": "MEASURED_FIXTURE_ONLY"
+            }
+          }
+        },
+        "retrieval_status": "HEALTHY",
+        "partial": false,
+        "rejected_index_records": 0,
+        "human_approval": null
+      },
+      {
+        "case_id": "hdfs-ha",
+        "expected_origin": "namenode:HDFS_HA_UNAVAILABLE",
+        "candidate_ranking": [
+          "namenode:HDFS_HA_UNAVAILABLE",
+          "datanode:HDFS_MISSING_BLOCKS"
+        ],
+        "detected": true,
+        "retrieved_documents": [
+          "review-hdfs-ha"
+        ],
+        "retrieval": {
+          "1": {
+            "precision": {
+              "numerator": 1,
+              "denominator": 1,
+              "value": 1.0,
+              "status": "MEASURED_FIXTURE_ONLY"
+            },
+            "recall": {
+              "numerator": 1,
+              "denominator": 1,
+              "value": 1.0,
+              "status": "MEASURED_FIXTURE_ONLY"
+            }
+          },
+          "3": {
+            "precision": {
+              "numerator": 1,
+              "denominator": 3,
+              "value": 0.3333333333333333,
+              "status": "MEASURED_FIXTURE_ONLY"
+            },
+            "recall": {
+              "numerator": 1,
+              "denominator": 1,
+              "value": 1.0,
+              "status": "MEASURED_FIXTURE_ONLY"
+            }
+          },
+          "5": {
+            "precision": {
+              "numerator": 1,
+              "denominator": 5,
+              "value": 0.2,
+              "status": "MEASURED_FIXTURE_ONLY"
+            },
+            "recall": {
+              "numerator": 1,
+              "denominator": 1,
+              "value": 1.0,
+              "status": "MEASURED_FIXTURE_ONLY"
+            }
+          }
+        },
+        "retrieval_status": "HEALTHY",
+        "partial": false,
+        "rejected_index_records": 0,
+        "human_approval": null
+      },
+      {
+        "case_id": "kudu-tablet",
+        "expected_origin": "tserver:KUDU_TABLET_UNAVAILABLE",
+        "candidate_ranking": [
+          "tserver:KUDU_TABLET_UNAVAILABLE",
+          "network:NETWORK_UNSTABLE"
+        ],
+        "detected": true,
+        "retrieved_documents": [
+          "review-kudu-tablet"
+        ],
+        "retrieval": {
+          "1": {
+            "precision": {
+              "numerator": 1,
+              "denominator": 1,
+              "value": 1.0,
+              "status": "MEASURED_FIXTURE_ONLY"
+            },
+            "recall": {
+              "numerator": 1,
+              "denominator": 1,
+              "value": 1.0,
+              "status": "MEASURED_FIXTURE_ONLY"
+            }
+          },
+          "3": {
+            "precision": {
+              "numerator": 1,
+              "denominator": 3,
+              "value": 0.3333333333333333,
+              "status": "MEASURED_FIXTURE_ONLY"
+            },
+            "recall": {
+              "numerator": 1,
+              "denominator": 1,
+              "value": 1.0,
+              "status": "MEASURED_FIXTURE_ONLY"
+            }
+          },
+          "5": {
+            "precision": {
+              "numerator": 1,
+              "denominator": 5,
+              "value": 0.2,
+              "status": "MEASURED_FIXTURE_ONLY"
+            },
+            "recall": {
+              "numerator": 1,
+              "denominator": 1,
+              "value": 1.0,
+              "status": "MEASURED_FIXTURE_ONLY"
+            }
+          }
+        },
+        "retrieval_status": "HEALTHY",
+        "partial": false,
+        "rejected_index_records": 0,
+        "human_approval": null
+      },
+      {
+        "case_id": "nifi-backpressure",
+        "expected_origin": "storage:HDFS_MISSING_BLOCKS",
+        "candidate_ranking": [
+          "storage:HDFS_MISSING_BLOCKS",
+          "nifi:NIFI_BACKPRESSURE"
+        ],
+        "detected": true,
+        "retrieved_documents": [
+          "review-nifi-backpressure"
+        ],
+        "retrieval": {
+          "1": {
+            "precision": {
+              "numerator": 1,
+              "denominator": 1,
+              "value": 1.0,
+              "status": "MEASURED_FIXTURE_ONLY"
+            },
+            "recall": {
+              "numerator": 1,
+              "denominator": 1,
+              "value": 1.0,
+              "status": "MEASURED_FIXTURE_ONLY"
+            }
+          },
+          "3": {
+            "precision": {
+              "numerator": 1,
+              "denominator": 3,
+              "value": 0.3333333333333333,
+              "status": "MEASURED_FIXTURE_ONLY"
+            },
+            "recall": {
+              "numerator": 1,
+              "denominator": 1,
+              "value": 1.0,
+              "status": "MEASURED_FIXTURE_ONLY"
+            }
+          },
+          "5": {
+            "precision": {
+              "numerator": 1,
+              "denominator": 5,
+              "value": 0.2,
+              "status": "MEASURED_FIXTURE_ONLY"
+            },
+            "recall": {
+              "numerator": 1,
+              "denominator": 1,
+              "value": 1.0,
+              "status": "MEASURED_FIXTURE_ONLY"
+            }
+          }
+        },
+        "retrieval_status": "HEALTHY",
+        "partial": false,
+        "rejected_index_records": 0,
+        "human_approval": null
+      },
+      {
+        "case_id": "spark-oom",
+        "expected_origin": "executor:SPARK_EXECUTOR_OOM",
+        "candidate_ranking": [
+          "executor:SPARK_EXECUTOR_OOM",
+          "network:NETWORK_UNSTABLE"
+        ],
+        "detected": true,
+        "retrieved_documents": [
+          "review-spark-oom"
+        ],
+        "retrieval": {
+          "1": {
+            "precision": {
+              "numerator": 1,
+              "denominator": 1,
+              "value": 1.0,
+              "status": "MEASURED_FIXTURE_ONLY"
+            },
+            "recall": {
+              "numerator": 1,
+              "denominator": 1,
+              "value": 1.0,
+              "status": "MEASURED_FIXTURE_ONLY"
+            }
+          },
+          "3": {
+            "precision": {
+              "numerator": 1,
+              "denominator": 3,
+              "value": 0.3333333333333333,
+              "status": "MEASURED_FIXTURE_ONLY"
+            },
+            "recall": {
+              "numerator": 1,
+              "denominator": 1,
+              "value": 1.0,
+              "status": "MEASURED_FIXTURE_ONLY"
+            }
+          },
+          "5": {
+            "precision": {
+              "numerator": 1,
+              "denominator": 5,
+              "value": 0.2,
+              "status": "MEASURED_FIXTURE_ONLY"
+            },
+            "recall": {
+              "numerator": 1,
+              "denominator": 1,
+              "value": 1.0,
+              "status": "MEASURED_FIXTURE_ONLY"
+            }
+          }
+        },
+        "retrieval_status": "HEALTHY",
+        "partial": false,
+        "rejected_index_records": 0,
+        "human_approval": null
+      },
+      {
+        "case_id": "hive-metadata",
+        "expected_origin": "hms:HIVE_METADATA_FAILURE",
+        "candidate_ranking": [
+          "hms:HIVE_METADATA_FAILURE",
+          "database:DISK_EXHAUSTED"
+        ],
+        "detected": true,
+        "retrieved_documents": [
+          "review-hive-metadata"
+        ],
+        "retrieval": {
+          "1": {
+            "precision": {
+              "numerator": 1,
+              "denominator": 1,
+              "value": 1.0,
+              "status": "MEASURED_FIXTURE_ONLY"
+            },
+            "recall": {
+              "numerator": 1,
+              "denominator": 1,
+              "value": 1.0,
+              "status": "MEASURED_FIXTURE_ONLY"
+            }
+          },
+          "3": {
+            "precision": {
+              "numerator": 1,
+              "denominator": 3,
+              "value": 0.3333333333333333,
+              "status": "MEASURED_FIXTURE_ONLY"
+            },
+            "recall": {
+              "numerator": 1,
+              "denominator": 1,
+              "value": 1.0,
+              "status": "MEASURED_FIXTURE_ONLY"
+            }
+          },
+          "5": {
+            "precision": {
+              "numerator": 1,
+              "denominator": 5,
+              "value": 0.2,
+              "status": "MEASURED_FIXTURE_ONLY"
+            },
+            "recall": {
+              "numerator": 1,
+              "denominator": 1,
+              "value": 1.0,
+              "status": "MEASURED_FIXTURE_ONLY"
+            }
+          }
+        },
+        "retrieval_status": "HEALTHY",
+        "partial": false,
+        "rejected_index_records": 0,
+        "human_approval": null
+      },
+      {
+        "case_id": "healthy-false-positive",
+        "expected_origin": null,
+        "candidate_ranking": [],
+        "detected": false,
+        "retrieved_documents": [
+          "review-healthy-false-positive"
+        ],
+        "retrieval": {
+          "1": {
+            "precision": {
+              "numerator": 1,
+              "denominator": 1,
+              "value": 1.0,
+              "status": "MEASURED_FIXTURE_ONLY"
+            },
+            "recall": {
+              "numerator": 1,
+              "denominator": 1,
+              "value": 1.0,
+              "status": "MEASURED_FIXTURE_ONLY"
+            }
+          },
+          "3": {
+            "precision": {
+              "numerator": 1,
+              "denominator": 3,
+              "value": 0.3333333333333333,
+              "status": "MEASURED_FIXTURE_ONLY"
+            },
+            "recall": {
+              "numerator": 1,
+              "denominator": 1,
+              "value": 1.0,
+              "status": "MEASURED_FIXTURE_ONLY"
+            }
+          },
+          "5": {
+            "precision": {
+              "numerator": 1,
+              "denominator": 5,
+              "value": 0.2,
+              "status": "MEASURED_FIXTURE_ONLY"
+            },
+            "recall": {
+              "numerator": 1,
+              "denominator": 1,
+              "value": 1.0,
+              "status": "MEASURED_FIXTURE_ONLY"
+            }
+          }
+        },
+        "retrieval_status": "HEALTHY",
+        "partial": false,
+        "rejected_index_records": 0,
+        "human_approval": null
+      }
+    ]
+  },
+  "expert_reviewed_tests": {
+    "status": "PENDING_INDEPENDENT_HUMAN_REVIEW",
+    "cases": 0,
+    "metrics": null,
+    "human_approval": null
+  },
+  "live_observations": {
+    "transport": "LIVE_LOCAL_POSTGRESQL_OPENSEARCH_BM25",
+    "source_incident_data": "SIMULATED",
+    "production_incidents": 0,
+    "production_accuracy": null,
+    "provider_calls": 0
+  },
+  "raw_observations_sha256": "bc66289ad30816aee6699eae7d7d7e1f11822439966c20c6967f7154b7ce4dc3",
+  "scorer_sha256": "8738252bc94e1d83a08b900ede925c43de22ce97090326c7e0981d2cc2f021a9"
+}
