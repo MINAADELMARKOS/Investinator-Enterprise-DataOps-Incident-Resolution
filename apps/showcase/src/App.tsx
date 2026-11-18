@@ -25,6 +25,7 @@ import {
   UserRound,
 } from "lucide-react";
 import mark from "../../web/public/brand/investinator-mark.svg";
+import JavaPreview from "./JavaPreview";
 import { entities, links, routeGroups, scenarios, type Scenario } from "./data";
 
 const repository =
@@ -36,13 +37,20 @@ const icons: Record<string, typeof Activity> = {
   "/incidents": ListFilter,
   "/nervemap": Network,
   "/explore": ScanSearch,
+  "/correlation": Network,
   "/investigator": Bot,
   "/replaylab": Play,
   "/runbooks": BookOpen,
   "/knowledge": Database,
   "/approvals": ShieldCheck,
   "/automations": Clock3,
+  "/governance": ShieldCheck,
   "/ai-observability": BarChart3,
+  "/system-health": Activity,
+  "/monitoring": Clock3,
+  "/architecture": Network,
+  "/release-readiness": ShieldCheck,
+  "/operator/login": UserRound,
   "/integrations": Plug,
   "/administration": Settings,
   "/about": UserRound,
@@ -192,6 +200,13 @@ export default function App() {
     : [];
 
   function content() {
+    if (route === "/system-health") return <JavaPreview view="health" />;
+    if (route === "/monitoring") return <JavaPreview view="monitor" />;
+    if (route === "/correlation") return <JavaPreview view="correlation" />;
+    if (route === "/governance") return <JavaPreview view="governance" />;
+    if (route === "/release-readiness") return <JavaPreview view="readiness" />;
+    if (route === "/operator/login") return <JavaPreview view="operator" />;
+    if (route === "/architecture") return <JavaPreview view="architecture" />;
     if (route.startsWith("/incidents/") && route.endsWith("/postmortem"))
       return (
         <>
@@ -410,9 +425,17 @@ export default function App() {
               }
             />
             <div className="callout block-gap">
-              <strong>Public UI preview.</strong> All readings are synthetic and
-              fixed for this browser. Run the local stack for telemetry
-              ingestion and saved workflows.
+              <strong>Java Operator Experience v2.</strong> Explore System Health, Continuous Monitoring, Root Cause Explorer,
+              governed recovery and release-readiness views. All examples are SYNTHETIC and have no live backend connection.
+              Run the isolated Java lab to inspect real locally collected evidence.
+            </div>
+            <div className="java-feature-links" aria-label="Java operator preview features">
+              <a href={page("/system-health")}><Activity size={18}/> System Health <span>→</span></a>
+              <a href={page("/monitoring")}><Clock3 size={18}/> Monitoring <span>→</span></a>
+              <a href={page("/correlation")}><Network size={18}/> Root Cause Explorer <span>→</span></a>
+              <a href={page("/governance")}><ShieldCheck size={18}/> Governed Recovery <span>→</span></a>
+              <a href={page("/release-readiness")}><Settings size={18}/> Release Readiness <span>→</span></a>
+              <a href={page("/architecture")}><Database size={18}/> AI Architecture <span>→</span></a>
             </div>
             <div className="grid grid-5">
               <Stat
@@ -817,7 +840,7 @@ export default function App() {
               description="Ask, investigate, and plan recovery with incident evidence in view."
             />
             <div className="callout block-gap">
-              <strong>Scripted preview.</strong> Answers here are deterministic
+              <strong>Java AI workflow preview.</strong> Answers here are deterministic
               examples. The local app can use configured AI or its
               evidence-summary fallback.
             </div>
@@ -1353,7 +1376,7 @@ export default function App() {
             <Menu size={22} strokeWidth={1.5} />
           </button>
           <div className="topbar-context">
-            <span className="environment-dot" /> PUBLIC UI PREVIEW{" "}
+            <span className="environment-dot" /> JAVA V2 / PUBLIC UI PREVIEW{" "}
             <span className="divider">/</span> SYNTHETIC DATA
           </div>
           <div className="topbar-right">
@@ -1371,7 +1394,7 @@ export default function App() {
         </header>
         <main className="content">
           <div className="preview-banner" role="note">
-            <span>PREVIEW://</span> Explore the interface with synthetic data.
+            <span>PREVIEW://</span> Java operator UI v2 · synthetic evidence, no live monitoring, production writes or GPT billing.
             For API-backed actions,{" "}
             <a
               href={`${repository}/blob/main/docs/user-guide.md`}
