@@ -324,6 +324,19 @@
       "test_number": 13,
       "source_provenance": "Node contracts/type/build; mock provider display remains separate from data source",
       "ci_run_link": null
+    },
+    {
+      "name": "read-soak",
+      "command": ".venv/bin/python scripts/verify_read_soak.py --seconds 30 --max-requests 500 --heap-budget-mib 1024 --output docs/implementation/prompt14b/read-soak.json",
+      "sha": "88df1bc98310d4ecc1be4642c5ea3394e475d4fb",
+      "exit_status": 0,
+      "started_at": "2026-11-18T23:25:18.979913+00:00",
+      "duration_seconds": 30.09,
+      "source_provenance": "Actual local command; credentials forced absent for test process; fixture modes remain explicit",
+      "test_number": null,
+      "ci_run_link": null,
+      "working_tree_changes": true,
+      "source_overlay": "New read-only workload harness, tested against owned Docker Java image from 3f88784; no mutating requests"
     }
   ]
 }

@@ -1,3 +1,7 @@
+Prompt 14B bounded-workload checkpoint: 500 read-only requests over 29.962s,
+zero errors, sampled heap below the explicit 1024 MiB lab budget and queue <=1000.
+No continuous peak, sustained capacity, production SLO or business ROI claim.
+
 Prompt 14B provider-provenance checkpoint: backend persists explicit
 MOCKED_PROVIDER for loopback SDK fixtures, independently of SIMULATED incident
 source. Java focused 24 and frontend 13/type/build pass. No actual provider call.

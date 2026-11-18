@@ -13,7 +13,7 @@ jobs:
       - run: python -m pip install --upgrade pip==26.3
       - run: python -m pip install -e '.[dev]'
       - run: pytest -q
-      - run: ruff check src tests scripts/investinator_cli.py scripts/verify_health_lab.py scripts/verify_connectors_lab.py scripts/knowledge_bootstrap.py scripts/verify_knowledge_lab.py scripts/evaluate_knowledge_quality.py scripts/verify_monitor_process.py scripts/verify_remediation_process.py scripts/verify_frontend_compat.py scripts/verify_e2e_lab.py scripts/lab_scenarios.py scripts/audit_java_dependencies.py scripts/verify_backup_restore.py scripts/verify_pitr_fixture.py scripts/capture_operational_baseline.py scripts/generate_handover_inventory.py scripts/generate_java_sbom.py tests_cli
+      - run: ruff check src tests scripts/investinator_cli.py scripts/verify_health_lab.py scripts/verify_connectors_lab.py scripts/knowledge_bootstrap.py scripts/verify_knowledge_lab.py scripts/evaluate_knowledge_quality.py scripts/verify_monitor_process.py scripts/verify_remediation_process.py scripts/verify_frontend_compat.py scripts/verify_e2e_lab.py scripts/lab_scenarios.py scripts/audit_java_dependencies.py scripts/verify_backup_restore.py scripts/verify_pitr_fixture.py scripts/verify_read_soak.py scripts/capture_operational_baseline.py scripts/generate_handover_inventory.py scripts/generate_java_sbom.py tests_cli
       - run: python scripts/generate_handover_inventory.py --check
       - run: python -m unittest discover -s tests_cli
       - run: mypy src
@@ -91,6 +91,7 @@ jobs:
       - run: python scripts/verify_backup_restore.py --output .runtime/backup-restore.json
       - run: python scripts/verify_pitr_fixture.py --output .runtime/pitr-fixture.json
       - run: python scripts/capture_operational_baseline.py --samples 10 --output .runtime/operational-baseline.json
+      - run: python scripts/verify_read_soak.py --seconds 15 --max-requests 200 --heap-budget-mib 1024 --output .runtime/read-soak.json
       - if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -98,6 +99,7 @@ jobs:
           path: |
             .runtime/backup-restore.json
             .runtime/pitr-fixture.json
+            .runtime/read-soak.json
             .runtime/operational-baseline.json
             .runtime/e2e.json
             .runtime/outages.json
