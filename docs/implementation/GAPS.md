@@ -127,3 +127,8 @@ rehearsal pass, source/link/inventory checks recorded. GPT is NOT_CONFIGURED and
 live provider claim is made. Pages URL matches repository source configuration but
 HTTP availability is blocked by proxy. Prior GitHub API/PR restriction and all
 P14 production risk gates remain. No next stage/cutover/merge is authorized.
+
+Prompt 15 final: handover commit 5497fab is published; all five jobs PASS on
+44409852034, including inventory freshness and fresh-checkout lab. Current local
+14-check presentation and native read-only log retrieval pass. Pages availability
+is proxy-blocked, GPT unconfigured, production BLOCKED; no Prompt 16 or merge.

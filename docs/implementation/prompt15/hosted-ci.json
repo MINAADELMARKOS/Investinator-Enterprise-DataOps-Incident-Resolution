@@ -1,0 +1,37 @@
+{
+  "run_id": "44409852034",
+  "url": "https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/actions/runs/44409852034",
+  "observed_at": "2026-11-18T22:23:01.853985+00:00",
+  "method": "Public GitHub HTML status; authenticated logs unavailable due API destination policy",
+  "jobs": [
+    {
+      "job": "backend",
+      "url": "https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/actions/runs/44409852034/job/135174750276",
+      "status": "completed successfully"
+    },
+    {
+      "job": "frontend",
+      "url": "https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/actions/runs/44409852034/job/135174750795",
+      "status": "completed successfully"
+    },
+    {
+      "job": "java-scaffold",
+      "url": "https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/actions/runs/44409852034/job/135174750990",
+      "status": "completed successfully"
+    },
+    {
+      "job": "local-e2e",
+      "url": "https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/actions/runs/44409852034/job/135174751171",
+      "status": "completed successfully"
+    },
+    {
+      "job": "dependency-security",
+      "url": "https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/actions/runs/44409852034/job/135174750834",
+      "status": "completed successfully"
+    }
+  ],
+  "commit_sha": "5497fab542fb266aee1ad7cf4eab89f980044ba8",
+  "commit_verified_from_public_run_page": true,
+  "scope": "P15 handover and source inventory CI; unchanged runtime regression rerun automatically",
+  "authenticated_logs_downloaded": false
+}

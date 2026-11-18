@@ -126,3 +126,8 @@ KRaft causal case remains SIMULATED with original timestamps, not a real broker
 outage. Separate disk simulator recovery/rollback and Python browser compatibility
 pass in rehearsal.json. Provider presence is NOT_CONFIGURED; no paid call. Pages
 availability is unverified due proxy; no seeded health or sample schema is substituted.
+
+Prompt 15 final: handover commit 5497fab is published; all five jobs PASS on
+44409852034, including inventory freshness and fresh-checkout lab. Current local
+14-check presentation and native read-only log retrieval pass. Pages availability
+is proxy-blocked, GPT unconfigured, production BLOCKED; no Prompt 16 or merge.

@@ -322,3 +322,8 @@ Prompt 14 final evidence: all five hosted jobs PASS on implementation 8e41c2c,
 run 44397526897, including full lab/restore/operational capture and fresh OSV
 233 packages / zero findings. Java spans verified in-memory without private text.
 Production remains BLOCKED per prompt14/RELEASE_RISKS.json; no subsequent stage.
+
+Prompt 15 final: handover commit 5497fab is published; all five jobs PASS on
+44409852034, including inventory freshness and fresh-checkout lab. Current local
+14-check presentation and native read-only log retrieval pass. Pages availability
+is proxy-blocked, GPT unconfigured, production BLOCKED; no Prompt 16 or merge.

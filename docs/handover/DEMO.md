@@ -49,6 +49,33 @@ unbound log belongs to this incident. Where a scoped search/knowledge tool retur
 nothing, show missing evidence rather than silently substituting a seeded record.
 Historical runbook guidance is not a fresh observation or human-approved diagnosis.
 
+For an actual bounded normalized-log retrieval from this owned lab, run from root
+without printing the private configuration (do not project any secret editor):
+
+```bash
+python - <<'READ_ONLY'
+import json, sys
+from datetime import datetime, timedelta, timezone
+from urllib.parse import urlencode
+sys.path.insert(0, "scripts")
+import investinator_cli as cli
+state = cli.load_state()
+end = datetime.now(timezone.utc)
+query = urlencode({"size": 3, "from": (end-timedelta(hours=4)).isoformat(), "to": end.isoformat()})
+result = cli.http(cli.api(state), "/api/v1/evidence/search?"+query, token=state["secrets"]["EVIDENCE_API_TOKEN"])
+print(json.dumps({"status": result["status"], "retrieval_mode": result["retrieval_mode"], "items": result["items"]}, indent=2))
+READ_ONLY
+```
+
+The default native search window is one hour; this explicit query uses the allowed
+four-hour window without changing record timestamps. If it is empty, report no hits
+or prepare a fresh owned lab before the presentation. These are native OpenSearch results, not automatically bound causal-incident logs.
+In Runbooks/Knowledge inspect the named repository guidance (for example
+runbooks/kafka_disk_pressure.md). The legacy catalog/repository file is historical
+advice, not proof of an approved versioned RAG hit. The conditional real-provider
+branch may retrieve approved incident-scoped knowledge; a missing/revoked result is
+shown honestly. Do not auto-review/publish a document to manufacture human approval.
+
 ## 2. Investigator conversation (minutes 5–8)
 
 Select the causal incident in Investigator. Ask:

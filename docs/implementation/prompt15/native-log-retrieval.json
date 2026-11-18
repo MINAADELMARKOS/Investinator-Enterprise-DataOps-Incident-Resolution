@@ -1,0 +1,13 @@
+{
+  "status": "HEALTHY",
+  "retrieval_mode": "LIVE",
+  "records": 3,
+  "source_modes": [
+    "SIMULATED"
+  ],
+  "query_window_hours": 4,
+  "source_timestamps_modified": false,
+  "incident_binding": "NOT_ASSERTED",
+  "credential_values_printed": false,
+  "production_writes": 0
+}

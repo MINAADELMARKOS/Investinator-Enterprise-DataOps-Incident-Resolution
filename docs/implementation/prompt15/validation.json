@@ -36,12 +36,25 @@
     }
   ],
   "private_value_scan": {
-    "public_paths": 536,
+    "public_paths": 539,
     "matches": 0
   },
   "runtime_suites": "Reused actual P14 evidence; no runtime/lock/schema changes in P15",
   "normal_cleanup": "No volume deletion; owned rehearsal disposable processes cleaned",
   "production_release": "BLOCKED",
   "destructive_commands": "Documented and source-reviewed only; reset not executed",
-  "source_pages": "Static source/base path inspected; availability proxy CONNECT403"
+  "source_pages": "Static source/base path inspected; availability proxy CONNECT403",
+  "hosted_ci": {
+    "run": "44409852034",
+    "commit": "5497fab542fb266aee1ad7cf4eab89f980044ba8",
+    "jobs": 5,
+    "status": "ALL_PASS"
+  },
+  "native_log_retrieval": {
+    "status": "PASS",
+    "records": 3,
+    "window_hours": 4,
+    "workload": "SIMULATED",
+    "timestamps_modified": false
+  }
 }

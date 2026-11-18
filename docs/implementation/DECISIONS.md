@@ -412,3 +412,8 @@ independent: actual GPT requires approved billing/preflight, current fallback st
 explicit. Reuse existing runtime validation and run the actual browser presentation
 for documentation-only work. Preserve Python default, all private ownership and
 production blockers. New stage/cutover/merge requires explicit authorization.
+
+Prompt 15 final: handover commit 5497fab is published; all five jobs PASS on
+44409852034, including inventory freshness and fresh-checkout lab. Current local
+14-check presentation and native read-only log retrieval pass. Pages availability
+is proxy-blocked, GPT unconfigured, production BLOCKED; no Prompt 16 or merge.
