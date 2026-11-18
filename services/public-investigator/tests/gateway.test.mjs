@@ -27,6 +27,6 @@ test("no direct infrastructure or user-selected tool is emitted",()=>{
   const input=makeModelInput(prepared);
   assert(!input.some(x=>x.type==="function_call"));
   assert(input[0].content.includes("No shell execution"));
-  assert(input[0].content.includes("No approval"));
+  assert(input[0].content.includes("production changes or approvals"));
   assert(input[1].content.includes("SIMULATED_LEGACY_ZOOKEEPER"));
 });
