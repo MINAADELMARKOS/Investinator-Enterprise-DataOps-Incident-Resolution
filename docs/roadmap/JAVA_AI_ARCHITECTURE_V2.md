@@ -4,6 +4,10 @@
 
 **Architecture baseline:** 2026-11-17. **Status:** target architecture and user-reported local implementation, **not a statement that Java code is already pushed**. This document is a design contract for the remaining phases.
 
+Current reconciliation: the published [post-P14 audit](POST_P14_GAP_AUDIT_2026-11-18.md)
+and [Prompt 14B](PROMPT_14B_SINGLE_REMEDIATION_AND_PUSH.md) supplement this historical design.
+Production remains BLOCKED; the newer Prompt 15 handover is preserved.
+
 ## Source-of-truth and verification labels
 
 - `VERIFIED_REMOTE`: visible in GitHub `main` or a GitHub Actions run.

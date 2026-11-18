@@ -10,6 +10,8 @@ main through owner-merged PR #6. Python remains the default backend. Only the
 explicitly owned Java lab selects Java. Production identity, private connector
 certification, independent AI-quality review and release hardening remain blocked.
 See the [handover](docs/handover/README.md), [build/status matrix](docs/handover/STATUS_MATRIX.md)
+, [post-P14 audit](docs/roadmap/POST_P14_GAP_AUDIT_2026-11-18.md),
+[Prompt 14B scope](docs/roadmap/PROMPT_14B_SINGLE_REMEDIATION_AND_PUSH.md)
 and [production release gates](docs/implementation/prompt14/RELEASE_RISKS.json).
 
 ## One-command Java laboratory
