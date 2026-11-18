@@ -7,9 +7,12 @@ import java.time.Duration;
 import java.util.*;
 public final class ProviderClients {
     private ProviderClients(){}
+    public static boolean fixtureEndpoint(Environment env){
+        try{var uri=URI.create(env.getProperty("INVESTINATOR_OPENAI_BASE_URL","https://api.openai.com/v1"));return env.getProperty("INVESTINATOR_OPENAI_TEST_ENDPOINT",Boolean.class,false)&&env.getProperty("OPENAI_API_KEY","").startsWith("fixture-")&&"http".equals(uri.getScheme())&&Set.of("127.0.0.1","localhost").contains(Objects.toString(uri.getHost(),""))&&uri.getUserInfo()==null&&uri.getQuery()==null&&uri.getFragment()==null;}catch(Exception e){return false;}
+    }
     public static OpenAIClient create(Environment env) {
         String url=env.getProperty("INVESTINATOR_OPENAI_BASE_URL","https://api.openai.com/v1");URI target=URI.create(url);
-        boolean fixture=env.getProperty("INVESTINATOR_OPENAI_TEST_ENDPOINT",Boolean.class,false)&&Set.of("127.0.0.1","localhost").contains(Objects.toString(target.getHost(),""));
+        boolean fixture=fixtureEndpoint(env);
         var hosts=Set.copyOf(Arrays.asList(env.getProperty("INVESTINATOR_OPENAI_ALLOWED_HOSTS","api.openai.com").split(",")));
         if(target.getUserInfo()!=null||target.getQuery()!=null||target.getFragment()!=null||!((target.getScheme().equals("https")&&hosts.contains(target.getHost()))||(fixture&&target.getScheme().equals("http"))))throw new IllegalArgumentException("Untrusted provider endpoint");
         var builder=OpenAIOkHttpClient.builder().apiKey(env.getRequiredProperty("OPENAI_API_KEY")).baseUrl(url).timeout(Duration.ofSeconds(8)).maxRetries(0);

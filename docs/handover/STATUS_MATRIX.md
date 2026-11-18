@@ -20,7 +20,7 @@ failures rather than silently revising history. No human review approval is impl
 | Next operator console / Application | tested | VERIFIED_REMOTE, LIVE_LOCAL; explicit Java opt-in, signed demo roles, native health/history/evidence/graph/plan UI | Enterprise OIDC/accessibility/security certification |
 | Pages showcase / Application | simulated | VERIFIED_REMOTE static synthetic source; no API or provider | Remain explicit preview; not a deployment |
 | PostgreSQL / Infrastructure | tested | LIVE_LOCAL authenticated Java queries; 38-table isolated restore | Least-privilege runtime/migrator separation, encrypted offsite/PITR/HA |
-| Flyway / Platform | tested | V1–V8 private schema, no public/Alembic adoption | Reviewed production schema/restore operations |
+| Flyway / Platform | tested | V1–V9 private schema, no public/Alembic adoption | Reviewed production schema/restore operations |
 | Alembic / Python | tested | Preserved owner, compatibility paths | Separate production ownership/backup proof |
 | OpenSearch / Infrastructure | tested | LIVE_LOCAL normalized ingest, scoped search, corruption/auth/outage tests | HA/retention/ACL identity and load certification |
 | Optional Python Elasticsearch | partially tested | Separate older compatibility profile; not Java lab backend | Current kernel/version/security certification before use |

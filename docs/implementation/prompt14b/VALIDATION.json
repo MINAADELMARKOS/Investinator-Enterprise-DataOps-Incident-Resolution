@@ -125,6 +125,38 @@
       "source_provenance": "PostgreSQL Testcontainers; SIMULATED ReplayLab",
       "evidence_excerpt": "age\":\"HTTP request completed\",\"request_id\":\"0beba5c5-6eec-4673-bb22-96c83f98494b\",\"http\":{\"response\":{\"status_code\":200}},\"ecs\":{\"version\":\"8.11\"}}\n{\"@timestamp\":\"2026-11-18T22:43:06.399897461Z\",\"log\":{\"level\":\"INFO\",\"logger\":\"com.investinator.observability.CorrelationFilter\"},\"process\":{\"pid\":378257,\"thread\":{\"name\":\"main\"}},\"service\":{\"name\":\"investinator-java\",\"node\":{}},\"message\":\"HTTP request completed\",\"request_id\":\"c4bbbe30-40d9-4991-8398-1289fbf8d4e5\",\"http\":{\"response\":{\"status_code\":200}},\"ecs\":{\"version\":\"8.11\"}}\n[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 13.96 s -- in com.investinator.remediation.RemediationIntegrationTest\n[INFO] \n[INFO] Results:\n[INFO] \n[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0\n[INFO] \n[INFO] ------------------------------------------------------------------------\n[INFO] BUILD SUCCESS\n[INFO] ------------------------------------------------------------------------\n[INFO] Total time:  29.886 s\n[INFO] Finished at: 2026-11-18T22:43:07Z\n[INFO] ------------------------------------------------------------------------\n",
       "ci_run_link": null
+    },
+    {
+      "stage": "provider-budget",
+      "command": "JDK21 Maven -Dtest=ProviderBudgetTest,ChatGatewayTest,ChatPersistenceTest,MissingProviderConfigurationTest,PersistenceWorkflowTest test",
+      "sha": "6a2b46078a5eaccbb888b518757f9b8b60a068a9",
+      "working_tree_changes": true,
+      "exit_status": 0,
+      "test_number": 29,
+      "source_provenance": "PostgreSQL/Kafka Testcontainers; MOCKED_PROVIDER; synthetic USD approval/price fixtures",
+      "ci_run_link": null,
+      "evidence_excerpt": "29 tests; zero failures/errors/skips; 1m02s"
+    },
+    {
+      "stage": "provider-budget",
+      "command": ".venv/bin/python -m unittest discover -s tests_cli",
+      "sha": "6a2b46078a5eaccbb888b518757f9b8b60a068a9",
+      "working_tree_changes": true,
+      "exit_status": 0,
+      "test_number": 30,
+      "source_provenance": "UNIT; subprocess paid-call field is MOCKED, not traffic",
+      "ci_run_link": null
+    },
+    {
+      "stage": "provider-preflight",
+      "command": "./investinator ai-check",
+      "sha": "6a2b46078a5eaccbb888b518757f9b8b60a068a9",
+      "working_tree_changes": true,
+      "exit_status": 2,
+      "test_number": null,
+      "source_provenance": "Actual configuration presence check; ZERO provider calls",
+      "ci_run_link": null,
+      "status": "EXPECTED_NOT_CONFIGURED"
     }
   ]
 }

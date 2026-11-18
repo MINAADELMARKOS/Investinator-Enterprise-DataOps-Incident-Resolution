@@ -69,8 +69,9 @@ history when explicitly configured. Without credentials/model it returns a visib
 labeled deterministic fallback. Current actual GPT validation is NOT_CONFIGURED;
 SDK fixture tests do not prove live model quality. OpenAI API billing is separate
 from a ChatGPT subscription. Only with a valid key, permitted model and independently
-approved test budget may an operator run `./investinator ai-check --live` or enable
-model-backed chat. See [provider/billing/preflight](docs/handover/CONFIGURATION.md).
+approved test budget and durable quota policy may an operator enable model-backed
+chat. `./investinator ai-check` is a zero-call budget preflight; standalone probes
+(including `--live` intent) cannot bypass the backend reservation ledger. See [provider/billing/preflight](docs/handover/CONFIGURATION.md).
 Never put a key in a browser variable, screenshot, prompt, Git commit or Pages build.
 
 ## Developer verification

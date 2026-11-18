@@ -930,12 +930,19 @@ def ai_check(live):
             )
         )
         return 2
+    approved = (
+        os.getenv("INVESTINATOR_OPENAI_ENABLED", "false").lower() == "true"
+        and os.getenv("INVESTINATOR_OPENAI_COST_APPROVED", "false").lower() == "true"
+        and os.getenv("INVESTINATOR_OPENAI_PAID_OPT_IN", "false").lower() == "true"
+        and bool(os.getenv("INVESTINATOR_OPENAI_APPROVAL_REF"))
+    )
+    if not approved:
+        print(json.dumps({"status": "NOT_CONFIGURED", "budget_approval_config_present": False,
+                          "credential_validity": "NOT_TESTED", "paid_call_made": False}))
+        return 2 if live else 0
     if not live:
-        print(
-            json.dumps(
-                {"status": "NOT_TESTED", "configured": True, "paid_call_made": False}
-            )
-        )
+        print(json.dumps({"status": "BLOCKED_DURABLE_LEDGER_REQUIRED", "configured": True,
+                          "credential_validity": "NOT_TESTED", "paid_call_made": False}))
         return 0
     # The rate gate precedes every invocation; no provider call during builds/health.
     with lock():

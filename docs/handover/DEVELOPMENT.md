@@ -77,7 +77,7 @@ API_INTERNAL_URL=http://127.0.0.1:8000 INVESTINATOR_BACKEND=python npx next dev 
 
 The package's generic dev script binds all interfaces; use the explicit host above
 for a local-only session. Do not feed Java schema credentials to Alembic. Java database source is PostgreSQL
-only, dedicated Flyway V1–V8; [source inventory](source-inventory.json) lists tables.
+only, dedicated Flyway V1–V9; [source inventory](source-inventory.json) lists tables.
 
 Compatibility is tested against a captured Python contract plus a 74-step seeded
 workflow trace, including aliases and idempotency. This is not universal API parity,

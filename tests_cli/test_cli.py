@@ -207,10 +207,20 @@ class LocalSafetyTest(unittest.TestCase):
     def test_smoke_resumes_after_approval_without_duplicate_approval(self):
         self._resume_owned_smoke(True)
 
+    def test_live_intent_without_cost_approval_never_invokes_java(self):
+        with patch.dict(os.environ, {"OPENAI_API_KEY": "fixture-key", "INVESTINATOR_OPENAI_MODEL": "fixture-model"}, clear=True), patch.object(cli, "run") as run:
+            self.assertEqual(2, cli.ai_check(True))
+            run.assert_not_called()
+
     def test_java_live_probe_requires_explicit_opt_in_and_rate_limits_repeats(self):
+        # Mocked subprocess response only; the real standalone Java probe never bills.
         state_env = {
             "OPENAI_API_KEY": "test-only",
             "INVESTINATOR_OPENAI_MODEL": "fixture-model",
+            "INVESTINATOR_OPENAI_ENABLED": "true",
+            "INVESTINATOR_OPENAI_COST_APPROVED": "true",
+            "INVESTINATOR_OPENAI_PAID_OPT_IN": "true",
+            "INVESTINATOR_OPENAI_APPROVAL_REF": "SIMULATED-APPROVAL",
         }
         with (
             tempfile.TemporaryDirectory() as temp,

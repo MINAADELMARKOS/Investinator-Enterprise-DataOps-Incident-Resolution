@@ -1,3 +1,9 @@
+Prompt 14B FinOps checkpoint: V9 adds unseeded private Java budget tables. Global
+and tenant/model reservations, unknown holds and actual-usage reconciliation pass
+29 focused Java and 30 CLI tests. Actual provider/key/model/approved policy remain
+NOT_CONFIGURED; standalone preflight cannot bill. Java controls do not certify an
+organization-wide cap across preserved Python/provider paths.
+
 Prompt 14B audit checkpoint: bounded metadata-only plan audit export passes
 remediation and enterprise-ingress regressions. No external sink or tamper-proof
 claim. Two named simulation actions remain the only executors.

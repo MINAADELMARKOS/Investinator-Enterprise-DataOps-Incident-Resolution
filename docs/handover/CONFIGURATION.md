@@ -50,12 +50,17 @@ independently approved testing budget. No prices, savings or provider access are
 assumed. The [FinOps model](../implementation/prompt14/FINOPS.json) leaves rates/cost
 unknown until approved and measured; per-process bounds are not a durable monetary cap.
 
-Safe first check: `./investinator ai-check` inspects presence only, no provider call.
-Only after budget/credential approval, `./investinator ai-check --live` sends one
-small Responses request (64 output-token cap, 8s SDK timeout, no retries, per-checkout
-one-minute rate gate). A model can still reject the request; do not mark that healthy.
-This probe is a real, potentially billable call, not a full conversation/tool-loop
-certificate. No live request is executed for the handover.
+Prompt 14B adds a [durable USD quota/reservation ledger](../implementation/prompt14b/FINOPS.md).
+It seeds no prices, quota or approval. Missing approval/opt-in/price/global or tenant
+quota fails closed before a real request. Timeout/unknown usage retains the full hold.
+The earlier per-process-only limitation is historical for Java; invoice and actual
+provider/owner certification remain blocked.
+
+Safe first check: `./investinator ai-check` inspects presence and cost-approval
+configuration only, with ZERO provider calls. Standalone `--live` intent also cannot
+bill: it reports NOT_CONFIGURED or BLOCKED_DURABLE_LEDGER_REQUIRED. Credential
+validity remains NOT_TESTED. Separately approved real chat must use the backend
+ledger and owner-provisioned policy, not a CLI fixture field or a standalone probe.
 
 For approved Java chat, inject key/model, explicitly enable the provider on the Java
 service, and restart only the owned lab API through normal up. Do not project your

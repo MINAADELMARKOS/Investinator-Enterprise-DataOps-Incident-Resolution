@@ -95,6 +95,7 @@
     ],
     "model": [
       "backend-java/src/main/java/com/investinator/model/OpenAiLiveProbe.java",
+      "backend-java/src/main/java/com/investinator/model/ProviderBudget.java",
       "backend-java/src/main/java/com/investinator/model/ProviderClients.java",
       "backend-java/src/main/java/com/investinator/model/ProviderConfigured.java"
     ],
@@ -1032,10 +1033,19 @@
     "INVESTINATOR_OPENAI_ALLOWED_HOSTS": [
       "backend-java/src/main/java/com/investinator/model/ProviderClients.java"
     ],
+    "INVESTINATOR_OPENAI_APPROVAL_REF": [
+      "backend-java/src/main/java/com/investinator/model/OpenAiLiveProbe.java",
+      "backend-java/src/main/java/com/investinator/model/ProviderBudget.java"
+    ],
     "INVESTINATOR_OPENAI_BASE_URL": [
       "backend-java/src/main/java/com/investinator/model/ProviderClients.java"
     ],
+    "INVESTINATOR_OPENAI_COST_APPROVED": [
+      "backend-java/src/main/java/com/investinator/model/OpenAiLiveProbe.java",
+      "backend-java/src/main/java/com/investinator/model/ProviderBudget.java"
+    ],
     "INVESTINATOR_OPENAI_ENABLED": [
+      "backend-java/src/main/java/com/investinator/model/OpenAiLiveProbe.java",
       "backend-java/src/main/resources/application.yaml",
       "infra/lab/compose.yaml"
     ],
@@ -1049,6 +1059,10 @@
       "backend-java/src/main/resources/application.yaml",
       "docker-compose.yml",
       "infra/lab/compose.yaml"
+    ],
+    "INVESTINATOR_OPENAI_PAID_OPT_IN": [
+      "backend-java/src/main/java/com/investinator/model/OpenAiLiveProbe.java",
+      "backend-java/src/main/java/com/investinator/model/ProviderBudget.java"
     ],
     "INVESTINATOR_OPENAI_REASONING_MODEL": [
       "backend-java/src/main/java/com/investinator/chat/ChatGateway.java",
@@ -1216,7 +1230,8 @@
     "V5__reviewed_knowledge_and_outcomes.sql",
     "V6__monitoring_queue_and_lifecycle.sql",
     "V7__governed_replay_remediation.sql",
-    "V8__operator_monitor_controls.sql"
+    "V8__operator_monitor_controls.sql",
+    "V9__durable_provider_budget.sql"
   ],
   "tables": [
     {
@@ -1366,6 +1381,18 @@
     {
       "table": "remediation_postmortems",
       "migration": "V7__governed_replay_remediation.sql"
+    },
+    {
+      "table": "provider_budget_accounts",
+      "migration": "V9__durable_provider_budget.sql"
+    },
+    {
+      "table": "provider_budget_prices",
+      "migration": "V9__durable_provider_budget.sql"
+    },
+    {
+      "table": "provider_budget_reservations",
+      "migration": "V9__durable_provider_budget.sql"
     }
   ],
   "additional_framework_table": "flyway_schema_history"

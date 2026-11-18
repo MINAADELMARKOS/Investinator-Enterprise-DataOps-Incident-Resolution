@@ -123,7 +123,7 @@ prove different people. No network/KRaft/OS/enterprise mutation executor exists.
 
 ## Ownership and migration
 
-Flyway V1–V8 owns 37 declared Java tables plus flyway_schema_history in a dedicated
+Flyway V1–V9 owns 40 declared Java tables plus flyway_schema_history in a dedicated
 schema (default investinator_java). Python/Alembic remains separate; no shared
 migration owner, schema adoption or destructive reverse migration. The 74-step
 compatibility trace tests seeded reads and legacy workflows, not every enterprise
