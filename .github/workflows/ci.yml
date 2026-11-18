@@ -51,8 +51,8 @@ jobs:
       - run: docker compose -p investinator-java-ci -f docker-compose.yml -f compose.java.yaml --profile java up --build --no-deps --wait --wait-timeout 90 java-api
       - run: python3 backend-java/scripts/smoke.py
       - run: python3 backend-java/scripts/evidence_lab.py verify
-      - run: python3 scripts/verify_monitor_process.py
-      - run: python3 scripts/verify_remediation_process.py
+      - run: python3 scripts/verify_monitor_process.py --output backend-java/target/monitor-process.json
+      - run: python3 scripts/verify_remediation_process.py --output backend-java/target/remediation-process.json
       - if: always()
         run: docker compose -p investinator-java-ci -f docker-compose.yml -f compose.java.yaml --profile java logs --no-color java-api
       - if: always()

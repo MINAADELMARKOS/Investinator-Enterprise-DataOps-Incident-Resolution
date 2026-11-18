@@ -1,0 +1,649 @@
+{
+  "source_checkpoint": "bfe757b; Java source unchanged in Prompt 13",
+  "tests": 107,
+  "failures": 0,
+  "cases": [
+    {
+      "class": "com.investinator.ConnectorConfigurationTest",
+      "test": "disabledConnectorRequiresNoModelButEnabledConfigurationIsValidated",
+      "result": "PASS",
+      "seconds": 0.477
+    },
+    {
+      "class": "com.investinator.DependencyCompatibilityTest",
+      "test": "standaloneWireMockIsCompatibleWithTheTestRuntime",
+      "result": "PASS",
+      "seconds": 1.391
+    },
+    {
+      "class": "com.investinator.DependencyCompatibilityTest",
+      "test": "vendorTypesLoadAndClientConstructionDoesNotRequirePaidNetworkCalls",
+      "result": "PASS",
+      "seconds": 0.609
+    },
+    {
+      "class": "com.investinator.ScaffoldTest",
+      "test": "livenessAndReadinessAreIndependentOfUnconfiguredConnectors",
+      "result": "PASS",
+      "seconds": 1.41
+    },
+    {
+      "class": "com.investinator.ScaffoldTest",
+      "test": "requestIdsAreBoundedAndCannotInjectLogFields",
+      "result": "PASS",
+      "seconds": 0.104
+    },
+    {
+      "class": "com.investinator.ScaffoldTest",
+      "test": "platformReportsScaffoldWithoutInventingMeasurements",
+      "result": "PASS",
+      "seconds": 0.043
+    },
+    {
+      "class": "com.investinator.ScaffoldTest",
+      "test": "metricsRequireExplicitSecretAndOtherManagementRoutesAreDenied",
+      "result": "PASS",
+      "seconds": 0.188
+    },
+    {
+      "class": "com.investinator.api.ErrorMappingTest",
+      "test": "exceptionResponsesDoNotLeakProviderOrCredentialDetails",
+      "result": "PASS",
+      "seconds": 0.001
+    },
+    {
+      "class": "com.investinator.config.MigrationOwnershipTest",
+      "test": "publicAndSystemSchemasAreRefusedBeforeAnyMigration",
+      "result": "PASS",
+      "seconds": 0.002
+    },
+    {
+      "class": "com.investinator.config.MigrationOwnershipTest",
+      "test": "existingAlembicSchemaIsNeverAdoptedOrModified",
+      "result": "PASS",
+      "seconds": 0.057
+    },
+    {
+      "class": "com.investinator.api.OperatorUiContractTest",
+      "test": "historicalInspectorRechecksKnowledgeRevocationAndReadableChunk",
+      "result": "PASS",
+      "seconds": 0.378
+    },
+    {
+      "class": "com.investinator.api.OperatorUiContractTest",
+      "test": "detailHistoryAndEvidenceAreScopedWithoutExposingPrivateContinuation",
+      "result": "PASS",
+      "seconds": 0.137
+    },
+    {
+      "class": "com.investinator.api.OperatorUiContractTest",
+      "test": "boundedSettingsPauseRulesAndSuppressNotificationsWithoutErasingIncidents",
+      "result": "PASS",
+      "seconds": 0.216
+    },
+    {
+      "class": "com.investinator.health.ProbeHttpTest",
+      "test": "responseSizeIsBounded",
+      "result": "PASS",
+      "seconds": 0.071
+    },
+    {
+      "class": "com.investinator.health.ProbeHttpTest",
+      "test": "authenticatedGetPreservesStatusAndRefusesRedirects",
+      "result": "PASS",
+      "seconds": 0.064
+    },
+    {
+      "class": "com.investinator.knowledge.KnowledgeReviewIdentityTest",
+      "test": "ingestionAndFeedbackCredentialsCannotDoubleAsIndependentReviewIdentity",
+      "result": "PASS",
+      "seconds": 0.002
+    },
+    {
+      "class": "com.investinator.PersistenceWorkflowTest",
+      "test": "unknownProductionActionsAndMigrationOwnershipAreNotPermitted",
+      "result": "PASS",
+      "seconds": 0.079
+    },
+    {
+      "class": "com.investinator.PersistenceWorkflowTest",
+      "test": "pythonAndJavaContractsMatchForSeededReadsAndWorkflowTraces",
+      "result": "PASS",
+      "seconds": 0.806
+    },
+    {
+      "class": "com.investinator.PersistenceWorkflowTest",
+      "test": "negativeContractsCannotForgeTenantApprovalOrVerification",
+      "result": "PASS",
+      "seconds": 0.146
+    },
+    {
+      "class": "com.investinator.PersistenceWorkflowTest",
+      "test": "concurrentRetriesDoNotDuplicateReplayOrAlertWrites",
+      "result": "PASS",
+      "seconds": 0.168
+    },
+    {
+      "class": "com.investinator.PersistenceWorkflowTest",
+      "test": "conversationHistoryAndFailedCommandsRollback",
+      "result": "PASS",
+      "seconds": 0.153
+    },
+    {
+      "class": "com.investinator.PersistenceWorkflowTest",
+      "test": "allReplayScenariosAndRejectionPreserveExpectedState",
+      "result": "PASS",
+      "seconds": 0.202
+    },
+    {
+      "class": "com.investinator.PersistenceWorkflowTest",
+      "test": "replayApprovalVerificationAndAuditAreTransactionalAndTenantScoped",
+      "result": "PASS",
+      "seconds": 0.243
+    },
+    {
+      "class": "com.investinator.evidence.EvidenceApiSecurityTest",
+      "test": "callerCannotSupplyTenantIndexUrlOrDslEvenWithAValidCredential",
+      "result": "PASS",
+      "seconds": 0.054
+    },
+    {
+      "class": "com.investinator.evidence.EvidenceApiSecurityTest",
+      "test": "credentialsAreRequiredAndAbsentBackendIsTruthfullyNotConfigured",
+      "result": "PASS",
+      "seconds": 0.018
+    },
+    {
+      "class": "com.investinator.connectors.ConnectorApiSecurityTest",
+      "test": "scopeIsRequiredCallerCannotChooseUrlSqlTenantOrCommandAndWritesAreDenied",
+      "result": "PASS",
+      "seconds": 0.1
+    },
+    {
+      "class": "com.investinator.chat.ChatGatewayTest",
+      "test": "requestContextAndArgumentBudgetsAreEnforcedWithoutNetworkLoop",
+      "result": "PASS",
+      "seconds": 1.159
+    },
+    {
+      "class": "com.investinator.chat.ChatGatewayTest",
+      "test": "stateCipherBindsTenantAndConversationAndNeverStoresPlainReasoning",
+      "result": "PASS",
+      "seconds": 0.018
+    },
+    {
+      "class": "com.investinator.chat.ChatGatewayTest",
+      "test": "actualSdkLoopReturnsToolResultByCallIdAndCarriesAllReasoningItems",
+      "result": "PASS",
+      "seconds": 0.266
+    },
+    {
+      "class": "com.investinator.chat.ChatGatewayTest",
+      "test": "unknownToolIsDeniedAndFakeApprovalInFinalOutputIsRejected",
+      "result": "PASS",
+      "seconds": 0.034
+    },
+    {
+      "class": "com.investinator.chat.ChatGatewayTest",
+      "test": "structuredRedactionPreservesJsonAndStripsSensitiveKeysAndStringValues",
+      "result": "PASS",
+      "seconds": 0.011
+    },
+    {
+      "class": "com.investinator.chat.ChatGatewayTest",
+      "test": "nonexistentOrWrongTimestampCitationAndFakeLiveModeFail",
+      "result": "PASS",
+      "seconds": 0.022
+    },
+    {
+      "class": "com.investinator.chat.ChatGatewayTest",
+      "test": "providerTimeoutIsBoundedHasNoRetryAndNeverReturnsFabricatedModelSuccess",
+      "result": "PASS",
+      "seconds": 8.532
+    },
+    {
+      "class": "com.investinator.chat.ChatGatewayTest",
+      "test": "providerFailuresHaveSafeDistinctStatus",
+      "result": "PASS",
+      "seconds": 0.073
+    },
+    {
+      "class": "com.investinator.chat.ChatGatewayTest",
+      "test": "generalQuestionUsesNoIncidentAndFollowUpIncludesPriorContext",
+      "result": "PASS",
+      "seconds": 0.029
+    },
+    {
+      "class": "com.investinator.chat.ChatGatewayTest",
+      "test": "multiCallBatchPreservesEveryCallIdAndReturnsBothReadResults",
+      "result": "PASS",
+      "seconds": 0.033
+    },
+    {
+      "class": "com.investinator.correlation.CorrelationApiTest",
+      "test": "immutableRevisionsTenantEvidenceAndAuthenticatedJavaQueries",
+      "result": "PASS",
+      "seconds": 0.15
+    },
+    {
+      "class": "com.investinator.knowledge.KnowledgeIntegrationTest",
+      "test": "reviewPackageCapturesNativeRetrievalRankingsAndAdversarialDiagnostics",
+      "result": "PASS",
+      "seconds": 43.083
+    },
+    {
+      "class": "com.investinator.knowledge.KnowledgeIntegrationTest",
+      "test": "reviewAndFeedbackAreIndependentNoAutomaticPromotionAndInjectionIsQuarantined",
+      "result": "PASS",
+      "seconds": 0.054
+    },
+    {
+      "class": "com.investinator.knowledge.KnowledgeIntegrationTest",
+      "test": "historicalCitationsAreRecheckedAfterAclOrReviewChangesAndCannotBecomeFreshObservations",
+      "result": "PASS",
+      "seconds": 1.201
+    },
+    {
+      "class": "com.investinator.knowledge.KnowledgeIntegrationTest",
+      "test": "realBm25FiltersTenantAclVersionsModesAndRevalidatesRevocations",
+      "result": "PASS",
+      "seconds": 5.131
+    },
+    {
+      "class": "com.investinator.knowledge.KnowledgeIntegrationTest",
+      "test": "provisionalFixtureEvaluationMeasuresBm25PrecisionAndDeterministicCausalRanking",
+      "result": "PASS",
+      "seconds": 8.15
+    },
+    {
+      "class": "com.investinator.evidence.NormalizedEvidenceTest",
+      "test": "stableSourceTimeAndTenantDeduplicateWithoutConflatingTenants",
+      "result": "PASS",
+      "seconds": 0.009
+    },
+    {
+      "class": "com.investinator.evidence.NormalizedEvidenceTest",
+      "test": "redactsBeforeIndexingAndPreservesEventTimeWithLagAndClockSkewFlags",
+      "result": "PASS",
+      "seconds": 0.026
+    },
+    {
+      "class": "com.investinator.evidence.NormalizedEvidenceTest",
+      "test": "boundsPayloadsAndRejectsInvalidIdentity",
+      "result": "PASS",
+      "seconds": 0.024
+    },
+    {
+      "class": "com.investinator.remediation.RemediationIntegrationTest",
+      "test": "changedParametersDefinitionOrReviewHashAreRejected",
+      "result": "PASS",
+      "seconds": 0.167
+    },
+    {
+      "class": "com.investinator.remediation.RemediationIntegrationTest",
+      "test": "databaseFailureBeforeReceiptRollsBackReplayMutation",
+      "result": "PASS",
+      "seconds": 0.15
+    },
+    {
+      "class": "com.investinator.remediation.RemediationIntegrationTest",
+      "test": "tokensAndBodyRoleSpoofingCannotConferApproval",
+      "result": "PASS",
+      "seconds": 0.146
+    },
+    {
+      "class": "com.investinator.remediation.RemediationIntegrationTest",
+      "test": "legacyAliasesCannotBypassGovernedPlanAndReadOnlyEnterpriseModesDenyWrites",
+      "result": "PASS",
+      "seconds": 0.121
+    },
+    {
+      "class": "com.investinator.remediation.RemediationIntegrationTest",
+      "test": "approvalAndAckNeverResolveWithoutIndependentFreshPostState",
+      "result": "PASS",
+      "seconds": 0.168
+    },
+    {
+      "class": "com.investinator.remediation.RemediationIntegrationTest",
+      "test": "expiredRevokedAndStaleResourcePreconditionsDenyExecution",
+      "result": "PASS",
+      "seconds": 0.24
+    },
+    {
+      "class": "com.investinator.remediation.RemediationIntegrationTest",
+      "test": "monitoredDiskIncidentCanBindOnlyAnExplicitReplaySandboxAndFollowLifecycle",
+      "result": "PASS",
+      "seconds": 0.313
+    },
+    {
+      "class": "com.investinator.remediation.RemediationIntegrationTest",
+      "test": "partialSuccessRetainsReceiptAndRequiresExplicitRecovery",
+      "result": "PASS",
+      "seconds": 0.122
+    },
+    {
+      "class": "com.investinator.remediation.RemediationIntegrationTest",
+      "test": "repeatedParallelAndWrongTenantExecutionHaveOnlyOneEffect",
+      "result": "PASS",
+      "seconds": 0.138
+    },
+    {
+      "class": "com.investinator.remediation.RemediationIntegrationTest",
+      "test": "acknowledgementWithoutEffectIsNotSuccess",
+      "result": "PASS",
+      "seconds": 0.153
+    },
+    {
+      "class": "com.investinator.remediation.RemediationIntegrationTest",
+      "test": "interruptedAfterEffectRecoversReceiptButStillRequiresIndependentSample",
+      "result": "PASS",
+      "seconds": 0.139
+    },
+    {
+      "class": "com.investinator.remediation.RemediationIntegrationTest",
+      "test": "interruptedBeforeEffectIsManualAndNeverAutomaticallyRetried",
+      "result": "PASS",
+      "seconds": 0.124
+    },
+    {
+      "class": "com.investinator.remediation.RemediationIntegrationTest",
+      "test": "namedRollbackRequiresOwnApprovalAndIndependentRestorationVerification",
+      "result": "PASS",
+      "seconds": 0.165
+    },
+    {
+      "class": "com.investinator.remediation.RemediationIntegrationTest",
+      "test": "staleSamplesAndCallerClaimedChecksCannotVerify",
+      "result": "PASS",
+      "seconds": 0.13
+    },
+    {
+      "class": "com.investinator.chat.MissingProviderConfigurationTest",
+      "test": "absentOptionalKeyNeverBlocksCoreStartupOrCreatesProviderClient",
+      "result": "PASS",
+      "seconds": 0.002
+    },
+    {
+      "class": "com.investinator.chat.ChatPersistenceTest",
+      "test": "functionLoopExecutesActualReadOnlyKafkaAdminAgainstRealKraftBroker",
+      "result": "PASS",
+      "seconds": 0.77
+    },
+    {
+      "class": "com.investinator.chat.ChatPersistenceTest",
+      "test": "officialSdkBeanPersistsRedactedHistoryEncryptedContinuationAndIdempotentFollowups",
+      "result": "PASS",
+      "seconds": 0.058
+    },
+    {
+      "class": "com.investinator.chat.ChatPersistenceTest",
+      "test": "toolsRejectCrossTenantArgumentsNoIncidentAndUnsupportedApproval",
+      "result": "PASS",
+      "seconds": 0.015
+    },
+    {
+      "class": "com.investinator.connectors.RestDiagnosticConnectorTest",
+      "test": "missingConfigurationUnsupportedRangerAndUnsafeEndpointDoNotMakeNetworkCalls",
+      "result": "PASS",
+      "seconds": 0.038
+    },
+    {
+      "class": "com.investinator.connectors.RestDiagnosticConnectorTest",
+      "test": "everySupportedRestAdapterUsesAuthenticatedGetOnlyAndBoundsReturnedFacts",
+      "result": "PASS",
+      "seconds": 0.167
+    },
+    {
+      "class": "com.investinator.connectors.RestDiagnosticConnectorTest",
+      "test": "authorizationVersionMalformedAndServerFailuresNeverLookHealthy",
+      "result": "PASS",
+      "seconds": 0.139
+    },
+    {
+      "class": "com.investinator.connectors.RestDiagnosticConnectorTest",
+      "test": "configuredSemanticFailuresAreDegraded",
+      "result": "PASS",
+      "seconds": 0.075
+    },
+    {
+      "class": "com.investinator.config.EvidenceTransportConfigurationTest",
+      "test": "nonLocalPlaintextUserinfoAndEnterpriseModeAreRejected",
+      "result": "PASS",
+      "seconds": 0.001
+    },
+    {
+      "class": "com.investinator.config.EvidenceTransportConfigurationTest",
+      "test": "officialTransportConstructsAndClosesWithoutNetworkCalls",
+      "result": "PASS",
+      "seconds": 0.004
+    },
+    {
+      "class": "com.investinator.connectors.KafkaModeTest",
+      "test": "brokerConfigReliablySeparatesKraftFromLegacyAndUnknown",
+      "result": "PASS",
+      "seconds": 1.275
+    },
+    {
+      "class": "com.investinator.knowledge.KnowledgeDocumentTest",
+      "test": "configurationSourcesRedactQuotedCredentialsAndPrivateKeysWithoutLosingStructure",
+      "result": "PASS",
+      "seconds": 0.004
+    },
+    {
+      "class": "com.investinator.knowledge.KnowledgeDocumentTest",
+      "test": "hashesChunksNormalizationAndDedupAreDeterministicAndTenantSpecific",
+      "result": "PASS",
+      "seconds": 0.021
+    },
+    {
+      "class": "com.investinator.knowledge.KnowledgeDocumentTest",
+      "test": "injectionQuarantineAndSourceReferenceValidation",
+      "result": "PASS",
+      "seconds": 0.003
+    },
+    {
+      "class": "com.investinator.connectors.HiveMetastoreConnectorTest",
+      "test": "actualDigestSaslThriftFixtureAllowsOnlyVersionAndNamespaceReads",
+      "result": "PASS",
+      "seconds": 0.051
+    },
+    {
+      "class": "com.investinator.connectors.NativeConnectorTest",
+      "test": "hiveOnlyExecutesOneFixedBoundedReadAndClosesResources",
+      "result": "PASS",
+      "seconds": 0.472
+    },
+    {
+      "class": "com.investinator.connectors.NativeConnectorTest",
+      "test": "hiveUnsafeTransportDuplicateTlsAndUninstalledDriverAreExplicit",
+      "result": "PASS",
+      "seconds": 0.002
+    },
+    {
+      "class": "com.investinator.connectors.NativeConnectorTest",
+      "test": "nativePrivateServicesWithoutCredentialsAreNotConfigured",
+      "result": "PASS",
+      "seconds": 0.001
+    },
+    {
+      "class": "com.investinator.connectors.NativeConnectorTest",
+      "test": "kuduUsesOnlyOfficialReadRpcsAndDoesNotInventQuorumOrServerVersion",
+      "result": "PASS",
+      "seconds": 0.151
+    },
+    {
+      "class": "com.investinator.correlation.CorrelationEngineTest",
+      "test": "timeVersionedGraphDoesNotUseFutureOrExpiredEdges",
+      "result": "PASS",
+      "seconds": 0.001
+    },
+    {
+      "class": "com.investinator.correlation.CorrelationEngineTest",
+      "test": "modeSkewReverseTimeAndHealthyCounterevidenceAreRespected",
+      "result": "PASS",
+      "seconds": 0.003
+    },
+    {
+      "class": "com.investinator.correlation.CorrelationEngineTest",
+      "test": "independentKraftAndLegacyChainsRankUpstreamWithTraceableEvidence",
+      "result": "PASS",
+      "seconds": 0.005
+    },
+    {
+      "class": "com.investinator.correlation.CorrelationEngineTest",
+      "test": "healthyZooKeeperAndExhaustedDiskPreferDiskNotCoordination",
+      "result": "PASS",
+      "seconds": 0.002
+    },
+    {
+      "class": "com.investinator.correlation.CorrelationEngineTest",
+      "test": "simulatedDataCannotCorroborateLiveHypothesis",
+      "result": "PASS",
+      "seconds": 0.002
+    },
+    {
+      "class": "com.investinator.correlation.CorrelationEngineTest",
+      "test": "crossTenantConflictingEvidenceAndInventedGraphEdgesFail",
+      "result": "PASS",
+      "seconds": 0.003
+    },
+    {
+      "class": "com.investinator.correlation.CorrelationEngineTest",
+      "test": "noEvidenceNormalDuplicatesAndInjectionNeverCreateConfirmedCause",
+      "result": "PASS",
+      "seconds": 0.203
+    },
+    {
+      "class": "com.investinator.monitoring.MonitoringIntegrationTest",
+      "test": "legacyAndNifiHdfsRulesAreExplicitlyVersionScoped",
+      "result": "PASS",
+      "seconds": 0.158
+    },
+    {
+      "class": "com.investinator.monitoring.MonitoringIntegrationTest",
+      "test": "connector503SamplesAreUnknownNotSynthesizedAsHealthyOrPrompted",
+      "result": "PASS",
+      "seconds": 0.133
+    },
+    {
+      "class": "com.investinator.monitoring.MonitoringIntegrationTest",
+      "test": "duplicateStormOutOfOrderUpstreamChangesAndMissingProviderStayBounded",
+      "result": "PASS",
+      "seconds": 1.758
+    },
+    {
+      "class": "com.investinator.monitoring.MonitoringIntegrationTest",
+      "test": "dbFailureRollsBackIncidentOutboxAndCheckpointThenResumes",
+      "result": "PASS",
+      "seconds": 0.105
+    },
+    {
+      "class": "com.investinator.monitoring.MonitoringIntegrationTest",
+      "test": "hdfsOriginPrecedesNifiBackpressureAndDatasetDelay",
+      "result": "PASS",
+      "seconds": 0.117
+    },
+    {
+      "class": "com.investinator.monitoring.MonitoringIntegrationTest",
+      "test": "unknownStaleModeIsolationAndHysteresisDoNotInventHealth",
+      "result": "PASS",
+      "seconds": 0.084
+    },
+    {
+      "class": "com.investinator.monitoring.MonitoringIntegrationTest",
+      "test": "longFlapCooldownAndNewCauseAreNotConfused",
+      "result": "PASS",
+      "seconds": 0.166
+    },
+    {
+      "class": "com.investinator.monitoring.MonitoringIntegrationTest",
+      "test": "parallelWorkersRestartCheckpointAndLifecycleAreDurable",
+      "result": "PASS",
+      "seconds": 0.124
+    },
+    {
+      "class": "com.investinator.monitoring.MonitoringIntegrationTest",
+      "test": "notificationOutageHasBoundedRetriesAndDoesNotCallGpt",
+      "result": "PASS",
+      "seconds": 0.118
+    },
+    {
+      "class": "com.investinator.knowledge.KnowledgeUnavailableTest",
+      "test": "configuredButUnavailableIndexCannotClaimLiveRetrievalOrInventHits",
+      "result": "PASS",
+      "seconds": 0.37
+    },
+    {
+      "class": "com.investinator.health.HealthAggregatorTest",
+      "test": "concurrentRefreshesShareCompletedReportInsteadOfAnEmptyResult",
+      "result": "PASS",
+      "seconds": 0.034
+    },
+    {
+      "class": "com.investinator.health.HealthAggregatorTest",
+      "test": "cacheDoesNotIssueNewCallsAndOptionalNotConfiguredIsExplicit",
+      "result": "PASS",
+      "seconds": 0.006
+    },
+    {
+      "class": "com.investinator.health.HealthAggregatorTest",
+      "test": "retriesTransientFailuresButNeverEchoesExceptionSecrets",
+      "result": "PASS",
+      "seconds": 0.051
+    },
+    {
+      "class": "com.investinator.health.HealthAggregatorTest",
+      "test": "boundedParallelismAndQueueSaturationAreTruthful",
+      "result": "PASS",
+      "seconds": 0.144
+    },
+    {
+      "class": "com.investinator.health.HealthAggregatorTest",
+      "test": "settingsRejectUnboundedConcurrency",
+      "result": "PASS",
+      "seconds": 0.001
+    },
+    {
+      "class": "com.investinator.health.HealthAggregatorTest",
+      "test": "persistentFailureOpensCircuitAndRecoversAfterCooldown",
+      "result": "PASS",
+      "seconds": 0.048
+    },
+    {
+      "class": "com.investinator.health.HealthAggregatorTest",
+      "test": "timeoutReturnsPartialWithoutLosingSuccessfulChecks",
+      "result": "PASS",
+      "seconds": 0.062
+    },
+    {
+      "class": "com.investinator.health.HealthAggregatorTest",
+      "test": "mandatoryUnconfiguredCannotBeReady",
+      "result": "PASS",
+      "seconds": 0.003
+    },
+    {
+      "class": "com.investinator.evidence.EvidenceEnabledContextTest",
+      "test": "enabledSdkBeanIsFullyIntrospectableWithoutRemoteCalls",
+      "result": "PASS",
+      "seconds": 0.004
+    },
+    {
+      "class": "com.investinator.health.HealthApiSecurityTest",
+      "test": "privateReportRequiresScopedTokenAndReportsNoPaidCalls",
+      "result": "PASS",
+      "seconds": 0.024
+    },
+    {
+      "class": "com.investinator.connectors.LegacyZooKeeperConnectorTest",
+      "test": "actualIsolatedServerRequiresDigestAclAndDiagnosisNeverChangesZnode",
+      "result": "PASS",
+      "seconds": 0.649
+    },
+    {
+      "class": "com.investinator.connectors.LegacyZooKeeperConnectorTest",
+      "test": "kraftNeverContactsZooKeeperEvenIfEndpointIsConfigured",
+      "result": "PASS",
+      "seconds": 0.007
+    }
+  ]
+}

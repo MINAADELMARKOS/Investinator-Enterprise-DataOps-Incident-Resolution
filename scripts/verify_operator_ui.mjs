@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Owned local lab only. Never logs credentials, cookies, message bodies or error traces.
 import { createRequire } from 'node:module';
-import { readFileSync, mkdirSync, writeFileSync } from 'node:fs';
+import { readFileSync, mkdirSync, writeFileSync, existsSync } from 'node:fs';
 import { resolve } from 'node:path';
 const root = resolve(import.meta.dirname, '..');
 const require = createRequire(resolve(root, 'apps/web/package.json'));
@@ -98,7 +98,20 @@ try {
     await expect(operator.page.getByText('Monitoring', { exact: false }).filter({hasText:'RUNNING'}).last()).toBeVisible();
     if (initialMonitor.paused) await operator.page.getByRole('button', { name: 'Pause demo monitoring', exact: true }).click();
   }
-  await operator.page.screenshot({ path: resolve(out, 'monitoring.png'), fullPage: true }); await operator.context.close(); pass(step);
+  await operator.page.screenshot({ path: resolve(out, 'monitoring.png'), fullPage: true }); pass(step);
+  const graphMarker = resolve(root, '.runtime/causal-kafka-kraft.json');
+  if (existsSync(graphMarker)) {
+    step = 'bound incident graph and uncertainty';
+    const causal = JSON.parse(readFileSync(graphMarker));
+    await operator.page.goto(base + '/nervemap');
+    await operator.page.getByLabel('Monitored incident graph').selectOption(causal.incident_id);
+    await expect(operator.page.getByText('Hypothesis 1: network', { exact: false })).toBeVisible();
+    await expect(operator.page.getByText('None — correlation is not causal confirmation', { exact: false })).toBeVisible();
+    await operator.page.getByText('Time-aligned observations', { exact: true }).click();
+    await expect(operator.page.getByRole('cell', { name: 'network · NETWORK_UNSTABLE', exact: true })).toHaveCount(2);
+    await operator.page.screenshot({ path: resolve(out, 'bound-graph.png'), fullPage: true }); pass(step);
+  }
+  await operator.context.close();
   step = 'governed workflow';
   async function planPage(role) { const r = await login(role); await r.page.goto(base + '/incidents/' + incident); await expect(r.page.getByRole('button', { name: 'Refresh durable status' })).toBeVisible(); if (planId) { await r.page.getByLabel('Stored plan').selectOption(planId); await expect(r.page.getByText('Immutable action review', { exact: false })).toBeVisible(); } return r; }
   async function reviewed(p) { await p.getByRole('checkbox', { name: 'I reviewed this exact target', exact: false }).check(); }

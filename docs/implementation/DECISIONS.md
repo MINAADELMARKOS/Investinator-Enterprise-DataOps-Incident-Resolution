@@ -360,3 +360,9 @@ only. Missing/stale health becomes UNKNOWN, not seeded-score health. Bounded
 monitor controls persist separately from versioned thresholds. Governed UI mirrors
 server-owned immutable plans and distinct capabilities; independent current sampling
 is mandatory. Rollback frontend routing without deleting schemas or evidence.
+
+## Prompt 13 checkpoint
+
+ADR 022 (2026-11-18): keep fixed scoped lab commands, representative legacy separate from actual KRaft, repeatable durable event identities and fresh-checkout ownership/ports. CI publishes only sanitized fixed artifacts and fails dependency scans on errors instead of laundering unavailable OSV as clean. Next.js 16.4.5 lock and Python default persist. Cached local reproduction is distinct from cold hosted runner proof.
+
+Prompt 13 local final: fresh-checkout full acceptance and all eight owned outage/recovery cases PASS; additional actual bound-graph browser run PASS (14 checks). See prompt13/fresh-checkout.json and outages.json. Local Java OSV audit remains BLOCKED; hosted CI pending. No production readiness or live GPT claim.

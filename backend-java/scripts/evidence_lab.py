@@ -139,6 +139,8 @@ def verify():
             # Json encoding requires dependency jars; use Maven's captured runtime classpath.
             cp = str(classpath) + os.pathsep + (ROOT / "backend-java/target/runtime-classpath.txt").read_text().strip()
             subprocess.run([java, "-cp", cp, "com.investinator.evidence.EvidenceFixtureGenerator", str(fixture)], check=True, stdout=subprocess.DEVNULL)
+            # A malformed log line must reach rejection, never become normalized evidence.
+            (fixture / "corrupt.ndjson").write_text('{"tenant_id":"demo","broken":\n')
             for file in fixture.iterdir():
                 file.chmod(0o644)
             exports = directory / "exports"
@@ -147,12 +149,16 @@ def verify():
             exports.chmod(0o777)
             docker("run", "-d", "--name", names["collector"], "--network", network, "--network-alias", "evidence-collector", "-p", "127.0.0.1::4318", "-p", "127.0.0.1::13133", "--mount", f"type=bind,src={ROOT / 'infra/evidence/collector.yaml'},dst=/etc/otelcol/config.yaml,readonly", "--mount", f"type=bind,src={exports},dst=/exports", OTEL_IMAGE, "--config=/etc/otelcol/config.yaml")
             diagnostic_config = directory / "forwarder.conf"
-            diagnostic_config.write_text((ROOT / "infra/evidence/fluent-bit.conf").read_text().replace("Index              investinator-traces", "Index              investinator-traces\n    Trace_Error        On"))
+            diagnostic_config.write_text((ROOT / "infra/evidence/fluent-bit.conf").read_text().replace("Index              investinator-evidence", "Index              investinator-evidence\n    Trace_Error        On").replace("Index              investinator-traces", "Index              investinator-traces\n    Trace_Error        On"))
             diagnostic_config.chmod(0o644)
             docker("run", "-d", "--name", names["fluent"], "--network", network, "-e", "EVIDENCE_WRITER_PASSWORD", "-e", "NO_PROXY", "-e", "no_proxy", "--mount", f"type=bind,src={diagnostic_config},dst=/fluent-bit/etc/fluent-bit.conf,readonly", "--mount", f"type=bind,src={ROOT / 'infra/evidence/evidence-parsers.conf'},dst=/fluent-bit/etc/evidence-parsers.conf,readonly", "--mount", f"type=bind,src={fixture},dst=/fixtures,readonly", "--mount", f"type=bind,src={exports},dst=/exports,readonly", "--tmpfs", "/buffers", FLUENT_IMAGE, env=env)
             health = "http://127.0.0.1:" + port(names["collector"], 13133)
             wait_for(lambda: request(health, "/")["status"] == "Server available", 30)
             wait_for(lambda: admin(f"/{INDEX}/_count")["count"] == 4, 60)
+            def corrupt_rejected():
+                output = subprocess.run([*DOCKER, "logs", names["fluent"]], capture_output=True, text=True)
+                return "Required normalized evidence field missing" in output.stdout + output.stderr
+            wait_for(corrupt_rejected, 30)
             admin(f"/{INDEX}/_refresh", {}, "POST")
             # Reader is genuinely read-only; writer is not permitted to search.
             for user, password, path, body in (("evidence_reader", env["EVIDENCE_READER_PASSWORD"], f"/{INDEX}/_doc/not-allowed", {"message": "denied"}), ("evidence_writer", env["EVIDENCE_WRITER_PASSWORD"], f"/{INDEX}/_search", {})):
@@ -224,7 +230,7 @@ def verify():
             process.terminate()
             process.wait(timeout=20)
             log.close()
-        print(json.dumps({"status": "PASS", "source_mode": "SIMULATED", "retrieval_mode": "LIVE", "normalized_documents": 4, "visible_tenant_documents": 3, "deduplication": "PASS", "redaction": "PASS", "tenant_filter": "PASS", "read_only_roles": "PASS", "pagination_and_filters": "PASS", "unsafe_inputs_denied": "PASS", "trace_arrival": "PASS", "prometheus_query": "PASS", "unavailable_search": "PASS", "no_paid_model_call": True}))
+        print(json.dumps({"status": "PASS", "source_mode": "SIMULATED", "retrieval_mode": "LIVE", "normalized_documents": 4, "visible_tenant_documents": 3, "deduplication": "PASS", "redaction": "PASS", "tenant_filter": "PASS", "read_only_roles": "PASS", "pagination_and_filters": "PASS", "unsafe_inputs_denied": "PASS", "trace_arrival": "PASS", "prometheus_query": "PASS", "unavailable_search": "PASS", "corrupt_log_rejected_by_native_pipeline": "PASS", "no_paid_model_call": True}))
     except Exception:
         destination = ROOT / "backend-java/target/evidence-lab-logs"
         destination.mkdir(parents=True, exist_ok=True)

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Disposable PostgreSQL/Java-process monitoring acceptance; SIMULATED input only."""
 
+import argparse
 import importlib.util
 import json
 import os
@@ -23,6 +24,10 @@ ROOT = persistence.ROOT
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--output", type=Path, default=ROOT / "docs/implementation/prompt10/process-restart.json")
+    args = parser.parse_args()
+    args.output.parent.mkdir(parents=True, exist_ok=True)
     name = "investinator-monitor-check-" + uuid.uuid4().hex[:10]
     token = secrets.token_urlsafe(24)
     graph_token = secrets.token_urlsafe(24)
@@ -222,7 +227,7 @@ def main():
                 "external_action": False,
                 "paid_provider_calls": 0,
             }
-            (ROOT / "docs/implementation/prompt10/process-restart.json").write_text(
+            args.output.write_text(
                 json.dumps(result, indent=2) + "\n"
             )
             print(

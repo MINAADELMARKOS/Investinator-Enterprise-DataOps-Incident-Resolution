@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Actual isolated Java/PostgreSQL restart, approval, verification and named rollback."""
 
+import argparse
 import importlib.util
 import json
 import os
@@ -22,6 +23,10 @@ spec.loader.exec_module(fixture)
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--output", type=Path, default=fixture.ROOT / "docs/implementation/prompt11/process-acceptance.json")
+    args = parser.parse_args()
+    args.output.parent.mkdir(parents=True, exist_ok=True)
     name = "investinator-recovery-check-" + uuid.uuid4().hex[:10]
     tokens = {
         role: secrets.token_urlsafe(24)
@@ -206,9 +211,7 @@ def main():
                 "production_actions": 0,
                 "paid_provider_calls": 0,
             }
-            (
-                fixture.ROOT / "docs/implementation/prompt11/process-acceptance.json"
-            ).write_text(json.dumps(result, indent=2) + "\n")
+            args.output.write_text(json.dumps(result, indent=2) + "\n")
             print(
                 "PASS governed ReplayLab recovery/restart, independent verification and named rollback"
             )

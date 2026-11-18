@@ -135,3 +135,9 @@ remain loopback-only; OIDC/TLS/audit/DR are production gates. Browser outages ar
 labeled MOCKED; actual provider availability and human quality remain unverified.
 Current Next 16.4.5 audit has zero findings; older critical-Next statements above are
 historical, not a current diagnosis. Doctor no longer repeats that stale advisory.
+
+## Prompt 13 checkpoint
+
+Prompt 13: known local pip installer advisories were remediated with 26.3; rerun has zero findings. Java advisory lookup for 233 resolved packages is BLOCKED by OSV egress; build/security maintainer must verify hosted scan. Host disk exhaustion is a lab capacity risk; reserve documented disk budget, retain volumes, fail readiness rather than infer health.
+
+Prompt 13 local final: fresh-checkout full acceptance and all eight owned outage/recovery cases PASS; additional actual bound-graph browser run PASS (14 checks). See prompt13/fresh-checkout.json and outages.json. Local Java OSV audit remains BLOCKED; hosted CI pending. No production readiness or live GPT claim.

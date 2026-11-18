@@ -87,3 +87,9 @@ old timestamps and errors visibly. Public login + actual health proxy are the
 native Next probe, while operational pages require signed demo sessions.
 Actual Java/Python browser flows pass; provider-less turns remain fallback, no live
 GPT success or measured cost is claimed. See prompt12/results.json.
+
+## Prompt 13 checkpoint
+
+Prompt 13: separate actual corrupt-log validation/auth403/search outage and monitoring/remediation process restart checks pass. Fresh owned service outage/hosted acceptance pending. Actual GPT remains NOT_CONFIGURED and SDK provider fixtures remain MOCKED. Representative legacy graph is not a live legacy Kafka cluster.
+
+Prompt 13 local final: fresh-checkout full acceptance and all eight owned outage/recovery cases PASS; additional actual bound-graph browser run PASS (14 checks). See prompt13/fresh-checkout.json and outages.json. Local Java OSV audit remains BLOCKED; hosted CI pending. No production readiness or live GPT claim.

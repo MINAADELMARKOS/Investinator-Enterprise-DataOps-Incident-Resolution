@@ -259,3 +259,9 @@ the private schema. 107 Java/26 CLI/12 Python/8 frontend tests, build/types/audi
 actual Chromium Java+Python workflow checks pass; see prompt12/REPORT.md and artifacts.
 No paid GPT or production action. Demo capabilities do not prove human independence.
 Next gate: commit Prompt 12, then user-authorized Prompt 13 fresh checkout/hosted CI.
+
+## Prompt 13 checkpoint
+
+Prompt 12 is committed as bfe757b. Prompt 13 implementation/checkpoints are in progress: fixed causal demos, read-only investigate, local api restart alias, isolated fresh-checkout harness and hosted E2E/security gates. Local Java/CLI/Python/frontend and process/evidence checks pass. Fresh outage and hosted CI acceptance pending; Java OSV scan blocked by proxy. No production action or paid GPT call.
+
+Prompt 13 local final: fresh-checkout full acceptance and all eight owned outage/recovery cases PASS; additional actual bound-graph browser run PASS (14 checks). See prompt13/fresh-checkout.json and outages.json. Local Java OSV audit remains BLOCKED; hosted CI pending. No production readiness or live GPT claim.
