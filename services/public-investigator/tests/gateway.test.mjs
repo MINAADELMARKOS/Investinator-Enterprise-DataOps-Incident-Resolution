@@ -47,3 +47,8 @@ test("invalid UTF-8 cannot silently enter a public prompt",async()=>{
   const r=await worker.fetch(new Request("https://worker.example/chat",{method:"POST",headers:{Origin:origin,"Content-Type":"application/json"},body:new Uint8Array([0xc3,0x28])}),fixtureConfig);
   assert.equal(r.status,422);
 });
+
+test("configured gateway health never certifies actual provider traffic",async()=>{
+  const r=await worker.fetch(new Request("https://worker.example/health",{headers:{Origin:origin}}),fixtureConfig);
+  const body=await r.json();assert.equal(body.ready,true);assert.equal(body.configuration_only,true);assert.equal(body.provider_validation,"NOT_TESTED");
+});

@@ -131,13 +131,13 @@ export default function LiveInvestigator() {
     <div className="page-heading"><div><div className="eyebrow">AI PLATFORM / DISTRIBUTED DATA RELIABILITY</div><h1>Investigator</h1><p>Trace the originating fault across dependent systems. Investigate evidence, alternative hypotheses, and safe diagnostic checks.</p></div></div>
     <div className="preview-banner" role="note"><span>DATA PROVENANCE://</span> Public domain knowledge and synthetic incident context only. No private Elasticsearch, Kafka, Cloudera or real company telemetry is connected to this page.</div>
     <div className="investigator-live-top">
-      <span className={`investigator-state ${live?"ready":"offline"}`}>{live?<Wifi size={15}/>:<WifiOff size={15}/>} {status==="CHECKING"?"Checking live GPT gateway":live?"LIVE GPT GATEWAY READY":status==="UNAVAILABLE"?"GPT gateway unavailable":"OFFLINE GUIDED PREVIEW"}</span>
+      <span className={`investigator-state ${live?"ready":"offline"}`}>{live?<Wifi size={15}/>:<WifiOff size={15}/>} {status==="CHECKING"?"Checking live GPT gateway":live?"GPT GATEWAY CONFIGURED":status==="UNAVAILABLE"?"GPT gateway unavailable":"OFFLINE GUIDED PREVIEW"}</span>
       <span className="investigator-source">Root cause analysis · RAG · Read only</span>
       <button type="button" className="button" onClick={reset}><RotateCcw size={15}/> New conversation</button>
     </div>
     <div className="grid grid-2 investigator-live-layout">
       <section className="panel investigator-chat-panel">
-        <div className="panel-heading"><h2><Bot size={19}/> Distributed Systems Investigator</h2><span>{live?"Generated GPT responses":"Deterministic guided walkthrough"}</span></div>
+        <div className="panel-heading"><h2><Bot size={19}/> Distributed Systems Investigator</h2><span>{live?"Provider configured; actual responses labeled below":"Deterministic guided walkthrough"}</span></div>
         <div className="panel-body investigator-thread" aria-live="polite" aria-relevant="additions">
           {turns.length===0&&<div className="investigator-welcome"><div className="investigator-hero-symbol"><Bot size={30}/></div><h3>Find where the incident really started.</h3><p>Kafka might report a timeout, while the originating fault is in a control plane, network dependency or downstream storage system.</p><div className="investigator-suggestions">{suggestedQuestions.map(q=><button key={q} onClick={()=>setInput(q)}>{q} →</button>)}</div></div>}
           {turns.map((turn,index)=><div key={index} className={`investigator-turn ${turn.role}`}><div className="investigator-turn-label">{turn.role==="user"?"YOU":turn.mode==="LIVE_GPT_PUBLIC_RAG"?"GPT · PUBLIC RAG":"OFFLINE GUIDED SAMPLE"}</div><div className="investigator-turn-text">{turn.content}</div>{turn.refs?.length? <div className="investigator-ref-list"><BookOpen size={15}/>{turn.refs.map(ref=>ref.url?<a key={ref.id} href={ref.url} target="_blank" rel="noreferrer" title={ref.title}>{ref.id} ↗</a>:<span key={ref.id} title={ref.title}>{ref.id}</span>)}</div>:null}</div>)}

@@ -129,7 +129,7 @@ async function handler(request,env) {
   if(url.pathname==="/health"&&request.method==="GET"){
     // Only the public origin receives widget configuration. Do not disclose secret values or quota state.
     if(!headers)return json({error:"Forbidden origin"},403);
-    return json({ready:configReady(env),mode:"PUBLIC_READ_ONLY_RAG",site_key:configReady(env)?env.TURNSTILE_SITE_KEY:null,source:"PUBLIC_CURATED_AND_SIMULATED"},200,headers);
+    return json({ready:configReady(env),configuration_only:true,provider_validation:"NOT_TESTED",mode:"PUBLIC_READ_ONLY_RAG",site_key:configReady(env)?env.TURNSTILE_SITE_KEY:null,source:"PUBLIC_CURATED_AND_SIMULATED"},200,headers);
   }
   if(url.pathname!=="/chat")return json({error:"Not found"},404,headers||{});
   if(!headers)return json({error:"Origin forbidden"},403);
