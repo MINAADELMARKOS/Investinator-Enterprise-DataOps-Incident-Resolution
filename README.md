@@ -33,11 +33,13 @@ Explore the [public GitHub Pages UI preview](https://minaadelmarkos.github.io/In
 
 ## Java AI architecture — next implementation stages
 
-The current `main` runtime is Python/FastAPI with Next.js. The Java 21/Spring Boot modules described in the user-reported local Prompt 03–09 reports **have not yet been pushed to this repository**. Java should remain an opt-in, private-schema migration with Python as the fallback until the independently verified stage gates pass.
+The Java 21 / Spring Boot foundation from Prompts 02–09 was merged into `main` through PR #6. Later Java monitoring, governed ReplayLab remediation, opt-in Next.js operator workflows, E2E lab and security hardening through Prompt 14 are **pushed to `feature/java-ai-audit` but are not yet merged into `main`**. Python/FastAPI remains the default backend; Java uses its own Flyway schema and opt-in routing. Production release remains **BLOCKED** by the documented security and certification requirements.
 
 - [Five-layer Java architecture v2](docs/roadmap/JAVA_AI_ARCHITECTURE_V2.md): Infrastructure, Model, Platform, Agent, Application, including verified-vs-reported status.
 - [Version 2 execution prompts (09A–16)](docs/roadmap/POST_P09_PROMPTS_V2.md): Sync and evaluation first, then monitoring, remediation, frontend, E2E, security, handover and optional cutover.
-- [Safe synchronization of the local Codex Java worktree](docs/roadmap/SYNC_JAVA_WORKTREE.md): recover local commits and incorporate main without force-pushing or deleting work.
+- [Prompt 10–14 gap audit and current remote evidence](docs/roadmap/POST_P14_GAP_AUDIT_2026-11-18.md): what has passed, what remains blocked, and where to verify it.
+- [Consolidated Prompt 14B — remediation, full verification and push](docs/roadmap/PROMPT_14B_SINGLE_REMEDIATION_AND_PUSH.md): one coding-agent instruction to close code-addressable gaps without bypassing production gates.
+- [Historical synchronization of the local Codex Java worktree](docs/roadmap/SYNC_JAVA_WORKTREE.md): recover local commits and incorporate main without force-pushing or deleting work.
 
 The public Pages experience remains an explicitly synthetic static preview; it does not host the Java API or live GPT connections.
 
@@ -79,13 +81,9 @@ npm run dev
 
 Copy `.env.example` to `.env` to configure optional models or a different database. Environment files are ignored by Git. The web app proxies API calls server-side; the OpenAI key stays in the API environment.
 
-## Optional Java scaffold
+## Optional Java backend
 
-Prompt 02 adds an independent Java 21 / Spring Boot service on port 8081.
-Python still serves the application; the Next.js interface is unchanged.
-See [Java setup, persistence and smoke checks](backend-java/README.md), plus the
-[normalized evidence lab](infra/evidence/README.md). Both remain opt-in; production
-execution and automatic UI cutover are disabled.
+The Java 21 / Spring Boot service is an **opt-in** implementation with its own persistence and governed local ReplayLab. See [Java setup and smoke checks](backend-java/README.md), [normalized evidence lab](infra/evidence/README.md), and [current Prompt 14 status](docs/roadmap/POST_P14_GAP_AUDIT_2026-11-18.md). The normal Compose flow and Python default remain supported. Do not enable Java production routing or enterprise actions without a separately reviewed cutover.
 
 ## Verify and evaluate
 
