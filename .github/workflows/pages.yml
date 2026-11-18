@@ -33,6 +33,9 @@ jobs:
       - name: Build static preview
         run: npm run build
         working-directory: apps/showcase
+        env:
+          # Public HTTPS URL only; NO credentials in the static bundle.
+          VITE_INVESTINATOR_PUBLIC_CHAT_API: ${{ vars.INVESTINATOR_PUBLIC_CHAT_API }}
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

@@ -2,7 +2,6 @@ import {
   useEffect,
   useState,
   type CSSProperties,
-  type FormEvent,
   type ReactNode,
 } from "react";
 import {
@@ -26,6 +25,7 @@ import {
 } from "lucide-react";
 import mark from "../../web/public/brand/investinator-mark.svg";
 import JavaPreview from "./JavaPreview";
+import LiveInvestigator from "./LiveInvestigator";
 import { entities, links, routeGroups, scenarios, type Scenario } from "./data";
 
 const repository =
@@ -56,7 +56,6 @@ const icons: Record<string, typeof Activity> = {
   "/about": UserRound,
 };
 type Stage = "investigating" | "approved" | "recovered" | "resolved";
-type ChatMessage = { role: "user" | "assistant"; text: string };
 
 function Badge({
   children,
@@ -160,9 +159,6 @@ export default function App() {
   const [entity, setEntity] = useState<string | null>(null);
   const [zoom, setZoom] = useState(1);
   const [search, setSearch] = useState("");
-  const [mode, setMode] = useState("investigate");
-  const [question, setQuestion] = useState("");
-  const [messages, setMessages] = useState<ChatMessage[]>([]);
   useEffect(() => {
     const onHash = () => {
       setRoute(routeFromHash());
@@ -175,24 +171,7 @@ export default function App() {
   const start = (item: Scenario) => {
     setScenario(item);
     setStage("investigating");
-    setMessages([]);
     window.location.hash = page("/incidents/PREVIEW-001");
-  };
-  const send = (event: FormEvent) => {
-    event.preventDefault();
-    const text = question.trim();
-    if (!text) return;
-    const answer = /fix|recover|action|remediat/i.test(text)
-      ? `Recommended preview action: ${scenario.action} This public page cannot approve or execute anything. Open the local stack to use the policy-controlled workflow.`
-      : /impact|blast|downstream/i.test(text)
-        ? `Downstream impact reaches ${scenario.affected.join(", ")}. Open NerveMap to inspect the seeded lineage.`
-        : `Likely cause: ${scenario.cause} Supporting synthetic evidence: ${scenario.evidence.map((item) => item.id).join(", ")}.`;
-    setMessages((items) => [
-      ...items,
-      { role: "user", text },
-      { role: "assistant", text: answer },
-    ]);
-    setQuestion("");
   };
   const selected = entities.find((item) => item.id === entity);
   const downstream = entity
@@ -832,94 +811,7 @@ export default function App() {
           </>
         );
       case "/investigator":
-        return (
-          <>
-            <Heading
-              eyebrow="Workspace / AI"
-              title="Investigator"
-              description="Ask, investigate, and plan recovery with incident evidence in view."
-            />
-            <div className="callout block-gap">
-              <strong>Java AI workflow preview.</strong> Answers here are deterministic
-              examples. The local app can use configured AI or its
-              evidence-summary fallback.
-            </div>
-            <div className="chat-layout">
-              <section className="panel chat-pane">
-                <div className="panel-heading">
-                  <h2>Investigation conversation</h2>
-                  <Badge tone="info">Evidence first</Badge>
-                </div>
-                <div className="chat-mode">
-                  {["ask", "investigate", "fix"].map((item) => (
-                    <button
-                      className={mode === item ? "selected" : ""}
-                      key={item}
-                      onClick={() => setMode(item)}
-                    >
-                      {item.toUpperCase()}
-                    </button>
-                  ))}
-                </div>
-                <div className="chat-messages" aria-live="polite">
-                  {messages.length === 0 && (
-                    <div className="callout">
-                      <strong>Start with a question.</strong>
-                      <p>
-                        Try “What caused this?”, “What is affected?”, or “How
-                        should we recover?”
-                      </p>
-                    </div>
-                  )}
-                  {messages.map((item, index) => (
-                    <div className={`chat-bubble ${item.role}`} key={index}>
-                      <div className="small text-faint">
-                        {item.role === "user" ? "YOU" : "INVESTINATOR PREVIEW"}
-                      </div>
-                      {item.text}
-                    </div>
-                  ))}
-                </div>
-                <form className="chat-compose" onSubmit={send}>
-                  <div className="terminal-input-wrap">
-                    <input
-                      className="form-input"
-                      aria-label="Message preview Investigator"
-                      placeholder="Ask about the sample incident…"
-                      value={question}
-                      onChange={(event) => setQuestion(event.target.value)}
-                    />
-                  </div>
-                  <button
-                    className="button button-primary"
-                    disabled={!question.trim()}
-                  >
-                    Send →
-                  </button>
-                </form>
-              </section>
-              <div className="stack">
-                <Panel title="Incident context">
-                  <div className="panel-body">
-                    <strong>PREVIEW-001 · {scenario.system}</strong>
-                    <p className="text-muted">{scenario.symptom}</p>
-                  </div>
-                </Panel>
-                <Panel
-                  title="Evidence"
-                  detail={`${scenario.evidence.length} items`}
-                >
-                  {scenario.evidence.map((item) => (
-                    <div className="evidence-item" key={item.id}>
-                      <strong>{item.id}</strong>
-                      <p>{item.detail}</p>
-                    </div>
-                  ))}
-                </Panel>
-              </div>
-            </div>
-          </>
-        );
+        return <LiveInvestigator />;
       case "/replaylab":
         return (
           <>

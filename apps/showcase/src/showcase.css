@@ -113,3 +113,42 @@
 .java-layer p { color:var(--muted); margin:0; }
 @media(max-width:1000px) { .java-feature-links,.java-hypothesis-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
 @media(max-width:650px) { .java-feature-links,.java-hypothesis-grid { grid-template-columns:1fr; } .java-layer { grid-template-columns:36px 1fr; padding:14px; } .java-layer .badge { grid-column:2; justify-self:start; } .java-kv { grid-template-columns:1fr; gap:5px; } .java-process>span { font-size:10px; } .java-chain-node { max-width:100%; } }
+
+
+/* Public Investigator. Chat is real only with an independently deployed secure gateway. */
+.investigator-live { min-width:0; }
+.investigator-live-top { display:flex; flex-wrap:wrap; gap:14px; align-items:center; margin-bottom:24px; }
+.investigator-live-top>.button { margin-left:auto; display:inline-flex; gap:8px; align-items:center; }
+.investigator-state { display:inline-flex; gap:9px; align-items:center; padding:10px 13px; border:1px solid #ffbd555d; color:#f5c77b; font:12px var(--font-body); letter-spacing:.06em; }
+.investigator-state.ready { color:var(--primary); border-color:#00d4ff75; }
+.investigator-source { font-size:12px; color:var(--muted); }
+.investigator-live-layout { grid-template-columns:minmax(0,1.45fr) minmax(300px,.9fr); align-items:start; }
+.investigator-chat-panel>.panel-heading h2 { display:flex; gap:10px; align-items:center; }
+.investigator-thread { min-height:360px; max-height:630px; overflow-y:auto; display:grid; gap:17px; align-content:start; padding:22px; }
+.investigator-welcome { text-align:left; padding:18px 8px 5px; max-width:670px; }
+.investigator-hero-symbol { width:54px; height:54px; display:flex; align-items:center; justify-content:center; border:1px solid #00d4ff55; color:var(--primary); margin-bottom:14px; }
+.investigator-welcome h3 { font:19px var(--font-label); margin:0 0 8px; color:var(--primary); }
+.investigator-welcome p { color:var(--muted); line-height:1.6; }
+.investigator-suggestions { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin-top:20px; }
+.investigator-suggestions button { border:1px solid #00d4ff33; background:#00d4ff08; padding:13px; text-align:left; cursor:pointer; font:12px/1.45 var(--font-body); color:var(--primary); }
+.investigator-suggestions button:hover,.investigator-suggestions button:focus-visible { border-color:var(--primary); background:#00d4ff18; }
+.investigator-turn { max-width:92%; min-width:0; padding:16px; border:1px solid #00d4ff36; background:#00d4ff08; justify-self:start; overflow-wrap:anywhere; }
+.investigator-turn.user { justify-self:end; background:#102a35; border-color:#ffbd5559; }
+.investigator-turn-label { color:var(--primary); font:10px var(--font-label); letter-spacing:.12em; margin-bottom:11px; }
+.investigator-turn.user .investigator-turn-label { color:#f5c77b; }
+.investigator-turn-text { font:13px/1.7 var(--font-body); white-space:pre-wrap; }
+.investigator-ref-list { display:flex; flex-wrap:wrap; gap:7px; align-items:center; color:var(--primary); margin-top:16px; border-top:1px solid #00d4ff2c; padding-top:12px; }
+.investigator-ref-list span,.investigator-ref-list a { font:11px var(--font-body); border:1px solid #00d4ff3d; padding:5px 7px; color:var(--primary); text-decoration:none; }\n.investigator-ref-list a:hover,.investigator-ref-list a:focus-visible { border-color:var(--primary); text-decoration:underline; }
+.investigator-compose-shell { border-top:1px solid #00d4ff36; padding:20px; }
+.investigator-input-label { display:block; color:var(--muted); margin:0 0 9px; font:11px var(--font-label); }
+.investigator-compose-shell textarea { display:block; width:100%; resize:vertical; min-height:90px; line-height:1.5; }
+.investigator-compose-footer { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; padding-top:12px; }
+.investigator-compose-footer span { font-size:11px; color:var(--muted); }
+.investigator-challenge { padding-top:14px; display:grid; gap:8px; }
+.investigator-challenge small { color:var(--muted); }
+.investigator-error { color:#ffc1b5; border:1px solid #ff6b7177; background:#ff6b710d; padding:10px; margin-top:10px; font-size:12px; }
+.investigator-context .panel-body .java-origin { margin-top:20px; }
+.investigator-context .java-timeline-item { margin-bottom:14px; }
+.investigator-context .java-timeline-item p { font-size:12px; }
+@media(max-width:1080px) { .investigator-live-layout { grid-template-columns:1fr; } .investigator-thread { max-height:560px; } }
+@media(max-width:650px) { .investigator-suggestions { grid-template-columns:1fr; } .investigator-turn { max-width:100%; } .investigator-compose-shell { padding:12px; } .investigator-thread { padding:12px; } }
