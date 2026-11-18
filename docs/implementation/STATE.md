@@ -1,3 +1,8 @@
+Prompt 14B E2E correction: retained pre-P13 marker lacked replay_events.
+Acceptance now uses a separate bounded namespace when needed, preserving original
+marker bytes/graph/timestamps. Original CLI cases remain intact. CLI 34 tests and
+full actual E2E rerun pass; initial failure is retained in 14B validation.
+
 Prompt 14B connector checkpoint: authenticated, server-tenant-bound certification
 inventory always blocks native/enterprise authorization. Native/REST negative
 fixtures and 3000-duplicate burst pass; no private target is certified.

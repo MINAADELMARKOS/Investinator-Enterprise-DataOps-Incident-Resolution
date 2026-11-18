@@ -277,6 +277,33 @@
       "source_provenance": "Resolved Maven metadata; not shaded-class or license inspection",
       "ci_run_link": null,
       "evidence": "sbom-hive.cdx.json"
+    },
+    {
+      "name": "local-e2e",
+      "command": ".venv/bin/python scripts/verify_e2e_lab.py --outages",
+      "sha": "3f88784bf7eadca4997db3fce3bd903f2bf31efc",
+      "exit_status": 1,
+      "started_at": "2026-11-18T23:16:19.177220+00:00",
+      "duration_seconds": 90.365,
+      "source_provenance": "Actual local command; credentials forced absent for test process; fixture modes remain explicit",
+      "test_number": null,
+      "ci_run_link": null,
+      "status": "FAIL_RETAINED_LEGACY_FIXTURE_MARKER",
+      "evidence_excerpt": "KeyError replay_events; historical marker preserved, not reset"
+    },
+    {
+      "name": "local-e2e-rerun",
+      "command": ".venv/bin/python scripts/verify_e2e_lab.py --outages",
+      "sha": "3f88784bf7eadca4997db3fce3bd903f2bf31efc",
+      "exit_status": 0,
+      "started_at": "2026-11-18T23:20:48.453795+00:00",
+      "duration_seconds": 222.362,
+      "source_provenance": "Actual local command; credentials forced absent for test process; fixture modes remain explicit",
+      "test_number": null,
+      "ci_run_link": null,
+      "working_tree_changes": true,
+      "source_overlay": "Separate acceptance fixture namespace fix; committed as logical E2E patch",
+      "evidence_excerpt": "Actual rerun, browser and outage outputs in runtime; copied to current report at finalization"
     }
   ]
 }

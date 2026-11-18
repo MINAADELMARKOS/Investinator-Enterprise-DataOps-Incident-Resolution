@@ -4,9 +4,14 @@ import json
 import re
 
 
-def create(cli, state, mode):
+def create(cli, state, mode, namespace=None):
+    if mode not in ("KRAFT", "LEGACY_ZOOKEEPER"):
+        raise ValueError("Fixed Kafka platform mode required")
+    if namespace is not None and not re.fullmatch(r"[a-z0-9-]{1,40}", namespace):
+        raise ValueError("Bounded fixture namespace required")
     name = "kafka-kraft" if mode == "KRAFT" else "kafka-legacy"
-    marker = cli.RUNTIME / ("causal-" + name + ".json")
+    scope = name if namespace is None else namespace + "-" + name
+    marker = cli.RUNTIME / ("causal-" + scope + ".json")
     if marker.exists():
         result = json.loads(marker.read_text())
         cli.http(cli.api(state), "/api/v1/monitor/incidents/" + result["incident_id"],
@@ -21,7 +26,7 @@ def create(cli, state, mode):
         raise RuntimeError("Demo needs its declared rules enabled; preserve and review current overrides")
     base = datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(seconds=90)
     stamp = lambda seconds: (base + datetime.timedelta(seconds=seconds)).isoformat()  # noqa: E731
-    graph_id = "lab-" + name
+    graph_id = "lab-" + scope
     coordination = "controller" if mode == "KRAFT" else "zookeeper"
     nodes = [("network", "NETWORK"), (coordination, "CONTROLLER" if mode == "KRAFT" else "ZOOKEEPER"),
              ("broker", "BROKER"), ("consumer", "CONSUMER_GROUP"), ("stream", "SPARK_JOB"),

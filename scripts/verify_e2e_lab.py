@@ -16,6 +16,9 @@ from pathlib import Path
 spec = importlib.util.spec_from_file_location("cli", Path(__file__).with_name("investinator_cli.py"))
 cli = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(cli)
+scenario_spec = importlib.util.spec_from_file_location("scenarios", Path(__file__).with_name("lab_scenarios.py"))
+scenarios = importlib.util.module_from_spec(scenario_spec)
+scenario_spec.loader.exec_module(scenarios)
 
 
 def main():
@@ -72,9 +75,19 @@ def main():
         cases = {}
         for name in ("kafka-kraft", "kafka-legacy"):
             fixture = json.loads(run("demo", name))
-            repeated = json.loads(run("demo", name))
+            original_marker = cli.RUNTIME / ("causal-" + name + ".json")
+            original_hash = hashlib.sha256(original_marker.read_bytes()).hexdigest()
+            if "replay_events" not in fixture:
+                # Preserve older operator cases; use a distinct graph/event/marker namespace.
+                mode = "KRAFT" if name == "kafka-kraft" else "LEGACY_ZOOKEEPER"
+                fixture = scenarios.create(cli, state, mode, namespace="acceptance-v2")
+                repeated = scenarios.create(cli, state, mode, namespace="acceptance-v2")
+                assert original_hash == hashlib.sha256(original_marker.read_bytes()).hexdigest()
+                report.setdefault("historical_markers_preserved", []).append(name)
+            else:
+                repeated = json.loads(run("demo", name))
             assert repeated["incident_id"] == fixture["incident_id"]
-            investigation = json.loads(run("investigate", name))["investigation"]
+            investigation = json.loads(run("investigate", fixture["incident_id"]))["investigation"]
             assert investigation["candidate_causes"][0]["entity_id"] == "network"
             assert investigation["metadata_mode"] == fixture["metadata_mode"]
             assert len(investigation["observed_symptoms"]) == 10
