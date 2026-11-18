@@ -1,9 +1,11 @@
 # Local operations
 
+Current consolidated [handover runbook](handover/OPERATIONS.md), [provider/configuration](handover/CONFIGURATION.md) and [presentation](handover/DEMO.md) supersede earlier stage-specific assumptions below. `demo` causal streams require explicitly enabled monitoring; `test` runs Maven + CLI only.
+
 The CLI manages only this checkout's generated, isolated Docker Compose lab. It
-preserves the Python backend and Next.js interface. Requires Python 3.10+, a Java
-21 JDK, Node 22+, npm, Docker Engine/Desktop with Compose v2, and approximately
-6 GiB free RAM and 8 GiB disk. Initial builds need network access. On Windows use
+preserves the Python backend and Next.js interface. Requires Python 3.11+, a Java
+21 JDK, Node 22.6+, npm, Docker Engine/Desktop with Compose v2, and approximately
+6 GiB free RAM and 10 GiB disk. Initial builds need network access. On Windows use
 `./investinator.ps1` with Python on PATH. Native Windows execution has not been
 validated in this Linux environment.
 
@@ -91,9 +93,9 @@ artifact `.runtime/last-health.json`; use `--json` for machine-readable stdout.
 Exit 0 means requested runtime checks passed, 1 means a diagnostic failed, and
 argparse uses 2 for invalid commands. `ai-check` returns 2 when unconfigured.
 Optional missing integrations do not fail all-service runtime readiness; asking
-for a specific missing integration does fail. Doctor always reports the known
-critical Next.js dependency finding as a **release blocker**, even when local
-runtime checks pass.
+for a specific missing integration does fail. Doctor keeps release readiness blocked
+for unmet production gates, not the historical Next advisory. Current Next 16.4.5
+scoped audits are clean; older finding records remain historical.
 
 No OpenAI request is made by health, doctor, up, smoke or test. `ai-check` inspects
 only presence by default. An operator may supply the provider secret and model

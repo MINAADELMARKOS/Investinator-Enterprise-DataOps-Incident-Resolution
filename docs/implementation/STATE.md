@@ -1,5 +1,18 @@
 # Implementation state
 
+Updated 2026-11-19. **Prompt 15 handover COMPLETE; production release BLOCKED.**
+Current entry: [handover package](../handover/README.md), [component As-Is/To-Be matrix](../handover/STATUS_MATRIX.md)
+and [presentation](../handover/DEMO.md). README/architecture/config/operations are
+reconciled with actual Java/Python coexistence and private ownership. Source-only
+API/module/config/schema inventory and CI freshness check added. Current native
+health/doctor and 14-check browser rehearsal pass; GPT key/model absent, no paid
+call. Public Pages URL availability check is blocked by proxy, not asserted healthy.
+See [Prompt 15 acceptance](prompt15/REPORT.md). No runtime/lock/schema changes,
+production routing/deployment, main merge or environment/Pages publication.
+Stop after 15. Optional Prompt 16 needs a new request and independently verified gates.
+
+Historical completed-stage records follow:
+
 Updated 2026-11-18. **Prompt 14 assessment COMPLETE; production release BLOCKED.**
 Non-demo platform-health deny, loopback demo binds, streaming body limits,
 HTTPS-public-origin secure cookies, fixed-cardinality metrics and private lab scrape

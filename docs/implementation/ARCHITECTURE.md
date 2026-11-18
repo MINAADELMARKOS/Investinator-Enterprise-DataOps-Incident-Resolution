@@ -1,4 +1,6 @@
-# Proposed architecture and business case
+# Proposed architecture and business case (historical requirements)
+
+Current checked-in architecture and operational measurements are in [the versioned handover](../handover/ARCHITECTURE.md), [build/status matrix](../handover/STATUS_MATRIX.md) and [executive brief](../handover/EXECUTIVE_BRIEF.md). Original plans/measurement hypotheses below are preserved; no production benefit is established.
 
 ## Problem and requirements
 

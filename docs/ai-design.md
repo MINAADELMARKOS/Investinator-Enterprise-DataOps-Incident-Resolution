@@ -1,5 +1,7 @@
 # AI investigation design
 
+> **Scope/current status:** Preserved Python investigation design below. Current Java SDK tool loop, encrypted continuation, scoped BM25 and provider/fallback boundaries are in [the handover](handover/ARCHITECTURE.md) and [provider guide](handover/CONFIGURATION.md). Actual live GPT and independent human quality review remain unconfigured/pending; no paid call without independent budget approval.
+
 The Investigator always has a deterministic fallback. With `OPENAI_API_KEY` and `INVESTINATOR_OPENAI_MODEL`, the API uses the OpenAI Responses API structured parser to request a typed `InvestigationAnalysis`. `INVESTINATOR_OPENAI_FAST_MODEL` and `INVESTINATOR_OPENAI_REASONING_MODEL` can route fast or high-severity work; the normal investigation path currently chooses the configured reasoning model for P1/P2 and the default model otherwise. No model name or credentials are embedded in source.
 
 The model sees a bounded incident snapshot: technology, severity, affected entities, up to 20 evidence items, one allowlisted current metric lookup, and matching knowledge. The prompt treats all incident text and retrieved content as untrusted. The gateway rejects root-cause candidates with missing or unknown evidence IDs. Failures return a clearly marked fallback with uncertainty. The gateway records model, task, latency, token counts, and failure type in `AIUsageRow`; it does not store raw prompts in usage rows. `INVESTINATOR_OPENAI_STORE` defaults to false.

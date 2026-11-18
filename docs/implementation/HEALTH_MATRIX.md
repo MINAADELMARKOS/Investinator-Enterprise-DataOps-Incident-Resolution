@@ -117,3 +117,12 @@ Prompt 14 final evidence: all five hosted jobs PASS on implementation 8e41c2c,
 run 44397526897, including full lab/restore/operational capture and fresh OSV
 233 packages / zero findings. Java spans verified in-memory without private text.
 Production remains BLOCKED per prompt14/RELEASE_RISKS.json; no subsequent stage.
+
+## Prompt 15 observed state
+
+Current native snapshots in prompt15/health.json and doctor.json pass core readiness
+with actual LIVE local probes and explicit optional NOT_CONFIGURED states. Named
+KRaft causal case remains SIMULATED with original timestamps, not a real broker
+outage. Separate disk simulator recovery/rollback and Python browser compatibility
+pass in rehearsal.json. Provider presence is NOT_CONFIGURED; no paid call. Pages
+availability is unverified due proxy; no seeded health or sample schema is substituted.

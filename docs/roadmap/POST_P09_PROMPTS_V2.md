@@ -1,5 +1,7 @@
 # InvestiNator — version 2 prompt chain after Prompt 09
 
+> Historical target/execution baseline. Java is now published; current checked-in architecture, completed-stage evidence and production blockers are in [the handover](../handover/README.md) and [STATE](../implementation/STATE.md). Original authoring-time status is retained below. No automatic cutover is authorized.
+
 **Version:** v2.0, 2026-11-17. **Purpose:** Coding-agent instructions for the Java architecture transition **after user-reported local completion of Prompts 03–09**.
 
 **Source of truth:** See [Java Architecture v2](JAVA_AI_ARCHITECTURE_V2.md) and [worktree synchronization](SYNC_JAVA_WORKTREE.md). The `feature/java-ai-audit` changes were reported committed **locally**, not verified on remote GitHub. These prompts must be executed against the **real local worktree**, not against a reconstructed imitation. Do not claim that `backend-java/` exists remotely until an actual verified push.

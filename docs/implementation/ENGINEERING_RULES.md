@@ -1,9 +1,9 @@
 # Engineering execution contract
 
 Read STATE.md and DECISIONS.md before changing code in every session. The user
-authorizes completed stages through 13 and Architecture v2 Prompt 14 only
+authorizes completed stages through 14 and Architecture v2 Prompt 15 only
 in this session. This is an assessment, not permission to deploy. Read docs/roadmap/JAVA_AI_ARCHITECTURE_V2.md and POST_P09_PROMPTS_V2.md;
-the v2 sequence supersedes the original chain from 09A onward. Prompt 15 onward requires a subsequent request. No live provider request without
+the v2 sequence supersedes the original chain from 09A onward. Prompt 16 requires a subsequent request and independently verified release gates. No live provider request without
 configured credentials and an independently approved testing budget. Prompt 09 human review remains pending
 and blocks measured AI-quality claims, not repository synchronization. Keep one commit per completed stage and stop at
 failed acceptance gates. The user explicitly authorizes pushing feature/java-ai-audit and opening its PR

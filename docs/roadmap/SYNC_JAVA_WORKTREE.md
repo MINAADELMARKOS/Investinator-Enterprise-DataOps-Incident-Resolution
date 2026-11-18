@@ -1,5 +1,7 @@
 # Safely publish the local Java implementation without losing Codex work
 
+> Historical target/execution baseline. Java is now published; current checked-in architecture, completed-stage evidence and production blockers are in [the handover](../handover/README.md) and [STATE](../implementation/STATE.md). Original authoring-time status is retained below. No automatic cutover is authorized.
+
 **Verified remote starting state, 2026-11-17:** `main` contains Python + Next.js + GPT/Elasticsearch read-only demo. Java `backend-java/` and `feature/java-ai-audit` are **not on remote GitHub** as of this design update. The user reports Java Prompt 03–09 commits in a separate **local** repository/worktree. A remote agent cannot push work that it cannot access.
 
 ## Preparation (run in the checkout that actually contains backend-java)

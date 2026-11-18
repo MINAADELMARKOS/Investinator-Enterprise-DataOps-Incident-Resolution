@@ -164,3 +164,11 @@ Prompt 14 final evidence: all five hosted jobs PASS on implementation 8e41c2c,
 run 44397526897, including full lab/restore/operational capture and fresh OSV
 233 packages / zero findings. Java spans verified in-memory without private text.
 Production remains BLOCKED per prompt14/RELEASE_RISKS.json; no subsequent stage.
+
+## Prompt 15 handover and release gate
+
+Documentation/inventory/presentation risk reduced with source-backed maps, guarded
+commands, actual rehearsal and clear As-Is/To-Be evidence. Production remains BLOCKED
+by prompt14/RELEASE_RISKS.json. Credential/model/budget/human quality and enterprise
+certification are not inferred from the demo. Network owner must resolve blocked
+Pages/PR API availability checks; no fake success or approval is supplied.

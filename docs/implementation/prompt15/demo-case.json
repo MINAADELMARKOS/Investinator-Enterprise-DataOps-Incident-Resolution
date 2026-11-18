@@ -1,0 +1,11 @@
+{
+  "incident_id": "f41b8df5-9d99-44a3-bbd0-98f747acafa3",
+  "graph_id": "lab-kafka-kraft",
+  "metadata_mode": "KRAFT",
+  "source_mode": "SIMULATED",
+  "event_count": 10,
+  "incident_count": 1,
+  "production_actions": 0,
+  "paid_provider_calls": 0,
+  "existing_named_case_reused": true
+}

@@ -1,5 +1,7 @@
 # Live GPT Investigator — local developer demo
 
+> **Scope/current status:** This guide configures the preserved Python route. For Java enablement/state key, bounded official SDK loop and actual health preflight use [configuration](handover/CONFIGURATION.md). API billing is separate from ChatGPT; valid credentials/model and independent test-budget approval are required. Current handover made no paid call. Java adapters exist, but private enterprise endpoints/identity remain uncertified.
+
 This implementation upgrades the existing Investigator conversation to the real
 **OpenAI Responses API**, with bounded read-only function calls, persisted
 conversations, and an optional Elasticsearch/OpenSearch log adapter.

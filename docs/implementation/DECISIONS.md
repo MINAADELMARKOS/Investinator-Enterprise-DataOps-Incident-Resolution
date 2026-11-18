@@ -398,3 +398,17 @@ Prompt 14 final evidence: all five hosted jobs PASS on implementation 8e41c2c,
 run 44397526897, including full lab/restore/operational capture and fresh OSV
 233 packages / zero findings. Java spans verified in-memory without private text.
 Production remains BLOCKED per prompt14/RELEASE_RISKS.json; no subsequent stage.
+
+## ADR 025 — Source-backed handover with distinct demonstration boundaries (2026-11-19)
+
+Current handover overrides dated scaffold/unpublished claims without erasing stage
+history. Generated inventories expose source names/conditional declarations only,
+not private configuration values or a runtime authorization certificate. CI checks
+freshness. Native APIs and Next's smaller proxy allowlist are distinct.
+
+Separate the network/KRaft causal narrative from the named disk recovery sandbox;
+never imply disk recovery repairs that network case. Provider/fault provenance are
+independent: actual GPT requires approved billing/preflight, current fallback stays
+explicit. Reuse existing runtime validation and run the actual browser presentation
+for documentation-only work. Preserve Python default, all private ownership and
+production blockers. New stage/cutover/merge requires explicit authorization.
