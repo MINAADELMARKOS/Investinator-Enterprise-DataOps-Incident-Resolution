@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 """Bounded acceptance for this checkout's owned lab. No production targets or paid calls."""
 import argparse
+import contextlib
 import hashlib
 import importlib.util
 import json
 import os
+import socket
 import subprocess
 import sys
 import time
@@ -28,6 +30,14 @@ def main():
     env.update(INVESTINATOR_MONITOR_ENABLED="true", OPENAI_API_KEY="",
                INVESTINATOR_OPENAI_MODEL="", INVESTINATOR_OPENAI_ENABLED="false")
 
+    if not (cli.RUNTIME / "lab.json").exists():
+        # A second checkout must not reuse another owned lab's loopback ports.
+        with contextlib.ExitStack() as stack:
+            for key in cli.PORTS:
+                sock = stack.enter_context(socket.socket())
+                sock.bind(("127.0.0.1", 0))
+                env[key] = str(sock.getsockname()[1])
+
     def run(*arguments, expected=0, timeout=900):
         start = time.monotonic()
         result = subprocess.run([str(cli.ROOT / "investinator"), *arguments], cwd=cli.ROOT, env=env,
@@ -36,6 +46,11 @@ def main():
                                    "expected": expected, "seconds": round(time.monotonic()-start, 3),
                                    "stdout_sha256": hashlib.sha256(result.stdout.encode()).hexdigest()})
         if result.returncode != expected:
+            diagnostic = result.stderr.splitlines()[-1][:500] if result.stderr else "No CLI diagnostic"
+            if (cli.RUNTIME / "lab.json").exists():
+                for secret in cli.load_state()["secrets"].values():
+                    diagnostic = diagnostic.replace(secret, "[REDACTED]")
+            report["commands"][-1]["diagnostic"] = diagnostic
             raise AssertionError("Owned CLI check failed: " + " ".join(arguments))
         return result.stdout
 
