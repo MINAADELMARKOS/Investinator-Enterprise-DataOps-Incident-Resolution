@@ -53,7 +53,18 @@ The [public Java operator experience](https://minaadelmarkos.github.io/Investina
 - [Governed Recovery](https://minaadelmarkos.github.io/Investinator-Enterprise-DataOps-Incident-Resolution/#/governance): role separation, named simulated actions and independent verification.
 - [Operator Access](https://minaadelmarkos.github.io/Investinator-Enterprise-DataOps-Incident-Resolution/#/operator/login), [AI Architecture](https://minaadelmarkos.github.io/Investinator-Enterprise-DataOps-Incident-Resolution/#/architecture) and [Release Readiness](https://minaadelmarkos.github.io/Investinator-Enterprise-DataOps-Incident-Resolution/#/release-readiness).
 
-The new pages are implemented under `apps/showcase/src/JavaPreview.tsx` and `java-preview-data.ts`, not the Java-backed Next.js runtime in `apps/web`. All examples are **SIMULATED**, entirely browser-local and free of model, backend, authorization and infrastructure calls. To use the functional Java operator UI instead, follow the isolated lab's [Prompt 12 operations guide](https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/blob/feature/java-ai-audit/docs/implementation/prompt12/OPERATIONS.md) on `feature/java-ai-audit` until that development work is reviewed and merged.
+The Java-focused static Pages views are implemented under `apps/showcase/src/JavaPreview.tsx` and `java-preview-data.ts`, not the Java-backed Next.js runtime in `apps/web`. They remain **SIMULATED** and entirely browser-local.
+
+### Public Investigator GPT — secure optional gateway
+
+The Pages [Investigator](https://minaadelmarkos.github.io/Investinator-Enterprise-DataOps-Incident-Resolution/#/investigator) now has a real-GPT-capable chat interface focused on cross-service root cause investigation in Kafka KRaft / legacy ZooKeeper, Spark/YARN, HDFS, Hive/HMS, Kudu, NiFi, orchestration and downstream data quality.
+
+- **Offline by default:** Guided answers are deterministic, clearly labeled and incur no model cost.
+- **Live when explicitly configured:** A separately hosted Cloudflare Worker calls the OpenAI Responses API from the server with a curated public troubleshooting reference library, signed Turnstile validation, bounded inputs and durable request quotas. The site never embeds an API secret.
+- **Not fine-tuned:** This is `retrieval-augmented prompting` over reviewed public knowledge, **not** model training on private company logs. The example incident facts are simulated and explicitly marked.
+- **Read-only:** No production data sources, live Java connector tools, approvals or infrastructure execution are exposed on the public site.
+
+To deploy and connect the gateway, see [Public Investigator Worker setup](services/public-investigator/README.md). Merging frontend code does **not** configure OpenAI, Cloudflare or a public endpoint. The existing private Java/Next.js Investigator continues to be the appropriate path for authenticated real cluster investigations. To use the functional Java operator UI instead, follow the isolated lab's [Prompt 12 operations guide](https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/blob/feature/java-ai-audit/docs/implementation/prompt12/OPERATIONS.md) on `feature/java-ai-audit` until that development work is reviewed and merged.
 
 ## Run the full demo
 
