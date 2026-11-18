@@ -30,3 +30,15 @@ Do not use base Compose for enterprise ingress. Enterprise Java profile requires
 an external TLS bundle and disables demo mode; no supplied bundle or identity is
 certified. Do not rotate keys or perform infrastructure failover in production from
 this assessment. Named ReplayLab rollback is separately approved simulation only.
+
+Reproduce only in the owned local lab after `./investinator up`:
+
+```
+python scripts/verify_backup_restore.py --output .runtime/backup-restore.json
+python scripts/capture_operational_baseline.py --samples 30 --output .runtime/operational-baseline.json
+```
+
+The restore target name is generated internally; no production/source override is
+accepted. The source ownership marker must match this checkout. Private dumps
+never leave the temporary directory or enter CI artifacts. CI also checks these
+operations after its isolated laboratory and before volume-preserving down.

@@ -561,6 +561,11 @@
     },
     {
       "class": "com.investinator.observability.InvestigationMetricsTest",
+      "name": "actualSdkSpanEndsWithoutCapturingQuestionOrExceptionSecrets",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.observability.InvestigationMetricsTest",
       "name": "missingUsageIsUnknownAndUnconfiguredTurnIsNotProviderTraffic",
       "status": "PASS"
     },
@@ -575,5 +580,12 @@
       "status": "PASS"
     }
   ],
-  "focused_tracing_and_budget_tests": 13
+  "focused_tracing_and_budget_tests": 13,
+  "hosted_ci": {
+    "run": "44397526897",
+    "commit": "8e41c2cc74d35ae302c2d76e5cb00a7caf0f4252",
+    "jobs": 5,
+    "status": "ALL_PASS",
+    "source": "public GitHub conclusions; no authenticated logs downloaded"
+  }
 }

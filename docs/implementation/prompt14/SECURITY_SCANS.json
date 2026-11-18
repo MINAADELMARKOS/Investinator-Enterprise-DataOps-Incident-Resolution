@@ -9,9 +9,16 @@
     "findings": 0,
     "artifact": "../prompt13/java-audit.json"
   },
-  "java_local_OSV_egress": "Previously BLOCKED; fresh hosted P14 recheck pending",
+  "java_local_OSV_egress": "Local egress limitation persists; fresh hosted scan PASS",
   "container_OS_CVE_scan": "NOT_PERFORMED_RELEASE_BLOCKED",
   "optional_shaded_Hive_driver": "NOT_CERTIFIED_RELEASE_BLOCKED",
   "independent_penetration_test": "NOT_PERFORMED_RELEASE_BLOCKED",
-  "secrets": "known actual runtime values scanned before commit; private dump not retained"
+  "secrets": "known actual runtime values scanned before commit; private dump not retained",
+  "java_current_hosted_OSV": {
+    "run": "44397526897",
+    "code_sha": "8e41c2cc74d35ae302c2d76e5cb00a7caf0f4252",
+    "packages": 233,
+    "findings": 0,
+    "source": "public scanner annotation and completed job"
+  }
 }

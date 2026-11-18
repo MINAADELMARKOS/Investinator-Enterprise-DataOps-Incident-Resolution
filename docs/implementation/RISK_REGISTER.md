@@ -159,3 +159,8 @@ Corrected platform-health exception, proxy stream/cookie and host binding findin
 pass local negatives. Production identity, external connector certification, recovery,
 financial/data governance, optional/image audit and independent quality gaps remain.
 Passing local or hosted tests cannot confer deployment authorization.
+
+Prompt 14 final evidence: all five hosted jobs PASS on implementation 8e41c2c,
+run 44397526897, including full lab/restore/operational capture and fresh OSV
+233 packages / zero findings. Java spans verified in-memory without private text.
+Production remains BLOCKED per prompt14/RELEASE_RISKS.json; no subsequent stage.
