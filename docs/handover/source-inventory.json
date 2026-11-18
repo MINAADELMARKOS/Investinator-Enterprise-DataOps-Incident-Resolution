@@ -125,6 +125,7 @@
       "backend-java/src/main/java/com/investinator/remediation/ReplayExecutor.java"
     ],
     "security": [
+      "backend-java/src/main/java/com/investinator/security/DataUsePolicy.java",
       "backend-java/src/main/java/com/investinator/security/Redaction.java",
       "backend-java/src/main/java/com/investinator/security/SecurityConfiguration.java",
       "backend-java/src/main/java/com/investinator/security/StagingJwtValidator.java"
@@ -1027,6 +1028,12 @@
     ],
     "INVESTINATOR_MAX_AI_CALLS": [
       "backend-java/src/main/resources/application.yaml"
+    ],
+    "INVESTINATOR_MODEL_DATA_CLASS": [
+      "backend-java/src/main/java/com/investinator/chat/ChatGateway.java"
+    ],
+    "INVESTINATOR_MODEL_TRANSFER_APPROVED": [
+      "backend-java/src/main/java/com/investinator/chat/ChatGateway.java"
     ],
     "INVESTINATOR_MONITOR_ENABLED": [
       "infra/lab/compose.yaml"

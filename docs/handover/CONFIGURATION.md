@@ -62,7 +62,10 @@ bill: it reports NOT_CONFIGURED or BLOCKED_DURABLE_LEDGER_REQUIRED. Credential
 validity remains NOT_TESTED. Separately approved real chat must use the backend
 ledger and owner-provisioned policy, not a CLI fixture field or a standalone probe.
 
-For approved Java chat, inject key/model, explicitly enable the provider on the Java
+For approved Java chat, obtain independent data-use review and configure
+INVESTINATOR_MODEL_TRANSFER_APPROVED plus INVESTINATOR_MODEL_DATA_CLASS
+(SYNTHETIC or PUBLIC_LICENSED only). These flags are not legal signatures or DLP.
+Then inject key/model, explicitly enable the provider on the Java
 service, and restart only the owned lab API through normal up. Do not project your
 terminal while exporting secrets. Ask two incident-scoped turns in the UI, inspect
 read-tool names/citations, reload history, and verify mode=gpt with provider_status=OK.

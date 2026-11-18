@@ -1,3 +1,7 @@
+Prompt 14B governance checkpoint: default-deny Java model-transfer policy and
+non-executable retention/legal-hold scaffold pass 17 focused tests. No legal
+retention, source-license or privacy approval is inferred from configuration.
+
 Prompt 14B identity checkpoint: unused offline staging JWT experiment passes
 six claim/crypto and enterprise-denial tests; it is not a configured OIDC security
 filter. P14-01 remains BLOCKED, and production_authority is always false.

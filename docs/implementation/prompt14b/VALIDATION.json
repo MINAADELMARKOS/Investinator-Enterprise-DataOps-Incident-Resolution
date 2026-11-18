@@ -177,6 +177,16 @@
       "test_number": 6,
       "source_provenance": "Offline ephemeral RSA fixture; enterprise routes remain denied",
       "ci_run_link": null
+    },
+    {
+      "stage": "governance",
+      "command": "JDK21 Maven -Dtest=DataUsePolicyTest,ChatGatewayTest test",
+      "sha": "440798daa1638ed1614ad323505b77ab7f3440a6",
+      "working_tree_changes": true,
+      "exit_status": 0,
+      "test_number": 17,
+      "source_provenance": "UNIT and MOCKED_PROVIDER; zero actual paid calls",
+      "ci_run_link": null
     }
   ]
 }

@@ -42,6 +42,10 @@ public class ChatGateway {
     public Result turn(ReadTools.Context context,String question,String mode,String severity,List<Map<String,Object>> history,List<ResponseInputItem> previous,String fallback) {
         String base=env.getProperty("investinator.openai.model","");boolean enabled=env.getProperty("investinator.openai.enabled",Boolean.class,false);var client=clients.getIfAvailable();
         if(!enabled||client==null||base.isBlank()||!cipher.configured())return fallback("NOT_CONFIGURED",fallback,List.of(),0,0,0,base);
+        if(!com.investinator.model.ProviderClients.fixtureEndpoint(env)){
+            var transfer=com.investinator.security.DataUsePolicy.modelTransfer(env.getProperty("INVESTINATOR_MODEL_TRANSFER_APPROVED",Boolean.class,false),env.getProperty("INVESTINATOR_MODEL_DATA_CLASS","UNKNOWN"),context.sourceMode);
+            if(!transfer.allowed())return fallback(transfer.reason(),fallback,List.of(),0,0,0,base);
+        }
         if(!com.investinator.model.ProviderClients.fixtureEndpoint(env)&&(budget==null||!budget.configured()))return fallback("BUDGET_NOT_CONFIGURED",fallback,List.of(),0,0,0,base);
         if(System.nanoTime()<circuitUntil)return fallback("CIRCUIT_OPEN",fallback,List.of(),0,0,0,base);
         if(!admitRate(context.tenant))return fallback("RATE_BUDGET_EXCEEDED",fallback,List.of(),0,0,0,base);
