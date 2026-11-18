@@ -167,6 +167,16 @@
       "test_number": 12,
       "source_provenance": "Node contract cases, TypeScript, production Next.js build; browser pending",
       "ci_run_link": null
+    },
+    {
+      "stage": "identity-experiment",
+      "command": "JDK21 Maven -Dtest=StagingJwtValidatorTest,EnterpriseIngressTest test",
+      "sha": "3db58bc69cc2bd3c10c9d126ae0f3f699115470e",
+      "working_tree_changes": true,
+      "exit_status": 0,
+      "test_number": 6,
+      "source_provenance": "Offline ephemeral RSA fixture; enterprise routes remain denied",
+      "ci_run_link": null
     }
   ]
 }

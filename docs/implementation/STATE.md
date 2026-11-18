@@ -1,3 +1,7 @@
+Prompt 14B identity checkpoint: unused offline staging JWT experiment passes
+six claim/crypto and enterprise-denial tests; it is not a configured OIDC security
+filter. P14-01 remains BLOCKED, and production_authority is always false.
+
 Prompt 14B presentation checkpoint: 12 frontend contracts/type/build pass.
 Saved Java metadata and Python envelopes retain explicit provenance; missing
 provider status/usage is UNKNOWN/NOT_TESTED and mock output is labeled as fixture.

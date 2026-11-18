@@ -126,7 +126,8 @@
     ],
     "security": [
       "backend-java/src/main/java/com/investinator/security/Redaction.java",
-      "backend-java/src/main/java/com/investinator/security/SecurityConfiguration.java"
+      "backend-java/src/main/java/com/investinator/security/SecurityConfiguration.java",
+      "backend-java/src/main/java/com/investinator/security/StagingJwtValidator.java"
     ],
     "workflows": [
       "backend-java/src/main/java/com/investinator/workflows/DemoSeed.java",
