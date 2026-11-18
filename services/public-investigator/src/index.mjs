@@ -87,7 +87,7 @@ export class PublicQuota {
     let pass=true;
     this.ctx.storage.transactionSync(()=>{
       for(const [key,cap] of caps) {
-        const row=this.ctx.storage.sql.exec("SELECT count FROM counters WHERE bucket=?",key).one();
+        const row=this.ctx.storage.sql.exec("SELECT count FROM counters WHERE bucket=?",key).toArray()[0];
         if(row && Number(row.count)>=cap){pass=false;break;}
       }
       if(pass)for(const [key] of caps)this.ctx.storage.sql.exec("INSERT INTO counters(bucket,count) VALUES(?,1) ON CONFLICT(bucket) DO UPDATE SET count=count+1",key);
