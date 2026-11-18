@@ -44,6 +44,16 @@ def main():
     except (OSError, ValueError, KeyError) as error:
         report.update(reason="OSV query unavailable or incomplete", error_type=type(error).__name__,
                       owner="build/security maintainer", action="Run in permitted CI egress; no clean audit asserted")
+    # Public job annotations expose advisory IDs without requiring authenticated logs.
+    # Only resolved public package metadata is emitted; never environment or credentials.
+    def annotation(value):
+        return str(value).replace("%", "%25").replace("\r", "%0D").replace("\n", "%0A")
+
+    for finding in findings[:50]:
+        print("::error title=Java dependency advisory::" + annotation(
+            finding["package"] + "@" + finding["version"] + ": " + finding["id"]))
+    if report["status"] == "BLOCKED":
+        print("::error title=Java dependency audit BLOCKED::OSV unavailable; no clean result asserted")
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(report, indent=2) + "\n")
     print(json.dumps({k: v for k, v in report.items() if k != "findings"}))
