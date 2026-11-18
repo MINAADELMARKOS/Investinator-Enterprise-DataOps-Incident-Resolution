@@ -1,6 +1,16 @@
 # Integration health matrix
 
-## Current Prompts 10/11 observations
+## Current Prompts 12/13 observations
+
+Actual native diagnostics, corrupt-log/search/auth failures, monitoring/remediation
+process restart and eight owned dependency outages pass. Java/Python browser and
+all five hosted gates pass on f1488a7 (prompt13/hosted-ci.json). Default-tree Java
+OSV 233 packages / zero findings; local egress failure is historical evidence.
+Actual GPT remains NOT_CONFIGURED; independent human quality review PENDING.
+Fixture workload/effects remain SIMULATED, provider fixtures MOCKED; LIVE local
+transport does not certify enterprise connectors or production recovery.
+
+## Previous Prompts 10/11 observations
 
 | Surface | Verified | Remaining boundary |
 |---|---|---|

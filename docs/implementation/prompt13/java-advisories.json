@@ -1,5 +1,5 @@
 {
-  "status": "PATCHED_LOCAL_REGRESSION_PASS_HOSTED_SCAN_PENDING",
+  "status": "RESOLVED_HOSTED_OSV_PASS",
   "finding_source": "Actual hosted OSV job annotations: run 44390174065 job 135105358621",
   "packages": [
     {
@@ -60,5 +60,14 @@
     "org.xerial.snappy:snappy-java": "1.1.10.9"
   },
   "local_java_tests": 107,
-  "local_cli_tests": 29
+  "local_cli_tests": 29,
+  "hosted_scan": {
+    "run_id": "44391359760",
+    "code_sha": "f1488a7",
+    "job_id": "135109589346",
+    "status": "completed successfully",
+    "public_annotation": "PASS; resolved_packages=233; findings=0",
+    "source": "https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/actions/runs/44391359760/job/135109589346"
+  },
+  "post_patch_native_process_and_evidence": "PASS"
 }

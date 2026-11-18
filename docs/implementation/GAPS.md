@@ -1,6 +1,17 @@
 # Gaps and readiness
 
-## Current assessment — Prompts 10/11
+## Current assessment — Prompts 12/13
+
+Local and hosted development gates PASS on f1488a7: 107 Java, 29 CLI, 12 Python,
+8 frontend, 14 browser checks, eight owned outages and 233-package OSV (zero findings).
+Seven initial Java advisories are fixed; see prompt13/java-advisories.json.
+Java UI remains opt-in; default Python and data ownership are preserved.
+PR creation/authenticated log access remain blocked by GitHub API proxy.
+Production identity, independent quality review, live provider budget/certification,
+private connectors, optional profile auditing and operational security remain gaps.
+Prompt 14 requires a new request. Historical checkpoints below are superseded here.
+
+## Previous assessment — Prompts 10/11
 
 Opt-in replay monitoring and governed simulation gates PASS; see
 [prompt10](prompt10/REPORT.md) and [prompt11](prompt11/REPORT.md). Actual durable

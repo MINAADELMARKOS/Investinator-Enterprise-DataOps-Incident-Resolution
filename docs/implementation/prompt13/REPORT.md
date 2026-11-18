@@ -1,132 +1,123 @@
-# Prompt 13 — Repeatable lab and regression validation
+# Prompt 13 — Repeatable lab and regression acceptance
 
-2026-11-18. Local functional acceptance PASS. Hosted CI is pending publication/observation;
-local Java advisory lookup is explicitly BLOCKED by egress, not clean.
-Stop after this stage. No Prompt 14 work, main merge, Pages/environment publication,
-production route change or paid provider request is authorized or claimed.
+2026-11-18. **PASS for the isolated laboratory/development gate.** All five hosted
+jobs passed on implementation commit `f1488a70e906efa6932fa72066d9b0e56cf5b15c`.
+Production release remains **BLOCKED**. Stop after Prompt 13.
 
-## Source reconciliation and scope
+[Hosted run 44391359760](https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/actions/runs/44391359760)
+validates Python/CLI, frontend, Java/Testcontainers, full local E2E and dependency
+security. Evidence is the public GitHub job conclusions and scanner annotation;
+authenticated logs/artifacts could not be downloaded because API access is denied.
+Final follow-up commits contain reports only, not a new implementation-validation claim.
 
-Prompt 12 committed `bfe757b`. Remote main advanced to `afb8183` (PR #6 merged the
-previous 09A work). Backup `backup/pre-p13-bfe757b` preserves the recovery point;
-normal merge `9924bc5` brings main into feature/java-ai-audit without conflicts.
-All existing commits and Next 16.4.5 survive. User/Java/Python schemas and volumes
-are preserved. The feature remote initially remained `6e981b9`.
+## Source and publication
 
-Code checkpoints `216467a` and `4b484b4` add fixed CLI commands, causal fixtures,
-fresh-checkout harness and required CI jobs. Extra commits are needed to reproduce
-committed source in a clean clone and run hosted CI; no history is rewritten.
+| Checkpoint | Factual state |
+|---|---|
+| Prompt 12 | `bfe757b`, completed and committed before Prompt 13 |
+| Remote main observed at synchronization | `afb8183`; owner merged earlier PR #6 |
+| Recovery point | Local `backup/pre-p13-bfe757b` |
+| Reconciliation | Normal main-into-feature merge `9924bc5`; no conflicts |
+| Initial feature remote | `6e981b9` |
+| Lab/CI implementation | `216467a`, port correction `4b484b4`, acceptance `4597517` |
+| Advisory diagnostics/fixes | `f717b12`, `f1488a7` |
+| Verified pushed implementation | `f1488a70e906efa6932fa72066d9b0e56cf5b15c` |
+| Branch | [feature/java-ai-audit](https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/tree/feature/java-ai-audit) |
 
-## Implemented
+Existing commits, private schema ownership, Python default, Next.js 16.4.5,
+evidence and volumes are preserved. Multiple checkpoints enabled clean-clone and
+hosted validation; no history was rewritten. This task did not merge into main,
+publish Pages/the cloud environment, change production routing or make paid GPT calls.
 
-- `investigate [kafka-kraft|kafka-legacy|incident-id]` performs bounded scoped reads;
-  `restart api` aliases only the owned java service. Unknown targets fail early.
-- Named KRaft and representative legacy demos emit ten SIMULATED events each over
-  actual Java/JDBC transport. Network -> controller/session -> broker lag -> Spark
-  -> dataset paths rank network first while retaining alternatives and uncertainty.
-  Repeated named commands reuse durable incident/identical event identities.
-- KRaft never queries ZooKeeper. The legacy graph is a **representative protocol
-  fixture**, not a real legacy Kafka installation. Separate actual Kafka Admin and
-  digest-ACL ZooKeeper protocol tests remain in Maven Verify.
-- The fresh lab harness owns separate loopback ports, checks unchanged-up container
-  identity, doctor/health/smoke, duplicate storms, graph/lifecycle persistence after
-  API restart, authorization/tenant denial, provider-less fallback and actual
-  Java/default-Python Chromium workflows. Optional failure injection stops/starts
-  each owned dependency and proves failure detection without cascading restarts.
-- CI now has Python/CLI, frontend build/types/contracts/audit, Java/Testcontainers,
-  eight-service browser/outage E2E and Python/Maven dependency-security jobs.
-  Missing OSV service/partial responses fail explicitly with a BLOCKED artifact;
-  security errors are not continue-on-error. No credentials/runtime config uploaded.
+## Implemented and reproduced
 
-## Verified local evidence
+The owned eight-service Java/Next/PostgreSQL/OpenSearch/OTel/Fluent Bit/Prometheus/
+Kafka lab has pinned images and bounded operations. `investigate` performs fixed
+scoped graph/correlation reads. `restart api` aliases only the owned Java service;
+unknown targets fail before private state is read. `down` retains volumes; only
+explicitly confirmed owned `reset-demo` can remove them.
 
-107 Java tests (zero failures/errors/skips), 29 CLI tests, 12 Python tests, Ruff,
-mypy 17 source files and baseline validation pass. Frontend npm ci/build/types,
-eight contract tests and npm audit pass; zero npm findings. Native evidence pipeline
-passes scoped search/auth 403, invalid query 422, source/trace/redaction/Prometheus,
-corrupt-log rejection and search outage with independent Java liveness.
+KRaft and representative legacy demos each emit ten SIMULATED events over actual
+Java/JDBC transport: network -> controller/session -> broker lag -> Spark -> dataset.
+Each opens one bounded incident and ranks network first with alternatives. Named
+retries retain incident/event identities. KRaft never queries ZooKeeper. Legacy is
+explicitly a representative protocol fixture, not a real legacy Kafka cluster.
+Actual SASL Kafka Admin and digest-ACL ZooKeeper protocol tests remain separate.
 
-Actual disposable PG + Java process acceptance passes monitor offset/duplicate/
-metric persistence across termination/restart and governed effect receipt/retry/
-independent sampling/separately approved rollback. No fake provider call is treated
-as actual traffic. Existing Java SDK failure/timeout tests are MOCKED_PROVIDER;
-actual live GPT remains NOT_CONFIGURED. Human gold-set approval remains PENDING.
+A clean local clone first reproduced `4b484b4` with shared dependency/image caches;
+see fresh-checkout-initial.json. After the fixes, the same retained-data clone
+reproduced `f1488a7`: unchanged up preserves container identity, 200 identical
+redeliveries remain bounded, API restart retains correlation, role/tenant requests
+fail correctly and actual Java/default-Python browser flows pass. Fourteen browser
+checks include bound graph, observations, uncertainty and separate governed
+recovery/rollback sampling. All eight dependency stop/start cases detect failure,
+recover and show no cascading restart/replacement. Hosted E2E separately validates
+an actual runner checkout of `f1488a7`. No cold-host/air-gap guarantee is inferred.
 
-Python audit initially found six advisories in the local pip 25.0.1 installer;
-application packages had none. Upgraded test installer to pip 26.3 and reran:
-61 installed distributions, zero known findings. CI installs that patched installer.
-Java's 233-package resolved dependency tree was generated, but the local proxy
-rejects api.osv.dev CONNECT (403). Java advisory status is **BLOCKED**, not clean;
-build/security maintainer must validate the hosted scan or supply permitted egress.
+## Executed checks
 
-See junit-summary.json, negative-matrix.json, evidence-pipeline.json,
-monitor-process.json, remediation-process.json, python-audit.json, java-audit.json
-and fixture-hashes.json. Simulated fixture ranks are functional diagnostics, never
-production RCA precision or business outcomes. No independent human sign-off exists.
+| Check | Result / provenance |
+|---|---|
+| Java Maven Verify after dependency fixes | 107 tests; zero failures/errors/skips; real PG/OpenSearch/Kafka/ZK fixtures and labeled SDK mocks |
+| CLI | 29 tests pass, including ownership, target/scope denial, idempotence and non-billing paths |
+| Python | 12 pytest; Ruff; mypy 17 files; baseline 44 routes/42 paths/13 tables + links pass |
+| Frontend | npm ci/build/types; 8 contracts; npm audit zero vulnerabilities; Next 16.4.5 retained |
+| Browser | 14 checks; real Java + disposable default Python; only declared diagnostic outage is MOCKED |
+| Native evidence | Scoped search, 403/422, redaction, trace/metrics, corrupt-log rejection and bounded outage/liveness pass |
+| Actual process restart | Monitoring offset/dedupe/metrics and remediation receipt/retry/sample/separate rollback pass after patch |
+| Owned lab | Up/unchanged-up/doctor/health/smoke/restart and all eight failure injections pass |
+| Python advisory audit | 61 installed distributions; zero known findings after patched pip 26.3 |
+| Java hosted OSV | PASS; explicit public annotation: `resolved_packages=233; findings=0` |
+| Hosted CI | All five jobs completed successfully on run 44391359760 |
+| Credentials | Actual credentials of both owned labs scanned against public files; zero matches, no tracked .env; fixed CI upload allowlist excludes private runtime config |
 
-## Reproduction incidents and recovery
+See test-summary.json, junit-summary.json, negative-matrix.json, fresh-checkout.json,
+outages.json, browser-with-graph.json, evidence-pipeline.json, monitor-process.json,
+remediation-process.json, fixture-hashes.json and hosted-ci.json.
 
-Initial fresh run correctly refused the occupied default port; the harness now
-allocates distinct ports before first setup. The failed config was retained, and
-a separate clean clone tested corrected source. Fresh clone initial source is
-`4b484b4`; dependency/image caches are reused on this host, not a cold-host claim.
-Python dependencies were installed in a test virtualenv, with PYTHONPATH selecting
-the clean clone's source. No tracked file modification was present at clone start.
+Provider timeout/failure tests use the official SDK with MOCKED_PROVIDER transport;
+actual GPT remains NOT_CONFIGURED. `ai-check --live` exits 2 without credentials,
+with zero paid calls. Fixture ranks are functional diagnostics; expert-reviewed
+production RCA accuracy and business outcomes are not measured or manufactured.
 
-Host disk exhaustion then prevented startup and failed local search shard allocation.
-Removed only regenerable task npm caches, obsolete untagged task image builds and
-unused Elasticsearch diagnostic images (no container referenced them). No source,
-evidence, credentials, database volume, active image or user data was deleted.
-This freed 16 GB. Retried failed shard allocation only in the named fresh test
-OpenSearch instance; native readiness returned healthy. Failed attempts remain
-reported; final retry must pass rather than bypass assertions or reset volumes.
+## Failures corrected without weakening gates
 
-## Operations and remaining boundaries
+The initial fresh attempt refused occupied default ports; the harness now reserves
+separate loopback ports before first setup. The failed configuration was retained
+and corrected source tested in a separate clean clone. Host disk exhaustion then
+prevented startup/shard allocation. Removed regenerable task npm caches, obsolete
+untagged task builds and unused Elasticsearch diagnostic images referenced by no
+container, freeing 16 GB. Retried allocation only in the named test OpenSearch.
+No repository, credential, evidence or database volume was deleted. Both complete
+local runs subsequently passed; no reset or assertion bypass forced success.
 
-[Reproduction](REPRODUCTION.md) describes commands, cleanup, resource/time budgets,
-source modes and rollback. `down` preserves data. Only explicitly confirmed owned
-reset can destroy demo volumes. Scanner artifacts and result/screenshots have fixed
-upload allowlists; `.runtime/lab.json`, raw environment/cookies/traces are excluded.
+Initial hosted run 44389688456 passed all four functional jobs but correctly failed
+Java security. Run 44390174065 exposed seven advisories in Snappy, LZ4 and OTel API
+using public annotations because authenticated logs were unavailable. Verified
+public advisories prescribe Snappy 1.1.10.9, LZ4 1.11.4 and OTel 1.67.0. Two codec
+pins and an aligned stable OTel BOM fix them; no suppression or severity filter was
+introduced. Full Java/native/E2E checks were rerun and the final hosted scan passed.
+All seven IDs and public sources are in java-advisories.json. Local OSV egress
+failure is retained separately in java-audit-local-blocked.json; hosted evidence
+resolves the default-tree advisory gate. The inactive optional Hive JDBC profile
+is not covered by this default-tree scan.
 
-Enterprise OIDC/two-person approval, certified private connectors, provider budget,
-human quality review, TLS/security/HA/DR and measured business SLOs remain blockers
-for deployment. CI passing alone would not close them. Earlier PR #6 is already
-merged by the remote owner; this task does not merge anything into main. Current
-GitHub API CONNECT remains denied, so creating a new PR may remain blocked even
-when HTTPS git and public Actions pages work.
+## Operational handover and remaining blockers
 
-## Final local acceptance
+[Reproduction](REPRODUCTION.md) gives exact commands, source labels, cleanup and
+resource/timeout budgets (25-minute E2E / 12-minute security jobs). Shared local
+caches and test virtualenv reuse are explicit; PYTHONPATH selected clean source.
+The disposable second lab was brought down with volumes retained. Primary owned
+lab remains healthy on the patched build. No uncontrolled enterprise side effect.
 
-Clean-clone source 4b484b4 reproduces the full demo using cached dependencies/images.
-Actual eight-service up twice retains container identity; all doctor/health/smoke
-commands pass. Two 10-event streams each produce one bounded incident, 200 duplicate
-deliveries do not multiply incidents, and API restart retains graph/ranking.
-Unknown roles and wrong tenant receive 403. ai-check --live exits 2 with no key/model
-or paid traffic. Thirteen browser checks pass in that clone; an additional 14-check
-run on the primary checkout proves actual bound graph/observations/uncertainty.
-All eight owned dependency stop/start cases pass with no cascading restart or
-container replacement. See fresh-checkout.json, outages.json and browser-with-graph.json.
+A new PR could not be created: GitHub GraphQL returns Forbidden through the proxy.
+[Prepared comparison](https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/compare/main...feature/java-ai-audit?expand=1)
+and PR_BODY.md are ready; earlier PR #6 was merged by the remote owner. Owner:
+repository maintainer/network administrator for API access and PR creation.
 
-The fresh test's disposable dependencies reuse a separately installed virtualenv;
-PYTHONPATH selects the clean source. Private runtime ownership/ports are separate.
-Native pipeline and process fixtures automatically remove only their own disposable
-containers/networks; the two main labs/data are retained until explicit down.
-No security finding is waived: Java advisory validation still needs hosted/allowed
-egress. Feature publication and actual hosted run status will be recorded below.
-
-## Hosted gate exposed advisory fixes
-
-Actual run [44389688456](https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/actions/runs/44389688456)
-on pushed 4597517 reports Python/CLI, frontend, Java/Testcontainers and local E2E
-completed successfully. Dependency-security failed. Run 44390174065 on f717b12
-adds public advisory annotations because authenticated logs are inaccessible; it
-identifies seven advisories in Snappy 1.1.10.7, LZ4 1.11.2 and OTel API 1.62.0.
-No scan or assertion was disabled to make that run green.
-
-Verified public advisory pages prescribe Snappy 1.1.10.9, LZ4 1.11.4 and OTel 1.67.0.
-The two codec pins use dependencyManagement; the stable OTel BOM is aligned with
-existing instrumentation 2.33.1 (its incubator already resolves 1.67.0-alpha).
-See java-advisories.json for all seven IDs/source links. Full local regression and
-a new hosted security run are required after these targeted fixes. Optional inactive
-Hive JDBC profile and enterprise connector certification remain outside this default
-dependency-tree scan; no complete production security certification is claimed.
+GO for local/demo development. Production remains blocked by enterprise identity/
+independent change approval, native private-connector certification, actual provider
+credentials/budget, independent human gold review, TLS/security/HA/DR and measured
+operational/business SLOs. Python minimum-only dependency declarations and inactive
+optional profile auditing also need release hardening. No approval is fabricated.
+Prompt 14 requires a new user request. No merge, deployment or cutover follows.

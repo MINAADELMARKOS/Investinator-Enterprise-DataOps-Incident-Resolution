@@ -366,3 +366,13 @@ is mandatory. Rollback frontend routing without deleting schemas or evidence.
 ADR 022 (2026-11-18): keep fixed scoped lab commands, representative legacy separate from actual KRaft, repeatable durable event identities and fresh-checkout ownership/ports. CI publishes only sanitized fixed artifacts and fails dependency scans on errors instead of laundering unavailable OSV as clean. Next.js 16.4.5 lock and Python default persist. Cached local reproduction is distinct from cold hosted runner proof.
 
 Prompt 13 local final: fresh-checkout full acceptance and all eight owned outage/recovery cases PASS; additional actual bound-graph browser run PASS (14 checks). See prompt13/fresh-checkout.json and outages.json. Local Java OSV audit remains BLOCKED; hosted CI pending. No production readiness or live GPT claim.
+
+## ADR 023 — Audit-driven codec pins and aligned OTel BOM (2026-11-18)
+
+Hosted OSV exposed seven advisories rather than accepting an unavailable local
+scan. Preserve failures, add safe public package/advisory annotations and fix
+Snappy 1.1.10.9, LZ4 1.11.4 plus stable OTel BOM 1.67.0 (instrumentation already
+2.33.1). Full 107-test/native/browser/E2E regression and hosted 233-package scan
+pass with zero findings. No severity suppression or gate bypass. Reassess pins
+when the parent BOM changes. Default-tree audit does not certify optional inactive
+profiles, private connectors, identity or production security.

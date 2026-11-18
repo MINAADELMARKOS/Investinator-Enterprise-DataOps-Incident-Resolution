@@ -1,5 +1,5 @@
 {
-  "source_checkpoint": "bfe757b; Java source unchanged in Prompt 13",
+  "source_checkpoint": "f1488a7; full regression rerun with advisory fixes",
   "tests": 107,
   "failures": 0,
   "cases": [
@@ -7,595 +7,595 @@
       "class": "com.investinator.ConnectorConfigurationTest",
       "test": "disabledConnectorRequiresNoModelButEnabledConfigurationIsValidated",
       "result": "PASS",
-      "seconds": 0.477
+      "seconds": 0.491
     },
     {
       "class": "com.investinator.DependencyCompatibilityTest",
       "test": "standaloneWireMockIsCompatibleWithTheTestRuntime",
       "result": "PASS",
-      "seconds": 1.391
+      "seconds": 1.523
     },
     {
       "class": "com.investinator.DependencyCompatibilityTest",
       "test": "vendorTypesLoadAndClientConstructionDoesNotRequirePaidNetworkCalls",
       "result": "PASS",
-      "seconds": 0.609
+      "seconds": 0.962
     },
     {
       "class": "com.investinator.ScaffoldTest",
       "test": "livenessAndReadinessAreIndependentOfUnconfiguredConnectors",
       "result": "PASS",
-      "seconds": 1.41
+      "seconds": 0.755
     },
     {
       "class": "com.investinator.ScaffoldTest",
       "test": "requestIdsAreBoundedAndCannotInjectLogFields",
       "result": "PASS",
-      "seconds": 0.104
+      "seconds": 0.044
     },
     {
       "class": "com.investinator.ScaffoldTest",
       "test": "platformReportsScaffoldWithoutInventingMeasurements",
       "result": "PASS",
-      "seconds": 0.043
+      "seconds": 0.013
     },
     {
       "class": "com.investinator.ScaffoldTest",
       "test": "metricsRequireExplicitSecretAndOtherManagementRoutesAreDenied",
       "result": "PASS",
-      "seconds": 0.188
+      "seconds": 0.086
     },
     {
       "class": "com.investinator.api.ErrorMappingTest",
       "test": "exceptionResponsesDoNotLeakProviderOrCredentialDetails",
       "result": "PASS",
-      "seconds": 0.001
+      "seconds": 0.004
     },
     {
       "class": "com.investinator.config.MigrationOwnershipTest",
       "test": "publicAndSystemSchemasAreRefusedBeforeAnyMigration",
       "result": "PASS",
-      "seconds": 0.002
+      "seconds": 0.003
     },
     {
       "class": "com.investinator.config.MigrationOwnershipTest",
       "test": "existingAlembicSchemaIsNeverAdoptedOrModified",
       "result": "PASS",
-      "seconds": 0.057
+      "seconds": 0.052
     },
     {
       "class": "com.investinator.api.OperatorUiContractTest",
       "test": "historicalInspectorRechecksKnowledgeRevocationAndReadableChunk",
       "result": "PASS",
-      "seconds": 0.378
+      "seconds": 0.318
     },
     {
       "class": "com.investinator.api.OperatorUiContractTest",
       "test": "detailHistoryAndEvidenceAreScopedWithoutExposingPrivateContinuation",
       "result": "PASS",
-      "seconds": 0.137
+      "seconds": 0.133
     },
     {
       "class": "com.investinator.api.OperatorUiContractTest",
       "test": "boundedSettingsPauseRulesAndSuppressNotificationsWithoutErasingIncidents",
       "result": "PASS",
-      "seconds": 0.216
+      "seconds": 0.184
     },
     {
       "class": "com.investinator.health.ProbeHttpTest",
       "test": "responseSizeIsBounded",
       "result": "PASS",
-      "seconds": 0.071
+      "seconds": 0.06
     },
     {
       "class": "com.investinator.health.ProbeHttpTest",
       "test": "authenticatedGetPreservesStatusAndRefusesRedirects",
       "result": "PASS",
-      "seconds": 0.064
+      "seconds": 0.067
     },
     {
       "class": "com.investinator.knowledge.KnowledgeReviewIdentityTest",
       "test": "ingestionAndFeedbackCredentialsCannotDoubleAsIndependentReviewIdentity",
       "result": "PASS",
-      "seconds": 0.002
+      "seconds": 0.001
     },
     {
       "class": "com.investinator.PersistenceWorkflowTest",
       "test": "unknownProductionActionsAndMigrationOwnershipAreNotPermitted",
       "result": "PASS",
-      "seconds": 0.079
+      "seconds": 0.086
     },
     {
       "class": "com.investinator.PersistenceWorkflowTest",
       "test": "pythonAndJavaContractsMatchForSeededReadsAndWorkflowTraces",
       "result": "PASS",
-      "seconds": 0.806
+      "seconds": 0.803
     },
     {
       "class": "com.investinator.PersistenceWorkflowTest",
       "test": "negativeContractsCannotForgeTenantApprovalOrVerification",
       "result": "PASS",
-      "seconds": 0.146
+      "seconds": 0.128
     },
     {
       "class": "com.investinator.PersistenceWorkflowTest",
       "test": "concurrentRetriesDoNotDuplicateReplayOrAlertWrites",
       "result": "PASS",
-      "seconds": 0.168
+      "seconds": 0.147
     },
     {
       "class": "com.investinator.PersistenceWorkflowTest",
       "test": "conversationHistoryAndFailedCommandsRollback",
       "result": "PASS",
-      "seconds": 0.153
+      "seconds": 0.101
     },
     {
       "class": "com.investinator.PersistenceWorkflowTest",
       "test": "allReplayScenariosAndRejectionPreserveExpectedState",
       "result": "PASS",
-      "seconds": 0.202
+      "seconds": 0.132
     },
     {
       "class": "com.investinator.PersistenceWorkflowTest",
       "test": "replayApprovalVerificationAndAuditAreTransactionalAndTenantScoped",
       "result": "PASS",
-      "seconds": 0.243
+      "seconds": 0.169
     },
     {
       "class": "com.investinator.evidence.EvidenceApiSecurityTest",
       "test": "callerCannotSupplyTenantIndexUrlOrDslEvenWithAValidCredential",
       "result": "PASS",
-      "seconds": 0.054
+      "seconds": 0.04
     },
     {
       "class": "com.investinator.evidence.EvidenceApiSecurityTest",
       "test": "credentialsAreRequiredAndAbsentBackendIsTruthfullyNotConfigured",
       "result": "PASS",
-      "seconds": 0.018
+      "seconds": 0.019
     },
     {
       "class": "com.investinator.connectors.ConnectorApiSecurityTest",
       "test": "scopeIsRequiredCallerCannotChooseUrlSqlTenantOrCommandAndWritesAreDenied",
       "result": "PASS",
-      "seconds": 0.1
+      "seconds": 0.087
     },
     {
       "class": "com.investinator.chat.ChatGatewayTest",
       "test": "requestContextAndArgumentBudgetsAreEnforcedWithoutNetworkLoop",
       "result": "PASS",
-      "seconds": 1.159
+      "seconds": 1.552
     },
     {
       "class": "com.investinator.chat.ChatGatewayTest",
       "test": "stateCipherBindsTenantAndConversationAndNeverStoresPlainReasoning",
       "result": "PASS",
-      "seconds": 0.018
+      "seconds": 0.016
     },
     {
       "class": "com.investinator.chat.ChatGatewayTest",
       "test": "actualSdkLoopReturnsToolResultByCallIdAndCarriesAllReasoningItems",
       "result": "PASS",
-      "seconds": 0.266
+      "seconds": 0.205
     },
     {
       "class": "com.investinator.chat.ChatGatewayTest",
       "test": "unknownToolIsDeniedAndFakeApprovalInFinalOutputIsRejected",
       "result": "PASS",
-      "seconds": 0.034
+      "seconds": 0.026
     },
     {
       "class": "com.investinator.chat.ChatGatewayTest",
       "test": "structuredRedactionPreservesJsonAndStripsSensitiveKeysAndStringValues",
       "result": "PASS",
-      "seconds": 0.011
+      "seconds": 0.009
     },
     {
       "class": "com.investinator.chat.ChatGatewayTest",
       "test": "nonexistentOrWrongTimestampCitationAndFakeLiveModeFail",
       "result": "PASS",
-      "seconds": 0.022
+      "seconds": 0.029
     },
     {
       "class": "com.investinator.chat.ChatGatewayTest",
       "test": "providerTimeoutIsBoundedHasNoRetryAndNeverReturnsFabricatedModelSuccess",
       "result": "PASS",
-      "seconds": 8.532
+      "seconds": 8.548
     },
     {
       "class": "com.investinator.chat.ChatGatewayTest",
       "test": "providerFailuresHaveSafeDistinctStatus",
       "result": "PASS",
-      "seconds": 0.073
+      "seconds": 0.099
     },
     {
       "class": "com.investinator.chat.ChatGatewayTest",
       "test": "generalQuestionUsesNoIncidentAndFollowUpIncludesPriorContext",
       "result": "PASS",
-      "seconds": 0.029
+      "seconds": 0.031
     },
     {
       "class": "com.investinator.chat.ChatGatewayTest",
       "test": "multiCallBatchPreservesEveryCallIdAndReturnsBothReadResults",
       "result": "PASS",
-      "seconds": 0.033
+      "seconds": 0.029
     },
     {
       "class": "com.investinator.correlation.CorrelationApiTest",
       "test": "immutableRevisionsTenantEvidenceAndAuthenticatedJavaQueries",
       "result": "PASS",
-      "seconds": 0.15
+      "seconds": 0.144
     },
     {
       "class": "com.investinator.knowledge.KnowledgeIntegrationTest",
       "test": "reviewPackageCapturesNativeRetrievalRankingsAndAdversarialDiagnostics",
       "result": "PASS",
-      "seconds": 43.083
+      "seconds": 41.461
     },
     {
       "class": "com.investinator.knowledge.KnowledgeIntegrationTest",
       "test": "reviewAndFeedbackAreIndependentNoAutomaticPromotionAndInjectionIsQuarantined",
       "result": "PASS",
-      "seconds": 0.054
+      "seconds": 0.056
     },
     {
       "class": "com.investinator.knowledge.KnowledgeIntegrationTest",
       "test": "historicalCitationsAreRecheckedAfterAclOrReviewChangesAndCannotBecomeFreshObservations",
       "result": "PASS",
-      "seconds": 1.201
+      "seconds": 0.439
     },
     {
       "class": "com.investinator.knowledge.KnowledgeIntegrationTest",
       "test": "realBm25FiltersTenantAclVersionsModesAndRevalidatesRevocations",
       "result": "PASS",
-      "seconds": 5.131
+      "seconds": 5.122
     },
     {
       "class": "com.investinator.knowledge.KnowledgeIntegrationTest",
       "test": "provisionalFixtureEvaluationMeasuresBm25PrecisionAndDeterministicCausalRanking",
       "result": "PASS",
-      "seconds": 8.15
+      "seconds": 8.208
     },
     {
       "class": "com.investinator.evidence.NormalizedEvidenceTest",
       "test": "stableSourceTimeAndTenantDeduplicateWithoutConflatingTenants",
       "result": "PASS",
-      "seconds": 0.009
+      "seconds": 0.006
     },
     {
       "class": "com.investinator.evidence.NormalizedEvidenceTest",
       "test": "redactsBeforeIndexingAndPreservesEventTimeWithLagAndClockSkewFlags",
       "result": "PASS",
-      "seconds": 0.026
+      "seconds": 0.035
     },
     {
       "class": "com.investinator.evidence.NormalizedEvidenceTest",
       "test": "boundsPayloadsAndRejectsInvalidIdentity",
       "result": "PASS",
-      "seconds": 0.024
+      "seconds": 0.009
     },
     {
       "class": "com.investinator.remediation.RemediationIntegrationTest",
       "test": "changedParametersDefinitionOrReviewHashAreRejected",
       "result": "PASS",
-      "seconds": 0.167
+      "seconds": 0.17
     },
     {
       "class": "com.investinator.remediation.RemediationIntegrationTest",
       "test": "databaseFailureBeforeReceiptRollsBackReplayMutation",
       "result": "PASS",
-      "seconds": 0.15
+      "seconds": 0.526
     },
     {
       "class": "com.investinator.remediation.RemediationIntegrationTest",
       "test": "tokensAndBodyRoleSpoofingCannotConferApproval",
       "result": "PASS",
-      "seconds": 0.146
+      "seconds": 0.149
     },
     {
       "class": "com.investinator.remediation.RemediationIntegrationTest",
       "test": "legacyAliasesCannotBypassGovernedPlanAndReadOnlyEnterpriseModesDenyWrites",
       "result": "PASS",
-      "seconds": 0.121
+      "seconds": 0.109
     },
     {
       "class": "com.investinator.remediation.RemediationIntegrationTest",
       "test": "approvalAndAckNeverResolveWithoutIndependentFreshPostState",
       "result": "PASS",
-      "seconds": 0.168
+      "seconds": 0.161
     },
     {
       "class": "com.investinator.remediation.RemediationIntegrationTest",
       "test": "expiredRevokedAndStaleResourcePreconditionsDenyExecution",
       "result": "PASS",
-      "seconds": 0.24
+      "seconds": 0.128
     },
     {
       "class": "com.investinator.remediation.RemediationIntegrationTest",
       "test": "monitoredDiskIncidentCanBindOnlyAnExplicitReplaySandboxAndFollowLifecycle",
       "result": "PASS",
-      "seconds": 0.313
+      "seconds": 0.215
     },
     {
       "class": "com.investinator.remediation.RemediationIntegrationTest",
       "test": "partialSuccessRetainsReceiptAndRequiresExplicitRecovery",
       "result": "PASS",
-      "seconds": 0.122
+      "seconds": 0.115
     },
     {
       "class": "com.investinator.remediation.RemediationIntegrationTest",
       "test": "repeatedParallelAndWrongTenantExecutionHaveOnlyOneEffect",
       "result": "PASS",
-      "seconds": 0.138
+      "seconds": 0.115
     },
     {
       "class": "com.investinator.remediation.RemediationIntegrationTest",
       "test": "acknowledgementWithoutEffectIsNotSuccess",
       "result": "PASS",
-      "seconds": 0.153
+      "seconds": 0.105
     },
     {
       "class": "com.investinator.remediation.RemediationIntegrationTest",
       "test": "interruptedAfterEffectRecoversReceiptButStillRequiresIndependentSample",
       "result": "PASS",
-      "seconds": 0.139
+      "seconds": 0.123
     },
     {
       "class": "com.investinator.remediation.RemediationIntegrationTest",
       "test": "interruptedBeforeEffectIsManualAndNeverAutomaticallyRetried",
       "result": "PASS",
-      "seconds": 0.124
+      "seconds": 0.092
     },
     {
       "class": "com.investinator.remediation.RemediationIntegrationTest",
       "test": "namedRollbackRequiresOwnApprovalAndIndependentRestorationVerification",
       "result": "PASS",
-      "seconds": 0.165
+      "seconds": 0.143
     },
     {
       "class": "com.investinator.remediation.RemediationIntegrationTest",
       "test": "staleSamplesAndCallerClaimedChecksCannotVerify",
       "result": "PASS",
-      "seconds": 0.13
+      "seconds": 0.113
     },
     {
       "class": "com.investinator.chat.MissingProviderConfigurationTest",
       "test": "absentOptionalKeyNeverBlocksCoreStartupOrCreatesProviderClient",
       "result": "PASS",
-      "seconds": 0.002
+      "seconds": 0.004
     },
     {
       "class": "com.investinator.chat.ChatPersistenceTest",
       "test": "functionLoopExecutesActualReadOnlyKafkaAdminAgainstRealKraftBroker",
       "result": "PASS",
-      "seconds": 0.77
+      "seconds": 0.725
     },
     {
       "class": "com.investinator.chat.ChatPersistenceTest",
       "test": "officialSdkBeanPersistsRedactedHistoryEncryptedContinuationAndIdempotentFollowups",
       "result": "PASS",
-      "seconds": 0.058
+      "seconds": 0.078
     },
     {
       "class": "com.investinator.chat.ChatPersistenceTest",
       "test": "toolsRejectCrossTenantArgumentsNoIncidentAndUnsupportedApproval",
       "result": "PASS",
-      "seconds": 0.015
+      "seconds": 0.016
     },
     {
       "class": "com.investinator.connectors.RestDiagnosticConnectorTest",
       "test": "missingConfigurationUnsupportedRangerAndUnsafeEndpointDoNotMakeNetworkCalls",
       "result": "PASS",
-      "seconds": 0.038
+      "seconds": 0.026
     },
     {
       "class": "com.investinator.connectors.RestDiagnosticConnectorTest",
       "test": "everySupportedRestAdapterUsesAuthenticatedGetOnlyAndBoundsReturnedFacts",
       "result": "PASS",
-      "seconds": 0.167
+      "seconds": 0.142
     },
     {
       "class": "com.investinator.connectors.RestDiagnosticConnectorTest",
       "test": "authorizationVersionMalformedAndServerFailuresNeverLookHealthy",
       "result": "PASS",
-      "seconds": 0.139
+      "seconds": 0.372
     },
     {
       "class": "com.investinator.connectors.RestDiagnosticConnectorTest",
       "test": "configuredSemanticFailuresAreDegraded",
       "result": "PASS",
-      "seconds": 0.075
+      "seconds": 0.07
     },
     {
       "class": "com.investinator.config.EvidenceTransportConfigurationTest",
       "test": "nonLocalPlaintextUserinfoAndEnterpriseModeAreRejected",
       "result": "PASS",
-      "seconds": 0.001
+      "seconds": 0.002
     },
     {
       "class": "com.investinator.config.EvidenceTransportConfigurationTest",
       "test": "officialTransportConstructsAndClosesWithoutNetworkCalls",
       "result": "PASS",
-      "seconds": 0.004
+      "seconds": 0.005
     },
     {
       "class": "com.investinator.connectors.KafkaModeTest",
       "test": "brokerConfigReliablySeparatesKraftFromLegacyAndUnknown",
       "result": "PASS",
-      "seconds": 1.275
+      "seconds": 1.17
     },
     {
       "class": "com.investinator.knowledge.KnowledgeDocumentTest",
       "test": "configurationSourcesRedactQuotedCredentialsAndPrivateKeysWithoutLosingStructure",
       "result": "PASS",
-      "seconds": 0.004
+      "seconds": 0.002
     },
     {
       "class": "com.investinator.knowledge.KnowledgeDocumentTest",
       "test": "hashesChunksNormalizationAndDedupAreDeterministicAndTenantSpecific",
       "result": "PASS",
-      "seconds": 0.021
+      "seconds": 0.018
     },
     {
       "class": "com.investinator.knowledge.KnowledgeDocumentTest",
       "test": "injectionQuarantineAndSourceReferenceValidation",
       "result": "PASS",
-      "seconds": 0.003
+      "seconds": 0.001
     },
     {
       "class": "com.investinator.connectors.HiveMetastoreConnectorTest",
       "test": "actualDigestSaslThriftFixtureAllowsOnlyVersionAndNamespaceReads",
       "result": "PASS",
-      "seconds": 0.051
+      "seconds": 0.071
     },
     {
       "class": "com.investinator.connectors.NativeConnectorTest",
       "test": "hiveOnlyExecutesOneFixedBoundedReadAndClosesResources",
       "result": "PASS",
-      "seconds": 0.472
+      "seconds": 0.727
     },
     {
       "class": "com.investinator.connectors.NativeConnectorTest",
       "test": "hiveUnsafeTransportDuplicateTlsAndUninstalledDriverAreExplicit",
       "result": "PASS",
-      "seconds": 0.002
+      "seconds": 0.003
     },
     {
       "class": "com.investinator.connectors.NativeConnectorTest",
       "test": "nativePrivateServicesWithoutCredentialsAreNotConfigured",
       "result": "PASS",
-      "seconds": 0.001
+      "seconds": 0.002
     },
     {
       "class": "com.investinator.connectors.NativeConnectorTest",
       "test": "kuduUsesOnlyOfficialReadRpcsAndDoesNotInventQuorumOrServerVersion",
       "result": "PASS",
-      "seconds": 0.151
+      "seconds": 0.205
     },
     {
       "class": "com.investinator.correlation.CorrelationEngineTest",
       "test": "timeVersionedGraphDoesNotUseFutureOrExpiredEdges",
       "result": "PASS",
-      "seconds": 0.001
+      "seconds": 0.023
     },
     {
       "class": "com.investinator.correlation.CorrelationEngineTest",
       "test": "modeSkewReverseTimeAndHealthyCounterevidenceAreRespected",
       "result": "PASS",
-      "seconds": 0.003
+      "seconds": 0.019
     },
     {
       "class": "com.investinator.correlation.CorrelationEngineTest",
       "test": "independentKraftAndLegacyChainsRankUpstreamWithTraceableEvidence",
       "result": "PASS",
-      "seconds": 0.005
+      "seconds": 0.062
     },
     {
       "class": "com.investinator.correlation.CorrelationEngineTest",
       "test": "healthyZooKeeperAndExhaustedDiskPreferDiskNotCoordination",
       "result": "PASS",
-      "seconds": 0.002
+      "seconds": 0.006
     },
     {
       "class": "com.investinator.correlation.CorrelationEngineTest",
       "test": "simulatedDataCannotCorroborateLiveHypothesis",
       "result": "PASS",
-      "seconds": 0.002
+      "seconds": 0.001
     },
     {
       "class": "com.investinator.correlation.CorrelationEngineTest",
       "test": "crossTenantConflictingEvidenceAndInventedGraphEdgesFail",
       "result": "PASS",
-      "seconds": 0.003
+      "seconds": 0.015
     },
     {
       "class": "com.investinator.correlation.CorrelationEngineTest",
       "test": "noEvidenceNormalDuplicatesAndInjectionNeverCreateConfirmedCause",
       "result": "PASS",
-      "seconds": 0.203
+      "seconds": 0.339
     },
     {
       "class": "com.investinator.monitoring.MonitoringIntegrationTest",
       "test": "legacyAndNifiHdfsRulesAreExplicitlyVersionScoped",
       "result": "PASS",
-      "seconds": 0.158
+      "seconds": 0.168
     },
     {
       "class": "com.investinator.monitoring.MonitoringIntegrationTest",
       "test": "connector503SamplesAreUnknownNotSynthesizedAsHealthyOrPrompted",
       "result": "PASS",
-      "seconds": 0.133
+      "seconds": 0.15
     },
     {
       "class": "com.investinator.monitoring.MonitoringIntegrationTest",
       "test": "duplicateStormOutOfOrderUpstreamChangesAndMissingProviderStayBounded",
       "result": "PASS",
-      "seconds": 1.758
+      "seconds": 2.045
     },
     {
       "class": "com.investinator.monitoring.MonitoringIntegrationTest",
       "test": "dbFailureRollsBackIncidentOutboxAndCheckpointThenResumes",
       "result": "PASS",
-      "seconds": 0.105
+      "seconds": 0.137
     },
     {
       "class": "com.investinator.monitoring.MonitoringIntegrationTest",
       "test": "hdfsOriginPrecedesNifiBackpressureAndDatasetDelay",
       "result": "PASS",
-      "seconds": 0.117
+      "seconds": 0.101
     },
     {
       "class": "com.investinator.monitoring.MonitoringIntegrationTest",
       "test": "unknownStaleModeIsolationAndHysteresisDoNotInventHealth",
       "result": "PASS",
-      "seconds": 0.084
+      "seconds": 0.078
     },
     {
       "class": "com.investinator.monitoring.MonitoringIntegrationTest",
       "test": "longFlapCooldownAndNewCauseAreNotConfused",
       "result": "PASS",
-      "seconds": 0.166
+      "seconds": 0.148
     },
     {
       "class": "com.investinator.monitoring.MonitoringIntegrationTest",
       "test": "parallelWorkersRestartCheckpointAndLifecycleAreDurable",
       "result": "PASS",
-      "seconds": 0.124
+      "seconds": 0.129
     },
     {
       "class": "com.investinator.monitoring.MonitoringIntegrationTest",
       "test": "notificationOutageHasBoundedRetriesAndDoesNotCallGpt",
       "result": "PASS",
-      "seconds": 0.118
+      "seconds": 0.069
     },
     {
       "class": "com.investinator.knowledge.KnowledgeUnavailableTest",
       "test": "configuredButUnavailableIndexCannotClaimLiveRetrievalOrInventHits",
       "result": "PASS",
-      "seconds": 0.37
+      "seconds": 0.239
     },
     {
       "class": "com.investinator.health.HealthAggregatorTest",
       "test": "concurrentRefreshesShareCompletedReportInsteadOfAnEmptyResult",
       "result": "PASS",
-      "seconds": 0.034
+      "seconds": 0.036
     },
     {
       "class": "com.investinator.health.HealthAggregatorTest",
       "test": "cacheDoesNotIssueNewCallsAndOptionalNotConfiguredIsExplicit",
       "result": "PASS",
-      "seconds": 0.006
+      "seconds": 0.002
     },
     {
       "class": "com.investinator.health.HealthAggregatorTest",
       "test": "retriesTransientFailuresButNeverEchoesExceptionSecrets",
       "result": "PASS",
-      "seconds": 0.051
+      "seconds": 0.048
     },
     {
       "class": "com.investinator.health.HealthAggregatorTest",
       "test": "boundedParallelismAndQueueSaturationAreTruthful",
       "result": "PASS",
-      "seconds": 0.144
+      "seconds": 0.145
     },
     {
       "class": "com.investinator.health.HealthAggregatorTest",
@@ -619,31 +619,31 @@
       "class": "com.investinator.health.HealthAggregatorTest",
       "test": "mandatoryUnconfiguredCannotBeReady",
       "result": "PASS",
-      "seconds": 0.003
+      "seconds": 0.001
     },
     {
       "class": "com.investinator.evidence.EvidenceEnabledContextTest",
       "test": "enabledSdkBeanIsFullyIntrospectableWithoutRemoteCalls",
       "result": "PASS",
-      "seconds": 0.004
+      "seconds": 0.005
     },
     {
       "class": "com.investinator.health.HealthApiSecurityTest",
       "test": "privateReportRequiresScopedTokenAndReportsNoPaidCalls",
       "result": "PASS",
-      "seconds": 0.024
+      "seconds": 0.04
     },
     {
       "class": "com.investinator.connectors.LegacyZooKeeperConnectorTest",
       "test": "actualIsolatedServerRequiresDigestAclAndDiagnosisNeverChangesZnode",
       "result": "PASS",
-      "seconds": 0.649
+      "seconds": 0.725
     },
     {
       "class": "com.investinator.connectors.LegacyZooKeeperConnectorTest",
       "test": "kraftNeverContactsZooKeeperEvenIfEndpointIsConfigured",
       "result": "PASS",
-      "seconds": 0.007
+      "seconds": 0.008
     }
   ]
 }

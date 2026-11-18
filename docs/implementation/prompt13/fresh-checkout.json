@@ -7,8 +7,8 @@
       ],
       "exit_code": 0,
       "expected": 0,
-      "seconds": 10.772,
-      "stdout_sha256": "d5559edc77c0b0799d862e379439d91ad8b66a7efb72c3574478285fa42de53a"
+      "seconds": 104.819,
+      "stdout_sha256": "1f83d995b0b20b77c8f5ebc4e4be87927b3b586e965ffb1204713420af2d3d96"
     },
     {
       "args": [
@@ -16,7 +16,7 @@
       ],
       "exit_code": 0,
       "expected": 0,
-      "seconds": 10.683,
+      "seconds": 11.907,
       "stdout_sha256": "d5559edc77c0b0799d862e379439d91ad8b66a7efb72c3574478285fa42de53a"
     },
     {
@@ -26,8 +26,8 @@
       ],
       "exit_code": 0,
       "expected": 0,
-      "seconds": 0.469,
-      "stdout_sha256": "2522f8c0b8bfa06a334b59147dde2f45e0f6be8d1ca2dd2c9a6801dc1a13421c"
+      "seconds": 1.179,
+      "stdout_sha256": "0a2863b4970b15f4edea83f027f0717e3e4ab5cd4fe58184ff97642d85748229"
     },
     {
       "args": [
@@ -37,8 +37,8 @@
       ],
       "exit_code": 0,
       "expected": 0,
-      "seconds": 0.194,
-      "stdout_sha256": "3c404efe0221593616f626a19d227c3ede19b2545ec1f38798b8cfc429d98dc9"
+      "seconds": 0.44,
+      "stdout_sha256": "2c40b3560fe52a8179011ad04d99a93a631e5fdc72cc59e7f9221cfa46e33f9a"
     },
     {
       "args": [
@@ -46,7 +46,7 @@
       ],
       "exit_code": 0,
       "expected": 0,
-      "seconds": 0.603,
+      "seconds": 1.379,
       "stdout_sha256": "2c750f8dcaffd6ca6039c8e036ee2efdc0d0b9153d03394fe5d9046c31982d9c"
     },
     {
@@ -56,7 +56,7 @@
       ],
       "exit_code": 0,
       "expected": 0,
-      "seconds": 0.578,
+      "seconds": 0.513,
       "stdout_sha256": "25398007588139ad20c369e0fcd2aeff04d56ed712f6d0ed61203c7ceda141c5"
     },
     {
@@ -66,7 +66,7 @@
       ],
       "exit_code": 0,
       "expected": 0,
-      "seconds": 0.101,
+      "seconds": 0.22,
       "stdout_sha256": "25398007588139ad20c369e0fcd2aeff04d56ed712f6d0ed61203c7ceda141c5"
     },
     {
@@ -76,7 +76,7 @@
       ],
       "exit_code": 0,
       "expected": 0,
-      "seconds": 0.137,
+      "seconds": 0.337,
       "stdout_sha256": "68fb3a46fb18682aaedb22e1e8f5195c16d75de8b07bd8aa29e43894fd772e0c"
     },
     {
@@ -86,7 +86,7 @@
       ],
       "exit_code": 0,
       "expected": 0,
-      "seconds": 0.354,
+      "seconds": 0.117,
       "stdout_sha256": "ea54a4755dc9536d51ca309e30a9af4a5443b3459a6c7d882c1dcfbc829a2850"
     },
     {
@@ -96,7 +96,7 @@
       ],
       "exit_code": 0,
       "expected": 0,
-      "seconds": 0.107,
+      "seconds": 0.127,
       "stdout_sha256": "ea54a4755dc9536d51ca309e30a9af4a5443b3459a6c7d882c1dcfbc829a2850"
     },
     {
@@ -106,7 +106,7 @@
       ],
       "exit_code": 0,
       "expected": 0,
-      "seconds": 0.117,
+      "seconds": 0.225,
       "stdout_sha256": "e28616c2d8744468e93602f5bb220252748038b57f1f1dc9b47978224ea4355a"
     },
     {
@@ -116,7 +116,7 @@
       ],
       "exit_code": 0,
       "expected": 0,
-      "seconds": 1.014,
+      "seconds": 1.406,
       "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     {
@@ -126,7 +126,7 @@
       ],
       "exit_code": 0,
       "expected": 0,
-      "seconds": 0.23,
+      "seconds": 0.256,
       "stdout_sha256": "68fb3a46fb18682aaedb22e1e8f5195c16d75de8b07bd8aa29e43894fd772e0c"
     },
     {
@@ -136,14 +136,14 @@
       ],
       "exit_code": 2,
       "expected": 2,
-      "seconds": 0.147,
+      "seconds": 0.151,
       "stdout_sha256": "e0aac89cef00e95cc987622ff0980eb27e870c0d515afb65d4a62a7a041534cf"
     }
   ],
   "production_actions": 0,
   "paid_provider_calls": 0,
   "provenance": "actual owned local transport; all faults/incident content SIMULATED",
-  "initial_commit": "4b484b4bf8ffbe0b06af7c26f0069b140d58944f",
+  "initial_commit": "f1488a70e906efa6932fa72066d9b0e56cf5b15c",
   "idempotent_up": true,
   "golden_cases": {
     "kafka-kraft": {
@@ -775,6 +775,11 @@
       },
       {
         "name": "actual monitor controls",
+        "result": "PASS",
+        "provenance": "LIVE_LOCAL_TRANSPORT / SIMULATED_DATA"
+      },
+      {
+        "name": "bound incident graph and uncertainty",
         "result": "PASS",
         "provenance": "LIVE_LOCAL_TRANSPORT / SIMULATED_DATA"
       },

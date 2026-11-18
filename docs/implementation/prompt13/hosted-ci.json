@@ -1,0 +1,37 @@
+{
+  "run_id": "44391359760",
+  "url": "https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/actions/runs/44391359760",
+  "observed_at": "2026-11-18T20:35:39.428809+00:00",
+  "method": "Public GitHub HTML status; authenticated logs unavailable due API destination policy",
+  "jobs": [
+    {
+      "job": "backend",
+      "url": "https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/actions/runs/44391359760/job/135109588921",
+      "status": "completed successfully"
+    },
+    {
+      "job": "frontend",
+      "url": "https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/actions/runs/44391359760/job/135109589242",
+      "status": "completed successfully"
+    },
+    {
+      "job": "java-scaffold",
+      "url": "https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/actions/runs/44391359760/job/135109589246",
+      "status": "completed successfully"
+    },
+    {
+      "job": "local-e2e",
+      "url": "https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/actions/runs/44391359760/job/135109589452",
+      "status": "completed successfully"
+    },
+    {
+      "job": "dependency-security",
+      "url": "https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/actions/runs/44391359760/job/135109589346",
+      "status": "completed successfully"
+    }
+  ],
+  "commit_sha": "f1488a70e906efa6932fa72066d9b0e56cf5b15c",
+  "branch": "feature/java-ai-audit",
+  "commit_verified_from_public_run_page": true,
+  "security_notice": "PASS; resolved_packages=233; findings=0"
+}

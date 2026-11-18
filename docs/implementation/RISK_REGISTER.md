@@ -1,5 +1,12 @@
 # Risk register
 
+Current 12/13 disposition: isolated demo gates and all five hosted jobs PASS on
+f1488a7. Seven Java dependency advisories were remediated (Snappy/LZ4/OTel); OSV
+reports 233 packages / zero findings. npm/Python audits clean. Local API egress and
+new PR creation remain blocked; production identity/certification/human quality/
+operational security and optional-profile auditing remain unresolved. Historical
+records below retain earlier pending/failing evidence.
+
 | ID | Severity / owner role | Evidence and risk | Required mitigation / gate |
 |---|---|---|---|
 | R1 | Resolved locally in 09A / frontend maintainer | Main patch Next 16.4.5 retained; fresh npm ci/build/types/audit pass, zero vulnerabilities | hosted CI verification pending; historical audit below remains preserved |
