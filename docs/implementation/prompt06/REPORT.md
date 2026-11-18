@@ -1,5 +1,10 @@
 # Prompt 06 — Read-only distributed-system connectors
 
+> 09B security reconciliation (2026-11-17): the Next.js finding described below
+> is historical. Current main/local Next.js 16.4.5 package and lockfile match;
+> fresh npm audit reports zero vulnerabilities. See the
+> [current security assessment](../prompt09/PROMPT05_AUDIT.md#security-advisory-reconciliation).
+
 Implemented a trusted `DiagnosticConnector` SPI, capability declarations,
 version/authentication contracts, health integration, private read API and a
 backend service allowlist. Existing Next.js/Python source, default routing and

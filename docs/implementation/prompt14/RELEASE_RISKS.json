@@ -1,0 +1,109 @@
+{
+  "assessment": "COMPLETE_WITH_EXPLICIT_BLOCKERS",
+  "release_decision": "BLOCKED",
+  "deployment_authorized": false,
+  "demo_decision": "CONDITIONAL_LOCAL_ONLY",
+  "owner_roles_are_proposed_not_human_signoffs": true,
+  "risks": [
+    {
+      "id": "P14-01",
+      "severity": "CRITICAL_FOR_PRODUCTION",
+      "owner": "security/identity lead",
+      "disposition": "BLOCKED",
+      "finding": "OIDC/RBAC and independent enterprise change identity absent",
+      "mitigation": "Keep enterprise ingress and executors blocked; certify issuer/audience/scopes/tenancy and independent approval",
+      "verification": "EnterpriseIngressTest + RemediationIntegrationTest; OIDC certificate NOT_TESTED",
+      "target": "Before any enterprise ingress / Prompt 16 cutover"
+    },
+    {
+      "id": "P14-02",
+      "severity": "HIGH",
+      "owner": "integration and security leads",
+      "disposition": "BLOCKED",
+      "finding": "Private connector certs/realms/rotation and external multi-tenant ACLs unverified",
+      "mitigation": "Per-target least-privilege native certification, Kerberos/TLS/mTLS/refresh/negative tests",
+      "verification": "AUTH_MATRIX.md; local protocol and MOCKED adapter tests only",
+      "target": "Before connector certification"
+    },
+    {
+      "id": "P14-03",
+      "severity": "HIGH",
+      "owner": "SRE/data lead",
+      "disposition": "BLOCKED",
+      "finding": "No encrypted offsite/PITR/HA restoration or long-duration loss evidence",
+      "mitigation": "Approve RPO/RTO; stage restore of separate owners, WAL recovery, search rebuild and sustained partition/replica drills",
+      "verification": "backup-restore.json proves isolated snapshot only; extended/replica tests NOT_TESTED",
+      "target": "Before release"
+    },
+    {
+      "id": "P14-04",
+      "severity": "HIGH",
+      "owner": "AI platform/FinOps lead",
+      "disposition": "BLOCKED",
+      "finding": "No durable distributed monetary cap or approved live model budget",
+      "mitigation": "Provider policy, legal/PII review, budget/price approvals, daily reconciliation and key rotation",
+      "verification": "FINOPS.json; MOCKED request/tool/rate/429 tests; actual GPT NOT_CONFIGURED",
+      "target": "Before live provider enablement"
+    },
+    {
+      "id": "P14-05",
+      "severity": "HIGH",
+      "owner": "independent SRE/domain reviewers",
+      "disposition": "BLOCKED",
+      "finding": "Human gold-set review and production RCA accuracy absent",
+      "mitigation": "Independent signed held-out review; preserve abstention and contradictory evidence",
+      "verification": "Prompt09 review package pending; no synthetic approval",
+      "target": "Before quality/ROI claims"
+    },
+    {
+      "id": "P14-06",
+      "severity": "HIGH",
+      "owner": "security/platform lead",
+      "disposition": "BLOCKED",
+      "finding": "Demo plaintext/trust DB, no certified perimeter body/rate policy or egress firewall",
+      "mitigation": "Loopback only now; reviewed identity/TLS/mTLS/gateway limits and network allowlists before exposure",
+      "verification": "loopback Compose + byte-limited proxy + non-demo deny tests; enterprise network policy NOT_TESTED",
+      "target": "Before external ingress"
+    },
+    {
+      "id": "P14-07",
+      "severity": "HIGH",
+      "owner": "data governance/legal lead",
+      "disposition": "BLOCKED",
+      "finding": "No approved retention/erasure/legal hold, immutable audit or runbook licensing policy",
+      "mitigation": "Approve data classes/source licenses, external audit, retention/backups/model transfer policy",
+      "verification": "RECOVERY_AND_DATA.md; redaction tests are not legal/DLP certification",
+      "target": "Before production data ingestion"
+    },
+    {
+      "id": "P14-08",
+      "severity": "MEDIUM",
+      "owner": "build/security lead",
+      "disposition": "BLOCKED",
+      "finding": "Python minimum-only constraints and optional shaded Hive profile not comprehensively audited; container OS/image CVE scan and independent penetration test not performed",
+      "mitigation": "Platform-specific reproducible constraints and vendor SBOM/shaded dependency review",
+      "verification": "default Maven/Python/npm scans; optional profile NOT_CERTIFIED",
+      "target": "Release build certification"
+    },
+    {
+      "id": "P14-09",
+      "severity": "MEDIUM",
+      "owner": "SRE/product owner",
+      "disposition": "CONDITIONAL",
+      "finding": "SLOs proposed; no 30-day window, production latency/false-positive/ROI evidence",
+      "mitigation": "Approve indicators, collect bounded telemetry, run staging load/soak and review error budgets",
+      "verification": "SLOS.md and operational-baseline.json",
+      "target": "Before claiming production SLOs"
+    },
+    {
+      "id": "P14-10",
+      "severity": "HIGH",
+      "owner": "application security lead",
+      "disposition": "GO",
+      "finding": "Non-demo platform-health bypass, proxy stream bounds, HTTPS public-origin cookie and wildcard demo binds corrected",
+      "mitigation": "Retain deny/stream/cookie tests and loopback binds",
+      "verification": "EnterpriseIngressTest; bounded-body and secureCookie tests; Compose configuration",
+      "target": "Completed in Prompt 14"
+    }
+  ]
+}

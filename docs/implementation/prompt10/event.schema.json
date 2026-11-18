@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SignalReceived public simulation ingestion",
+  "type": "object",
+  "required": [
+    "event_id",
+    "tenant_id",
+    "environment",
+    "cluster_id",
+    "graph_id",
+    "graph_revision",
+    "resource",
+    "rule_id",
+    "observed_at",
+    "source_mode",
+    "measurements",
+    "capabilities"
+  ],
+  "properties": {
+    "event_id": {
+      "type": "string"
+    },
+    "tenant_id": {
+      "type": "string"
+    },
+    "environment": {
+      "type": "string"
+    },
+    "cluster_id": {
+      "type": "string"
+    },
+    "graph_id": {
+      "type": "string"
+    },
+    "graph_revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "resource": {
+      "type": "string"
+    },
+    "rule_id": {
+      "type": "string"
+    },
+    "observed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "source_mode": {
+      "enum": [
+        "SIMULATED"
+      ]
+    },
+    "measurements": {
+      "type": "object",
+      "maxProperties": 30,
+      "additionalProperties": {
+        "type": "number"
+      }
+    },
+    "capabilities": {
+      "type": "array",
+      "maxItems": 30,
+      "items": {
+        "type": "string"
+      }
+    },
+    "excerpt": {
+      "type": "string",
+      "maxLength": 2000
+    },
+    "impact": {
+      "type": [
+        "object",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

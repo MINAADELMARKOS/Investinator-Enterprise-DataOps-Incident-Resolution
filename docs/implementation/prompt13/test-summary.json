@@ -1,0 +1,25 @@
+{
+  "java": {
+    "tests": 107,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0
+  },
+  "cli_tests": 29,
+  "python_tests": 12,
+  "frontend_tests": 8,
+  "browser_checks": 14,
+  "dependency_outages": 8,
+  "native_evidence": "PASS incl corrupt log/auth403/search outage",
+  "monitor_process_restart": "PASS",
+  "remediation_process_restart": "PASS",
+  "root_lab_up_doctor_health_smoke": "PASS with patched dependencies",
+  "npm_audit": "ZERO_VULNERABILITIES",
+  "python_audit": "ZERO_KNOWN_FINDINGS; patched installer 26.3",
+  "java_osv_hosted": "PASS 233 packages,0 findings",
+  "seven_initial_java_findings": "FIXED; no suppression",
+  "source_commit": "f1488a7",
+  "paid_provider_calls": 0,
+  "production_actions": 0,
+  "production_readiness": "BLOCKED (identity, independent quality, live certification, operational security)"
+}

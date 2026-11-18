@@ -1,0 +1,18 @@
+{
+  "remote_main": "ef0268b108b4c7a09c7d32ddc82f0a71712d5460",
+  "next_version": "16.4.5",
+  "npm_audit": "PASS_ZERO_VULNERABILITIES",
+  "historical_reports_preserved": true,
+  "files": [
+    {
+      "file": "apps/web/package.json",
+      "sha256": "d91f7bb8ebbe173ceff1ac126614bd851128fd691daeb83f7a8c36ef124ea1fd",
+      "matches_main": true
+    },
+    {
+      "file": "apps/web/package-lock.json",
+      "sha256": "85b814ca3e84152aacdc4d2af05d757363fcba5dde74ee5f49bdb90d3ec856c7",
+      "matches_main": true
+    }
+  ]
+}

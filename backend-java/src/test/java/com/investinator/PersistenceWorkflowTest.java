@@ -113,7 +113,7 @@ class PersistenceWorkflowTest {
         }finally{pool.shutdownNow();}
     }
     @Test void unknownProductionActionsAndMigrationOwnershipAreNotPermitted() {
-        assertEquals(5,store.jdbc.queryForObject("select count(*) from flyway_schema_history where type='SQL' and success",Integer.class));
+        assertEquals(8,store.jdbc.queryForObject("select count(*) from flyway_schema_history where type='SQL' and success",Integer.class));
         assertEquals(0,store.jdbc.queryForObject("select count(*) from information_schema.tables where table_schema='public' and table_name='incidents'",Integer.class));
         assertThrows(ApiFailure.class,()->store.write("demo",()->{service.analyze("demo",new IncidentRequest("Kafka",null,null,"production","demo"));throw new ApiFailure(409,"rollback");}));
         assertTrue(store.all(Table.INCIDENTS,"demo").isEmpty());

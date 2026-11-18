@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "source_mode": "SIMULATED",
+  "transport": "actual disposable PostgreSQL/Java HTTP",
+  "real_java_process_restart": true,
+  "independent_post_state_required": true,
+  "unapproved_and_wrong_role_denied": true,
+  "repeat_after_restart_denied": true,
+  "legacy_bypass_denied": true,
+  "named_rollback_separately_approved_and_verified": true,
+  "production_actions": 0,
+  "paid_provider_calls": 0
+}

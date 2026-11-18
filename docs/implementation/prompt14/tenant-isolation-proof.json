@@ -1,0 +1,103 @@
+{
+  "status": "PASS_FUNCTIONAL_BOUNDARIES",
+  "scope": "local PostgreSQL/MockMvc/native fixture and scoped application code, not private cluster certification",
+  "tests": [
+    {
+      "class": "com.investinator.api.OperatorUiContractTest",
+      "name": "detailHistoryAndEvidenceAreScopedWithoutExposingPrivateContinuation",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.PersistenceWorkflowTest",
+      "name": "negativeContractsCannotForgeTenantApprovalOrVerification",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.PersistenceWorkflowTest",
+      "name": "replayApprovalVerificationAndAuditAreTransactionalAndTenantScoped",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.evidence.EvidenceApiSecurityTest",
+      "name": "callerCannotSupplyTenantIndexUrlOrDslEvenWithAValidCredential",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.connectors.ConnectorApiSecurityTest",
+      "name": "scopeIsRequiredCallerCannotChooseUrlSqlTenantOrCommandAndWritesAreDenied",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.chat.ChatGatewayTest",
+      "name": "stateCipherBindsTenantAndConversationAndNeverStoresPlainReasoning",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.chat.ChatGatewayTest",
+      "name": "toolAndTenantRateBudgetsStopBeforeAdditionalToolsOrProviderSpend",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.correlation.CorrelationApiTest",
+      "name": "immutableRevisionsTenantEvidenceAndAuthenticatedJavaQueries",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.knowledge.KnowledgeIntegrationTest",
+      "name": "realBm25FiltersTenantAclVersionsModesAndRevalidatesRevocations",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.evidence.NormalizedEvidenceTest",
+      "name": "stableSourceTimeAndTenantDeduplicateWithoutConflatingTenants",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.remediation.RemediationIntegrationTest",
+      "name": "tokensAndBodyRoleSpoofingCannotConferApproval",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.remediation.RemediationIntegrationTest",
+      "name": "expiredRevokedAndStaleResourcePreconditionsDenyExecution",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.remediation.RemediationIntegrationTest",
+      "name": "repeatedParallelAndWrongTenantExecutionHaveOnlyOneEffect",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.chat.ChatPersistenceTest",
+      "name": "toolsRejectCrossTenantArgumentsNoIncidentAndUnsupportedApproval",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.knowledge.KnowledgeDocumentTest",
+      "name": "hashesChunksNormalizationAndDedupAreDeterministicAndTenantSpecific",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.correlation.CorrelationEngineTest",
+      "name": "crossTenantConflictingEvidenceAndInventedGraphEdgesFail",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.monitoring.MonitoringIntegrationTest",
+      "name": "legacyAndNifiHdfsRulesAreExplicitlyVersionScoped",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.security.EnterpriseIngressTest",
+      "name": "nonDemoBlocksPlatformAndBusinessDataEvenWithDemoCapabilities",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.health.HealthApiSecurityTest",
+      "name": "privateReportRequiresScopedTokenAndReportsNoPaidCalls",
+      "status": "PASS"
+    }
+  ],
+  "enterprise_identity": "NOT_IMPLEMENTED_INGRESS_BLOCKED",
+  "external_connector_acl_certification": "NOT_TESTED"
+}

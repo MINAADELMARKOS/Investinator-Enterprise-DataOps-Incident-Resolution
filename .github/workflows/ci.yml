@@ -10,13 +10,15 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - run: python -m pip install --upgrade pip==26.3
       - run: python -m pip install -e '.[dev]'
       - run: pytest -q
-      - run: ruff check src tests scripts/investinator_cli.py scripts/verify_health_lab.py scripts/verify_connectors_lab.py scripts/knowledge_bootstrap.py scripts/verify_knowledge_lab.py tests_cli
+      - run: ruff check src tests scripts/investinator_cli.py scripts/verify_health_lab.py scripts/verify_connectors_lab.py scripts/knowledge_bootstrap.py scripts/verify_knowledge_lab.py scripts/evaluate_knowledge_quality.py scripts/verify_monitor_process.py scripts/verify_remediation_process.py scripts/verify_frontend_compat.py scripts/verify_e2e_lab.py scripts/lab_scenarios.py scripts/audit_java_dependencies.py scripts/verify_backup_restore.py scripts/capture_operational_baseline.py tests_cli
       - run: python -m unittest discover -s tests_cli
       - run: mypy src
       - run: python -m incident_copilot.evaluation eval/test_incidents.jsonl
       - run: docker compose config --quiet
+      - run: docker run --rm --network none --read-only --tmpfs /tmp:rw,noexec,nosuid,size=32m --workdir /fixtures --volume "$PWD/infra/operations:/fixtures:ro" --entrypoint /bin/promtool prom/prometheus:v2.55.1@sha256:2659f4c2ebb718e7695cb9b25ffa7d6be64db013daba13e05c875451cf51b0d3 test rules slo-rules-test.yaml
   frontend:
     runs-on: ubuntu-latest
     defaults:
@@ -32,6 +34,7 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: npm run lint
+      - run: npm test
       - run: npm audit --audit-level=high
   java-scaffold:
     runs-on: ubuntu-latest
@@ -44,11 +47,88 @@ jobs:
           cache: maven
           cache-dependency-path: backend-java/pom.xml
       - run: ./backend-java/mvnw -B -f backend-java/pom.xml verify
+      - run: python3 scripts/evaluate_knowledge_quality.py --output backend-java/target/quality-evaluation-ci.json
       - run: docker compose -f docker-compose.yml -f compose.java.yaml --profile java config --quiet
       - run: docker compose -p investinator-java-ci -f docker-compose.yml -f compose.java.yaml --profile java up --build --no-deps --wait --wait-timeout 90 java-api
       - run: python3 backend-java/scripts/smoke.py
       - run: python3 backend-java/scripts/evidence_lab.py verify
+      - run: python3 scripts/verify_monitor_process.py --output backend-java/target/monitor-process.json
+      - run: python3 scripts/verify_remediation_process.py --output backend-java/target/remediation-process.json
       - if: always()
         run: docker compose -p investinator-java-ci -f docker-compose.yml -f compose.java.yaml --profile java logs --no-color java-api
       - if: always()
         run: docker compose -p investinator-java-ci -f docker-compose.yml -f compose.java.yaml --profile java stop java-api
+
+  local-e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      INVESTINATOR_MONITOR_ENABLED: 'true'
+      OPENAI_API_KEY: ''
+      INVESTINATOR_OPENAI_ENABLED: 'false'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+          cache-dependency-path: backend-java/pom.xml
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: apps/web/package-lock.json
+      - run: python -m pip install --upgrade pip==26.3
+      - run: python -m pip install -e '.[dev]'
+      - run: npm ci --prefix apps/web
+      - run: cd apps/web && npx playwright install --with-deps chromium
+      - run: python scripts/verify_e2e_lab.py --outages
+      - run: python scripts/verify_backup_restore.py --output .runtime/backup-restore.json
+      - run: python scripts/capture_operational_baseline.py --samples 10 --output .runtime/operational-baseline.json
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: isolated-lab-acceptance
+          path: |
+            .runtime/backup-restore.json
+            .runtime/operational-baseline.json
+            .runtime/e2e.json
+            .runtime/outages.json
+            .runtime/ui-acceptance/*.json
+            .runtime/ui-acceptance/*.png
+          if-no-files-found: warn
+      - if: always()
+        run: ./investinator down
+  dependency-security:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+          cache-dependency-path: backend-java/pom.xml
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --upgrade pip==26.3
+      - run: python -m pip install -e '.[dev]' pip-audit==2.9.0
+      - run: pip-audit --format json --output python-dependency-audit.json
+      - if: always()
+        run: ./backend-java/mvnw -B -f backend-java/pom.xml dependency:tree -DoutputType=json -DoutputFile=target/dependency-tree.json
+      - if: always()
+        run: python scripts/audit_java_dependencies.py
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dependency-audits
+          path: |
+            python-dependency-audit.json
+            backend-java/target/dependency-tree.json
+            backend-java/target/dependency-audit.json

@@ -29,11 +29,13 @@ const groups = [
   { label: "PLATFORM", items: [
     { href: "/ai-observability", label: "AI Observability", Icon: BarChart3 },
     { href: "/integrations", label: "Integrations", Icon: Plug },
+    { href: "/system-health", label: "System Health", Icon: Activity },
+    { href: "/monitoring", label: "Monitoring", Icon: Clock3 },
     { href: "/administration", label: "Administration", Icon: Settings },
   ] },
 ];
 
-export default function Shell({ children }: { children: React.ReactNode }) {
+export default function Shell({ children, gateway }: { children: React.ReactNode; gateway: { backend: string; role: string | null; simulated: boolean } }) {
   const path = usePathname();
   const [open, setOpen] = useState(false);
   return <div className="app-shell">
@@ -60,7 +62,7 @@ export default function Shell({ children }: { children: React.ReactNode }) {
         <div className="topbar-context"><span className="environment-dot" /> DEMO ENVIRONMENT <span className="divider">/</span> ORDERS PIPELINE</div>
         <div className="topbar-right"><span className="live-pill" aria-label="Simulated demo signals"><i /> SIMULATED SIGNALS</span><Link href="/about" className="topbar-avatar" aria-label="About">MM</Link></div>
       </header>
-      <main className="content">{children}</main>
+      <main className="content"><div className="operator-banner" role="status"><strong>SIMULATED DEMO</strong><span>{gateway.backend.toUpperCase()} backend · separate data ownership · {gateway.role ?? "no operator session"}</span>{gateway.backend === "java" && <a href="/operator/login">{gateway.role ? "Switch role" : "Operator sign in"}</a>}{gateway.role && <button type="button" className="button" onClick={async () => { await fetch("/api/operator/session", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ logout: true }) }); window.location.assign("/operator/login"); }}>Sign out</button>}</div>{children}</main>
     </div>
   </div>;
 }

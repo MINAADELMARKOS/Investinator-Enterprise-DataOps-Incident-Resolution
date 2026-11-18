@@ -1,0 +1,47 @@
+[
+  {
+    "test": "legacyAndNifiHdfsRulesAreExplicitlyVersionScoped",
+    "status": "PASS",
+    "source": "real PostgreSQL; explicit SIMULATED events and mocked 503 where named"
+  },
+  {
+    "test": "connector503SamplesAreUnknownNotSynthesizedAsHealthyOrPrompted",
+    "status": "PASS",
+    "source": "real PostgreSQL; explicit SIMULATED events and mocked 503 where named"
+  },
+  {
+    "test": "duplicateStormOutOfOrderUpstreamChangesAndMissingProviderStayBounded",
+    "status": "PASS",
+    "source": "real PostgreSQL; explicit SIMULATED events and mocked 503 where named"
+  },
+  {
+    "test": "dbFailureRollsBackIncidentOutboxAndCheckpointThenResumes",
+    "status": "PASS",
+    "source": "real PostgreSQL; explicit SIMULATED events and mocked 503 where named"
+  },
+  {
+    "test": "hdfsOriginPrecedesNifiBackpressureAndDatasetDelay",
+    "status": "PASS",
+    "source": "real PostgreSQL; explicit SIMULATED events and mocked 503 where named"
+  },
+  {
+    "test": "unknownStaleModeIsolationAndHysteresisDoNotInventHealth",
+    "status": "PASS",
+    "source": "real PostgreSQL; explicit SIMULATED events and mocked 503 where named"
+  },
+  {
+    "test": "longFlapCooldownAndNewCauseAreNotConfused",
+    "status": "PASS",
+    "source": "real PostgreSQL; explicit SIMULATED events and mocked 503 where named"
+  },
+  {
+    "test": "parallelWorkersRestartCheckpointAndLifecycleAreDurable",
+    "status": "PASS",
+    "source": "real PostgreSQL; explicit SIMULATED events and mocked 503 where named"
+  },
+  {
+    "test": "notificationOutageHasBoundedRetriesAndDoesNotCallGpt",
+    "status": "PASS",
+    "source": "real PostgreSQL; explicit SIMULATED events and mocked 503 where named"
+  }
+]

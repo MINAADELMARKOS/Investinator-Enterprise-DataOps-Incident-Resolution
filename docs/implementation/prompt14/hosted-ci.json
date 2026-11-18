@@ -1,0 +1,39 @@
+{
+  "run_id": "44397526897",
+  "url": "https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/actions/runs/44397526897",
+  "observed_at": "2026-11-18T21:09:16.869279+00:00",
+  "method": "Public GitHub HTML status; authenticated logs unavailable due API destination policy",
+  "jobs": [
+    {
+      "job": "backend",
+      "url": "https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/actions/runs/44397526897/job/135131319551",
+      "status": "completed successfully"
+    },
+    {
+      "job": "frontend",
+      "url": "https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/actions/runs/44397526897/job/135131319147",
+      "status": "completed successfully"
+    },
+    {
+      "job": "java-scaffold",
+      "url": "https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/actions/runs/44397526897/job/135131319834",
+      "status": "completed successfully"
+    },
+    {
+      "job": "local-e2e",
+      "url": "https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/actions/runs/44397526897/job/135131320017",
+      "status": "completed successfully"
+    },
+    {
+      "job": "dependency-security",
+      "url": "https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/actions/runs/44397526897/job/135131319659",
+      "status": "completed successfully"
+    }
+  ],
+  "commit_sha": "8e41c2cc74d35ae302c2d76e5cb00a7caf0f4252",
+  "commit_verified_from_public_run_page": true,
+  "full_authenticated_logs": "UNAVAILABLE; public conclusions and annotations observed",
+  "security_annotations": [
+    "PASS; resolved_packages=233; findings=0"
+  ]
+}

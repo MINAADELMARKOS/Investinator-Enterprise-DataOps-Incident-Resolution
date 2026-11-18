@@ -38,7 +38,7 @@ public class ProbeCatalog {
         }));
         map.put("nextjs",probe("nextjs","http-page-backend-proxy",false,()->{
             String base=env.getProperty("HEALTH_WEB_URL");if(base==null||base.isBlank())return absent("nextjs","Set HEALTH_WEB_URL");
-            var page=http.get(base,"/",Map.of());var proxy=http.get(base,"/api/v1/health",Map.of());
+            var page=http.get(base,"/operator/login",Map.of());var proxy=http.get(base,"/api/v1/health",Map.of());
             if(page.status()!=200||!page.body().contains("InvestiNator")||proxy.status()!=200||!"InvestiNator".equals(proxy.json().get("product")))return fail("nextjs",false,"Web page or backend proxy failed","HTTP_5XX");
             return ok("nextjs","http-page-backend-proxy","Page and actual backend proxy contract passed",false,Map.of());
         }));

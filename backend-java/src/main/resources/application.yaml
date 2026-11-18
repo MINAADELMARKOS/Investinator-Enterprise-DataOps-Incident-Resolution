@@ -15,6 +15,10 @@ management:
     web:
       exposure:
         include: health,prometheus
+  metrics:
+    distribution:
+      slo:
+        http.server.requests: 50ms,100ms,500ms,1s,3s,10s
   endpoint:
     health:
       show-details: never

@@ -238,3 +238,65 @@ class LocalSafetyTest(unittest.TestCase):
             with self.assertRaisesRegex(RuntimeError, "one request per minute"):
                 cli.ai_check(True)
             self.assertEqual(1, run.call_count)
+
+
+class MonitorCliTest(unittest.TestCase):
+    def test_monitor_requires_demo_and_allowlisted_operation(self):
+        for args in (["monitor", "resume"], ["monitor", "outside-url", "--demo"]):
+            with self.assertRaises(SystemExit):
+                cli.main(args)
+
+    def test_monitor_uses_owned_token_and_fixed_path(self):
+        state = {"secrets": {"MONITOR_API_TOKEN": "fixture-monitor"}}
+        with (
+            patch.object(cli, "load_state", return_value=state),
+            patch.object(cli, "api", return_value="http://127.0.0.1:18081"),
+            patch.object(cli, "http", return_value={"paused": True}) as http,
+        ):
+            self.assertEqual(0, cli.main(["monitor", "pause", "--demo"]))
+            http.assert_called_once_with(
+                "http://127.0.0.1:18081", "/api/v1/monitor/pause", {}, "fixture-monitor"
+            )
+
+
+class LabCommandTest(unittest.TestCase):
+    def test_api_alias_restarts_only_owned_java(self):
+        with (tempfile.TemporaryDirectory() as temp,
+              patch.object(cli, "RUNTIME", Path(temp)),
+              patch.object(cli, "load_state", return_value={"project": "owned"}),
+              patch.object(cli, "compose") as compose):
+            self.assertEqual(0, cli.main(["restart", "api"]))
+            compose.assert_called_once_with({"project": "owned"}, "restart", "java")
+
+    def test_investigate_rejects_scope_override_before_network(self):
+        spec = importlib.util.spec_from_file_location("lab", cli.ROOT / "scripts/lab_scenarios.py")
+        lab = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(lab)
+        with patch.object(cli, "http") as http:
+            with self.assertRaises(ValueError):
+                lab.investigate(cli, {}, "https://other.invalid/?tenant=other")
+            http.assert_not_called()
+
+    def test_kraft_fixture_cannot_query_or_invent_zookeeper(self):
+        spec = importlib.util.spec_from_file_location("lab", cli.ROOT / "scripts/lab_scenarios.py")
+        lab = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(lab)
+        with (tempfile.TemporaryDirectory() as temp, patch.object(cli, "RUNTIME", Path(temp)),
+              patch.object(cli, "api", return_value="http://127.0.0.1"),
+              patch.object(cli, "http") as http):
+            state = {"secrets": {"MONITOR_API_TOKEN": "fixture", "GRAPH_ADMIN_TOKEN": "fixture"}}
+            def response(base, path, body=None, token=None):
+                if path.endswith("/status"):
+                    return {"enabled": True, "paused": True, "settings": {},
+                            "incidents": [{"id": "owned", "graph_id": "lab-kafka-kraft"}]}
+                return {}
+            http.side_effect = response
+            result = lab.create(cli, state, "KRAFT")
+            sent = json.dumps([c.args for c in http.call_args_list])
+            self.assertNotIn("ZOOKEEPER", sent)
+            self.assertNotIn("zk_session", sent)
+            self.assertEqual(1, result["incident_count"])
+            before = http.call_count
+            self.assertEqual(result, lab.create(cli, state, "KRAFT"))
+            self.assertEqual(before + 1, http.call_count)  # Retry only reads marker's durable incident.
+            self.assertEqual("/api/v1/monitor/pause", http.call_args_list[before-1].args[1])

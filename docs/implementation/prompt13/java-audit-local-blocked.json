@@ -1,0 +1,11 @@
+{
+  "scanner": "OSV v1/querybatch",
+  "source": "resolved Maven dependency tree incl test scope",
+  "packages": 233,
+  "status": "BLOCKED",
+  "findings": [],
+  "reason": "OSV query unavailable or incomplete",
+  "error_type": "URLError",
+  "owner": "build/security maintainer",
+  "action": "Run in permitted CI egress; no clean audit asserted"
+}

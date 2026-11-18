@@ -1,0 +1,32 @@
+# Proposed local diagnostic rules only; not mounted or auto-enabled in production.
+groups:
+  - name: investinator-proposed-slos
+    rules:
+      - record: investinator:http_5xx_ratio:rate5m
+        expr: sum(rate(http_server_requests_seconds_count{status=~"5.."}[5m])) / clamp_min(sum(rate(http_server_requests_seconds_count[5m])), 0.001)
+      - alert: InvestinatorApiFastBurn
+        expr: investinator:http_5xx_ratio:rate5m > 0.0144
+        for: 5m
+        labels: {severity: page_proposed}
+        annotations:
+          summary: Proposed 99.9 percent SLO fast-burn investigation; requires reviewed traffic scope
+      - alert: InvestinatorHealthMissing
+        expr: absent(investinator_monitor_health_age_seconds) or (investinator_monitor_health_age_seconds != investinator_monitor_health_age_seconds) or investinator_monitor_health_age_seconds > 60
+        for: 2m
+        annotations:
+          summary: Missing or stale sample; no inference that dependencies are healthy
+      - alert: InvestinatorPendingQueueAge
+        expr: investinator_monitor_queue_age_seconds > 30
+        for: 2m
+        annotations:
+          summary: Owned worker backlog needs read-only investigation
+      - alert: InvestinatorOutboxStuck
+        expr: investinator_monitor_outbox_age_seconds > 120
+        for: 2m
+        annotations:
+          summary: Inspect pending delivery; not proof of a remote notification
+      - alert: InvestinatorMonitoringMetricsUnavailable
+        expr: absent(investinator_monitor_queue_age_seconds) or (investinator_monitor_queue_age_seconds != investinator_monitor_queue_age_seconds)
+        for: 2m
+        annotations:
+          summary: Monitoring metric is absent or NaN; do not infer an empty healthy queue

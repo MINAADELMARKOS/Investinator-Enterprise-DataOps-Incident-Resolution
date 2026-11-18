@@ -1,0 +1,41 @@
+{
+  "full_java": {
+    "tests": 104,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "final_focused_policy": {
+    "tests": 14,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "cli": {
+    "tests": 26,
+    "failures": 0
+  },
+  "python_pytest": 12,
+  "mypy": "PASS 17 source files",
+  "ruff": "PASS",
+  "baseline_validator": "PASS",
+  "evaluation_replay": "PASS_FUNCTIONAL_ONLY; human review PENDING",
+  "process_acceptance": {
+    "status": "PASS",
+    "source_mode": "SIMULATED",
+    "transport": "actual disposable PostgreSQL/Java HTTP",
+    "real_java_process_restart": true,
+    "independent_post_state_required": true,
+    "unapproved_and_wrong_role_denied": true,
+    "repeat_after_restart_denied": true,
+    "legacy_bypass_denied": true,
+    "named_rollback_separately_approved_and_verified": true,
+    "production_actions": 0,
+    "paid_provider_calls": 0
+  },
+  "npm_audit": "ZERO_VULNERABILITIES",
+  "base_and_owned_compose_config": "PASS",
+  "production_writes": "HARD_DENIED",
+  "paid_openai_calls": 0,
+  "hosted_ci": "NOT_RUN; local commits only"
+}

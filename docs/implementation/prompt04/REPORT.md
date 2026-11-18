@@ -1,5 +1,10 @@
 # Prompt 04 implementation report
 
+> 09B security reconciliation (2026-11-17): the Next.js finding described below
+> is historical. Current main/local Next.js 16.4.5 package and lockfile match;
+> fresh npm audit reports zero vulnerabilities. See the
+> [current security assessment](../prompt09/PROMPT05_AUDIT.md#security-advisory-reconciliation).
+
 2026-11-17, feature/java-ai-audit. Prompt 03 was committed first. Existing Python
 and Next.js routing/data remain unchanged. No production infrastructure write,
 paid provider call, environment draft update or publication was performed.

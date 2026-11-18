@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "scanner": "OSV v1/querybatch",
+  "packages": 233,
+  "findings": [],
+  "code_sha": "f1488a70e906efa6932fa72066d9b0e56cf5b15c",
+  "run_id": "44391359760",
+  "job_id": "135109589346",
+  "source": "public GitHub job conclusion and explicit scanner notice",
+  "annotation": "PASS; resolved_packages=233; findings=0",
+  "authenticated_full_artifact_download": "BLOCKED by API egress; no downloaded artifact claimed",
+  "local_attempt": "java-audit-local-blocked.json",
+  "optional_hive_jdbc_profile": "NOT_SCANNED; inactive optional profile"
+}
