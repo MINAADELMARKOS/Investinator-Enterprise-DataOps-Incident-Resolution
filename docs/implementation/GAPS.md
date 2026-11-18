@@ -78,3 +78,11 @@ verified. Native LIVE semantic ingestion and automatic paid investigation are no
 enabled; operator budget and verified native topology remain prerequisites. Remote
 email/webhook, production identity, retention/load/DR and independent quality gates
 remain deployment gaps. Python/default routing and patched Next.js stay intact.
+
+## Prompt 12 update
+
+Java-backed local UI and actual default Python browser compatibility are now
+verified; the earlier "Prompt 12 not started" statement is historical. No enterprise
+identity, remote notification/native continuous event certification, live GPT budget
+or human knowledge-quality approval is implied. Hosted feature-branch validation
+and reproducible fresh-checkout provenance remain Prompt 13 gates.

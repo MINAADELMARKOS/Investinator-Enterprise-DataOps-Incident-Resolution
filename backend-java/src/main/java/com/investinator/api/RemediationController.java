@@ -11,6 +11,7 @@ public class RemediationController {
     public record Approval(String plan_hash,String decision){}
     public record Review(String plan_hash){}
     @GetMapping("/registry") public Object registry(){return List.of(ActionRegistry.RECOVER,ActionRegistry.RESTORE);}
+    @GetMapping("/plans") public Object list(@RequestParam(required=false)String incident_id){return policy.list(tenant,incident_id);}
     @PostMapping("/plans") public Object propose(@RequestBody RemediationPolicy.Proposal input){return policy.propose(tenant,input,true);}
     @PostMapping("/dry-run") public Object dry(@RequestBody RemediationPolicy.Proposal input){return policy.propose(tenant,input,false);}
     @GetMapping("/plans/{id}") public Object get(@PathVariable String id){return policy.get(tenant,id);}

@@ -125,3 +125,13 @@ reduces simulation bypass risks, not enterprise deployment/identity risks.
 Human RCA review, live provider budget/credentials, native live monitoring and
 connector certification remain pending. No measured production quality, recovery
 success or business-value claim. No real actions, paid calls, main merge or publish.
+
+## Prompt 12 disposition
+
+R9 partially addressed: fixed typed routing, role/query allowlists, private capability
+binding, origin checking, signed cookie tamper/expiry and current citation access
+checks pass. Owner: UI/security lead. Demo sessions are not enterprise identity and
+remain loopback-only; OIDC/TLS/audit/DR are production gates. Browser outages are
+labeled MOCKED; actual provider availability and human quality remain unverified.
+Current Next 16.4.5 audit has zero findings; older critical-Next statements above are
+historical, not a current diagnosis. Doctor no longer repeats that stale advisory.

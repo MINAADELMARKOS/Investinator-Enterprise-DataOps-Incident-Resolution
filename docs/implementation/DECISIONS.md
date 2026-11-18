@@ -344,3 +344,19 @@ ungoverned incidents and deny bypass once a governed plan exists. Preserve old
 replay payload fields and record server-bound actors/correlation IDs. Demo token
 roles do not pretend to be independent people; real identity, risk-dependent
 two-person change policy and external audit/HA/DR remain production prerequisites.
+
+## ADR 021 — Explicit backend and capability-bound demo console (2026-11-18)
+
+Python remains default. Java selection is explicit per Next server, independent of
+schema ownership. Fixed server proxy permissions bind expiring signed demo roles
+to backend-only capabilities; Origin must equal an explicitly configured public
+origin when container addressing differs. No forwarded identity or tenant override.
+No graph/knowledge write capabilities reach the web server. Public login/liveness
+allow native readiness without exposing operational pages. Retain current design.
+
+Chat persists only public turn metadata and rechecks current evidence/knowledge
+access on inspection; private continuation remains private. Display measured usage
+only. Missing/stale health becomes UNKNOWN, not seeded-score health. Bounded
+monitor controls persist separately from versioned thresholds. Governed UI mirrors
+server-owned immutable plans and distinct capabilities; independent current sampling
+is mandatory. Rollback frontend routing without deleting schemas or evidence.

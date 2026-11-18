@@ -49,6 +49,13 @@ KNOWLEDGE_SECRET_KEYS = (
     "KNOWLEDGE_READ_TOKEN",
     "KNOWLEDGE_FEEDBACK_TOKEN",
     "MONITOR_API_TOKEN",
+    "UI_SESSION_SECRET",
+    "UI_VIEWER_LOGIN_TOKEN",
+    "UI_OPERATOR_LOGIN_TOKEN",
+    "UI_PLANNER_LOGIN_TOKEN",
+    "UI_APPROVER_LOGIN_TOKEN",
+    "UI_EXECUTOR_LOGIN_TOKEN",
+    "UI_VERIFIER_LOGIN_TOKEN",
     "REMEDIATION_PLAN_TOKEN",
     "REMEDIATION_APPROVE_TOKEN",
     "REMEDIATION_EXECUTE_TOKEN",
@@ -368,6 +375,7 @@ def build(state):
             part in ("node_modules", ".next", ".git")
             for part in p.relative_to(ROOT / "apps/web").parts
         )
+        and not p.name.endswith(".tsbuildinfo")
     ]
     web_paths += [
         ROOT / "infra/lab/Dockerfile.web",
@@ -815,7 +823,7 @@ def doctor(state, as_json=False):
         },
         release_ready=False,
         release_blockers=[
-            "Known critical Next.js dependency advisory; production security/connector gates incomplete"
+            "Enterprise identity, independent quality review and production connector gates incomplete; dependency status requires a current audit"
         ],
     )
     report["success"] = report["success"] and not errors
@@ -825,7 +833,7 @@ def doctor(state, as_json=False):
         for error in errors:
             print(error, file=sys.stderr)
         print(
-            "Release blocked by known Next.js security findings and production gates."
+            "Release blocked by incomplete production gates; consult the current dependency audit."
         )
     return 0 if report["success"] else 1
 

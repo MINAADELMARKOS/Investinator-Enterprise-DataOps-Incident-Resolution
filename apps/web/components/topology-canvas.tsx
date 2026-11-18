@@ -14,6 +14,7 @@ export default function TopologyCanvas({ topology }: { topology: Topology }) {
   const [selected, setSelected] = useState<string | null>(null);
   const [search, setSearch] = useState("");
   const [zoom, setZoom] = useState(1);
+  const layout = useMemo(() => Object.fromEntries(topology.nodes.map((n, i) => [n.id, positions[n.id] ?? [25 + (i % 4) * 205, 60 + Math.floor(i / 4) * 130]])), [topology.nodes]);
   const active = topology.nodes.find(node => node.id === selected);
   const downstream = useMemo(() => {
     if (!selected) return [];
@@ -28,11 +29,11 @@ export default function TopologyCanvas({ topology }: { topology: Topology }) {
     <button className="button" onClick={() => setZoom(Math.max(.65,zoom-.15))} aria-label="Zoom out">−</button><button className="button" onClick={() => setZoom(Math.min(1.4,zoom+.15))} aria-label="Zoom in">+</button>
   </div><div className="topology-canvas" style={{ "--zoom": zoom } as React.CSSProperties}>
     <svg width="900" height="450" style={{position:"absolute",inset:0,pointerEvents:"none"}} aria-hidden="true"><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor" /></marker></defs>
-      {topology.edges.map(edge => { const a=positions[edge.from];const b=positions[edge.to];if(!a||!b)return null;const x1=a[0]+142,y1=a[1]+25,x2=b[0],y2=b[1]+25;const vertical=edge.from==="broker-02"||edge.to==="revenue-dashboard";return <path key={`${edge.from}-${edge.to}`} className="topology-edge" d={vertical ? `M ${a[0]+71} ${a[1]+50} L ${b[0]+71} ${b[1]}` : `M ${x1} ${y1} L ${x2} ${y2}`} strokeDasharray={edge.relationship==="HOSTED_ON"?"4 4":undefined}/>;})}
+      {topology.edges.map(edge => { const a=layout[edge.from];const b=layout[edge.to];if(!a||!b)return null;const x1=a[0]+142,y1=a[1]+25,x2=b[0],y2=b[1]+25;const vertical=edge.from==="broker-02"||edge.to==="revenue-dashboard";return <path key={`${edge.from}-${edge.to}`} className="topology-edge" d={vertical ? `M ${a[0]+71} ${a[1]+50} L ${b[0]+71} ${b[1]}` : `M ${x1} ${y1} L ${x2} ${y2}`} strokeDasharray={edge.relationship==="HOSTED_ON"?"4 4":undefined}/>;})}
     </svg>
-    {topology.nodes.map((node,index) => { const [x,y]=positions[node.id]??[25+(index%4)*180,190+Math.floor(index/4)*130]; const dim=search&&!`${node.name} ${node.type}`.toLowerCase().includes(search.toLowerCase());return <button type="button" key={node.id} className={`topology-node ${selected===node.id?"selected":""}`} style={{left:x,top:y,opacity:dim ? .35 : 1}} onClick={()=>setSelected(node.id)}><span>{node.type.replaceAll("_"," ")}</span><strong>{node.name}</strong></button>;})}
+    {topology.nodes.map((node,index) => { const [x,y]=layout[node.id]??[25+(index%4)*180,190+Math.floor(index/4)*130]; const dim=search&&!`${node.name} ${node.type}`.toLowerCase().includes(search.toLowerCase());return <button type="button" key={node.id} className={`topology-node ${selected===node.id?"selected":""}`} style={{left:x,top:y,opacity:dim ? .35 : 1}} onClick={()=>setSelected(node.id)}><span>{node.type.replaceAll("_"," ")}</span><strong>{node.name}</strong></button>;})}
   </div></div><div className="topology-details"><div className="evidence-top"><h3>{active?.name??"Select an entity"}</h3>{active&&<Badge tone="info">{active.type}</Badge>}</div>
-    <p>{active ? `${downstream.length} downstream entities in the seeded orders pipeline.` : "Click a node to inspect its downstream blast radius. Use search and zoom to navigate."}</p>
+    <p>{active ? `${downstream.length} downstream entities in the supplied graph.` : "Click a node to inspect its downstream blast radius. Use search and zoom to navigate."}</p>
     {active&&<div className="scenario-tags">{downstream.map(id=><Badge key={id}>{id}</Badge>)}</div>}
   </div></>;
 }

@@ -65,3 +65,11 @@
   .about-hero { min-height: 0; }
   .about-hero h2 { font-size: clamp(31px, 9vw, 48px); }
 }
+
+.operator-banner { display:flex; flex-wrap:wrap; align-items:center; gap:12px; padding:10px 14px; margin-bottom:22px; border:1px solid var(--color-border, #374455); border-left:3px solid #ffb957; background:rgba(255,185,87,.05); font-size:12px; }
+.operator-banner strong { color:#ffb957; letter-spacing:.08em; }
+.operator-banner a { margin-left:auto; }
+.operator-json { white-space:pre-wrap; overflow-wrap:anywhere; font-size:12px; max-height:420px; overflow:auto; padding:12px; }
+.operator-evidence { display:block; text-align:left; padding:6px; color:inherit; background:transparent; border:1px solid #405163; border-radius:4px; cursor:pointer; }
+.operator-controls { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+button:focus-visible, summary:focus-visible, a:focus-visible { outline:2px solid #66e4fa; outline-offset:3px; }

@@ -1,13 +1,13 @@
 # Engineering execution contract
 
 Read STATE.md and DECISIONS.md before changing code in every session. The user
-authorizes completed stages through 09B and Architecture v2 Prompts 10 and 11
-sequentially in this session. Finish and commit 10 acceptance before 11. Read docs/roadmap/JAVA_AI_ARCHITECTURE_V2.md and POST_P09_PROMPTS_V2.md;
-the v2 sequence supersedes the original chain from 09A onward. Prompt 12 onward requires a subsequent request. No live provider request without
+authorizes completed stages through 11 and Architecture v2 Prompts 12 and 13
+sequentially in this session. Finish and commit 12 acceptance before 13. Read docs/roadmap/JAVA_AI_ARCHITECTURE_V2.md and POST_P09_PROMPTS_V2.md;
+the v2 sequence supersedes the original chain from 09A onward. Prompt 14 onward requires a subsequent request. No live provider request without
 configured credentials and an independently approved testing budget. Prompt 09 human review remains pending
 and blocks measured AI-quality claims, not repository synchronization. Keep one commit per completed stage and stop at
 failed acceptance gates. The user explicitly authorizes pushing feature/java-ai-audit and opening its PR
-after verification for 09A. Never force-push or merge main without authorization.
+after verification for 09A and 13. Never force-push or merge main without authorization.
 
 Preserve Next.js design, APIs and aliases, data, audit, demo scenarios and approval
 semantics. Keep Python until tested contractual parity and approved switchover.

@@ -248,3 +248,14 @@ notifications and production identity/security remain open. No paid provider cal
 production infrastructure action, push/merge or environment publication occurred.
 This phase is committed locally only; hosted 10/11 CI NOT_RUN. Prompt 12 NOT_STARTED.
 Stop after Prompt 11; do not interpret simulation success as production readiness.
+
+## Prompt 12 — isolated Java operator console acceptance
+
+Explicit opt-in routing, scoped signed demo roles/server proxy, native health,
+public chat metadata/history/current citation authorization, bound investigation
+views, bounded monitor overrides and immutable governed action controls implemented.
+Python remains the default; only the owned lab selects Java. Flyway V8 remains in
+the private schema. 107 Java/26 CLI/12 Python/8 frontend tests, build/types/audit and
+actual Chromium Java+Python workflow checks pass; see prompt12/REPORT.md and artifacts.
+No paid GPT or production action. Demo capabilities do not prove human independence.
+Next gate: commit Prompt 12, then user-authorized Prompt 13 fresh checkout/hosted CI.

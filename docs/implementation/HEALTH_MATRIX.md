@@ -77,3 +77,13 @@ verified. Native LIVE semantic ingestion and automatic paid investigation are no
 enabled; operator budget and verified native topology remain prerequisites. Remote
 email/webhook, production identity, retention/load/DR and independent quality gates
 remain deployment gaps. Python/default routing and patched Next.js stay intact.
+
+## Prompt 12 operator evidence
+
+System Health reads native integration diagnostics with original check times,
+readiness/capability/source and safe next step. Missing/future/stale data is UNKNOWN;
+optional absent connectors remain NOT_CONFIGURED. A browser 503 fixture preserves
+old timestamps and errors visibly. Public login + actual health proxy are the
+native Next probe, while operational pages require signed demo sessions.
+Actual Java/Python browser flows pass; provider-less turns remain fallback, no live
+GPT success or measured cost is claimed. See prompt12/results.json.

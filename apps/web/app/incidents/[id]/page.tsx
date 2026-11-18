@@ -1,10 +1,14 @@
 import Link from "next/link";
 import { apiGet, type Incident } from "@/lib/api";
+import { publicContext } from "@/lib/backend";
+import InvestigationContext from "@/components/investigation-context";
+import GovernedActions from "@/components/governed-actions";
 import IncidentActions from "@/components/incident-actions";
 import { Badge, PageHeading, Panel, SeverityBadge, Unavailable } from "@/components/ui";
 
 export default async function IncidentRoom({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
+  const gateway = await publicContext();
   const item = await apiGet<Incident>(`/incidents/${encodeURIComponent(id)}`);
   if (!item) return <><PageHeading eyebrow="Workspace / Incident Room" title="Incident unavailable" /><Unavailable /></>;
   return <><PageHeading eyebrow="Workspace / Incident Room" title={item.incident_id} description={item.executive_summary}
@@ -19,7 +23,9 @@ export default async function IncidentRoom({ params }: { params: Promise<{ id: s
       <Panel title="Probable root cause" detail="Hypothesis · inspect evidence"><div className="panel-body"><div className="callout callout-warning"><strong>{item.likely_root_causes[0]}</strong><p className="text-muted small">Evidence supports a probable cause. Review metrics and logs before acting.</p></div>
         <div className="button-row section-gap"><Link className="button" href={`/investigator?incident=${item.incident_id}`}>Open Investigator →</Link><Link className="button" href="/nervemap">View NerveMap →</Link>{item.status === "resolved" && <Link className="button" href={`/incidents/${item.incident_id}/postmortem`}>View postmortem →</Link>}</div></div></Panel>
       <Panel title="EvidenceGraph" detail="Facts and source references">{item.evidence.map(evidence => <div className="evidence-item" key={evidence.id}><div className="evidence-top"><strong className="mono">{evidence.id}</strong><Badge tone={evidence.kind === "metric" ? "info" : evidence.kind === "log" ? "warning" : "neutral"}>{evidence.kind}</Badge></div><p>{evidence.snippet}</p><div className="evidence-source">{evidence.source}</div></div>)}</Panel>
-      <Panel title="Remediation plan" detail="Policy-gated actions"><IncidentActions incidentId={item.incident_id} actions={item.recovery_actions} /></Panel>
+      {gateway.backend === "java" && <Panel title="Verified upstream investigation"><InvestigationContext incidentId={item.incident_id} /></Panel>}
+      {gateway.backend === "java" && <Panel title="Governed ReplayLab action" detail="Independent roles and verification"><GovernedActions incidentId={item.incident_id} role={gateway.role} /></Panel>}
+      <Panel title="Legacy demo remediation" detail="Separate ReplayLab boundary"><IncidentActions incidentId={item.incident_id} actions={item.recovery_actions} /></Panel>
     </div><div className="stack">
       <Panel title="Incident timeline" detail={`${item.timeline.length} events`}><div className="timeline">{item.timeline.map((entry,index) => <div className="timeline-item" key={`${entry.at}-${index}`}><div className="timeline-rail"><span className="timeline-dot" /></div><div><strong>{entry.event}</strong><small>{new Date(entry.at).toLocaleString()} · {entry.kind}</small></div></div>)}</div></Panel>
       <Panel title="Blast radius" detail="Affected path"><div className="panel-body"><p className="text-muted">{item.affected_entities.join(" → ") || "No topology entity identified."}</p><Link className="table-link" href="/nervemap">Inspect dependencies →</Link></div></Panel>

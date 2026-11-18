@@ -1,0 +1,29 @@
+
+> investinator-web@0.3.0 test
+> node --experimental-strip-types --test tests/*.test.ts
+
+(node:38356) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/Investinator-Enterprise-DataOps-Incident-Resolution/apps/web/tests/operator-contracts.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/Investinator-Enterprise-DataOps-Incident-Resolution/apps/web/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ Python remains default and unknown backend cannot silently route (1.725993ms)
+✔ write roles are disjoint; native administrative routes are never exposed (2.11304ms)
+✔ query scope cannot choose tenant, endpoint or arbitrary index (0.911727ms)
+✔ signed role cannot be changed or replayed beyond expiry (1.757879ms)
+✔ short, absent and malformed credentials fail closed (0.554347ms)
+✔ Java and Python provider names normalize without inventing provenance (0.572708ms)
+✔ fallback and old history do not fabricate a live provider or measured cost (0.270087ms)
+✔ malformed and future health cannot become a green default (0.890416ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 194.241972
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.3
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.3
+npm notice To update run: npm install -g npm@12.2.3
+npm notice

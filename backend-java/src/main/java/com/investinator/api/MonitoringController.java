@@ -10,6 +10,7 @@ public class MonitoringController {
     public MonitoringController(MonitoringService s,DetectionRules r,@Value("${investinator.demo-tenant:demo}")String t){service=s;rules=r;tenant=t;}
     @GetMapping("/status") public Object status(){return service.status(tenant);}
     @GetMapping("/rules") public Object rules(){return rules.document();}
+    @PostMapping("/settings") public Object settings(@RequestBody MonitoringService.Settings input){return service.configure(tenant,input);}
     @PostMapping("/pause") public Object pause(){return service.control(tenant,true);}
     @PostMapping("/resume") public Object resume(){return service.control(tenant,false);}
     @PostMapping("/events") public Object event(@RequestBody MonitoringContracts.SignalReceived e){return service.accept(tenant,e);}
