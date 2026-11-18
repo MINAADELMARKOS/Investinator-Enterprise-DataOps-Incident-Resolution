@@ -150,3 +150,13 @@ Prompt 13: known local pip installer advisories were remediated with 26.3; rerun
 Prompt 13 local final: fresh-checkout full acceptance and all eight owned outage/recovery cases PASS; additional actual bound-graph browser run PASS (14 checks). See prompt13/fresh-checkout.json and outages.json. Local Java OSV audit remains BLOCKED; hosted CI pending. No production readiness or live GPT claim.
 
 Prompt 13 hosted update: four functional jobs pass on 4597517; Java security scan finds seven advisories in three dependencies. Targeted Snappy 1.1.10.9, LZ4 1.11.4 and stable OTel BOM 1.67.0 fixes are under re-verification. Gate remains blocked until a clean hosted scan; no suppression/waiver. See prompt13/java-advisories.json.
+
+## Prompt 14 release decision — BLOCKED
+
+prompt14/RELEASE_RISKS.json is the current release register, with proposed owner roles,
+remediation, artifacts, target milestone and GO/CONDITIONAL/BLOCKED disposition.
+Corrected platform-health exception, proxy stream/cookie and host binding findings
+pass local negatives. Production identity, external connector certification, recovery,
+financial/data governance, optional/image audit and independent quality gaps remain.
+Passing local or hosted tests cannot confer deployment authorization.
+

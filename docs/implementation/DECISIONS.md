@@ -376,3 +376,21 @@ Snappy 1.1.10.9, LZ4 1.11.4 plus stable OTel BOM 1.67.0 (instrumentation already
 pass with zero findings. No severity suppression or gate bypass. Reassess pins
 when the parent BOM changes. Default-tree audit does not certify optional inactive
 profiles, private connectors, identity or production security.
+
+## ADR 024 — Readiness is evidence-gated, not inferred from a demo (2026-11-18)
+
+Keep non-demo application ingress hard-blocked while OIDC/RBAC and independently
+identified approval remain absent. Close the platform-health exception. Loopback demo
+bindings preserve Python/local URLs without enterprise exposure. Enforce request byte
+limits during streaming and Secure cookies from trusted public HTTPS origin.
+Fixed metric labels omit private identifiers; missing token data is unknown. New
+outbox/queue age gauges and explicit NaN alert tests cannot promote absent data to
+health. A private generated lab metrics capability supports direct authenticated
+capture; collector-only Prometheus scraping is explicitly not Java scrape coverage.
+
+Snapshot backup/restore is tested only into a disposable target; no production RTO,
+PITR, HA or financial return is inferred. Proposed SLOs/rates/ROI stay unapproved or
+null until measured/reviewed. Enterprise principal/certificate/realm/rotation tests,
+long-duration/replica loss, offsite encryption, data governance and durable financial
+caps remain release blockers. No synthetic quality sign-off or automatic deployment.
+

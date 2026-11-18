@@ -1,0 +1,32 @@
+rule_files: [slo-rules.yaml]
+evaluation_interval: 1m
+tests:
+  - interval: 1m
+    input_series:
+      - series: investinator_monitor_health_age_seconds
+        values: 'NaN NaN NaN NaN'
+      - series: investinator_monitor_queue_age_seconds
+        values: '0 0 0 0'
+    alert_rule_test:
+      - eval_time: 3m
+        alertname: InvestinatorHealthMissing
+        exp_alerts:
+          - exp_labels: {}
+            exp_annotations:
+              summary: Missing or stale sample; no inference that dependencies are healthy
+  - interval: 1m
+    input_series:
+      - series: investinator_monitor_health_age_seconds
+        values: '0 0 0 0'
+      - series: investinator_monitor_queue_age_seconds
+        values: 'NaN NaN NaN NaN'
+    alert_rule_test:
+      - eval_time: 3m
+        alertname: InvestinatorMonitoringMetricsUnavailable
+        exp_alerts:
+          - exp_labels: {}
+            exp_annotations:
+              summary: Monitoring metric is absent or NaN; do not infer an empty healthy queue
+      - eval_time: 3m
+        alertname: InvestinatorHealthMissing
+        exp_alerts: []

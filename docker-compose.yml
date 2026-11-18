@@ -30,7 +30,7 @@ services:
       INVESTINATOR_ELASTICSEARCH_API_KEY: ${INVESTINATOR_ELASTICSEARCH_API_KEY:-}
       OTEL_EXPORTER_OTLP_ENDPOINT: http://otel-collector:4318
     ports:
-      - "8000:8000"
+      - "127.0.0.1:8000:8000"
     depends_on:
       db:
         condition: service_healthy
@@ -45,7 +45,7 @@ services:
     environment:
       API_INTERNAL_URL: http://api:8000
     ports:
-      - "3000:3000"
+      - "127.0.0.1:3000:3000"
     depends_on:
       api:
         condition: service_healthy
@@ -68,7 +68,7 @@ services:
       KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
       KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
     ports:
-      - "9092:9092"
+      - "127.0.0.1:9092:9092"
 
   # Optional local log backend. Only for isolated development; security is disabled.
   elasticsearch:
@@ -115,7 +115,7 @@ services:
     volumes:
       - ./infra/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
     ports:
-      - "9090:9090"
+      - "127.0.0.1:9090:9090"
     depends_on:
       - api
 
@@ -125,8 +125,8 @@ services:
     volumes:
       - ./infra/otel/collector.yaml:/etc/otel/config.yaml:ro
     ports:
-      - "4317:4317"
-      - "4318:4318"
+      - "127.0.0.1:4317:4317"
+      - "127.0.0.1:4318:4318"
 
 volumes:
   postgres_data:

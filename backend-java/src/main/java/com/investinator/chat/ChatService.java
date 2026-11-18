@@ -13,8 +13,9 @@ import java.util.*;
 public class ChatService {
     private final java.util.concurrent.Semaphore admitted=new java.util.concurrent.Semaphore(2);
     public Object admit(java.util.function.Supplier<Object> work){if(!admitted.tryAcquire())throw new ApiFailure(429,"Chat capacity reached; retry with the same idempotency key");try{return work.get();}finally{admitted.release();}}
+    private final com.investinator.observability.InvestigationMetrics metrics;
     private final Store db;private final WorkflowService workflows;private final ChatGateway gateway;private final ReadTools tools;private final StateCipher cipher;
-    public ChatService(Store db,WorkflowService workflows,ChatGateway gateway,ReadTools tools,StateCipher cipher){this.db=db;this.workflows=workflows;this.gateway=gateway;this.tools=tools;this.cipher=cipher;}
+    public ChatService(Store db,WorkflowService workflows,ChatGateway gateway,ReadTools tools,StateCipher cipher,com.investinator.observability.InvestigationMetrics metrics){this.metrics=metrics;this.db=db;this.workflows=workflows;this.gateway=gateway;this.tools=tools;this.cipher=cipher;}
     public String configurationStatus(){return gateway.configurationStatus();}
     public Map<String,Object> handle(String tenant,ChatMessage input) {
         String conversation=input.conversation_id(),incidentId=input.incident_id();boolean scopeChanged=false;
@@ -31,6 +32,7 @@ public class ChatService {
         long before=System.nanoTime();var result=gateway.turn(context,input.message(),input.mode(),incident==null?"P4":incident.severity.name(),history,previous,fallback);
         var ids=result.analysis()==null?(incident==null?List.of():incident.evidence.stream().limit(5).map(Evidence::id).toList()):result.analysis().observed_evidence().stream().map(InvestigationAnswer.Citation::evidence_id).distinct().toList();
         long elapsed=(System.nanoTime()-before)/1000000;
+        metrics.record(result,elapsed);
         Object usage=result.input_tokens()+result.output_tokens()>0?obj("input_tokens",result.input_tokens(),"output_tokens",result.output_tokens(),"requests",result.requests(),"latency_ms",elapsed,"cost",null):null;
         var metadata=obj("response_mode",result.response_mode(),"provider_status",result.provider_status(),"source_mode",context.sourceMode,"analysis",result.analysis(),"tool_trace",result.tool_trace(),"model",result.requests()>0?result.model():null,"usage",usage);
         db.insert(Table.MESSAGES,tenant,obj("conversation_id",conversation,"role","assistant","content",result.answer(),"payload",obj("evidence_ids",ids,"mode",result.response_mode(),"turn_metadata",metadata)));

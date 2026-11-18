@@ -1,0 +1,214 @@
+{
+  "source_mode": "LIVE_LOCAL_TRANSPORT",
+  "workload": "SIMULATED_DATA",
+  "concurrency": 1,
+  "measurements": {
+    "/api/v1/health": {
+      "requests": 30,
+      "errors": 0,
+      "median_ms": 4.845,
+      "p95_ms": 10.997,
+      "max_ms": 28.173
+    },
+    "/api/v1/incidents": {
+      "requests": 30,
+      "errors": 0,
+      "median_ms": 12.973,
+      "p95_ms": 62.376,
+      "max_ms": 97.212
+    }
+  },
+  "metrics_snapshot": [
+    "investinator_monitor_active 2.0",
+    "investinator_monitor_events{state=\"COOLDOWN\"} 0.0",
+    "investinator_monitor_events{state=\"HYSTERESIS\"} 2.0",
+    "investinator_monitor_events{state=\"INCIDENT_BUDGET\"} 0.0",
+    "investinator_monitor_events{state=\"PROCESSED\"} 18.0",
+    "investinator_monitor_events{state=\"QUEUED\"} 0.0",
+    "investinator_monitor_events{state=\"STALE_OR_FUTURE\"} 0.0",
+    "investinator_monitor_events{state=\"UNKNOWN\"} 0.0",
+    "investinator_monitor_health_age_seconds NaN",
+    "investinator_monitor_outbox{kind=\"INVESTIGATE\",state=\"AWAITING_OPERATOR_BUDGET\"} 0.0",
+    "investinator_monitor_outbox{kind=\"INVESTIGATE\",state=\"MANUAL_INTERVENTION\"} 0.0",
+    "investinator_monitor_outbox{kind=\"INVESTIGATE\",state=\"NOT_CONFIGURED\"} 2.0",
+    "investinator_monitor_outbox{kind=\"INVESTIGATE\",state=\"PENDING\"} 0.0",
+    "investinator_monitor_outbox{kind=\"INVESTIGATE\",state=\"SIMULATED_DELIVERY\"} 0.0",
+    "investinator_monitor_outbox{kind=\"INVESTIGATE\",state=\"SUPPRESSED\"} 0.0",
+    "investinator_monitor_outbox{kind=\"NOTIFY\",state=\"AWAITING_OPERATOR_BUDGET\"} 0.0",
+    "investinator_monitor_outbox{kind=\"NOTIFY\",state=\"MANUAL_INTERVENTION\"} 0.0",
+    "investinator_monitor_outbox{kind=\"NOTIFY\",state=\"NOT_CONFIGURED\"} 0.0",
+    "investinator_monitor_outbox{kind=\"NOTIFY\",state=\"PENDING\"} 0.0",
+    "investinator_monitor_outbox{kind=\"NOTIFY\",state=\"SIMULATED_DELIVERY\"} 2.0",
+    "investinator_monitor_outbox{kind=\"NOTIFY\",state=\"SUPPRESSED\"} 0.0",
+    "investinator_monitor_outbox_age_seconds 0.0",
+    "investinator_monitor_queue_age_seconds 0.0",
+    "jvm_gc_pause_seconds_count{action=\"end of minor GC\",cause=\"G1 Evacuation Pause\",gc=\"G1 Young Generation\"} 3",
+    "jvm_memory_used_bytes{area=\"heap\",id=\"G1 Eden Space\"} 1.17440512E8",
+    "jvm_memory_used_bytes{area=\"heap\",id=\"G1 Old Gen\"} 2.2665704E7",
+    "jvm_memory_used_bytes{area=\"heap\",id=\"G1 Survivor Space\"} 1.4464216E7",
+    "jvm_memory_used_bytes{area=\"nonheap\",id=\"CodeHeap 'non-nmethods'\"} 2090240.0",
+    "jvm_memory_used_bytes{area=\"nonheap\",id=\"CodeHeap 'non-profiled nmethods'\"} 6082432.0",
+    "jvm_memory_used_bytes{area=\"nonheap\",id=\"CodeHeap 'profiled nmethods'\"} 1.6535936E7",
+    "jvm_memory_used_bytes{area=\"nonheap\",id=\"Compressed Class Space\"} 1.166156E7",
+    "jvm_memory_used_bytes{area=\"nonheap\",id=\"Metaspace\"} 9.2729952E7",
+    "system_cpu_usage 0.3391812864498587"
+  ],
+  "metrics_scope": "application-lifetime fixed dimensions; missing counters unknown, not financial totals",
+  "core_readiness": true,
+  "checks": [
+    {
+      "service": "java",
+      "status": "HEALTHY",
+      "source_mode": "LIVE",
+      "duration_ms": 48,
+      "checked_at": "2026-11-18T20:55:38.137055868Z"
+    },
+    {
+      "service": "postgresql",
+      "status": "HEALTHY",
+      "source_mode": "LIVE",
+      "duration_ms": 8,
+      "checked_at": "2026-11-18T20:55:38.097966841Z"
+    },
+    {
+      "service": "nextjs",
+      "status": "HEALTHY",
+      "source_mode": "LIVE",
+      "duration_ms": 84,
+      "checked_at": "2026-11-18T20:55:38.173646920Z"
+    },
+    {
+      "service": "search",
+      "status": "HEALTHY",
+      "source_mode": "LIVE",
+      "duration_ms": 40,
+      "checked_at": "2026-11-18T20:55:38.130038308Z"
+    },
+    {
+      "service": "kafka",
+      "status": "HEALTHY",
+      "source_mode": "LIVE",
+      "duration_ms": 92,
+      "checked_at": "2026-11-18T20:55:38.175318795Z"
+    },
+    {
+      "service": "otel",
+      "status": "HEALTHY",
+      "source_mode": "LIVE",
+      "duration_ms": 55,
+      "checked_at": "2026-11-18T20:55:38.144721992Z"
+    },
+    {
+      "service": "prometheus",
+      "status": "HEALTHY",
+      "source_mode": "LIVE",
+      "duration_ms": 70,
+      "checked_at": "2026-11-18T20:55:38.159954638Z"
+    },
+    {
+      "service": "gpt",
+      "status": "NOT_CONFIGURED",
+      "source_mode": "NOT_CONFIGURED",
+      "duration_ms": 55,
+      "checked_at": "2026-11-18T20:55:38.144882140Z"
+    },
+    {
+      "service": "spark",
+      "status": "NOT_CONFIGURED",
+      "source_mode": "NOT_CONFIGURED",
+      "duration_ms": 55,
+      "checked_at": "2026-11-18T20:55:38.144932619Z"
+    },
+    {
+      "service": "yarn",
+      "status": "NOT_CONFIGURED",
+      "source_mode": "NOT_CONFIGURED",
+      "duration_ms": 55,
+      "checked_at": "2026-11-18T20:55:38.144955996Z"
+    },
+    {
+      "service": "hdfs",
+      "status": "NOT_CONFIGURED",
+      "source_mode": "NOT_CONFIGURED",
+      "duration_ms": 55,
+      "checked_at": "2026-11-18T20:55:38.144974537Z"
+    },
+    {
+      "service": "hive",
+      "status": "NOT_CONFIGURED",
+      "source_mode": "NOT_CONFIGURED",
+      "duration_ms": 55,
+      "checked_at": "2026-11-18T20:55:38.144994039Z"
+    },
+    {
+      "service": "kudu",
+      "status": "NOT_CONFIGURED",
+      "source_mode": "NOT_CONFIGURED",
+      "duration_ms": 55,
+      "checked_at": "2026-11-18T20:55:38.145013450Z"
+    },
+    {
+      "service": "nifi",
+      "status": "NOT_CONFIGURED",
+      "source_mode": "NOT_CONFIGURED",
+      "duration_ms": 55,
+      "checked_at": "2026-11-18T20:55:38.145044642Z"
+    },
+    {
+      "service": "airflow",
+      "status": "NOT_CONFIGURED",
+      "source_mode": "NOT_CONFIGURED",
+      "duration_ms": 55,
+      "checked_at": "2026-11-18T20:55:38.145061578Z"
+    },
+    {
+      "service": "impala",
+      "status": "NOT_CONFIGURED",
+      "source_mode": "NOT_CONFIGURED",
+      "duration_ms": 55,
+      "checked_at": "2026-11-18T20:55:38.145077753Z"
+    },
+    {
+      "service": "zookeeper",
+      "status": "NOT_CONFIGURED",
+      "source_mode": "NOT_CONFIGURED",
+      "duration_ms": 55,
+      "checked_at": "2026-11-18T20:55:38.145103025Z"
+    },
+    {
+      "service": "cloudera-manager",
+      "status": "NOT_CONFIGURED",
+      "source_mode": "NOT_CONFIGURED",
+      "duration_ms": 55,
+      "checked_at": "2026-11-18T20:55:38.145118250Z"
+    },
+    {
+      "service": "atlas",
+      "status": "NOT_CONFIGURED",
+      "source_mode": "NOT_CONFIGURED",
+      "duration_ms": 55,
+      "checked_at": "2026-11-18T20:55:38.145132197Z"
+    },
+    {
+      "service": "ranger",
+      "status": "NOT_CONFIGURED",
+      "source_mode": "NOT_CONFIGURED",
+      "duration_ms": 55,
+      "checked_at": "2026-11-18T20:55:38.145145319Z"
+    },
+    {
+      "service": "hive-metastore",
+      "status": "NOT_CONFIGURED",
+      "source_mode": "NOT_CONFIGURED",
+      "duration_ms": 55,
+      "checked_at": "2026-11-18T20:55:38.145162526Z"
+    }
+  ],
+  "production_availability": "NOT_MEASURED",
+  "production_detection_latency": "NOT_MEASURED",
+  "production_mtta_mtti_mttr": "NOT_MEASURED",
+  "business_roi": "NOT_MEASURED",
+  "gpt_cost": null,
+  "paid_provider_calls": 0,
+  "production_writes": 0
+}

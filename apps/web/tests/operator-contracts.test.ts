@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { backendKind, permission } from "../lib/gateway-policy.ts";
-import { readSession, signSession, sameSecret } from "../lib/session-codec.ts";
+import { readSession, signSession, sameSecret, secureCookie } from "../lib/session-codec.ts";
 import { ageSeconds, healthChecks, isModelTurn, normalizeTurn } from "../lib/operator-contracts.ts";
 const secret = "fixture-only-session-signing-secret-32-characters";
 test("Python remains default and unknown backend cannot silently route", () => {
@@ -41,3 +41,5 @@ test("malformed and future health cannot become a green default", () => {
   assert.throws(() => healthChecks({ score: 100 })); assert.equal(healthChecks({ checked_at: "time", checks: [{ status: "SUPER_HEALTHY" }] })[0].status, "UNKNOWN");
   assert.equal(ageSeconds("bad time"), null); assert.equal(ageSeconds(undefined), null); assert.equal(ageSeconds(new Date(2000000).toISOString(), 1000000), null); assert.equal(ageSeconds(new Date(900000).toISOString(), 1000000), 100);
 });
+
+test("configured HTTPS origin requires secure cookies behind TLS termination", () => { assert.equal(secureCookie("https://console.example"), true); assert.equal(secureCookie("http://127.0.0.1:13000"), false); assert.equal(secureCookie("invalid"), false); });

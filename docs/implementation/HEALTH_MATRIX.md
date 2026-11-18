@@ -103,3 +103,13 @@ GPT success or measured cost is claimed. See prompt12/results.json.
 Prompt 13: separate actual corrupt-log validation/auth403/search outage and monitoring/remediation process restart checks pass. Fresh owned service outage/hosted acceptance pending. Actual GPT remains NOT_CONFIGURED and SDK provider fixtures remain MOCKED. Representative legacy graph is not a live legacy Kafka cluster.
 
 Prompt 13 local final: fresh-checkout full acceptance and all eight owned outage/recovery cases PASS; additional actual bound-graph browser run PASS (14 checks). See prompt13/fresh-checkout.json and outages.json. Local Java OSV audit remains BLOCKED; hosted CI pending. No production readiness or live GPT claim.
+
+## Prompt 14 operational/security evidence
+
+Native local health and authenticated metrics snapshot pass; 30 serial reads per
+route are a small development baseline, not production availability. DB probe/metric
+failure returns UNKNOWN/NaN, proposed rules test NaN/missing series. Minimal probes
+remain public; non-demo application/platform health is denied, metrics requires its
+own capability. Local snapshot restore proves 38 tables/781 rows and a separate owner
+sentinel only; no production RPO/RTO/replica/HA claim. See prompt14 evidence and gaps.
+

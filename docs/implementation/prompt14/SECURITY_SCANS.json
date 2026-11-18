@@ -1,0 +1,17 @@
+{
+  "npm": "PASS zero vulnerabilities, actual fresh audit",
+  "python": "PASS zero known findings, actual pip-audit",
+  "java_default_dependency_manifest_sha256": "db7a61a22b39b62c54aefd8fc7d30f34827e769351979cb29d41f3a4800a0fe7",
+  "java_dependency_manifest_unchanged_since_P13": true,
+  "java_previous_hosted_OSV": {
+    "run": "44391359760",
+    "packages": 233,
+    "findings": 0,
+    "artifact": "../prompt13/java-audit.json"
+  },
+  "java_local_OSV_egress": "Previously BLOCKED; fresh hosted P14 recheck pending",
+  "container_OS_CVE_scan": "NOT_PERFORMED_RELEASE_BLOCKED",
+  "optional_shaded_Hive_driver": "NOT_CERTIFIED_RELEASE_BLOCKED",
+  "independent_penetration_test": "NOT_PERFORMED_RELEASE_BLOCKED",
+  "secrets": "known actual runtime values scanned before commit; private dump not retained"
+}

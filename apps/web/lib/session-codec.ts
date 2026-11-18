@@ -19,3 +19,8 @@ export function readSession(value: string | undefined, secret: string, now = Dat
     return roles.includes(claims.role) && claims.expires > time && claims.expires <= time + 900 && /^[A-Za-z0-9_-]{24}$/.test(claims.nonce) ? claims.role : null;
   } catch { return null; }
 }
+
+/** Deployment-owned public origin, never caller-forwarded protocol headers. */
+export function secureCookie(origin: string): boolean {
+  try { return new URL(origin).protocol === "https:"; } catch { return false; }
+}
