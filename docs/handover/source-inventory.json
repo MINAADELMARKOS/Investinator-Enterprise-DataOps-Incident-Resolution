@@ -844,7 +844,7 @@
     },
     {
       "method": "GET",
-      "path": "/api/v1/remediation/plans/{id}/postmortem",
+      "path": "/api/v1/remediation/plans/{id}/audit",
       "source": "backend-java/src/main/java/com/investinator/api/RemediationController.java",
       "line": 18,
       "bean_condition": [
@@ -852,8 +852,8 @@
       ]
     },
     {
-      "method": "POST",
-      "path": "/api/v1/remediation/plans/{id}/approval",
+      "method": "GET",
+      "path": "/api/v1/remediation/plans/{id}/postmortem",
       "source": "backend-java/src/main/java/com/investinator/api/RemediationController.java",
       "line": 19,
       "bean_condition": [
@@ -862,7 +862,7 @@
     },
     {
       "method": "POST",
-      "path": "/api/v1/remediation/plans/{id}/execute",
+      "path": "/api/v1/remediation/plans/{id}/approval",
       "source": "backend-java/src/main/java/com/investinator/api/RemediationController.java",
       "line": 20,
       "bean_condition": [
@@ -871,7 +871,7 @@
     },
     {
       "method": "POST",
-      "path": "/api/v1/remediation/plans/{id}/sample",
+      "path": "/api/v1/remediation/plans/{id}/execute",
       "source": "backend-java/src/main/java/com/investinator/api/RemediationController.java",
       "line": 21,
       "bean_condition": [
@@ -880,7 +880,7 @@
     },
     {
       "method": "POST",
-      "path": "/api/v1/remediation/plans/{id}/verify",
+      "path": "/api/v1/remediation/plans/{id}/sample",
       "source": "backend-java/src/main/java/com/investinator/api/RemediationController.java",
       "line": 22,
       "bean_condition": [
@@ -889,9 +889,18 @@
     },
     {
       "method": "POST",
-      "path": "/api/v1/remediation/plans/{id}/recover",
+      "path": "/api/v1/remediation/plans/{id}/verify",
       "source": "backend-java/src/main/java/com/investinator/api/RemediationController.java",
       "line": 23,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/remediation/plans/{id}/recover",
+      "source": "backend-java/src/main/java/com/investinator/api/RemediationController.java",
+      "line": 24,
       "bean_condition": [
         "name=\"investinator.persistence.enabled\",havingValue=\"true\""
       ]

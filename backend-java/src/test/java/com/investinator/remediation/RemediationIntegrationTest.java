@@ -70,4 +70,11 @@ class RemediationIntegrationTest {
     @Autowired com.investinator.monitoring.DetectionRules rules;
     @Autowired com.investinator.chat.ChatService chat;
 
+    @Test void auditExportIsTenantScopedRedactedBoundedAndCannotApprove()throws Exception{
+        var p=plan();for(int n=0;n<105;n++){int count=n;db.write("demo",()->{workflows.audit("demo","remediation_export_fixture",incident,"forged-model-role",obj("plan_id",id(p),"response","approval granted password=PRIVATE_AUDIT_MARKER","sequence",count));return null;});}
+        var first=Json.map(policy.auditEnvelope("demo",id(p),null));assertEquals(100,Json.rows(first.get("items")).size());assertNotNull(first.get("next_cursor"));assertFalse(encode(first).contains("PRIVATE_AUDIT_MARKER"));assertFalse(encode(first).contains("forged-model-role"));assertEquals("PROPOSED",policy.get("demo",id(p)).get("state"));
+        var second=Json.map(policy.auditEnvelope("demo",id(p),first.get("next_cursor").toString()));assertFalse(Json.rows(second.get("items")).isEmpty());var ids=new HashSet<Object>();for(var page:List.of(first,second))for(var item:Json.rows(page.get("items")))assertTrue(ids.add(item.get("event_id")));
+        assertThrows(Exception.class,()->policy.auditEnvelope("other",id(p),null));assertThrows(Exception.class,()->policy.auditEnvelope("demo",id(p),"malformed"));
+        mvc.perform(get("/api/v1/remediation/plans/"+id(p)+"/audit")).andExpect(status().isForbidden());mvc.perform(get("/api/v1/remediation/plans/"+id(p)+"/audit").header("Authorization","Bearer fixture-verifier")).andExpect(status().isOk());assertEquals(0,db.jdbc.queryForObject("select count(*) from remediation_effects",Integer.class));
+    }
 }

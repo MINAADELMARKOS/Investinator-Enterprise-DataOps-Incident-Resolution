@@ -1,3 +1,7 @@
+Prompt 14B audit checkpoint: bounded metadata-only plan audit export passes
+remediation and enterprise-ingress regressions. No external sink or tamper-proof
+claim. Two named simulation actions remain the only executors.
+
 Prompt 14B monitoring checkpoint: 15 focused tests pass after correcting equal-time
 hysteresis precision. Fixed provenance contract is fixture-only; native LIVE remains
 DISABLED/NOT_CERTIFIED, with no new ingestion endpoint or certification claim.

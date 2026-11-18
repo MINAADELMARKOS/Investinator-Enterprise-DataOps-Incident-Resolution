@@ -15,6 +15,7 @@ public class RemediationController {
     @PostMapping("/plans") public Object propose(@RequestBody RemediationPolicy.Proposal input){return policy.propose(tenant,input,true);}
     @PostMapping("/dry-run") public Object dry(@RequestBody RemediationPolicy.Proposal input){return policy.propose(tenant,input,false);}
     @GetMapping("/plans/{id}") public Object get(@PathVariable String id){return policy.get(tenant,id);}
+    @GetMapping("/plans/{id}/audit") public Object audit(@PathVariable String id,@RequestParam(required=false)String cursor){return policy.auditEnvelope(tenant,id,cursor);}
     @GetMapping("/plans/{id}/postmortem") public Object postmortem(@PathVariable String id){return policy.postmortem(tenant,id);}
     @PostMapping("/plans/{id}/approval") public Object approve(@PathVariable String id,@RequestBody Approval body){return policy.approve(tenant,id,body.plan_hash(),body.decision());}
     @PostMapping("/plans/{id}/execute") public Object execute(@PathVariable String id,@RequestHeader(value="Idempotency-Key",required=false)String key,@RequestBody Review body){return policy.execute(tenant,id,body.plan_hash(),key);}
