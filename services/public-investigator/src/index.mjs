@@ -146,7 +146,7 @@ async function handler(request,env) {
   if(!answer)return json({error:"Model response was incomplete",status:"EMPTY_RESPONSE"},503,headers);
   return json({
     answer,mode:"LIVE_GPT_PUBLIC_RAG",source_mode:"SIMULATED_EXAMPLE_AND_CURATED_PUBLIC_RUNBOOKS",
-    case_id:context.caseId,references:context.refs.map(({id,title,service})=>({id,title,service})),
+    case_id:context.caseId,references:context.refs.map(({id,title,service,url})=>({id,title,service,url:url||null})),
     privacy:"Public educational chat. No private cluster access, no retained provider conversation (store=false).",
   },200,headers);
 }
