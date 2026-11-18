@@ -1,0 +1,59 @@
+# Isolated opt-in evidence lab; no production connector or host-wide ingestion.
+services:
+  evidence-search:
+    profiles: [evidence]
+    image: opensearchproject/opensearch:3.4.0@sha256:1647ce2e07371f1ac8bbad28890a64ef77c5a694a61f656120f0ace09e66bf48
+    environment:
+      discovery.type: single-node
+      node.store.allow_mmap: "false"
+      plugins.security.ssl.http.enabled: "false"
+      OPENSEARCH_INITIAL_ADMIN_PASSWORD: ${EVIDENCE_ADMIN_PASSWORD:?Set a strong local demo admin password}
+      OPENSEARCH_JAVA_OPTS: -Xms512m -Xmx512m
+    ports:
+      - "127.0.0.1:${EVIDENCE_SEARCH_PORT:-19200}:9200"
+    volumes:
+      - evidence_search_data:/usr/share/opensearch/data
+  evidence-collector:
+    profiles: [evidence]
+    image: otel/opentelemetry-collector-contrib:0.121.0@sha256:789689988e379c58ac12b07718dbcf4b23c2214bd804173c1c77af346d381c15
+    # Local demo volume only. Export directories are not mounted from the host.
+    user: "0:0"
+    command: ["--config=/etc/otelcol/config.yaml"]
+    volumes:
+      - ./infra/evidence/collector.yaml:/etc/otelcol/config.yaml:ro
+      - evidence_trace_data:/exports
+  evidence-forwarder:
+    profiles: [evidence]
+    image: fluent/fluent-bit:4.2.2@sha256:7d727245767ae632eb296c2ff4d206bf2e205b5f244c1f37b8fdd61f9fb33985
+    environment:
+      EVIDENCE_WRITER_PASSWORD: ${EVIDENCE_WRITER_PASSWORD:?Set a local writer password}
+      NO_PROXY: ${NO_PROXY:-},evidence-search,evidence-collector,localhost,127.0.0.1
+      no_proxy: ${no_proxy:-},evidence-search,evidence-collector,localhost,127.0.0.1
+    volumes:
+      - ./infra/evidence/fluent-bit.conf:/fluent-bit/etc/fluent-bit.conf:ro
+      - ./infra/evidence/evidence-parsers.conf:/fluent-bit/etc/evidence-parsers.conf:ro
+      - ${EVIDENCE_FIXTURE_DIR:-./backend-java/target/evidence-fixtures}:/fixtures:ro
+      - evidence_trace_data:/exports:ro
+      - evidence_forwarder_state:/buffers
+    depends_on:
+      - evidence-search
+      - evidence-collector
+  evidence-prometheus:
+    profiles: [evidence]
+    image: prom/prometheus:v2.55.1@sha256:2659f4c2ebb718e7695cb9b25ffa7d6be64db013daba13e05c875451cf51b0d3
+    volumes:
+      - ./infra/evidence/prometheus.yaml:/etc/prometheus/prometheus.yml:ro
+    ports:
+      - "127.0.0.1:${EVIDENCE_PROM_PORT:-19090}:9090"
+  java-api:
+    environment:
+      EVIDENCE_SEARCH_ENABLED: "true"
+      EVIDENCE_SEARCH_URL: http://evidence-search:9200
+      EVIDENCE_SEARCH_USER: evidence_reader
+      EVIDENCE_SEARCH_PASSWORD: ${EVIDENCE_READER_PASSWORD:?Set a local reader password}
+      EVIDENCE_API_TOKEN: ${EVIDENCE_API_TOKEN:?Set a local search API bearer credential}
+      INVESTINATOR_DEMO_MODE: "true"
+volumes:
+  evidence_search_data:
+  evidence_trace_data:
+  evidence_forwarder_state:

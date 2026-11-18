@@ -1,0 +1,41 @@
+{
+  "settings": {
+    "number_of_shards": 1,
+    "number_of_replicas": 0
+  },
+  "mappings": {
+    "dynamic": false,
+    "_meta": {
+      "schema_version": 1
+    },
+    "properties": {
+      "resourceSpans": {
+        "properties": {
+          "scopeSpans": {
+            "properties": {
+              "spans": {
+                "properties": {
+                  "traceId": {
+                    "type": "keyword"
+                  },
+                  "spanId": {
+                    "type": "keyword"
+                  },
+                  "name": {
+                    "type": "keyword"
+                  },
+                  "startTimeUnixNano": {
+                    "type": "long"
+                  },
+                  "endTimeUnixNano": {
+                    "type": "long"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

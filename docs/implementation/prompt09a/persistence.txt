@@ -1,0 +1,2 @@
+PASS: unchanged Next.js page and GET/POST API proxy against the Java demo
+PASS: PostgreSQL Flyway, persisted incident/approval across Java process restart, approved simulated recovery/audit; non-demo access denied; DB outage gives readiness 503 while liveness stays UP

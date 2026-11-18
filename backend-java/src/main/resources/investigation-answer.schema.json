@@ -1,0 +1,116 @@
+{
+  "type": "object",
+  "properties": {
+    "summary": {
+      "type": "string"
+    },
+    "observed_evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "evidence_id": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "observed_at": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "OBSERVATION",
+              "HISTORICAL_ADVICE"
+            ]
+          }
+        },
+        "required": [
+          "evidence_id",
+          "source",
+          "observed_at",
+          "kind"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "probable_originating_causes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "statement": {
+            "type": "string"
+          },
+          "evidence_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "statement",
+          "evidence_ids"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "alternatives": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "missing_checks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "business_impact": {
+      "type": "string"
+    },
+    "recommended_read_only_checks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "preventive_recommendations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "safe_remediation_proposal": {
+      "type": "string"
+    },
+    "source_mode": {
+      "type": "string",
+      "enum": [
+        "LIVE",
+        "SIMULATED",
+        "MIXED",
+        "NOT_TESTED"
+      ]
+    }
+  },
+  "required": [
+    "summary",
+    "observed_evidence",
+    "probable_originating_causes",
+    "alternatives",
+    "missing_checks",
+    "business_impact",
+    "recommended_read_only_checks",
+    "preventive_recommendations",
+    "safe_remediation_proposal",
+    "source_mode"
+  ],
+  "additionalProperties": false
+}

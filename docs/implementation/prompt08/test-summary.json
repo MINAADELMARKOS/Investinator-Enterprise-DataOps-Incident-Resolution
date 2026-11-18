@@ -1,0 +1,18 @@
+{
+  "java": {
+    "tests": 69,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "cli": {
+    "tests": 14,
+    "failures": 0
+  },
+  "real_tool_proof": "Official SDK with WireMock provider -> Java connector -> real Kafka 4.3.1 KRaft -> matching function_call_output",
+  "persisted_history": "real PostgreSQL with encrypted private continuation",
+  "paid_openai_call": false,
+  "live_provider": "NOT_CONFIGURED",
+  "baseline_validator": "PASS",
+  "production_release": "BLOCKED"
+}

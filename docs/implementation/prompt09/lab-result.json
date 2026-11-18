@@ -1,0 +1,15 @@
+{
+  "source_mode": "SIMULATED",
+  "real_infrastructure": "Java/PostgreSQL/OpenSearch BM25",
+  "graph_query": "PASS upstream hypothesis, unconfirmed",
+  "independent_writer_review_boundary": "PASS using distinct simulated test credentials",
+  "native_publish_and_repeat": "PASS",
+  "historical_reference": "knowledge:lab-kraft-network@1#0",
+  "content_hash": "f814e8d6b95db21d879017d2284b968e5af58c99b9b391df7517665762c06f92",
+  "retrieval_mode": "LIVE",
+  "tenant_parameter_denied": true,
+  "feedback_auto_promoted": false,
+  "chat_check": "PASS actual API persisted fallback history; provider NOT_CONFIGURED",
+  "human_gold_review": "PENDING; no human review claimed",
+  "paid_provider_calls": false
+}

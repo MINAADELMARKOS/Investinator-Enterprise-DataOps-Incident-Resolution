@@ -1,0 +1,69 @@
+spring:
+  application:
+    name: investinator-java
+  profiles:
+    default: local
+server:
+  address: ${JAVA_BIND_ADDRESS:127.0.0.1}
+  port: ${JAVA_PORT:8081}
+  forward-headers-strategy: none
+  error:
+    include-message: never
+    include-stacktrace: never
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,prometheus
+  endpoint:
+    health:
+      show-details: never
+      probes:
+        enabled: true
+      group:
+        liveness:
+          include: livenessState
+        readiness:
+          include: readinessState,corePersistence
+logging:
+  structured:
+    format:
+      console: ecs
+investinator:
+  health:
+    token: ${HEALTH_API_TOKEN:}
+    scheduled: ${HEALTH_SCHEDULED:false}
+    interval-ms: ${HEALTH_INTERVAL_MS:20000}
+    timeout-ms: ${HEALTH_TIMEOUT_MS:6000}
+    deadline-ms: ${HEALTH_DEADLINE_MS:12000}
+    freshness-seconds: ${HEALTH_FRESHNESS_SECONDS:86400}
+  evidence:
+    enabled: ${EVIDENCE_SEARCH_ENABLED:false}
+    token: ${EVIDENCE_API_TOKEN:}
+    url: ${EVIDENCE_SEARCH_URL:}
+    index: ${EVIDENCE_INDEX:investinator-evidence}
+    username: ${EVIDENCE_SEARCH_USER:}
+    password: ${EVIDENCE_SEARCH_PASSWORD:}
+  demo-mode: ${INVESTINATOR_DEMO_MODE:true}
+  demo-tenant: ${INVESTINATOR_DEMO_TENANT:demo}
+  persistence:
+    enabled: ${JAVA_PERSISTENCE_ENABLED:false}
+    url: ${JAVA_DATABASE_URL:}
+    username: ${JAVA_DATABASE_USER:}
+    password: ${JAVA_DATABASE_PASSWORD:}
+    schema: ${JAVA_DATABASE_SCHEMA:investinator_java}
+  metrics:
+    token: ${METRICS_TOKEN:}
+  openai:
+    enabled: ${INVESTINATOR_OPENAI_ENABLED:false}
+    model: ${INVESTINATOR_OPENAI_MODEL:}
+    max-requests: ${INVESTINATOR_MAX_AI_CALLS:3}
+otel:
+  sdk:
+    disabled: true
+  traces:
+    exporter: none
+  metrics:
+    exporter: none
+  logs:
+    exporter: none

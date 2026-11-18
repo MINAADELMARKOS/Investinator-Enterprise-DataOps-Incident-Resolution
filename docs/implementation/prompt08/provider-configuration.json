@@ -1,0 +1,10 @@
+{
+  "exit_code": 2,
+  "report": {
+    "status": "NOT_CONFIGURED",
+    "key_present": false,
+    "model_present": false,
+    "paid_call_made": false
+  },
+  "live_paid_test": "NOT_CONFIGURED; never invoked --live against a real provider"
+}

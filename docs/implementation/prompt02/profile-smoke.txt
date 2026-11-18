@@ -1,0 +1,7 @@
+PASS: local liveness, readiness, truthful scaffold contract, correlation, and denied diagnostics
+local PASS
+PASS: local liveness, readiness, truthful scaffold contract, correlation, and denied diagnostics
+demo PASS
+PASS: local liveness, readiness, truthful scaffold contract, correlation, and denied diagnostics
+integration PASS
+enterprise without TLS bundle: expected fail-closed PASS

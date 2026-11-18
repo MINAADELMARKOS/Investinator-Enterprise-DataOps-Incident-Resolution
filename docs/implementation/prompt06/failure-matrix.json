@@ -1,0 +1,66 @@
+[
+  {
+    "stopped_service": "db",
+    "doctor_exit": 1,
+    "detected": true,
+    "check_status": "UNHEALTHY",
+    "liveness_independent": true,
+    "cascading_restarts": false
+  },
+  {
+    "stopped_service": "search",
+    "doctor_exit": 1,
+    "detected": true,
+    "check_status": "UNHEALTHY",
+    "liveness_independent": true,
+    "cascading_restarts": false
+  },
+  {
+    "stopped_service": "collector",
+    "doctor_exit": 1,
+    "detected": true,
+    "check_status": "UNHEALTHY",
+    "liveness_independent": true,
+    "cascading_restarts": false
+  },
+  {
+    "stopped_service": "forwarder",
+    "doctor_exit": 1,
+    "detected": true,
+    "check_status": "UNHEALTHY_CONTAINER",
+    "liveness_independent": true,
+    "cascading_restarts": false
+  },
+  {
+    "stopped_service": "prometheus",
+    "doctor_exit": 1,
+    "detected": true,
+    "check_status": "UNHEALTHY",
+    "liveness_independent": true,
+    "cascading_restarts": false
+  },
+  {
+    "stopped_service": "kafka",
+    "doctor_exit": 1,
+    "detected": true,
+    "check_status": "UNHEALTHY",
+    "liveness_independent": true,
+    "cascading_restarts": false
+  },
+  {
+    "stopped_service": "java",
+    "doctor_exit": 1,
+    "detected": true,
+    "check_status": "UNHEALTHY",
+    "liveness_independent": false,
+    "cascading_restarts": false
+  },
+  {
+    "stopped_service": "web",
+    "doctor_exit": 1,
+    "detected": true,
+    "check_status": "UNHEALTHY",
+    "liveness_independent": true,
+    "cascading_restarts": false
+  }
+]

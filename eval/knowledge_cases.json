@@ -1,0 +1,81 @@
+{
+  "dataset_version": 1,
+  "source_mode": "SIMULATED",
+  "review_state": "PENDING_HUMAN_REVIEW",
+  "human_reviewer": null,
+  "usable_for_production_accuracy_claims": false,
+  "cases": [
+    {
+      "id": "kafka-kraft",
+      "technology": "Kafka",
+      "version": "4.3",
+      "mode": "KRAFT",
+      "signal": "NETWORK_UNSTABLE",
+      "query": "network packet loss metadata quorum instability",
+      "text": "Network packet loss destabilizes KRaft metadata quorum. Read controller quorum, broker ISR and consumer lag before proposing changes."
+    },
+    {
+      "id": "legacy-zookeeper",
+      "technology": "Kafka",
+      "version": "3.9",
+      "mode": "LEGACY_ZOOKEEPER",
+      "signal": "ZK_SESSION_EXPIRED",
+      "query": "ZooKeeper session expired legacy broker coordination",
+      "text": "Legacy Kafka ZooKeeper session expiration affects broker coordination. Inspect authenticated legacy session evidence; do not attach this runbook to KRaft."
+    },
+    {
+      "id": "hdfs-ha",
+      "technology": "HDFS",
+      "version": "3.4",
+      "mode": "UNKNOWN",
+      "signal": "HDFS_HA_UNAVAILABLE",
+      "query": "HDFS no active NameNode HA failover",
+      "text": "When HDFS has no active NameNode during an HA failover, inspect active standby state, journal quorum and DataNode liveness. Never trigger failover from diagnosis."
+    },
+    {
+      "id": "kudu-tablet",
+      "technology": "Kudu",
+      "version": "1.18",
+      "mode": "UNKNOWN",
+      "signal": "KUDU_TABLET_UNAVAILABLE",
+      "query": "Kudu tablet unavailable leader quorum",
+      "text": "Kudu tablet unavailable requires read-only tablet leader, replica and tserver evidence. Master connectivity alone does not prove tablet quorum."
+    },
+    {
+      "id": "nifi-backpressure",
+      "technology": "NiFi",
+      "version": "2.0",
+      "mode": "UNKNOWN",
+      "signal": "NIFI_BACKPRESSURE",
+      "query": "NiFi backpressure queue age backlog",
+      "text": "NiFi backpressure and queue age indicate flow backlog. Inspect connection capacity and bulletins without dropping queues or restarting processors."
+    },
+    {
+      "id": "spark-oom",
+      "technology": "Spark",
+      "version": "4.0",
+      "mode": "UNKNOWN",
+      "signal": "SPARK_EXECUTOR_OOM",
+      "query": "Spark executor OutOfMemory lost stage failure",
+      "text": "Spark executor OutOfMemory and lost executors can delay stages and datasets. Inspect executor memory, GC and failed stages before recommending resource changes."
+    },
+    {
+      "id": "hive-metadata",
+      "technology": "Hive",
+      "version": "4.0",
+      "mode": "UNKNOWN",
+      "signal": "HIVE_METADATA_FAILURE",
+      "query": "Hive metastore unavailable metadata failure",
+      "text": "Hive metastore unavailable is distinct from HiveServer2 SELECT responsiveness. Inspect SASL metastore namespace reads and backing database separately."
+    },
+    {
+      "id": "healthy-false-positive",
+      "technology": "Kafka",
+      "version": "4.3",
+      "mode": "KRAFT",
+      "signal": null,
+      "query": "healthy baseline no failure false positive",
+      "text": "A healthy Kafka baseline with no failure must not be attributed to ZooKeeper, disk or network merely from related historical advice."
+    }
+  ]
+}

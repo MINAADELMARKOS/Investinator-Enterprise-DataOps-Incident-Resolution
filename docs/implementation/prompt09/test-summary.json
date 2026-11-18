@@ -1,0 +1,23 @@
+{
+  "java": {
+    "tests": 78,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "cli": {
+    "tests": 14,
+    "failures": 0
+  },
+  "ruff": "PASS",
+  "baseline_validator": "PASS",
+  "owned_lab_doctor": "PASS",
+  "owned_lab_api": "PASS",
+  "owned_lab_smoke": "PASS",
+  "functional_gate": "PASS",
+  "human_gold_review": "BLOCKED_PENDING_INDEPENDENT_REVIEW",
+  "provisional_cases": 8,
+  "actual_paid_openai_call": false,
+  "provider": "NOT_CONFIGURED",
+  "release": "BLOCKED"
+}

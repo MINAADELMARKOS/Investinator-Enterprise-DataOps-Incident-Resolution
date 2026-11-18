@@ -1,0 +1,149 @@
+name: investinator-lab
+services:
+  db:
+    image: postgres:16-alpine@sha256:81e77a4833487b8132fe4b00bedd39dc3f74b8641e387f19312a48f7de218c2e
+    environment:
+      POSTGRES_USER: investinator_java
+      POSTGRES_DB: investinator_java
+      POSTGRES_PASSWORD: ${JAVA_DATABASE_PASSWORD:?Local lab configuration missing}
+    volumes: ["postgres_data:/var/lib/postgresql/data"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U investinator_java -d investinator_java"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+  search:
+    image: opensearchproject/opensearch:3.4.0@sha256:1647ce2e07371f1ac8bbad28890a64ef77c5a694a61f656120f0ace09e66bf48
+    hostname: evidence-search
+    environment:
+      discovery.type: single-node
+      node.store.allow_mmap: "false"
+      plugins.security.ssl.http.enabled: "false"
+      OPENSEARCH_INITIAL_ADMIN_PASSWORD: ${EVIDENCE_ADMIN_PASSWORD:?Local lab configuration missing}
+      OPENSEARCH_JAVA_OPTS: -Xms512m -Xmx512m
+    networks:
+      default:
+        aliases: [evidence-search]
+    ports: ["127.0.0.1:${LAB_SEARCH_PORT:-19200}:9200"]
+    volumes: ["search_data:/usr/share/opensearch/data"]
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS -u admin:$$OPENSEARCH_INITIAL_ADMIN_PASSWORD http://127.0.0.1:9200/_cluster/health >/dev/null"]
+      interval: 5s
+      timeout: 3s
+      start_period: 20s
+      retries: 30
+  collector:
+    image: otel/opentelemetry-collector-contrib:0.121.0@sha256:789689988e379c58ac12b07718dbcf4b23c2214bd804173c1c77af346d381c15
+    user: "0:0"
+    command: ["--config=/etc/otelcol/config.yaml"]
+    networks:
+      default:
+        aliases: [evidence-collector]
+    ports: ["127.0.0.1:${LAB_OTLP_PORT:-14318}:4318", "127.0.0.1:${LAB_OTEL_HEALTH_PORT:-13134}:13133"]
+    volumes:
+      - ../../infra/evidence/collector.yaml:/etc/otelcol/config.yaml:ro
+      - trace_data:/exports
+  forwarder:
+    image: fluent/fluent-bit:4.2.2@sha256:7d727245767ae632eb296c2ff4d206bf2e205b5f244c1f37b8fdd61f9fb33985
+    environment:
+      EVIDENCE_WRITER_PASSWORD: ${EVIDENCE_WRITER_PASSWORD:?Local lab configuration missing}
+      NO_PROXY: ${NO_PROXY:-},evidence-search,evidence-collector,localhost,127.0.0.1
+      no_proxy: ${no_proxy:-},evidence-search,evidence-collector,localhost,127.0.0.1
+    volumes:
+      - ../../infra/evidence/fluent-bit.conf:/fluent-bit/etc/fluent-bit.conf:ro
+      - ../../infra/evidence/evidence-parsers.conf:/fluent-bit/etc/evidence-parsers.conf:ro
+      - ../../.runtime/fixtures:/fixtures:ro
+      - trace_data:/exports:ro
+      - forwarder_state:/buffers
+  prometheus:
+    image: prom/prometheus:v2.55.1@sha256:2659f4c2ebb718e7695cb9b25ffa7d6be64db013daba13e05c875451cf51b0d3
+    ports: ["127.0.0.1:${LAB_PROM_PORT:-19090}:9090"]
+    volumes: ["../../infra/evidence/prometheus.yaml:/etc/prometheus/prometheus.yml:ro"]
+    healthcheck:
+      test: ["CMD-SHELL", "http_proxy= https_proxy= HTTP_PROXY= HTTPS_PROXY= wget -q -O /dev/null http://127.0.0.1:9090/-/ready"]
+      interval: 3s
+      timeout: 2s
+      retries: 30
+  kafka:
+    image: apache/kafka:4.3.1@sha256:77e3df9054047a88b520d0cc46e16696d3b22022e1d580aeccd2632df6532837
+    environment:
+      KAFKA_NODE_ID: 1
+      KAFKA_LOG_DIRS: /var/lib/kafka/data
+      KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_AUTHORIZER_CLASS_NAME: org.apache.kafka.metadata.authorizer.StandardAuthorizer
+      KAFKA_SUPER_USERS: User:lab;User:ANONYMOUS
+      KAFKA_ALLOW_EVERYONE_IF_NO_ACL_FOUND: "false"
+      KAFKA_LISTENERS: CONTROLLER://:29093,INTERNAL://:19092,EXTERNAL://:9092
+      KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka:19092,EXTERNAL://127.0.0.1:${LAB_KAFKA_PORT:-19092}
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,INTERNAL:SASL_PLAINTEXT,EXTERNAL:SASL_PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:29093
+      KAFKA_SASL_ENABLED_MECHANISMS: PLAIN
+      KAFKA_SASL_MECHANISM_INTER_BROKER_PROTOCOL: PLAIN
+      KAFKA_LISTENER_NAME_INTERNAL_PLAIN_SASL_JAAS_CONFIG: org.apache.kafka.common.security.plain.PlainLoginModule required username="lab" password="${LAB_KAFKA_PASSWORD}" user_lab="${LAB_KAFKA_PASSWORD}" user_health="${KAFKA_DIAGNOSTIC_PASSWORD}";
+      KAFKA_LISTENER_NAME_EXTERNAL_PLAIN_SASL_JAAS_CONFIG: org.apache.kafka.common.security.plain.PlainLoginModule required username="lab" password="${LAB_KAFKA_PASSWORD}" user_lab="${LAB_KAFKA_PASSWORD}" user_health="${KAFKA_DIAGNOSTIC_PASSWORD}";
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      CLUSTER_ID: ${LAB_KAFKA_CLUSTER_ID}
+    ports: ["127.0.0.1:${LAB_KAFKA_PORT:-19092}:9092"]
+    volumes: ["kafka_data:/var/lib/kafka/data"]
+  java:
+    image: ${LAB_JAVA_IMAGE:-investinator-java:operations}
+    environment:
+      SPRING_PROFILES_ACTIVE: demo
+      JAVA_PERSISTENCE_ENABLED: "true"
+      JAVA_DATABASE_URL: jdbc:postgresql://db:5432/investinator_java
+      JAVA_DATABASE_USER: investinator_java
+      JAVA_DATABASE_PASSWORD: ${JAVA_DATABASE_PASSWORD}
+      EVIDENCE_SEARCH_ENABLED: "true"
+      EVIDENCE_SEARCH_URL: http://evidence-search:9200
+      EVIDENCE_SEARCH_USER: evidence_reader
+      EVIDENCE_SEARCH_PASSWORD: ${EVIDENCE_READER_PASSWORD}
+      EVIDENCE_API_TOKEN: ${EVIDENCE_API_TOKEN}
+      HEALTH_API_TOKEN: ${HEALTH_API_TOKEN}
+      CONNECTOR_API_TOKEN: ${CONNECTOR_API_TOKEN}
+      INVESTINATOR_CHAT_STATE_KEY: ${INVESTINATOR_CHAT_STATE_KEY}
+      GRAPH_ADMIN_TOKEN: ${GRAPH_ADMIN_TOKEN}
+      INVESTINATOR_TOPOLOGY_GRAPH: ${INVESTINATOR_TOPOLOGY_GRAPH:-}
+      INVESTIGATION_API_TOKEN: ${INVESTIGATION_API_TOKEN}
+      KNOWLEDGE_WRITE_TOKEN: ${KNOWLEDGE_WRITE_TOKEN}
+      KNOWLEDGE_REVIEW_TOKEN: ${KNOWLEDGE_REVIEW_TOKEN}
+      KNOWLEDGE_READ_TOKEN: ${KNOWLEDGE_READ_TOKEN}
+      KNOWLEDGE_FEEDBACK_TOKEN: ${KNOWLEDGE_FEEDBACK_TOKEN}
+      KNOWLEDGE_WRITER_USER: knowledge_writer
+      KNOWLEDGE_WRITER_PASSWORD: ${KNOWLEDGE_WRITER_PASSWORD}
+      INVESTINATOR_OPENAI_ENABLED: ${INVESTINATOR_OPENAI_ENABLED:-false}
+      INVESTINATOR_OPENAI_MODEL: ${INVESTINATOR_OPENAI_MODEL:-}
+      INVESTINATOR_OPENAI_FAST_MODEL: ${INVESTINATOR_OPENAI_FAST_MODEL:-}
+      INVESTINATOR_OPENAI_REASONING_MODEL: ${INVESTINATOR_OPENAI_REASONING_MODEL:-}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      INVESTINATOR_AI_ALLOWED_SERVICES: kafka
+      HEALTH_SCHEDULED: "true"
+      HEALTH_WEB_URL: http://web:3000
+      HEALTH_OTEL_URL: http://collector:13133
+      HEALTH_PROMETHEUS_URL: http://prometheus:9090
+      KAFKA_BOOTSTRAP_SERVERS: kafka:19092
+      KAFKA_SECURITY_PROTOCOL: SASL_PLAINTEXT
+      KAFKA_SASL_MECHANISM: PLAIN
+      KAFKA_SASL_JAAS_CONFIG: org.apache.kafka.common.security.plain.PlainLoginModule required username="health" password="${KAFKA_DIAGNOSTIC_PASSWORD}";
+    ports: ["127.0.0.1:${LAB_API_PORT:-18081}:8081"]
+    depends_on:
+      db:
+        condition: service_healthy
+  web:
+    image: ${LAB_WEB_IMAGE:-investinator-web:operations}
+    environment:
+      API_INTERNAL_URL: http://java:8081
+    ports: ["127.0.0.1:${LAB_WEB_PORT:-13000}:3000"]
+    depends_on:
+      java:
+        condition: service_healthy
+volumes:
+  postgres_data:
+  search_data:
+  trace_data:
+  forwarder_state:
+  kafka_data:

@@ -1,0 +1,15 @@
+{
+  "java": {
+    "tests": 57,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "cli": {
+    "tests": 13,
+    "failures": 0
+  },
+  "baseline_validator": "PASS",
+  "production_release": "BLOCKED",
+  "paid_provider_calls": false
+}

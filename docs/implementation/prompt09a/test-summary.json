@@ -1,0 +1,53 @@
+{
+  "java_maven_verify": {
+    "tests": 78,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "cli_unit": {
+    "tests": 14,
+    "failures": 0
+  },
+  "python_pytest": {
+    "passed": 12
+  },
+  "python_ruff": "PASS",
+  "python_mypy": "PASS: 17 source files",
+  "python_fixture_evaluation": {
+    "passed": 7,
+    "total": 7
+  },
+  "next_version": "16.4.5",
+  "npm_ci": "PASS after writable cache correction",
+  "next_build": "PASS",
+  "frontend_types": "PASS",
+  "npm_audit": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 0,
+    "critical": 0,
+    "total": 0
+  },
+  "compose_profiles": [
+    "base including log-search",
+    "java",
+    "java-persistence",
+    "evidence",
+    "owned eight-service lab"
+  ],
+  "compose_config": "PASS",
+  "persistence_restart_proxy_outage": "PASS",
+  "native_evidence_pipeline": "PASS",
+  "doctor": "PASS",
+  "health_all": "PASS",
+  "smoke": "PASS",
+  "knowledge_native_http": "PASS",
+  "paid_openai_calls": false,
+  "gold_review": "PENDING_INDEPENDENT_HUMAN",
+  "hosted_ci": "PASS run 44102365986 for 08cc387: Java + backend/CLI + frontend",
+  "remote_push": "PASS, ls-remote exact match",
+  "pull_request": "BLOCKED_API_DESTINATION_POLICY",
+  "hosted_authenticated_logs": "BLOCKED_API_DESTINATION_POLICY; public job statuses verified"
+}

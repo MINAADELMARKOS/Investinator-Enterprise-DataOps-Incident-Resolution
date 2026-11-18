@@ -1,0 +1,17 @@
+{
+  "kafka_source": "LIVE local SASL KRaft; data SIMULATED",
+  "diagnostic_create_topic": "DENIED",
+  "diagnostic_produce": "DENIED",
+  "fixture_end_and_committed_before": [
+    5,
+    5
+  ],
+  "fixture_end_and_committed_after": [
+    5,
+    5
+  ],
+  "down_up_data_retained": true,
+  "connector_api_auth_and_parameter_boundary": "PASS",
+  "private_live_connectors": "NOT_CONFIGURED",
+  "paid_openai_call": false
+}

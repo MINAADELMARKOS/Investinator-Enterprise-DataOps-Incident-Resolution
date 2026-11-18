@@ -1,0 +1,2 @@
+openai-missing-model: expected startup rejection PASS
+invalid-budget: expected startup rejection PASS

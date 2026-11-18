@@ -1,0 +1,7 @@
+{
+  "DATABASE_URL": false,
+  "OPENAI_API_KEY": false,
+  "INVESTINATOR_OPENAI_MODEL": false,
+  "KAFKA_BOOTSTRAP_SERVERS": false,
+  "OTEL_EXPORTER_OTLP_ENDPOINT": false
+}

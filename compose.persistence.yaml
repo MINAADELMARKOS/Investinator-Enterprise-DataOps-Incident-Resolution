@@ -1,0 +1,28 @@
+# Local opt-in persistence. Never point this profile at the Alembic schema.
+services:
+  java-db:
+    profiles: [java-persistence]
+    image: postgres:16-alpine@sha256:81e77a4833487b8132fe4b00bedd39dc3f74b8641e387f19312a48f7de218c2e
+    environment:
+      POSTGRES_USER: investinator_java
+      POSTGRES_DB: investinator_java
+      POSTGRES_PASSWORD: ${JAVA_DATABASE_PASSWORD:?Set a local Java database password}
+    volumes:
+      - java_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U investinator_java -d investinator_java"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+  java-api:
+    environment:
+      JAVA_PERSISTENCE_ENABLED: "true"
+      JAVA_DATABASE_URL: jdbc:postgresql://java-db:5432/investinator_java
+      JAVA_DATABASE_USER: investinator_java
+      JAVA_DATABASE_PASSWORD: ${JAVA_DATABASE_PASSWORD:?Set a local Java database password}
+      INVESTINATOR_DEMO_MODE: "true"
+    depends_on:
+      java-db:
+        condition: service_healthy
+volumes:
+  java_postgres_data:

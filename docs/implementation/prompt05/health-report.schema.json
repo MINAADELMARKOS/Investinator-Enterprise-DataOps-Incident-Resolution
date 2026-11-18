@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:investinator:integration-health:v1",
+  "type": "object",
+  "required": [
+    "report_id",
+    "checked_at",
+    "delivery_mode",
+    "success",
+    "partial",
+    "checks"
+  ],
+  "properties": {
+    "report_id": {
+      "type": "string"
+    },
+    "checked_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "delivery_mode": {
+      "enum": [
+        "LIVE",
+        "CACHED",
+        "LOCAL_FALLBACK"
+      ]
+    },
+    "success": {
+      "type": "boolean"
+    },
+    "partial": {
+      "type": "boolean"
+    },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "check_id",
+          "service",
+          "capability",
+          "status",
+          "source_mode",
+          "evidence_source",
+          "checked_at",
+          "duration_ms",
+          "diagnosis",
+          "next_safe_action",
+          "error_type",
+          "required_for_readiness",
+          "details"
+        ],
+        "properties": {
+          "check_id": {
+            "type": "string"
+          },
+          "service": {
+            "type": "string"
+          },
+          "capability": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "HEALTHY",
+              "DEGRADED",
+              "UNHEALTHY",
+              "UNKNOWN",
+              "NOT_CONFIGURED",
+              "NOT_TESTED"
+            ]
+          },
+          "source_mode": {
+            "enum": [
+              "LIVE",
+              "SIMULATED",
+              "CACHED",
+              "NOT_CONFIGURED",
+              "NOT_TESTED"
+            ]
+          },
+          "evidence_source": {
+            "type": "string"
+          },
+          "checked_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "duration_ms": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "diagnosis": {
+            "type": "string"
+          },
+          "next_safe_action": {
+            "type": "string"
+          },
+          "error_type": {
+            "type": "string"
+          },
+          "required_for_readiness": {
+            "type": "boolean"
+          },
+          "details": {
+            "type": "object"
+          }
+        }
+      }
+    }
+  }
+}

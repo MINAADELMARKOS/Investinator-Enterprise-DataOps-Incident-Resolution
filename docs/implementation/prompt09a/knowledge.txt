@@ -1,0 +1,1 @@
+PASS: real graph/RAG/history APIs; scoped native BM25; review/publish/feedback boundaries; all data SIMULATED

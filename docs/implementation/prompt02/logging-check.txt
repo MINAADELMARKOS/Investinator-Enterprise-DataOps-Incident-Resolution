@@ -1,0 +1,1 @@
+PASS: actual container ECS JSON completion log contains bounded request_id=java-smoke; no raw request headers/body are logged by the filter.

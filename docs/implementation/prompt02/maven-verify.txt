@@ -1,0 +1,83 @@
+[INFO] Scanning for projects...
+[INFO]
+[INFO] -------------------< com.investinator:backend-java >--------------------
+[INFO] Building backend-java 0.1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- resources:3.5.0:resources (default-resources) @ backend-java ---
+[INFO] Copying 5 resources from src/main/resources to target/classes
+[INFO] Copying 0 resource from src/main/resources to target/classes
+[INFO]
+[INFO] --- compiler:3.15.0:compile (default-compile) @ backend-java ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO]
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ backend-java ---
+[INFO] skip non existing resourceDirectory /workspace/Investinator-Enterprise-DataOps-Incident-Resolution/backend-java/src/test/resources
+[INFO]
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ backend-java ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 4 source files with javac [debug parameters release 21] to target/test-classes
+[INFO]
+[INFO] --- surefire:3.5.6:test (default-test) @ backend-java ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO]
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.investinator.DependencyCompatibilityTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.383 s -- in com.investinator.DependencyCompatibilityTest
+[INFO] Running com.investinator.ConnectorConfigurationTest
+02:12:34.932 [main] INFO org.hibernate.validator.internal.util.Version -- HV000001: Hibernate Validator 9.1.5.Final
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.321 s -- in com.investinator.ConnectorConfigurationTest
+[INFO] Running com.investinator.api.ErrorMappingTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s -- in com.investinator.api.ErrorMappingTest
+[INFO] Running com.investinator.ScaffoldTest
+02:12:35.299 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.investinator.ScaffoldTest]: ScaffoldTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+02:12:35.410 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.investinator.InvestinatorApplication for test class com.investinator.ScaffoldTest
+02:12:35.486 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.investinator.ScaffoldTest]: ScaffoldTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+02:12:35.489 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.investinator.InvestinatorApplication for test class com.investinator.ScaffoldTest
+{"@timestamp":"2026-11-17T02:12:35.910250385Z","log":{"level":"INFO","logger":"com.investinator.ScaffoldTest"},"process":{"pid":9223,"thread":{"name":"main"}},"service":{"name":"investinator-java","node":{}},"message":"Starting ScaffoldTest using Java 21.0.13 with PID 9223 (started by agent in /workspace/Investinator-Enterprise-DataOps-Incident-Resolution/backend-java)","tags":["COMMONS-LOGGING"],"ecs":{"version":"8.11"}}
+{"@timestamp":"2026-11-17T02:12:35.918103035Z","log":{"level":"INFO","logger":"com.investinator.ScaffoldTest"},"process":{"pid":9223,"thread":{"name":"main"}},"service":{"name":"investinator-java","node":{}},"message":"No active profile set, falling back to 1 default profile: \"local\"","tags":["COMMONS-LOGGING"],"ecs":{"version":"8.11"}}
+{"@timestamp":"2026-11-17T02:12:37.261487813Z","log":{"level":"INFO","logger":"org.springframework.boot.tomcat.TomcatWebServer"},"process":{"pid":9223,"thread":{"name":"main"}},"service":{"name":"investinator-java","node":{}},"message":"Tomcat initialized with port 0 (http)","tags":["COMMONS-LOGGING"],"ecs":{"version":"8.11"}}
+{"@timestamp":"2026-11-17T02:12:37.275291179Z","log":{"level":"INFO","logger":"org.apache.catalina.core.StandardService"},"process":{"pid":9223,"thread":{"name":"main"}},"service":{"name":"investinator-java","node":{}},"message":"Starting service [Tomcat]","ecs":{"version":"8.11"}}
+{"@timestamp":"2026-11-17T02:12:37.276003592Z","log":{"level":"INFO","logger":"org.apache.catalina.core.StandardEngine"},"process":{"pid":9223,"thread":{"name":"main"}},"service":{"name":"investinator-java","node":{}},"message":"Starting Servlet engine: [Apache Tomcat/11.0.27]","ecs":{"version":"8.11"}}
+{"@timestamp":"2026-11-17T02:12:37.323420317Z","log":{"level":"INFO","logger":"org.springframework.boot.web.context.servlet.WebApplicationContextInitializer"},"process":{"pid":9223,"thread":{"name":"main"}},"service":{"name":"investinator-java","node":{}},"message":"Root WebApplicationContext: initialization completed in 1387 ms","tags":["COMMONS-LOGGING"],"ecs":{"version":"8.11"}}
+{"@timestamp":"2026-11-17T02:12:38.013187402Z","log":{"level":"INFO","logger":"org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer"},"process":{"pid":9223,"thread":{"name":"main"}},"service":{"name":"investinator-java","node":{}},"message":"Global AuthenticationManager configured with UserDetailsService bean with name noInteractiveUsers","tags":["COMMONS-LOGGING"],"ecs":{"version":"8.11"}}
+{"@timestamp":"2026-11-17T02:12:38.404672359Z","log":{"level":"INFO","logger":"io.opentelemetry.instrumentation.spring.autoconfigure.OpenTelemetryAutoConfiguration"},"process":{"pid":9223,"thread":{"name":"main"}},"service":{"name":"investinator-java","node":{}},"message":"OpenTelemetry Spring Boot starter has been disabled","ecs":{"version":"8.11"}}
+{"@timestamp":"2026-11-17T02:12:38.683639819Z","log":{"level":"INFO","logger":"org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver"},"process":{"pid":9223,"thread":{"name":"main"}},"service":{"name":"investinator-java","node":{}},"message":"Exposing 2 endpoints beneath base path '/actuator'","tags":["COMMONS-LOGGING"],"ecs":{"version":"8.11"}}
+{"@timestamp":"2026-11-17T02:12:38.792600213Z","log":{"level":"INFO","logger":"org.springframework.boot.tomcat.TomcatWebServer"},"process":{"pid":9223,"thread":{"name":"main"}},"service":{"name":"investinator-java","node":{}},"message":"Tomcat started on port 46819 (http) with context path '/'","tags":["COMMONS-LOGGING"],"ecs":{"version":"8.11"}}
+{"@timestamp":"2026-11-17T02:12:38.806968534Z","log":{"level":"INFO","logger":"com.investinator.ScaffoldTest"},"process":{"pid":9223,"thread":{"name":"main"}},"service":{"name":"investinator-java","node":{}},"message":"Started ScaffoldTest in 3.256 seconds (process running for 7.367)","tags":["COMMONS-LOGGING"],"ecs":{"version":"8.11"}}
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+WARNING: A Java agent has been loaded dynamically (/workspace/.cache/m2/net/bytebuddy/byte-buddy-agent/1.18.15/byte-buddy-agent-1.18.15.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+{"@timestamp":"2026-11-17T02:12:39.901951174Z","log":{"level":"INFO","logger":"org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]"},"process":{"pid":9223,"thread":{"name":"http-nio-127.0.0.1-auto-1-exec-1"}},"service":{"name":"investinator-java","node":{}},"message":"Initializing Spring DispatcherServlet 'dispatcherServlet'","ecs":{"version":"8.11"}}
+{"@timestamp":"2026-11-17T02:12:39.902610727Z","log":{"level":"INFO","logger":"org.springframework.web.servlet.DispatcherServlet"},"process":{"pid":9223,"thread":{"name":"http-nio-127.0.0.1-auto-1-exec-1"}},"service":{"name":"investinator-java","node":{}},"message":"Initializing Servlet 'dispatcherServlet'","tags":["COMMONS-LOGGING"],"ecs":{"version":"8.11"}}
+{"@timestamp":"2026-11-17T02:12:39.905871131Z","log":{"level":"INFO","logger":"org.springframework.web.servlet.DispatcherServlet"},"process":{"pid":9223,"thread":{"name":"http-nio-127.0.0.1-auto-1-exec-1"}},"service":{"name":"investinator-java","node":{}},"message":"Completed initialization in 2 ms","tags":["COMMONS-LOGGING"],"ecs":{"version":"8.11"}}
+{"@timestamp":"2026-11-17T02:12:40.033203494Z","log":{"level":"INFO","logger":"com.investinator.observability.CorrelationFilter"},"process":{"pid":9223,"thread":{"name":"http-nio-127.0.0.1-auto-1-exec-1"}},"service":{"name":"investinator-java","node":{}},"message":"HTTP request completed","request_id":"58b37345-495b-41f9-8754-da2372da5329","http":{"response":{"status_code":200}},"ecs":{"version":"8.11"}}
+{"@timestamp":"2026-11-17T02:12:40.062642352Z","log":{"level":"INFO","logger":"com.investinator.observability.CorrelationFilter"},"process":{"pid":9223,"thread":{"name":"http-nio-127.0.0.1-auto-1-exec-2"}},"service":{"name":"investinator-java","node":{}},"message":"HTTP request completed","request_id":"4ee1388c-c033-4547-b03f-a3b894daa7ee","http":{"response":{"status_code":200}},"ecs":{"version":"8.11"}}
+{"@timestamp":"2026-11-17T02:12:40.137659992Z","log":{"level":"INFO","logger":"com.investinator.observability.CorrelationFilter"},"process":{"pid":9223,"thread":{"name":"http-nio-127.0.0.1-auto-1-exec-3"}},"service":{"name":"investinator-java","node":{}},"message":"HTTP request completed","request_id":"safe-123","http":{"response":{"status_code":200}},"ecs":{"version":"8.11"}}
+{"@timestamp":"2026-11-17T02:12:40.154791553Z","log":{"level":"INFO","logger":"com.investinator.observability.CorrelationFilter"},"process":{"pid":9223,"thread":{"name":"http-nio-127.0.0.1-auto-1-exec-4"}},"service":{"name":"investinator-java","node":{}},"message":"HTTP request completed","request_id":"4ec785c1-ae2c-44c2-aa10-a22ca2eef810","http":{"response":{"status_code":200}},"ecs":{"version":"8.11"}}
+{"@timestamp":"2026-11-17T02:12:40.185342227Z","log":{"level":"INFO","logger":"com.investinator.observability.CorrelationFilter"},"process":{"pid":9223,"thread":{"name":"http-nio-127.0.0.1-auto-1-exec-5"}},"service":{"name":"investinator-java","node":{}},"message":"HTTP request completed","request_id":"b968a273-fe57-46a1-99c2-cdd157650396","http":{"response":{"status_code":200}},"ecs":{"version":"8.11"}}
+{"@timestamp":"2026-11-17T02:12:40.334229426Z","log":{"level":"INFO","logger":"com.investinator.observability.CorrelationFilter"},"process":{"pid":9223,"thread":{"name":"http-nio-127.0.0.1-auto-1-exec-8"}},"service":{"name":"investinator-java","node":{}},"message":"HTTP request completed","request_id":"a50755eb-b5db-49f3-99c5-88078be275dd","http":{"response":{"status_code":200}},"ecs":{"version":"8.11"}}
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.188 s -- in com.investinator.ScaffoldTest
+[INFO]
+[INFO] Results:
+[INFO]
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0
+[INFO]
+[INFO]
+[INFO] --- jar:3.5.1:jar (default-jar) @ backend-java ---
+[INFO]
+[INFO] --- spring-boot:4.1.2:repackage (repackage) @ backend-java ---
+[INFO] Replacing main artifact /workspace/Investinator-Enterprise-DataOps-Incident-Resolution/backend-java/target/backend-java-0.1.0-SNAPSHOT.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[INFO] The original artifact has been renamed to /workspace/Investinator-Enterprise-DataOps-Incident-Resolution/backend-java/target/backend-java-0.1.0-SNAPSHOT.jar.original
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  13.339 s
+[INFO] Finished at: 2026-11-17T02:12:41Z
+[INFO] ------------------------------------------------------------------------

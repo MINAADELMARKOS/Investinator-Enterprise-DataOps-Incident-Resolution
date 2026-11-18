@@ -1,0 +1,19 @@
+{
+  "java": {
+    "tests": 49,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "cli": {
+    "tests": 13,
+    "failures": 0
+  },
+  "cli_lint": "PASS",
+  "hive_jdbc_profile": "Official 4.2.1 resolves/loads and fails absent TLS endpoint within bounded deadline; no private query",
+  "outage_acceptance": "8/8 PASS; no cascading restarts",
+  "paid_openai_request": false,
+  "private_live_connectors": "NOT_CONFIGURED",
+  "windows_native": "NOT_TESTED",
+  "production_release": "BLOCKED"
+}

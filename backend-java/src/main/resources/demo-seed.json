@@ -1,0 +1,296 @@
+{
+  "nodes": [
+    [
+      "orders-producer",
+      "APPLICATION",
+      "Orders producer",
+      2
+    ],
+    [
+      "broker-02",
+      "KAFKA_BROKER",
+      "broker-02",
+      3
+    ],
+    [
+      "orders.events",
+      "KAFKA_TOPIC",
+      "orders.events",
+      3
+    ],
+    [
+      "orders-consumer",
+      "CONSUMER_GROUP",
+      "orders-consumer",
+      3
+    ],
+    [
+      "order_stream_job",
+      "SPARK_JOB",
+      "order_stream_job",
+      3
+    ],
+    [
+      "fact_orders",
+      "DATASET",
+      "fact_orders",
+      3
+    ],
+    [
+      "revenue-dashboard",
+      "DASHBOARD",
+      "Revenue dashboard",
+      3
+    ]
+  ],
+  "edges": [
+    [
+      "orders-producer",
+      "orders.events",
+      "PRODUCES_TO"
+    ],
+    [
+      "broker-02",
+      "orders.events",
+      "HOSTED_ON"
+    ],
+    [
+      "orders.events",
+      "orders-consumer",
+      "FEEDS"
+    ],
+    [
+      "orders-consumer",
+      "order_stream_job",
+      "FEEDS"
+    ],
+    [
+      "order_stream_job",
+      "fact_orders",
+      "WRITES_TO"
+    ],
+    [
+      "fact_orders",
+      "revenue-dashboard",
+      "FEEDS"
+    ]
+  ],
+  "metrics": [
+    [
+      "broker-02",
+      "kafka_disk_percent",
+      47,
+      "%"
+    ],
+    [
+      "orders.events",
+      "kafka_isr_percent",
+      100,
+      "%"
+    ],
+    [
+      "orders-consumer",
+      "kafka_consumer_lag",
+      220,
+      "records"
+    ],
+    [
+      "order_stream_job",
+      "spark_input_delay_seconds",
+      2,
+      "s"
+    ],
+    [
+      "fact_orders",
+      "dataset_freshness_minutes",
+      2,
+      "min"
+    ],
+    [
+      "order_stream_job",
+      "spark_executor_memory_percent",
+      48,
+      "%"
+    ],
+    [
+      "order_stream_job",
+      "spark_gc_percent",
+      4,
+      "%"
+    ]
+  ],
+  "rules": {
+    "kafka_disk_percent": [
+      90,
+      "above",
+      "P1",
+      "Kafka broker disk pressure"
+    ],
+    "kafka_isr_percent": [
+      95,
+      "below",
+      "P2",
+      "Kafka in-sync replicas degraded"
+    ],
+    "kafka_consumer_lag": [
+      100000,
+      "above",
+      "P2",
+      "Kafka consumer lag high"
+    ],
+    "spark_input_delay_seconds": [
+      60,
+      "above",
+      "P2",
+      "Spark input processing delayed"
+    ],
+    "dataset_freshness_minutes": [
+      15,
+      "above",
+      "P2",
+      "Dataset freshness SLA breached"
+    ],
+    "spark_executor_memory_percent": [
+      90,
+      "above",
+      "P2",
+      "Spark executor memory pressure"
+    ],
+    "spark_gc_percent": [
+      35,
+      "above",
+      "P2",
+      "Spark GC pressure"
+    ]
+  },
+  "runbooks": [
+    [
+      "Kafka",
+      "runbooks/kafka_disk_pressure.md",
+      "Kafka DiskErrorException commonly indicates broker volume pressure or failed log directory.",
+      0.92
+    ],
+    [
+      "HDFS",
+      "runbooks/hdfs_safe_mode.md",
+      "HDFS safe mode after NameNode restart blocks writes until under-replicated blocks recover.",
+      0.88
+    ],
+    [
+      "Spark",
+      "runbooks/spark_executor_loss.md",
+      "Spark executor loss with container killed messages often maps to memory overhead pressure.",
+      0.86
+    ],
+    [
+      "NiFi",
+      "runbooks/nifi_backpressure.md",
+      "NiFi queues applying backpressure can stop upstream processors and increase flow-file age.",
+      0.83
+    ],
+    [
+      "Kudu",
+      "runbooks/kudu_tablet_unavailable.md",
+      "Kudu tablet unavailable errors require checking tablet-server health and consensus state.",
+      0.82
+    ],
+    [
+      "API",
+      "runbooks/api_5xx.md",
+      "API 5xx spikes should be correlated with dependency latency and recent deployments.",
+      0.8
+    ],
+    [
+      "Data",
+      "runbooks/data_freshness.md",
+      "Dataset freshness failure can occur while infrastructure is healthy; inspect record arrival, upstream lag and ingestion checkpoints.",
+      0.87
+    ]
+  ],
+  "keywords": {
+    "Kafka": [
+      "kafka",
+      "broker",
+      "consumer lag",
+      "offset",
+      "diskerrorexception",
+      "orders.events"
+    ],
+    "HDFS": [
+      "hdfs",
+      "namenode",
+      "datanode",
+      "safe mode",
+      "under-replicated"
+    ],
+    "Spark": [
+      "spark",
+      "executor",
+      "driver",
+      "yarn",
+      "outofmemory",
+      "order_stream_job"
+    ],
+    "NiFi": [
+      "nifi",
+      "processor",
+      "flowfile",
+      "backpressure"
+    ],
+    "Kudu": [
+      "kudu",
+      "tablet",
+      "tserver",
+      "consensus"
+    ],
+    "API": [
+      "api",
+      "http",
+      "5xx",
+      "gateway",
+      "timeout"
+    ],
+    "Data": [
+      "dataset",
+      "freshness",
+      "schema drift",
+      "missing partition",
+      "null rate"
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "kafka_disk_pressure",
+      "name": "Kafka broker disk pressure",
+      "systems": [
+        "Kafka",
+        "Spark",
+        "Data health"
+      ],
+      "difficulty": "Intermediate",
+      "expected_root_cause": "broker-02 storage pressure",
+      "mode": "simulated"
+    },
+    {
+      "id": "spark_executor_oom",
+      "name": "Spark executor memory pressure",
+      "systems": [
+        "Spark",
+        "Data health"
+      ],
+      "difficulty": "Intermediate",
+      "expected_root_cause": "executor memory pressure",
+      "mode": "simulated"
+    },
+    {
+      "id": "data_freshness_failure",
+      "name": "Data freshness failure",
+      "systems": [
+        "Data health"
+      ],
+      "difficulty": "Introductory",
+      "expected_root_cause": "orders dataset stopped receiving records",
+      "mode": "simulated"
+    }
+  ]
+}

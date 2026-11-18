@@ -1,0 +1,74 @@
+{
+  "settings": {
+    "number_of_shards": 1,
+    "number_of_replicas": 0,
+    "similarity": {
+      "default": {
+        "type": "BM25"
+      }
+    }
+  },
+  "mappings": {
+    "dynamic": "strict",
+    "_meta": {
+      "schema_version": 1,
+      "kind": "reviewed-historical-knowledge"
+    },
+    "properties": {
+      "chunk_id": {
+        "type": "keyword"
+      },
+      "tenant_id": {
+        "type": "keyword"
+      },
+      "document_id": {
+        "type": "keyword"
+      },
+      "content_hash": {
+        "type": "keyword"
+      },
+      "technology": {
+        "type": "keyword"
+      },
+      "platform_version": {
+        "type": "keyword"
+      },
+      "metadata_mode": {
+        "type": "keyword"
+      },
+      "source": {
+        "type": "keyword"
+      },
+      "owner": {
+        "type": "keyword"
+      },
+      "acl_principals": {
+        "type": "keyword"
+      },
+      "review_state": {
+        "type": "keyword"
+      },
+      "source_type": {
+        "type": "keyword"
+      },
+      "source_mode": {
+        "type": "keyword"
+      },
+      "revision": {
+        "type": "integer"
+      },
+      "chunk_index": {
+        "type": "integer"
+      },
+      "text": {
+        "type": "text"
+      },
+      "title": {
+        "type": "text"
+      },
+      "source_time": {
+        "type": "date"
+      }
+    }
+  }
+}

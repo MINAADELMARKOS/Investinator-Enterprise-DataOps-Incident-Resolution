@@ -1,0 +1,76 @@
+{
+  "cases": 7,
+  "passed": 7,
+  "results": [
+    {
+      "id": "INC-001",
+      "passed": true,
+      "checks": {
+        "technology": true,
+        "dangerous_action_gated": true,
+        "hypothesis_has_evidence": true,
+        "expected_approval": true
+      }
+    },
+    {
+      "id": "INC-002",
+      "passed": true,
+      "checks": {
+        "technology": true,
+        "dangerous_action_gated": true,
+        "hypothesis_has_evidence": true,
+        "expected_approval": true
+      }
+    },
+    {
+      "id": "INC-003",
+      "passed": true,
+      "checks": {
+        "technology": true,
+        "dangerous_action_gated": true,
+        "hypothesis_has_evidence": true,
+        "expected_approval": true
+      }
+    },
+    {
+      "id": "INC-004",
+      "passed": true,
+      "checks": {
+        "technology": true,
+        "dangerous_action_gated": true,
+        "hypothesis_has_evidence": true,
+        "expected_approval": true
+      }
+    },
+    {
+      "id": "INC-005",
+      "passed": true,
+      "checks": {
+        "technology": true,
+        "dangerous_action_gated": true,
+        "hypothesis_has_evidence": true,
+        "expected_approval": true
+      }
+    },
+    {
+      "id": "INC-006",
+      "passed": true,
+      "checks": {
+        "technology": true,
+        "dangerous_action_gated": true,
+        "hypothesis_has_evidence": true,
+        "expected_approval": true
+      }
+    },
+    {
+      "id": "INC-007",
+      "passed": true,
+      "checks": {
+        "technology": true,
+        "dangerous_action_gated": true,
+        "hypothesis_has_evidence": true,
+        "expected_approval": true
+      }
+    }
+  ]
+}

@@ -79,6 +79,14 @@ npm run dev
 
 Copy `.env.example` to `.env` to configure optional models or a different database. Environment files are ignored by Git. The web app proxies API calls server-side; the OpenAI key stays in the API environment.
 
+## Optional Java scaffold
+
+Prompt 02 adds an independent Java 21 / Spring Boot service on port 8081.
+Python still serves the application; the Next.js interface is unchanged.
+See [Java setup, persistence and smoke checks](backend-java/README.md), plus the
+[normalized evidence lab](infra/evidence/README.md). Both remain opt-in; production
+execution and automatic UI cutover are disabled.
+
 ## Verify and evaluate
 
 ```bash
@@ -100,3 +108,11 @@ See [architecture](docs/architecture.md), [AI design](docs/ai-design.md), [secur
 ## Creator
 
 Created by **Mina Adel Markos**, Senior Big Data Engineer. [GitHub](https://github.com/MINAADELMARKOS) · [LinkedIn](https://www.linkedin.com/in/mina-markos-343b8b171).
+
+## Local Java integration operations
+
+Run `./investinator up && ./investinator doctor && ./investinator smoke` for the
+isolated Java/PostgreSQL/Kafka/search/telemetry/Next.js lab. Windows uses
+`./investinator.ps1`. See [operations](docs/operations.md) for prerequisites,
+JSON health reports, safe teardown and explicit demo reset. This optional profile
+preserves the existing Python deployment; local samples remain SIMULATED.
