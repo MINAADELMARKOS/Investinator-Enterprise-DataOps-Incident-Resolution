@@ -220,6 +220,63 @@
       "source_provenance": "Actual isolated PostgreSQL/ZooKeeper/Thrift transport plus MOCKED REST/RPC and SIMULATED faults",
       "ci_run_link": null,
       "evidence_excerpt": "Final tenant binding, certification API auth and fixed OUT_OF_ORDER meter; 33.116s"
+    },
+    {
+      "stage": "sbom",
+      "command": ".venv/bin/python -m unittest discover -s tests_cli",
+      "sha": "6780303df7005a74aeaf6a64086057cf40b7f727",
+      "working_tree_changes": true,
+      "exit_status": 1,
+      "test_number": 32,
+      "source_provenance": "UNIT",
+      "ci_run_link": null,
+      "evidence_excerpt": "New SBOM unit fixture used the wrong Maven children field; corrected fixture to actual resolved-tree schema."
+    },
+    {
+      "stage": "sbom",
+      "command": ".venv/bin/python -m unittest discover -s tests_cli",
+      "sha": "6780303df7005a74aeaf6a64086057cf40b7f727",
+      "working_tree_changes": true,
+      "exit_status": 0,
+      "test_number": 32,
+      "source_provenance": "UNIT",
+      "ci_run_link": null,
+      "evidence_excerpt": "32 tests pass; no paid calls, mocked subprocess field explicitly fixture-only."
+    },
+    {
+      "stage": "image-security",
+      "command": "Pinned Trivy image --scanners vuln --pkg-types os --severity HIGH,CRITICAL --exit-code 1 --input disposable public postgres image archive",
+      "sha": "6780303df7005a74aeaf6a64086057cf40b7f727",
+      "exit_status": 1,
+      "test_number": null,
+      "source_provenance": "Actual scanner; DB unavailable; no vulnerability result",
+      "status": "BLOCKED_DATABASE_UNAVAILABLE",
+      "ci_run_link": null,
+      "evidence": "image-security.json"
+    },
+    {
+      "stage": "sbom",
+      "command": "Maven dependency:tree -DoutputType=json; python scripts/generate_java_sbom.py --tree <resolved-default> --sha 6780303df7005a74aeaf6a64086057cf40b7f727",
+      "sha": "6780303df7005a74aeaf6a64086057cf40b7f727",
+      "working_tree_changes": true,
+      "exit_status": 0,
+      "test_number": null,
+      "component_count": 238,
+      "source_provenance": "Resolved Maven metadata; not shaded-class or license inspection",
+      "ci_run_link": null,
+      "evidence": "sbom-default.cdx.json"
+    },
+    {
+      "stage": "sbom",
+      "command": "Maven -Phive-jdbc dependency:tree -DoutputType=json; python scripts/generate_java_sbom.py --tree <resolved-hive> --sha 6780303df7005a74aeaf6a64086057cf40b7f727",
+      "sha": "6780303df7005a74aeaf6a64086057cf40b7f727",
+      "working_tree_changes": true,
+      "exit_status": 0,
+      "test_number": null,
+      "component_count": 239,
+      "source_provenance": "Resolved Maven metadata; not shaded-class or license inspection",
+      "ci_run_link": null,
+      "evidence": "sbom-hive.cdx.json"
     }
   ]
 }

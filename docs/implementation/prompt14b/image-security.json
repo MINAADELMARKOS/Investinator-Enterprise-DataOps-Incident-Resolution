@@ -1,0 +1,20 @@
+{
+  "scanner": "aquasec/trivy:0.76.2",
+  "scanner_digest": "sha256:8f6bb947dbc528902e11f2f5be52f7b519f6a39d5d148f41166f2040499768fb",
+  "target": "postgres:16-alpine@sha256:81e77a4833487b8132fe4b00bedd39dc3f74b8641e387f19312a48f7de218c2e",
+  "status": "BLOCKED_DATABASE_UNAVAILABLE",
+  "severity_threshold": "HIGH,CRITICAL; exit-code=1",
+  "findings": null,
+  "exit_status": 1,
+  "attempts": [
+    {
+      "result": "DB_DOWNLOAD_FAILED_PROXY_DNS"
+    },
+    {
+      "result": "DB_DOWNLOAD_FORBIDDEN_AFTER_CONFIGURED_PROXY_DNS_CORRECTION"
+    }
+  ],
+  "image_cve_certificate": "NOT_TESTED",
+  "owner": "build/security lead (proposed role)",
+  "required_evidence": "Authorized vulnerability DB access and fresh image scans for every deployed digest; no findings waived"
+}
