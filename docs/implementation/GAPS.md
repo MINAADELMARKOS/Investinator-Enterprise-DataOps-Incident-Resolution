@@ -92,3 +92,5 @@ and reproducible fresh-checkout provenance remain Prompt 13 gates.
 Prompt 13 local functional regression, native pipeline/process and Python/npm audit checks pass. Fresh outage/hosted CI pending. Java vulnerability lookup remains BLOCKED by proxy; owner build/security maintainer. Human AI review and actual GPT budget/credentials remain separate deployment gaps.
 
 Prompt 13 local final: fresh-checkout full acceptance and all eight owned outage/recovery cases PASS; additional actual bound-graph browser run PASS (14 checks). See prompt13/fresh-checkout.json and outages.json. Local Java OSV audit remains BLOCKED; hosted CI pending. No production readiness or live GPT claim.
+
+Prompt 13 hosted update: four functional jobs pass on 4597517; Java security scan finds seven advisories in three dependencies. Targeted Snappy 1.1.10.9, LZ4 1.11.4 and stable OTel BOM 1.67.0 fixes are under re-verification. Gate remains blocked until a clean hosted scan; no suppression/waiver. See prompt13/java-advisories.json.

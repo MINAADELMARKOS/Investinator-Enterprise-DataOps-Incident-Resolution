@@ -54,6 +54,7 @@ def main():
             finding["package"] + "@" + finding["version"] + ": " + finding["id"]))
     if report["status"] == "BLOCKED":
         print("::error title=Java dependency audit BLOCKED::OSV unavailable; no clean result asserted")
+    print("::notice title=Java dependency audit::" + report["status"] + "; resolved_packages=" + str(len(packages)) + "; findings=" + str(len(findings)))
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(report, indent=2) + "\n")
     print(json.dumps({k: v for k, v in report.items() if k != "findings"}))

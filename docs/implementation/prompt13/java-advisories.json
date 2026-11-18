@@ -1,0 +1,64 @@
+{
+  "status": "PATCHED_LOCAL_REGRESSION_PASS_HOSTED_SCAN_PENDING",
+  "finding_source": "Actual hosted OSV job annotations: run 44390174065 job 135105358621",
+  "packages": [
+    {
+      "name": "org.xerial.snappy:snappy-java",
+      "found_version": "1.1.10.7",
+      "fixed_version": "1.1.10.9",
+      "advisories": [
+        {
+          "id": "GHSA-xqrx-qh46-34m7",
+          "source": "https://github.com/advisories/GHSA-xqrx-qh46-34m7"
+        },
+        {
+          "id": "GHSA-q233-g92q-qxp6",
+          "source": "https://github.com/advisories/GHSA-q233-g92q-qxp6"
+        },
+        {
+          "id": "GHSA-gwq9-9ffj-mvrv",
+          "source": "https://github.com/advisories/GHSA-gwq9-9ffj-mvrv"
+        }
+      ]
+    },
+    {
+      "name": "io.opentelemetry:opentelemetry-api",
+      "found_version": "1.62.0",
+      "fixed_version": "1.67.0",
+      "advisories": [
+        {
+          "id": "GHSA-ccrj-gw8r-854m",
+          "source": "https://github.com/advisories/GHSA-ccrj-gw8r-854m"
+        }
+      ]
+    },
+    {
+      "name": "at.yawk.lz4:lz4-java",
+      "found_version": "1.11.2",
+      "fixed_version": "1.11.4",
+      "advisories": [
+        {
+          "id": "GHSA-mcr4-qmvw-px4g",
+          "source": "https://github.com/advisories/GHSA-mcr4-qmvw-px4g"
+        },
+        {
+          "id": "GHSA-gm45-99xc-r7wv",
+          "source": "https://github.com/advisories/GHSA-gm45-99xc-r7wv"
+        },
+        {
+          "id": "GHSA-343h-94h5-c4wr",
+          "source": "https://github.com/advisories/GHSA-343h-94h5-c4wr"
+        }
+      ]
+    }
+  ],
+  "approach": "Pin two transitive codecs via dependencyManagement; set stable OTel BOM 1.67.0 to align instrumentation 2.33.1. No allowlist suppression or severity filter.",
+  "production_release": "BLOCKED",
+  "resolved_versions": {
+    "io.opentelemetry:opentelemetry-api": "1.67.0",
+    "at.yawk.lz4:lz4-java": "1.11.4",
+    "org.xerial.snappy:snappy-java": "1.1.10.9"
+  },
+  "local_java_tests": 107,
+  "local_cli_tests": 29
+}

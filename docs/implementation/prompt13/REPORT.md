@@ -113,3 +113,20 @@ Native pipeline and process fixtures automatically remove only their own disposa
 containers/networks; the two main labs/data are retained until explicit down.
 No security finding is waived: Java advisory validation still needs hosted/allowed
 egress. Feature publication and actual hosted run status will be recorded below.
+
+## Hosted gate exposed advisory fixes
+
+Actual run [44389688456](https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/actions/runs/44389688456)
+on pushed 4597517 reports Python/CLI, frontend, Java/Testcontainers and local E2E
+completed successfully. Dependency-security failed. Run 44390174065 on f717b12
+adds public advisory annotations because authenticated logs are inaccessible; it
+identifies seven advisories in Snappy 1.1.10.7, LZ4 1.11.2 and OTel API 1.62.0.
+No scan or assertion was disabled to make that run green.
+
+Verified public advisory pages prescribe Snappy 1.1.10.9, LZ4 1.11.4 and OTel 1.67.0.
+The two codec pins use dependencyManagement; the stable OTel BOM is aligned with
+existing instrumentation 2.33.1 (its incubator already resolves 1.67.0-alpha).
+See java-advisories.json for all seven IDs/source links. Full local regression and
+a new hosted security run are required after these targeted fixes. Optional inactive
+Hive JDBC profile and enterprise connector certification remain outside this default
+dependency-tree scan; no complete production security certification is claimed.

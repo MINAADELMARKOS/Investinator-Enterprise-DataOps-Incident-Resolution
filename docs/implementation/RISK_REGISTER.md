@@ -141,3 +141,5 @@ historical, not a current diagnosis. Doctor no longer repeats that stale advisor
 Prompt 13: known local pip installer advisories were remediated with 26.3; rerun has zero findings. Java advisory lookup for 233 resolved packages is BLOCKED by OSV egress; build/security maintainer must verify hosted scan. Host disk exhaustion is a lab capacity risk; reserve documented disk budget, retain volumes, fail readiness rather than infer health.
 
 Prompt 13 local final: fresh-checkout full acceptance and all eight owned outage/recovery cases PASS; additional actual bound-graph browser run PASS (14 checks). See prompt13/fresh-checkout.json and outages.json. Local Java OSV audit remains BLOCKED; hosted CI pending. No production readiness or live GPT claim.
+
+Prompt 13 hosted update: four functional jobs pass on 4597517; Java security scan finds seven advisories in three dependencies. Targeted Snappy 1.1.10.9, LZ4 1.11.4 and stable OTel BOM 1.67.0 fixes are under re-verification. Gate remains blocked until a clean hosted scan; no suppression/waiver. See prompt13/java-advisories.json.
