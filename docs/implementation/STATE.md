@@ -1,3 +1,8 @@
+Prompt 14B remote reconciliation: newer main 06d036d merged normally, preserving
+Pages v2 and the separate public gateway. Its 14 tests, showcase build/audit and
+Worker bundle dry-run pass. Public cost/data-transfer flags default off; body
+streaming/UTF-8 bounds are enforced. No actual provider traffic or deployment.
+
 Prompt 14B bounded-workload checkpoint: 500 read-only requests over 29.962s,
 zero errors, sampled heap below the explicit 1024 MiB lab budget and queue <=1000.
 No continuous peak, sustained capacity, production SLO or business ROI claim.

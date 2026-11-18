@@ -337,6 +337,36 @@
       "ci_run_link": null,
       "working_tree_changes": true,
       "source_overlay": "New read-only workload harness, tested against owned Docker Java image from 3f88784; no mutating requests"
+    },
+    {
+      "stage": "newer-main-public-work",
+      "command": "npm --prefix services/public-investigator run check && npm --prefix services/public-investigator test",
+      "sha": "0f75a454fb6b56e2d874ae10a7bf12ef35b45c64",
+      "working_tree_changes": true,
+      "exit_status": 0,
+      "test_number": 14,
+      "source_provenance": "Public reference/Worker unit fixtures; zero verification/provider network calls",
+      "ci_run_link": null
+    },
+    {
+      "stage": "newer-main-public-work",
+      "command": "npm ci --prefix apps/showcase && npm --prefix apps/showcase run build && npm --prefix apps/showcase audit --audit-level=high",
+      "sha": "0f75a454fb6b56e2d874ae10a7bf12ef35b45c64",
+      "working_tree_changes": true,
+      "exit_status": 0,
+      "test_number": null,
+      "source_provenance": "Static Vite/TypeScript build and npm scanner; zero findings",
+      "ci_run_link": null
+    },
+    {
+      "stage": "newer-main-public-work",
+      "command": "WRANGLER_SEND_METRICS=false npx --yes wrangler@4.36.0 deploy --dry-run --outdir /tmp/p14b-worker-bundle",
+      "sha": "0f75a454fb6b56e2d874ae10a7bf12ef35b45c64",
+      "working_tree_changes": true,
+      "exit_status": 0,
+      "test_number": null,
+      "source_provenance": "Local bundle validation only; dry-run exiting, NO deployment or credentials",
+      "ci_run_link": null
     }
   ]
 }

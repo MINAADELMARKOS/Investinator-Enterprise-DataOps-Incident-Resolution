@@ -122,10 +122,10 @@ The Pages [Investigator](https://minaadelmarkos.github.io/Investinator-Enterpris
 
 - **Offline by default:** Guided answers are deterministic, clearly labeled and incur no model cost.
 - **Live when explicitly configured:** A separately hosted Cloudflare Worker calls the OpenAI Responses API from the server with a curated public troubleshooting reference library, signed Turnstile validation, bounded inputs and durable request quotas. The site never embeds an API secret.
-- **Not fine-tuned:** This is `retrieval-augmented prompting` over reviewed public knowledge, **not** model training on private company logs. The example incident facts are simulated and explicitly marked.
+- **Not fine-tuned:** This is `retrieval-augmented prompting` over developer-curated public references (independent review pending), **not** model training on private company logs. The example incident facts are simulated and explicitly marked.
 - **Read-only:** No production data sources, live Java connector tools, approvals or infrastructure execution are exposed on the public site.
 
-To deploy and connect the gateway, see [Public Investigator Worker setup](services/public-investigator/README.md). Merging frontend code does **not** configure OpenAI, Cloudflare or a public endpoint. The existing private Java/Next.js Investigator continues to be the appropriate path for authenticated real cluster investigations. To use the functional Java operator UI instead, follow the isolated lab's [Prompt 12 operations guide](https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/blob/feature/java-ai-audit/docs/implementation/prompt12/OPERATIONS.md) on `feature/java-ai-audit` until that development work is reviewed and merged.
+To deploy and connect the gateway, see [Public Investigator Worker setup](services/public-investigator/README.md). Merging frontend code does **not** configure OpenAI, Cloudflare or a public endpoint. The private Java/Next.js Investigator remains an opt-in lab; enterprise identity and private-source certification are BLOCKED. To use the functional Java operator UI instead, follow the isolated lab's [Prompt 12 operations guide](https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/blob/feature/java-ai-audit/docs/implementation/prompt12/OPERATIONS.md) on `feature/java-ai-audit` until that development work is reviewed and merged.
 
 
 ## Preserved Python runtime and preview boundaries

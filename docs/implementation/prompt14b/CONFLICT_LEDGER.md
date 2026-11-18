@@ -16,3 +16,16 @@ No commits dropped, forced updates, schema merges or routing changes.
 The supplied main/feature audit checkpoints have been superseded by these fetched heads.
 GitHub open-PR API query: GraphQL Forbidden via configured network proxy;
 no absence of open PRs is inferred.
+
+## Second fetch / normal merge
+
+Before push, main advanced to 06d036da27704a00559503bbd28fc3ad6b28347a,
+adding 36a72f1 (Java Pages preview) and 06d036d (public-investigator Worker).
+Normal merge 0f75a454fb6b56e2d874ae10a7bf12ef35b45c64 preserves both modules,
+their tests, their showcase/public-investigator CI jobs, and Pages workflow.
+README.md was the only conflict: retained the newer Java handover and added the
+incoming public-preview/gateway sections, with explicit unconfigured/unverified
+boundaries. No application/default-routing/schema conflict. CI now has seven jobs;
+the original five are retained. No Pages publication or Worker deployment occurred.
+A following bounded patch adds off-by-default cost/data-use opt-in and actual
+stream-byte/UTF-8 limits to the newly inherited Worker; no existing test is removed.

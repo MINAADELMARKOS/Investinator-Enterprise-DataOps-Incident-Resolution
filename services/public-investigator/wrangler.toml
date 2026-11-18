@@ -8,6 +8,12 @@ PUBLIC_ORIGIN = "https://minaadelmarkos.github.io"
 # Set model ID in Cloudflare Worker settings or environment after confirming
 # project access and cost; no real paid call occurs until fully configured.
 OPENAI_MODEL = ""
+# Off by default. These are configuration claims, not independent review signatures.
+OPENAI_ENABLED = "false"
+OPENAI_PAID_OPT_IN = "false"
+OPENAI_COST_APPROVED = "false"
+MODEL_TRANSFER_APPROVED = "false"
+OPENAI_APPROVAL_REF = ""
 
 [[durable_objects.bindings]]
 name = "PUBLIC_QUOTA"
