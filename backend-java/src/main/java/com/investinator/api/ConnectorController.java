@@ -8,10 +8,11 @@ import static com.investinator.health.HealthCheckResult.*;
 @RestController
 @RequestMapping("/api/v1/connectors")
 public class ConnectorController {
-    private final ConnectorRegistry registry;private final HealthAggregator health;
-    public ConnectorController(ConnectorRegistry registry,HealthAggregator health){this.registry=registry;this.health=health;}
+    private final ConnectorRegistry registry;private final HealthAggregator health;private final String tenant;
+    public ConnectorController(ConnectorRegistry registry,HealthAggregator health,@org.springframework.beans.factory.annotation.Value("${investinator.demo-tenant:demo}")String tenant){this.registry=registry;this.health=health;this.tenant=tenant;}
     private void fixedParameters(HttpServletRequest request){if(!request.getParameterMap().isEmpty())throw new ApiFailure(422,"Connector parameters are fixed by backend configuration");}
-    @GetMapping public Map<String,Object> list(HttpServletRequest request){fixedParameters(request);return Map.of("scope","diagnostics.read","tenant","demo","connectors",registry.descriptors());}
+    @GetMapping public Map<String,Object> list(HttpServletRequest request){fixedParameters(request);return Map.of("scope","diagnostics.read","tenant",tenant,"connectors",registry.descriptors());}
+    @GetMapping("/certification") public Object certification(HttpServletRequest request){fixedParameters(request);return ConnectorCertification.assess(tenant,registry.descriptors(),health.refresh().checks());}
     @GetMapping("/{service}/{capability}") public HealthCheckResult inspect(@PathVariable String service,@PathVariable String capability,HttpServletRequest request) {
         fixedParameters(request);DiagnosticConnector connector;
         try{connector=registry.find(service);}catch(SecurityException e){throw new ApiFailure(403,"Service outside diagnostics scope");}catch(NoSuchElementException e){throw new ApiFailure(404,"Unknown connector");}

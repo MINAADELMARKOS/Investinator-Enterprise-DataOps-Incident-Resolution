@@ -198,6 +198,28 @@
       "source_provenance": "Actual native pg_basebackup/WAL/PITR; SIMULATED newly owned source data",
       "ci_run_link": null,
       "evidence": "pitr-fixture.json"
+    },
+    {
+      "stage": "connectors-monitoring",
+      "command": "Maven -Dtest=ConnectorCertificationTest,ConnectorApiSecurityTest,RestDiagnosticConnectorTest,KafkaModeTest,NativeConnectorTest,HiveMetastoreConnectorTest,LegacyZooKeeperConnectorTest,MonitoringIntegrationTest test",
+      "sha": "da78802040c29705c7ca06cf4cc52154f63a4627",
+      "working_tree_changes": true,
+      "exit_status": 0,
+      "test_number": 26,
+      "source_provenance": "Actual isolated PostgreSQL/ZooKeeper/Thrift transport plus MOCKED REST/RPC and SIMULATED faults",
+      "ci_run_link": null,
+      "evidence_excerpt": "Native protocol fixtures/REST mocks + 3000 duplicate burst; 37.443s"
+    },
+    {
+      "stage": "connectors-monitoring",
+      "command": "Maven -Dtest=MonitoringIntegrationTest,ConnectorCertificationTest,ConnectorApiSecurityTest test",
+      "sha": "da78802040c29705c7ca06cf4cc52154f63a4627",
+      "working_tree_changes": true,
+      "exit_status": 0,
+      "test_number": 15,
+      "source_provenance": "Actual isolated PostgreSQL/ZooKeeper/Thrift transport plus MOCKED REST/RPC and SIMULATED faults",
+      "ci_run_link": null,
+      "evidence_excerpt": "Final tenant binding, certification API auth and fixed OUT_OF_ORDER meter; 33.116s"
     }
   ]
 }

@@ -1,0 +1,14 @@
+{
+  "scope": "FUNCTIONAL_SIMULATED_FIXTURE_NOT_LONG_DURATION_SOAK",
+  "duplicate_deliveries": 3000,
+  "distinct_events": 2,
+  "logical_tenant_incidents": 1,
+  "source_mode": "SIMULATED",
+  "native_ingestion": "DISABLED",
+  "case_duration_seconds": 4.769,
+  "suite_tests": 11,
+  "suite_duration_seconds": 18.187,
+  "failures": 0,
+  "errors": 0,
+  "paid_calls": 0
+}

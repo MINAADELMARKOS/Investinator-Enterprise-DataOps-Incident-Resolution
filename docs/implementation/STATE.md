@@ -1,3 +1,7 @@
+Prompt 14B connector checkpoint: authenticated, server-tenant-bound certification
+inventory always blocks native/enterprise authorization. Native/REST negative
+fixtures and 3000-duplicate burst pass; no private target is certified.
+
 Prompt 14B DR checkpoint: disposable native WAL/PITR rehearsal restores events
 1,2 and excludes later event 3, preserving a separate-owner sentinel. 13.340s
 fixture only; retained lab untouched and only test-owned volumes cleaned up.
