@@ -92,6 +92,28 @@
       "source_provenance": "LIVE_LOCAL_POSTGRESQL_OPENSEARCH; SIMULATED data",
       "ci_run_link": null,
       "evidence_excerpt": "BUILD SUCCESS; 16 tests, 0 failures/errors/skips; 2m49s"
+    },
+    {
+      "stage": "monitoring",
+      "command": "JDK21 Maven -Dtest=MonitoringIntegrationTest,NativeSignalContractTest test",
+      "sha": "512c28cef66702b563402345d3b4c94fb1ee4124",
+      "working_tree_changes": true,
+      "exit_status": 1,
+      "test_number": 15,
+      "source_provenance": "PostgreSQL Testcontainers; SIMULATED protocol/source fixtures",
+      "evidence_excerpt": "New equal-time regression exposed PostgreSQL timestamp precision; no gate advanced.",
+      "ci_run_link": null
+    },
+    {
+      "stage": "monitoring",
+      "command": "JDK21 Maven -Dtest=MonitoringIntegrationTest,NativeSignalContractTest test",
+      "sha": "512c28cef66702b563402345d3b4c94fb1ee4124",
+      "working_tree_changes": true,
+      "exit_status": 0,
+      "test_number": 15,
+      "source_provenance": "PostgreSQL Testcontainers; SIMULATED protocol/source fixtures",
+      "evidence_excerpt": "Microsecond comparison correction; 15 pass including retained 1000-duplicate/parallel tests.",
+      "ci_run_link": null
     }
   ]
 }

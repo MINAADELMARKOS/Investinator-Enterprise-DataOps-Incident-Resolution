@@ -1,3 +1,7 @@
+Prompt 14B monitoring checkpoint: 15 focused tests pass after correcting equal-time
+hysteresis precision. Fixed provenance contract is fixture-only; native LIVE remains
+DISABLED/NOT_CERTIFIED, with no new ingestion endpoint or certification claim.
+
 Prompt 14B checkpoint (2026-11-19): current-revision retrieval filters pass 16 focused
 Java cases after a green 112-test baseline. SQL candidates are bounded and authorized
 before BM25; stale/revoked revisions cannot crowd out current guidance. Domain-neutral

@@ -69,4 +69,10 @@ public class MonitoringIntegrationTest {
         assertEquals(1,monitor.tick("demo"));assertEquals(1,db.jdbc.queryForObject("select count(*) from monitor_incidents",Integer.class));assertEquals(2,db.jdbc.queryForObject("select last_seq from monitor_offsets where tenant_id='demo'",Long.class));
     }
 
+    @Test void equalTimestampAndDelayedSamplesCannotSupplyIndependentHysteresisVotes(){
+        accept("first","network","network",50,Map.of("network_loss_percent",10.0));monitor.tick("demo");
+        accept("same-time","network","network",50,Map.of("network_loss_percent",10.0));accept("delayed","network","network",40,Map.of("network_loss_percent",10.0));monitor.tick("demo");
+        assertEquals(0,db.jdbc.queryForObject("select count(*) from monitor_incidents",Integer.class));assertEquals(2,db.jdbc.queryForObject("select count(*) from monitor_events where state='OUT_OF_ORDER'",Integer.class));
+        accept("newer","network","network",60,Map.of("network_loss_percent",10.0));monitor.tick("demo");assertEquals(1,db.jdbc.queryForObject("select count(*) from monitor_incidents",Integer.class));assertEquals("DISABLED",monitor.status("demo").get("native_ingestion"));
+    }
 }
