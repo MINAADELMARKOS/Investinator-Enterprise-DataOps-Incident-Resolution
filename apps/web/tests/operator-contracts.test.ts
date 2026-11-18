@@ -43,3 +43,10 @@ test("malformed and future health cannot become a green default", () => {
 });
 
 test("configured HTTPS origin requires secure cookies behind TLS termination", () => { assert.equal(secureCookie("https://console.example"), true); assert.equal(secureCookie("http://127.0.0.1:13000"), false); assert.equal(secureCookie("invalid"), false); });
+
+test("saved nested metadata preserves mode and unknown usage without certifying a mock", async () => {
+  const { providerLabel } = await import("../lib/operator-contracts.ts");
+  const saved = normalizeTurn({ content: "fixture output", payload: { turn_metadata: { response_mode: "gpt", provider_status: "MOCKED_PROVIDER", source_mode: "SIMULATED", tool_trace: [{tool:"search_knowledge",status:"DEGRADED",partial:true,source_mode:"HISTORICAL_ADVICE"}], usage: {input_tokens:0,output_tokens:-1,cost:null} } } });
+  assert.equal(providerLabel(saved), "MOCKED provider fixture"); assert.equal(saved.source_mode,"SIMULATED"); assert.equal(saved.tools[0].partial,true); assert.equal(saved.tools[0].source_mode,"HISTORICAL_ADVICE"); assert.equal(saved.usage.input_tokens,0); assert.equal(saved.usage.output_tokens,null); assert.equal(saved.usage.cost,null);
+  const old = normalizeTurn({response_mode:"openai",answer:"old response"}); assert.equal(old.provider_status,"NOT_TESTED"); assert.equal(providerLabel(old),"Provider response · status unverified");
+});

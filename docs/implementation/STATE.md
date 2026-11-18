@@ -1,3 +1,7 @@
+Prompt 14B presentation checkpoint: 12 frontend contracts/type/build pass.
+Saved Java metadata and Python envelopes retain explicit provenance; missing
+provider status/usage is UNKNOWN/NOT_TESTED and mock output is labeled as fixture.
+
 Prompt 14B FinOps checkpoint: V9 adds unseeded private Java budget tables. Global
 and tenant/model reservations, unknown holds and actual-usage reconciliation pass
 29 focused Java and 30 CLI tests. Actual provider/key/model/approved policy remain

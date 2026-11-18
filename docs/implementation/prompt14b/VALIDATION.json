@@ -157,6 +157,16 @@
       "source_provenance": "Actual configuration presence check; ZERO provider calls",
       "ci_run_link": null,
       "status": "EXPECTED_NOT_CONFIGURED"
+    },
+    {
+      "stage": "presentation",
+      "command": "npm --prefix apps/web test && npm --prefix apps/web run lint && npm --prefix apps/web run build",
+      "sha": "456141a8368828eb3e8daf4f5c7e6a6e24ea0f68",
+      "working_tree_changes": true,
+      "exit_status": 0,
+      "test_number": 12,
+      "source_provenance": "Node contract cases, TypeScript, production Next.js build; browser pending",
+      "ci_run_link": null
     }
   ]
 }
