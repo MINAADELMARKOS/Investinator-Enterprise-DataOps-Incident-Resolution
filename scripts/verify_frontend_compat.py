@@ -4,6 +4,7 @@ import json
 import os
 import socket
 import subprocess
+import sys
 import tempfile
 import time
 import urllib.request
@@ -33,7 +34,7 @@ def main():
         env["API_INTERNAL_URL"] = f"http://127.0.0.1:{api_port}"
         try:
             for name, command, cwd, url in [
-                ("python", [str(ROOT / ".venv/bin/python"), "-m", "uvicorn",
+                ("python", [os.getenv("PYTHON_TEST_EXECUTABLE") or (str(ROOT / ".venv/bin/python") if (ROOT / ".venv/bin/python").exists() else sys.executable), "-m", "uvicorn",
                             "incident_copilot.api:app", "--host", "127.0.0.1", "--port", str(api_port)],
                  ROOT, env["API_INTERNAL_URL"] + "/api/v1/health"),
                 ("next", ["npm", "run", "start", "--", "--hostname", "127.0.0.1", "--port", str(web_port)],

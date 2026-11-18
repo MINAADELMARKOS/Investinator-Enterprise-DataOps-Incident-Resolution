@@ -1014,6 +1014,8 @@ def reset(state, confirmed):
         "signals.json",
         "demo-kafka-kraft.json",
         "legacy-zk-demo.json",
+        "causal-kafka-kraft.json",
+        "causal-kafka-legacy.json",
     ):
         (RUNTIME / name).unlink(missing_ok=True)
     fixture = RUNTIME / "fixtures"
@@ -1042,6 +1044,7 @@ def main(argv=None):
             "ai-check",
             "reset-demo",
             "monitor",
+            "investigate",
         ],
     )
     parser.add_argument("target", nargs="?")
@@ -1096,6 +1099,8 @@ def main(argv=None):
         )
         return 0
 
+    if args.command in ("logs", "restart") and args.target == "api":
+        args.target = "java"
     if args.command in ("logs", "restart") and args.target not in SERVICES:
         parser.error("Select an allowlisted local service: " + ", ".join(SERVICES))
     if args.command == "ai-check":
@@ -1109,6 +1114,11 @@ def main(argv=None):
             run([sys.executable, "-m", "unittest", "discover", "-s", "tests_cli"])
         return 0
     state = load_state()
+    if args.command == "investigate":
+        import lab_scenarios
+
+        print(json.dumps(lab_scenarios.investigate(argparse.Namespace(http=http, RUNTIME=RUNTIME, api=api), state, args.target), indent=2))
+        return 0
     if args.command == "doctor":
         return doctor(state, args.json)
     if args.command == "health":
@@ -1139,48 +1149,12 @@ def main(argv=None):
         elif args.command == "reset-demo":
             return reset(state, args.confirm_destroy_demo_data)
         elif args.command == "demo":
-            if args.target == "kafka-kraft":
-                marker = RUNTIME / "demo-kafka-kraft.json"
-                if marker.exists():
-                    fixture = json.loads(marker.read_text())
-                    current = http(
-                        api(state), "/api/v1/incidents/" + fixture["incident_id"]
-                    )
-                    if current["status"] in ("resolved", "closed_unresolved"):
-                        fixture["status"] = current["status"]
-                else:
-                    fixture = http(
-                        api(state),
-                        "/api/v1/replay/runs",
-                        {"scenario": "kafka_disk_pressure"},
-                    )
-                    marker.write_text(json.dumps(fixture))
-                print(json.dumps(fixture, indent=2))
-            elif args.target == "legacy-zk":
-                fixture = {
-                    "source_mode": "SIMULATED",
-                    "metadata_mode": "LEGACY_ZOOKEEPER",
-                    "live_cluster_tested": False,
-                    "observations": [
-                        {
-                            "id": "legacy-zk-session-1",
-                            "service": "zookeeper",
-                            "signature": "session-expired",
-                        },
-                        {
-                            "id": "legacy-broker-1",
-                            "service": "kafka-legacy",
-                            "signature": "coordination-disconnected",
-                        },
-                    ],
-                    "next_safe_action": "Inspect the isolated legacy fixture; never query ZooKeeper for a KRaft cluster",
-                }
-                (RUNTIME / "legacy-zk-demo.json").write_text(
-                    json.dumps(fixture, indent=2)
-                )
-                print(json.dumps(fixture, indent=2))
-            else:
-                parser.error("Choose kafka-kraft or legacy-zk")
+            if args.target not in {"kafka-kraft", "kafka-legacy", "legacy-zk"}:
+                parser.error("Choose kafka-kraft or kafka-legacy (representative protocol fixture)")
+            import lab_scenarios
+
+            mode = "KRAFT" if args.target == "kafka-kraft" else "LEGACY_ZOOKEEPER"
+            print(json.dumps(lab_scenarios.create(argparse.Namespace(http=http, RUNTIME=RUNTIME, api=api), state, mode), indent=2))
     return 0
 
 
