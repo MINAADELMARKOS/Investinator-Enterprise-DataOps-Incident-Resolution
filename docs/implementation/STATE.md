@@ -1,3 +1,7 @@
+Prompt 14B provider-provenance checkpoint: backend persists explicit
+MOCKED_PROVIDER for loopback SDK fixtures, independently of SIMULATED incident
+source. Java focused 24 and frontend 13/type/build pass. No actual provider call.
+
 Prompt 14B E2E correction: retained pre-P13 marker lacked replay_events.
 Acceptance now uses a separate bounded namespace when needed, preserving original
 marker bytes/graph/timestamps. Original CLI cases remain intact. CLI 34 tests and

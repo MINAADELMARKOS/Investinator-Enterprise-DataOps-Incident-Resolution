@@ -38,6 +38,7 @@ public class ChatGateway {
     public ChatGateway(ObjectProvider<OpenAIClient> clients,ReadTools tools,Environment env,StateCipher cipher){this.clients=clients;this.tools=tools;this.env=env;this.cipher=cipher;}
     @org.springframework.beans.factory.annotation.Autowired
     public ChatGateway(ObjectProvider<OpenAIClient> clients,ReadTools tools,Environment env,StateCipher cipher,com.investinator.model.ProviderBudget budget){this(clients,tools,env,cipher);this.budget=budget;}
+    public String providerSource(){return com.investinator.model.ProviderClients.fixtureEndpoint(env)?"MOCKED_PROVIDER":"CONFIGURED_PROVIDER";}
     public String configurationStatus(){return env.getProperty("investinator.openai.enabled",Boolean.class,false)&&clients.getIfAvailable()!=null&&cipher.configured()?"NOT_TESTED":"NOT_CONFIGURED";}
     public Result turn(ReadTools.Context context,String question,String mode,String severity,List<Map<String,Object>> history,List<ResponseInputItem> previous,String fallback) {
         String base=env.getProperty("investinator.openai.model","");boolean enabled=env.getProperty("investinator.openai.enabled",Boolean.class,false);var client=clients.getIfAvailable();

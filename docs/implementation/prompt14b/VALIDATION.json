@@ -304,6 +304,26 @@
       "working_tree_changes": true,
       "source_overlay": "Separate acceptance fixture namespace fix; committed as logical E2E patch",
       "evidence_excerpt": "Actual rerun, browser and outage outputs in runtime; copied to current report at finalization"
+    },
+    {
+      "stage": "explicit-provider-provenance",
+      "command": "Maven -Dtest=ChatGatewayTest,ChatPersistenceTest,PersistenceWorkflowTest test",
+      "sha": "88df1bc98310d4ecc1be4642c5ea3394e475d4fb",
+      "working_tree_changes": true,
+      "exit_status": 0,
+      "test_number": 24,
+      "source_provenance": "MOCKED_PROVIDER plus native local Kafka/PostgreSQL; saved metadata asserts explicit mock source",
+      "ci_run_link": null
+    },
+    {
+      "stage": "explicit-provider-provenance",
+      "command": "npm test && npm run lint && npm run build (apps/web)",
+      "sha": "88df1bc98310d4ecc1be4642c5ea3394e475d4fb",
+      "working_tree_changes": true,
+      "exit_status": 0,
+      "test_number": 13,
+      "source_provenance": "Node contracts/type/build; mock provider display remains separate from data source",
+      "ci_run_link": null
     }
   ]
 }
