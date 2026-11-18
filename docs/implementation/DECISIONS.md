@@ -1,6 +1,6 @@
 # Architecture decisions
 
-All decisions dated 2026-11-17. Accepted direction, implementation pending unless stated.
+Initial decisions dated 2026-11-17; subsequent stage dates are recorded with their reports. Accepted direction, implementation pending unless stated.
 
 ## ADR-001 — Java 21 / Spring Boot
 
@@ -321,3 +321,26 @@ investigation intents; no automatic spend, even when keys appear. LOCAL_FAKE is 
 only default delivery, console explicit opt-in, remote recipients unsupported.
 New lifecycle maps to old statuses and public resolution is denied; independent
 verification must own success. Retain queue/evidence/offsets on rollback.
+
+
+## ADR 020 — Separate governed ReplayLab execution and independent verification (2026-11-18)
+
+Only two named low-risk simulation actions exist. Separate fixed capability roles,
+immutable plan/definition/target/parameter hashes, approvals <=120s, proposal expiry,
+unique keys, <=10s execution lease, version fencing and a transactional effect
+receipt constrain execution. A durable claim commits before the effect; lost ack
+and partial completion become explicit manual states, never automatic retries.
+No enterprise executor is registered and non-demo writes fail closed.
+
+Verification is a separate role and fresh sampler reading actual current simulator
+state/version after acknowledgement, not an executor return/body-provided success.
+Only this post-state moves incident lifecycle to resolved. Named rollback is a new
+plan with its own approval/key/lease/sample; verified restoration closes unresolved
+because it restores the fault. Postmortems are separate, review-pending records.
+
+Explicitly triaged SIMULATED monitored disk incidents may create an owned ReplayLab
+sandbox, never act on a live broker. Existing legacy routes remain compatible for
+ungoverned incidents and deny bypass once a governed plan exists. Preserve old
+replay payload fields and record server-bound actors/correlation IDs. Demo token
+roles do not pretend to be independent people; real identity, risk-dependent
+two-person change policy and external audit/HA/DR remain production prerequisites.

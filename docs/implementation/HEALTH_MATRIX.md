@@ -1,6 +1,17 @@
 # Integration health matrix
 
-## Prompt 09B current observations
+## Current Prompts 10/11 observations
+
+| Surface | Verified | Remaining boundary |
+|---|---|---|
+| Monitoring | full regression + nine focused cases; actual process/offset/metric proof | opt-in, SIMULATED incident events; native health sampled separately |
+| Governed recovery | 14 policy cases; actual HTTP restart, fresh independent sample and named rollback | private ReplayLab only; no native production executor |
+| Isolation and regression | 104 Java + 26 CLI + 12 Python, lint/types, Compose, quality replay PASS | new hosted CI NOT_RUN |
+| Identity | four distinct demo capability secrets, scoped role/tenant/hash/expiry denial | independent human/OIDC/two-person production policy absent |
+| Provider / AI quality | MOCKED protocol tests; fixture scorer operational | actual provider NOT_CONFIGURED; expert review PENDING |
+| Security | fresh npm audit zero, Next.js lock unchanged | enterprise security/Java CVE/private connector/DR gates remain |
+
+## Prompt 09B observations
 
 | Surface | Verified now | Remaining boundary |
 |---|---|---|

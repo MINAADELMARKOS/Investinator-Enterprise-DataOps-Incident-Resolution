@@ -1,6 +1,6 @@
 # Implementation state
 
-Updated 2026-11-17. Current scope: Architecture v2 Prompts 10 and 11 sequentially; Prompts 00–09 preserved.
+Updated 2026-11-18. Current scope: Architecture v2 Prompts 10 and 11 sequentially; Prompts 00–09 preserved.
 V2 supersedes the original sequence from 09A onward; human review remains pending.
 Branch: `feature/java-ai-audit` (chosen because no feature branch name was supplied).
 Base and observed remote main: `920fefe1b86e55f038fb0a7e56dd0b42e9d34118`.
@@ -219,3 +219,32 @@ Monitoring semantic intents are NOT_CONFIGURED or operator-budget gated; no auto
 spend adapter is enabled. Native live incident ingestion, OIDC, remote notifications,
 retention/load certification and human/provider quality gates remain explicit.
 No deployment readiness claim. Prompt 11 may begin only after this stage is committed.
+
+
+## Prompt 11 — PASS (governed ReplayLab safety gate); production HARD-DENIED
+
+Prompt 10 committed 1422665 before this stage. Fixed action definitions and strict
+schemas, four distinct server-role capabilities, immutable scoped plan hashes,
+expiring/revocable approvals, unique execution keys, fenced leases and transactional
+receipts isolate all effects to private ReplayLab resources. V7 remains Java-owned.
+No real write connector, arbitrary command/URL/SQL, model authorization or enterprise
+write surface exists. Governed incidents cannot bypass policy through legacy aliases;
+ungoverned compatibility and original ReplayLab payloads are preserved.
+
+104 Java tests plus final focused policy 14/14 pass, no failure/error/skip; CLI26,
+Python12, Ruff/mypy, current package audit (zero vulnerabilities), Compose and
+functional quality replay pass. Actual separate Java/PostgreSQL HTTP acceptance
+restarts the process after execution, denies repeated/unapproved/wrong-role actions,
+requires independent fresh sampling, and separately approves/verifies named rollback.
+Before-/after-effect crash, partial ack, DB interruption and stale/malicious success
+claims are tested. Verified postmortems remain PENDING_KNOWLEDGE_REVIEW.
+
+[Prompt 11 report](prompt11/REPORT.md), state machine, policy matrix, schema, threat
+model, audit/verification artifacts and recovery manual record the exact limits.
+Capabilities are demo role possession, not independent humans/OIDC/two-person
+production governance. Enterprise actions remain HARD-DENIED; human quality review,
+live provider budget/credentials, native certification, retention/DR, remote
+notifications and production identity/security remain open. No paid provider call,
+production infrastructure action, push/merge or environment publication occurred.
+This phase is committed locally only; hosted 10/11 CI NOT_RUN. Prompt 12 NOT_STARTED.
+Stop after Prompt 11; do not interpret simulation success as production readiness.

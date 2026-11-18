@@ -1,6 +1,19 @@
 # Gaps and readiness
 
-## Current assessment — Prompt 09B
+## Current assessment — Prompts 10/11
+
+Opt-in replay monitoring and governed simulation gates PASS; see
+[prompt10](prompt10/REPORT.md) and [prompt11](prompt11/REPORT.md). Actual durable
+checkpoint/process restart, bounded dedupe/lifecycle and independent sampled
+simulator recovery/rollback are verified. Production writes HARD-DENIED. Capability
+roles are demo possession, not real OIDC/two-person governance. Native live event
+adapters, remote notification transports, automatic approved model spending,
+retention/DR and operator abandonment of uncertain runs remain unimplemented.
+Human AI-quality review and actual provider budget/credentials remain pending.
+Current lock remains patched and audit-clean. Prompt 12 is not started; 10/11 are
+local commits only and new hosted CI has not run. 09A PR/API access remains blocked.
+
+## Previous assessment — Prompt 09B
 
 Functional evaluation harness PASS: inspect [review package](prompt09/QUALITY_REVIEW_PACKAGE.md),
 [diagnostics](prompt09/EVAL_REPORT.json) and [acceptance](prompt09b/REPORT.md).

@@ -110,3 +110,18 @@ verified. Native LIVE semantic ingestion and automatic paid investigation are no
 enabled; operator budget and verified native topology remain prerequisites. Remote
 email/webhook, production identity, retention/load/DR and independent quality gates
 remain deployment gaps. Python/default routing and patched Next.js stay intact.
+
+
+Prompt 11 simulation safety gate passes; see prompt11/REPORT.md. No production
+executor exists. Role capabilities, hashes, expiry/fencing, independent samples,
+manual uncertainty states and separately approved rollback are verified. This
+reduces simulation bypass risks, not enterprise deployment/identity risks.
+
+| ID | Severity / owner role | Evidence and risk | Required mitigation / gate |
+|---|---|---|---|
+| R21 | High / security + change owner | demo capability roles are not independent humans; no real identity/two-person production governance | enterprise writes stay hard-denied until reviewed identity/change control |
+| R22 | Medium / recovery + SRE | uncertain no-receipt executions intentionally stop; no automatic retry/abandon/reset workflow or external tamper-proof audit | retain evidence, manual escalation; reviewed native recovery/retention/DR before deployment |
+
+Human RCA review, live provider budget/credentials, native live monitoring and
+connector certification remain pending. No measured production quality, recovery
+success or business-value claim. No real actions, paid calls, main merge or publish.
