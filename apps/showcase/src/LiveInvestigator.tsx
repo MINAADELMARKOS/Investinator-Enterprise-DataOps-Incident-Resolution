@@ -3,7 +3,7 @@ import { investigationCases } from "./java-preview-data";
 import { Bot, BookOpen, ExternalLink, RotateCcw, ShieldCheck, Wifi, WifiOff } from "lucide-react";
 
 type CaseId = "kraft" | "legacy" | "nifi";
-type Turn = { role:"user"|"assistant"; content:string; mode:"LIVE_GPT_PUBLIC_RAG"|"OFFLINE_GUIDED_DEMO"; refs?:{id:string;title:string;service:string}[] };
+type Turn = { role:"user"|"assistant"; content:string; mode:"LIVE_GPT_PUBLIC_RAG"|"OFFLINE_GUIDED_DEMO"; refs?:{id:string;title:string;service:string;url?:string|null}[] };
 type PublicChatConfig = {ready:boolean;mode:string;site_key:string|null;source:string};
 type Turnstile = {
   render:(element:HTMLElement,opts:{sitekey:string;callback:(token:string)=>void;"expired-callback":()=>void;"error-callback":()=>void})=>string;
@@ -140,7 +140,7 @@ export default function LiveInvestigator() {
         <div className="panel-heading"><h2><Bot size={19}/> Distributed Systems Investigator</h2><span>{live?"Generated GPT responses":"Deterministic guided walkthrough"}</span></div>
         <div className="panel-body investigator-thread" aria-live="polite" aria-relevant="additions">
           {turns.length===0&&<div className="investigator-welcome"><div className="investigator-hero-symbol"><Bot size={30}/></div><h3>Find where the incident really started.</h3><p>Kafka might report a timeout, while the originating fault is in a control plane, network dependency or downstream storage system.</p><div className="investigator-suggestions">{suggestedQuestions.map(q=><button key={q} onClick={()=>setInput(q)}>{q} →</button>)}</div></div>}
-          {turns.map((turn,index)=><div key={index} className={`investigator-turn ${turn.role}`}><div className="investigator-turn-label">{turn.role==="user"?"YOU":turn.mode==="LIVE_GPT_PUBLIC_RAG"?"GPT · PUBLIC RAG":"OFFLINE GUIDED SAMPLE"}</div><div className="investigator-turn-text">{turn.content}</div>{turn.refs?.length? <div className="investigator-ref-list"><BookOpen size={15}/>{turn.refs.map(ref=><span key={ref.id} title={ref.title}>{ref.id}</span>)}</div>:null}</div>)}
+          {turns.map((turn,index)=><div key={index} className={`investigator-turn ${turn.role}`}><div className="investigator-turn-label">{turn.role==="user"?"YOU":turn.mode==="LIVE_GPT_PUBLIC_RAG"?"GPT · PUBLIC RAG":"OFFLINE GUIDED SAMPLE"}</div><div className="investigator-turn-text">{turn.content}</div>{turn.refs?.length? <div className="investigator-ref-list"><BookOpen size={15}/>{turn.refs.map(ref=>ref.url?<a key={ref.id} href={ref.url} target="_blank" rel="noreferrer" title={ref.title}>{ref.id} ↗</a>:<span key={ref.id} title={ref.title}>{ref.id}</span>)}</div>:null}</div>)}
           {pending&&<div className="investigator-turn assistant"><div className="investigator-turn-label">INVESTIGATING</div>Generating an evidence-aware explanation…</div>}
           <div ref={lastRef}/>
         </div>
