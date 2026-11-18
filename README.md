@@ -43,6 +43,18 @@ The Java 21 / Spring Boot foundation from Prompts 02–09 was merged into `main`
 
 The public Pages experience remains an explicitly synthetic static preview; it does not host the Java API or live GPT connections.
 
+### Java v2 operator interface on GitHub Pages
+
+The [public Java operator experience](https://minaadelmarkos.github.io/Investinator-Enterprise-DataOps-Incident-Resolution/#/) mirrors the newer Java-backed UI **without exposing an API**. Use the hash routes to explore:
+
+- [System Health](https://minaadelmarkos.github.io/Investinator-Enterprise-DataOps-Incident-Resolution/#/system-health): semantic capabilities, source mode, UNKNOWN and NOT_CONFIGURED.
+- [Monitoring](https://minaadelmarkos.github.io/Investinator-Enterprise-DataOps-Incident-Resolution/#/monitoring): versioned rules, bounded controls and incident deduplication concepts.
+- [Root Cause Explorer](https://minaadelmarkos.github.io/Investinator-Enterprise-DataOps-Incident-Resolution/#/correlation): KRaft/network, legacy ZooKeeper and NiFi/HDFS timestamped causal scenarios.
+- [Governed Recovery](https://minaadelmarkos.github.io/Investinator-Enterprise-DataOps-Incident-Resolution/#/governance): role separation, named simulated actions and independent verification.
+- [Operator Access](https://minaadelmarkos.github.io/Investinator-Enterprise-DataOps-Incident-Resolution/#/operator/login), [AI Architecture](https://minaadelmarkos.github.io/Investinator-Enterprise-DataOps-Incident-Resolution/#/architecture) and [Release Readiness](https://minaadelmarkos.github.io/Investinator-Enterprise-DataOps-Incident-Resolution/#/release-readiness).
+
+The new pages are implemented under `apps/showcase/src/JavaPreview.tsx` and `java-preview-data.ts`, not the Java-backed Next.js runtime in `apps/web`. All examples are **SIMULATED**, entirely browser-local and free of model, backend, authorization and infrastructure calls. To use the functional Java operator UI instead, follow the isolated lab's [Prompt 12 operations guide](docs/implementation/prompt12/OPERATIONS.md) on `feature/java-ai-audit` until that development work is reviewed and merged.
+
 ## Run the full demo
 
 Requires Docker Desktop with its engine running. From the repository root:
