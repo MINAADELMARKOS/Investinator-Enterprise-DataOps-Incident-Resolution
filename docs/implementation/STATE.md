@@ -1,3 +1,8 @@
+Prompt 14B DR checkpoint: disposable native WAL/PITR rehearsal restores events
+1,2 and excludes later event 3, preserving a separate-owner sentinel. 13.340s
+fixture only; retained lab untouched and only test-owned volumes cleaned up.
+Encrypted offsite HA and approved production RPO/RTO remain NOT_TESTED/BLOCKED.
+
 Prompt 14B governance checkpoint: default-deny Java model-transfer policy and
 non-executable retention/legal-hold scaffold pass 17 focused tests. No legal
 retention, source-license or privacy approval is inferred from configuration.

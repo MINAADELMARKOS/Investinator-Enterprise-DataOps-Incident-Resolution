@@ -27,3 +27,16 @@ Export rollback: remove the read endpoint; existing audit/source data remain.
 Enterprise authorization, independent humans, legal retention and externally
 certified audit/DR remain BLOCKED. See the historical Prompt 11 recovery manual
 and Prompt 14 release inventory; neither is superseded as past evidence.
+
+## Disposable WAL rehearsal
+
+`python scripts/verify_pitr_fixture.py --output .runtime/pitr-fixture.json` creates
+new random-named source/target containers and three labeled disposable volumes,
+with no published ports and network=none. A native pg_basebackup, archived WAL and
+named recovery target restore events 1,2 while excluding later event 3; a separate
+schema sentinel survives. Actual fixture elapsed 13.340 seconds, five archived
+segments; no production RPO/RTO is inferred. Only its newly created containers and
+volumes are removed. No retained lab, remote DB or production infrastructure is used.
+The sanitized JSON alone is an artifact; passwords/base backup/WAL are not exported.
+CI repeats this fixture after local E2E. Offsite encryption, replica failover,
+private target, approved RPO/RTO and independently observed DR remain NOT_TESTED.

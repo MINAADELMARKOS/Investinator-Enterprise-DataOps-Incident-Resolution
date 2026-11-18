@@ -187,6 +187,17 @@
       "test_number": 17,
       "source_provenance": "UNIT and MOCKED_PROVIDER; zero actual paid calls",
       "ci_run_link": null
+    },
+    {
+      "stage": "disposable-pitr",
+      "command": ".venv/bin/python scripts/verify_pitr_fixture.py --output docs/implementation/prompt14b/pitr-fixture.json",
+      "sha": "caced5f2485e1fa7986654e40ad48bdb33634417",
+      "working_tree_changes": true,
+      "exit_status": 0,
+      "test_number": null,
+      "source_provenance": "Actual native pg_basebackup/WAL/PITR; SIMULATED newly owned source data",
+      "ci_run_link": null,
+      "evidence": "pitr-fixture.json"
     }
   ]
 }
