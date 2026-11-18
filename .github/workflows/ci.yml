@@ -60,6 +60,8 @@ jobs:
           node-version: '22'
       - run: npm run check
       - run: npm test
+      - name: Validate Cloudflare Worker bundle (no deployment, no credentials)
+        run: npx --yes wrangler@4.36.0 deploy --dry-run --outdir ./dist
       # No secrets, paid OpenAI requests or Cloudflare deployment in CI.
   java-scaffold:
     runs-on: ubuntu-latest
