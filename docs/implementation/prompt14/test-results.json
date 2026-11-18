@@ -10,7 +10,7 @@
     "failures": 0,
     "one_added_test": true
   },
-  "combined_distinct_junit_cases": 111,
+  "combined_distinct_junit_cases": 112,
   "cli_tests": 29,
   "python_tests": 12,
   "frontend_tests": 11,
@@ -574,5 +574,6 @@
       "name": "kraftNeverContactsZooKeeperEvenIfEndpointIsConfigured",
       "status": "PASS"
     }
-  ]
+  ],
+  "focused_tracing_and_budget_tests": 13
 }

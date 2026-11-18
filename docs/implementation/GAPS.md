@@ -114,4 +114,3 @@ local restore/observations and tests pass. OIDC, real realm/cert/refresh/multi-t
 connector certificates, extended partitions/replicas, offsite/PITR/HA, legal/retention,
 human quality review, durable monetary caps and production SLO/load proof remain.
 No paid live GPT without credentials and independent budget. Prompt 15 not authorized.
-

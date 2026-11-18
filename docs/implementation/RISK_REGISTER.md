@@ -159,4 +159,3 @@ Corrected platform-health exception, proxy stream/cookie and host binding findin
 pass local negatives. Production identity, external connector certification, recovery,
 financial/data governance, optional/image audit and independent quality gaps remain.
 Passing local or hosted tests cannot confer deployment authorization.
-

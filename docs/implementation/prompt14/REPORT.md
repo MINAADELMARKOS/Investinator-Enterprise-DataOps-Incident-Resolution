@@ -21,7 +21,10 @@ private Flyway/Alembic ownership and all completed commits are preserved.
   HTTPS public origin, including TLS termination, without trusting forwarded headers.
 - Fixed-cardinality chat latency/outcome/provider-attempt/token/unknown-usage meters,
   pending queue/outbox counts/age, HTTP SLO buckets and existing JVM/GC/Hikari metrics
-  support operational inspection. No prompt, incident, tenant, model or secret tag.
+  support operational inspection. A scoped Java investigation span ends on success
+  and failure without recording questions, identifiers, model names or exception
+  content; actual in-memory SDK export is tested. Tracing remains disabled by default.
+  No prompt, incident, tenant, model or secret tag.
   Missing usage is unknown, not zero cost. Private generated lab metrics token added.
 - Six proposed Prometheus rules and NaN/missing-series unit checks; not auto-enabled.
   Existing Prometheus still scrapes collector; reviewed private Java scrape setup
@@ -33,9 +36,9 @@ private Flyway/Alembic ownership and all completed commits are preserved.
 ## Evidence and tests
 
 Local full Maven Verify: **110 tests, no failures/errors/skips**, plus the subsequent
-11-test SDK budget suite containing one added tool/rate exhaustion case. Combined
-JUnit reports contain 111 distinct passing cases, not a claim of one 111-case local
-full run. CLI 29, Python 12/Ruff/mypy 17 files, frontend 11/type/build/audit and actual
+11-test SDK budget suite containing one added tool/rate exhaustion case and a
+13-test focused tracing/budget suite. Combined JUnit reports contain 112 distinct
+passing cases, not a claim of one 112-case local full run. CLI 29, Python 12/Ruff/mypy 17 files, frontend 11/type/build/audit and actual
 14-check Java/default-Python browser flows pass. Provider tests are explicitly
 MOCKED_PROVIDER. No actual GPT call, human quality approval or accuracy claim.
 

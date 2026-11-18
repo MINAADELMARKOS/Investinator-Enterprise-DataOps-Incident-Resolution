@@ -35,3 +35,9 @@ Fast-burn threshold 1.44% corresponds to 14.4x a 0.1% error budget; review long/
 windows, low-volume handling, NaN/missing series and traffic scope before adoption.
 Telemetry default profiles may disable tracing; actual trace fixture transport was
 verified in P13, but no always-on enterprise trace/SLO coverage is claimed.
+
+Java investigation spans use a fixed operation name and response attribute; scope
+closes on success/failure, error text is not recorded. Actual in-memory SDK export
+is tested without changing the global provider. Profiles remain tracing-disabled
+by default; private exporter/receiver, context propagation, sampling/PII review and
+production coverage must be verified before enabling it in staging/production.

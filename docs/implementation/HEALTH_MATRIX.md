@@ -112,4 +112,3 @@ failure returns UNKNOWN/NaN, proposed rules test NaN/missing series. Minimal pro
 remain public; non-demo application/platform health is denied, metrics requires its
 own capability. Local snapshot restore proves 38 tables/781 rows and a separate owner
 sentinel only; no production RPO/RTO/replica/HA claim. See prompt14 evidence and gaps.
-

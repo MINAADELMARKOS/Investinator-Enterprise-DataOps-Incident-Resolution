@@ -13,4 +13,21 @@ class InvestigationMetricsTest {
         metrics.record(result("RATE_LIMITED",1,20,3),12);assertEquals(20,registry.get("investinator.provider.tokens").tag("direction","input").counter().count());
         assertTrue(registry.getMeters().stream().flatMap(m->m.getId().getTags().stream()).noneMatch(t->t.getValue().contains("private")));
     }
+    static class Exporter implements io.opentelemetry.sdk.trace.export.SpanExporter {
+        final java.util.List<io.opentelemetry.sdk.trace.data.SpanData> spans=new java.util.ArrayList<>();
+        public io.opentelemetry.sdk.common.CompletableResultCode export(java.util.Collection<io.opentelemetry.sdk.trace.data.SpanData> data){spans.addAll(data);return io.opentelemetry.sdk.common.CompletableResultCode.ofSuccess();}
+        public io.opentelemetry.sdk.common.CompletableResultCode flush(){return io.opentelemetry.sdk.common.CompletableResultCode.ofSuccess();}
+        public io.opentelemetry.sdk.common.CompletableResultCode shutdown(){return io.opentelemetry.sdk.common.CompletableResultCode.ofSuccess();}
+    }
+    @Test void actualSdkSpanEndsWithoutCapturingQuestionOrExceptionSecrets(){
+        var exporter=new Exporter();
+        try(var provider=io.opentelemetry.sdk.trace.SdkTracerProvider.builder().addSpanProcessor(io.opentelemetry.sdk.trace.export.SimpleSpanProcessor.create(exporter)).build()){
+            var metrics=new InvestigationMetrics(new SimpleMeterRegistry(),provider.get("fixture"));
+            metrics.traceTurn(()->{assertTrue(io.opentelemetry.api.trace.Span.current().getSpanContext().isValid());return result("NOT_CONFIGURED",0,0,0);});
+            assertThrows(IllegalStateException.class,()->metrics.traceTurn(()->{throw new IllegalStateException("PRIVATE_EXCEPTION");}));
+            assertEquals(2,exporter.spans.size());assertTrue(exporter.spans.stream().allMatch(s->s.hasEnded()));
+            assertEquals(io.opentelemetry.api.trace.StatusCode.ERROR,exporter.spans.get(1).getStatus().getStatusCode());
+            assertFalse(exporter.spans.toString().contains("PRIVATE_EXCEPTION"));assertFalse(exporter.spans.toString().contains("private-model"));
+        }
+    }
 }

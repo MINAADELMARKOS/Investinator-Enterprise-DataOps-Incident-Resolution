@@ -393,4 +393,3 @@ PITR, HA or financial return is inferred. Proposed SLOs/rates/ROI stay unapprove
 null until measured/reviewed. Enterprise principal/certificate/realm/rotation tests,
 long-duration/replica loss, offsite encryption, data governance and durable financial
 caps remain release blockers. No synthetic quality sign-off or automatic deployment.
-
