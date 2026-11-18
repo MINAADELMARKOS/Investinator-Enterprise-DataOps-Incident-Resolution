@@ -1,0 +1,18 @@
+name = "investinator-public-investigator"
+main = "src/index.mjs"
+compatibility_date = "2026-11-18"
+workers_dev = true
+
+[vars]
+PUBLIC_ORIGIN = "https://minaadelmarkos.github.io"
+# Set model ID in Cloudflare Worker settings or environment after confirming
+# project access and cost; no real paid call occurs until fully configured.
+OPENAI_MODEL = ""
+
+[[durable_objects.bindings]]
+name = "PUBLIC_QUOTA"
+class_name = "PublicQuota"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["PublicQuota"]

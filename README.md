@@ -9,8 +9,7 @@ Java work is published on `feature/java-ai-audit`; earlier Java migration reache
 main through owner-merged PR #6. Python remains the default backend. Only the
 explicitly owned Java lab selects Java. Production identity, private connector
 certification, independent AI-quality review and release hardening remain blocked.
-See the [handover](docs/handover/README.md), [build/status matrix](docs/handover/STATUS_MATRIX.md)
-, [post-P14 audit](docs/roadmap/POST_P14_GAP_AUDIT_2026-11-18.md),
+See the [handover](docs/handover/README.md), [build/status matrix](docs/handover/STATUS_MATRIX.md), [post-P14 audit](docs/roadmap/POST_P14_GAP_AUDIT_2026-11-18.md),
 [Prompt 14B scope](docs/roadmap/PROMPT_14B_SINGLE_REMEDIATION_AND_PUSH.md)
 and [production release gates](docs/implementation/prompt14/RELEASE_RISKS.json).
 
@@ -105,7 +104,31 @@ packages with zero findings. This does not certify container OS images, the opti
 shaded Hive driver, enterprise identity, production SLOs or independent AI accuracy.
 [Prompt 14 acceptance](docs/implementation/prompt14/REPORT.md) records scope and limits.
 
-## Preserved Python runtime and static preview
+### Java v2 operator interface on GitHub Pages
+
+The [public Java operator experience](https://minaadelmarkos.github.io/Investinator-Enterprise-DataOps-Incident-Resolution/#/) mirrors the newer Java-backed UI **without exposing an API**. Use the hash routes to explore:
+
+- [System Health](https://minaadelmarkos.github.io/Investinator-Enterprise-DataOps-Incident-Resolution/#/system-health): semantic capabilities, source mode, UNKNOWN and NOT_CONFIGURED.
+- [Monitoring](https://minaadelmarkos.github.io/Investinator-Enterprise-DataOps-Incident-Resolution/#/monitoring): versioned rules, bounded controls and incident deduplication concepts.
+- [Root Cause Explorer](https://minaadelmarkos.github.io/Investinator-Enterprise-DataOps-Incident-Resolution/#/correlation): KRaft/network, legacy ZooKeeper and NiFi/HDFS timestamped causal scenarios.
+- [Governed Recovery](https://minaadelmarkos.github.io/Investinator-Enterprise-DataOps-Incident-Resolution/#/governance): role separation, named simulated actions and independent verification.
+- [Operator Access](https://minaadelmarkos.github.io/Investinator-Enterprise-DataOps-Incident-Resolution/#/operator/login), [AI Architecture](https://minaadelmarkos.github.io/Investinator-Enterprise-DataOps-Incident-Resolution/#/architecture) and [Release Readiness](https://minaadelmarkos.github.io/Investinator-Enterprise-DataOps-Incident-Resolution/#/release-readiness).
+
+The Java-focused static Pages views are implemented under `apps/showcase/src/JavaPreview.tsx` and `java-preview-data.ts`, not the Java-backed Next.js runtime in `apps/web`. They remain **SIMULATED** and entirely browser-local.
+
+### Public Investigator GPT — secure optional gateway
+
+The Pages [Investigator](https://minaadelmarkos.github.io/Investinator-Enterprise-DataOps-Incident-Resolution/#/investigator) now has a real-GPT-capable chat interface focused on cross-service root cause investigation in Kafka KRaft / legacy ZooKeeper, Spark/YARN, HDFS, Hive/HMS, Kudu, NiFi, orchestration and downstream data quality.
+
+- **Offline by default:** Guided answers are deterministic, clearly labeled and incur no model cost.
+- **Live when explicitly configured:** A separately hosted Cloudflare Worker calls the OpenAI Responses API from the server with a curated public troubleshooting reference library, signed Turnstile validation, bounded inputs and durable request quotas. The site never embeds an API secret.
+- **Not fine-tuned:** This is `retrieval-augmented prompting` over reviewed public knowledge, **not** model training on private company logs. The example incident facts are simulated and explicitly marked.
+- **Read-only:** No production data sources, live Java connector tools, approvals or infrastructure execution are exposed on the public site.
+
+To deploy and connect the gateway, see [Public Investigator Worker setup](services/public-investigator/README.md). Merging frontend code does **not** configure OpenAI, Cloudflare or a public endpoint. The existing private Java/Next.js Investigator continues to be the appropriate path for authenticated real cluster investigations. To use the functional Java operator UI instead, follow the isolated lab's [Prompt 12 operations guide](https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/blob/feature/java-ai-audit/docs/implementation/prompt12/OPERATIONS.md) on `feature/java-ai-audit` until that development work is reviewed and merged.
+
+
+## Preserved Python runtime and preview boundaries
 
 `docker compose up --build -d` runs the **Python** demo with Next on port 3000 and
 FastAPI on 8000; it does not perform a Java cutover. That database uses demo trust
@@ -115,8 +138,11 @@ Java Flyway never adopts Python/Alembic schemas. Selecting Python on a Next serv
 requires its existing Python API URL; it does not roll back or delete Java data.
 
 The [GitHub Pages preview](https://minaadelmarkos.github.io/Investinator-Enterprise-DataOps-Incident-Resolution/)
-is an explicitly synthetic static showcase (`apps/showcase`), without a backend or
-live GPT. Its source link points to this repository; feature work does not publish it.
+contains an explicitly simulated operational showcase (`apps/showcase`). Newer main
+also supplies an optional separate public gateway (`services/public-investigator`);
+its deployment, credentials, budget and actual provider traffic are NOT_VERIFIED here.
+Static preview data does not become live telemetry through that widget. Feature work
+does not publish Pages or deploy the gateway.
 [Design system](docs/design-system.md) · [versioned architecture](docs/handover/ARCHITECTURE.md)
 · [executive brief](docs/handover/EXECUTIVE_BRIEF.md) · [implementation state](docs/implementation/STATE.md).
 
