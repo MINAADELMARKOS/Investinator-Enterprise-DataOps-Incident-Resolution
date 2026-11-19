@@ -1,0 +1,72 @@
+[
+  {
+    "test": "changedParametersDefinitionOrReviewHashAreRejected",
+    "status": "PASS",
+    "infrastructure": "actual disposable PostgreSQL; SIMULATED ReplayLab; spy fault injections where named"
+  },
+  {
+    "test": "databaseFailureBeforeReceiptRollsBackReplayMutation",
+    "status": "PASS",
+    "infrastructure": "actual disposable PostgreSQL; SIMULATED ReplayLab; spy fault injections where named"
+  },
+  {
+    "test": "tokensAndBodyRoleSpoofingCannotConferApproval",
+    "status": "PASS",
+    "infrastructure": "actual disposable PostgreSQL; SIMULATED ReplayLab; spy fault injections where named"
+  },
+  {
+    "test": "legacyAliasesCannotBypassGovernedPlanAndReadOnlyEnterpriseModesDenyWrites",
+    "status": "PASS",
+    "infrastructure": "actual disposable PostgreSQL; SIMULATED ReplayLab; spy fault injections where named"
+  },
+  {
+    "test": "approvalAndAckNeverResolveWithoutIndependentFreshPostState",
+    "status": "PASS",
+    "infrastructure": "actual disposable PostgreSQL; SIMULATED ReplayLab; spy fault injections where named"
+  },
+  {
+    "test": "expiredRevokedAndStaleResourcePreconditionsDenyExecution",
+    "status": "PASS",
+    "infrastructure": "actual disposable PostgreSQL; SIMULATED ReplayLab; spy fault injections where named"
+  },
+  {
+    "test": "monitoredDiskIncidentCanBindOnlyAnExplicitReplaySandboxAndFollowLifecycle",
+    "status": "PASS",
+    "infrastructure": "actual disposable PostgreSQL; SIMULATED ReplayLab; spy fault injections where named"
+  },
+  {
+    "test": "partialSuccessRetainsReceiptAndRequiresExplicitRecovery",
+    "status": "PASS",
+    "infrastructure": "actual disposable PostgreSQL; SIMULATED ReplayLab; spy fault injections where named"
+  },
+  {
+    "test": "repeatedParallelAndWrongTenantExecutionHaveOnlyOneEffect",
+    "status": "PASS",
+    "infrastructure": "actual disposable PostgreSQL; SIMULATED ReplayLab; spy fault injections where named"
+  },
+  {
+    "test": "acknowledgementWithoutEffectIsNotSuccess",
+    "status": "PASS",
+    "infrastructure": "actual disposable PostgreSQL; SIMULATED ReplayLab; spy fault injections where named"
+  },
+  {
+    "test": "interruptedAfterEffectRecoversReceiptButStillRequiresIndependentSample",
+    "status": "PASS",
+    "infrastructure": "actual disposable PostgreSQL; SIMULATED ReplayLab; spy fault injections where named"
+  },
+  {
+    "test": "interruptedBeforeEffectIsManualAndNeverAutomaticallyRetried",
+    "status": "PASS",
+    "infrastructure": "actual disposable PostgreSQL; SIMULATED ReplayLab; spy fault injections where named"
+  },
+  {
+    "test": "namedRollbackRequiresOwnApprovalAndIndependentRestorationVerification",
+    "status": "PASS",
+    "infrastructure": "actual disposable PostgreSQL; SIMULATED ReplayLab; spy fault injections where named"
+  },
+  {
+    "test": "staleSamplesAndCallerClaimedChecksCannotVerify",
+    "status": "PASS",
+    "infrastructure": "actual disposable PostgreSQL; SIMULATED ReplayLab; spy fault injections where named"
+  }
+]

@@ -1,6 +1,10 @@
 __pycache__/
 .venv/
 .env
+.env.*
+!.env.example
+.dev.vars
+.dev.vars.*
 *.db
 *.sqlite3
 .pytest_cache/

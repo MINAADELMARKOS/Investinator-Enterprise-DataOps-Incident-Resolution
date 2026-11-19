@@ -1,6 +1,75 @@
+Publication/verification update (2026-11-19): the topic is pushed. Implementation
+checkpoint 32069f2 passed all SEVEN jobs on run44425318558; public annotations show
+OSV233 default and234 optional-Hive metadata packages / zero findings. This is not
+shaded-content or image certification. A later native public-browser smoke found a
+React effect cleanup error missed by build/unit tests; fixed in77f19b6 and covered by
+four local checks (native + labeled Promise-return fixture), including repository
+prefix mode, now added to CI. The final publication HEAD needs its OWN seven-job
+conclusion; see the live topic checks and final completion response, not an old green
+SHA. [Hosted checkpoint](prompt14b/hosted-ci.json), [publication](prompt14b/publication.json).
+PR_CREATION_BLOCKED: actual gh GraphQL request returned Forbidden; no new topic PR
+is claimed. [Actual compare](https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/compare/main...feature/p14b-gap-closure?expand=1) returnsHTTP200.
+Production remains BLOCKED; no billing, deployment, merge into main or next prompt.
+
+Compatibility disclosure: the governed registry still has exactly two named ReplayLab
+actions. Existing fixed legacy DEMO workflow aliases are preserved for non-governed
+incidents and cannot bypass a governed plan; they are not enterprise authorization.
+Full alias retirement is not claimed. No new live/native/production executor was added.
+
+ADR-026 / Prompt 14B: preserve SQL as current knowledge authority; filter approved
+ACL/version/mode chunk identities before BM25 without deleting historical sources.
+Bound materialization and report partial/UNKNOWN. Separate retrieval mechanics from
+independent quality signoff. Keep disabled native ingress and fixed simulator authority.
+
+ADR-027 / Prompt 14B: commit provider reservations independently before network I/O,
+retain UNKNOWN holds, require separate cost/data-use opt-in, and never bill a standalone
+probe. V9 has no seeded policy. Offline JWT is not API/OIDC authorization. Redacted audit
+export is not externally immutable. Preserve newer public modules but do not share
+private source/identity/financial authority or infer deployment. Local fixtures and
+hosted CI cannot approve production; real owner evidence is mandatory.
+
+Current authoritative checkpoint — Prompt 14B (2026-11-19, Africa/Cairo).
+**Local engineering verified; hosted checkpoint passed; production BLOCKED.**
+See [14B report](prompt14b/REPORT.md), [per-risk matrix](prompt14b/GAP_CLOSURE_MATRIX.json),
+[actual commands](prompt14b/VALIDATION.json) and [release decision](prompt14b/RELEASE_DECISION.md).
+Initial main e5ca171 and source Java e7be724 (includes completed P15) were preserved;
+backup pre-p14b-e7be724 and normal merges 1ca09a1/0f75a45 reconcile newer main 06d036d.
+No merge into main, routing cutover, deployment, credential setup or paid model call.
+
+Local checks: Java141 (0 failure/error/skip), CLI34, Python12/Ruff/mypy, frontend13/
+type/build/audit, public Worker15/check/dry-run, showcase build/audit; browser14,
+eight owned outages, physical restarts, native evidence pipeline, 3000 duplicate burst,
+500 paced reads, snapshot41 tables/1120 fixture rows, disposable WAL/PITR and retained
+volume down/up27 identical incident IDs. Scope/source/failed reruns remain explicit.
+BM25 fixture stale degradation reduced8/8 to0/8; returned precision stays8/9; human
+gold/holdout unsigned. Native ingestion DISABLED/NOT_CERTIFIED, new tenants paused,
+production actions hard-denied, only two named ReplayLab simulations. Provider actual
+keys/models/approved policy NOT_CONFIGURED locally; calls by this work ZERO.
+
+P14-01..09 remain externally blocked/partial; P14-10 regressions retained. Local OSV
+is BLOCKED by egress, image scan DB Forbidden (no clean result); current hosted scans
+pending. Shaded Hive contents/licenses, private IdP/connector/network/HA certification,
+legal retention/external audit, actual costs and production SLO/ROI are unverified.
+Newer main Pages operational views stay SIMULATED. Its separate optional public Worker
+is preserved and off by repository default; external deployment/live traffic NOT_VERIFIED.
+No Java financial certificate covers Python/public Worker. No human signoff is inferred.
+
+Historical corrections: old Next.js critical warnings and 09A unpublished-branch claims
+are superseded: Next16.4.5 fresh audit clean; Java work is pushed on its source branch.
+Earlier stage records remain historical, not current gates. Completed P15 is preserved.
+The current master authorizes 14B only; stop after publication/review, no next prompt.
+
+Historical checkpoints / earlier decisions follow:
+
+Prompt 14B checkpoint (2026-11-19): current-revision retrieval filters pass 16 focused
+Java cases after a green 112-test baseline. SQL candidates are bounded and authorized
+before BM25; stale/revoked revisions cannot crowd out current guidance. Domain-neutral
+UNKNOWN wording fixed. Independent human quality and production release remain BLOCKED.
+See [14B evidence](prompt14b/RETRIEVAL_DESIGN.md). Earlier stage entries below are historical.
+
 # Architecture decisions
 
-All decisions dated 2026-11-17. Accepted direction, implementation pending unless stated.
+Initial decisions dated 2026-11-17; subsequent stage dates are recorded with their reports. Accepted direction, implementation pending unless stated.
 
 ## ADR-001 — Java 21 / Spring Boot
 
@@ -275,3 +344,145 @@ blocker. Do not invent sign-off, provider calls or hosted CI success. Git reposi
 push and GitHub API access are separate capabilities; a proxy CONNECT denial is
 not proof that the backing credential is invalid. No production/main merge or
 configuration publication is authorized by 09A.
+
+
+## ADR 018 — Evaluation provenance and independent review remain separate
+
+09B preserves the original eight-case dataset and adds a separately hashed review
+fixture manifest with exact graphs, scoped evidence, proposed competing labels and
+counterevidence. Tests capture actual local SQL/native BM25 outputs and canonical
+corpus/chunks; a standard-library scorer independently checks hashes, references,
+tenancy, versions and explicit denominators. Missing denominators return null,
+never perfect scores; healthy cases are excluded from fault-cause accuracy. Do not
+change algorithms, weights or thresholds to fit these labels. No vector work is
+justified without independent/held-out evidence of a material benefit.
+
+All labels remain developer proposals. Expert metrics and approvals stay unfilled;
+reject attempts to launder a fixture input as human-approved, live or production
+quality. Functional isolation/citation/abstention failures make the scorer fail;
+fixture ranking metrics do not confer independent review. Stale SQL-rejected index
+records remain visible as partial/degraded, and the extra irrelevant BM25 hit is
+reported. Preserve old audit artifacts while linking current security status.
+
+No key/model and no approved budget means no provider traffic. Extend mocked SDK
+multi-call/timeout tests without claiming a live result; preserve encrypted history,
+read-only capabilities and independent authorization. User requested local 09B
+commit only; no new hosted validation or publishing claim. V2 allows subsequent
+flagged/read-only development on explicit request while human/provider quality
+claims and enterprise deployment stay gated.
+
+
+## ADR 019 — Durable replay monitoring, independent native health, no implicit spend
+
+Use the existing private PostgreSQL store as queue/checkpoint/outbox. Per-tenant
+transactions and an active-scope unique index make parallel processing one logical
+incident without a new Kafka consumer/microservice. Capability/mode checks precede
+thresholds; missing values remain UNKNOWN. Component scope groups related symptoms;
+sliding event-time windows/hysteresis/cooldown avoid flapping, preserve late evidence
+and allow new causes after closure. Immutable graph/time correlation remains a
+hypothesis and never resolves an incident. Monitoring IDs cannot reuse the legacy
+analyzer's deterministic API IDs across graphs.
+
+Health reports are actual bounded native samples stored separately from simulated
+replay incidents. Live semantic ingestion needs verified graph/identity adapters;
+public events cannot claim LIVE. Operator-only bounded chat follows durable gated
+investigation intents; no automatic spend, even when keys appear. LOCAL_FAKE is the
+only default delivery, console explicit opt-in, remote recipients unsupported.
+New lifecycle maps to old statuses and public resolution is denied; independent
+verification must own success. Retain queue/evidence/offsets on rollback.
+
+
+## ADR 020 — Separate governed ReplayLab execution and independent verification (2026-11-18)
+
+Only two named low-risk simulation actions exist. Separate fixed capability roles,
+immutable plan/definition/target/parameter hashes, approvals <=120s, proposal expiry,
+unique keys, <=10s execution lease, version fencing and a transactional effect
+receipt constrain execution. A durable claim commits before the effect; lost ack
+and partial completion become explicit manual states, never automatic retries.
+No enterprise executor is registered and non-demo writes fail closed.
+
+Verification is a separate role and fresh sampler reading actual current simulator
+state/version after acknowledgement, not an executor return/body-provided success.
+Only this post-state moves incident lifecycle to resolved. Named rollback is a new
+plan with its own approval/key/lease/sample; verified restoration closes unresolved
+because it restores the fault. Postmortems are separate, review-pending records.
+
+Explicitly triaged SIMULATED monitored disk incidents may create an owned ReplayLab
+sandbox, never act on a live broker. Existing legacy routes remain compatible for
+ungoverned incidents and deny bypass once a governed plan exists. Preserve old
+replay payload fields and record server-bound actors/correlation IDs. Demo token
+roles do not pretend to be independent people; real identity, risk-dependent
+two-person change policy and external audit/HA/DR remain production prerequisites.
+
+## ADR 021 — Explicit backend and capability-bound demo console (2026-11-18)
+
+Python remains default. Java selection is explicit per Next server, independent of
+schema ownership. Fixed server proxy permissions bind expiring signed demo roles
+to backend-only capabilities; Origin must equal an explicitly configured public
+origin when container addressing differs. No forwarded identity or tenant override.
+No graph/knowledge write capabilities reach the web server. Public login/liveness
+allow native readiness without exposing operational pages. Retain current design.
+
+Chat persists only public turn metadata and rechecks current evidence/knowledge
+access on inspection; private continuation remains private. Display measured usage
+only. Missing/stale health becomes UNKNOWN, not seeded-score health. Bounded
+monitor controls persist separately from versioned thresholds. Governed UI mirrors
+server-owned immutable plans and distinct capabilities; independent current sampling
+is mandatory. Rollback frontend routing without deleting schemas or evidence.
+
+## Prompt 13 checkpoint
+
+ADR 022 (2026-11-18): keep fixed scoped lab commands, representative legacy separate from actual KRaft, repeatable durable event identities and fresh-checkout ownership/ports. CI publishes only sanitized fixed artifacts and fails dependency scans on errors instead of laundering unavailable OSV as clean. Next.js 16.4.5 lock and Python default persist. Cached local reproduction is distinct from cold hosted runner proof.
+
+Prompt 13 local final: fresh-checkout full acceptance and all eight owned outage/recovery cases PASS; additional actual bound-graph browser run PASS (14 checks). See prompt13/fresh-checkout.json and outages.json. Local Java OSV audit remains BLOCKED; hosted CI pending. No production readiness or live GPT claim.
+
+## ADR 023 — Audit-driven codec pins and aligned OTel BOM (2026-11-18)
+
+Hosted OSV exposed seven advisories rather than accepting an unavailable local
+scan. Preserve failures, add safe public package/advisory annotations and fix
+Snappy 1.1.10.9, LZ4 1.11.4 plus stable OTel BOM 1.67.0 (instrumentation already
+2.33.1). Full 107-test/native/browser/E2E regression and hosted 233-package scan
+pass with zero findings. No severity suppression or gate bypass. Reassess pins
+when the parent BOM changes. Default-tree audit does not certify optional inactive
+profiles, private connectors, identity or production security.
+
+## ADR 024 — Readiness is evidence-gated, not inferred from a demo (2026-11-18)
+
+Keep non-demo application ingress hard-blocked while OIDC/RBAC and independently
+identified approval remain absent. Close the platform-health exception. Loopback demo
+bindings preserve Python/local URLs without enterprise exposure. Enforce request byte
+limits during streaming and Secure cookies from trusted public HTTPS origin.
+Fixed metric labels omit private identifiers; missing token data is unknown. New
+outbox/queue age gauges and explicit NaN alert tests cannot promote absent data to
+health. A private generated lab metrics capability supports direct authenticated
+capture; collector-only Prometheus scraping is explicitly not Java scrape coverage.
+
+Snapshot backup/restore is tested only into a disposable target; no production RTO,
+PITR, HA or financial return is inferred. Proposed SLOs/rates/ROI stay unapproved or
+null until measured/reviewed. Enterprise principal/certificate/realm/rotation tests,
+long-duration/replica loss, offsite encryption, data governance and durable financial
+caps remain release blockers. No synthetic quality sign-off or automatic deployment.
+
+Prompt 14 final evidence: all five hosted jobs PASS on implementation 8e41c2c,
+run 44397526897, including full lab/restore/operational capture and fresh OSV
+233 packages / zero findings. Java spans verified in-memory without private text.
+Production remains BLOCKED per prompt14/RELEASE_RISKS.json; no subsequent stage.
+
+## ADR 025 — Source-backed handover with distinct demonstration boundaries (2026-11-19)
+
+Current handover overrides dated scaffold/unpublished claims without erasing stage
+history. Generated inventories expose source names/conditional declarations only,
+not private configuration values or a runtime authorization certificate. CI checks
+freshness. Native APIs and Next's smaller proxy allowlist are distinct.
+
+Separate the network/KRaft causal narrative from the named disk recovery sandbox;
+never imply disk recovery repairs that network case. Provider/fault provenance are
+independent: actual GPT requires approved billing/preflight, current fallback stays
+explicit. Reuse existing runtime validation and run the actual browser presentation
+for documentation-only work. Preserve Python default, all private ownership and
+production blockers. New stage/cutover/merge requires explicit authorization.
+
+Prompt 15 final: handover commit 5497fab is published; all five jobs PASS on
+44409852034, including inventory freshness and fresh-checkout lab. Current local
+14-check presentation and native read-only log retrieval pass. Pages availability
+is proxy-blocked, GPT unconfigured, production BLOCKED; no Prompt 16 or merge.

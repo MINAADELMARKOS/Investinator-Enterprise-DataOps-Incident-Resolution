@@ -1,9 +1,154 @@
+Publication/verification update (2026-11-19): the topic is pushed. Implementation
+checkpoint 32069f2 passed all SEVEN jobs on run44425318558; public annotations show
+OSV233 default and234 optional-Hive metadata packages / zero findings. This is not
+shaded-content or image certification. A later native public-browser smoke found a
+React effect cleanup error missed by build/unit tests; fixed in77f19b6 and covered by
+four local checks (native + labeled Promise-return fixture), including repository
+prefix mode, now added to CI. The final publication HEAD needs its OWN seven-job
+conclusion; see the live topic checks and final completion response, not an old green
+SHA. [Hosted checkpoint](prompt14b/hosted-ci.json), [publication](prompt14b/publication.json).
+PR_CREATION_BLOCKED: actual gh GraphQL request returned Forbidden; no new topic PR
+is claimed. [Actual compare](https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/compare/main...feature/p14b-gap-closure?expand=1) returnsHTTP200.
+Production remains BLOCKED; no billing, deployment, merge into main or next prompt.
+
+Compatibility disclosure: the governed registry still has exactly two named ReplayLab
+actions. Existing fixed legacy DEMO workflow aliases are preserved for non-governed
+incidents and cannot bypass a governed plan; they are not enterprise authorization.
+Full alias retirement is not claimed. No new live/native/production executor was added.
+
+Current authoritative checkpoint — Prompt 14B (2026-11-19, Africa/Cairo).
+**Local engineering verified; hosted checkpoint passed; production BLOCKED.**
+See [14B report](prompt14b/REPORT.md), [per-risk matrix](prompt14b/GAP_CLOSURE_MATRIX.json),
+[actual commands](prompt14b/VALIDATION.json) and [release decision](prompt14b/RELEASE_DECISION.md).
+Initial main e5ca171 and source Java e7be724 (includes completed P15) were preserved;
+backup pre-p14b-e7be724 and normal merges 1ca09a1/0f75a45 reconcile newer main 06d036d.
+No merge into main, routing cutover, deployment, credential setup or paid model call.
+
+Local checks: Java141 (0 failure/error/skip), CLI34, Python12/Ruff/mypy, frontend13/
+type/build/audit, public Worker15/check/dry-run, showcase build/audit; browser14,
+eight owned outages, physical restarts, native evidence pipeline, 3000 duplicate burst,
+500 paced reads, snapshot41 tables/1120 fixture rows, disposable WAL/PITR and retained
+volume down/up27 identical incident IDs. Scope/source/failed reruns remain explicit.
+BM25 fixture stale degradation reduced8/8 to0/8; returned precision stays8/9; human
+gold/holdout unsigned. Native ingestion DISABLED/NOT_CERTIFIED, new tenants paused,
+production actions hard-denied, only two named ReplayLab simulations. Provider actual
+keys/models/approved policy NOT_CONFIGURED locally; calls by this work ZERO.
+
+P14-01..09 remain externally blocked/partial; P14-10 regressions retained. Local OSV
+is BLOCKED by egress, image scan DB Forbidden (no clean result); current hosted scans
+pending. Shaded Hive contents/licenses, private IdP/connector/network/HA certification,
+legal retention/external audit, actual costs and production SLO/ROI are unverified.
+Newer main Pages operational views stay SIMULATED. Its separate optional public Worker
+is preserved and off by repository default; external deployment/live traffic NOT_VERIFIED.
+No Java financial certificate covers Python/public Worker. No human signoff is inferred.
+
+Historical corrections: old Next.js critical warnings and 09A unpublished-branch claims
+are superseded: Next16.4.5 fresh audit clean; Java work is pushed on its source branch.
+Earlier stage records remain historical, not current gates. Completed P15 is preserved.
+The current master authorizes 14B only; stop after publication/review, no next prompt.
+
+Historical checkpoints / earlier decisions follow:
+
+Prompt 14B remote reconciliation: newer main 06d036d merged normally, preserving
+Pages v2 and the separate public gateway. Its 14 tests, showcase build/audit and
+Worker bundle dry-run pass. Public cost/data-transfer flags default off; body
+streaming/UTF-8 bounds are enforced. No actual provider traffic or deployment.
+
+Prompt 14B bounded-workload checkpoint: 500 read-only requests over 29.962s,
+zero errors, sampled heap below the explicit 1024 MiB lab budget and queue <=1000.
+No continuous peak, sustained capacity, production SLO or business ROI claim.
+
+Prompt 14B provider-provenance checkpoint: backend persists explicit
+MOCKED_PROVIDER for loopback SDK fixtures, independently of SIMULATED incident
+source. Java focused 24 and frontend 13/type/build pass. No actual provider call.
+
+Prompt 14B E2E correction: retained pre-P13 marker lacked replay_events.
+Acceptance now uses a separate bounded namespace when needed, preserving original
+marker bytes/graph/timestamps. Original CLI cases remain intact. CLI 34 tests and
+full actual E2E rerun pass; initial failure is retained in 14B validation.
+
+Prompt 14B connector checkpoint: authenticated, server-tenant-bound certification
+inventory always blocks native/enterprise authorization. Native/REST negative
+fixtures and 3000-duplicate burst pass; no private target is certified.
+
+Prompt 14B DR checkpoint: disposable native WAL/PITR rehearsal restores events
+1,2 and excludes later event 3, preserving a separate-owner sentinel. 13.340s
+fixture only; retained lab untouched and only test-owned volumes cleaned up.
+Encrypted offsite HA and approved production RPO/RTO remain NOT_TESTED/BLOCKED.
+
+Prompt 14B governance checkpoint: default-deny Java model-transfer policy and
+non-executable retention/legal-hold scaffold pass 17 focused tests. No legal
+retention, source-license or privacy approval is inferred from configuration.
+
+Prompt 14B identity checkpoint: unused offline staging JWT experiment passes
+six claim/crypto and enterprise-denial tests; it is not a configured OIDC security
+filter. P14-01 remains BLOCKED, and production_authority is always false.
+
+Prompt 14B presentation checkpoint: 12 frontend contracts/type/build pass.
+Saved Java metadata and Python envelopes retain explicit provenance; missing
+provider status/usage is UNKNOWN/NOT_TESTED and mock output is labeled as fixture.
+
+Prompt 14B FinOps checkpoint: V9 adds unseeded private Java budget tables. Global
+and tenant/model reservations, unknown holds and actual-usage reconciliation pass
+29 focused Java and 30 CLI tests. Actual provider/key/model/approved policy remain
+NOT_CONFIGURED; standalone preflight cannot bill. Java controls do not certify an
+organization-wide cap across preserved Python/provider paths.
+
+Prompt 14B audit checkpoint: bounded metadata-only plan audit export passes
+remediation and enterprise-ingress regressions. No external sink or tamper-proof
+claim. Two named simulation actions remain the only executors.
+
+Prompt 14B monitoring checkpoint: 15 focused tests pass after correcting equal-time
+hysteresis precision. Fixed provenance contract is fixture-only; native LIVE remains
+DISABLED/NOT_CERTIFIED, with no new ingestion endpoint or certification claim.
+
+Prompt 14B checkpoint (2026-11-19): current-revision retrieval filters pass 16 focused
+Java cases after a green 112-test baseline. SQL candidates are bounded and authorized
+before BM25; stale/revoked revisions cannot crowd out current guidance. Domain-neutral
+UNKNOWN wording fixed. Independent human quality and production release remain BLOCKED.
+See [14B evidence](prompt14b/RETRIEVAL_DESIGN.md). Earlier stage entries below are historical.
+
 # Implementation state
 
-Updated 2026-11-17. Current scope: Architecture v2 Prompt 09A only; Prompts 00–09 preserved.
-V2 supersedes the original sequence from 09A onward; human review remains pending.
-Branch: `feature/java-ai-audit` (chosen because no feature branch name was supplied).
-Base and observed remote main: `920fefe1b86e55f038fb0a7e56dd0b42e9d34118`.
+Updated 2026-11-19. **Prompt 15 handover COMPLETE; production release BLOCKED.**
+Current entry: [handover package](../handover/README.md), [component As-Is/To-Be matrix](../handover/STATUS_MATRIX.md)
+and [presentation](../handover/DEMO.md). README/architecture/config/operations are
+reconciled with actual Java/Python coexistence and private ownership. Source-only
+API/module/config/schema inventory and CI freshness check added. Current native
+health/doctor and 14-check browser rehearsal pass; GPT key/model absent, no paid
+call. Public Pages URL availability check is blocked by proxy, not asserted healthy.
+See [Prompt 15 acceptance](prompt15/REPORT.md). No runtime/lock/schema changes,
+production routing/deployment, main merge or environment/Pages publication.
+Stop after 15. Optional Prompt 16 needs a new request and independently verified gates.
+
+Historical completed-stage records follow:
+
+Updated 2026-11-18. **Prompt 14 assessment COMPLETE; production release BLOCKED.**
+Non-demo platform-health deny, loopback demo binds, streaming body limits,
+HTTPS-public-origin secure cookies, fixed-cardinality metrics and private lab scrape
+capability are implemented. Local tests, 14 browser checks, 38-table/781-row isolated
+restore and proposed alert tests pass. No OIDC/private-connector certificate, live
+GPT/approved monetary budget, independent human quality sign-off, encrypted offsite
+DR or production SLO/ROI evidence is fabricated. See [Prompt 14](prompt14/REPORT.md)
+and [release gates](prompt14/RELEASE_RISKS.json). Stop after 14; 15 needs a new request.
+
+Prior completed stage status (historical):
+
+Updated 2026-11-18. **Prompts 12 and 13 PASS for isolated demo/development.**
+Implementation `f1488a7` is pushed on `feature/java-ai-audit`; all five hosted jobs
+passed on [run 44391359760](https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/actions/runs/44391359760).
+107 Java / 29 CLI / 12 Python / 8 frontend tests, 14 browser checks, eight owned
+outages and patched 233-package Java OSV scan pass. See [Prompt 12](prompt12/REPORT.md)
+and [Prompt 13](prompt13/REPORT.md) for exact evidence and failures/fixes.
+
+Python remains default; Java is opt-in local demo. Main observed at sync: `afb8183`
+(PR #6 merged by owner); main-into-feature merge `9924bc5` had no conflicts.
+No production routing/deployment, Pages/cloud publication or paid GPT call.
+Production identity/certification/security and independent human quality approval
+remain BLOCKED/PENDING. New PR creation is blocked by GitHub API proxy; comparison
+is prepared. Stop after 13; Prompt 14 requires a new request.
+
+Historical stage records follow; later final status supersedes pending checkpoints.
 
 ## Prompt 00 — PASS
 
@@ -160,3 +305,135 @@ frontend jobs. The final report follow-up changes documentation only. PR creatio
 blocked by proxy destination policy; authenticated logs unavailable. The 09A gate
 remains incomplete until PR creation is possible; implementation CI is verified. No 09B or 10 started, no production/main merge/routing
 change. Pending human review blocks measured AI-quality claims, not this sync.
+
+
+## Prompt 09B — functional PASS; human review PENDING; live GPT NOT_CONFIGURED
+
+User explicitly authorized 09B after reading v2; initial local/remote feature head
+6e981b9 and remote main ef0268b match the inspected documents. Reports 03–09,
+Prompt 05's actual artifacts, source hashes and graph/SDK/knowledge code reviewed.
+Eight review fixtures now include exact evidence/time/graph, competing hypotheses,
+contradictions, blind spots and unfilled reviewer fields. Original dataset retained.
+Native PostgreSQL/OpenSearch diagnostics and independent scorer produce
+[review package](prompt09/QUALITY_REVIEW_PACKAGE.md),
+[evaluation](prompt09/EVAL_REPORT.json), [provider report](prompt09/GPT_LIVE_REPORT.md)
+and [Prompt 05 audit](prompt09/PROMPT05_AUDIT.md). Full acceptance:
+[prompt09b/REPORT.md](prompt09b/REPORT.md).
+
+81 Java tests pass (no failures/errors/skips), focused final RAG 5/5 and final
+CLI/scorer 24/24, Python 12, seven evaluation fixtures, Ruff/mypy and current
+health/schema checks pass. Fresh npm audit zero vulnerabilities; Next 16.4.5
+package/lock match patched main. Historical 03/04/06 reports now link that current
+security assessment. Prompt 05 artifacts are present and match their original
+commit; original eight outages are historical, not rerun in 09B.
+
+Fixture-only outcomes: causal top-1/top-3 7/7 faults, healthy FP 0/1, retrieval@1
+8/8, returned precision 8/9, citation membership 70/70, unauthorized/stale returned
+0/9, missing-data abstention 2/2 and injection denial 2/2. All eight retrievals
+truthfully DEGRADED/partial due to rejecting stale index revisions. These are
+optimistic developer fixtures, not human gold, held-out or production accuracy.
+No model/correlation/retrieval thresholds changed; no embeddings introduced.
+
+Key/model and approved testing budget absent: actual live GPT NOT_CONFIGURED,
+zero paid calls. SDK two-turn/scoped tool/continuation/invalid citation/outage/
+timeout/fallback checks pass with MOCKED provider and actual local PG/Kafka reads.
+Human reviewer/approval fields remain null. Production identity/security/private
+connector/cutover gates remain; old Next.js issue is cleared for this lockfile.
+
+09B changes committed locally only; hosted 09B CI NOT_RUN. 09A's PR/API access
+block remains a separate follow-up. READY for expressly authorized flagged,
+read-only Prompt 10 development under v2; NOT_STARTED and no deployment authority.
+No production code/schema/default-route changes, push, merge, environment
+publication or production action in 09B. Stop after this stage.
+
+
+## Prompt 10 — PASS (opt-in local monitoring gate)
+
+User authorized 10 and 11. Java durable queue/offset/outbox, 15 versioned rules,
+capability-aware UNKNOWN semantics, event-time hysteresis/window/cooldown, unique
+component incident scope, audited lifecycle, actual health sampling and safe CLI
+are implemented. Default disabled/paused; only SIMULATED events accepted publicly.
+89 Java regression tests, final focused monitoring 9/9, CLI 26/26, Python 12,
+Ruff/mypy and evaluation replay pass. Actual Java process restart preserves offset
+and one logical incident after 100 duplicate submissions; real PG health samples
+and Prometheus gauges pass. A 1004-delivery fixture yields one incident and no GPT
+calls. Notification outages stop after three fake attempts. No external notification,
+production change or provider request. [Report](prompt10/REPORT.md).
+
+Monitoring semantic intents are NOT_CONFIGURED or operator-budget gated; no auto-
+spend adapter is enabled. Native live incident ingestion, OIDC, remote notifications,
+retention/load certification and human/provider quality gates remain explicit.
+No deployment readiness claim. Prompt 11 may begin only after this stage is committed.
+
+
+## Prompt 11 — PASS (governed ReplayLab safety gate); production HARD-DENIED
+
+Prompt 10 committed 1422665 before this stage. Fixed action definitions and strict
+schemas, four distinct server-role capabilities, immutable scoped plan hashes,
+expiring/revocable approvals, unique execution keys, fenced leases and transactional
+receipts isolate all effects to private ReplayLab resources. V7 remains Java-owned.
+No real write connector, arbitrary command/URL/SQL, model authorization or enterprise
+write surface exists. Governed incidents cannot bypass policy through legacy aliases;
+ungoverned compatibility and original ReplayLab payloads are preserved.
+
+104 Java tests plus final focused policy 14/14 pass, no failure/error/skip; CLI26,
+Python12, Ruff/mypy, current package audit (zero vulnerabilities), Compose and
+functional quality replay pass. Actual separate Java/PostgreSQL HTTP acceptance
+restarts the process after execution, denies repeated/unapproved/wrong-role actions,
+requires independent fresh sampling, and separately approves/verifies named rollback.
+Before-/after-effect crash, partial ack, DB interruption and stale/malicious success
+claims are tested. Verified postmortems remain PENDING_KNOWLEDGE_REVIEW.
+
+[Prompt 11 report](prompt11/REPORT.md), state machine, policy matrix, schema, threat
+model, audit/verification artifacts and recovery manual record the exact limits.
+Capabilities are demo role possession, not independent humans/OIDC/two-person
+production governance. Enterprise actions remain HARD-DENIED; human quality review,
+live provider budget/credentials, native certification, retention/DR, remote
+notifications and production identity/security remain open. No paid provider call,
+production infrastructure action, push/merge or environment publication occurred.
+This phase is committed locally only; hosted 10/11 CI NOT_RUN. Prompt 12 NOT_STARTED.
+Stop after Prompt 11; do not interpret simulation success as production readiness.
+
+## Prompt 12 — isolated Java operator console acceptance
+
+Explicit opt-in routing, scoped signed demo roles/server proxy, native health,
+public chat metadata/history/current citation authorization, bound investigation
+views, bounded monitor overrides and immutable governed action controls implemented.
+Python remains the default; only the owned lab selects Java. Flyway V8 remains in
+the private schema. 107 Java/26 CLI/12 Python/8 frontend tests, build/types/audit and
+actual Chromium Java+Python workflow checks pass; see prompt12/REPORT.md and artifacts.
+No paid GPT or production action. Demo capabilities do not prove human independence.
+Next gate: commit Prompt 12, then user-authorized Prompt 13 fresh checkout/hosted CI.
+
+## Prompt 13 checkpoint
+
+Prompt 12 is committed as bfe757b. Prompt 13 implementation/checkpoints are in progress: fixed causal demos, read-only investigate, local api restart alias, isolated fresh-checkout harness and hosted E2E/security gates. Local Java/CLI/Python/frontend and process/evidence checks pass. Fresh outage and hosted CI acceptance pending; Java OSV scan blocked by proxy. No production action or paid GPT call.
+
+Prompt 13 local final: fresh-checkout full acceptance and all eight owned outage/recovery cases PASS; additional actual bound-graph browser run PASS (14 checks). See prompt13/fresh-checkout.json and outages.json. Local Java OSV audit remains BLOCKED; hosted CI pending. No production readiness or live GPT claim.
+
+Prompt 13 hosted update: four functional jobs pass on 4597517; Java security scan finds seven advisories in three dependencies. Targeted Snappy 1.1.10.9, LZ4 1.11.4 and stable OTel BOM 1.67.0 fixes are under re-verification. Gate remains blocked until a clean hosted scan; no suppression/waiver. See prompt13/java-advisories.json.
+
+## Prompt 13 — final PASS (isolated lab and hosted gates)
+
+All five jobs pass on pushed implementation f1488a7. Seven initial Java advisories
+were fixed and the 233-package OSV rerun has zero findings. Full post-fix Java,
+native evidence/process and retained-data E2E checks pass. Primary lab is healthy;
+secondary lab down preserves volumes. See prompt13/REPORT.md and hosted-ci.json.
+No further stage, main merge or production action follows.
+
+## Prompt 14 — assessment complete, production BLOCKED
+
+Security/operability corrections and measured local evidence are in prompt14/REPORT.md.
+High/critical release risks retain explicit owners, milestones and verification gates.
+Demo only remains conditional on loopback and private capabilities. No deployment,
+main merge, schema deletion, routing cutover or paid GPT request was performed.
+
+Prompt 14 final evidence: all five hosted jobs PASS on implementation 8e41c2c,
+run 44397526897, including full lab/restore/operational capture and fresh OSV
+233 packages / zero findings. Java spans verified in-memory without private text.
+Production remains BLOCKED per prompt14/RELEASE_RISKS.json; no subsequent stage.
+
+Prompt 15 final: handover commit 5497fab is published; all five jobs PASS on
+44409852034, including inventory freshness and fresh-checkout lab. Current local
+14-check presentation and native read-only log retrieval pass. Pages availability
+is proxy-blocked, GPT unconfigured, production BLOCKED; no Prompt 16 or merge.

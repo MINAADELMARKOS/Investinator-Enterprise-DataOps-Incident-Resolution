@@ -1,0 +1,47 @@
+{
+  "status": "PASS_ARTIFACTS_PRESENT_AND_VALIDATED",
+  "historical_commit": "b14dd6f0eff8fdb1a478d4877bb1a2190e7c9000",
+  "outage_rows": 8,
+  "java_stop_liveness": "NOT_APPLICABLE; intentional own-process stop records false, not a healthy process",
+  "current_doctor": "PASS",
+  "current_doctor_schema": "PASS",
+  "historical_doctor_schema": "PASS",
+  "outages_rerun_in_09b": false,
+  "artifacts": [
+    {
+      "artifact": "docs/implementation/prompt05/REPORT.md",
+      "sha256": "1a1f1ed45bc2cddc245fa7bffa4159b247a7508caf9d05efc7da5026c13604cd",
+      "matches_original_prompt05_commit": true
+    },
+    {
+      "artifact": "docs/implementation/prompt05/doctor-example.json",
+      "sha256": "912a949a8d82a6592e5d59d7af388e5fcc120b971858aaf61f2adb4754cd22a1",
+      "matches_original_prompt05_commit": true
+    },
+    {
+      "artifact": "docs/implementation/prompt05/failure-matrix.json",
+      "sha256": "bcbc1aaf53928e853cbcbdf3754af8dd4f3274a46ace38577b4cf7cca0eb606b",
+      "matches_original_prompt05_commit": true
+    },
+    {
+      "artifact": "docs/implementation/prompt05/health-report.schema.json",
+      "sha256": "cbf088dfd439d3160ec58ef748d66c8dc4547fd79a48acc4b41c696c62c8277f",
+      "matches_original_prompt05_commit": true
+    },
+    {
+      "artifact": "docs/implementation/prompt05/lifecycle-result.json",
+      "sha256": "a5d8ddf29e52d7b89f2e3966dc39d86f8d41bebe06bd084b56d48daac2574cff",
+      "matches_original_prompt05_commit": true
+    },
+    {
+      "artifact": "docs/implementation/prompt05/smoke.txt",
+      "sha256": "2c750f8dcaffd6ca6039c8e036ee2efdc0d0b9153d03394fe5d9046c31982d9c",
+      "matches_original_prompt05_commit": true
+    },
+    {
+      "artifact": "docs/implementation/prompt05/test-summary.json",
+      "sha256": "eca86c2748e780ca3e27823cc89cf56a4d4771f2487394178d52ea93e0573a96",
+      "matches_original_prompt05_commit": true
+    }
+  ]
+}

@@ -1,5 +1,7 @@
 # InvestiNator user guide
 
+> **Scope/current status:** This guide describes the preserved Python default on port 3000. For opt-in Java on port 13000, signed demo roles and native operational views, use [the current handover](handover/README.md) and [presentation](handover/DEMO.md). Neither UI is certified for enterprise production.
+
 InvestiNator is a working **local DataOps demo** for the orders pipeline. The UI connects to a FastAPI service, PostgreSQL, Kafka, Prometheus, and OpenTelemetry. It follows **Observe → Detect → Investigate → Fix → Verify → Learn**. Fault injection and recovery are simulated; the repository does not contain a production remediation executor.
 
 ## Choose the right version
@@ -7,7 +9,7 @@ InvestiNator is a working **local DataOps demo** for the orders pipeline. The UI
 | Version | Open | What it can do |
 | --- | --- | --- |
 | Full local demo | [localhost:3000](http://localhost:3000) | Read stored demo telemetry, create replay runs and incidents, investigate evidence, record approvals, execute an allowlisted simulated recovery, verify it, and read the postmortem. Requires Docker Desktop. |
-| [GitHub Pages UI preview](https://minaadelmarkos.github.io/Enterprise-DataOps-Incident-Resolution-Copilot/) | Public website | Explore the same visual system with synthetic, fixed data. Scenario, approval, recovery, verification, search, topology, and scripted chat interactions stay in the browser. It has no API, database, live telemetry, model call, or external action. |
+| [GitHub Pages UI preview](https://minaadelmarkos.github.io/Investinator-Enterprise-DataOps-Incident-Resolution/) | Public website | Explore the same visual system with synthetic, fixed data. Scenario, approval, recovery, verification, search, topology, and scripted chat interactions stay in the browser. It has no API, database, live telemetry, model call, or external action. |
 
 The public preview labels itself **PUBLIC UI PREVIEW / SYNTHETIC DATA**. Do not use its readings as operational facts. GitHub Pages serves static files and cannot run the FastAPI, Kafka, or PostgreSQL parts of this repository.
 

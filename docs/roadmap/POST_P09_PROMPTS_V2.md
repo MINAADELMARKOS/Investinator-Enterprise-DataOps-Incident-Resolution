@@ -1,5 +1,7 @@
 # InvestiNator — version 2 prompt chain after Prompt 09
 
+> Historical target/execution baseline. Java is now published; current checked-in architecture, completed-stage evidence and production blockers are in [the handover](../handover/README.md) and [STATE](../implementation/STATE.md). Original authoring-time status is retained below. No automatic cutover is authorized.
+
 **Version:** v2.0, 2026-11-17. **Purpose:** Coding-agent instructions for the Java architecture transition **after user-reported local completion of Prompts 03–09**.
 
 **Historical handoff, superseded by current source state:** See [Java Architecture v2](JAVA_AI_ARCHITECTURE_V2.md) and [worktree synchronization](SYNC_JAVA_WORKTREE.md). The initial post-P09 instructions below were authored before the Java feature work appeared remotely. As of 2026-11-18 the Java baseline is in `main` via PR #6; Prompts 10–14 are pushed to `feature/java-ai-audit` with CI success, not yet merged. **Do not rerun 09A–14 blindly.** Continue with [post-P14 audit](POST_P14_GAP_AUDIT_2026-11-18.md) and [consolidated Prompt 14B](PROMPT_14B_SINGLE_REMEDIATION_AND_PUSH.md).

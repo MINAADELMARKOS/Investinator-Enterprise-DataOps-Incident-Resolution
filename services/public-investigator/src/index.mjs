@@ -21,8 +21,13 @@ const cors = (origin, env) => {
 function strip(text, max) {
   return asString(text).replace(/[\u0000-\u001f\u007f]/g, " ").trim().slice(0,max);
 }
+function costOptIn(env) {
+  return env.OPENAI_ENABLED === "true" && env.OPENAI_PAID_OPT_IN === "true" &&
+    env.OPENAI_COST_APPROVED === "true" && env.MODEL_TRANSFER_APPROVED === "true" &&
+    /^[A-Za-z0-9_.:-]{6,200}$/.test(asString(env.OPENAI_APPROVAL_REF));
+}
 function configReady(env) {
-  return Boolean(asString(env.OPENAI_API_KEY)&&asString(env.OPENAI_MODEL)&&asString(env.TURNSTILE_SECRET)&&asString(env.TURNSTILE_SITE_KEY)&&asString(env.QUOTA_SALT)&&env.PUBLIC_QUOTA);
+  return costOptIn(env) && Boolean(asString(env.OPENAI_API_KEY)&&asString(env.OPENAI_MODEL)&&asString(env.TURNSTILE_SECRET)&&asString(env.TURNSTILE_SITE_KEY)&&asString(env.QUOTA_SALT)&&env.PUBLIC_QUOTA);
 }
 async function clientKey(request,env) {
   const ip=request.headers.get("CF-Connecting-IP")||"unknown";
@@ -96,6 +101,26 @@ export class PublicQuota {
   }
 }
 
+class BodyLimit extends Error {}
+async function boundedText(request) {
+  if (!request.body) return "";
+  const reader = request.body.getReader(), chunks = [];
+  let total = 0;
+  try {
+    while (true) {
+      const {done,value} = await reader.read();
+      if (done) break;
+      total += value.byteLength;
+      if (total > MAX_BODY) { await reader.cancel(); throw new BodyLimit(); }
+      chunks.push(value);
+    }
+  } finally { reader.releaseLock(); }
+  const bytes = new Uint8Array(total);
+  let offset = 0;
+  for (const chunk of chunks) { bytes.set(chunk,offset); offset += chunk.byteLength; }
+  return new TextDecoder("utf-8",{fatal:true}).decode(bytes);
+}
+
 async function handler(request,env) {
   const url=new URL(request.url);
   const allowed=env.PUBLIC_ORIGIN||PUBLIC_ORIGIN;
@@ -104,7 +129,7 @@ async function handler(request,env) {
   if(url.pathname==="/health"&&request.method==="GET"){
     // Only the public origin receives widget configuration. Do not disclose secret values or quota state.
     if(!headers)return json({error:"Forbidden origin"},403);
-    return json({ready:configReady(env),mode:"PUBLIC_READ_ONLY_RAG",site_key:configReady(env)?env.TURNSTILE_SITE_KEY:null,source:"PUBLIC_CURATED_AND_SIMULATED"},200,headers);
+    return json({ready:configReady(env),configuration_only:true,provider_validation:"NOT_TESTED",mode:"PUBLIC_READ_ONLY_RAG",site_key:configReady(env)?env.TURNSTILE_SITE_KEY:null,source:"PUBLIC_CURATED_AND_SIMULATED"},200,headers);
   }
   if(url.pathname!=="/chat")return json({error:"Not found"},404,headers||{});
   if(!headers)return json({error:"Origin forbidden"},403);
@@ -114,8 +139,7 @@ async function handler(request,env) {
   if(!request.headers.get("Content-Type")?.toLowerCase().startsWith("application/json"))return json({error:"JSON body required"},415,headers);
   if(Number(request.headers.get("Content-Length")||0)>MAX_BODY)return json({error:"Request too large"},413,headers);
   let raw;
-  try {raw=await request.text();} catch {return json({error:"Invalid body"},400,headers);}
-  if(new TextEncoder().encode(raw).length>MAX_BODY)return json({error:"Request too large"},413,headers);
+  try {raw=await boundedText(request);} catch(error) {return json({error:error instanceof BodyLimit?"Request too large":"Invalid body encoding",status:"REQUEST_REJECTED"},error instanceof BodyLimit?413:422,headers);}
   let body;
   try {body=JSON.parse(raw);} catch {return json({error:"Malformed JSON"},400,headers);}
   let context;

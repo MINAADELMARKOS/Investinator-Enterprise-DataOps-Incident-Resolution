@@ -30,15 +30,24 @@ public class ChatGateway {
         Return the required structured JSON. A remediation proposal is advice requiring independent authorization, never execution.
         """;
     private final ObjectProvider<OpenAIClient> clients;private final ReadTools tools;private final Environment env;private final StateCipher cipher;
+    private com.investinator.model.ProviderBudget budget;
     private final Semaphore active=new Semaphore(2);private final AtomicInteger failures=new AtomicInteger();private volatile long circuitUntil;
     private final Map<String,ArrayDeque<Long>> rates=new java.util.concurrent.ConcurrentHashMap<>();
     private boolean admitRate(String tenant){var queue=rates.computeIfAbsent(tenant,k->new ArrayDeque<>());long now=System.nanoTime();synchronized(queue){while(!queue.isEmpty()&&now-queue.getFirst()>Duration.ofMinutes(1).toNanos())queue.removeFirst();int max=Math.min(120,Math.max(1,env.getProperty("investinator.openai.max-turns-per-minute",Integer.class,20)));if(queue.size()>=max)return false;queue.addLast(now);return true;}}
     private static final com.fasterxml.jackson.databind.ObjectMapper STRICT=new com.fasterxml.jackson.databind.ObjectMapper().enable(com.fasterxml.jackson.core.JsonParser.Feature.STRICT_DUPLICATE_DETECTION);
     public ChatGateway(ObjectProvider<OpenAIClient> clients,ReadTools tools,Environment env,StateCipher cipher){this.clients=clients;this.tools=tools;this.env=env;this.cipher=cipher;}
+    @org.springframework.beans.factory.annotation.Autowired
+    public ChatGateway(ObjectProvider<OpenAIClient> clients,ReadTools tools,Environment env,StateCipher cipher,com.investinator.model.ProviderBudget budget){this(clients,tools,env,cipher);this.budget=budget;}
+    public String providerSource(){return com.investinator.model.ProviderClients.fixtureEndpoint(env)?"MOCKED_PROVIDER":"CONFIGURED_PROVIDER";}
     public String configurationStatus(){return env.getProperty("investinator.openai.enabled",Boolean.class,false)&&clients.getIfAvailable()!=null&&cipher.configured()?"NOT_TESTED":"NOT_CONFIGURED";}
     public Result turn(ReadTools.Context context,String question,String mode,String severity,List<Map<String,Object>> history,List<ResponseInputItem> previous,String fallback) {
         String base=env.getProperty("investinator.openai.model","");boolean enabled=env.getProperty("investinator.openai.enabled",Boolean.class,false);var client=clients.getIfAvailable();
         if(!enabled||client==null||base.isBlank()||!cipher.configured())return fallback("NOT_CONFIGURED",fallback,List.of(),0,0,0,base);
+        if(!com.investinator.model.ProviderClients.fixtureEndpoint(env)){
+            var transfer=com.investinator.security.DataUsePolicy.modelTransfer(env.getProperty("INVESTINATOR_MODEL_TRANSFER_APPROVED",Boolean.class,false),env.getProperty("INVESTINATOR_MODEL_DATA_CLASS","UNKNOWN"),context.sourceMode);
+            if(!transfer.allowed())return fallback(transfer.reason(),fallback,List.of(),0,0,0,base);
+        }
+        if(!com.investinator.model.ProviderClients.fixtureEndpoint(env)&&(budget==null||!budget.configured()))return fallback("BUDGET_NOT_CONFIGURED",fallback,List.of(),0,0,0,base);
         if(System.nanoTime()<circuitUntil)return fallback("CIRCUIT_OPEN",fallback,List.of(),0,0,0,base);
         if(!admitRate(context.tenant))return fallback("RATE_BUDGET_EXCEEDED",fallback,List.of(),0,0,0,base);
         if(!active.tryAcquire())return fallback("SATURATED",fallback,List.of(),0,0,0,base);
@@ -58,8 +67,18 @@ public class ChatGateway {
                 long remaining=deadline-System.nanoTime();if(remaining<=0)throw new Limit("TIME_BUDGET_EXCEEDED");
                 if((instructions+serialize(items)).getBytes(java.nio.charset.StandardCharsets.UTF_8).length>inputLimit)throw new Limit("CONTEXT_BUDGET_EXCEEDED");
                 var params=ResponseCreateParams.builder().model(model).instructions(instructions).inputOfResponse(items).store(false).addInclude(ResponseIncludable.REASONING_ENCRYPTED_CONTENT).maxOutputTokens(outputLimit).parallelToolCalls(false).text(format());
-                tools.definitions().forEach(params::addTool);requests++;
-                var response=client.responses().create(params.build(),RequestOptions.builder().timeout(Duration.ofNanos(Math.min(remaining,Duration.ofSeconds(8).toNanos()))).build());
+                tools.definitions().forEach(params::addTool);
+                com.investinator.model.ProviderBudget.Reservation reservation=null;
+                if(!com.investinator.model.ProviderClients.fixtureEndpoint(env)){
+                    // Bound request text tokens with UTF-8 bytes, fixed tool schemas and framing allowance.
+                    int bound=(instructions+serialize(items)+encode(tools.definitions())).getBytes(java.nio.charset.StandardCharsets.UTF_8).length+4096;
+                    reservation=budget.reserve(context.tenant,model,bound,outputLimit);
+                }
+                requests++;
+                com.openai.models.responses.Response response;
+                try{response=client.responses().create(params.build(),RequestOptions.builder().timeout(Duration.ofNanos(Math.min(remaining,Duration.ofSeconds(8).toNanos()))).build());}
+                catch(Exception failure){if(reservation!=null)budget.reconcile(context.tenant,reservation.id(),null,null);throw failure;}
+                if(reservation!=null)budget.reconcile(context.tenant,reservation.id(),response.usage().isPresent()?response.usage().get().inputTokens():null,response.usage().isPresent()?response.usage().get().outputTokens():null);
                 if(response.usage().isPresent()){inputTokens+=Math.toIntExact(response.usage().get().inputTokens());outputTokens+=Math.toIntExact(response.usage().get().outputTokens());}
                 if(!response.status().map(s->s.toString().equals("completed")).orElse(false)||response.error().isPresent())throw new Limit("INCOMPLETE_RESPONSE");
                 var calls=new ArrayList<ResponseFunctionToolCall>();var text=new StringBuilder();
@@ -85,7 +104,7 @@ public class ChatGateway {
             }
             throw new Limit("REQUEST_BUDGET_EXCEEDED");
         }catch(Exception error) {
-            String kind=error instanceof Limit limit?limit.kind:classify(error);
+            String kind=error instanceof Limit limit?limit.kind:error instanceof com.investinator.api.ApiFailure&&Set.of("BUDGET_NOT_CONFIGURED","PRICE_OR_APPROVAL_UNKNOWN","GLOBAL_OR_TENANT_BUDGET_UNKNOWN","MONEY_BUDGET_EXCEEDED","BUDGET_BOUND_EXCEEDED").contains(error.getMessage())?error.getMessage():classify(error);
             if(!Set.of("CONTEXT_BUDGET_EXCEEDED","TOOL_BUDGET_EXCEEDED","REQUEST_BUDGET_EXCEEDED","UNSUPPORTED_CITATION","POLICY_VIOLATION").contains(kind)&&failures.incrementAndGet()>=3){circuitUntil=System.nanoTime()+Duration.ofSeconds(30).toNanos();failures.set(0);}
             return fallback(kind,fallback,trace,requests,inputTokens,outputTokens,model);
         }finally{active.release();}

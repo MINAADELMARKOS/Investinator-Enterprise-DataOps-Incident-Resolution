@@ -1,0 +1,51 @@
+{
+  "run_id": "44425318558",
+  "url": "https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/actions/runs/44425318558",
+  "observed_at": "2026-11-19T00:17:02.912342+00:00",
+  "method": "Public GitHub HTML status; authenticated logs unavailable due API destination policy",
+  "jobs": [
+    {
+      "job": "backend",
+      "url": "https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/actions/runs/44425318558/job/135228546984",
+      "status": "completed successfully"
+    },
+    {
+      "job": "frontend",
+      "url": "https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/actions/runs/44425318558/job/135228547049",
+      "status": "completed successfully"
+    },
+    {
+      "job": "showcase",
+      "url": "https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/actions/runs/44425318558/job/135228547105",
+      "status": "completed successfully"
+    },
+    {
+      "job": "public-investigator",
+      "url": "https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/actions/runs/44425318558/job/135228546739",
+      "status": "completed successfully"
+    },
+    {
+      "job": "java-scaffold",
+      "url": "https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/actions/runs/44425318558/job/135228547204",
+      "status": "completed successfully"
+    },
+    {
+      "job": "local-e2e",
+      "url": "https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/actions/runs/44425318558/job/135228547036",
+      "status": "completed successfully"
+    },
+    {
+      "job": "dependency-security",
+      "url": "https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/actions/runs/44425318558/job/135228547033",
+      "status": "completed successfully"
+    }
+  ],
+  "commit_sha": "32069f2ae558637ee4fde6674e9a1bbc2fb8aaea",
+  "commit_verified_from_public_run_page": true,
+  "authenticated_logs_downloaded": false,
+  "scope": "First implementation checkpoint; later public rendered-chat regression is tested locally and requires its own final-head CI",
+  "security_annotations": [
+    "PASS; resolved_packages=234; findings=0",
+    "PASS; resolved_packages=233; findings=0"
+  ]
+}

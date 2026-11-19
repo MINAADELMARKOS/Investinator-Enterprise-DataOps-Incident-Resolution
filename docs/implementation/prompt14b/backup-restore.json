@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "provenance": "actual owned PostgreSQL schema dump and disposable restore; SIMULATED demo data",
+  "tables_verified": 41,
+  "rows_verified": 1120,
+  "backup_sha256": "a59d9f2ed3eff481477be0781f57918e03db8ae286382e0c646879a157b05fa5",
+  "isolated_fixture_elapsed_seconds": 21.156,
+  "source_writes": 0,
+  "separate_public_owner_preserved": true,
+  "schema_content_equal": true,
+  "production_rto": "NOT_MEASURED",
+  "production_rpo": "NOT_MEASURED",
+  "encrypted_offsite_backup": "NOT_IMPLEMENTED",
+  "temporary_backup_removed": true
+}

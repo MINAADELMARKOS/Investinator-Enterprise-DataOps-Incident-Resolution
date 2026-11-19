@@ -1,5 +1,7 @@
 # Demo walkthrough
 
+> **Scope/current status:** This is the preserved default Python demo. The current Java causal-investigation plus separately governed disk recovery presentation is [here](handover/DEMO.md). Both remain local simulations; actual GPT requires approved configuration/budget and is separate from telemetry source.
+
 1. Run `docker compose up --build -d` and wait until `docker compose ps` shows API and database healthy.
 2. Open `http://localhost:3000` and confirm Command Center labels the view as simulated demo. Open Integrations to check Kafka's actual broker status.
 3. Open ReplayLab and start Kafka broker disk pressure. Inspect the returned incident in Incident Room, its evidence list, five alerts, and NerveMap blast radius.

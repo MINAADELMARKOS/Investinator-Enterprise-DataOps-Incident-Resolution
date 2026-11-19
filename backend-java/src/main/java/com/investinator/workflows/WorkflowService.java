@@ -140,7 +140,9 @@ public class WorkflowService {
         audit(tenant,"replay_started",incident,"system",obj("scenario",scenario,"run_id",run));
         return obj("id",run,"scenario",scenario,"status","awaiting_approval","incident_id",incident,"mode","simulated","steps",steps);
     }
+    private void guarded(String tenant,String incident){if(db.jdbc.queryForObject("select count(*) from remediation_plans where tenant_id=? and incident_id=?",Integer.class,tenant,incident)>0)throw new ApiFailure(403,"Use the governed remediation approval/execution/verification boundary for this incident");}
     public Map<String,Object> approval(String tenant,String incidentId,String actionId,ApprovalDecision decision) {
+        guarded(tenant,incidentId);
         var item=incident(tenant,incidentId);var action=action(item,actionId);
         if(!action.requires_approval||action.status!=ActionStatus.proposed)throw new ApiFailure(409,"Action is not awaiting approval");
         action.status=decision.decision().equals("approve")?ActionStatus.approved:ActionStatus.rejected;
@@ -155,6 +157,7 @@ public class WorkflowService {
     }
     private RecoveryAction action(Incident incident,String id){return incident.recovery_actions.stream().filter(a->a.id.equals(id)).findFirst().orElseThrow(()->new ApiFailure(404,"Action not found"));}
     public Map<String,Object> verify(String tenant,String incidentId) {
+        guarded(tenant,incidentId);
         var replay=db.select(Table.REPLAY_RUNS,tenant,"incident_id=?",incidentId);
         var item=incident(tenant,incidentId);
         if(replay.isEmpty())throw new ApiFailure(409,"No verification adapter is configured for this incident");
@@ -173,6 +176,7 @@ public class WorkflowService {
         return obj("incident_id",item.incident_id,"passed",passed,"checks",checks,"status",item.status);
     }
     public Map<String,Object> execute(String tenant,String incidentId,String actionId) {
+        guarded(tenant,incidentId);
         var item=incident(tenant,incidentId);
         if(!actionId.equals("ACT-DEMO"))throw new ApiFailure(403,"Only the allowlisted ReplayLab recovery can execute");
         var action=item.recovery_actions.stream().filter(a->a.id.equals(actionId)).findFirst().orElse(null);

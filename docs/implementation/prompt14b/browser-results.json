@@ -1,0 +1,79 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "anonymous boundaries",
+      "result": "PASS",
+      "provenance": "LIVE_LOCAL_TRANSPORT / SIMULATED_DATA"
+    },
+    {
+      "name": "viewer role and CSRF boundaries",
+      "result": "PASS",
+      "provenance": "LIVE_LOCAL_TRANSPORT / SIMULATED_DATA"
+    },
+    {
+      "name": "native health rendering",
+      "result": "PASS",
+      "provenance": "LIVE_LOCAL_TRANSPORT / SIMULATED_DATA"
+    },
+    {
+      "name": "unavailable diagnostics preserve uncertainty",
+      "result": "PASS",
+      "provenance": "MOCKED_BROWSER_OUTAGE"
+    },
+    {
+      "name": "general chat and safe message rendering",
+      "result": "PASS",
+      "provenance": "LIVE_LOCAL_TRANSPORT / SIMULATED_DATA"
+    },
+    {
+      "name": "browser bundle secret isolation",
+      "result": "PASS",
+      "provenance": "LIVE_LOCAL_TRANSPORT / SIMULATED_DATA"
+    },
+    {
+      "name": "stale conversation",
+      "result": "PASS",
+      "provenance": "LIVE_LOCAL_TRANSPORT / SIMULATED_DATA"
+    },
+    {
+      "name": "incident chat evidence and history",
+      "result": "PASS",
+      "provenance": "LIVE_LOCAL_TRANSPORT / SIMULATED_DATA"
+    },
+    {
+      "name": "actual monitor controls",
+      "result": "PASS",
+      "provenance": "LIVE_LOCAL_TRANSPORT / SIMULATED_DATA"
+    },
+    {
+      "name": "bound incident graph and uncertainty",
+      "result": "PASS",
+      "provenance": "LIVE_LOCAL_TRANSPORT / SIMULATED_DATA"
+    },
+    {
+      "name": "distinct demo capabilities and independent verification",
+      "result": "PASS",
+      "provenance": "LIVE_LOCAL_TRANSPORT / SIMULATED_DATA"
+    },
+    {
+      "name": "separate named rollback with independent sample",
+      "result": "PASS",
+      "provenance": "LIVE_LOCAL_TRANSPORT / SIMULATED_DATA"
+    },
+    {
+      "name": "tampered cookie",
+      "result": "PASS",
+      "provenance": "LIVE_LOCAL_TRANSPORT / SIMULATED_DATA"
+    },
+    {
+      "name": "actual default Python browser compatibility",
+      "result": "PASS",
+      "provenance": "LIVE_LOCAL_TRANSPORT / SIMULATED_DATA"
+    }
+  ],
+  "paid_provider_calls": 0,
+  "production_actions": 0,
+  "enterprise_identity": "NOT_CERTIFIED",
+  "python_browser": "PASS"
+}

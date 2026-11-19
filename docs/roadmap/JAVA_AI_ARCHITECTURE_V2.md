@@ -1,6 +1,12 @@
 # InvestiNator architecture v2 — post-Prompt 09 target
 
-**Architecture baseline:** 2026-11-17. **Historical design contract.** **Current verification update (2026-11-18):** the Java baseline through Prompt 09 was merged into `main` via PR #6; newer Prompt 10–14 work is pushed to `feature/java-ai-audit` and has green feature-branch CI, but is **not yet merged into main**. Production remains BLOCKED. See [post-P14 audit](POST_P14_GAP_AUDIT_2026-11-18.md) and [Prompt 14B](PROMPT_14B_SINGLE_REMEDIATION_AND_PUSH.md).
+> Historical target/execution baseline. Java is now published; current checked-in architecture, completed-stage evidence and production blockers are in [the handover](../handover/README.md) and [STATE](../implementation/STATE.md). Original authoring-time status is retained below. No automatic cutover is authorized.
+
+**Architecture baseline:** 2026-11-17. **Status:** target architecture and user-reported local implementation, **not a statement that Java code is already pushed**. This document is a design contract for the remaining phases.
+
+Current reconciliation: the published [post-P14 audit](POST_P14_GAP_AUDIT_2026-11-18.md)
+and [Prompt 14B](PROMPT_14B_SINGLE_REMEDIATION_AND_PUSH.md) supplement this historical design.
+Production remains BLOCKED; the newer Prompt 15 handover is preserved.
 
 ## Source-of-truth and verification labels
 

@@ -1,0 +1,80 @@
+{
+  "source_sha": "1ca09a1ace415afeee2f64d00cd00ababde480e9",
+  "source_mode": "SIMULATED",
+  "transport": "LIVE_LOCAL_POSTGRESQL_OPENSEARCH_BM25",
+  "cases": [
+    {
+      "id": "kafka-kraft",
+      "status": "DEGRADED",
+      "partial": true,
+      "rejected": 2,
+      "returned": [
+        "review-kafka-kraft",
+        "review-healthy-false-positive"
+      ]
+    },
+    {
+      "id": "legacy-zookeeper",
+      "status": "DEGRADED",
+      "partial": true,
+      "rejected": 1,
+      "returned": [
+        "review-legacy-zookeeper"
+      ]
+    },
+    {
+      "id": "hdfs-ha",
+      "status": "DEGRADED",
+      "partial": true,
+      "rejected": 1,
+      "returned": [
+        "review-hdfs-ha"
+      ]
+    },
+    {
+      "id": "kudu-tablet",
+      "status": "DEGRADED",
+      "partial": true,
+      "rejected": 1,
+      "returned": [
+        "review-kudu-tablet"
+      ]
+    },
+    {
+      "id": "nifi-backpressure",
+      "status": "DEGRADED",
+      "partial": true,
+      "rejected": 1,
+      "returned": [
+        "review-nifi-backpressure"
+      ]
+    },
+    {
+      "id": "spark-oom",
+      "status": "DEGRADED",
+      "partial": true,
+      "rejected": 1,
+      "returned": [
+        "review-spark-oom"
+      ]
+    },
+    {
+      "id": "hive-metadata",
+      "status": "DEGRADED",
+      "partial": true,
+      "rejected": 1,
+      "returned": [
+        "review-hive-metadata"
+      ]
+    },
+    {
+      "id": "healthy-false-positive",
+      "status": "DEGRADED",
+      "partial": true,
+      "rejected": 1,
+      "returned": [
+        "review-healthy-false-positive"
+      ]
+    }
+  ]
+}

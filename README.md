@@ -1,47 +1,117 @@
-# InvestiNator — AI DataOps Incident Investigation Copilot
+# InvestiNator — distributed-systems incident investigation
 
-**AI-powered DataOps Observability, Investigation & Controlled Remediation**
+InvestiNator connects incident symptoms with inspectable logs, metrics, dependency
+history and competing root-cause hypotheses. It has a Java 21/Spring Boot modular
+monolith, the preserved Python/FastAPI backend and the existing Next.js interface.
+**This is a verified local laboratory, not a production-ready service.**
 
-See the signal. Find the cause. Fix with confidence.
+Java work is published on `feature/java-ai-audit`; earlier Java migration reached
+main through owner-merged PR #6. Python remains the default backend. Only the
+explicitly owned Java lab selects Java. Production identity, private connector
+certification, independent AI-quality review and release hardening remain blocked.
+See the [handover](docs/handover/README.md), [build/status matrix](docs/handover/STATUS_MATRIX.md), [post-P14 audit](docs/roadmap/POST_P14_GAP_AUDIT_2026-11-18.md),
+[Prompt 14B scope](docs/roadmap/PROMPT_14B_SINGLE_REMEDIATION_AND_PUSH.md)
+and [production release gates](docs/implementation/prompt14/RELEASE_RISKS.json).
 
-**Observe → Detect → Investigate → Fix → Verify → Learn**
+## Prompt 14B engineering checkpoint
 
-InvestiNator follows a signal across infrastructure, pipelines, and datasets, gathers inspectable evidence, proposes a recovery path, records human approval, and verifies symptoms before closing an incident. This repository is a working **local demo foundation** for that loop, centered on an orders pipeline. It is not a production monitoring or remediation service.
+Bounded current-revision retrieval, disabled native provenance/certification contracts,
+strict temporal hysteresis, redacted audit export, durable Java budget reservations,
+explicit mock/unknown UI metadata, default-deny data use, disposable WAL recovery and
+bounded workload/SBOM evidence are in the [14B report](docs/implementation/prompt14b/REPORT.md).
+Production remains BLOCKED. Actual paid calls by this work: zero. Topic hosted CI
+and release-owner decisions are separate from local test success.
 
-| Capability | What runs today | Boundary |
-| --- | --- | --- |
-| Telemetry and Pulse | API ingestion, seeded metrics/logs/events, threshold alerts, Prometheus API scrape, optional OpenTelemetry HTTP traces | ReplayLab fault signals are simulated; no live Spark, HDFS, NiFi, or Kudu connector |
-| Kafka | Real local producer, consumer, and read-only broker health in Compose | Broker disk pressure and lag failure scenarios are injected demo signals |
-| Correlation and NerveMap | Persistent topology, correlated alerts, incident evidence, blast radius, dataset freshness | Seed lineage graph; no automatic discovery |
-| Investigator and memory | Read-only tool registry, saved multi-turn chat, real GPT Responses tool-calling when configured, plus deterministic fallback | Requires an OpenAI API key and configured model; source metrics can still be simulated |
-| Fix and verification | Deterministic policy, recorded approvals, one allowlisted simulated recovery, metric-based verification, audit trail | No production shell or infrastructure write executor |
-| ReplayLab and evaluation | Three replay scenarios, saved run/evaluation records, offline regression dataset | Scenario results describe demo behavior only |
-| Interface | Next.js Command Center, Pulse, Incident Room, Investigator, NerveMap, ReplayLab, Approvals, Knowledge, AI Observability and more | Demo identity is fixed server-side; OIDC/RBAC is not implemented |
+## One-command Java laboratory
 
-For a **real GPT-backed local chatbot** and optional Elasticsearch log retrieval, follow the [Live Investigator setup](docs/live-investigator.md). The public GitHub Pages UI is a static preview, not an API-connected live demo.
+Prerequisites: local Docker Engine/Desktop with Compose v2, Python 3.11+, a **JDK
+21**, Node 22.6+ and npm; allow at least 6 GiB free RAM and 10 GiB disk for one lab.
+Initial setup needs package/image network access. Linux is verified; native Windows
+wrapper availability is not a Windows certification. From a clean feature checkout:
 
-The dark interface uses a shared [cyberpunk design system](docs/design-system.md) with accessible neon controls, terminal panels, and responsive layouts.
+```bash
+git checkout feature/java-ai-audit
+INVESTINATOR_MONITOR_ENABLED=true ./investinator up
+```
 
-Explore the [public GitHub Pages UI preview](https://minaadelmarkos.github.io/Investinator-Enterprise-DataOps-Incident-Resolution/) with synthetic data, or follow the [detailed user guide](docs/user-guide.md) to run the complete API-backed demo locally. The preview source and deployment workflow live in `apps/showcase` and `.github/workflows/pages.yml`.
+This builds and starts PostgreSQL, authenticated OpenSearch, Kafka KRaft, collector,
+forwarder, Prometheus, Java and Next. It preserves data on repeated up. Defaults:
+[UI](http://127.0.0.1:13000), [Java liveness](http://127.0.0.1:18081/actuator/health/liveness),
+[Prometheus](http://127.0.0.1:19090). Ports bind loopback. Select alternate LAB_* ports
+**before first setup** if occupied. Private generated credentials and ownership live
+in ignored `.runtime/lab.json`; never commit, paste or project that file.
 
+Open `/operator/login` and use the private credential for the selected demo role.
+The health view distinguishes actual local probes from SIMULATED incident data;
+missing optional services remain NOT_CONFIGURED. Model configuration is independent
+of telemetry source. A visible SIMULATED DEMO banner does not turn GPT into a mock.
 
-## Engineering evidence
+```bash
+./investinator doctor
+./investinator health --all
+./investinator demo kafka-kraft
+./investinator investigate kafka-kraft
+./investinator smoke
+./investinator logs api
+./investinator restart api
+./investinator down
+```
 
-- **Author:** [Mina Markos](https://minaadelmarkos.github.io/MinaMarkos/). See the [architecture](docs/architecture.md) for the service and evidence flow.
-- **Reproduce a case:** Run the documented [Kafka disk-pressure replay](docs/user-guide.md) with synthetic orders. The [API smoke script](scripts/smoke_demo.py) exercises investigation, approval and verification.
-- **Evaluate safely:** The [offline fixtures](eval/test_incidents.jsonl) and [workflow tests](tests/test_workflow.py) cover demo behavior. Use the [security notes](docs/security.md) to understand the demo identity and remediation boundaries.
+`doctor` and health are read-only diagnostics. `smoke` performs approved **simulated**
+workflow writes. `restart api` can restart only the owned Java container. `down`
+removes containers/network and **retains volumes**. Only an explicitly intended
+`./investinator reset-demo --confirm-destroy-demo-data` erases owned demo volumes.
+Do not use generic volume deletion as troubleshooting. Preserve runtime credentials
+with their data. See [operations/config/troubleshooting](docs/handover/OPERATIONS.md).
 
-## Java AI architecture — next implementation stages
+## Presentation and provider configuration
 
-The Java 21 / Spring Boot foundation from Prompts 02–09 was merged into `main` through PR #6. Later Java monitoring, governed ReplayLab remediation, opt-in Next.js operator workflows, E2E lab and security hardening through Prompt 14 are **pushed to `feature/java-ai-audit` but are not yet merged into `main`**. Python/FastAPI remains the default backend; Java uses its own Flyway schema and opt-in routing. Production release remains **BLOCKED** by the documented security and certification requirements.
+Follow the [presentation script](docs/handover/DEMO.md) for causal KRaft/network
+investigation and a **separate** governed disk ReplayLab recovery. No network
+remediation executor exists. Planner, approver, executor and verifier capabilities
+are separate demo roles, not proof of independent people. Executor acknowledgement
+cannot resolve an incident without independently sampled simulator post-state.
 
-- [Five-layer Java architecture v2](docs/roadmap/JAVA_AI_ARCHITECTURE_V2.md): Infrastructure, Model, Platform, Agent, Application, including verified-vs-reported status.
-- [Version 2 execution prompts (09A–16)](docs/roadmap/POST_P09_PROMPTS_V2.md): Sync and evaluation first, then monitoring, remediation, frontend, E2E, security, handover and optional cutover.
-- [Prompt 10–14 gap audit and current remote evidence](docs/roadmap/POST_P14_GAP_AUDIT_2026-11-18.md): what has passed, what remains blocked, and where to verify it.
-- [Consolidated Prompt 14B — remediation, full verification and push](docs/roadmap/PROMPT_14B_SINGLE_REMEDIATION_AND_PUSH.md): one coding-agent instruction to close code-addressable gaps without bypassing production gates.
-- [Historical synchronization of the local Codex Java worktree](docs/roadmap/SYNC_JAVA_WORKTREE.md): recover local commits and incorporate main without force-pushing or deleting work.
+The official OpenAI Responses SDK implements real read-only function calling and
+history when explicitly configured. Without credentials/model it returns a visibly
+labeled deterministic fallback. Current actual GPT validation is NOT_CONFIGURED;
+SDK fixture tests do not prove live model quality. OpenAI API billing is separate
+from a ChatGPT subscription. Only with a valid key, permitted model and independently
+approved test budget and durable quota policy may an operator enable model-backed
+chat. `./investinator ai-check` is a zero-call budget preflight; standalone probes
+(including `--live` intent) cannot bypass the backend reservation ledger. See [provider/billing/preflight](docs/handover/CONFIGURATION.md).
+Never put a key in a browser variable, screenshot, prompt, Git commit or Pages build.
 
-The public Pages experience remains an explicitly synthetic static preview; it does not host the Java API or live GPT connections.
+## Developer verification
+
+```bash
+python3 -m venv .venv
+. .venv/bin/activate  # Linux/bash; use shell-appropriate activation elsewhere.
+python -m pip install --upgrade pip==26.3
+python -m pip install -e '.[dev]'
+./investinator test
+npm ci --prefix apps/web
+npm --prefix apps/web run lint
+npm --prefix apps/web test
+npm --prefix apps/web run build
+npm --prefix apps/web audit --audit-level=high
+pytest -q
+ruff check src tests scripts tests_cli
+mypy src
+```
+
+`./investinator test` runs Maven Verify and CLI tests; it does **not** implicitly run
+frontend/Python/browser suites. For the complete isolated regression after installing
+Playwright Chromium, use `python scripts/verify_e2e_lab.py --outages`. See the
+[developer guide](docs/handover/DEVELOPMENT.md) for JDK profiles, direct Maven commands,
+API/schema inventories, backup restore, test costs and clean-checkout reproduction.
+
+[Hosted CI run 44397526897](https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/actions/runs/44397526897)
+passed all five jobs on `8e41c2c`, including Java/Testcontainers, frontend, Python/CLI,
+full laboratory/restore and dependency security. OSV checked 233 default Maven
+packages with zero findings. This does not certify container OS images, the optional
+shaded Hive driver, enterprise identity, production SLOs or independent AI accuracy.
+[Prompt 14 acceptance](docs/implementation/prompt14/REPORT.md) records scope and limits.
 
 ### Java v2 operator interface on GitHub Pages
 
@@ -61,79 +131,29 @@ The Pages [Investigator](https://minaadelmarkos.github.io/Investinator-Enterpris
 
 - **Offline by default:** Guided answers are deterministic, clearly labeled and incur no model cost.
 - **Live when explicitly configured:** A separately hosted Cloudflare Worker calls the OpenAI Responses API from the server with a curated public troubleshooting reference library, signed Turnstile validation, bounded inputs and durable request quotas. The site never embeds an API secret.
-- **Not fine-tuned:** This is `retrieval-augmented prompting` over reviewed public knowledge, **not** model training on private company logs. The example incident facts are simulated and explicitly marked.
+- **Not fine-tuned:** This is `retrieval-augmented prompting` over developer-curated public references (independent review pending), **not** model training on private company logs. The example incident facts are simulated and explicitly marked.
 - **Read-only:** No production data sources, live Java connector tools, approvals or infrastructure execution are exposed on the public site.
 
-To deploy and connect the gateway, see [Public Investigator Worker setup](services/public-investigator/README.md). Merging frontend code does **not** configure OpenAI, Cloudflare or a public endpoint. The existing private Java/Next.js Investigator continues to be the appropriate path for authenticated real cluster investigations. To use the functional Java operator UI instead, follow the isolated lab's [Prompt 12 operations guide](https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/blob/feature/java-ai-audit/docs/implementation/prompt12/OPERATIONS.md) on `feature/java-ai-audit` until that development work is reviewed and merged.
+To deploy and connect the gateway, see [Public Investigator Worker setup](services/public-investigator/README.md). Merging frontend code does **not** configure OpenAI, Cloudflare or a public endpoint. The private Java/Next.js Investigator remains an opt-in lab; enterprise identity and private-source certification are BLOCKED. To use the functional Java operator UI instead, follow the isolated lab's [Prompt 12 operations guide](https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/blob/feature/java-ai-audit/docs/implementation/prompt12/OPERATIONS.md) on `feature/java-ai-audit` until that development work is reviewed and merged.
 
-## Run the full demo
 
-Requires Docker Desktop with its engine running. From the repository root:
+## Preserved Python runtime and preview boundaries
 
-```bash
-docker compose up --build -d
-```
+`docker compose up --build -d` runs the **Python** demo with Next on port 3000 and
+FastAPI on 8000; it does not perform a Java cutover. That database uses demo trust
+inside its private network, so keep it local. [Python/API guide](docs/user-guide.md)
+and [Python model integration](docs/live-investigator.md) describe that separate path.
+Java Flyway never adopts Python/Alembic schemas. Selecting Python on a Next server
+requires its existing Python API URL; it does not roll back or delete Java data.
 
-Open [InvestiNator](http://localhost:3000), [API docs](http://localhost:8000/docs), and [Prometheus](http://localhost:9090). Run `docker compose ps` to check containers. The Kafka workload creates `orders.events` and continually produces and consumes demo orders. PostgreSQL stores incidents, telemetry, approvals, audit records, and replay results; Alembic applies the schema at API startup. Docker Compose uses a trusted PostgreSQL connection on its private demo network. Do not expose the stack to the internet.
+The [GitHub Pages preview](https://minaadelmarkos.github.io/Investinator-Enterprise-DataOps-Incident-Resolution/)
+contains an explicitly simulated operational showcase (`apps/showcase`). Newer main
+also supplies an optional separate public gateway (`services/public-investigator`);
+its deployment, credentials, budget and actual provider traffic are NOT_VERIFIED here.
+Static preview data does not become live telemetry through that widget. Feature work
+does not publish Pages or deploy the gateway.
+[Design system](docs/design-system.md) · [versioned architecture](docs/handover/ARCHITECTURE.md)
+· [executive brief](docs/handover/EXECUTIVE_BRIEF.md) · [implementation state](docs/implementation/STATE.md).
 
-In ReplayLab, choose **Kafka broker disk pressure** and start a run. Open its Incident Room to review five correlated alerts, evidence, and blast radius. Try **Verify** before recovery to see the failing checks. Approve the named demo action and execute it. The demo adapter writes recovery telemetry and resolves the incident only when thresholds pass. The replay does **not** fill an actual Kafka disk or restart a broker. Other scenarios cover Spark executor pressure and dataset freshness.
-
-Run `python scripts/smoke_demo.py` after the stack starts to exercise the same path through the live API. It creates and resolves one demo incident.
-
-To stop the stack, run `docker compose down`. Add `-v` only when you intend to erase the demo PostgreSQL volume.
-
-## Run backend and frontend separately
-
-Use Python 3.11+ and Node 22+:
-
-```bash
-python -m venv .venv
-# Activate .venv for your shell.
-python -m pip install -e '.[dev]'
-alembic upgrade head
-uvicorn incident_copilot.api:app --app-dir src --reload
-```
-
-The default local database is `investinator.db` (SQLite) and demo identity is enabled. In a second terminal:
-
-```bash
-cd apps/web
-npm ci
-npm run dev
-```
-
-Copy `.env.example` to `.env` to configure optional models or a different database. Environment files are ignored by Git. The web app proxies API calls server-side; the OpenAI key stays in the API environment.
-
-## Optional Java backend
-
-The Java 21 / Spring Boot service is an **opt-in** implementation with its own persistence and governed local ReplayLab. See [Java setup and smoke checks](backend-java/README.md), [normalized evidence lab](infra/evidence/README.md), and [current Prompt 14 status](docs/roadmap/POST_P14_GAP_AUDIT_2026-11-18.md). The normal Compose flow and Python default remain supported. Do not enable Java production routing or enterprise actions without a separately reviewed cutover.
-
-## Verify and evaluate
-
-```bash
-pytest -q
-ruff check src tests
-mypy src
-python -m incident_copilot.evaluation eval/test_incidents.jsonl
-cd apps/web && npm ci && npm run build && npm audit --audit-level=high
-```
-
-The offline evaluation checks classification, evidence or explicit uncertainty, and approval requirements. Model quality, retrieval relevance, and live connector behavior require separate evaluations; no offline score is presented as a production accuracy claim.
-
-## API and design
-
-The stable API namespace is `/api/v1`. Useful endpoints include `/platform/health`, `/telemetry/metrics`, `/topology`, `/alerts`, `/incidents`, `/replay/scenarios`, `/replay/runs`, `/integrations/kafka/health`, `/ai/usage`, `/audit`, and `/evaluations`. The API docs list request schemas and action routes. Older V0.2 routes remain as aliases where practical.
-
-See [architecture](docs/architecture.md), [AI design](docs/ai-design.md), [security](docs/security.md), [ReplayLab](docs/replaylab.md), [demo guide](docs/demo.md), [integrations](docs/integrations.md), and [migration plan](docs/migration-plan.md). Source runbooks live in [`runbooks/`](runbooks/).
-
-## Creator
-
-Created by **Mina Adel Markos**, Senior Big Data Engineer. [GitHub](https://github.com/MINAADELMARKOS) · [LinkedIn](https://www.linkedin.com/in/mina-markos-343b8b171).
-
-## Local Java integration operations
-
-Run `./investinator up && ./investinator doctor && ./investinator smoke` for the
-isolated Java/PostgreSQL/Kafka/search/telemetry/Next.js lab. Windows uses
-`./investinator.ps1`. See [operations](docs/operations.md) for prerequisites,
-JSON health reports, safe teardown and explicit demo reset. This optional profile
-preserves the existing Python deployment; local samples remain SIMULATED.
+Created by **Mina Adel Markos**, Senior Big Data Engineer.
+[GitHub](https://github.com/MINAADELMARKOS) · [LinkedIn](https://www.linkedin.com/in/mina-markos-343b8b171).

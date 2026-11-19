@@ -1,0 +1,383 @@
+{
+  "tenant_id": "demo",
+  "rows": [
+    {
+      "tenant_id": "demo",
+      "service": "spark",
+      "protocol": "HTTPS GET",
+      "version_contract": "Spark monitoring REST v1, Spark 3.x/4.x",
+      "auth_contract": "Bearer, Basic, JVM mTLS or SPNEGO",
+      "supported_read_capabilities": [
+        "config",
+        "health",
+        "metadata",
+        "metrics",
+        "readOnlyChecks"
+      ],
+      "health": "NOT_CONFIGURED",
+      "transport_source_mode": "NOT_CONFIGURED",
+      "data_source_mode": "UNKNOWN",
+      "observed_version": "UNKNOWN",
+      "enterprise_status": "NOT_CONFIGURED",
+      "native_ingestion_authorized": false,
+      "required_external_evidence": [
+        "representative target and exact version/mode",
+        "TLS trust and hostname verification",
+        "Kerberos/SPNEGO/mTLS identity and rotation",
+        "denied writes and foreign tenant/source reads",
+        "independent integration/security owner review"
+      ]
+    },
+    {
+      "tenant_id": "demo",
+      "service": "yarn",
+      "protocol": "HTTPS GET",
+      "version_contract": "Hadoop 3.x",
+      "auth_contract": "Bearer, Basic, JVM mTLS or SPNEGO",
+      "supported_read_capabilities": [
+        "config",
+        "health",
+        "metadata",
+        "metrics",
+        "readOnlyChecks"
+      ],
+      "health": "NOT_CONFIGURED",
+      "transport_source_mode": "NOT_CONFIGURED",
+      "data_source_mode": "UNKNOWN",
+      "observed_version": "UNKNOWN",
+      "enterprise_status": "NOT_CONFIGURED",
+      "native_ingestion_authorized": false,
+      "required_external_evidence": [
+        "representative target and exact version/mode",
+        "TLS trust and hostname verification",
+        "Kerberos/SPNEGO/mTLS identity and rotation",
+        "denied writes and foreign tenant/source reads",
+        "independent integration/security owner review"
+      ]
+    },
+    {
+      "tenant_id": "demo",
+      "service": "hdfs",
+      "protocol": "HTTPS GET",
+      "version_contract": "Hadoop 3.x",
+      "auth_contract": "Bearer, Basic, JVM mTLS or SPNEGO",
+      "supported_read_capabilities": [
+        "config",
+        "health",
+        "metadata",
+        "metrics",
+        "readOnlyChecks"
+      ],
+      "health": "NOT_CONFIGURED",
+      "transport_source_mode": "NOT_CONFIGURED",
+      "data_source_mode": "UNKNOWN",
+      "observed_version": "UNKNOWN",
+      "enterprise_status": "NOT_CONFIGURED",
+      "native_ingestion_authorized": false,
+      "required_external_evidence": [
+        "representative target and exact version/mode",
+        "TLS trust and hostname verification",
+        "Kerberos/SPNEGO/mTLS identity and rotation",
+        "denied writes and foreign tenant/source reads",
+        "independent integration/security owner review"
+      ]
+    },
+    {
+      "tenant_id": "demo",
+      "service": "nifi",
+      "protocol": "HTTPS GET",
+      "version_contract": "NiFi 1.x/2.x",
+      "auth_contract": "Bearer, Basic, JVM mTLS or SPNEGO",
+      "supported_read_capabilities": [
+        "config",
+        "health",
+        "metadata",
+        "metrics",
+        "readOnlyChecks"
+      ],
+      "health": "NOT_CONFIGURED",
+      "transport_source_mode": "NOT_CONFIGURED",
+      "data_source_mode": "UNKNOWN",
+      "observed_version": "UNKNOWN",
+      "enterprise_status": "NOT_CONFIGURED",
+      "native_ingestion_authorized": false,
+      "required_external_evidence": [
+        "representative target and exact version/mode",
+        "TLS trust and hostname verification",
+        "Kerberos/SPNEGO/mTLS identity and rotation",
+        "denied writes and foreign tenant/source reads",
+        "independent integration/security owner review"
+      ]
+    },
+    {
+      "tenant_id": "demo",
+      "service": "airflow",
+      "protocol": "HTTPS GET",
+      "version_contract": "Airflow 2.x REST v1 only",
+      "auth_contract": "Bearer, Basic, JVM mTLS or SPNEGO",
+      "supported_read_capabilities": [
+        "config",
+        "health",
+        "metadata",
+        "metrics",
+        "readOnlyChecks"
+      ],
+      "health": "NOT_CONFIGURED",
+      "transport_source_mode": "NOT_CONFIGURED",
+      "data_source_mode": "UNKNOWN",
+      "observed_version": "UNKNOWN",
+      "enterprise_status": "NOT_CONFIGURED",
+      "native_ingestion_authorized": false,
+      "required_external_evidence": [
+        "representative target and exact version/mode",
+        "TLS trust and hostname verification",
+        "Kerberos/SPNEGO/mTLS identity and rotation",
+        "denied writes and foreign tenant/source reads",
+        "independent integration/security owner review"
+      ]
+    },
+    {
+      "tenant_id": "demo",
+      "service": "impala",
+      "protocol": "HTTPS GET",
+      "version_contract": "Impala 4.x debug web JSON",
+      "auth_contract": "Bearer, Basic, JVM mTLS or SPNEGO",
+      "supported_read_capabilities": [
+        "config",
+        "health",
+        "metadata",
+        "metrics",
+        "readOnlyChecks"
+      ],
+      "health": "NOT_CONFIGURED",
+      "transport_source_mode": "NOT_CONFIGURED",
+      "data_source_mode": "UNKNOWN",
+      "observed_version": "UNKNOWN",
+      "enterprise_status": "NOT_CONFIGURED",
+      "native_ingestion_authorized": false,
+      "required_external_evidence": [
+        "representative target and exact version/mode",
+        "TLS trust and hostname verification",
+        "Kerberos/SPNEGO/mTLS identity and rotation",
+        "denied writes and foreign tenant/source reads",
+        "independent integration/security owner review"
+      ]
+    },
+    {
+      "tenant_id": "demo",
+      "service": "cloudera-manager",
+      "protocol": "HTTPS GET",
+      "version_contract": "CM REST v40+ / product 7.x",
+      "auth_contract": "Bearer, Basic, JVM mTLS or SPNEGO",
+      "supported_read_capabilities": [
+        "config",
+        "health",
+        "metadata",
+        "metrics",
+        "readOnlyChecks"
+      ],
+      "health": "NOT_CONFIGURED",
+      "transport_source_mode": "NOT_CONFIGURED",
+      "data_source_mode": "UNKNOWN",
+      "observed_version": "UNKNOWN",
+      "enterprise_status": "NOT_CONFIGURED",
+      "native_ingestion_authorized": false,
+      "required_external_evidence": [
+        "representative target and exact version/mode",
+        "TLS trust and hostname verification",
+        "Kerberos/SPNEGO/mTLS identity and rotation",
+        "denied writes and foreign tenant/source reads",
+        "independent integration/security owner review"
+      ]
+    },
+    {
+      "tenant_id": "demo",
+      "service": "atlas",
+      "protocol": "HTTPS GET",
+      "version_contract": "Atlas v2 REST / product 2.x",
+      "auth_contract": "Bearer, Basic, JVM mTLS or SPNEGO",
+      "supported_read_capabilities": [
+        "config",
+        "health",
+        "metadata",
+        "metrics",
+        "readOnlyChecks"
+      ],
+      "health": "NOT_CONFIGURED",
+      "transport_source_mode": "NOT_CONFIGURED",
+      "data_source_mode": "UNKNOWN",
+      "observed_version": "UNKNOWN",
+      "enterprise_status": "NOT_CONFIGURED",
+      "native_ingestion_authorized": false,
+      "required_external_evidence": [
+        "representative target and exact version/mode",
+        "TLS trust and hostname verification",
+        "Kerberos/SPNEGO/mTLS identity and rotation",
+        "denied writes and foreign tenant/source reads",
+        "independent integration/security owner review"
+      ]
+    },
+    {
+      "tenant_id": "demo",
+      "service": "ranger",
+      "protocol": "HTTPS GET",
+      "version_contract": "Ranger REST / product 2.x",
+      "auth_contract": "Bearer, Basic, JVM mTLS or SPNEGO",
+      "supported_read_capabilities": [
+        "config",
+        "health",
+        "metadata",
+        "metrics",
+        "readOnlyChecks"
+      ],
+      "health": "NOT_CONFIGURED",
+      "transport_source_mode": "NOT_CONFIGURED",
+      "data_source_mode": "UNKNOWN",
+      "observed_version": "UNKNOWN",
+      "enterprise_status": "NOT_CONFIGURED",
+      "native_ingestion_authorized": false,
+      "required_external_evidence": [
+        "representative target and exact version/mode",
+        "TLS trust and hostname verification",
+        "Kerberos/SPNEGO/mTLS identity and rotation",
+        "denied writes and foreign tenant/source reads",
+        "independent integration/security owner review"
+      ]
+    },
+    {
+      "tenant_id": "demo",
+      "service": "kafka",
+      "protocol": "Kafka Admin native RPC",
+      "version_contract": "KRaft via process.roles/quorum API; legacy via zookeeper.connect only",
+      "auth_contract": "SASL/GSSAPI/SCRAM/PLAIN + TLS configured through backend",
+      "supported_read_capabilities": [
+        "config",
+        "health",
+        "metadata",
+        "metrics",
+        "readOnlyChecks"
+      ],
+      "health": "HEALTHY",
+      "transport_source_mode": "LIVE",
+      "data_source_mode": "UNKNOWN",
+      "observed_version": "UNKNOWN",
+      "enterprise_status": "NOT_CERTIFIED",
+      "native_ingestion_authorized": false,
+      "required_external_evidence": [
+        "representative target and exact version/mode",
+        "TLS trust and hostname verification",
+        "Kerberos/SPNEGO/mTLS identity and rotation",
+        "denied writes and foreign tenant/source reads",
+        "independent integration/security owner review"
+      ]
+    },
+    {
+      "tenant_id": "demo",
+      "service": "hive",
+      "protocol": "HiveServer2 JDBC/Thrift",
+      "version_contract": "Hive JDBC driver 4.2.1; server product 3.x/4.x checked via metadata",
+      "auth_contract": "Kerberos principal or TLS + scoped backend username/password",
+      "supported_read_capabilities": [
+        "config",
+        "health",
+        "metadata",
+        "readOnlyChecks"
+      ],
+      "health": "NOT_CONFIGURED",
+      "transport_source_mode": "NOT_CONFIGURED",
+      "data_source_mode": "UNKNOWN",
+      "observed_version": "UNKNOWN",
+      "enterprise_status": "NOT_CONFIGURED",
+      "native_ingestion_authorized": false,
+      "required_external_evidence": [
+        "representative target and exact version/mode",
+        "TLS trust and hostname verification",
+        "Kerberos/SPNEGO/mTLS identity and rotation",
+        "denied writes and foreign tenant/source reads",
+        "independent integration/security owner review"
+      ]
+    },
+    {
+      "tenant_id": "demo",
+      "service": "hive-metastore",
+      "protocol": "SASL protected binary Thrift",
+      "version_contract": "HMS 3.x/4.x common read contract; fb303 server version required",
+      "auth_contract": "GSSAPI auth-conf; DIGEST-MD5 only for explicit loopback fixture",
+      "supported_read_capabilities": [
+        "config",
+        "health",
+        "metadata",
+        "readOnlyChecks"
+      ],
+      "health": "NOT_CONFIGURED",
+      "transport_source_mode": "NOT_CONFIGURED",
+      "data_source_mode": "UNKNOWN",
+      "observed_version": "UNKNOWN",
+      "enterprise_status": "NOT_CONFIGURED",
+      "native_ingestion_authorized": false,
+      "required_external_evidence": [
+        "representative target and exact version/mode",
+        "TLS trust and hostname verification",
+        "Kerberos/SPNEGO/mTLS identity and rotation",
+        "denied writes and foreign tenant/source reads",
+        "independent integration/security owner review"
+      ]
+    },
+    {
+      "tenant_id": "demo",
+      "service": "kudu",
+      "protocol": "Kudu native RPC",
+      "version_contract": "Official 1.18.2 client capability negotiation; exact server release unavailable",
+      "auth_contract": "Kerberos Subject or JWT; authenticated encrypted RPC required",
+      "supported_read_capabilities": [
+        "config",
+        "health",
+        "metadata",
+        "readOnlyChecks"
+      ],
+      "health": "NOT_CONFIGURED",
+      "transport_source_mode": "NOT_CONFIGURED",
+      "data_source_mode": "UNKNOWN",
+      "observed_version": "UNKNOWN",
+      "enterprise_status": "NOT_CONFIGURED",
+      "native_ingestion_authorized": false,
+      "required_external_evidence": [
+        "representative target and exact version/mode",
+        "TLS trust and hostname verification",
+        "Kerberos/SPNEGO/mTLS identity and rotation",
+        "denied writes and foreign tenant/source reads",
+        "independent integration/security owner review"
+      ]
+    },
+    {
+      "tenant_id": "demo",
+      "service": "zookeeper",
+      "protocol": "ZooKeeper native digest read + read-only srvr",
+      "version_contract": "ZooKeeper 3.5\u20133.9 isolated legacy fixture; verified Kafka legacy config required",
+      "auth_contract": "Digest ACL on fixed fixture znode; loopback only",
+      "supported_read_capabilities": [
+        "config",
+        "health",
+        "metadata",
+        "readOnlyChecks"
+      ],
+      "health": "NOT_CONFIGURED",
+      "transport_source_mode": "NOT_CONFIGURED",
+      "data_source_mode": "UNKNOWN",
+      "observed_version": "UNKNOWN",
+      "enterprise_status": "NOT_CONFIGURED",
+      "native_ingestion_authorized": false,
+      "required_external_evidence": [
+        "representative target and exact version/mode",
+        "TLS trust and hostname verification",
+        "Kerberos/SPNEGO/mTLS identity and rotation",
+        "denied writes and foreign tenant/source reads",
+        "independent integration/security owner review"
+      ]
+    }
+  ],
+  "production_certificate": "BLOCKED",
+  "certification_owner": "integration/security leads (proposed role)",
+  "native_ingestion_authorized": false,
+  "interpretation": "Local health or mocked protocol success never proves private target behavior"
+}

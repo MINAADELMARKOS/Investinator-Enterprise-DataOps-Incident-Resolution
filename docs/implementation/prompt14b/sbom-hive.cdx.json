@@ -1,0 +1,3231 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "version": 1,
+  "serialNumber": "urn:uuid:7dc9deb5-d8d9-5e31-bad5-592360f3fcd4",
+  "metadata": {
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:maven/com.investinator/backend-java@0.1.0-SNAPSHOT",
+      "group": "com.investinator",
+      "name": "backend-java",
+      "version": "0.1.0-SNAPSHOT",
+      "purl": "pkg:maven/com.investinator/backend-java@0.1.0-SNAPSHOT"
+    },
+    "properties": [
+      {
+        "name": "investinator:source-sha",
+        "value": "6780303df7005a74aeaf6a64086057cf40b7f727"
+      },
+      {
+        "name": "investinator:resolved-tree-sha256",
+        "value": "733c2718ca95b023773171e8638d30bf7a225eed15c58c4acdb78800273b0579"
+      },
+      {
+        "name": "investinator:shaded-class-inspection",
+        "value": "NOT_PERFORMED_NOT_CERTIFIED"
+      },
+      {
+        "name": "investinator:license-validation",
+        "value": "NOT_PERFORMED"
+      }
+    ]
+  },
+  "components": [
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/at.yawk.lz4/lz4-java@1.11.4",
+      "group": "at.yawk.lz4",
+      "name": "lz4-java",
+      "version": "1.11.4",
+      "purl": "pkg:maven/at.yawk.lz4/lz4-java@1.11.4"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/ch.qos.logback/logback-classic@1.5.38",
+      "group": "ch.qos.logback",
+      "name": "logback-classic",
+      "version": "1.5.38",
+      "purl": "pkg:maven/ch.qos.logback/logback-classic@1.5.38"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/ch.qos.logback/logback-core@1.5.38",
+      "group": "ch.qos.logback",
+      "name": "logback-core",
+      "version": "1.5.38",
+      "purl": "pkg:maven/ch.qos.logback/logback-core@1.5.38"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/com.fasterxml.jackson.core/jackson-annotations@2.21",
+      "group": "com.fasterxml.jackson.core",
+      "name": "jackson-annotations",
+      "version": "2.21",
+      "purl": "pkg:maven/com.fasterxml.jackson.core/jackson-annotations@2.21"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/com.fasterxml.jackson.core/jackson-core@2.21.7",
+      "group": "com.fasterxml.jackson.core",
+      "name": "jackson-core",
+      "version": "2.21.7",
+      "purl": "pkg:maven/com.fasterxml.jackson.core/jackson-core@2.21.7"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/com.fasterxml.jackson.core/jackson-databind@2.21.7",
+      "group": "com.fasterxml.jackson.core",
+      "name": "jackson-databind",
+      "version": "2.21.7",
+      "purl": "pkg:maven/com.fasterxml.jackson.core/jackson-databind@2.21.7"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/com.fasterxml.jackson.datatype/jackson-datatype-jdk8@2.21.7",
+      "group": "com.fasterxml.jackson.datatype",
+      "name": "jackson-datatype-jdk8",
+      "version": "2.21.7",
+      "purl": "pkg:maven/com.fasterxml.jackson.datatype/jackson-datatype-jdk8@2.21.7"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/com.fasterxml.jackson.datatype/jackson-datatype-jsr310@2.21.7",
+      "group": "com.fasterxml.jackson.datatype",
+      "name": "jackson-datatype-jsr310",
+      "version": "2.21.7",
+      "purl": "pkg:maven/com.fasterxml.jackson.datatype/jackson-datatype-jsr310@2.21.7"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/com.fasterxml.jackson.module/jackson-module-kotlin@2.21.7",
+      "group": "com.fasterxml.jackson.module",
+      "name": "jackson-module-kotlin",
+      "version": "2.21.7",
+      "purl": "pkg:maven/com.fasterxml.jackson.module/jackson-module-kotlin@2.21.7"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/com.fasterxml/classmate@1.7.3",
+      "group": "com.fasterxml",
+      "name": "classmate",
+      "version": "1.7.3",
+      "purl": "pkg:maven/com.fasterxml/classmate@1.7.3"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/com.github.docker-java/docker-java-api@3.7.1",
+      "group": "com.github.docker-java",
+      "name": "docker-java-api",
+      "version": "3.7.1",
+      "purl": "pkg:maven/com.github.docker-java/docker-java-api@3.7.1"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/com.github.docker-java/docker-java-transport-zerodep@3.7.1",
+      "group": "com.github.docker-java",
+      "name": "docker-java-transport-zerodep",
+      "version": "3.7.1",
+      "purl": "pkg:maven/com.github.docker-java/docker-java-transport-zerodep@3.7.1"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/com.github.docker-java/docker-java-transport@3.7.1",
+      "group": "com.github.docker-java",
+      "name": "docker-java-transport",
+      "version": "3.7.1",
+      "purl": "pkg:maven/com.github.docker-java/docker-java-transport@3.7.1"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/com.github.luben/zstd-jni@1.5.6-10",
+      "group": "com.github.luben",
+      "name": "zstd-jni",
+      "version": "1.5.6-10",
+      "purl": "pkg:maven/com.github.luben/zstd-jni@1.5.6-10"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/com.github.victools/jsonschema-generator@4.38.0",
+      "group": "com.github.victools",
+      "name": "jsonschema-generator",
+      "version": "4.38.0",
+      "purl": "pkg:maven/com.github.victools/jsonschema-generator@4.38.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/com.github.victools/jsonschema-module-jackson@4.38.0",
+      "group": "com.github.victools",
+      "name": "jsonschema-module-jackson",
+      "version": "4.38.0",
+      "purl": "pkg:maven/com.github.victools/jsonschema-module-jackson@4.38.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/com.github.victools/jsonschema-module-swagger-2@4.38.0",
+      "group": "com.github.victools",
+      "name": "jsonschema-module-swagger-2",
+      "version": "4.38.0",
+      "purl": "pkg:maven/com.github.victools/jsonschema-module-swagger-2@4.38.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/com.google.code.findbugs/jsr305@3.0.2",
+      "group": "com.google.code.findbugs",
+      "name": "jsr305",
+      "version": "3.0.2",
+      "purl": "pkg:maven/com.google.code.findbugs/jsr305@3.0.2"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/com.google.errorprone/error_prone_annotations@2.33.0",
+      "group": "com.google.errorprone",
+      "name": "error_prone_annotations",
+      "version": "2.33.0",
+      "purl": "pkg:maven/com.google.errorprone/error_prone_annotations@2.33.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/com.jayway.jsonpath/json-path@2.10.0",
+      "group": "com.jayway.jsonpath",
+      "name": "json-path",
+      "version": "2.10.0",
+      "purl": "pkg:maven/com.jayway.jsonpath/json-path@2.10.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/com.openai/openai-java-client-okhttp@4.106.0",
+      "group": "com.openai",
+      "name": "openai-java-client-okhttp",
+      "version": "4.106.0",
+      "purl": "pkg:maven/com.openai/openai-java-client-okhttp@4.106.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/com.openai/openai-java-core@4.106.0",
+      "group": "com.openai",
+      "name": "openai-java-core",
+      "version": "4.106.0",
+      "purl": "pkg:maven/com.openai/openai-java-core@4.106.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/com.openai/openai-java@4.106.0",
+      "group": "com.openai",
+      "name": "openai-java",
+      "version": "4.106.0",
+      "purl": "pkg:maven/com.openai/openai-java@4.106.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/com.squareup.okhttp3/okhttp-jvm@5.5.0",
+      "group": "com.squareup.okhttp3",
+      "name": "okhttp-jvm",
+      "version": "5.5.0",
+      "purl": "pkg:maven/com.squareup.okhttp3/okhttp-jvm@5.5.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/com.squareup.okhttp3/okhttp@4.12.0",
+      "group": "com.squareup.okhttp3",
+      "name": "okhttp",
+      "version": "4.12.0",
+      "purl": "pkg:maven/com.squareup.okhttp3/okhttp@4.12.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/com.squareup.okio/okio-jvm@3.18.1",
+      "group": "com.squareup.okio",
+      "name": "okio-jvm",
+      "version": "3.18.1",
+      "purl": "pkg:maven/com.squareup.okio/okio-jvm@3.18.1"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/com.squareup.okio/okio@3.6.0",
+      "group": "com.squareup.okio",
+      "name": "okio",
+      "version": "3.6.0",
+      "purl": "pkg:maven/com.squareup.okio/okio@3.6.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/com.stumbleupon/async@1.4.1",
+      "group": "com.stumbleupon",
+      "name": "async",
+      "version": "1.4.1",
+      "purl": "pkg:maven/com.stumbleupon/async@1.4.1"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/com.vaadin.external.google/android-json@0.0.20131108.vaadin1",
+      "group": "com.vaadin.external.google",
+      "name": "android-json",
+      "version": "0.0.20131108.vaadin1",
+      "purl": "pkg:maven/com.vaadin.external.google/android-json@0.0.20131108.vaadin1"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/com.zaxxer/HikariCP@7.0.2",
+      "group": "com.zaxxer",
+      "name": "HikariCP",
+      "version": "7.0.2",
+      "purl": "pkg:maven/com.zaxxer/HikariCP@7.0.2"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/commons-codec/commons-codec@1.21.0",
+      "group": "commons-codec",
+      "name": "commons-codec",
+      "version": "1.21.0",
+      "purl": "pkg:maven/commons-codec/commons-codec@1.21.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/commons-io/commons-io@2.17.0",
+      "group": "commons-io",
+      "name": "commons-io",
+      "version": "2.17.0",
+      "purl": "pkg:maven/commons-io/commons-io@2.17.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/commons-logging/commons-logging@1.3.6",
+      "group": "commons-logging",
+      "name": "commons-logging",
+      "version": "1.3.6",
+      "purl": "pkg:maven/commons-logging/commons-logging@1.3.6"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.dropwizard.metrics/metrics-core@4.2.40",
+      "group": "io.dropwizard.metrics",
+      "name": "metrics-core",
+      "version": "4.2.40",
+      "purl": "pkg:maven/io.dropwizard.metrics/metrics-core@4.2.40"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.micrometer/micrometer-commons@1.17.2",
+      "group": "io.micrometer",
+      "name": "micrometer-commons",
+      "version": "1.17.2",
+      "purl": "pkg:maven/io.micrometer/micrometer-commons@1.17.2"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.micrometer/micrometer-core@1.17.2",
+      "group": "io.micrometer",
+      "name": "micrometer-core",
+      "version": "1.17.2",
+      "purl": "pkg:maven/io.micrometer/micrometer-core@1.17.2"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.micrometer/micrometer-jakarta9@1.17.2",
+      "group": "io.micrometer",
+      "name": "micrometer-jakarta9",
+      "version": "1.17.2",
+      "purl": "pkg:maven/io.micrometer/micrometer-jakarta9@1.17.2"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.micrometer/micrometer-observation@1.17.2",
+      "group": "io.micrometer",
+      "name": "micrometer-observation",
+      "version": "1.17.2",
+      "purl": "pkg:maven/io.micrometer/micrometer-observation@1.17.2"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.micrometer/micrometer-registry-prometheus@1.17.2",
+      "group": "io.micrometer",
+      "name": "micrometer-registry-prometheus",
+      "version": "1.17.2",
+      "purl": "pkg:maven/io.micrometer/micrometer-registry-prometheus@1.17.2"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.netty/netty-buffer@4.2.19.Final",
+      "group": "io.netty",
+      "name": "netty-buffer",
+      "version": "4.2.19.Final",
+      "purl": "pkg:maven/io.netty/netty-buffer@4.2.19.Final"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.netty/netty-codec-base@4.2.19.Final",
+      "group": "io.netty",
+      "name": "netty-codec-base",
+      "version": "4.2.19.Final",
+      "purl": "pkg:maven/io.netty/netty-codec-base@4.2.19.Final"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.netty/netty-common@4.2.19.Final",
+      "group": "io.netty",
+      "name": "netty-common",
+      "version": "4.2.19.Final",
+      "purl": "pkg:maven/io.netty/netty-common@4.2.19.Final"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.netty/netty-handler@4.2.19.Final",
+      "group": "io.netty",
+      "name": "netty-handler",
+      "version": "4.2.19.Final",
+      "purl": "pkg:maven/io.netty/netty-handler@4.2.19.Final"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.netty/netty-resolver@4.2.19.Final",
+      "group": "io.netty",
+      "name": "netty-resolver",
+      "version": "4.2.19.Final",
+      "purl": "pkg:maven/io.netty/netty-resolver@4.2.19.Final"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.netty/netty-tcnative-boringssl-static@2.0.84.Final",
+      "group": "io.netty",
+      "name": "netty-tcnative-boringssl-static",
+      "version": "2.0.84.Final",
+      "purl": "pkg:maven/io.netty/netty-tcnative-boringssl-static@2.0.84.Final"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.netty/netty-tcnative-boringssl-static@2.0.84.Final?classifier=linux-aarch_64",
+      "group": "io.netty",
+      "name": "netty-tcnative-boringssl-static",
+      "version": "2.0.84.Final",
+      "purl": "pkg:maven/io.netty/netty-tcnative-boringssl-static@2.0.84.Final?classifier=linux-aarch_64"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.netty/netty-tcnative-boringssl-static@2.0.84.Final?classifier=linux-x86_64",
+      "group": "io.netty",
+      "name": "netty-tcnative-boringssl-static",
+      "version": "2.0.84.Final",
+      "purl": "pkg:maven/io.netty/netty-tcnative-boringssl-static@2.0.84.Final?classifier=linux-x86_64"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.netty/netty-tcnative-boringssl-static@2.0.84.Final?classifier=osx-aarch_64",
+      "group": "io.netty",
+      "name": "netty-tcnative-boringssl-static",
+      "version": "2.0.84.Final",
+      "purl": "pkg:maven/io.netty/netty-tcnative-boringssl-static@2.0.84.Final?classifier=osx-aarch_64"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.netty/netty-tcnative-boringssl-static@2.0.84.Final?classifier=osx-x86_64",
+      "group": "io.netty",
+      "name": "netty-tcnative-boringssl-static",
+      "version": "2.0.84.Final",
+      "purl": "pkg:maven/io.netty/netty-tcnative-boringssl-static@2.0.84.Final?classifier=osx-x86_64"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.netty/netty-tcnative-boringssl-static@2.0.84.Final?classifier=windows-x86_64",
+      "group": "io.netty",
+      "name": "netty-tcnative-boringssl-static",
+      "version": "2.0.84.Final",
+      "purl": "pkg:maven/io.netty/netty-tcnative-boringssl-static@2.0.84.Final?classifier=windows-x86_64"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.netty/netty-tcnative-classes@2.0.84.Final",
+      "group": "io.netty",
+      "name": "netty-tcnative-classes",
+      "version": "2.0.84.Final",
+      "purl": "pkg:maven/io.netty/netty-tcnative-classes@2.0.84.Final"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.netty/netty-transport-classes-epoll@4.2.19.Final",
+      "group": "io.netty",
+      "name": "netty-transport-classes-epoll",
+      "version": "4.2.19.Final",
+      "purl": "pkg:maven/io.netty/netty-transport-classes-epoll@4.2.19.Final"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.netty/netty-transport-native-epoll@4.2.19.Final?classifier=linux-x86_64",
+      "group": "io.netty",
+      "name": "netty-transport-native-epoll",
+      "version": "4.2.19.Final",
+      "purl": "pkg:maven/io.netty/netty-transport-native-epoll@4.2.19.Final?classifier=linux-x86_64"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.netty/netty-transport-native-unix-common@4.2.19.Final",
+      "group": "io.netty",
+      "name": "netty-transport-native-unix-common",
+      "version": "4.2.19.Final",
+      "purl": "pkg:maven/io.netty/netty-transport-native-unix-common@4.2.19.Final"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.netty/netty-transport@4.2.19.Final",
+      "group": "io.netty",
+      "name": "netty-transport",
+      "version": "4.2.19.Final",
+      "purl": "pkg:maven/io.netty/netty-transport@4.2.19.Final"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.opentelemetry.contrib/opentelemetry-aws-resources@1.61.0-alpha",
+      "group": "io.opentelemetry.contrib",
+      "name": "opentelemetry-aws-resources",
+      "version": "1.61.0-alpha",
+      "purl": "pkg:maven/io.opentelemetry.contrib/opentelemetry-aws-resources@1.61.0-alpha"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.opentelemetry.contrib/opentelemetry-azure-resources@1.61.0-alpha",
+      "group": "io.opentelemetry.contrib",
+      "name": "opentelemetry-azure-resources",
+      "version": "1.61.0-alpha",
+      "purl": "pkg:maven/io.opentelemetry.contrib/opentelemetry-azure-resources@1.61.0-alpha"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.opentelemetry.contrib/opentelemetry-baggage-processor@1.61.0-alpha",
+      "group": "io.opentelemetry.contrib",
+      "name": "opentelemetry-baggage-processor",
+      "version": "1.61.0-alpha",
+      "purl": "pkg:maven/io.opentelemetry.contrib/opentelemetry-baggage-processor@1.61.0-alpha"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.opentelemetry.contrib/opentelemetry-cloudfoundry-resources@1.61.0-alpha",
+      "group": "io.opentelemetry.contrib",
+      "name": "opentelemetry-cloudfoundry-resources",
+      "version": "1.61.0-alpha",
+      "purl": "pkg:maven/io.opentelemetry.contrib/opentelemetry-cloudfoundry-resources@1.61.0-alpha"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.opentelemetry.contrib/opentelemetry-gcp-resources@1.61.0-alpha",
+      "group": "io.opentelemetry.contrib",
+      "name": "opentelemetry-gcp-resources",
+      "version": "1.61.0-alpha",
+      "purl": "pkg:maven/io.opentelemetry.contrib/opentelemetry-gcp-resources@1.61.0-alpha"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.opentelemetry.contrib/opentelemetry-samplers@1.61.0-alpha",
+      "group": "io.opentelemetry.contrib",
+      "name": "opentelemetry-samplers",
+      "version": "1.61.0-alpha",
+      "purl": "pkg:maven/io.opentelemetry.contrib/opentelemetry-samplers@1.61.0-alpha"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-declarative-config-bridge@2.33.1-alpha",
+      "group": "io.opentelemetry.instrumentation",
+      "name": "opentelemetry-declarative-config-bridge",
+      "version": "2.33.1-alpha",
+      "purl": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-declarative-config-bridge@2.33.1-alpha"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-instrumentation-annotations-support@2.33.1-alpha",
+      "group": "io.opentelemetry.instrumentation",
+      "name": "opentelemetry-instrumentation-annotations-support",
+      "version": "2.33.1-alpha",
+      "purl": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-instrumentation-annotations-support@2.33.1-alpha"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-instrumentation-annotations@2.33.1",
+      "group": "io.opentelemetry.instrumentation",
+      "name": "opentelemetry-instrumentation-annotations",
+      "version": "2.33.1",
+      "purl": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-instrumentation-annotations@2.33.1"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-instrumentation-api-incubator@2.33.1-alpha",
+      "group": "io.opentelemetry.instrumentation",
+      "name": "opentelemetry-instrumentation-api-incubator",
+      "version": "2.33.1-alpha",
+      "purl": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-instrumentation-api-incubator@2.33.1-alpha"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-instrumentation-api@2.33.1",
+      "group": "io.opentelemetry.instrumentation",
+      "name": "opentelemetry-instrumentation-api",
+      "version": "2.33.1",
+      "purl": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-instrumentation-api@2.33.1"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-jdbc@2.33.1-alpha",
+      "group": "io.opentelemetry.instrumentation",
+      "name": "opentelemetry-jdbc",
+      "version": "2.33.1-alpha",
+      "purl": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-jdbc@2.33.1-alpha"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-kafka-clients-2.6@2.33.1-alpha",
+      "group": "io.opentelemetry.instrumentation",
+      "name": "opentelemetry-kafka-clients-2.6",
+      "version": "2.33.1-alpha",
+      "purl": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-kafka-clients-2.6@2.33.1-alpha"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-kafka-clients-common-0.11@2.33.1-alpha",
+      "group": "io.opentelemetry.instrumentation",
+      "name": "opentelemetry-kafka-clients-common-0.11",
+      "version": "2.33.1-alpha",
+      "purl": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-kafka-clients-common-0.11@2.33.1-alpha"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-log4j-appender-2.17@2.33.1-alpha",
+      "group": "io.opentelemetry.instrumentation",
+      "name": "opentelemetry-log4j-appender-2.17",
+      "version": "2.33.1-alpha",
+      "purl": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-log4j-appender-2.17@2.33.1-alpha"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-log4j-context-data-2.17-autoconfigure@2.33.1-alpha",
+      "group": "io.opentelemetry.instrumentation",
+      "name": "opentelemetry-log4j-context-data-2.17-autoconfigure",
+      "version": "2.33.1-alpha",
+      "purl": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-log4j-context-data-2.17-autoconfigure@2.33.1-alpha"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-logback-appender-1.0@2.33.1-alpha",
+      "group": "io.opentelemetry.instrumentation",
+      "name": "opentelemetry-logback-appender-1.0",
+      "version": "2.33.1-alpha",
+      "purl": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-logback-appender-1.0@2.33.1-alpha"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-logback-mdc-1.0@2.33.1-alpha",
+      "group": "io.opentelemetry.instrumentation",
+      "name": "opentelemetry-logback-mdc-1.0",
+      "version": "2.33.1-alpha",
+      "purl": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-logback-mdc-1.0@2.33.1-alpha"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-micrometer-1.5@2.33.1-alpha",
+      "group": "io.opentelemetry.instrumentation",
+      "name": "opentelemetry-micrometer-1.5",
+      "version": "2.33.1-alpha",
+      "purl": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-micrometer-1.5@2.33.1-alpha"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-mongo-3.1@2.33.1-alpha",
+      "group": "io.opentelemetry.instrumentation",
+      "name": "opentelemetry-mongo-3.1",
+      "version": "2.33.1-alpha",
+      "purl": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-mongo-3.1@2.33.1-alpha"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-reactor-3.1@2.33.1-alpha",
+      "group": "io.opentelemetry.instrumentation",
+      "name": "opentelemetry-reactor-3.1",
+      "version": "2.33.1-alpha",
+      "purl": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-reactor-3.1@2.33.1-alpha"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-resources@2.33.1-alpha",
+      "group": "io.opentelemetry.instrumentation",
+      "name": "opentelemetry-resources",
+      "version": "2.33.1-alpha",
+      "purl": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-resources@2.33.1-alpha"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-runtime-telemetry@2.33.1-alpha",
+      "group": "io.opentelemetry.instrumentation",
+      "name": "opentelemetry-runtime-telemetry",
+      "version": "2.33.1-alpha",
+      "purl": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-runtime-telemetry@2.33.1-alpha"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-sdk-autoconfigure-support@2.33.1-alpha",
+      "group": "io.opentelemetry.instrumentation",
+      "name": "opentelemetry-sdk-autoconfigure-support",
+      "version": "2.33.1-alpha",
+      "purl": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-sdk-autoconfigure-support@2.33.1-alpha"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-spring-boot-autoconfigure@2.33.1",
+      "group": "io.opentelemetry.instrumentation",
+      "name": "opentelemetry-spring-boot-autoconfigure",
+      "version": "2.33.1",
+      "purl": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-spring-boot-autoconfigure@2.33.1"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-spring-boot-starter@2.33.1",
+      "group": "io.opentelemetry.instrumentation",
+      "name": "opentelemetry-spring-boot-starter",
+      "version": "2.33.1",
+      "purl": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-spring-boot-starter@2.33.1"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-spring-kafka-2.7@2.33.1-alpha",
+      "group": "io.opentelemetry.instrumentation",
+      "name": "opentelemetry-spring-kafka-2.7",
+      "version": "2.33.1-alpha",
+      "purl": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-spring-kafka-2.7@2.33.1-alpha"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-spring-web-3.1@2.33.1-alpha",
+      "group": "io.opentelemetry.instrumentation",
+      "name": "opentelemetry-spring-web-3.1",
+      "version": "2.33.1-alpha",
+      "purl": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-spring-web-3.1@2.33.1-alpha"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-spring-webflux-5.3@2.33.1-alpha",
+      "group": "io.opentelemetry.instrumentation",
+      "name": "opentelemetry-spring-webflux-5.3",
+      "version": "2.33.1-alpha",
+      "purl": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-spring-webflux-5.3@2.33.1-alpha"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-spring-webmvc-5.3@2.33.1-alpha",
+      "group": "io.opentelemetry.instrumentation",
+      "name": "opentelemetry-spring-webmvc-5.3",
+      "version": "2.33.1-alpha",
+      "purl": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-spring-webmvc-5.3@2.33.1-alpha"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-spring-webmvc-6.0@2.33.1-alpha",
+      "group": "io.opentelemetry.instrumentation",
+      "name": "opentelemetry-spring-webmvc-6.0",
+      "version": "2.33.1-alpha",
+      "purl": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-spring-webmvc-6.0@2.33.1-alpha"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.opentelemetry.semconv/opentelemetry-semconv-incubating@1.44.0-alpha",
+      "group": "io.opentelemetry.semconv",
+      "name": "opentelemetry-semconv-incubating",
+      "version": "1.44.0-alpha",
+      "purl": "pkg:maven/io.opentelemetry.semconv/opentelemetry-semconv-incubating@1.44.0-alpha"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.opentelemetry.semconv/opentelemetry-semconv@1.44.0",
+      "group": "io.opentelemetry.semconv",
+      "name": "opentelemetry-semconv",
+      "version": "1.44.0",
+      "purl": "pkg:maven/io.opentelemetry.semconv/opentelemetry-semconv@1.44.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.opentelemetry/opentelemetry-api-incubator@1.67.0-alpha",
+      "group": "io.opentelemetry",
+      "name": "opentelemetry-api-incubator",
+      "version": "1.67.0-alpha",
+      "purl": "pkg:maven/io.opentelemetry/opentelemetry-api-incubator@1.67.0-alpha"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.opentelemetry/opentelemetry-api@1.67.0",
+      "group": "io.opentelemetry",
+      "name": "opentelemetry-api",
+      "version": "1.67.0",
+      "purl": "pkg:maven/io.opentelemetry/opentelemetry-api@1.67.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.opentelemetry/opentelemetry-common@1.67.0",
+      "group": "io.opentelemetry",
+      "name": "opentelemetry-common",
+      "version": "1.67.0",
+      "purl": "pkg:maven/io.opentelemetry/opentelemetry-common@1.67.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.opentelemetry/opentelemetry-context@1.67.0",
+      "group": "io.opentelemetry",
+      "name": "opentelemetry-context",
+      "version": "1.67.0",
+      "purl": "pkg:maven/io.opentelemetry/opentelemetry-context@1.67.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.opentelemetry/opentelemetry-exporter-common@1.67.0",
+      "group": "io.opentelemetry",
+      "name": "opentelemetry-exporter-common",
+      "version": "1.67.0",
+      "purl": "pkg:maven/io.opentelemetry/opentelemetry-exporter-common@1.67.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.opentelemetry/opentelemetry-exporter-logging@1.67.0",
+      "group": "io.opentelemetry",
+      "name": "opentelemetry-exporter-logging",
+      "version": "1.67.0",
+      "purl": "pkg:maven/io.opentelemetry/opentelemetry-exporter-logging@1.67.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.opentelemetry/opentelemetry-exporter-otlp-common@1.67.0",
+      "group": "io.opentelemetry",
+      "name": "opentelemetry-exporter-otlp-common",
+      "version": "1.67.0",
+      "purl": "pkg:maven/io.opentelemetry/opentelemetry-exporter-otlp-common@1.67.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.opentelemetry/opentelemetry-exporter-otlp@1.67.0",
+      "group": "io.opentelemetry",
+      "name": "opentelemetry-exporter-otlp",
+      "version": "1.67.0",
+      "purl": "pkg:maven/io.opentelemetry/opentelemetry-exporter-otlp@1.67.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.opentelemetry/opentelemetry-exporter-sender-okhttp@1.67.0",
+      "group": "io.opentelemetry",
+      "name": "opentelemetry-exporter-sender-okhttp",
+      "version": "1.67.0",
+      "purl": "pkg:maven/io.opentelemetry/opentelemetry-exporter-sender-okhttp@1.67.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.opentelemetry/opentelemetry-sdk-common@1.67.0",
+      "group": "io.opentelemetry",
+      "name": "opentelemetry-sdk-common",
+      "version": "1.67.0",
+      "purl": "pkg:maven/io.opentelemetry/opentelemetry-sdk-common@1.67.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.opentelemetry/opentelemetry-sdk-extension-autoconfigure-spi@1.67.0",
+      "group": "io.opentelemetry",
+      "name": "opentelemetry-sdk-extension-autoconfigure-spi",
+      "version": "1.67.0",
+      "purl": "pkg:maven/io.opentelemetry/opentelemetry-sdk-extension-autoconfigure-spi@1.67.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.opentelemetry/opentelemetry-sdk-extension-autoconfigure@1.67.0",
+      "group": "io.opentelemetry",
+      "name": "opentelemetry-sdk-extension-autoconfigure",
+      "version": "1.67.0",
+      "purl": "pkg:maven/io.opentelemetry/opentelemetry-sdk-extension-autoconfigure@1.67.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.opentelemetry/opentelemetry-sdk-extension-declarative-config@1.67.0-alpha",
+      "group": "io.opentelemetry",
+      "name": "opentelemetry-sdk-extension-declarative-config",
+      "version": "1.67.0-alpha",
+      "purl": "pkg:maven/io.opentelemetry/opentelemetry-sdk-extension-declarative-config@1.67.0-alpha"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.opentelemetry/opentelemetry-sdk-extension-incubator@1.67.0-alpha",
+      "group": "io.opentelemetry",
+      "name": "opentelemetry-sdk-extension-incubator",
+      "version": "1.67.0-alpha",
+      "purl": "pkg:maven/io.opentelemetry/opentelemetry-sdk-extension-incubator@1.67.0-alpha"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.opentelemetry/opentelemetry-sdk-logs@1.67.0",
+      "group": "io.opentelemetry",
+      "name": "opentelemetry-sdk-logs",
+      "version": "1.67.0",
+      "purl": "pkg:maven/io.opentelemetry/opentelemetry-sdk-logs@1.67.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.opentelemetry/opentelemetry-sdk-metrics@1.67.0",
+      "group": "io.opentelemetry",
+      "name": "opentelemetry-sdk-metrics",
+      "version": "1.67.0",
+      "purl": "pkg:maven/io.opentelemetry/opentelemetry-sdk-metrics@1.67.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.opentelemetry/opentelemetry-sdk-trace@1.67.0",
+      "group": "io.opentelemetry",
+      "name": "opentelemetry-sdk-trace",
+      "version": "1.67.0",
+      "purl": "pkg:maven/io.opentelemetry/opentelemetry-sdk-trace@1.67.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.opentelemetry/opentelemetry-sdk@1.67.0",
+      "group": "io.opentelemetry",
+      "name": "opentelemetry-sdk",
+      "version": "1.67.0",
+      "purl": "pkg:maven/io.opentelemetry/opentelemetry-sdk@1.67.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.projectreactor/reactor-core@3.8.8",
+      "group": "io.projectreactor",
+      "name": "reactor-core",
+      "version": "3.8.8",
+      "purl": "pkg:maven/io.projectreactor/reactor-core@3.8.8"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.prometheus/prometheus-metrics-config@1.7.0",
+      "group": "io.prometheus",
+      "name": "prometheus-metrics-config",
+      "version": "1.7.0",
+      "purl": "pkg:maven/io.prometheus/prometheus-metrics-config@1.7.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.prometheus/prometheus-metrics-core@1.7.0",
+      "group": "io.prometheus",
+      "name": "prometheus-metrics-core",
+      "version": "1.7.0",
+      "purl": "pkg:maven/io.prometheus/prometheus-metrics-core@1.7.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.prometheus/prometheus-metrics-exposition-formats@1.7.0",
+      "group": "io.prometheus",
+      "name": "prometheus-metrics-exposition-formats",
+      "version": "1.7.0",
+      "purl": "pkg:maven/io.prometheus/prometheus-metrics-exposition-formats@1.7.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.prometheus/prometheus-metrics-exposition-textformats@1.7.0",
+      "group": "io.prometheus",
+      "name": "prometheus-metrics-exposition-textformats",
+      "version": "1.7.0",
+      "purl": "pkg:maven/io.prometheus/prometheus-metrics-exposition-textformats@1.7.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.prometheus/prometheus-metrics-model@1.7.0",
+      "group": "io.prometheus",
+      "name": "prometheus-metrics-model",
+      "version": "1.7.0",
+      "purl": "pkg:maven/io.prometheus/prometheus-metrics-model@1.7.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.prometheus/prometheus-metrics-tracer-common@1.7.0",
+      "group": "io.prometheus",
+      "name": "prometheus-metrics-tracer-common",
+      "version": "1.7.0",
+      "purl": "pkg:maven/io.prometheus/prometheus-metrics-tracer-common@1.7.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/io.swagger.core.v3/swagger-annotations@2.2.31",
+      "group": "io.swagger.core.v3",
+      "name": "swagger-annotations",
+      "version": "2.2.31",
+      "purl": "pkg:maven/io.swagger.core.v3/swagger-annotations@2.2.31"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/jakarta.activation/jakarta.activation-api@2.1.4",
+      "group": "jakarta.activation",
+      "name": "jakarta.activation-api",
+      "version": "2.1.4",
+      "purl": "pkg:maven/jakarta.activation/jakarta.activation-api@2.1.4"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/jakarta.annotation/jakarta.annotation-api@3.0.0",
+      "group": "jakarta.annotation",
+      "name": "jakarta.annotation-api",
+      "version": "3.0.0",
+      "purl": "pkg:maven/jakarta.annotation/jakarta.annotation-api@3.0.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/jakarta.json.bind/jakarta.json.bind-api@3.0.4",
+      "group": "jakarta.json.bind",
+      "name": "jakarta.json.bind-api",
+      "version": "3.0.4",
+      "purl": "pkg:maven/jakarta.json.bind/jakarta.json.bind-api@3.0.4"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/jakarta.json/jakarta.json-api@2.1.3",
+      "group": "jakarta.json",
+      "name": "jakarta.json-api",
+      "version": "2.1.3",
+      "purl": "pkg:maven/jakarta.json/jakarta.json-api@2.1.3"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/jakarta.servlet/jakarta.servlet-api@6.1.0",
+      "group": "jakarta.servlet",
+      "name": "jakarta.servlet-api",
+      "version": "6.1.0",
+      "purl": "pkg:maven/jakarta.servlet/jakarta.servlet-api@6.1.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/jakarta.validation/jakarta.validation-api@3.1.1",
+      "group": "jakarta.validation",
+      "name": "jakarta.validation-api",
+      "version": "3.1.1",
+      "purl": "pkg:maven/jakarta.validation/jakarta.validation-api@3.1.1"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/jakarta.xml.bind/jakarta.xml.bind-api@4.0.5",
+      "group": "jakarta.xml.bind",
+      "name": "jakarta.xml.bind-api",
+      "version": "4.0.5",
+      "purl": "pkg:maven/jakarta.xml.bind/jakarta.xml.bind-api@4.0.5"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/javax.validation/validation-api@2.0.1.Final",
+      "group": "javax.validation",
+      "name": "validation-api",
+      "version": "2.0.1.Final",
+      "purl": "pkg:maven/javax.validation/validation-api@2.0.1.Final"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/net.bytebuddy/byte-buddy-agent@1.18.15",
+      "group": "net.bytebuddy",
+      "name": "byte-buddy-agent",
+      "version": "1.18.15",
+      "purl": "pkg:maven/net.bytebuddy/byte-buddy-agent@1.18.15"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/net.bytebuddy/byte-buddy@1.18.15",
+      "group": "net.bytebuddy",
+      "name": "byte-buddy",
+      "version": "1.18.15",
+      "purl": "pkg:maven/net.bytebuddy/byte-buddy@1.18.15"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/net.java.dev.jna/jna@5.18.1",
+      "group": "net.java.dev.jna",
+      "name": "jna",
+      "version": "5.18.1",
+      "purl": "pkg:maven/net.java.dev.jna/jna@5.18.1"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/net.minidev/accessors-smart@2.6.0",
+      "group": "net.minidev",
+      "name": "accessors-smart",
+      "version": "2.6.0",
+      "purl": "pkg:maven/net.minidev/accessors-smart@2.6.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/net.minidev/json-smart@2.6.0",
+      "group": "net.minidev",
+      "name": "json-smart",
+      "version": "2.6.0",
+      "purl": "pkg:maven/net.minidev/json-smart@2.6.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.apache.commons/commons-compress@1.28.0",
+      "group": "org.apache.commons",
+      "name": "commons-compress",
+      "version": "1.28.0",
+      "purl": "pkg:maven/org.apache.commons/commons-compress@1.28.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.apache.commons/commons-lang3@3.20.0",
+      "group": "org.apache.commons",
+      "name": "commons-lang3",
+      "version": "3.20.0",
+      "purl": "pkg:maven/org.apache.commons/commons-lang3@3.20.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.apache.hive/hive-jdbc@4.2.1?classifier=standalone",
+      "group": "org.apache.hive",
+      "name": "hive-jdbc",
+      "version": "4.2.1",
+      "purl": "pkg:maven/org.apache.hive/hive-jdbc@4.2.1?classifier=standalone"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.apache.httpcomponents.client5/httpclient5@5.6.5",
+      "group": "org.apache.httpcomponents.client5",
+      "name": "httpclient5",
+      "version": "5.6.5",
+      "purl": "pkg:maven/org.apache.httpcomponents.client5/httpclient5@5.6.5"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.apache.httpcomponents.core5/httpcore5-h2@5.4.4",
+      "group": "org.apache.httpcomponents.core5",
+      "name": "httpcore5-h2",
+      "version": "5.4.4",
+      "purl": "pkg:maven/org.apache.httpcomponents.core5/httpcore5-h2@5.4.4"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.apache.httpcomponents.core5/httpcore5@5.4.4",
+      "group": "org.apache.httpcomponents.core5",
+      "name": "httpcore5",
+      "version": "5.4.4",
+      "purl": "pkg:maven/org.apache.httpcomponents.core5/httpcore5@5.4.4"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.apache.kafka/kafka-clients@4.2.2",
+      "group": "org.apache.kafka",
+      "name": "kafka-clients",
+      "version": "4.2.2",
+      "purl": "pkg:maven/org.apache.kafka/kafka-clients@4.2.2"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.apache.kudu/kudu-client@1.18.2",
+      "group": "org.apache.kudu",
+      "name": "kudu-client",
+      "version": "1.18.2",
+      "purl": "pkg:maven/org.apache.kudu/kudu-client@1.18.2"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.apache.logging.log4j/log4j-api@2.25.5",
+      "group": "org.apache.logging.log4j",
+      "name": "log4j-api",
+      "version": "2.25.5",
+      "purl": "pkg:maven/org.apache.logging.log4j/log4j-api@2.25.5"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.apache.logging.log4j/log4j-to-slf4j@2.25.5",
+      "group": "org.apache.logging.log4j",
+      "name": "log4j-to-slf4j",
+      "version": "2.25.5",
+      "purl": "pkg:maven/org.apache.logging.log4j/log4j-to-slf4j@2.25.5"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.apache.thrift/libthrift@0.25.0",
+      "group": "org.apache.thrift",
+      "name": "libthrift",
+      "version": "0.25.0",
+      "purl": "pkg:maven/org.apache.thrift/libthrift@0.25.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.apache.tomcat.embed/tomcat-embed-core@11.0.27",
+      "group": "org.apache.tomcat.embed",
+      "name": "tomcat-embed-core",
+      "version": "11.0.27",
+      "purl": "pkg:maven/org.apache.tomcat.embed/tomcat-embed-core@11.0.27"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.apache.tomcat.embed/tomcat-embed-el@11.0.27",
+      "group": "org.apache.tomcat.embed",
+      "name": "tomcat-embed-el",
+      "version": "11.0.27",
+      "purl": "pkg:maven/org.apache.tomcat.embed/tomcat-embed-el@11.0.27"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.apache.tomcat.embed/tomcat-embed-websocket@11.0.27",
+      "group": "org.apache.tomcat.embed",
+      "name": "tomcat-embed-websocket",
+      "version": "11.0.27",
+      "purl": "pkg:maven/org.apache.tomcat.embed/tomcat-embed-websocket@11.0.27"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.apache.yetus/audience-annotations@0.13.0",
+      "group": "org.apache.yetus",
+      "name": "audience-annotations",
+      "version": "0.13.0",
+      "purl": "pkg:maven/org.apache.yetus/audience-annotations@0.13.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.apache.zookeeper/zookeeper-jute@3.9.7",
+      "group": "org.apache.zookeeper",
+      "name": "zookeeper-jute",
+      "version": "3.9.7",
+      "purl": "pkg:maven/org.apache.zookeeper/zookeeper-jute@3.9.7"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.apache.zookeeper/zookeeper@3.9.7",
+      "group": "org.apache.zookeeper",
+      "name": "zookeeper",
+      "version": "3.9.7",
+      "purl": "pkg:maven/org.apache.zookeeper/zookeeper@3.9.7"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.apiguardian/apiguardian-api@1.1.2",
+      "group": "org.apiguardian",
+      "name": "apiguardian-api",
+      "version": "1.1.2",
+      "purl": "pkg:maven/org.apiguardian/apiguardian-api@1.1.2"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.assertj/assertj-core@3.27.7",
+      "group": "org.assertj",
+      "name": "assertj-core",
+      "version": "3.27.7",
+      "purl": "pkg:maven/org.assertj/assertj-core@3.27.7"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.awaitility/awaitility@4.3.0",
+      "group": "org.awaitility",
+      "name": "awaitility",
+      "version": "4.3.0",
+      "purl": "pkg:maven/org.awaitility/awaitility@4.3.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.checkerframework/checker-qual@3.55.1",
+      "group": "org.checkerframework",
+      "name": "checker-qual",
+      "version": "3.55.1",
+      "purl": "pkg:maven/org.checkerframework/checker-qual@3.55.1"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.eclipse.parsson/parsson@1.1.9",
+      "group": "org.eclipse.parsson",
+      "name": "parsson",
+      "version": "1.1.9",
+      "purl": "pkg:maven/org.eclipse.parsson/parsson@1.1.9"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.eclipse.yasson/yasson@3.0.5",
+      "group": "org.eclipse.yasson",
+      "name": "yasson",
+      "version": "3.0.5",
+      "purl": "pkg:maven/org.eclipse.yasson/yasson@3.0.5"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.flywaydb/flyway-core@12.4.0",
+      "group": "org.flywaydb",
+      "name": "flyway-core",
+      "version": "12.4.0",
+      "purl": "pkg:maven/org.flywaydb/flyway-core@12.4.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.flywaydb/flyway-database-postgresql@12.4.0",
+      "group": "org.flywaydb",
+      "name": "flyway-database-postgresql",
+      "version": "12.4.0",
+      "purl": "pkg:maven/org.flywaydb/flyway-database-postgresql@12.4.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.hamcrest/hamcrest@3.0",
+      "group": "org.hamcrest",
+      "name": "hamcrest",
+      "version": "3.0",
+      "purl": "pkg:maven/org.hamcrest/hamcrest@3.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.hdrhistogram/HdrHistogram@2.2.2",
+      "group": "org.hdrhistogram",
+      "name": "HdrHistogram",
+      "version": "2.2.2",
+      "purl": "pkg:maven/org.hdrhistogram/HdrHistogram@2.2.2"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.hibernate.validator/hibernate-validator@9.1.5.Final",
+      "group": "org.hibernate.validator",
+      "name": "hibernate-validator",
+      "version": "9.1.5.Final",
+      "purl": "pkg:maven/org.hibernate.validator/hibernate-validator@9.1.5.Final"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.jboss.logging/jboss-logging@3.6.3.Final",
+      "group": "org.jboss.logging",
+      "name": "jboss-logging",
+      "version": "3.6.3.Final",
+      "purl": "pkg:maven/org.jboss.logging/jboss-logging@3.6.3.Final"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.jetbrains.kotlin/kotlin-reflect@2.3.21",
+      "group": "org.jetbrains.kotlin",
+      "name": "kotlin-reflect",
+      "version": "2.3.21",
+      "purl": "pkg:maven/org.jetbrains.kotlin/kotlin-reflect@2.3.21"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.jetbrains.kotlin/kotlin-stdlib-jdk7@2.3.21",
+      "group": "org.jetbrains.kotlin",
+      "name": "kotlin-stdlib-jdk7",
+      "version": "2.3.21",
+      "purl": "pkg:maven/org.jetbrains.kotlin/kotlin-stdlib-jdk7@2.3.21"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.jetbrains.kotlin/kotlin-stdlib-jdk8@2.3.21",
+      "group": "org.jetbrains.kotlin",
+      "name": "kotlin-stdlib-jdk8",
+      "version": "2.3.21",
+      "purl": "pkg:maven/org.jetbrains.kotlin/kotlin-stdlib-jdk8@2.3.21"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.jetbrains.kotlin/kotlin-stdlib@2.3.21",
+      "group": "org.jetbrains.kotlin",
+      "name": "kotlin-stdlib",
+      "version": "2.3.21",
+      "purl": "pkg:maven/org.jetbrains.kotlin/kotlin-stdlib@2.3.21"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.jetbrains/annotations@13.0",
+      "group": "org.jetbrains",
+      "name": "annotations",
+      "version": "13.0",
+      "purl": "pkg:maven/org.jetbrains/annotations@13.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.jspecify/jspecify@1.0.1",
+      "group": "org.jspecify",
+      "name": "jspecify",
+      "version": "1.0.1",
+      "purl": "pkg:maven/org.jspecify/jspecify@1.0.1"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.junit.jupiter/junit-jupiter-api@6.0.3",
+      "group": "org.junit.jupiter",
+      "name": "junit-jupiter-api",
+      "version": "6.0.3",
+      "purl": "pkg:maven/org.junit.jupiter/junit-jupiter-api@6.0.3"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.junit.jupiter/junit-jupiter-engine@6.0.3",
+      "group": "org.junit.jupiter",
+      "name": "junit-jupiter-engine",
+      "version": "6.0.3",
+      "purl": "pkg:maven/org.junit.jupiter/junit-jupiter-engine@6.0.3"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.junit.jupiter/junit-jupiter-params@6.0.3",
+      "group": "org.junit.jupiter",
+      "name": "junit-jupiter-params",
+      "version": "6.0.3",
+      "purl": "pkg:maven/org.junit.jupiter/junit-jupiter-params@6.0.3"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.junit.jupiter/junit-jupiter@6.0.3",
+      "group": "org.junit.jupiter",
+      "name": "junit-jupiter",
+      "version": "6.0.3",
+      "purl": "pkg:maven/org.junit.jupiter/junit-jupiter@6.0.3"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.junit.platform/junit-platform-commons@6.0.3",
+      "group": "org.junit.platform",
+      "name": "junit-platform-commons",
+      "version": "6.0.3",
+      "purl": "pkg:maven/org.junit.platform/junit-platform-commons@6.0.3"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.junit.platform/junit-platform-engine@6.0.3",
+      "group": "org.junit.platform",
+      "name": "junit-platform-engine",
+      "version": "6.0.3",
+      "purl": "pkg:maven/org.junit.platform/junit-platform-engine@6.0.3"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.mockito/mockito-core@5.23.0",
+      "group": "org.mockito",
+      "name": "mockito-core",
+      "version": "5.23.0",
+      "purl": "pkg:maven/org.mockito/mockito-core@5.23.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.mockito/mockito-junit-jupiter@5.23.0",
+      "group": "org.mockito",
+      "name": "mockito-junit-jupiter",
+      "version": "5.23.0",
+      "purl": "pkg:maven/org.mockito/mockito-junit-jupiter@5.23.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.objenesis/objenesis@3.3",
+      "group": "org.objenesis",
+      "name": "objenesis",
+      "version": "3.3",
+      "purl": "pkg:maven/org.objenesis/objenesis@3.3"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.opensearch.client/opensearch-java@3.11.0",
+      "group": "org.opensearch.client",
+      "name": "opensearch-java",
+      "version": "3.11.0",
+      "purl": "pkg:maven/org.opensearch.client/opensearch-java@3.11.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.opentest4j/opentest4j@1.3.0",
+      "group": "org.opentest4j",
+      "name": "opentest4j",
+      "version": "1.3.0",
+      "purl": "pkg:maven/org.opentest4j/opentest4j@1.3.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.ow2.asm/asm@9.7.1",
+      "group": "org.ow2.asm",
+      "name": "asm",
+      "version": "9.7.1",
+      "purl": "pkg:maven/org.ow2.asm/asm@9.7.1"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.postgresql/postgresql@42.7.14",
+      "group": "org.postgresql",
+      "name": "postgresql",
+      "version": "42.7.14",
+      "purl": "pkg:maven/org.postgresql/postgresql@42.7.14"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.reactivestreams/reactive-streams@1.0.4",
+      "group": "org.reactivestreams",
+      "name": "reactive-streams",
+      "version": "1.0.4",
+      "purl": "pkg:maven/org.reactivestreams/reactive-streams@1.0.4"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.rnorth.duct-tape/duct-tape@1.0.8",
+      "group": "org.rnorth.duct-tape",
+      "name": "duct-tape",
+      "version": "1.0.8",
+      "purl": "pkg:maven/org.rnorth.duct-tape/duct-tape@1.0.8"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.skyscreamer/jsonassert@1.5.3",
+      "group": "org.skyscreamer",
+      "name": "jsonassert",
+      "version": "1.5.3",
+      "purl": "pkg:maven/org.skyscreamer/jsonassert@1.5.3"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.slf4j/jul-to-slf4j@2.0.20",
+      "group": "org.slf4j",
+      "name": "jul-to-slf4j",
+      "version": "2.0.20",
+      "purl": "pkg:maven/org.slf4j/jul-to-slf4j@2.0.20"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.slf4j/slf4j-api@2.0.20",
+      "group": "org.slf4j",
+      "name": "slf4j-api",
+      "version": "2.0.20",
+      "purl": "pkg:maven/org.slf4j/slf4j-api@2.0.20"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.snakeyaml/snakeyaml-engine@2.10",
+      "group": "org.snakeyaml",
+      "name": "snakeyaml-engine",
+      "version": "2.10",
+      "purl": "pkg:maven/org.snakeyaml/snakeyaml-engine@2.10"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.springframework.boot/spring-boot-actuator-autoconfigure@4.1.2",
+      "group": "org.springframework.boot",
+      "name": "spring-boot-actuator-autoconfigure",
+      "version": "4.1.2",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-actuator-autoconfigure@4.1.2"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.springframework.boot/spring-boot-actuator@4.1.2",
+      "group": "org.springframework.boot",
+      "name": "spring-boot-actuator",
+      "version": "4.1.2",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-actuator@4.1.2"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.springframework.boot/spring-boot-autoconfigure@4.1.2",
+      "group": "org.springframework.boot",
+      "name": "spring-boot-autoconfigure",
+      "version": "4.1.2",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-autoconfigure@4.1.2"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.springframework.boot/spring-boot-health@4.1.2",
+      "group": "org.springframework.boot",
+      "name": "spring-boot-health",
+      "version": "4.1.2",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-health@4.1.2"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.springframework.boot/spring-boot-http-converter@4.1.2",
+      "group": "org.springframework.boot",
+      "name": "spring-boot-http-converter",
+      "version": "4.1.2",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-http-converter@4.1.2"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.springframework.boot/spring-boot-jackson@4.1.2",
+      "group": "org.springframework.boot",
+      "name": "spring-boot-jackson",
+      "version": "4.1.2",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-jackson@4.1.2"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.springframework.boot/spring-boot-micrometer-metrics@4.1.2",
+      "group": "org.springframework.boot",
+      "name": "spring-boot-micrometer-metrics",
+      "version": "4.1.2",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-micrometer-metrics@4.1.2"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.springframework.boot/spring-boot-micrometer-observation@4.1.2",
+      "group": "org.springframework.boot",
+      "name": "spring-boot-micrometer-observation",
+      "version": "4.1.2",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-micrometer-observation@4.1.2"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.springframework.boot/spring-boot-resttestclient@4.1.2",
+      "group": "org.springframework.boot",
+      "name": "spring-boot-resttestclient",
+      "version": "4.1.2",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-resttestclient@4.1.2"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.springframework.boot/spring-boot-security@4.1.2",
+      "group": "org.springframework.boot",
+      "name": "spring-boot-security",
+      "version": "4.1.2",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-security@4.1.2"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.springframework.boot/spring-boot-servlet@4.1.2",
+      "group": "org.springframework.boot",
+      "name": "spring-boot-servlet",
+      "version": "4.1.2",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-servlet@4.1.2"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.springframework.boot/spring-boot-starter-actuator@4.1.2",
+      "group": "org.springframework.boot",
+      "name": "spring-boot-starter-actuator",
+      "version": "4.1.2",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-starter-actuator@4.1.2"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.springframework.boot/spring-boot-starter-jackson-test@4.1.2",
+      "group": "org.springframework.boot",
+      "name": "spring-boot-starter-jackson-test",
+      "version": "4.1.2",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-starter-jackson-test@4.1.2"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.springframework.boot/spring-boot-starter-jackson@4.1.2",
+      "group": "org.springframework.boot",
+      "name": "spring-boot-starter-jackson",
+      "version": "4.1.2",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-starter-jackson@4.1.2"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.springframework.boot/spring-boot-starter-logging@4.1.2",
+      "group": "org.springframework.boot",
+      "name": "spring-boot-starter-logging",
+      "version": "4.1.2",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-starter-logging@4.1.2"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.springframework.boot/spring-boot-starter-micrometer-metrics@4.1.2",
+      "group": "org.springframework.boot",
+      "name": "spring-boot-starter-micrometer-metrics",
+      "version": "4.1.2",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-starter-micrometer-metrics@4.1.2"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.springframework.boot/spring-boot-starter-security@4.1.2",
+      "group": "org.springframework.boot",
+      "name": "spring-boot-starter-security",
+      "version": "4.1.2",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-starter-security@4.1.2"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.springframework.boot/spring-boot-starter-test@4.1.2",
+      "group": "org.springframework.boot",
+      "name": "spring-boot-starter-test",
+      "version": "4.1.2",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-starter-test@4.1.2"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.springframework.boot/spring-boot-starter-tomcat-runtime@4.1.2",
+      "group": "org.springframework.boot",
+      "name": "spring-boot-starter-tomcat-runtime",
+      "version": "4.1.2",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-starter-tomcat-runtime@4.1.2"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.springframework.boot/spring-boot-starter-tomcat@4.1.2",
+      "group": "org.springframework.boot",
+      "name": "spring-boot-starter-tomcat",
+      "version": "4.1.2",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-starter-tomcat@4.1.2"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.springframework.boot/spring-boot-starter-validation@4.1.2",
+      "group": "org.springframework.boot",
+      "name": "spring-boot-starter-validation",
+      "version": "4.1.2",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-starter-validation@4.1.2"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.springframework.boot/spring-boot-starter-webmvc-test@4.1.2",
+      "group": "org.springframework.boot",
+      "name": "spring-boot-starter-webmvc-test",
+      "version": "4.1.2",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-starter-webmvc-test@4.1.2"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.springframework.boot/spring-boot-starter-webmvc@4.1.2",
+      "group": "org.springframework.boot",
+      "name": "spring-boot-starter-webmvc",
+      "version": "4.1.2",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-starter-webmvc@4.1.2"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.springframework.boot/spring-boot-starter@4.1.2",
+      "group": "org.springframework.boot",
+      "name": "spring-boot-starter",
+      "version": "4.1.2",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-starter@4.1.2"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.springframework.boot/spring-boot-test-autoconfigure@4.1.2",
+      "group": "org.springframework.boot",
+      "name": "spring-boot-test-autoconfigure",
+      "version": "4.1.2",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-test-autoconfigure@4.1.2"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.springframework.boot/spring-boot-test@4.1.2",
+      "group": "org.springframework.boot",
+      "name": "spring-boot-test",
+      "version": "4.1.2",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-test@4.1.2"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.springframework.boot/spring-boot-tomcat@4.1.2",
+      "group": "org.springframework.boot",
+      "name": "spring-boot-tomcat",
+      "version": "4.1.2",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-tomcat@4.1.2"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.springframework.boot/spring-boot-validation@4.1.2",
+      "group": "org.springframework.boot",
+      "name": "spring-boot-validation",
+      "version": "4.1.2",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-validation@4.1.2"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.springframework.boot/spring-boot-web-server@4.1.2",
+      "group": "org.springframework.boot",
+      "name": "spring-boot-web-server",
+      "version": "4.1.2",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-web-server@4.1.2"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.springframework.boot/spring-boot-webmvc-test@4.1.2",
+      "group": "org.springframework.boot",
+      "name": "spring-boot-webmvc-test",
+      "version": "4.1.2",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-webmvc-test@4.1.2"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.springframework.boot/spring-boot-webmvc@4.1.2",
+      "group": "org.springframework.boot",
+      "name": "spring-boot-webmvc",
+      "version": "4.1.2",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot-webmvc@4.1.2"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.springframework.boot/spring-boot@4.1.2",
+      "group": "org.springframework.boot",
+      "name": "spring-boot",
+      "version": "4.1.2",
+      "purl": "pkg:maven/org.springframework.boot/spring-boot@4.1.2"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.springframework.security/spring-security-config@7.1.2",
+      "group": "org.springframework.security",
+      "name": "spring-security-config",
+      "version": "7.1.2",
+      "purl": "pkg:maven/org.springframework.security/spring-security-config@7.1.2"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.springframework.security/spring-security-core@7.1.2",
+      "group": "org.springframework.security",
+      "name": "spring-security-core",
+      "version": "7.1.2",
+      "purl": "pkg:maven/org.springframework.security/spring-security-core@7.1.2"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.springframework.security/spring-security-crypto@7.1.2",
+      "group": "org.springframework.security",
+      "name": "spring-security-crypto",
+      "version": "7.1.2",
+      "purl": "pkg:maven/org.springframework.security/spring-security-crypto@7.1.2"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.springframework.security/spring-security-web@7.1.2",
+      "group": "org.springframework.security",
+      "name": "spring-security-web",
+      "version": "7.1.2",
+      "purl": "pkg:maven/org.springframework.security/spring-security-web@7.1.2"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.springframework/spring-aop@7.0.10",
+      "group": "org.springframework",
+      "name": "spring-aop",
+      "version": "7.0.10",
+      "purl": "pkg:maven/org.springframework/spring-aop@7.0.10"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.springframework/spring-beans@7.0.10",
+      "group": "org.springframework",
+      "name": "spring-beans",
+      "version": "7.0.10",
+      "purl": "pkg:maven/org.springframework/spring-beans@7.0.10"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.springframework/spring-context@7.0.10",
+      "group": "org.springframework",
+      "name": "spring-context",
+      "version": "7.0.10",
+      "purl": "pkg:maven/org.springframework/spring-context@7.0.10"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.springframework/spring-core@7.0.10",
+      "group": "org.springframework",
+      "name": "spring-core",
+      "version": "7.0.10",
+      "purl": "pkg:maven/org.springframework/spring-core@7.0.10"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.springframework/spring-expression@7.0.10",
+      "group": "org.springframework",
+      "name": "spring-expression",
+      "version": "7.0.10",
+      "purl": "pkg:maven/org.springframework/spring-expression@7.0.10"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.springframework/spring-jdbc@7.0.10",
+      "group": "org.springframework",
+      "name": "spring-jdbc",
+      "version": "7.0.10",
+      "purl": "pkg:maven/org.springframework/spring-jdbc@7.0.10"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.springframework/spring-test@7.0.10",
+      "group": "org.springframework",
+      "name": "spring-test",
+      "version": "7.0.10",
+      "purl": "pkg:maven/org.springframework/spring-test@7.0.10"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.springframework/spring-tx@7.0.10",
+      "group": "org.springframework",
+      "name": "spring-tx",
+      "version": "7.0.10",
+      "purl": "pkg:maven/org.springframework/spring-tx@7.0.10"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.springframework/spring-web@7.0.10",
+      "group": "org.springframework",
+      "name": "spring-web",
+      "version": "7.0.10",
+      "purl": "pkg:maven/org.springframework/spring-web@7.0.10"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.springframework/spring-webmvc@7.0.10",
+      "group": "org.springframework",
+      "name": "spring-webmvc",
+      "version": "7.0.10",
+      "purl": "pkg:maven/org.springframework/spring-webmvc@7.0.10"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.testcontainers/testcontainers-database-commons@2.0.5",
+      "group": "org.testcontainers",
+      "name": "testcontainers-database-commons",
+      "version": "2.0.5",
+      "purl": "pkg:maven/org.testcontainers/testcontainers-database-commons@2.0.5"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.testcontainers/testcontainers-jdbc@2.0.5",
+      "group": "org.testcontainers",
+      "name": "testcontainers-jdbc",
+      "version": "2.0.5",
+      "purl": "pkg:maven/org.testcontainers/testcontainers-jdbc@2.0.5"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.testcontainers/testcontainers-junit-jupiter@2.0.5",
+      "group": "org.testcontainers",
+      "name": "testcontainers-junit-jupiter",
+      "version": "2.0.5",
+      "purl": "pkg:maven/org.testcontainers/testcontainers-junit-jupiter@2.0.5"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.testcontainers/testcontainers-kafka@2.0.5",
+      "group": "org.testcontainers",
+      "name": "testcontainers-kafka",
+      "version": "2.0.5",
+      "purl": "pkg:maven/org.testcontainers/testcontainers-kafka@2.0.5"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.testcontainers/testcontainers-postgresql@2.0.5",
+      "group": "org.testcontainers",
+      "name": "testcontainers-postgresql",
+      "version": "2.0.5",
+      "purl": "pkg:maven/org.testcontainers/testcontainers-postgresql@2.0.5"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.testcontainers/testcontainers@2.0.5",
+      "group": "org.testcontainers",
+      "name": "testcontainers",
+      "version": "2.0.5",
+      "purl": "pkg:maven/org.testcontainers/testcontainers@2.0.5"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.wiremock/wiremock-standalone@3.13.2",
+      "group": "org.wiremock",
+      "name": "wiremock-standalone",
+      "version": "3.13.2",
+      "purl": "pkg:maven/org.wiremock/wiremock-standalone@3.13.2"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.xerial.snappy/snappy-java@1.1.10.9",
+      "group": "org.xerial.snappy",
+      "name": "snappy-java",
+      "version": "1.1.10.9",
+      "purl": "pkg:maven/org.xerial.snappy/snappy-java@1.1.10.9"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.xmlunit/xmlunit-core@2.11.0",
+      "group": "org.xmlunit",
+      "name": "xmlunit-core",
+      "version": "2.11.0",
+      "purl": "pkg:maven/org.xmlunit/xmlunit-core@2.11.0"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.yaml/snakeyaml@2.6",
+      "group": "org.yaml",
+      "name": "snakeyaml",
+      "version": "2.6",
+      "purl": "pkg:maven/org.yaml/snakeyaml@2.6"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/tools.jackson.core/jackson-core@3.1.7",
+      "group": "tools.jackson.core",
+      "name": "jackson-core",
+      "version": "3.1.7",
+      "purl": "pkg:maven/tools.jackson.core/jackson-core@3.1.7"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/tools.jackson.core/jackson-databind@3.1.7",
+      "group": "tools.jackson.core",
+      "name": "jackson-databind",
+      "version": "3.1.7",
+      "purl": "pkg:maven/tools.jackson.core/jackson-databind@3.1.7"
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "pkg:maven/at.yawk.lz4/lz4-java@1.11.4",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/ch.qos.logback/logback-classic@1.5.38",
+      "dependsOn": [
+        "pkg:maven/ch.qos.logback/logback-core@1.5.38"
+      ]
+    },
+    {
+      "ref": "pkg:maven/ch.qos.logback/logback-core@1.5.38",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/com.fasterxml.jackson.core/jackson-annotations@2.21",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/com.fasterxml.jackson.core/jackson-core@2.21.7",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/com.fasterxml.jackson.core/jackson-databind@2.21.7",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/com.fasterxml.jackson.datatype/jackson-datatype-jdk8@2.21.7",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/com.fasterxml.jackson.datatype/jackson-datatype-jsr310@2.21.7",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/com.fasterxml.jackson.module/jackson-module-kotlin@2.21.7",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/com.fasterxml/classmate@1.7.3",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/com.github.docker-java/docker-java-api@3.7.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/com.github.docker-java/docker-java-transport-zerodep@3.7.1",
+      "dependsOn": [
+        "pkg:maven/com.github.docker-java/docker-java-transport@3.7.1",
+        "pkg:maven/net.java.dev.jna/jna@5.18.1"
+      ]
+    },
+    {
+      "ref": "pkg:maven/com.github.docker-java/docker-java-transport@3.7.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/com.github.luben/zstd-jni@1.5.6-10",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/com.github.victools/jsonschema-generator@4.38.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/com.github.victools/jsonschema-module-jackson@4.38.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/com.github.victools/jsonschema-module-swagger-2@4.38.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/com.google.code.findbugs/jsr305@3.0.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/com.google.errorprone/error_prone_annotations@2.33.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/com.investinator/backend-java@0.1.0-SNAPSHOT",
+      "dependsOn": [
+        "pkg:maven/com.openai/openai-java@4.106.0",
+        "pkg:maven/com.zaxxer/HikariCP@7.0.2",
+        "pkg:maven/io.dropwizard.metrics/metrics-core@4.2.40",
+        "pkg:maven/io.micrometer/micrometer-registry-prometheus@1.17.2",
+        "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-spring-boot-starter@2.33.1",
+        "pkg:maven/io.projectreactor/reactor-core@3.8.8",
+        "pkg:maven/org.apache.hive/hive-jdbc@4.2.1?classifier=standalone",
+        "pkg:maven/org.apache.kafka/kafka-clients@4.2.2",
+        "pkg:maven/org.apache.kudu/kudu-client@1.18.2",
+        "pkg:maven/org.apache.thrift/libthrift@0.25.0",
+        "pkg:maven/org.apache.zookeeper/zookeeper@3.9.7",
+        "pkg:maven/org.flywaydb/flyway-core@12.4.0",
+        "pkg:maven/org.flywaydb/flyway-database-postgresql@12.4.0",
+        "pkg:maven/org.opensearch.client/opensearch-java@3.11.0",
+        "pkg:maven/org.postgresql/postgresql@42.7.14",
+        "pkg:maven/org.reactivestreams/reactive-streams@1.0.4",
+        "pkg:maven/org.springframework.boot/spring-boot-starter-actuator@4.1.2",
+        "pkg:maven/org.springframework.boot/spring-boot-starter-security@4.1.2",
+        "pkg:maven/org.springframework.boot/spring-boot-starter-test@4.1.2",
+        "pkg:maven/org.springframework.boot/spring-boot-starter-validation@4.1.2",
+        "pkg:maven/org.springframework.boot/spring-boot-starter-webmvc-test@4.1.2",
+        "pkg:maven/org.springframework.boot/spring-boot-starter-webmvc@4.1.2",
+        "pkg:maven/org.springframework/spring-jdbc@7.0.10",
+        "pkg:maven/org.testcontainers/testcontainers-junit-jupiter@2.0.5",
+        "pkg:maven/org.testcontainers/testcontainers-kafka@2.0.5",
+        "pkg:maven/org.testcontainers/testcontainers-postgresql@2.0.5",
+        "pkg:maven/org.wiremock/wiremock-standalone@3.13.2"
+      ]
+    },
+    {
+      "ref": "pkg:maven/com.jayway.jsonpath/json-path@2.10.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/com.openai/openai-java-client-okhttp@4.106.0",
+      "dependsOn": [
+        "pkg:maven/com.openai/openai-java-core@4.106.0",
+        "pkg:maven/com.squareup.okhttp3/okhttp@4.12.0"
+      ]
+    },
+    {
+      "ref": "pkg:maven/com.openai/openai-java-core@4.106.0",
+      "dependsOn": [
+        "pkg:maven/com.fasterxml.jackson.datatype/jackson-datatype-jdk8@2.21.7",
+        "pkg:maven/com.fasterxml.jackson.datatype/jackson-datatype-jsr310@2.21.7",
+        "pkg:maven/com.fasterxml.jackson.module/jackson-module-kotlin@2.21.7",
+        "pkg:maven/com.github.victools/jsonschema-generator@4.38.0",
+        "pkg:maven/com.github.victools/jsonschema-module-jackson@4.38.0",
+        "pkg:maven/com.github.victools/jsonschema-module-swagger-2@4.38.0",
+        "pkg:maven/com.google.errorprone/error_prone_annotations@2.33.0",
+        "pkg:maven/io.swagger.core.v3/swagger-annotations@2.2.31",
+        "pkg:maven/org.jetbrains.kotlin/kotlin-reflect@2.3.21"
+      ]
+    },
+    {
+      "ref": "pkg:maven/com.openai/openai-java@4.106.0",
+      "dependsOn": [
+        "pkg:maven/com.openai/openai-java-client-okhttp@4.106.0",
+        "pkg:maven/org.jetbrains.kotlin/kotlin-stdlib-jdk8@2.3.21"
+      ]
+    },
+    {
+      "ref": "pkg:maven/com.squareup.okhttp3/okhttp-jvm@5.5.0",
+      "dependsOn": [
+        "pkg:maven/com.squareup.okio/okio-jvm@3.18.1"
+      ]
+    },
+    {
+      "ref": "pkg:maven/com.squareup.okhttp3/okhttp@4.12.0",
+      "dependsOn": [
+        "pkg:maven/com.squareup.okio/okio@3.6.0"
+      ]
+    },
+    {
+      "ref": "pkg:maven/com.squareup.okio/okio-jvm@3.18.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/com.squareup.okio/okio@3.6.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/com.stumbleupon/async@1.4.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/com.vaadin.external.google/android-json@0.0.20131108.vaadin1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/com.zaxxer/HikariCP@7.0.2",
+      "dependsOn": [
+        "pkg:maven/org.slf4j/slf4j-api@2.0.20"
+      ]
+    },
+    {
+      "ref": "pkg:maven/commons-codec/commons-codec@1.21.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/commons-io/commons-io@2.17.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/commons-logging/commons-logging@1.3.6",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.dropwizard.metrics/metrics-core@4.2.40",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.micrometer/micrometer-commons@1.17.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.micrometer/micrometer-core@1.17.2",
+      "dependsOn": [
+        "pkg:maven/org.hdrhistogram/HdrHistogram@2.2.2"
+      ]
+    },
+    {
+      "ref": "pkg:maven/io.micrometer/micrometer-jakarta9@1.17.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.micrometer/micrometer-observation@1.17.2",
+      "dependsOn": [
+        "pkg:maven/io.micrometer/micrometer-commons@1.17.2"
+      ]
+    },
+    {
+      "ref": "pkg:maven/io.micrometer/micrometer-registry-prometheus@1.17.2",
+      "dependsOn": [
+        "pkg:maven/io.micrometer/micrometer-core@1.17.2",
+        "pkg:maven/io.prometheus/prometheus-metrics-core@1.7.0",
+        "pkg:maven/io.prometheus/prometheus-metrics-exposition-formats@1.7.0",
+        "pkg:maven/io.prometheus/prometheus-metrics-tracer-common@1.7.0",
+        "pkg:maven/org.jspecify/jspecify@1.0.1"
+      ]
+    },
+    {
+      "ref": "pkg:maven/io.netty/netty-buffer@4.2.19.Final",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.netty/netty-codec-base@4.2.19.Final",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.netty/netty-common@4.2.19.Final",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.netty/netty-handler@4.2.19.Final",
+      "dependsOn": [
+        "pkg:maven/io.netty/netty-buffer@4.2.19.Final",
+        "pkg:maven/io.netty/netty-codec-base@4.2.19.Final",
+        "pkg:maven/io.netty/netty-common@4.2.19.Final",
+        "pkg:maven/io.netty/netty-resolver@4.2.19.Final",
+        "pkg:maven/io.netty/netty-transport-native-unix-common@4.2.19.Final",
+        "pkg:maven/io.netty/netty-transport@4.2.19.Final"
+      ]
+    },
+    {
+      "ref": "pkg:maven/io.netty/netty-resolver@4.2.19.Final",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.netty/netty-tcnative-boringssl-static@2.0.84.Final",
+      "dependsOn": [
+        "pkg:maven/io.netty/netty-tcnative-boringssl-static@2.0.84.Final?classifier=linux-aarch_64",
+        "pkg:maven/io.netty/netty-tcnative-boringssl-static@2.0.84.Final?classifier=linux-x86_64",
+        "pkg:maven/io.netty/netty-tcnative-boringssl-static@2.0.84.Final?classifier=osx-aarch_64",
+        "pkg:maven/io.netty/netty-tcnative-boringssl-static@2.0.84.Final?classifier=osx-x86_64",
+        "pkg:maven/io.netty/netty-tcnative-boringssl-static@2.0.84.Final?classifier=windows-x86_64",
+        "pkg:maven/io.netty/netty-tcnative-classes@2.0.84.Final"
+      ]
+    },
+    {
+      "ref": "pkg:maven/io.netty/netty-tcnative-boringssl-static@2.0.84.Final?classifier=linux-aarch_64",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.netty/netty-tcnative-boringssl-static@2.0.84.Final?classifier=linux-x86_64",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.netty/netty-tcnative-boringssl-static@2.0.84.Final?classifier=osx-aarch_64",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.netty/netty-tcnative-boringssl-static@2.0.84.Final?classifier=osx-x86_64",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.netty/netty-tcnative-boringssl-static@2.0.84.Final?classifier=windows-x86_64",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.netty/netty-tcnative-classes@2.0.84.Final",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.netty/netty-transport-classes-epoll@4.2.19.Final",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.netty/netty-transport-native-epoll@4.2.19.Final?classifier=linux-x86_64",
+      "dependsOn": [
+        "pkg:maven/io.netty/netty-transport-classes-epoll@4.2.19.Final"
+      ]
+    },
+    {
+      "ref": "pkg:maven/io.netty/netty-transport-native-unix-common@4.2.19.Final",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.netty/netty-transport@4.2.19.Final",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.opentelemetry.contrib/opentelemetry-aws-resources@1.61.0-alpha",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.opentelemetry.contrib/opentelemetry-azure-resources@1.61.0-alpha",
+      "dependsOn": [
+        "pkg:maven/com.squareup.okhttp3/okhttp-jvm@5.5.0"
+      ]
+    },
+    {
+      "ref": "pkg:maven/io.opentelemetry.contrib/opentelemetry-baggage-processor@1.61.0-alpha",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.opentelemetry.contrib/opentelemetry-cloudfoundry-resources@1.61.0-alpha",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.opentelemetry.contrib/opentelemetry-gcp-resources@1.61.0-alpha",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.opentelemetry.contrib/opentelemetry-samplers@1.61.0-alpha",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-declarative-config-bridge@2.33.1-alpha",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-instrumentation-annotations-support@2.33.1-alpha",
+      "dependsOn": [
+        "pkg:maven/io.opentelemetry.semconv/opentelemetry-semconv-incubating@1.44.0-alpha"
+      ]
+    },
+    {
+      "ref": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-instrumentation-annotations@2.33.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-instrumentation-api-incubator@2.33.1-alpha",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-instrumentation-api@2.33.1",
+      "dependsOn": [
+        "pkg:maven/io.opentelemetry/opentelemetry-api-incubator@1.67.0-alpha"
+      ]
+    },
+    {
+      "ref": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-jdbc@2.33.1-alpha",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-kafka-clients-2.6@2.33.1-alpha",
+      "dependsOn": [
+        "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-kafka-clients-common-0.11@2.33.1-alpha"
+      ]
+    },
+    {
+      "ref": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-kafka-clients-common-0.11@2.33.1-alpha",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-log4j-appender-2.17@2.33.1-alpha",
+      "dependsOn": [
+        "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-log4j-context-data-2.17-autoconfigure@2.33.1-alpha"
+      ]
+    },
+    {
+      "ref": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-log4j-context-data-2.17-autoconfigure@2.33.1-alpha",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-logback-appender-1.0@2.33.1-alpha",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-logback-mdc-1.0@2.33.1-alpha",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-micrometer-1.5@2.33.1-alpha",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-mongo-3.1@2.33.1-alpha",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-reactor-3.1@2.33.1-alpha",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-resources@2.33.1-alpha",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-runtime-telemetry@2.33.1-alpha",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-sdk-autoconfigure-support@2.33.1-alpha",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-spring-boot-autoconfigure@2.33.1",
+      "dependsOn": [
+        "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-declarative-config-bridge@2.33.1-alpha",
+        "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-instrumentation-annotations-support@2.33.1-alpha",
+        "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-instrumentation-api-incubator@2.33.1-alpha",
+        "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-instrumentation-api@2.33.1",
+        "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-jdbc@2.33.1-alpha",
+        "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-kafka-clients-2.6@2.33.1-alpha",
+        "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-log4j-appender-2.17@2.33.1-alpha",
+        "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-logback-appender-1.0@2.33.1-alpha",
+        "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-logback-mdc-1.0@2.33.1-alpha",
+        "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-micrometer-1.5@2.33.1-alpha",
+        "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-mongo-3.1@2.33.1-alpha",
+        "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-runtime-telemetry@2.33.1-alpha",
+        "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-sdk-autoconfigure-support@2.33.1-alpha",
+        "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-spring-kafka-2.7@2.33.1-alpha",
+        "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-spring-web-3.1@2.33.1-alpha",
+        "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-spring-webflux-5.3@2.33.1-alpha",
+        "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-spring-webmvc-5.3@2.33.1-alpha",
+        "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-spring-webmvc-6.0@2.33.1-alpha",
+        "pkg:maven/io.opentelemetry.semconv/opentelemetry-semconv@1.44.0",
+        "pkg:maven/io.opentelemetry/opentelemetry-sdk-extension-autoconfigure@1.67.0",
+        "pkg:maven/io.opentelemetry/opentelemetry-sdk-extension-declarative-config@1.67.0-alpha",
+        "pkg:maven/javax.validation/validation-api@2.0.1.Final"
+      ]
+    },
+    {
+      "ref": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-spring-boot-starter@2.33.1",
+      "dependsOn": [
+        "pkg:maven/io.opentelemetry.contrib/opentelemetry-aws-resources@1.61.0-alpha",
+        "pkg:maven/io.opentelemetry.contrib/opentelemetry-azure-resources@1.61.0-alpha",
+        "pkg:maven/io.opentelemetry.contrib/opentelemetry-baggage-processor@1.61.0-alpha",
+        "pkg:maven/io.opentelemetry.contrib/opentelemetry-cloudfoundry-resources@1.61.0-alpha",
+        "pkg:maven/io.opentelemetry.contrib/opentelemetry-gcp-resources@1.61.0-alpha",
+        "pkg:maven/io.opentelemetry.contrib/opentelemetry-samplers@1.61.0-alpha",
+        "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-instrumentation-annotations@2.33.1",
+        "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-resources@2.33.1-alpha",
+        "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-spring-boot-autoconfigure@2.33.1",
+        "pkg:maven/io.opentelemetry/opentelemetry-api@1.67.0",
+        "pkg:maven/io.opentelemetry/opentelemetry-exporter-logging@1.67.0",
+        "pkg:maven/io.opentelemetry/opentelemetry-exporter-otlp@1.67.0",
+        "pkg:maven/io.opentelemetry/opentelemetry-sdk-extension-autoconfigure-spi@1.67.0",
+        "pkg:maven/io.opentelemetry/opentelemetry-sdk-extension-incubator@1.67.0-alpha",
+        "pkg:maven/io.opentelemetry/opentelemetry-sdk@1.67.0"
+      ]
+    },
+    {
+      "ref": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-spring-kafka-2.7@2.33.1-alpha",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-spring-web-3.1@2.33.1-alpha",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-spring-webflux-5.3@2.33.1-alpha",
+      "dependsOn": [
+        "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-reactor-3.1@2.33.1-alpha"
+      ]
+    },
+    {
+      "ref": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-spring-webmvc-5.3@2.33.1-alpha",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.opentelemetry.instrumentation/opentelemetry-spring-webmvc-6.0@2.33.1-alpha",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.opentelemetry.semconv/opentelemetry-semconv-incubating@1.44.0-alpha",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.opentelemetry.semconv/opentelemetry-semconv@1.44.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.opentelemetry/opentelemetry-api-incubator@1.67.0-alpha",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.opentelemetry/opentelemetry-api@1.67.0",
+      "dependsOn": [
+        "pkg:maven/io.opentelemetry/opentelemetry-context@1.67.0"
+      ]
+    },
+    {
+      "ref": "pkg:maven/io.opentelemetry/opentelemetry-common@1.67.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.opentelemetry/opentelemetry-context@1.67.0",
+      "dependsOn": [
+        "pkg:maven/io.opentelemetry/opentelemetry-common@1.67.0"
+      ]
+    },
+    {
+      "ref": "pkg:maven/io.opentelemetry/opentelemetry-exporter-common@1.67.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.opentelemetry/opentelemetry-exporter-logging@1.67.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.opentelemetry/opentelemetry-exporter-otlp-common@1.67.0",
+      "dependsOn": [
+        "pkg:maven/io.opentelemetry/opentelemetry-exporter-common@1.67.0"
+      ]
+    },
+    {
+      "ref": "pkg:maven/io.opentelemetry/opentelemetry-exporter-otlp@1.67.0",
+      "dependsOn": [
+        "pkg:maven/io.opentelemetry/opentelemetry-exporter-otlp-common@1.67.0",
+        "pkg:maven/io.opentelemetry/opentelemetry-exporter-sender-okhttp@1.67.0",
+        "pkg:maven/io.opentelemetry/opentelemetry-sdk-logs@1.67.0",
+        "pkg:maven/io.opentelemetry/opentelemetry-sdk-metrics@1.67.0",
+        "pkg:maven/io.opentelemetry/opentelemetry-sdk-trace@1.67.0"
+      ]
+    },
+    {
+      "ref": "pkg:maven/io.opentelemetry/opentelemetry-exporter-sender-okhttp@1.67.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.opentelemetry/opentelemetry-sdk-common@1.67.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.opentelemetry/opentelemetry-sdk-extension-autoconfigure-spi@1.67.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.opentelemetry/opentelemetry-sdk-extension-autoconfigure@1.67.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.opentelemetry/opentelemetry-sdk-extension-declarative-config@1.67.0-alpha",
+      "dependsOn": [
+        "pkg:maven/org.snakeyaml/snakeyaml-engine@2.10"
+      ]
+    },
+    {
+      "ref": "pkg:maven/io.opentelemetry/opentelemetry-sdk-extension-incubator@1.67.0-alpha",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.opentelemetry/opentelemetry-sdk-logs@1.67.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.opentelemetry/opentelemetry-sdk-metrics@1.67.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.opentelemetry/opentelemetry-sdk-trace@1.67.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.opentelemetry/opentelemetry-sdk@1.67.0",
+      "dependsOn": [
+        "pkg:maven/io.opentelemetry/opentelemetry-sdk-common@1.67.0"
+      ]
+    },
+    {
+      "ref": "pkg:maven/io.projectreactor/reactor-core@3.8.8",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.prometheus/prometheus-metrics-config@1.7.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.prometheus/prometheus-metrics-core@1.7.0",
+      "dependsOn": [
+        "pkg:maven/io.prometheus/prometheus-metrics-config@1.7.0",
+        "pkg:maven/io.prometheus/prometheus-metrics-model@1.7.0"
+      ]
+    },
+    {
+      "ref": "pkg:maven/io.prometheus/prometheus-metrics-exposition-formats@1.7.0",
+      "dependsOn": [
+        "pkg:maven/io.prometheus/prometheus-metrics-exposition-textformats@1.7.0"
+      ]
+    },
+    {
+      "ref": "pkg:maven/io.prometheus/prometheus-metrics-exposition-textformats@1.7.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.prometheus/prometheus-metrics-model@1.7.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.prometheus/prometheus-metrics-tracer-common@1.7.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/io.swagger.core.v3/swagger-annotations@2.2.31",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/jakarta.activation/jakarta.activation-api@2.1.4",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/jakarta.annotation/jakarta.annotation-api@3.0.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/jakarta.json.bind/jakarta.json.bind-api@3.0.4",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/jakarta.json/jakarta.json-api@2.1.3",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/jakarta.servlet/jakarta.servlet-api@6.1.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/jakarta.validation/jakarta.validation-api@3.1.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/jakarta.xml.bind/jakarta.xml.bind-api@4.0.5",
+      "dependsOn": [
+        "pkg:maven/jakarta.activation/jakarta.activation-api@2.1.4"
+      ]
+    },
+    {
+      "ref": "pkg:maven/javax.validation/validation-api@2.0.1.Final",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/net.bytebuddy/byte-buddy-agent@1.18.15",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/net.bytebuddy/byte-buddy@1.18.15",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/net.java.dev.jna/jna@5.18.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/net.minidev/accessors-smart@2.6.0",
+      "dependsOn": [
+        "pkg:maven/org.ow2.asm/asm@9.7.1"
+      ]
+    },
+    {
+      "ref": "pkg:maven/net.minidev/json-smart@2.6.0",
+      "dependsOn": [
+        "pkg:maven/net.minidev/accessors-smart@2.6.0"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.apache.commons/commons-compress@1.28.0",
+      "dependsOn": [
+        "pkg:maven/commons-codec/commons-codec@1.21.0"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.apache.commons/commons-lang3@3.20.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.apache.hive/hive-jdbc@4.2.1?classifier=standalone",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.apache.httpcomponents.client5/httpclient5@5.6.5",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.apache.httpcomponents.core5/httpcore5-h2@5.4.4",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.apache.httpcomponents.core5/httpcore5@5.4.4",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.apache.kafka/kafka-clients@4.2.2",
+      "dependsOn": [
+        "pkg:maven/at.yawk.lz4/lz4-java@1.11.4",
+        "pkg:maven/com.github.luben/zstd-jni@1.5.6-10",
+        "pkg:maven/org.xerial.snappy/snappy-java@1.1.10.9"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.apache.kudu/kudu-client@1.18.2",
+      "dependsOn": [
+        "pkg:maven/com.stumbleupon/async@1.4.1",
+        "pkg:maven/org.apache.yetus/audience-annotations@0.13.0"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.apache.logging.log4j/log4j-api@2.25.5",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.apache.logging.log4j/log4j-to-slf4j@2.25.5",
+      "dependsOn": [
+        "pkg:maven/org.apache.logging.log4j/log4j-api@2.25.5"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.apache.thrift/libthrift@0.25.0",
+      "dependsOn": [
+        "pkg:maven/jakarta.servlet/jakarta.servlet-api@6.1.0",
+        "pkg:maven/org.apache.commons/commons-lang3@3.20.0"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.apache.tomcat.embed/tomcat-embed-core@11.0.27",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.apache.tomcat.embed/tomcat-embed-el@11.0.27",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.apache.tomcat.embed/tomcat-embed-websocket@11.0.27",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.apache.yetus/audience-annotations@0.13.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.apache.zookeeper/zookeeper-jute@3.9.7",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.apache.zookeeper/zookeeper@3.9.7",
+      "dependsOn": [
+        "pkg:maven/commons-io/commons-io@2.17.0",
+        "pkg:maven/io.netty/netty-handler@4.2.19.Final",
+        "pkg:maven/io.netty/netty-tcnative-boringssl-static@2.0.84.Final",
+        "pkg:maven/io.netty/netty-transport-native-epoll@4.2.19.Final?classifier=linux-x86_64",
+        "pkg:maven/org.apache.zookeeper/zookeeper-jute@3.9.7"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.apiguardian/apiguardian-api@1.1.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.assertj/assertj-core@3.27.7",
+      "dependsOn": [
+        "pkg:maven/net.bytebuddy/byte-buddy@1.18.15"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.awaitility/awaitility@4.3.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.checkerframework/checker-qual@3.55.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.eclipse.parsson/parsson@1.1.9",
+      "dependsOn": [
+        "pkg:maven/jakarta.json/jakarta.json-api@2.1.3"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.eclipse.yasson/yasson@3.0.5",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.flywaydb/flyway-core@12.4.0",
+      "dependsOn": [
+        "pkg:maven/tools.jackson.core/jackson-databind@3.1.7"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.flywaydb/flyway-database-postgresql@12.4.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.hamcrest/hamcrest@3.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.hdrhistogram/HdrHistogram@2.2.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.hibernate.validator/hibernate-validator@9.1.5.Final",
+      "dependsOn": [
+        "pkg:maven/com.fasterxml/classmate@1.7.3",
+        "pkg:maven/jakarta.validation/jakarta.validation-api@3.1.1",
+        "pkg:maven/org.jboss.logging/jboss-logging@3.6.3.Final"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.jboss.logging/jboss-logging@3.6.3.Final",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.jetbrains.kotlin/kotlin-reflect@2.3.21",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.jetbrains.kotlin/kotlin-stdlib-jdk7@2.3.21",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.jetbrains.kotlin/kotlin-stdlib-jdk8@2.3.21",
+      "dependsOn": [
+        "pkg:maven/org.jetbrains.kotlin/kotlin-stdlib-jdk7@2.3.21",
+        "pkg:maven/org.jetbrains.kotlin/kotlin-stdlib@2.3.21"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.jetbrains.kotlin/kotlin-stdlib@2.3.21",
+      "dependsOn": [
+        "pkg:maven/org.jetbrains/annotations@13.0"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.jetbrains/annotations@13.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.jspecify/jspecify@1.0.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.junit.jupiter/junit-jupiter-api@6.0.3",
+      "dependsOn": [
+        "pkg:maven/org.apiguardian/apiguardian-api@1.1.2",
+        "pkg:maven/org.junit.platform/junit-platform-commons@6.0.3",
+        "pkg:maven/org.opentest4j/opentest4j@1.3.0"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.junit.jupiter/junit-jupiter-engine@6.0.3",
+      "dependsOn": [
+        "pkg:maven/org.junit.platform/junit-platform-engine@6.0.3"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.junit.jupiter/junit-jupiter-params@6.0.3",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.junit.jupiter/junit-jupiter@6.0.3",
+      "dependsOn": [
+        "pkg:maven/org.junit.jupiter/junit-jupiter-api@6.0.3",
+        "pkg:maven/org.junit.jupiter/junit-jupiter-engine@6.0.3",
+        "pkg:maven/org.junit.jupiter/junit-jupiter-params@6.0.3"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.junit.platform/junit-platform-commons@6.0.3",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.junit.platform/junit-platform-engine@6.0.3",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.mockito/mockito-core@5.23.0",
+      "dependsOn": [
+        "pkg:maven/net.bytebuddy/byte-buddy-agent@1.18.15",
+        "pkg:maven/org.objenesis/objenesis@3.3"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.mockito/mockito-junit-jupiter@5.23.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.objenesis/objenesis@3.3",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.opensearch.client/opensearch-java@3.11.0",
+      "dependsOn": [
+        "pkg:maven/com.fasterxml.jackson.core/jackson-core@2.21.7",
+        "pkg:maven/com.fasterxml.jackson.core/jackson-databind@2.21.7",
+        "pkg:maven/com.google.code.findbugs/jsr305@3.0.2",
+        "pkg:maven/commons-logging/commons-logging@1.3.6",
+        "pkg:maven/jakarta.annotation/jakarta.annotation-api@3.0.0",
+        "pkg:maven/jakarta.json.bind/jakarta.json.bind-api@3.0.4",
+        "pkg:maven/org.apache.httpcomponents.client5/httpclient5@5.6.5",
+        "pkg:maven/org.apache.httpcomponents.core5/httpcore5-h2@5.4.4",
+        "pkg:maven/org.apache.httpcomponents.core5/httpcore5@5.4.4",
+        "pkg:maven/org.eclipse.parsson/parsson@1.1.9",
+        "pkg:maven/org.eclipse.yasson/yasson@3.0.5"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.opentest4j/opentest4j@1.3.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.ow2.asm/asm@9.7.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.postgresql/postgresql@42.7.14",
+      "dependsOn": [
+        "pkg:maven/org.checkerframework/checker-qual@3.55.1"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.reactivestreams/reactive-streams@1.0.4",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.rnorth.duct-tape/duct-tape@1.0.8",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.skyscreamer/jsonassert@1.5.3",
+      "dependsOn": [
+        "pkg:maven/com.vaadin.external.google/android-json@0.0.20131108.vaadin1"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.slf4j/jul-to-slf4j@2.0.20",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.slf4j/slf4j-api@2.0.20",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.snakeyaml/snakeyaml-engine@2.10",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.springframework.boot/spring-boot-actuator-autoconfigure@4.1.2",
+      "dependsOn": [
+        "pkg:maven/org.springframework.boot/spring-boot-actuator@4.1.2"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.springframework.boot/spring-boot-actuator@4.1.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.springframework.boot/spring-boot-autoconfigure@4.1.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.springframework.boot/spring-boot-health@4.1.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.springframework.boot/spring-boot-http-converter@4.1.2",
+      "dependsOn": [
+        "pkg:maven/org.springframework.boot/spring-boot@4.1.2",
+        "pkg:maven/org.springframework/spring-web@7.0.10"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.springframework.boot/spring-boot-jackson@4.1.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.springframework.boot/spring-boot-micrometer-metrics@4.1.2",
+      "dependsOn": [
+        "pkg:maven/org.springframework.boot/spring-boot-micrometer-observation@4.1.2"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.springframework.boot/spring-boot-micrometer-observation@4.1.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.springframework.boot/spring-boot-resttestclient@4.1.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.springframework.boot/spring-boot-security@4.1.2",
+      "dependsOn": [
+        "pkg:maven/org.springframework.security/spring-security-config@7.1.2",
+        "pkg:maven/org.springframework.security/spring-security-web@7.1.2"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.springframework.boot/spring-boot-servlet@4.1.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.springframework.boot/spring-boot-starter-actuator@4.1.2",
+      "dependsOn": [
+        "pkg:maven/io.micrometer/micrometer-jakarta9@1.17.2",
+        "pkg:maven/io.micrometer/micrometer-observation@1.17.2",
+        "pkg:maven/org.springframework.boot/spring-boot-actuator-autoconfigure@4.1.2",
+        "pkg:maven/org.springframework.boot/spring-boot-health@4.1.2",
+        "pkg:maven/org.springframework.boot/spring-boot-starter-micrometer-metrics@4.1.2"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.springframework.boot/spring-boot-starter-jackson-test@4.1.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.springframework.boot/spring-boot-starter-jackson@4.1.2",
+      "dependsOn": [
+        "pkg:maven/org.springframework.boot/spring-boot-jackson@4.1.2"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.springframework.boot/spring-boot-starter-logging@4.1.2",
+      "dependsOn": [
+        "pkg:maven/ch.qos.logback/logback-classic@1.5.38",
+        "pkg:maven/org.apache.logging.log4j/log4j-to-slf4j@2.25.5",
+        "pkg:maven/org.slf4j/jul-to-slf4j@2.0.20"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.springframework.boot/spring-boot-starter-micrometer-metrics@4.1.2",
+      "dependsOn": [
+        "pkg:maven/org.springframework.boot/spring-boot-micrometer-metrics@4.1.2"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.springframework.boot/spring-boot-starter-security@4.1.2",
+      "dependsOn": [
+        "pkg:maven/org.springframework.boot/spring-boot-security@4.1.2",
+        "pkg:maven/org.springframework/spring-aop@7.0.10"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.springframework.boot/spring-boot-starter-test@4.1.2",
+      "dependsOn": [
+        "pkg:maven/com.jayway.jsonpath/json-path@2.10.0",
+        "pkg:maven/jakarta.xml.bind/jakarta.xml.bind-api@4.0.5",
+        "pkg:maven/net.minidev/json-smart@2.6.0",
+        "pkg:maven/org.assertj/assertj-core@3.27.7",
+        "pkg:maven/org.awaitility/awaitility@4.3.0",
+        "pkg:maven/org.hamcrest/hamcrest@3.0",
+        "pkg:maven/org.junit.jupiter/junit-jupiter@6.0.3",
+        "pkg:maven/org.mockito/mockito-core@5.23.0",
+        "pkg:maven/org.mockito/mockito-junit-jupiter@5.23.0",
+        "pkg:maven/org.skyscreamer/jsonassert@1.5.3",
+        "pkg:maven/org.springframework.boot/spring-boot-test-autoconfigure@4.1.2",
+        "pkg:maven/org.springframework.boot/spring-boot-test@4.1.2",
+        "pkg:maven/org.springframework/spring-test@7.0.10",
+        "pkg:maven/org.xmlunit/xmlunit-core@2.11.0"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.springframework.boot/spring-boot-starter-tomcat-runtime@4.1.2",
+      "dependsOn": [
+        "pkg:maven/org.apache.tomcat.embed/tomcat-embed-core@11.0.27",
+        "pkg:maven/org.apache.tomcat.embed/tomcat-embed-websocket@11.0.27"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.springframework.boot/spring-boot-starter-tomcat@4.1.2",
+      "dependsOn": [
+        "pkg:maven/org.springframework.boot/spring-boot-starter-tomcat-runtime@4.1.2",
+        "pkg:maven/org.springframework.boot/spring-boot-tomcat@4.1.2"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.springframework.boot/spring-boot-starter-validation@4.1.2",
+      "dependsOn": [
+        "pkg:maven/org.springframework.boot/spring-boot-validation@4.1.2"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.springframework.boot/spring-boot-starter-webmvc-test@4.1.2",
+      "dependsOn": [
+        "pkg:maven/org.springframework.boot/spring-boot-resttestclient@4.1.2",
+        "pkg:maven/org.springframework.boot/spring-boot-starter-jackson-test@4.1.2",
+        "pkg:maven/org.springframework.boot/spring-boot-webmvc-test@4.1.2"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.springframework.boot/spring-boot-starter-webmvc@4.1.2",
+      "dependsOn": [
+        "pkg:maven/org.springframework.boot/spring-boot-http-converter@4.1.2",
+        "pkg:maven/org.springframework.boot/spring-boot-starter-jackson@4.1.2",
+        "pkg:maven/org.springframework.boot/spring-boot-starter-tomcat@4.1.2",
+        "pkg:maven/org.springframework.boot/spring-boot-starter@4.1.2",
+        "pkg:maven/org.springframework.boot/spring-boot-webmvc@4.1.2"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.springframework.boot/spring-boot-starter@4.1.2",
+      "dependsOn": [
+        "pkg:maven/org.springframework.boot/spring-boot-autoconfigure@4.1.2",
+        "pkg:maven/org.springframework.boot/spring-boot-starter-logging@4.1.2",
+        "pkg:maven/org.yaml/snakeyaml@2.6"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.springframework.boot/spring-boot-test-autoconfigure@4.1.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.springframework.boot/spring-boot-test@4.1.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.springframework.boot/spring-boot-tomcat@4.1.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.springframework.boot/spring-boot-validation@4.1.2",
+      "dependsOn": [
+        "pkg:maven/org.apache.tomcat.embed/tomcat-embed-el@11.0.27",
+        "pkg:maven/org.hibernate.validator/hibernate-validator@9.1.5.Final"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.springframework.boot/spring-boot-web-server@4.1.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.springframework.boot/spring-boot-webmvc-test@4.1.2",
+      "dependsOn": [
+        "pkg:maven/org.springframework.boot/spring-boot-web-server@4.1.2"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.springframework.boot/spring-boot-webmvc@4.1.2",
+      "dependsOn": [
+        "pkg:maven/org.springframework.boot/spring-boot-servlet@4.1.2",
+        "pkg:maven/org.springframework/spring-webmvc@7.0.10"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.springframework.boot/spring-boot@4.1.2",
+      "dependsOn": [
+        "pkg:maven/org.springframework/spring-context@7.0.10"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.springframework.security/spring-security-config@7.1.2",
+      "dependsOn": [
+        "pkg:maven/org.springframework.security/spring-security-core@7.1.2"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.springframework.security/spring-security-core@7.1.2",
+      "dependsOn": [
+        "pkg:maven/org.springframework.security/spring-security-crypto@7.1.2"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.springframework.security/spring-security-crypto@7.1.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.springframework.security/spring-security-web@7.1.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.springframework/spring-aop@7.0.10",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.springframework/spring-beans@7.0.10",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.springframework/spring-context@7.0.10",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.springframework/spring-core@7.0.10",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.springframework/spring-expression@7.0.10",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.springframework/spring-jdbc@7.0.10",
+      "dependsOn": [
+        "pkg:maven/org.springframework/spring-beans@7.0.10",
+        "pkg:maven/org.springframework/spring-core@7.0.10",
+        "pkg:maven/org.springframework/spring-tx@7.0.10"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.springframework/spring-test@7.0.10",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.springframework/spring-tx@7.0.10",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.springframework/spring-web@7.0.10",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.springframework/spring-webmvc@7.0.10",
+      "dependsOn": [
+        "pkg:maven/org.springframework/spring-expression@7.0.10"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.testcontainers/testcontainers-database-commons@2.0.5",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.testcontainers/testcontainers-jdbc@2.0.5",
+      "dependsOn": [
+        "pkg:maven/org.testcontainers/testcontainers-database-commons@2.0.5"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.testcontainers/testcontainers-junit-jupiter@2.0.5",
+      "dependsOn": [
+        "pkg:maven/org.testcontainers/testcontainers@2.0.5"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.testcontainers/testcontainers-kafka@2.0.5",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.testcontainers/testcontainers-postgresql@2.0.5",
+      "dependsOn": [
+        "pkg:maven/org.testcontainers/testcontainers-jdbc@2.0.5"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.testcontainers/testcontainers@2.0.5",
+      "dependsOn": [
+        "pkg:maven/com.github.docker-java/docker-java-api@3.7.1",
+        "pkg:maven/com.github.docker-java/docker-java-transport-zerodep@3.7.1",
+        "pkg:maven/org.apache.commons/commons-compress@1.28.0",
+        "pkg:maven/org.rnorth.duct-tape/duct-tape@1.0.8"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.wiremock/wiremock-standalone@3.13.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.xerial.snappy/snappy-java@1.1.10.9",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.xmlunit/xmlunit-core@2.11.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.yaml/snakeyaml@2.6",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/tools.jackson.core/jackson-core@3.1.7",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/tools.jackson.core/jackson-databind@3.1.7",
+      "dependsOn": [
+        "pkg:maven/com.fasterxml.jackson.core/jackson-annotations@2.21",
+        "pkg:maven/tools.jackson.core/jackson-core@3.1.7"
+      ]
+    }
+  ]
+}

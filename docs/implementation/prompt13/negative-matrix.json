@@ -1,0 +1,86 @@
+[
+  {
+    "scenario": "missing broker / search network / DB interruption",
+    "provenance": "LIVE_LOCAL",
+    "evidence": "eight-owned-service failure injection",
+    "artifact": "outages.json",
+    "production_accuracy": "NOT_MEASURED"
+  },
+  {
+    "scenario": "OpenSearch 403 / tenant ACL / stale revision",
+    "provenance": "LIVE_LOCAL",
+    "evidence": "Evidence API security + native BM25 integration tests",
+    "artifact": "junit-summary.json",
+    "production_accuracy": "NOT_MEASURED"
+  },
+  {
+    "scenario": "absent GPT",
+    "provenance": "LIVE_LOCAL_WITH_NO_PROVIDER",
+    "evidence": "CLI non-billing exit 2 + actual browser deterministic fallback",
+    "artifact": "fresh-checkout.json",
+    "production_accuracy": "NOT_MEASURED"
+  },
+  {
+    "scenario": "slow GPT / provider failure",
+    "provenance": "MOCKED_PROVIDER_WITH_OFFICIAL_SDK",
+    "evidence": "ChatGatewayTest deadlines, safe error states and no retries",
+    "artifact": "junit-summary.json",
+    "production_accuracy": "NOT_MEASURED"
+  },
+  {
+    "scenario": "duplicate and delayed / stale / unknown mode",
+    "provenance": "SIMULATED_EVENTS_REAL_DATABASE",
+    "evidence": "MonitoringIntegrationTest + 200 duplicate E2E deliveries",
+    "artifact": "junit-summary.json",
+    "production_accuracy": "NOT_MEASURED"
+  },
+  {
+    "scenario": "malformed tenant metadata / bounds",
+    "provenance": "SIMULATED_INPUT_REAL_API",
+    "evidence": "scoped HTTP 403 + NormalizedEvidence bounds",
+    "artifact": "fresh-checkout.json",
+    "production_accuracy": "NOT_MEASURED"
+  },
+  {
+    "scenario": "corrupt / oversized log",
+    "provenance": "LIVE_LOCAL_TRANSPORT / SIMULATED_CORRUPT_INPUT",
+    "evidence": "Native Fluent Bit parse failure reaches OpenSearch normalized-field rejection; four valid records retained; scoped search, 403 and outage verified",
+    "artifact": "evidence-pipeline.json",
+    "production_accuracy": "NOT_MEASURED"
+  },
+  {
+    "scenario": "bad runbook / prompt injection",
+    "provenance": "SIMULATED_ADVERSARIAL_DATA_REAL_BM25",
+    "evidence": "KnowledgeDocument and KnowledgeIntegration quarantine/independent review",
+    "artifact": "junit-summary.json",
+    "production_accuracy": "NOT_MEASURED"
+  },
+  {
+    "scenario": "restart during recovery",
+    "provenance": "SIMULATED_EFFECT_REAL_PROCESS_RESTART",
+    "evidence": "actual Java termination/restart + private PG receipt/sample/rollback",
+    "artifact": "remediation-process.json",
+    "production_accuracy": "NOT_MEASURED"
+  },
+  {
+    "scenario": "unauthorized approval / tenant / hash / expiry",
+    "provenance": "SIMULATED_DATA_REAL_POLICY",
+    "evidence": "native 403 + RemediationIntegrationTest race, expiry, version, rollback",
+    "artifact": "junit-summary.json",
+    "production_accuracy": "NOT_MEASURED"
+  },
+  {
+    "scenario": "healthy baseline / competing evidence",
+    "provenance": "SIMULATED_FIXTURE",
+    "evidence": "CorrelationEngine healthy/skew/version/counterevidence; no confirmed cause",
+    "artifact": "junit-summary.json",
+    "production_accuracy": "NOT_MEASURED"
+  },
+  {
+    "scenario": "KRaft no ZooKeeper / legacy protocol",
+    "provenance": "LIVE_LOCAL_PROTOCOL_AND_SIMULATED_CAUSAL_STREAM",
+    "evidence": "SASL Kafka Admin + digest ACL ZooKeeper Testcontainers; separate graph modes",
+    "artifact": "junit-summary.json",
+    "production_accuracy": "NOT_MEASURED"
+  }
+]

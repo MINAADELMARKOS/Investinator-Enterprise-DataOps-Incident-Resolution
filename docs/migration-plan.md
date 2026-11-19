@@ -1,5 +1,7 @@
 # Migration plan and baseline
 
+> **Scope/current status:** The dated prototype baseline below is historical. Java private-schema migration and verified compatibility are now implemented; current [architecture](handover/ARCHITECTURE.md), [As-Is/To-Be matrix](handover/STATUS_MATRIX.md) and [state](implementation/STATE.md) supersede planned-only Java statements. Python default and separate Alembic ownership remain; no production cutover is authorized.
+
 ## Baseline (2026-10-04)
 
 The repository starts as a small FastAPI prototype with a deterministic `run_workflow`, Pydantic incident contracts, redaction and approval helpers, one API module, three unit tests, five JSONL evaluation cases, and a single API Dockerfile. The existing tests passed: `3 passed` before the current migration.

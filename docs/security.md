@@ -1,5 +1,7 @@
 # Security boundary
 
+> **Scope/current status:** Historical/default Python security notes below. Current Java/browser security, threat model and production NO-GO gates are in [Prompt 14](implementation/prompt14/REPORT.md) and [the handover](handover/README.md). Non-demo Java ingress is blocked; demo roles are not enterprise identity. Neither scoped audits nor synthetic fixtures constitute production certification.
+
 This is a local demo. The API derives a fixed demo tenant and actor on the server and overrides client-supplied tenant IDs. Tenant-scoped database reads and writes prevent one demo tenant's records from appearing in another tenant's queries, but this is not authentication. When demo mode is disabled, protected routes return 503 until an identity provider is implemented. Do not expose the demo API or its PostgreSQL trust connection to a public network.
 
 Manual report text and logs are redacted before deterministic analysis. The AI gateway receives bounded evidence and treats retrieved material as untrusted. It validates evidence references before returning model hypotheses. The `OPENAI_API_KEY` remains in the API environment and is never sent to the frontend. Model storage is disabled by default. Production privacy and retention policies still need design and review.

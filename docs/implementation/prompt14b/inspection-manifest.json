@@ -1,0 +1,478 @@
+[
+  {
+    "path": "docs/implementation/prompt03/MIGRATION_AND_ROLLBACK.md",
+    "sha256": "5034e0532606b3e34ff4f5a8988e319c49f9cfffa6670a528609c138c9a7f83d"
+  },
+  {
+    "path": "docs/implementation/prompt03/REPORT.md",
+    "sha256": "4644c2d88f19a761eaaea23b4c88c6d708c50000f95c2aa31862ce11c8bb884a"
+  },
+  {
+    "path": "docs/implementation/prompt03/test-summary.json",
+    "sha256": "ff5c6bd16765ec859a32e0491b727afd24f72badaf25c159266bfd98bfc7b50a"
+  },
+  {
+    "path": "docs/implementation/prompt04/REPORT.md",
+    "sha256": "97372ab65d0f7f6061a828865b84ac5a8575e7fa1339a7b3f5a543161526478f"
+  },
+  {
+    "path": "docs/implementation/prompt04/lab-result.json",
+    "sha256": "876d1a2a992d3bb09f8522c4fd933b907c8f42bdaf60727da1a1f9648f088ce9"
+  },
+  {
+    "path": "docs/implementation/prompt04/test-summary.json",
+    "sha256": "92662e68aeb9b87336b08ac81d8d16a911d641feeb88df9413889c637c4d0247"
+  },
+  {
+    "path": "docs/implementation/prompt05/REPORT.md",
+    "sha256": "1a1f1ed45bc2cddc245fa7bffa4159b247a7508caf9d05efc7da5026c13604cd"
+  },
+  {
+    "path": "docs/implementation/prompt05/doctor-example.json",
+    "sha256": "912a949a8d82a6592e5d59d7af388e5fcc120b971858aaf61f2adb4754cd22a1"
+  },
+  {
+    "path": "docs/implementation/prompt05/failure-matrix.json",
+    "sha256": "bcbc1aaf53928e853cbcbdf3754af8dd4f3274a46ace38577b4cf7cca0eb606b"
+  },
+  {
+    "path": "docs/implementation/prompt05/health-report.schema.json",
+    "sha256": "cbf088dfd439d3160ec58ef748d66c8dc4547fd79a48acc4b41c696c62c8277f"
+  },
+  {
+    "path": "docs/implementation/prompt05/lifecycle-result.json",
+    "sha256": "a5d8ddf29e52d7b89f2e3966dc39d86f8d41bebe06bd084b56d48daac2574cff"
+  },
+  {
+    "path": "docs/implementation/prompt05/test-summary.json",
+    "sha256": "eca86c2748e780ca3e27823cc89cf56a4d4771f2487394178d52ea93e0573a96"
+  },
+  {
+    "path": "docs/implementation/prompt06/CONNECTORS.md",
+    "sha256": "123ba7976006d9a4c4db995b42ada2a36ced72cb0119176d1234f034cea4af06"
+  },
+  {
+    "path": "docs/implementation/prompt06/REPORT.md",
+    "sha256": "7b09f3c567f0d5649396d252b0fc87ebdf6d35f1101d95e07af153608cc346f7"
+  },
+  {
+    "path": "docs/implementation/prompt06/doctor-example.json",
+    "sha256": "5a33aac2fa95c3a80e49f16ddbe8115acf86a688fa27cc7a7d7db4be5af16235"
+  },
+  {
+    "path": "docs/implementation/prompt06/failure-matrix.json",
+    "sha256": "bcbc1aaf53928e853cbcbdf3754af8dd4f3274a46ace38577b4cf7cca0eb606b"
+  },
+  {
+    "path": "docs/implementation/prompt06/lab-result.json",
+    "sha256": "43fd1d6d7a1a71a44ac2d2e8a891961914dac717d755f702acad15b2def740f1"
+  },
+  {
+    "path": "docs/implementation/prompt06/test-summary.json",
+    "sha256": "8e779ef6c880453870ee22f79c9e010d759276d75f1c965b18fd0d875d7c8def"
+  },
+  {
+    "path": "docs/implementation/prompt07/REPORT.md",
+    "sha256": "09e5967c63a4a1d7df1ac3e33973a3148686ce6490b7124cfc2037f15870b6a1"
+  },
+  {
+    "path": "docs/implementation/prompt07/kraft.json",
+    "sha256": "ea38c4ea9ec9e99b1d07b5228c42a16a5bc3ca88eca669b1f9b2ff239a5ac947"
+  },
+  {
+    "path": "docs/implementation/prompt07/legacy.json",
+    "sha256": "85ee86b7e5e16b08dfa48c11afdfff388662055116c71533fdefa3d0584fc3a3"
+  },
+  {
+    "path": "docs/implementation/prompt07/test-summary.json",
+    "sha256": "209c7220aa63ffd43c53109988e945ad7d749d2b6ec89d579ac9ff851c0c4f21"
+  },
+  {
+    "path": "docs/implementation/prompt08/REPORT.md",
+    "sha256": "1036271a093717c592a7301e79400253890e0d61be18f16328455bcd58c769a3"
+  },
+  {
+    "path": "docs/implementation/prompt08/provider-configuration.json",
+    "sha256": "8a3dd47633347c5979b261a012f89b74dd04a1f35307c6138fb51b8406a5dd40"
+  },
+  {
+    "path": "docs/implementation/prompt08/test-summary.json",
+    "sha256": "44924a8310f288cca65f4ba2cb190f25c3f6db5a0dfb8b8676887588b0453509"
+  },
+  {
+    "path": "docs/implementation/prompt09/CONTRACT.md",
+    "sha256": "43aa4535d79f3267e93f26b310ca9a591d1ef6b4ed482106b4b81a78b1dc01e9"
+  },
+  {
+    "path": "docs/implementation/prompt09/EVAL_REPORT.json",
+    "sha256": "e573dfabde4776f6aeb3b433739c0e8e1faf34349795d711bbc1413db8a77455"
+  },
+  {
+    "path": "docs/implementation/prompt09/GOLD_REVIEW.md",
+    "sha256": "a233f79dba243feebc99005ca4529da1a736f23546169edc16cc2c1aaed25901"
+  },
+  {
+    "path": "docs/implementation/prompt09/GPT_LIVE_REPORT.md",
+    "sha256": "cfa122f55345f9fb3d085b43120996f6bb9a0397cc0ada0f183fb4dc44c2c869"
+  },
+  {
+    "path": "docs/implementation/prompt09/PROMPT05_AUDIT.md",
+    "sha256": "dd092005a3f8bb5e52788bc4883284fa0863d1dc3f3bd16c88bb9825d4d68549"
+  },
+  {
+    "path": "docs/implementation/prompt09/QUALITY_REVIEW_PACKAGE.md",
+    "sha256": "e6069b2880f2c66c37aa0752c88009b7e59f0267f9df6a233ee33c0868f9bb6e"
+  },
+  {
+    "path": "docs/implementation/prompt09/REPORT.md",
+    "sha256": "2a89b2286380b26151d5f8925f920246b1dabdc606edf2ca7bc22534f4e99271"
+  },
+  {
+    "path": "docs/implementation/prompt09/doctor.json",
+    "sha256": "254791f03a4a1907fcd07d79366d717e23db56cbe4c2d94a3dda1d8ba2c505f8"
+  },
+  {
+    "path": "docs/implementation/prompt09/lab-result.json",
+    "sha256": "791d3e0d804f6bc2deee8234a01c2957b62c52b9adbc02dab2a205c42c8a9661"
+  },
+  {
+    "path": "docs/implementation/prompt09/provisional-evaluation.json",
+    "sha256": "9843f876e33c24125c8bd844f49371a5e38f844165506106f6203204ee0fe0e0"
+  },
+  {
+    "path": "docs/implementation/prompt09/test-summary.json",
+    "sha256": "62793783821fb982dea088653159a3b4340eefcb0bd93a98858c1b48de1c773b"
+  },
+  {
+    "path": "docs/implementation/prompt09b/REPORT.md",
+    "sha256": "e8d77c84abf378b96e76fa20afa80e1ca2a4347a9e6439c80cc83c9ea63d46ff"
+  },
+  {
+    "path": "docs/implementation/prompt09b/doctor.json",
+    "sha256": "81e0777743099ee12f32b87b4c9ac05bd46819cd6a4b380aa3a0f043c13ce10d"
+  },
+  {
+    "path": "docs/implementation/prompt09b/health.json",
+    "sha256": "e7f83f423c1b48a9b6a6f72b2f0fc2dd004e6d6e48c7b728406c789d825b96b7"
+  },
+  {
+    "path": "docs/implementation/prompt09b/inspection-manifest.json",
+    "sha256": "4d968641fde6d3453d9e0cbf1dc2047618c61e21dae9e4cff13bf34c5bc808a3"
+  },
+  {
+    "path": "docs/implementation/prompt09b/prompt05-artifact-audit.json",
+    "sha256": "070afe4cbed794be8d09c1f74c7c3a0b2c6df6064c055f4efd2ecfb1cf9c0650"
+  },
+  {
+    "path": "docs/implementation/prompt09b/provider-preflight.json",
+    "sha256": "e0aac89cef00e95cc987622ff0980eb27e870c0d515afb65d4a62a7a041534cf"
+  },
+  {
+    "path": "docs/implementation/prompt09b/raw-observations.json",
+    "sha256": "4fb9762a23eff215c039ce49de7fbbd681ab21fc6bb80110276141200c0233dd"
+  },
+  {
+    "path": "docs/implementation/prompt09b/security-reconciliation.json",
+    "sha256": "9085ea8c880512a277a4ffbdabca19b627162647c4e84586fe68226045f3ee71"
+  },
+  {
+    "path": "docs/implementation/prompt09b/test-summary.json",
+    "sha256": "d39b16d79efd860e47979206b26ec8dabc06a04d77cc6be35eab073df3756237"
+  },
+  {
+    "path": "docs/implementation/prompt09b/web-audit.json",
+    "sha256": "f1007d9af4876f849297c91a3c11fe6ef9af10c78ced76daa7dbcab3ed0e491b"
+  },
+  {
+    "path": "docs/implementation/prompt10/OPERATIONS.md",
+    "sha256": "315254976cb0156e94c39b56704ac7eef64a7b387373339dd74c0450e211e273"
+  },
+  {
+    "path": "docs/implementation/prompt10/REPORT.md",
+    "sha256": "5c9f4bc4ad25b69a1d1b451ac60a72354e5b57ff23781a16fe1ae3407e146517"
+  },
+  {
+    "path": "docs/implementation/prompt10/event.schema.json",
+    "sha256": "7819c0d52062d660cec5b0308eb7e894911908daf31bee8d2026d2eea920be97"
+  },
+  {
+    "path": "docs/implementation/prompt10/failure-matrix.json",
+    "sha256": "f1f7ca2f2751551deb0e1a5ffd9206799e257f40c0a3911f13c3fb7c2966b0b3"
+  },
+  {
+    "path": "docs/implementation/prompt10/lifecycle.schema.json",
+    "sha256": "119ac960131f8ef61e599622e587d9752eedaf5d3478215d149de2d4e25a9e37"
+  },
+  {
+    "path": "docs/implementation/prompt10/process-restart.json",
+    "sha256": "62df5e69958c0a25541ea0ec00fb5193c505012e6425a043b90f027489a5d943"
+  },
+  {
+    "path": "docs/implementation/prompt10/storm.json",
+    "sha256": "edc115cff4c684ebecc10ce187d94c4be60c22570ffdffc6e4c241d42e86168d"
+  },
+  {
+    "path": "docs/implementation/prompt10/test-summary.json",
+    "sha256": "9c05fd6864ebbc41e48c0e006a62cbeb1f98166d82922a5f72318e32ee9cc4f1"
+  },
+  {
+    "path": "docs/implementation/prompt11/POLICY_MATRIX.md",
+    "sha256": "715d4c06c81d637b8bb17275419e89afd192f889b5507419ea009b5e065bf06b"
+  },
+  {
+    "path": "docs/implementation/prompt11/RECOVERY_MANUAL.md",
+    "sha256": "b95cc2337a5c2b86da2269ad2f22b1e52a5f0415899391aa57aa1ea7ba4bf4a5"
+  },
+  {
+    "path": "docs/implementation/prompt11/REPORT.md",
+    "sha256": "38007f52aa24f489cda006638ef1224470872e0bef200b730e5c4ad0ef424802"
+  },
+  {
+    "path": "docs/implementation/prompt11/STATE_MACHINE.md",
+    "sha256": "58c965f0980eaf42b3ddec3ea4e6a9ef762fd24071deb3ec770dbe22cceb1627"
+  },
+  {
+    "path": "docs/implementation/prompt11/THREAT_MODEL.md",
+    "sha256": "def5d7d1e0ac486412f7a130d67cf379791779e2c34c9db6e7f5b07d3a6fed7b"
+  },
+  {
+    "path": "docs/implementation/prompt11/action-registry.json",
+    "sha256": "558ab0cfab7c40e681b3537fb34bdb4a02797e5f599eb9d65b86a15699521cf5"
+  },
+  {
+    "path": "docs/implementation/prompt11/failure-matrix.json",
+    "sha256": "7e912baf8a1ee08647ca47b2312b5bac3bb0751b2b6d7573e8d4926e880b550f"
+  },
+  {
+    "path": "docs/implementation/prompt11/process-acceptance.json",
+    "sha256": "cc8fb8ab1e925596f233dda9eec92c3be46bc149b95fefc351de64b1679469fc"
+  },
+  {
+    "path": "docs/implementation/prompt11/test-summary.json",
+    "sha256": "72e38509c3a7c5cd89e84fcd13b010610286065870339fcea9f34cf0d88f206a"
+  },
+  {
+    "path": "docs/implementation/prompt11/verified.json",
+    "sha256": "74210fc975cacee8ce18805a04d8c48512e98e02c9d355aa51fbe7c1b1cb78c8"
+  },
+  {
+    "path": "docs/implementation/prompt11/web-audit.json",
+    "sha256": "f1007d9af4876f849297c91a3c11fe6ef9af10c78ced76daa7dbcab3ed0e491b"
+  },
+  {
+    "path": "docs/implementation/prompt12/OPERATIONS.md",
+    "sha256": "2d69fcefabf8e46375d380254c8edb99865d6ae7e29232fb66177bd6f9703179"
+  },
+  {
+    "path": "docs/implementation/prompt12/REPORT.md",
+    "sha256": "5b42d75317e4e3e21f25890a2bf854533f3dbaec83b60ef10a307e6855d835cb"
+  },
+  {
+    "path": "docs/implementation/prompt12/contract-snapshot.json",
+    "sha256": "a17b209ccd4059e35b029a5290b9c3a8b47b3fb17f7016797ba2e0884deff782"
+  },
+  {
+    "path": "docs/implementation/prompt12/results.json",
+    "sha256": "a8836fefd45d4f83916168197c48ccfb7ffbd7bc8202a8b1d790f0c055c8e321"
+  },
+  {
+    "path": "docs/implementation/prompt12/test-summary.json",
+    "sha256": "b53eeb5b143f830373c64e44a7cffefda931cc276d37f1cd1e088d16615e6147"
+  },
+  {
+    "path": "docs/implementation/prompt13/PR_BODY.md",
+    "sha256": "fe20f62e2bff148b6802fb3a5c6474829cff9b5035d8be4e56b958b9f6764d31"
+  },
+  {
+    "path": "docs/implementation/prompt13/REPORT.md",
+    "sha256": "eeb30d04ad71c033456518366212ce3e4f7c2081893be779a4c7f30fb1b4de0e"
+  },
+  {
+    "path": "docs/implementation/prompt13/REPRODUCTION.md",
+    "sha256": "dc3e3204cd45f85e0fedd55ef3c4867ecd1daaff0ea70027c90064ce7a87293d"
+  },
+  {
+    "path": "docs/implementation/prompt13/browser-with-graph.json",
+    "sha256": "1703e526161ba4d4a48f36cf5a3af71572605f2610a1793d835f1918d0733e3c"
+  },
+  {
+    "path": "docs/implementation/prompt13/evidence-pipeline.json",
+    "sha256": "43707ec3b66f2b2a7cb1b0c5bc41c874e66b7948f005e7477357711488768d38"
+  },
+  {
+    "path": "docs/implementation/prompt13/fixture-hashes.json",
+    "sha256": "60c1045d39b596483440d2ffd907c7dd1f7448f40700568c6b5e07c725430aad"
+  },
+  {
+    "path": "docs/implementation/prompt13/fresh-checkout-initial.json",
+    "sha256": "c85632cfead52f640f965783e8c46af081a6f93089cc9e00684dd3ae7e9e3389"
+  },
+  {
+    "path": "docs/implementation/prompt13/fresh-checkout.json",
+    "sha256": "bebd4ec22ac86063e1f45918b763e89a05e36558ebcc87f28c575e3fad147a1a"
+  },
+  {
+    "path": "docs/implementation/prompt13/hosted-ci-findings.json",
+    "sha256": "31b3de7e64790637c42e1c1f7eb2bfe3b0a552ac417deab3aa7feefbaa4f16a7"
+  },
+  {
+    "path": "docs/implementation/prompt13/hosted-ci-initial.json",
+    "sha256": "ec45221b09cf02ea073e568a8cdddb4bffe54003c924894941adf490536e37a6"
+  },
+  {
+    "path": "docs/implementation/prompt13/hosted-ci.json",
+    "sha256": "ea424d7a86530812a8b147c58086021c602df3ca84226bb8177c37f133d3706d"
+  },
+  {
+    "path": "docs/implementation/prompt13/java-advisories.json",
+    "sha256": "b737388d18261064f9db54947b1f4c94a08298093c277e8161cb6850f56e0b14"
+  },
+  {
+    "path": "docs/implementation/prompt13/java-audit-local-blocked.json",
+    "sha256": "4c97e5a066911629dd966eb4dbe5dbb4fbc20e0ad31313449ccb8d982a46ac4e"
+  },
+  {
+    "path": "docs/implementation/prompt13/java-audit.json",
+    "sha256": "5fd5e02cb16f417abff5e75623b31ec248c5b5eb0a7e1e3063dd71ede3630201"
+  },
+  {
+    "path": "docs/implementation/prompt13/junit-summary.json",
+    "sha256": "1c99b45b057a890a6d14ff0716fa18381b51a20c41723ee589f7dec77dd4b3c2"
+  },
+  {
+    "path": "docs/implementation/prompt13/monitor-process.json",
+    "sha256": "62df5e69958c0a25541ea0ec00fb5193c505012e6425a043b90f027489a5d943"
+  },
+  {
+    "path": "docs/implementation/prompt13/negative-matrix.json",
+    "sha256": "e4d5b270b3038202bd857da9437f94e361ee34dad8a9ee9e1dc571c1f2163993"
+  },
+  {
+    "path": "docs/implementation/prompt13/outages.json",
+    "sha256": "bcbc1aaf53928e853cbcbdf3754af8dd4f3274a46ace38577b4cf7cca0eb606b"
+  },
+  {
+    "path": "docs/implementation/prompt13/python-audit.json",
+    "sha256": "786667707c089f4220a933efa503ad49574966a935da811e7e5db4c5004695e7"
+  },
+  {
+    "path": "docs/implementation/prompt13/remediation-process.json",
+    "sha256": "cc8fb8ab1e925596f233dda9eec92c3be46bc149b95fefc351de64b1679469fc"
+  },
+  {
+    "path": "docs/implementation/prompt13/secret-scan.json",
+    "sha256": "01e358cd66ae9bdf3ee569a87148f105a4e595078773291c40c1631de61c9c59"
+  },
+  {
+    "path": "docs/implementation/prompt13/test-summary.json",
+    "sha256": "4a2510430177e58f79f904c3bec7932384f3043e154b3102b65085adb1b9c0d8"
+  },
+  {
+    "path": "docs/implementation/prompt14/AUTH_MATRIX.md",
+    "sha256": "21163f98fdd029bced395e3226f98037c06bbeeaecf337fd07522b4da3a01f79"
+  },
+  {
+    "path": "docs/implementation/prompt14/FAILURE_MATRIX.md",
+    "sha256": "fe71dedd2512a834c009f52934c6a15bb4a9a4052fc89a5518298ad693cc54d9"
+  },
+  {
+    "path": "docs/implementation/prompt14/FINOPS.json",
+    "sha256": "188f75f3aa584b6d9bf0818512d9830bf47e8bb9c63e312bdbb283e5ba73850b"
+  },
+  {
+    "path": "docs/implementation/prompt14/RECOVERY_AND_DATA.md",
+    "sha256": "6f6494e8dd86f6d2d01aaf7c39bfaa4c952154d13803b5986da640aa9e47ce4b"
+  },
+  {
+    "path": "docs/implementation/prompt14/RELEASE_RISKS.json",
+    "sha256": "50307131ee049d76ac4ccefdf7d7425dbf68a54c4c55a6b582a024d84daa6c00"
+  },
+  {
+    "path": "docs/implementation/prompt14/REPORT.md",
+    "sha256": "337c6b73173ade9b32fff8b28621d2756e3ae591e989fe7d43e14eb40c084ec4"
+  },
+  {
+    "path": "docs/implementation/prompt14/SECURITY_SCANS.json",
+    "sha256": "de76b7b87bb67eb011b57f935b2da84db35f617cae7ca021ca8ce27f619813dd"
+  },
+  {
+    "path": "docs/implementation/prompt14/SLOS.md",
+    "sha256": "0fcd39929c0deae923b4d49d496cbab838897a16d5c2d2afac6af1a15b9c7b0f"
+  },
+  {
+    "path": "docs/implementation/prompt14/THREAT_MODEL.md",
+    "sha256": "9bc5c15983389f682f39a2db8f6116c237768aaf3cad82dfb95a11cc68035d12"
+  },
+  {
+    "path": "docs/implementation/prompt14/backup-restore.json",
+    "sha256": "2f50ce92431feee2d3c2df795ad7a7025115929128943cf56201c655fcdae885"
+  },
+  {
+    "path": "docs/implementation/prompt14/browser-results.json",
+    "sha256": "1703e526161ba4d4a48f36cf5a3af71572605f2610a1793d835f1918d0733e3c"
+  },
+  {
+    "path": "docs/implementation/prompt14/hosted-ci.json",
+    "sha256": "dcd75d43ce4501c65cca53de20c38d36e0cdd50e25b2c4a0d97f996f871454b1"
+  },
+  {
+    "path": "docs/implementation/prompt14/operational-baseline.json",
+    "sha256": "36792f08b27214c16a056b00afaa6fb58d7b057ab2e4375653c6fef9b2faa8d4"
+  },
+  {
+    "path": "docs/implementation/prompt14/python-audit.json",
+    "sha256": "786667707c089f4220a933efa503ad49574966a935da811e7e5db4c5004695e7"
+  },
+  {
+    "path": "docs/implementation/prompt14/secret-scan.json",
+    "sha256": "177c52f8f0caa7be3e22cddbfd5a5f463bc371d46854d6db316ce56f1a9da020"
+  },
+  {
+    "path": "docs/implementation/prompt14/tenant-isolation-proof.json",
+    "sha256": "a044b7e938fd496c476fc1e78b7ce75d011797a1ed107e7b3a610f66dfd5d4e8"
+  },
+  {
+    "path": "docs/implementation/prompt14/test-results.json",
+    "sha256": "48fc06eeedd9323681deead4c4659779bdde5ca3793458739ee81d26b1fcdcbb"
+  },
+  {
+    "path": "docs/implementation/prompt15/REPORT.md",
+    "sha256": "64f62a1fda4882bf250988110c973584b952351389829ac1c24ce113717cdf74"
+  },
+  {
+    "path": "docs/implementation/prompt15/causal-investigation.json",
+    "sha256": "6bd9066ee07543b8758c0505edd4c51160d0332001328897e5473b2e2080abde"
+  },
+  {
+    "path": "docs/implementation/prompt15/demo-case.json",
+    "sha256": "7a7103bc5fc01f34bc2b7efee1594a7536df4b80c2cd65b3b63838f0e5171945"
+  },
+  {
+    "path": "docs/implementation/prompt15/doctor.json",
+    "sha256": "d893ab1b3bf6ec661d6ac711da010719335600eb0cc131fcefb672f49aeffb2a"
+  },
+  {
+    "path": "docs/implementation/prompt15/health.json",
+    "sha256": "354a33401b802a61759ca0fcae31d0c6a5d518af7dfea205c540f2c496abaf7e"
+  },
+  {
+    "path": "docs/implementation/prompt15/hosted-ci.json",
+    "sha256": "4ae3e492573a14af7198b2bde895a063c9031bcc7b85c75c881f4461b333f331"
+  },
+  {
+    "path": "docs/implementation/prompt15/native-log-retrieval.json",
+    "sha256": "c7cea94de5e326d2cbae83c17504b52a760648a9e34d894a4863daf6f33bb86e"
+  },
+  {
+    "path": "docs/implementation/prompt15/provider-presence.json",
+    "sha256": "e0aac89cef00e95cc987622ff0980eb27e870c0d515afb65d4a62a7a041534cf"
+  },
+  {
+    "path": "docs/implementation/prompt15/rehearsal.json",
+    "sha256": "1703e526161ba4d4a48f36cf5a3af71572605f2610a1793d835f1918d0733e3c"
+  },
+  {
+    "path": "docs/implementation/prompt15/validation.json",
+    "sha256": "92b86382bad55db2e4dba5ba673ab182a1f05b0b4821f3c5b21fd9e5ee0963c4"
+  }
+]

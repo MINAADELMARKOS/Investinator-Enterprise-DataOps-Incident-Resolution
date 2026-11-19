@@ -1,0 +1,48 @@
+{
+  "source_mode": "SIMULATED",
+  "environment": "ReplayLab",
+  "platform": "Kafka",
+  "platform_version": "4.3",
+  "risk": "LOW_SIMULATION_ONLY",
+  "owner": "ReplayLab",
+  "approval_role": "SIMULATION_APPROVER",
+  "proposal_lifetime_seconds": 600,
+  "approval_lifetime_seconds": 120,
+  "execution_lease_seconds": 10,
+  "sql_statement_timeout_seconds": 5,
+  "verification_sample_max_age_seconds": 60,
+  "max_execution_attempts": 1,
+  "actions": [
+    {
+      "code": "REPLAY_DISK_RECOVER_V1",
+      "arguments": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "required": [
+          "disk_percent"
+        ],
+        "properties": {
+          "disk_percent": {
+            "type": "number",
+            "minimum": 10,
+            "exclusiveMaximum": 80
+          }
+        },
+        "additionalProperties": false
+      },
+      "rollback": "REPLAY_DISK_RESTORE_V1"
+    },
+    {
+      "code": "REPLAY_DISK_RESTORE_V1",
+      "arguments": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "maxProperties": 0,
+        "additionalProperties": false
+      },
+      "parent_effect_required": true
+    }
+  ],
+  "production_executors": [],
+  "two_person_demo_claim": false
+}

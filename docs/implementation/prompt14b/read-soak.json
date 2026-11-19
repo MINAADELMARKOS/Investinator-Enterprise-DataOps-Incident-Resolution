@@ -1,0 +1,99 @@
+{
+  "status": "PASS_BOUNDED_LOCAL_ONLY",
+  "source_mode": "LIVE_LOCAL_HTTP_ON_SIMULATED_DATA",
+  "maximum_concurrency": 4,
+  "pacing": "evenly spaced over requested duration",
+  "duration_limit_seconds": 30,
+  "elapsed_seconds": 29.962,
+  "submitted": 500,
+  "successes": 500,
+  "errors": 0,
+  "error_classes": [],
+  "heap_budget_mib": 1024,
+  "queue_budget": 1000,
+  "metric_samples": [
+    {
+      "elapsed_seconds": 0.069,
+      "heap_bytes": 104580512.0,
+      "queued": 0.0
+    },
+    {
+      "elapsed_seconds": 2.133,
+      "heap_bytes": 39266928.0,
+      "queued": 0.0
+    },
+    {
+      "elapsed_seconds": 4.201,
+      "heap_bytes": 56044144.0,
+      "queued": 0.0
+    },
+    {
+      "elapsed_seconds": 6.292,
+      "heap_bytes": 89598576.0,
+      "queued": 0.0
+    },
+    {
+      "elapsed_seconds": 8.335,
+      "heap_bytes": 40525096.0,
+      "queued": 0.0
+    },
+    {
+      "elapsed_seconds": 10.586,
+      "heap_bytes": 57302312.0,
+      "queued": 0.0
+    },
+    {
+      "elapsed_seconds": 12.867,
+      "heap_bytes": 90856744.0,
+      "queued": 0.0
+    },
+    {
+      "elapsed_seconds": 15.095,
+      "heap_bytes": 124411176.0,
+      "queued": 0.0
+    },
+    {
+      "elapsed_seconds": 17.229,
+      "heap_bytes": 55693664.0,
+      "queued": 0.0
+    },
+    {
+      "elapsed_seconds": 19.438,
+      "heap_bytes": 72470880.0,
+      "queued": 0.0
+    },
+    {
+      "elapsed_seconds": 21.533,
+      "heap_bytes": 106025312.0,
+      "queued": 0.0
+    },
+    {
+      "elapsed_seconds": 23.9,
+      "heap_bytes": 39662064.0,
+      "queued": 0.0
+    },
+    {
+      "elapsed_seconds": 26.251,
+      "heap_bytes": 73216496.0,
+      "queued": 0.0
+    },
+    {
+      "elapsed_seconds": 28.518,
+      "heap_bytes": 89993712.0,
+      "queued": 0.0
+    },
+    {
+      "elapsed_seconds": 29.962,
+      "heap_bytes": 123548144.0,
+      "queued": 0.0
+    }
+  ],
+  "sampled_memory_only_not_continuous_peak": true,
+  "long_duration_soak": "NOT_TESTED",
+  "p50_ms": 10.0935,
+  "p95_ms": 71.371,
+  "paid_calls": 0,
+  "writes": 0,
+  "production_slo": "NOT_MEASURED",
+  "business_roi": "NOT_MEASURED"
+}

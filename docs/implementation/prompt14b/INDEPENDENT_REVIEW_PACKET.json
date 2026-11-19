@@ -1,0 +1,1369 @@
+{
+  "source_mode": "SIMULATED",
+  "independent_review": "PENDING",
+  "human_reviewer": null,
+  "human_approval": null,
+  "production_quality_claim": false,
+  "partition_proposal": {
+    "development": "Existing eight cases; previously seen by implementation author",
+    "holdout": "Independent reviewers must supply unseen, source-licensed cases across versions/modes before scoring; no partition claimed held out"
+  },
+  "cases": [
+    {
+      "id": "kafka-kraft",
+      "tenant_id": "demo",
+      "technology": "Kafka",
+      "version": "4.3",
+      "mode": "KRAFT",
+      "timeline": [
+        {
+          "id": "Q-kafka-kraft-00",
+          "tenant_id": "demo",
+          "incident_id": "QUALITY-kafka-kraft",
+          "entity_id": "network",
+          "signal": "NETWORK_UNSTABLE",
+          "state": "ABNORMAL",
+          "observed_at": "2026-11-17T00:00:00Z",
+          "source_mode": "SIMULATED",
+          "intensity": 0.8,
+          "signature": "SIMULATED developer-authored quality fixture"
+        },
+        {
+          "id": "Q-kafka-kraft-01",
+          "tenant_id": "demo",
+          "incident_id": "QUALITY-kafka-kraft",
+          "entity_id": "quorum",
+          "signal": "QUORUM_UNAVAILABLE",
+          "state": "ABNORMAL",
+          "observed_at": "2026-11-17T00:00:40Z",
+          "source_mode": "SIMULATED",
+          "intensity": 0.8,
+          "signature": "SIMULATED developer-authored quality fixture"
+        },
+        {
+          "id": "Q-kafka-kraft-02",
+          "tenant_id": "demo",
+          "incident_id": "QUALITY-kafka-kraft",
+          "entity_id": "broker",
+          "signal": "BROKER_ERROR",
+          "state": "ABNORMAL",
+          "observed_at": "2026-11-17T00:01:20Z",
+          "source_mode": "SIMULATED",
+          "intensity": 0.8,
+          "signature": "SIMULATED developer-authored quality fixture"
+        },
+        {
+          "id": "Q-kafka-kraft-03",
+          "tenant_id": "demo",
+          "incident_id": "QUALITY-kafka-kraft",
+          "entity_id": "consumer",
+          "signal": "CONSUMER_LAG",
+          "state": "ABNORMAL",
+          "observed_at": "2026-11-17T00:02:00Z",
+          "source_mode": "SIMULATED",
+          "intensity": 0.8,
+          "signature": "SIMULATED developer-authored quality fixture"
+        },
+        {
+          "id": "Q-kafka-kraft-04",
+          "tenant_id": "demo",
+          "incident_id": "QUALITY-kafka-kraft",
+          "entity_id": "spark",
+          "signal": "SPARK_DELAY",
+          "state": "ABNORMAL",
+          "observed_at": "2026-11-17T00:02:40Z",
+          "source_mode": "SIMULATED",
+          "intensity": 0.8,
+          "signature": "SIMULATED developer-authored quality fixture"
+        },
+        {
+          "id": "Q-kafka-kraft-05",
+          "tenant_id": "demo",
+          "incident_id": "QUALITY-kafka-kraft",
+          "entity_id": "dataset",
+          "signal": "DATASET_STALE",
+          "state": "ABNORMAL",
+          "observed_at": "2026-11-17T00:03:20Z",
+          "source_mode": "SIMULATED",
+          "intensity": 0.8,
+          "signature": "SIMULATED developer-authored quality fixture"
+        },
+        {
+          "id": "Q-kafka-kraft-06",
+          "tenant_id": "demo",
+          "incident_id": "QUALITY-kafka-kraft",
+          "entity_id": "broker",
+          "signal": "DISK_EXHAUSTED",
+          "state": "HEALTHY",
+          "observed_at": "2026-11-17T00:01:25Z",
+          "source_mode": "SIMULATED",
+          "intensity": 0,
+          "signature": "SIMULATED developer-authored quality fixture"
+        }
+      ],
+      "graph": {
+        "graph_id": "quality-kafka-kraft",
+        "revision": 1,
+        "source_mode": "SIMULATED",
+        "metadata_mode": "KRAFT",
+        "platform_version": "Kafka 4.3",
+        "nodes": [
+          {
+            "id": "network",
+            "type": "NETWORK",
+            "name": "network"
+          },
+          {
+            "id": "quorum",
+            "type": "QUORUM",
+            "name": "quorum"
+          },
+          {
+            "id": "broker",
+            "type": "BROKER",
+            "name": "broker"
+          },
+          {
+            "id": "consumer",
+            "type": "CONSUMER_GROUP",
+            "name": "consumer"
+          },
+          {
+            "id": "spark",
+            "type": "SPARK_JOB",
+            "name": "spark"
+          },
+          {
+            "id": "dataset",
+            "type": "DATASET",
+            "name": "dataset"
+          }
+        ],
+        "edges": [
+          {
+            "id": "edge-1",
+            "from": "quorum",
+            "to": "network",
+            "type": "DEPENDS_ON",
+            "source": "developer-authored-review-fixture",
+            "confidence": 1,
+            "discovered_at": "2026-11-16T23:58:00Z",
+            "valid_from": "2026-11-16T23:58:00Z",
+            "valid_to": null,
+            "provenance": "SIMULATED proposed topology; independent domain review pending"
+          },
+          {
+            "id": "edge-2",
+            "from": "broker",
+            "to": "quorum",
+            "type": "DEPENDS_ON",
+            "source": "developer-authored-review-fixture",
+            "confidence": 1,
+            "discovered_at": "2026-11-16T23:58:00Z",
+            "valid_from": "2026-11-16T23:58:00Z",
+            "valid_to": null,
+            "provenance": "SIMULATED proposed topology; independent domain review pending"
+          },
+          {
+            "id": "edge-3",
+            "from": "consumer",
+            "to": "broker",
+            "type": "DEPENDS_ON",
+            "source": "developer-authored-review-fixture",
+            "confidence": 1,
+            "discovered_at": "2026-11-16T23:58:00Z",
+            "valid_from": "2026-11-16T23:58:00Z",
+            "valid_to": null,
+            "provenance": "SIMULATED proposed topology; independent domain review pending"
+          },
+          {
+            "id": "edge-4",
+            "from": "spark",
+            "to": "consumer",
+            "type": "DEPENDS_ON",
+            "source": "developer-authored-review-fixture",
+            "confidence": 1,
+            "discovered_at": "2026-11-16T23:58:00Z",
+            "valid_from": "2026-11-16T23:58:00Z",
+            "valid_to": null,
+            "provenance": "SIMULATED proposed topology; independent domain review pending"
+          },
+          {
+            "id": "edge-5",
+            "from": "dataset",
+            "to": "spark",
+            "type": "DEPENDS_ON",
+            "source": "developer-authored-review-fixture",
+            "confidence": 1,
+            "discovered_at": "2026-11-16T23:58:00Z",
+            "valid_from": "2026-11-16T23:58:00Z",
+            "valid_to": null,
+            "provenance": "SIMULATED proposed topology; independent domain review pending"
+          }
+        ]
+      },
+      "alternative_explanations": [
+        "quorum:QUORUM_UNAVAILABLE",
+        "broker:BROKER_ERROR"
+      ],
+      "contradictory_evidence": "Disk-health evidence is a capability-specific counterexample, not proof all broker resources are healthy.",
+      "blind_spots": "No actual network experiment, quorum membership or customer SLO evidence.",
+      "negative_control": false,
+      "citation_source": "eval/knowledge_review_cases.json",
+      "corpus_revision": "review-kafka-kraft@2",
+      "developer_labels": {
+        "expected_origin": "network:NETWORK_UNSTABLE",
+        "expected_detection": true,
+        "relevant_documents": [
+          "review-kafka-kraft"
+        ],
+        "expected_uncertainty": "HYPOTHESIS only; never confirmed cause or permission to act"
+      },
+      "independent_labels": {
+        "origin": null,
+        "alternatives": null,
+        "relevant_documents": null,
+        "abstention_expected": null,
+        "citations_valid": null,
+        "reviewer": null,
+        "signed_at": null,
+        "approval": null
+      }
+    },
+    {
+      "id": "legacy-zookeeper",
+      "tenant_id": "demo",
+      "technology": "Kafka",
+      "version": "3.9",
+      "mode": "LEGACY_ZOOKEEPER",
+      "timeline": [
+        {
+          "id": "Q-legacy-zookeeper-00",
+          "tenant_id": "demo",
+          "incident_id": "QUALITY-legacy-zookeeper",
+          "entity_id": "network",
+          "signal": "NETWORK_UNSTABLE",
+          "state": "HEALTHY",
+          "observed_at": "2026-11-17T00:00:00Z",
+          "source_mode": "SIMULATED",
+          "intensity": 0,
+          "signature": "SIMULATED developer-authored quality fixture"
+        },
+        {
+          "id": "Q-legacy-zookeeper-01",
+          "tenant_id": "demo",
+          "incident_id": "QUALITY-legacy-zookeeper",
+          "entity_id": "zk",
+          "signal": "ZK_SESSION_EXPIRED",
+          "state": "ABNORMAL",
+          "observed_at": "2026-11-17T00:00:00Z",
+          "source_mode": "SIMULATED",
+          "intensity": 0.8,
+          "signature": "SIMULATED developer-authored quality fixture"
+        },
+        {
+          "id": "Q-legacy-zookeeper-02",
+          "tenant_id": "demo",
+          "incident_id": "QUALITY-legacy-zookeeper",
+          "entity_id": "broker",
+          "signal": "BROKER_ERROR",
+          "state": "ABNORMAL",
+          "observed_at": "2026-11-17T00:01:00Z",
+          "source_mode": "SIMULATED",
+          "intensity": 0.8,
+          "signature": "SIMULATED developer-authored quality fixture"
+        },
+        {
+          "id": "Q-legacy-zookeeper-03",
+          "tenant_id": "demo",
+          "incident_id": "QUALITY-legacy-zookeeper",
+          "entity_id": "consumer",
+          "signal": "CONSUMER_LAG",
+          "state": "ABNORMAL",
+          "observed_at": "2026-11-17T00:02:00Z",
+          "source_mode": "SIMULATED",
+          "intensity": 0.8,
+          "signature": "SIMULATED developer-authored quality fixture"
+        },
+        {
+          "id": "Q-legacy-zookeeper-04",
+          "tenant_id": "demo",
+          "incident_id": "QUALITY-legacy-zookeeper",
+          "entity_id": "spark",
+          "signal": "SPARK_DELAY",
+          "state": "ABNORMAL",
+          "observed_at": "2026-11-17T00:02:40Z",
+          "source_mode": "SIMULATED",
+          "intensity": 0.8,
+          "signature": "SIMULATED developer-authored quality fixture"
+        },
+        {
+          "id": "Q-legacy-zookeeper-05",
+          "tenant_id": "demo",
+          "incident_id": "QUALITY-legacy-zookeeper",
+          "entity_id": "dataset",
+          "signal": "DATASET_STALE",
+          "state": "ABNORMAL",
+          "observed_at": "2026-11-17T00:03:20Z",
+          "source_mode": "SIMULATED",
+          "intensity": 0.8,
+          "signature": "SIMULATED developer-authored quality fixture"
+        }
+      ],
+      "graph": {
+        "graph_id": "quality-legacy-zookeeper",
+        "revision": 1,
+        "source_mode": "SIMULATED",
+        "metadata_mode": "LEGACY_ZOOKEEPER",
+        "platform_version": "Kafka 3.9",
+        "nodes": [
+          {
+            "id": "network",
+            "type": "NETWORK",
+            "name": "network"
+          },
+          {
+            "id": "zk",
+            "type": "ZOOKEEPER",
+            "name": "zk"
+          },
+          {
+            "id": "broker",
+            "type": "BROKER",
+            "name": "broker"
+          },
+          {
+            "id": "consumer",
+            "type": "CONSUMER_GROUP",
+            "name": "consumer"
+          },
+          {
+            "id": "spark",
+            "type": "SPARK_JOB",
+            "name": "spark"
+          },
+          {
+            "id": "dataset",
+            "type": "DATASET",
+            "name": "dataset"
+          }
+        ],
+        "edges": [
+          {
+            "id": "edge-1",
+            "from": "zk",
+            "to": "network",
+            "type": "DEPENDS_ON",
+            "source": "developer-authored-review-fixture",
+            "confidence": 1,
+            "discovered_at": "2026-11-16T23:58:00Z",
+            "valid_from": "2026-11-16T23:58:00Z",
+            "valid_to": null,
+            "provenance": "SIMULATED proposed topology; independent domain review pending"
+          },
+          {
+            "id": "edge-2",
+            "from": "broker",
+            "to": "zk",
+            "type": "DEPENDS_ON",
+            "source": "developer-authored-review-fixture",
+            "confidence": 1,
+            "discovered_at": "2026-11-16T23:58:00Z",
+            "valid_from": "2026-11-16T23:58:00Z",
+            "valid_to": null,
+            "provenance": "SIMULATED proposed topology; independent domain review pending"
+          },
+          {
+            "id": "edge-3",
+            "from": "consumer",
+            "to": "broker",
+            "type": "DEPENDS_ON",
+            "source": "developer-authored-review-fixture",
+            "confidence": 1,
+            "discovered_at": "2026-11-16T23:58:00Z",
+            "valid_from": "2026-11-16T23:58:00Z",
+            "valid_to": null,
+            "provenance": "SIMULATED proposed topology; independent domain review pending"
+          },
+          {
+            "id": "edge-4",
+            "from": "spark",
+            "to": "consumer",
+            "type": "DEPENDS_ON",
+            "source": "developer-authored-review-fixture",
+            "confidence": 1,
+            "discovered_at": "2026-11-16T23:58:00Z",
+            "valid_from": "2026-11-16T23:58:00Z",
+            "valid_to": null,
+            "provenance": "SIMULATED proposed topology; independent domain review pending"
+          },
+          {
+            "id": "edge-5",
+            "from": "dataset",
+            "to": "spark",
+            "type": "DEPENDS_ON",
+            "source": "developer-authored-review-fixture",
+            "confidence": 1,
+            "discovered_at": "2026-11-16T23:58:00Z",
+            "valid_from": "2026-11-16T23:58:00Z",
+            "valid_to": null,
+            "provenance": "SIMULATED proposed topology; independent domain review pending"
+          }
+        ]
+      },
+      "alternative_explanations": [
+        "broker:BROKER_ERROR"
+      ],
+      "contradictory_evidence": "Healthy network weakens a generic network claim; no abnormal network candidate is expected.",
+      "blind_spots": "Legacy Kafka mode is fixture-declared, not discovered from a real legacy broker.",
+      "negative_control": false,
+      "citation_source": "eval/knowledge_review_cases.json",
+      "corpus_revision": "review-legacy-zookeeper@2",
+      "developer_labels": {
+        "expected_origin": "zk:ZK_SESSION_EXPIRED",
+        "expected_detection": true,
+        "relevant_documents": [
+          "review-legacy-zookeeper"
+        ],
+        "expected_uncertainty": "HYPOTHESIS only; never confirmed cause or permission to act"
+      },
+      "independent_labels": {
+        "origin": null,
+        "alternatives": null,
+        "relevant_documents": null,
+        "abstention_expected": null,
+        "citations_valid": null,
+        "reviewer": null,
+        "signed_at": null,
+        "approval": null
+      }
+    },
+    {
+      "id": "hdfs-ha",
+      "tenant_id": "demo",
+      "technology": "HDFS",
+      "version": "3.4",
+      "mode": "UNKNOWN",
+      "timeline": [
+        {
+          "id": "Q-hdfs-ha-00",
+          "tenant_id": "demo",
+          "incident_id": "QUALITY-hdfs-ha",
+          "entity_id": "namenode",
+          "signal": "HDFS_HA_UNAVAILABLE",
+          "state": "ABNORMAL",
+          "observed_at": "2026-11-17T00:00:00Z",
+          "source_mode": "SIMULATED",
+          "intensity": 0.8,
+          "signature": "SIMULATED developer-authored quality fixture"
+        },
+        {
+          "id": "Q-hdfs-ha-01",
+          "tenant_id": "demo",
+          "incident_id": "QUALITY-hdfs-ha",
+          "entity_id": "datanode",
+          "signal": "HDFS_MISSING_BLOCKS",
+          "state": "ABNORMAL",
+          "observed_at": "2026-11-17T00:01:00Z",
+          "source_mode": "SIMULATED",
+          "intensity": 0.8,
+          "signature": "SIMULATED developer-authored quality fixture"
+        },
+        {
+          "id": "Q-hdfs-ha-02",
+          "tenant_id": "demo",
+          "incident_id": "QUALITY-hdfs-ha",
+          "entity_id": "pipeline",
+          "signal": "SPARK_DELAY",
+          "state": "ABNORMAL",
+          "observed_at": "2026-11-17T00:02:00Z",
+          "source_mode": "SIMULATED",
+          "intensity": 0.8,
+          "signature": "SIMULATED developer-authored quality fixture"
+        },
+        {
+          "id": "Q-hdfs-ha-03",
+          "tenant_id": "demo",
+          "incident_id": "QUALITY-hdfs-ha",
+          "entity_id": "dataset",
+          "signal": "DATASET_STALE",
+          "state": "ABNORMAL",
+          "observed_at": "2026-11-17T00:03:00Z",
+          "source_mode": "SIMULATED",
+          "intensity": 0.8,
+          "signature": "SIMULATED developer-authored quality fixture"
+        }
+      ],
+      "graph": {
+        "graph_id": "quality-hdfs-ha",
+        "revision": 1,
+        "source_mode": "SIMULATED",
+        "metadata_mode": "UNKNOWN",
+        "platform_version": "HDFS 3.4",
+        "nodes": [
+          {
+            "id": "namenode",
+            "type": "SERVICE",
+            "name": "namenode"
+          },
+          {
+            "id": "datanode",
+            "type": "SERVICE",
+            "name": "datanode"
+          },
+          {
+            "id": "pipeline",
+            "type": "PIPELINE",
+            "name": "pipeline"
+          },
+          {
+            "id": "dataset",
+            "type": "DATASET",
+            "name": "dataset"
+          }
+        ],
+        "edges": [
+          {
+            "id": "edge-1",
+            "from": "datanode",
+            "to": "namenode",
+            "type": "DEPENDS_ON",
+            "source": "developer-authored-review-fixture",
+            "confidence": 1,
+            "discovered_at": "2026-11-16T23:58:00Z",
+            "valid_from": "2026-11-16T23:58:00Z",
+            "valid_to": null,
+            "provenance": "SIMULATED proposed topology; independent domain review pending"
+          },
+          {
+            "id": "edge-2",
+            "from": "pipeline",
+            "to": "datanode",
+            "type": "DEPENDS_ON",
+            "source": "developer-authored-review-fixture",
+            "confidence": 1,
+            "discovered_at": "2026-11-16T23:58:00Z",
+            "valid_from": "2026-11-16T23:58:00Z",
+            "valid_to": null,
+            "provenance": "SIMULATED proposed topology; independent domain review pending"
+          },
+          {
+            "id": "edge-3",
+            "from": "dataset",
+            "to": "pipeline",
+            "type": "DEPENDS_ON",
+            "source": "developer-authored-review-fixture",
+            "confidence": 1,
+            "discovered_at": "2026-11-16T23:58:00Z",
+            "valid_from": "2026-11-16T23:58:00Z",
+            "valid_to": null,
+            "provenance": "SIMULATED proposed topology; independent domain review pending"
+          }
+        ]
+      },
+      "alternative_explanations": [
+        "datanode:HDFS_MISSING_BLOCKS"
+      ],
+      "contradictory_evidence": "No contemporaneous healthy counterevidence was supplied; absence is not health.",
+      "blind_spots": "No paired NameNode/journal quorum probe or authorized failover experiment.",
+      "negative_control": false,
+      "citation_source": "eval/knowledge_review_cases.json",
+      "corpus_revision": "review-hdfs-ha@2",
+      "developer_labels": {
+        "expected_origin": "namenode:HDFS_HA_UNAVAILABLE",
+        "expected_detection": true,
+        "relevant_documents": [
+          "review-hdfs-ha"
+        ],
+        "expected_uncertainty": "HYPOTHESIS only; never confirmed cause or permission to act"
+      },
+      "independent_labels": {
+        "origin": null,
+        "alternatives": null,
+        "relevant_documents": null,
+        "abstention_expected": null,
+        "citations_valid": null,
+        "reviewer": null,
+        "signed_at": null,
+        "approval": null
+      }
+    },
+    {
+      "id": "kudu-tablet",
+      "tenant_id": "demo",
+      "technology": "Kudu",
+      "version": "1.18",
+      "mode": "UNKNOWN",
+      "timeline": [
+        {
+          "id": "Q-kudu-tablet-00",
+          "tenant_id": "demo",
+          "incident_id": "QUALITY-kudu-tablet",
+          "entity_id": "tserver",
+          "signal": "KUDU_TABLET_UNAVAILABLE",
+          "state": "ABNORMAL",
+          "observed_at": "2026-11-17T00:00:00Z",
+          "source_mode": "SIMULATED",
+          "intensity": 0.8,
+          "signature": "SIMULATED developer-authored quality fixture"
+        },
+        {
+          "id": "Q-kudu-tablet-01",
+          "tenant_id": "demo",
+          "incident_id": "QUALITY-kudu-tablet",
+          "entity_id": "pipeline",
+          "signal": "SPARK_DELAY",
+          "state": "ABNORMAL",
+          "observed_at": "2026-11-17T00:01:00Z",
+          "source_mode": "SIMULATED",
+          "intensity": 0.8,
+          "signature": "SIMULATED developer-authored quality fixture"
+        },
+        {
+          "id": "Q-kudu-tablet-02",
+          "tenant_id": "demo",
+          "incident_id": "QUALITY-kudu-tablet",
+          "entity_id": "dataset",
+          "signal": "DATASET_STALE",
+          "state": "ABNORMAL",
+          "observed_at": "2026-11-17T00:02:00Z",
+          "source_mode": "SIMULATED",
+          "intensity": 0.8,
+          "signature": "SIMULATED developer-authored quality fixture"
+        },
+        {
+          "id": "Q-kudu-tablet-03",
+          "tenant_id": "demo",
+          "incident_id": "QUALITY-kudu-tablet",
+          "entity_id": "network",
+          "signal": "NETWORK_UNSTABLE",
+          "state": "ABNORMAL",
+          "observed_at": "2026-11-17T00:08:20Z",
+          "source_mode": "SIMULATED",
+          "intensity": 0.8,
+          "signature": "SIMULATED developer-authored quality fixture"
+        }
+      ],
+      "graph": {
+        "graph_id": "quality-kudu-tablet",
+        "revision": 1,
+        "source_mode": "SIMULATED",
+        "metadata_mode": "UNKNOWN",
+        "platform_version": "Kudu 1.18",
+        "nodes": [
+          {
+            "id": "network",
+            "type": "NETWORK",
+            "name": "network"
+          },
+          {
+            "id": "tserver",
+            "type": "SERVICE",
+            "name": "tserver"
+          },
+          {
+            "id": "pipeline",
+            "type": "PIPELINE",
+            "name": "pipeline"
+          },
+          {
+            "id": "dataset",
+            "type": "DATASET",
+            "name": "dataset"
+          }
+        ],
+        "edges": [
+          {
+            "id": "edge-1",
+            "from": "tserver",
+            "to": "network",
+            "type": "DEPENDS_ON",
+            "source": "developer-authored-review-fixture",
+            "confidence": 1,
+            "discovered_at": "2026-11-16T23:58:00Z",
+            "valid_from": "2026-11-16T23:58:00Z",
+            "valid_to": null,
+            "provenance": "SIMULATED proposed topology; independent domain review pending"
+          },
+          {
+            "id": "edge-2",
+            "from": "pipeline",
+            "to": "tserver",
+            "type": "DEPENDS_ON",
+            "source": "developer-authored-review-fixture",
+            "confidence": 1,
+            "discovered_at": "2026-11-16T23:58:00Z",
+            "valid_from": "2026-11-16T23:58:00Z",
+            "valid_to": null,
+            "provenance": "SIMULATED proposed topology; independent domain review pending"
+          },
+          {
+            "id": "edge-3",
+            "from": "dataset",
+            "to": "pipeline",
+            "type": "DEPENDS_ON",
+            "source": "developer-authored-review-fixture",
+            "confidence": 1,
+            "discovered_at": "2026-11-16T23:58:00Z",
+            "valid_from": "2026-11-16T23:58:00Z",
+            "valid_to": null,
+            "provenance": "SIMULATED proposed topology; independent domain review pending"
+          }
+        ]
+      },
+      "alternative_explanations": [
+        "network:NETWORK_UNSTABLE"
+      ],
+      "contradictory_evidence": "The late network event is contradicted by earlier downstream failures beyond the 30-second skew tolerance.",
+      "blind_spots": "Missing tablet replica/leader quorum and host evidence; master connectivity alone is insufficient.",
+      "negative_control": false,
+      "citation_source": "eval/knowledge_review_cases.json",
+      "corpus_revision": "review-kudu-tablet@2",
+      "developer_labels": {
+        "expected_origin": "tserver:KUDU_TABLET_UNAVAILABLE",
+        "expected_detection": true,
+        "relevant_documents": [
+          "review-kudu-tablet"
+        ],
+        "expected_uncertainty": "HYPOTHESIS only; never confirmed cause or permission to act"
+      },
+      "independent_labels": {
+        "origin": null,
+        "alternatives": null,
+        "relevant_documents": null,
+        "abstention_expected": null,
+        "citations_valid": null,
+        "reviewer": null,
+        "signed_at": null,
+        "approval": null
+      }
+    },
+    {
+      "id": "nifi-backpressure",
+      "tenant_id": "demo",
+      "technology": "NiFi",
+      "version": "2.0",
+      "mode": "UNKNOWN",
+      "timeline": [
+        {
+          "id": "Q-nifi-backpressure-00",
+          "tenant_id": "demo",
+          "incident_id": "QUALITY-nifi-backpressure",
+          "entity_id": "storage",
+          "signal": "HDFS_MISSING_BLOCKS",
+          "state": "ABNORMAL",
+          "observed_at": "2026-11-17T00:00:00Z",
+          "source_mode": "SIMULATED",
+          "intensity": 0.8,
+          "signature": "SIMULATED developer-authored quality fixture"
+        },
+        {
+          "id": "Q-nifi-backpressure-01",
+          "tenant_id": "demo",
+          "incident_id": "QUALITY-nifi-backpressure",
+          "entity_id": "nifi",
+          "signal": "NIFI_BACKPRESSURE",
+          "state": "ABNORMAL",
+          "observed_at": "2026-11-17T00:01:00Z",
+          "source_mode": "SIMULATED",
+          "intensity": 0.8,
+          "signature": "SIMULATED developer-authored quality fixture"
+        },
+        {
+          "id": "Q-nifi-backpressure-02",
+          "tenant_id": "demo",
+          "incident_id": "QUALITY-nifi-backpressure",
+          "entity_id": "pipeline",
+          "signal": "SPARK_DELAY",
+          "state": "ABNORMAL",
+          "observed_at": "2026-11-17T00:02:00Z",
+          "source_mode": "SIMULATED",
+          "intensity": 0.8,
+          "signature": "SIMULATED developer-authored quality fixture"
+        },
+        {
+          "id": "Q-nifi-backpressure-03",
+          "tenant_id": "demo",
+          "incident_id": "QUALITY-nifi-backpressure",
+          "entity_id": "dataset",
+          "signal": "DATASET_STALE",
+          "state": "ABNORMAL",
+          "observed_at": "2026-11-17T00:03:00Z",
+          "source_mode": "SIMULATED",
+          "intensity": 0.8,
+          "signature": "SIMULATED developer-authored quality fixture"
+        }
+      ],
+      "graph": {
+        "graph_id": "quality-nifi-backpressure",
+        "revision": 1,
+        "source_mode": "SIMULATED",
+        "metadata_mode": "UNKNOWN",
+        "platform_version": "NiFi 2.0",
+        "nodes": [
+          {
+            "id": "storage",
+            "type": "SERVICE",
+            "name": "storage"
+          },
+          {
+            "id": "nifi",
+            "type": "PIPELINE",
+            "name": "nifi"
+          },
+          {
+            "id": "pipeline",
+            "type": "PIPELINE",
+            "name": "pipeline"
+          },
+          {
+            "id": "dataset",
+            "type": "DATASET",
+            "name": "dataset"
+          }
+        ],
+        "edges": [
+          {
+            "id": "edge-1",
+            "from": "nifi",
+            "to": "storage",
+            "type": "DEPENDS_ON",
+            "source": "developer-authored-review-fixture",
+            "confidence": 1,
+            "discovered_at": "2026-11-16T23:58:00Z",
+            "valid_from": "2026-11-16T23:58:00Z",
+            "valid_to": null,
+            "provenance": "SIMULATED proposed topology; independent domain review pending"
+          },
+          {
+            "id": "edge-2",
+            "from": "pipeline",
+            "to": "nifi",
+            "type": "DEPENDS_ON",
+            "source": "developer-authored-review-fixture",
+            "confidence": 1,
+            "discovered_at": "2026-11-16T23:58:00Z",
+            "valid_from": "2026-11-16T23:58:00Z",
+            "valid_to": null,
+            "provenance": "SIMULATED proposed topology; independent domain review pending"
+          },
+          {
+            "id": "edge-3",
+            "from": "dataset",
+            "to": "pipeline",
+            "type": "DEPENDS_ON",
+            "source": "developer-authored-review-fixture",
+            "confidence": 1,
+            "discovered_at": "2026-11-16T23:58:00Z",
+            "valid_from": "2026-11-16T23:58:00Z",
+            "valid_to": null,
+            "provenance": "SIMULATED proposed topology; independent domain review pending"
+          }
+        ]
+      },
+      "alternative_explanations": [
+        "nifi:NIFI_BACKPRESSURE"
+      ],
+      "contradictory_evidence": "No healthy storage evidence supplied; this fixture proposes an upstream storage cause, not an automatic NiFi fault.",
+      "blind_spots": "No per-connection queue age, backpressure settings, throughput or live HDFS evidence.",
+      "negative_control": false,
+      "citation_source": "eval/knowledge_review_cases.json",
+      "corpus_revision": "review-nifi-backpressure@2",
+      "developer_labels": {
+        "expected_origin": "storage:HDFS_MISSING_BLOCKS",
+        "expected_detection": true,
+        "relevant_documents": [
+          "review-nifi-backpressure"
+        ],
+        "expected_uncertainty": "HYPOTHESIS only; never confirmed cause or permission to act"
+      },
+      "independent_labels": {
+        "origin": null,
+        "alternatives": null,
+        "relevant_documents": null,
+        "abstention_expected": null,
+        "citations_valid": null,
+        "reviewer": null,
+        "signed_at": null,
+        "approval": null
+      }
+    },
+    {
+      "id": "spark-oom",
+      "tenant_id": "demo",
+      "technology": "Spark",
+      "version": "4.0",
+      "mode": "UNKNOWN",
+      "timeline": [
+        {
+          "id": "Q-spark-oom-00",
+          "tenant_id": "demo",
+          "incident_id": "QUALITY-spark-oom",
+          "entity_id": "executor",
+          "signal": "SPARK_EXECUTOR_OOM",
+          "state": "ABNORMAL",
+          "observed_at": "2026-11-17T00:00:00Z",
+          "source_mode": "SIMULATED",
+          "intensity": 0.8,
+          "signature": "SIMULATED developer-authored quality fixture"
+        },
+        {
+          "id": "Q-spark-oom-01",
+          "tenant_id": "demo",
+          "incident_id": "QUALITY-spark-oom",
+          "entity_id": "pipeline",
+          "signal": "SPARK_DELAY",
+          "state": "ABNORMAL",
+          "observed_at": "2026-11-17T00:01:00Z",
+          "source_mode": "SIMULATED",
+          "intensity": 0.8,
+          "signature": "SIMULATED developer-authored quality fixture"
+        },
+        {
+          "id": "Q-spark-oom-02",
+          "tenant_id": "demo",
+          "incident_id": "QUALITY-spark-oom",
+          "entity_id": "dataset",
+          "signal": "DATASET_STALE",
+          "state": "ABNORMAL",
+          "observed_at": "2026-11-17T00:02:00Z",
+          "source_mode": "SIMULATED",
+          "intensity": 0.8,
+          "signature": "SIMULATED developer-authored quality fixture"
+        },
+        {
+          "id": "Q-spark-oom-03",
+          "tenant_id": "demo",
+          "incident_id": "QUALITY-spark-oom",
+          "entity_id": "network",
+          "signal": "NETWORK_UNSTABLE",
+          "state": "ABNORMAL",
+          "observed_at": "2026-11-17T00:08:20Z",
+          "source_mode": "SIMULATED",
+          "intensity": 0.8,
+          "signature": "SIMULATED developer-authored quality fixture"
+        }
+      ],
+      "graph": {
+        "graph_id": "quality-spark-oom",
+        "revision": 1,
+        "source_mode": "SIMULATED",
+        "metadata_mode": "UNKNOWN",
+        "platform_version": "Spark 4.0",
+        "nodes": [
+          {
+            "id": "network",
+            "type": "NETWORK",
+            "name": "network"
+          },
+          {
+            "id": "executor",
+            "type": "SPARK_JOB",
+            "name": "executor"
+          },
+          {
+            "id": "pipeline",
+            "type": "PIPELINE",
+            "name": "pipeline"
+          },
+          {
+            "id": "dataset",
+            "type": "DATASET",
+            "name": "dataset"
+          }
+        ],
+        "edges": [
+          {
+            "id": "edge-1",
+            "from": "executor",
+            "to": "network",
+            "type": "DEPENDS_ON",
+            "source": "developer-authored-review-fixture",
+            "confidence": 1,
+            "discovered_at": "2026-11-16T23:58:00Z",
+            "valid_from": "2026-11-16T23:58:00Z",
+            "valid_to": null,
+            "provenance": "SIMULATED proposed topology; independent domain review pending"
+          },
+          {
+            "id": "edge-2",
+            "from": "pipeline",
+            "to": "executor",
+            "type": "DEPENDS_ON",
+            "source": "developer-authored-review-fixture",
+            "confidence": 1,
+            "discovered_at": "2026-11-16T23:58:00Z",
+            "valid_from": "2026-11-16T23:58:00Z",
+            "valid_to": null,
+            "provenance": "SIMULATED proposed topology; independent domain review pending"
+          },
+          {
+            "id": "edge-3",
+            "from": "dataset",
+            "to": "pipeline",
+            "type": "DEPENDS_ON",
+            "source": "developer-authored-review-fixture",
+            "confidence": 1,
+            "discovered_at": "2026-11-16T23:58:00Z",
+            "valid_from": "2026-11-16T23:58:00Z",
+            "valid_to": null,
+            "provenance": "SIMULATED proposed topology; independent domain review pending"
+          }
+        ]
+      },
+      "alternative_explanations": [
+        "network:NETWORK_UNSTABLE"
+      ],
+      "contradictory_evidence": "Late network instability is contradicted by earlier OOM/downstream timing.",
+      "blind_spots": "Heap dump, driver/executor distinction, GC, skew and resource allocation are unmeasured.",
+      "negative_control": false,
+      "citation_source": "eval/knowledge_review_cases.json",
+      "corpus_revision": "review-spark-oom@2",
+      "developer_labels": {
+        "expected_origin": "executor:SPARK_EXECUTOR_OOM",
+        "expected_detection": true,
+        "relevant_documents": [
+          "review-spark-oom"
+        ],
+        "expected_uncertainty": "HYPOTHESIS only; never confirmed cause or permission to act"
+      },
+      "independent_labels": {
+        "origin": null,
+        "alternatives": null,
+        "relevant_documents": null,
+        "abstention_expected": null,
+        "citations_valid": null,
+        "reviewer": null,
+        "signed_at": null,
+        "approval": null
+      }
+    },
+    {
+      "id": "hive-metadata",
+      "tenant_id": "demo",
+      "technology": "Hive",
+      "version": "4.0",
+      "mode": "UNKNOWN",
+      "timeline": [
+        {
+          "id": "Q-hive-metadata-00",
+          "tenant_id": "demo",
+          "incident_id": "QUALITY-hive-metadata",
+          "entity_id": "hms",
+          "signal": "HIVE_METADATA_FAILURE",
+          "state": "ABNORMAL",
+          "observed_at": "2026-11-17T00:00:00Z",
+          "source_mode": "SIMULATED",
+          "intensity": 0.8,
+          "signature": "SIMULATED developer-authored quality fixture"
+        },
+        {
+          "id": "Q-hive-metadata-01",
+          "tenant_id": "demo",
+          "incident_id": "QUALITY-hive-metadata",
+          "entity_id": "hs2",
+          "signal": "UNKNOWN",
+          "state": "ABNORMAL",
+          "observed_at": "2026-11-17T00:01:00Z",
+          "source_mode": "SIMULATED",
+          "intensity": 0.8,
+          "signature": "SIMULATED developer-authored quality fixture"
+        },
+        {
+          "id": "Q-hive-metadata-02",
+          "tenant_id": "demo",
+          "incident_id": "QUALITY-hive-metadata",
+          "entity_id": "pipeline",
+          "signal": "SPARK_DELAY",
+          "state": "ABNORMAL",
+          "observed_at": "2026-11-17T00:02:00Z",
+          "source_mode": "SIMULATED",
+          "intensity": 0.8,
+          "signature": "SIMULATED developer-authored quality fixture"
+        },
+        {
+          "id": "Q-hive-metadata-03",
+          "tenant_id": "demo",
+          "incident_id": "QUALITY-hive-metadata",
+          "entity_id": "dataset",
+          "signal": "DATASET_STALE",
+          "state": "ABNORMAL",
+          "observed_at": "2026-11-17T00:03:00Z",
+          "source_mode": "SIMULATED",
+          "intensity": 0.8,
+          "signature": "SIMULATED developer-authored quality fixture"
+        },
+        {
+          "id": "Q-hive-metadata-04",
+          "tenant_id": "demo",
+          "incident_id": "QUALITY-hive-metadata",
+          "entity_id": "database",
+          "signal": "DISK_EXHAUSTED",
+          "state": "ABNORMAL",
+          "observed_at": "2026-11-17T00:08:20Z",
+          "source_mode": "SIMULATED",
+          "intensity": 0.8,
+          "signature": "SIMULATED developer-authored quality fixture"
+        }
+      ],
+      "graph": {
+        "graph_id": "quality-hive-metadata",
+        "revision": 1,
+        "source_mode": "SIMULATED",
+        "metadata_mode": "UNKNOWN",
+        "platform_version": "Hive 4.0",
+        "nodes": [
+          {
+            "id": "database",
+            "type": "HOST",
+            "name": "database"
+          },
+          {
+            "id": "hms",
+            "type": "SERVICE",
+            "name": "hms"
+          },
+          {
+            "id": "hs2",
+            "type": "SERVICE",
+            "name": "hs2"
+          },
+          {
+            "id": "pipeline",
+            "type": "PIPELINE",
+            "name": "pipeline"
+          },
+          {
+            "id": "dataset",
+            "type": "DATASET",
+            "name": "dataset"
+          }
+        ],
+        "edges": [
+          {
+            "id": "edge-1",
+            "from": "hms",
+            "to": "database",
+            "type": "DEPENDS_ON",
+            "source": "developer-authored-review-fixture",
+            "confidence": 1,
+            "discovered_at": "2026-11-16T23:58:00Z",
+            "valid_from": "2026-11-16T23:58:00Z",
+            "valid_to": null,
+            "provenance": "SIMULATED proposed topology; independent domain review pending"
+          },
+          {
+            "id": "edge-2",
+            "from": "hs2",
+            "to": "hms",
+            "type": "DEPENDS_ON",
+            "source": "developer-authored-review-fixture",
+            "confidence": 1,
+            "discovered_at": "2026-11-16T23:58:00Z",
+            "valid_from": "2026-11-16T23:58:00Z",
+            "valid_to": null,
+            "provenance": "SIMULATED proposed topology; independent domain review pending"
+          },
+          {
+            "id": "edge-3",
+            "from": "pipeline",
+            "to": "hs2",
+            "type": "DEPENDS_ON",
+            "source": "developer-authored-review-fixture",
+            "confidence": 1,
+            "discovered_at": "2026-11-16T23:58:00Z",
+            "valid_from": "2026-11-16T23:58:00Z",
+            "valid_to": null,
+            "provenance": "SIMULATED proposed topology; independent domain review pending"
+          },
+          {
+            "id": "edge-4",
+            "from": "dataset",
+            "to": "pipeline",
+            "type": "DEPENDS_ON",
+            "source": "developer-authored-review-fixture",
+            "confidence": 1,
+            "discovered_at": "2026-11-16T23:58:00Z",
+            "valid_from": "2026-11-16T23:58:00Z",
+            "valid_to": null,
+            "provenance": "SIMULATED proposed topology; independent domain review pending"
+          }
+        ]
+      },
+      "alternative_explanations": [
+        "database:DISK_EXHAUSTED"
+      ],
+      "contradictory_evidence": "Late backing-disk evidence cannot explain the earlier metadata failure by timing alone. HS2 UNKNOWN is not a successful query.",
+      "blind_spots": "No metastore SASL read, backing-DB state, HS2 query or partition listing proof.",
+      "negative_control": false,
+      "citation_source": "eval/knowledge_review_cases.json",
+      "corpus_revision": "review-hive-metadata@2",
+      "developer_labels": {
+        "expected_origin": "hms:HIVE_METADATA_FAILURE",
+        "expected_detection": true,
+        "relevant_documents": [
+          "review-hive-metadata"
+        ],
+        "expected_uncertainty": "HYPOTHESIS only; never confirmed cause or permission to act"
+      },
+      "independent_labels": {
+        "origin": null,
+        "alternatives": null,
+        "relevant_documents": null,
+        "abstention_expected": null,
+        "citations_valid": null,
+        "reviewer": null,
+        "signed_at": null,
+        "approval": null
+      }
+    },
+    {
+      "id": "healthy-false-positive",
+      "tenant_id": "demo",
+      "technology": "Kafka",
+      "version": "4.3",
+      "mode": "KRAFT",
+      "timeline": [
+        {
+          "id": "Q-healthy-false-positive-00",
+          "tenant_id": "demo",
+          "incident_id": "QUALITY-healthy-false-positive",
+          "entity_id": "network",
+          "signal": "NETWORK_UNSTABLE",
+          "state": "HEALTHY",
+          "observed_at": "2026-11-17T00:00:00Z",
+          "source_mode": "SIMULATED",
+          "intensity": 0,
+          "signature": "SIMULATED developer-authored quality fixture"
+        },
+        {
+          "id": "Q-healthy-false-positive-01",
+          "tenant_id": "demo",
+          "incident_id": "QUALITY-healthy-false-positive",
+          "entity_id": "quorum",
+          "signal": "QUORUM_UNAVAILABLE",
+          "state": "HEALTHY",
+          "observed_at": "2026-11-17T00:00:40Z",
+          "source_mode": "SIMULATED",
+          "intensity": 0,
+          "signature": "SIMULATED developer-authored quality fixture"
+        },
+        {
+          "id": "Q-healthy-false-positive-02",
+          "tenant_id": "demo",
+          "incident_id": "QUALITY-healthy-false-positive",
+          "entity_id": "broker",
+          "signal": "DISK_EXHAUSTED",
+          "state": "HEALTHY",
+          "observed_at": "2026-11-17T00:01:20Z",
+          "source_mode": "SIMULATED",
+          "intensity": 0,
+          "signature": "SIMULATED developer-authored quality fixture"
+        },
+        {
+          "id": "Q-healthy-false-positive-03",
+          "tenant_id": "demo",
+          "incident_id": "QUALITY-healthy-false-positive",
+          "entity_id": "dataset",
+          "signal": "DATASET_STALE",
+          "state": "HEALTHY",
+          "observed_at": "2026-11-17T00:02:00Z",
+          "source_mode": "SIMULATED",
+          "intensity": 0,
+          "signature": "SIMULATED developer-authored quality fixture"
+        }
+      ],
+      "graph": {
+        "graph_id": "quality-healthy-false-positive",
+        "revision": 1,
+        "source_mode": "SIMULATED",
+        "metadata_mode": "KRAFT",
+        "platform_version": "Kafka 4.3",
+        "nodes": [
+          {
+            "id": "network",
+            "type": "NETWORK",
+            "name": "network"
+          },
+          {
+            "id": "quorum",
+            "type": "QUORUM",
+            "name": "quorum"
+          },
+          {
+            "id": "broker",
+            "type": "BROKER",
+            "name": "broker"
+          },
+          {
+            "id": "dataset",
+            "type": "DATASET",
+            "name": "dataset"
+          }
+        ],
+        "edges": [
+          {
+            "id": "edge-1",
+            "from": "quorum",
+            "to": "network",
+            "type": "DEPENDS_ON",
+            "source": "developer-authored-review-fixture",
+            "confidence": 1,
+            "discovered_at": "2026-11-16T23:58:00Z",
+            "valid_from": "2026-11-16T23:58:00Z",
+            "valid_to": null,
+            "provenance": "SIMULATED proposed topology; independent domain review pending"
+          },
+          {
+            "id": "edge-2",
+            "from": "broker",
+            "to": "quorum",
+            "type": "DEPENDS_ON",
+            "source": "developer-authored-review-fixture",
+            "confidence": 1,
+            "discovered_at": "2026-11-16T23:58:00Z",
+            "valid_from": "2026-11-16T23:58:00Z",
+            "valid_to": null,
+            "provenance": "SIMULATED proposed topology; independent domain review pending"
+          },
+          {
+            "id": "edge-3",
+            "from": "dataset",
+            "to": "broker",
+            "type": "DEPENDS_ON",
+            "source": "developer-authored-review-fixture",
+            "confidence": 1,
+            "discovered_at": "2026-11-16T23:58:00Z",
+            "valid_from": "2026-11-16T23:58:00Z",
+            "valid_to": null,
+            "provenance": "SIMULATED proposed topology; independent domain review pending"
+          }
+        ]
+      },
+      "alternative_explanations": [],
+      "contradictory_evidence": "Only capability-specific healthy observations are supplied; historical advice must not create a failure.",
+      "blind_spots": "A small healthy sample does not certify the whole cluster or measure production false positives.",
+      "negative_control": true,
+      "citation_source": "eval/knowledge_review_cases.json",
+      "corpus_revision": "review-healthy-false-positive@2",
+      "developer_labels": {
+        "expected_origin": null,
+        "expected_detection": false,
+        "relevant_documents": [
+          "review-healthy-false-positive"
+        ],
+        "expected_uncertainty": "HYPOTHESIS only; never confirmed cause or permission to act"
+      },
+      "independent_labels": {
+        "origin": null,
+        "alternatives": null,
+        "relevant_documents": null,
+        "abstention_expected": null,
+        "citations_valid": null,
+        "reviewer": null,
+        "signed_at": null,
+        "approval": null
+      }
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Owned local lab authorization/persistence acceptance. Never contacts a private cluster."""
 
+import argparse
 import importlib.util
 import json
 import re
@@ -57,6 +58,9 @@ def expect_http(state, path, status, body=None, token=None):
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--output", type=Path)
+    args = parser.parse_args()
     state = cli.load_state()
     token = state["secrets"]["CONNECTOR_API_TOKEN"]
     with cli.lock():
@@ -106,7 +110,7 @@ def main():
         }
         folder = cli.ROOT / "docs/implementation/prompt06"
         folder.mkdir(exist_ok=True)
-        (folder / "lab-result.json").write_text(json.dumps(result, indent=2) + "\n")
+        (args.output or folder / "lab-result.json").write_text(json.dumps(result, indent=2) + "\n")
         print(
             "PASS: scoped connector API, denied Kafka writes, persisted data/offsets across down/up"
         )

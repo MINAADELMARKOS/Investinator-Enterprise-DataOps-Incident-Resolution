@@ -1,0 +1,33 @@
+{
+  "checkpoint_before": "97a5f83",
+  "java_verify": {
+    "tests": 107,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "focused_ui_contracts": 3,
+  "cli_tests": 26,
+  "python_pytest": 12,
+  "frontend_contracts": 8,
+  "browser_checks": 13,
+  "npm_ci": "PASS (final sequential CLI build)",
+  "npm_build": "PASS",
+  "npm_lint": "PASS",
+  "npm_audit": "ZERO_VULNERABILITIES",
+  "next": "16.4.5",
+  "ruff": "PASS",
+  "mypy": "PASS 17 files",
+  "baseline": "PASS 44 routes,42 paths,13 tables + document links",
+  "lab_up": "PASS",
+  "doctor": "PASS",
+  "health_all": "PASS",
+  "smoke": "PASS after browser workflow completed",
+  "live_gpt": "NOT_CONFIGURED",
+  "human_quality": "PENDING",
+  "hosted_ci": "NOT_RUN; Prompt 13",
+  "production_actions": 0,
+  "paid_provider_calls": 0,
+  "known_runtime_secret_matches": 0,
+  "transient_failures": "Historical citation lookup, public origin and native login probe fixed; browser selector and overlapping local command failures corrected; sequential final checks pass."
+}

@@ -1,4 +1,68 @@
+Publication/verification update (2026-11-19): the topic is pushed. Implementation
+checkpoint 32069f2 passed all SEVEN jobs on run44425318558; public annotations show
+OSV233 default and234 optional-Hive metadata packages / zero findings. This is not
+shaded-content or image certification. A later native public-browser smoke found a
+React effect cleanup error missed by build/unit tests; fixed in77f19b6 and covered by
+four local checks (native + labeled Promise-return fixture), including repository
+prefix mode, now added to CI. The final publication HEAD needs its OWN seven-job
+conclusion; see the live topic checks and final completion response, not an old green
+SHA. [Hosted checkpoint](prompt14b/hosted-ci.json), [publication](prompt14b/publication.json).
+PR_CREATION_BLOCKED: actual gh GraphQL request returned Forbidden; no new topic PR
+is claimed. [Actual compare](https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/compare/main...feature/p14b-gap-closure?expand=1) returnsHTTP200.
+Production remains BLOCKED; no billing, deployment, merge into main or next prompt.
+
+Compatibility disclosure: the governed registry still has exactly two named ReplayLab
+actions. Existing fixed legacy DEMO workflow aliases are preserved for non-governed
+incidents and cannot bypass a governed plan; they are not enterprise authorization.
+Full alias retirement is not claimed. No new live/native/production executor was added.
+
+Current authoritative checkpoint — Prompt 14B (2026-11-19, Africa/Cairo).
+**Local engineering verified; hosted checkpoint passed; production BLOCKED.**
+See [14B report](prompt14b/REPORT.md), [per-risk matrix](prompt14b/GAP_CLOSURE_MATRIX.json),
+[actual commands](prompt14b/VALIDATION.json) and [release decision](prompt14b/RELEASE_DECISION.md).
+Initial main e5ca171 and source Java e7be724 (includes completed P15) were preserved;
+backup pre-p14b-e7be724 and normal merges 1ca09a1/0f75a45 reconcile newer main 06d036d.
+No merge into main, routing cutover, deployment, credential setup or paid model call.
+
+Local checks: Java141 (0 failure/error/skip), CLI34, Python12/Ruff/mypy, frontend13/
+type/build/audit, public Worker15/check/dry-run, showcase build/audit; browser14,
+eight owned outages, physical restarts, native evidence pipeline, 3000 duplicate burst,
+500 paced reads, snapshot41 tables/1120 fixture rows, disposable WAL/PITR and retained
+volume down/up27 identical incident IDs. Scope/source/failed reruns remain explicit.
+BM25 fixture stale degradation reduced8/8 to0/8; returned precision stays8/9; human
+gold/holdout unsigned. Native ingestion DISABLED/NOT_CERTIFIED, new tenants paused,
+production actions hard-denied, only two named ReplayLab simulations. Provider actual
+keys/models/approved policy NOT_CONFIGURED locally; calls by this work ZERO.
+
+P14-01..09 remain externally blocked/partial; P14-10 regressions retained. Local OSV
+is BLOCKED by egress, image scan DB Forbidden (no clean result); current hosted scans
+pending. Shaded Hive contents/licenses, private IdP/connector/network/HA certification,
+legal retention/external audit, actual costs and production SLO/ROI are unverified.
+Newer main Pages operational views stay SIMULATED. Its separate optional public Worker
+is preserved and off by repository default; external deployment/live traffic NOT_VERIFIED.
+No Java financial certificate covers Python/public Worker. No human signoff is inferred.
+
+Historical corrections: old Next.js critical warnings and 09A unpublished-branch claims
+are superseded: Next16.4.5 fresh audit clean; Java work is pushed on its source branch.
+Earlier stage records remain historical, not current gates. Completed P15 is preserved.
+The current master authorizes 14B only; stop after publication/review, no next prompt.
+
+Historical checkpoints / earlier decisions follow:
+
+Prompt 14B checkpoint (2026-11-19): current-revision retrieval filters pass 16 focused
+Java cases after a green 112-test baseline. SQL candidates are bounded and authorized
+before BM25; stale/revoked revisions cannot crowd out current guidance. Domain-neutral
+UNKNOWN wording fixed. Independent human quality and production release remain BLOCKED.
+See [14B evidence](prompt14b/RETRIEVAL_DESIGN.md). Earlier stage entries below are historical.
+
 # Risk register
+
+Current 12/13 disposition: isolated demo gates and all five hosted jobs PASS on
+f1488a7. Seven Java dependency advisories were remediated (Snappy/LZ4/OTel); OSV
+reports 233 packages / zero findings. npm/Python audits clean. Local API egress and
+new PR creation remain blocked; production identity/certification/human quality/
+operational security and optional-profile auditing remain unresolved. Historical
+records below retain earlier pending/failing evidence.
 
 | ID | Severity / owner role | Evidence and risk | Required mitigation / gate |
 |---|---|---|---|
@@ -82,3 +146,91 @@ NOT_TESTED; align explicitly in Prompt 12 before opting into provider-backed UI.
 backend/CLI and frontend jobs, observed through public GitHub job statuses.
 Authenticated logs and PR creation remain blocked by api.github.com destination
 policy; report-only follow-up commits do not alter the validated implementation.
+
+
+Prompt 09B: R10 remains open: human reviewer/approval null, no held-out set and only
+seven fault/one healthy developer fixtures. Independent scorer integrity and
+functional negative checks pass, not production quality. Live key/model/approved
+budget absent, so provider integration remains NOT_CONFIGURED despite mocked
+protocol tests. R1 remains cleared for the exact patched 16.4.5 lock/fresh clean
+audit. Original historical artifacts remain inspectable.
+
+| ID | Severity / owner role | Evidence and risk | Required mitigation / gate |
+|---|---|---|---|
+| R18 | Medium / knowledge + SRE | Eight queries DEGRADED after stale projection rejection; fixed 30-hit native bound may starve newer approved sources at scale | reviewed retention/reindex and load/adversarial retrieval evaluation before deployment |
+| R19 | Medium / AI-quality owner | returned precision 8/9; one irrelevant healthy runbook; optimistic query/corpus overlap, no independent labels | held-out expert review before relevance tuning or embedding claims |
+| R20 | Low / correlation owner | UNKNOWN-mode uncertainty text mentions Kafka on non-Kafka cases | domain-aware uncertainty wording; do not infer complete capability coverage |
+
+09B does not change application routing, schemas or production capabilities. R9
+Java provider UI metadata alignment, enterprise identity/private connector security
+and 09A PR access remain unresolved. Flagged read-only development may proceed only
+when requested; notification/write/production deployment approvals remain separate.
+
+
+Prompt 10: local opt-in monitoring gate passes; see prompt10/REPORT.md and failure
+matrix. Durable dedupe/checkpoint, capability-aware rules, actual health samples,
+local fake notifications, rate/incident/evidence budgets and guarded lifecycle are
+verified. Native LIVE semantic ingestion and automatic paid investigation are not
+enabled; operator budget and verified native topology remain prerequisites. Remote
+email/webhook, production identity, retention/load/DR and independent quality gates
+remain deployment gaps. Python/default routing and patched Next.js stay intact.
+
+
+Prompt 11 simulation safety gate passes; see prompt11/REPORT.md. No production
+executor exists. Role capabilities, hashes, expiry/fencing, independent samples,
+manual uncertainty states and separately approved rollback are verified. This
+reduces simulation bypass risks, not enterprise deployment/identity risks.
+
+| ID | Severity / owner role | Evidence and risk | Required mitigation / gate |
+|---|---|---|---|
+| R21 | High / security + change owner | demo capability roles are not independent humans; no real identity/two-person production governance | enterprise writes stay hard-denied until reviewed identity/change control |
+| R22 | Medium / recovery + SRE | uncertain no-receipt executions intentionally stop; no automatic retry/abandon/reset workflow or external tamper-proof audit | retain evidence, manual escalation; reviewed native recovery/retention/DR before deployment |
+
+Human RCA review, live provider budget/credentials, native live monitoring and
+connector certification remain pending. No measured production quality, recovery
+success or business-value claim. No real actions, paid calls, main merge or publish.
+
+## Prompt 12 disposition
+
+R9 partially addressed: fixed typed routing, role/query allowlists, private capability
+binding, origin checking, signed cookie tamper/expiry and current citation access
+checks pass. Owner: UI/security lead. Demo sessions are not enterprise identity and
+remain loopback-only; OIDC/TLS/audit/DR are production gates. Browser outages are
+labeled MOCKED; actual provider availability and human quality remain unverified.
+Current Next 16.4.5 audit has zero findings; older critical-Next statements above are
+historical, not a current diagnosis. Doctor no longer repeats that stale advisory.
+
+## Prompt 13 checkpoint
+
+Prompt 13: known local pip installer advisories were remediated with 26.3; rerun has zero findings. Java advisory lookup for 233 resolved packages is BLOCKED by OSV egress; build/security maintainer must verify hosted scan. Host disk exhaustion is a lab capacity risk; reserve documented disk budget, retain volumes, fail readiness rather than infer health.
+
+Prompt 13 local final: fresh-checkout full acceptance and all eight owned outage/recovery cases PASS; additional actual bound-graph browser run PASS (14 checks). See prompt13/fresh-checkout.json and outages.json. Local Java OSV audit remains BLOCKED; hosted CI pending. No production readiness or live GPT claim.
+
+Prompt 13 hosted update: four functional jobs pass on 4597517; Java security scan finds seven advisories in three dependencies. Targeted Snappy 1.1.10.9, LZ4 1.11.4 and stable OTel BOM 1.67.0 fixes are under re-verification. Gate remains blocked until a clean hosted scan; no suppression/waiver. See prompt13/java-advisories.json.
+
+## Prompt 14 release decision — BLOCKED
+
+prompt14/RELEASE_RISKS.json is the current release register, with proposed owner roles,
+remediation, artifacts, target milestone and GO/CONDITIONAL/BLOCKED disposition.
+Corrected platform-health exception, proxy stream/cookie and host binding findings
+pass local negatives. Production identity, external connector certification, recovery,
+financial/data governance, optional/image audit and independent quality gaps remain.
+Passing local or hosted tests cannot confer deployment authorization.
+
+Prompt 14 final evidence: all five hosted jobs PASS on implementation 8e41c2c,
+run 44397526897, including full lab/restore/operational capture and fresh OSV
+233 packages / zero findings. Java spans verified in-memory without private text.
+Production remains BLOCKED per prompt14/RELEASE_RISKS.json; no subsequent stage.
+
+## Prompt 15 handover and release gate
+
+Documentation/inventory/presentation risk reduced with source-backed maps, guarded
+commands, actual rehearsal and clear As-Is/To-Be evidence. Production remains BLOCKED
+by prompt14/RELEASE_RISKS.json. Credential/model/budget/human quality and enterprise
+certification are not inferred from the demo. Network owner must resolve blocked
+Pages/PR API availability checks; no fake success or approval is supplied.
+
+Prompt 15 final: handover commit 5497fab is published; all five jobs PASS on
+44409852034, including inventory freshness and fresh-checkout lab. Current local
+14-check presentation and native read-only log retrieval pass. Pages availability
+is proxy-blocked, GPT unconfigured, production BLOCKED; no Prompt 16 or merge.

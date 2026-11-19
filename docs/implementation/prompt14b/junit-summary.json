@@ -1,0 +1,533 @@
+{
+  "source_sha": "cb8998a44e4e8c66aba257afab32b7e77e38cb76",
+  "source_note": "Full Maven final at exact SHA in VALIDATION.json; Java tree unchanged by subsequent main/public merges",
+  "suites": [
+    {
+      "suite": "com.investinator.ConnectorConfigurationTest",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.517,
+      "testcases": [
+        "disabledConnectorRequiresNoModelButEnabledConfigurationIsValidated"
+      ]
+    },
+    {
+      "suite": "com.investinator.DependencyCompatibilityTest",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 2.679,
+      "testcases": [
+        "standaloneWireMockIsCompatibleWithTheTestRuntime",
+        "vendorTypesLoadAndClientConstructionDoesNotRequirePaidNetworkCalls"
+      ]
+    },
+    {
+      "suite": "com.investinator.PersistenceWorkflowTest",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 7.176,
+      "testcases": [
+        "unknownProductionActionsAndMigrationOwnershipAreNotPermitted",
+        "pythonAndJavaContractsMatchForSeededReadsAndWorkflowTraces",
+        "negativeContractsCannotForgeTenantApprovalOrVerification",
+        "concurrentRetriesDoNotDuplicateReplayOrAlertWrites",
+        "conversationHistoryAndFailedCommandsRollback",
+        "allReplayScenariosAndRejectionPreserveExpectedState",
+        "replayApprovalVerificationAndAuditAreTransactionalAndTenantScoped"
+      ]
+    },
+    {
+      "suite": "com.investinator.ScaffoldTest",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 4.323,
+      "testcases": [
+        "livenessAndReadinessAreIndependentOfUnconfiguredConnectors",
+        "requestIdsAreBoundedAndCannotInjectLogFields",
+        "platformReportsScaffoldWithoutInventingMeasurements",
+        "metricsRequireExplicitSecretAndOtherManagementRoutesAreDenied"
+      ]
+    },
+    {
+      "suite": "com.investinator.api.ErrorMappingTest",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.002,
+      "testcases": [
+        "exceptionResponsesDoNotLeakProviderOrCredentialDetails"
+      ]
+    },
+    {
+      "suite": "com.investinator.api.OperatorUiContractTest",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 10.19,
+      "testcases": [
+        "historicalInspectorRechecksKnowledgeRevocationAndReadableChunk",
+        "detailHistoryAndEvidenceAreScopedWithoutExposingPrivateContinuation",
+        "boundedSettingsPauseRulesAndSuppressNotificationsWithoutErasingIncidents"
+      ]
+    },
+    {
+      "suite": "com.investinator.chat.ChatGatewayTest",
+      "tests": 14,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 10.627,
+      "testcases": [
+        "requestContextAndArgumentBudgetsAreEnforcedWithoutNetworkLoop",
+        "stateCipherBindsTenantAndConversationAndNeverStoresPlainReasoning",
+        "actualSdkLoopReturnsToolResultByCallIdAndCarriesAllReasoningItems",
+        "unknownToolIsDeniedAndFakeApprovalInFinalOutputIsRejected",
+        "structuredRedactionPreservesJsonAndStripsSensitiveKeysAndStringValues",
+        "exhaustedLedgerDeniesBeforeProviderRequest",
+        "nonexistentOrWrongTimestampCitationAndFakeLiveModeFail",
+        "providerCannotBeReachedWithoutDurableCostApproval",
+        "providerTimeoutIsBoundedHasNoRetryAndNeverReturnsFabricatedModelSuccess",
+        "providerFailuresHaveSafeDistinctStatus",
+        "modelTransferRequiresSeparateDeploymentPolicyBeforeAnyProviderCall",
+        "toolAndTenantRateBudgetsStopBeforeAdditionalToolsOrProviderSpend",
+        "generalQuestionUsesNoIncidentAndFollowUpIncludesPriorContext",
+        "multiCallBatchPreservesEveryCallIdAndReturnsBothReadResults"
+      ]
+    },
+    {
+      "suite": "com.investinator.chat.ChatPersistenceTest",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 15.21,
+      "testcases": [
+        "functionLoopExecutesActualReadOnlyKafkaAdminAgainstRealKraftBroker",
+        "officialSdkBeanPersistsRedactedHistoryEncryptedContinuationAndIdempotentFollowups",
+        "toolsRejectCrossTenantArgumentsNoIncidentAndUnsupportedApproval"
+      ]
+    },
+    {
+      "suite": "com.investinator.chat.MissingProviderConfigurationTest",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.284,
+      "testcases": [
+        "absentOptionalKeyNeverBlocksCoreStartupOrCreatesProviderClient"
+      ]
+    },
+    {
+      "suite": "com.investinator.config.EvidenceTransportConfigurationTest",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.026,
+      "testcases": [
+        "nonLocalPlaintextUserinfoAndEnterpriseModeAreRejected",
+        "officialTransportConstructsAndClosesWithoutNetworkCalls"
+      ]
+    },
+    {
+      "suite": "com.investinator.config.MigrationOwnershipTest",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 4.07,
+      "testcases": [
+        "publicAndSystemSchemasAreRefusedBeforeAnyMigration",
+        "existingAlembicSchemaIsNeverAdoptedOrModified"
+      ]
+    },
+    {
+      "suite": "com.investinator.connectors.ConnectorApiSecurityTest",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.688,
+      "testcases": [
+        "certificationInventoryIsAuthenticatedTenantBoundAndCannotEnableIngestion",
+        "scopeIsRequiredCallerCannotChooseUrlSqlTenantOrCommandAndWritesAreDenied"
+      ]
+    },
+    {
+      "suite": "com.investinator.connectors.ConnectorCertificationTest",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.04,
+      "testcases": [
+        "allNativeRestAndOptionalTargetsNeedIndependentCertification",
+        "mockedHealthyAndMissingCredentialsCannotBecomePrivateCertificate"
+      ]
+    },
+    {
+      "suite": "com.investinator.connectors.HiveMetastoreConnectorTest",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.232,
+      "testcases": [
+        "actualDigestSaslThriftFixtureAllowsOnlyVersionAndNamespaceReads"
+      ]
+    },
+    {
+      "suite": "com.investinator.connectors.KafkaModeTest",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 1.284,
+      "testcases": [
+        "brokerConfigReliablySeparatesKraftFromLegacyAndUnknown"
+      ]
+    },
+    {
+      "suite": "com.investinator.connectors.LegacyZooKeeperConnectorTest",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.65,
+      "testcases": [
+        "actualIsolatedServerRequiresDigestAclAndDiagnosisNeverChangesZnode",
+        "kraftNeverContactsZooKeeperEvenIfEndpointIsConfigured"
+      ]
+    },
+    {
+      "suite": "com.investinator.connectors.NativeConnectorTest",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.761,
+      "testcases": [
+        "hiveOnlyExecutesOneFixedBoundedReadAndClosesResources",
+        "hiveUnsafeTransportDuplicateTlsAndUninstalledDriverAreExplicit",
+        "nativePrivateServicesWithoutCredentialsAreNotConfigured",
+        "kuduUsesOnlyOfficialReadRpcsAndDoesNotInventQuorumOrServerVersion"
+      ]
+    },
+    {
+      "suite": "com.investinator.connectors.RestDiagnosticConnectorTest",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.378,
+      "testcases": [
+        "missingConfigurationUnsupportedRangerAndUnsafeEndpointDoNotMakeNetworkCalls",
+        "everySupportedRestAdapterUsesAuthenticatedGetOnlyAndBoundsReturnedFacts",
+        "authorizationVersionMalformedAndServerFailuresNeverLookHealthy",
+        "configuredSemanticFailuresAreDegraded"
+      ]
+    },
+    {
+      "suite": "com.investinator.correlation.CorrelationApiTest",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 7.349,
+      "testcases": [
+        "immutableRevisionsTenantEvidenceAndAuthenticatedJavaQueries"
+      ]
+    },
+    {
+      "suite": "com.investinator.correlation.CorrelationEngineTest",
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.28,
+      "testcases": [
+        "timeVersionedGraphDoesNotUseFutureOrExpiredEdges",
+        "modeSkewReverseTimeAndHealthyCounterevidenceAreRespected",
+        "independentKraftAndLegacyChainsRankUpstreamWithTraceableEvidence",
+        "unknownPlatformDoesNotInventKafkaContext",
+        "healthyZooKeeperAndExhaustedDiskPreferDiskNotCoordination",
+        "simulatedDataCannotCorroborateLiveHypothesis",
+        "crossTenantConflictingEvidenceAndInventedGraphEdgesFail",
+        "noEvidenceNormalDuplicatesAndInjectionNeverCreateConfirmedCause"
+      ]
+    },
+    {
+      "suite": "com.investinator.evidence.EvidenceApiSecurityTest",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 1.213,
+      "testcases": [
+        "callerCannotSupplyTenantIndexUrlOrDslEvenWithAValidCredential",
+        "credentialsAreRequiredAndAbsentBackendIsTruthfullyNotConfigured"
+      ]
+    },
+    {
+      "suite": "com.investinator.evidence.EvidenceEnabledContextTest",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 1.266,
+      "testcases": [
+        "enabledSdkBeanIsFullyIntrospectableWithoutRemoteCalls"
+      ]
+    },
+    {
+      "suite": "com.investinator.evidence.NormalizedEvidenceTest",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.048,
+      "testcases": [
+        "stableSourceTimeAndTenantDeduplicateWithoutConflatingTenants",
+        "redactsBeforeIndexingAndPreservesEventTimeWithLagAndClockSkewFlags",
+        "boundsPayloadsAndRejectsInvalidIdentity"
+      ]
+    },
+    {
+      "suite": "com.investinator.health.HealthAggregatorTest",
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.402,
+      "testcases": [
+        "concurrentRefreshesShareCompletedReportInsteadOfAnEmptyResult",
+        "cacheDoesNotIssueNewCallsAndOptionalNotConfiguredIsExplicit",
+        "retriesTransientFailuresButNeverEchoesExceptionSecrets",
+        "boundedParallelismAndQueueSaturationAreTruthful",
+        "settingsRejectUnboundedConcurrency",
+        "persistentFailureOpensCircuitAndRecoversAfterCooldown",
+        "timeoutReturnsPartialWithoutLosingSuccessfulChecks",
+        "mandatoryUnconfiguredCannotBeReady"
+      ]
+    },
+    {
+      "suite": "com.investinator.health.HealthApiSecurityTest",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.428,
+      "testcases": [
+        "privateReportRequiresScopedTokenAndReportsNoPaidCalls"
+      ]
+    },
+    {
+      "suite": "com.investinator.health.ProbeHttpTest",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.132,
+      "testcases": [
+        "responseSizeIsBounded",
+        "authenticatedGetPreservesStatusAndRefusesRedirects"
+      ]
+    },
+    {
+      "suite": "com.investinator.knowledge.KnowledgeDocumentTest",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.029,
+      "testcases": [
+        "configurationSourcesRedactQuotedCredentialsAndPrivateKeysWithoutLosingStructure",
+        "hashesChunksNormalizationAndDedupAreDeterministicAndTenantSpecific",
+        "injectionQuarantineAndSourceReferenceValidation"
+      ]
+    },
+    {
+      "suite": "com.investinator.knowledge.KnowledgeIntegrationTest",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 153.254,
+      "testcases": [
+        "reviewPackageCapturesNativeRetrievalRankingsAndAdversarialDiagnostics",
+        "reviewAndFeedbackAreIndependentNoAutomaticPromotionAndInjectionIsQuarantined",
+        "historicalCitationsAreRecheckedAfterAclOrReviewChangesAndCannotBecomeFreshObservations",
+        "emptyCorpusAndHighCardinalityStayBoundedAndTiesAreRepeatable",
+        "realBm25FiltersTenantAclVersionsModesAndRevalidatesRevocations",
+        "staleProjectionCannotCrowdOutCurrentRevisionAndAclReplacementDoesNotResurrectOldAdvice",
+        "provisionalFixtureEvaluationMeasuresBm25PrecisionAndDeterministicCausalRanking"
+      ]
+    },
+    {
+      "suite": "com.investinator.knowledge.KnowledgeReviewIdentityTest",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.003,
+      "testcases": [
+        "ingestionAndFeedbackCredentialsCannotDoubleAsIndependentReviewIdentity"
+      ]
+    },
+    {
+      "suite": "com.investinator.knowledge.KnowledgeUnavailableTest",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.291,
+      "testcases": [
+        "configuredButUnavailableIndexCannotClaimLiveRetrievalOrInventHits"
+      ]
+    },
+    {
+      "suite": "com.investinator.model.ProviderBudgetTest",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 6.167,
+      "testcases": [
+        "reportedOverrunChargesActualAndPreventsFurtherSpend",
+        "expiredApprovalUnknownModelAndTenantQuotaFailClosed",
+        "unknownTimeoutHoldSurvivesServiceRestartAndReconciliationIsImmutable",
+        "noPriceQuotaOrOptInDeniesWithoutProviderCalls",
+        "parallelReservationsCannotExceedGlobalOrTenantQuota"
+      ]
+    },
+    {
+      "suite": "com.investinator.monitoring.MonitoringIntegrationTest",
+      "tests": 11,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 14.37,
+      "testcases": [
+        "equalTimestampAndDelayedSamplesCannotSupplyIndependentHysteresisVotes",
+        "legacyAndNifiHdfsRulesAreExplicitlyVersionScoped",
+        "connector503SamplesAreUnknownNotSynthesizedAsHealthyOrPrompted",
+        "duplicateStormOutOfOrderUpstreamChangesAndMissingProviderStayBounded",
+        "dbFailureRollsBackIncidentOutboxAndCheckpointThenResumes",
+        "hdfsOriginPrecedesNifiBackpressureAndDatasetDelay",
+        "extendedDuplicateBurstWhilePausedPreservesBoundedQueueAndOneIncident",
+        "unknownStaleModeIsolationAndHysteresisDoNotInventHealth",
+        "longFlapCooldownAndNewCauseAreNotConfused",
+        "parallelWorkersRestartCheckpointAndLifecycleAreDurable",
+        "notificationOutageHasBoundedRetriesAndDoesNotCallGpt"
+      ]
+    },
+    {
+      "suite": "com.investinator.monitoring.NativeSignalContractTest",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.013,
+      "testcases": [
+        "onlyCompatibleLegacyModeAllowed",
+        "fixturePreservesEventTimeAndServerIngestionFreshness",
+        "anonymousForeignAndAssertedLiveDenied",
+        "disabledEvenWhenRequestedUntilIndependentCertification",
+        "versionCapabilityClockAndKraftZookeeperMismatchDenied"
+      ]
+    },
+    {
+      "suite": "com.investinator.observability.InvestigationMetricsTest",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.058,
+      "testcases": [
+        "actualSdkSpanEndsWithoutCapturingQuestionOrExceptionSecrets",
+        "missingUsageIsUnknownAndUnconfiguredTurnIsNotProviderTraffic"
+      ]
+    },
+    {
+      "suite": "com.investinator.remediation.RemediationIntegrationTest",
+      "tests": 15,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 12.039,
+      "testcases": [
+        "changedParametersDefinitionOrReviewHashAreRejected",
+        "databaseFailureBeforeReceiptRollsBackReplayMutation",
+        "tokensAndBodyRoleSpoofingCannotConferApproval",
+        "legacyAliasesCannotBypassGovernedPlanAndReadOnlyEnterpriseModesDenyWrites",
+        "approvalAndAckNeverResolveWithoutIndependentFreshPostState",
+        "expiredRevokedAndStaleResourcePreconditionsDenyExecution",
+        "monitoredDiskIncidentCanBindOnlyAnExplicitReplaySandboxAndFollowLifecycle",
+        "partialSuccessRetainsReceiptAndRequiresExplicitRecovery",
+        "repeatedParallelAndWrongTenantExecutionHaveOnlyOneEffect",
+        "auditExportIsTenantScopedRedactedBoundedAndCannotApprove",
+        "acknowledgementWithoutEffectIsNotSuccess",
+        "interruptedAfterEffectRecoversReceiptButStillRequiresIndependentSample",
+        "interruptedBeforeEffectIsManualAndNeverAutomaticallyRetried",
+        "namedRollbackRequiresOwnApprovalAndIndependentRestorationVerification",
+        "staleSamplesAndCallerClaimedChecksCannotVerify"
+      ]
+    },
+    {
+      "suite": "com.investinator.security.DataUsePolicyTest",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.005,
+      "testcases": [
+        "legalHoldAndUnapprovedRetentionNeverExecuteDeletion",
+        "absentApprovalUnknownProtectedAndLiveDataFailClosed",
+        "explicitlyConfiguredSyntheticTransferIsNotAnEnterpriseCertificate"
+      ]
+    },
+    {
+      "suite": "com.investinator.security.EnterpriseIngressTest",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.797,
+      "testcases": [
+        "probesAreMinimalAndMetricsNeverPublic",
+        "nonDemoBlocksPlatformAndBusinessDataEvenWithDemoCapabilities"
+      ]
+    },
+    {
+      "suite": "com.investinator.security.StagingJwtValidatorTest",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 1.592,
+      "testcases": [
+        "issuerAudienceTenantRoleScopeAndExpiryFailuresAreDenied",
+        "disabledAndWriteScopesFailClosed",
+        "validPinnedReadHasNoProductionAuthorityAndReplayIsDenied",
+        "forgedSignatureAlgorithmAndSamePersonAreDenied"
+      ]
+    }
+  ],
+  "totals": {
+    "tests": 141,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  }
+}

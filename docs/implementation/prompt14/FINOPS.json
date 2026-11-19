@@ -1,0 +1,21 @@
+{
+  "status": "MODEL_ONLY_NOT_A_FINANCIAL_BASELINE",
+  "paid_openai_calls_in_assessment": 0,
+  "actual_provider_key_model_and_approved_budget": "NOT_CONFIGURED",
+  "input_price_per_million_tokens": null,
+  "output_price_per_million_tokens": null,
+  "currency": null,
+  "measured_provider_cost": null,
+  "formula": "(measured_input_tokens * approved_input_price + measured_output_tokens * approved_output_price) / 1000000",
+  "unknown_usage_rule": "If tokens or approved rates are unknown, cost remains unknown; request failures are not assumed free.",
+  "existing_limits": {"default_requests_per_turn": 3, "max_output_tokens_per_request": 1024, "max_tools_per_turn": 6, "total_turn_seconds": 20, "concurrent_turns": 2, "default_turns_per_tenant_per_minute_per_process": 20},
+  "limits_not_implemented": ["durable distributed tenant/org monetary budget", "daily billing reconciliation", "automatic provider key rotation", "measured infrastructure unit cost"],
+  "business_case_formula": "verified_incidents_per_year * independently_verified_minutes_saved / 60 * approved_loaded_hourly_rate - measured_incremental_infrastructure_and_provider_and_operating_cost",
+  "verified_minutes_saved": null,
+  "verified_annual_incident_volume": null,
+  "loaded_hourly_rate": null,
+  "roi": null,
+  "interpretation": "SIMULATED deduplication/receipt correctness is engineering evidence, not production savings or causal accuracy.",
+  "owner": "AI platform and FinOps leads",
+  "production_disposition": "BLOCKED until approved rates, durable budgets and reconciliation are verified"
+}

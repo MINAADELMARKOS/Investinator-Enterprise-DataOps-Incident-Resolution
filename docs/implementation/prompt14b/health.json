@@ -1,0 +1,398 @@
+{
+  "report_id": "c2bded29-9855-4a08-b80f-109069cbc737",
+  "checked_at": "2026-11-18T23:49:31.809543350Z",
+  "delivery_mode": "LIVE",
+  "success": true,
+  "partial": false,
+  "checks": [
+    {
+      "check_id": "481fba1d-06e7-4a2e-9a1c-851c3fc26c47",
+      "service": "java",
+      "capability": "liveness-readiness-route",
+      "status": "HEALTHY",
+      "source_mode": "LIVE",
+      "evidence_source": "read-only service-specific diagnostic",
+      "checked_at": "2026-11-18T23:49:31.769578306Z",
+      "duration_ms": 36,
+      "diagnosis": "Local HTTP probes and critical API contract passed",
+      "next_safe_action": "No action required",
+      "error_type": "",
+      "required_for_readiness": true,
+      "details": {
+        "attempts": 1
+      }
+    },
+    {
+      "check_id": "4b584b2b-3f3c-4152-a82c-896c8271e5ba",
+      "service": "postgresql",
+      "capability": "authenticated-query-schema-pool",
+      "status": "HEALTHY",
+      "source_mode": "LIVE",
+      "evidence_source": "authenticated PostgreSQL SELECT 1 and Flyway history",
+      "checked_at": "2026-11-18T23:49:31.735584977Z",
+      "duration_ms": 2,
+      "diagnosis": "Required schema is present",
+      "next_safe_action": "Inspect migration history; never run competing migration owners",
+      "error_type": "",
+      "required_for_readiness": true,
+      "details": {
+        "schema_migrations": 9,
+        "pool_active": 1,
+        "pool_idle": 4,
+        "pool_max": 5,
+        "attempts": 1
+      }
+    },
+    {
+      "check_id": "4ed4b0c4-dd90-4064-8ae1-b390ab1aefe8",
+      "service": "nextjs",
+      "capability": "http-page-backend-proxy",
+      "status": "HEALTHY",
+      "source_mode": "LIVE",
+      "evidence_source": "read-only service-specific diagnostic",
+      "checked_at": "2026-11-18T23:49:31.786421929Z",
+      "duration_ms": 53,
+      "diagnosis": "Page and actual backend proxy contract passed",
+      "next_safe_action": "No action required",
+      "error_type": "",
+      "required_for_readiness": false,
+      "details": {
+        "attempts": 1
+      }
+    },
+    {
+      "check_id": "b866b66b-ab3e-4ab0-9694-9e3e2b93c33b",
+      "service": "search",
+      "capability": "cluster-mapping-search-freshness",
+      "status": "HEALTHY",
+      "source_mode": "LIVE",
+      "evidence_source": "authenticated cluster/mapping and tenant query",
+      "checked_at": "2026-11-18T23:49:31.773136091Z",
+      "duration_ms": 39,
+      "diagnosis": "Cluster, strict mapping and functional tenant search observed",
+      "next_safe_action": "Review stale/missing sources when applicable",
+      "error_type": "",
+      "required_for_readiness": false,
+      "details": {
+        "cluster_status": "yellow",
+        "last_observed_at": "2026-11-18T23:16:50.240018741Z",
+        "age_seconds": 1961,
+        "data_source_mode": "SIMULATED",
+        "attempts": 1
+      }
+    },
+    {
+      "check_id": "25656e3a-2f8a-470f-bd32-60a212554745",
+      "service": "kafka",
+      "capability": "broker-partitions-lag-metadata-mode",
+      "status": "HEALTHY",
+      "source_mode": "LIVE",
+      "evidence_source": "Kafka Admin cluster/config/topic/group/offset APIs",
+      "checked_at": "2026-11-18T23:49:31.807544565Z",
+      "duration_ms": 76,
+      "diagnosis": "Broker and configured metadata/partition/lag diagnostics passed",
+      "next_safe_action": "Inspect the observed metadata mode and affected partition/group; no automatic change",
+      "error_type": "",
+      "required_for_readiness": false,
+      "details": {
+        "cluster_id": "rI50oemwTFObB1rnYoc4QA",
+        "brokers": 1,
+        "metadata_mode": "KRAFT",
+        "mode_evidence": "broker process.roles",
+        "server_protocol_version": "UNKNOWN",
+        "quorum_leader": 1,
+        "quorum_voters": 1,
+        "quorum_high_watermark": 149048,
+        "topics": [
+          "orders.events"
+        ],
+        "partitions": 1,
+        "offline_partitions": 0,
+        "under_replicated_partitions": 0,
+        "consumer_groups": 1,
+        "lag_status": "OBSERVED",
+        "max_consumer_lag": 0,
+        "attempts": 1
+      }
+    },
+    {
+      "check_id": "d683ee7e-253a-424a-9b1e-281b83ecaf0c",
+      "service": "otel",
+      "capability": "collector-and-trace-arrival",
+      "status": "HEALTHY",
+      "source_mode": "LIVE",
+      "evidence_source": "read-only service-specific diagnostic",
+      "checked_at": "2026-11-18T23:49:31.789682957Z",
+      "duration_ms": 56,
+      "diagnosis": "Collector responds and actual exported trace batch is present",
+      "next_safe_action": "No action required",
+      "error_type": "",
+      "required_for_readiness": false,
+      "details": {
+        "data_source_mode": "SIMULATED_OR_EXTERNAL",
+        "trace_batch_observed": true,
+        "attempts": 1
+      }
+    },
+    {
+      "check_id": "428059d9-78ef-424d-b8e8-486f5d453d33",
+      "service": "prometheus",
+      "capability": "readiness-targets-promql",
+      "status": "HEALTHY",
+      "source_mode": "LIVE",
+      "evidence_source": "read-only service-specific diagnostic",
+      "checked_at": "2026-11-18T23:49:31.780792069Z",
+      "duration_ms": 47,
+      "diagnosis": "Readiness, active scrape targets and real PromQL samples passed",
+      "next_safe_action": "No action required",
+      "error_type": "",
+      "required_for_readiness": false,
+      "details": {
+        "targets": 1,
+        "attempts": 1
+      }
+    },
+    {
+      "check_id": "241f196c-7e99-4026-b698-1b5f31c64c4d",
+      "service": "gpt",
+      "capability": "configuration-only",
+      "status": "NOT_CONFIGURED",
+      "source_mode": "NOT_CONFIGURED",
+      "evidence_source": "backend configuration presence only",
+      "checked_at": "2026-11-18T23:49:31.780978755Z",
+      "duration_ms": 47,
+      "diagnosis": "Provider key/model is not configured",
+      "next_safe_action": "Only explicit ai-check --live may invoke a bounded paid probe",
+      "error_type": "",
+      "required_for_readiness": false,
+      "details": {
+        "key_present": false,
+        "model_present": false,
+        "configured": false,
+        "paid_call_made": false,
+        "attempts": 1
+      }
+    },
+    {
+      "check_id": "327fc377-f0bb-4467-b469-d2a5ed5e7b6a",
+      "service": "spark",
+      "capability": "configuration",
+      "status": "NOT_CONFIGURED",
+      "source_mode": "NOT_CONFIGURED",
+      "evidence_source": "backend configuration presence",
+      "checked_at": "2026-11-18T23:49:31.781026158Z",
+      "duration_ms": 47,
+      "diagnosis": "Integration is not configured",
+      "next_safe_action": "Set CONNECTOR_SPARK_URL and scoped authentication",
+      "error_type": "",
+      "required_for_readiness": false,
+      "details": {
+        "attempts": 1
+      }
+    },
+    {
+      "check_id": "386a9297-42ae-4ffc-bc33-a5913392b848",
+      "service": "yarn",
+      "capability": "configuration",
+      "status": "NOT_CONFIGURED",
+      "source_mode": "NOT_CONFIGURED",
+      "evidence_source": "backend configuration presence",
+      "checked_at": "2026-11-18T23:49:31.781044399Z",
+      "duration_ms": 47,
+      "diagnosis": "Integration is not configured",
+      "next_safe_action": "Set CONNECTOR_YARN_URL and scoped authentication",
+      "error_type": "",
+      "required_for_readiness": false,
+      "details": {
+        "attempts": 1
+      }
+    },
+    {
+      "check_id": "788ba485-ddcf-42af-8291-7df0efef3976",
+      "service": "hdfs",
+      "capability": "configuration",
+      "status": "NOT_CONFIGURED",
+      "source_mode": "NOT_CONFIGURED",
+      "evidence_source": "backend configuration presence",
+      "checked_at": "2026-11-18T23:49:31.781056804Z",
+      "duration_ms": 47,
+      "diagnosis": "Integration is not configured",
+      "next_safe_action": "Set CONNECTOR_HDFS_URL and scoped authentication",
+      "error_type": "",
+      "required_for_readiness": false,
+      "details": {
+        "attempts": 1
+      }
+    },
+    {
+      "check_id": "d0ae01aa-4f9d-479d-b2ca-229e8c1ab918",
+      "service": "hive",
+      "capability": "configuration",
+      "status": "NOT_CONFIGURED",
+      "source_mode": "NOT_CONFIGURED",
+      "evidence_source": "backend configuration presence",
+      "checked_at": "2026-11-18T23:49:31.781107899Z",
+      "duration_ms": 47,
+      "diagnosis": "Integration is not configured",
+      "next_safe_action": "Set CONNECTOR_HIVE_JDBC_URL and read-only authentication; HMS uses CONNECTOR_HIVE_METASTORE_*",
+      "error_type": "",
+      "required_for_readiness": false,
+      "details": {
+        "attempts": 1
+      }
+    },
+    {
+      "check_id": "f29ff53e-d7f1-49e0-a126-6fd3d86f7744",
+      "service": "kudu",
+      "capability": "configuration",
+      "status": "NOT_CONFIGURED",
+      "source_mode": "NOT_CONFIGURED",
+      "evidence_source": "backend configuration presence",
+      "checked_at": "2026-11-18T23:49:31.781125005Z",
+      "duration_ms": 47,
+      "diagnosis": "Integration is not configured",
+      "next_safe_action": "Set CONNECTOR_KUDU_MASTERS and scoped Kerberos/JWT credentials",
+      "error_type": "",
+      "required_for_readiness": false,
+      "details": {
+        "attempts": 1
+      }
+    },
+    {
+      "check_id": "4e227cfe-3760-491c-809a-f7dc8d9e1961",
+      "service": "nifi",
+      "capability": "configuration",
+      "status": "NOT_CONFIGURED",
+      "source_mode": "NOT_CONFIGURED",
+      "evidence_source": "backend configuration presence",
+      "checked_at": "2026-11-18T23:49:31.781136954Z",
+      "duration_ms": 47,
+      "diagnosis": "Integration is not configured",
+      "next_safe_action": "Set CONNECTOR_NIFI_URL and scoped authentication",
+      "error_type": "",
+      "required_for_readiness": false,
+      "details": {
+        "attempts": 1
+      }
+    },
+    {
+      "check_id": "1500348a-10ee-4d05-af34-20089fea0b5a",
+      "service": "airflow",
+      "capability": "configuration",
+      "status": "NOT_CONFIGURED",
+      "source_mode": "NOT_CONFIGURED",
+      "evidence_source": "backend configuration presence",
+      "checked_at": "2026-11-18T23:49:31.781155420Z",
+      "duration_ms": 47,
+      "diagnosis": "Integration is not configured",
+      "next_safe_action": "Set CONNECTOR_AIRFLOW_URL and scoped authentication",
+      "error_type": "",
+      "required_for_readiness": false,
+      "details": {
+        "attempts": 1
+      }
+    },
+    {
+      "check_id": "2f814e1e-f209-4422-99b4-5092e617bd4a",
+      "service": "impala",
+      "capability": "configuration",
+      "status": "NOT_CONFIGURED",
+      "source_mode": "NOT_CONFIGURED",
+      "evidence_source": "backend configuration presence",
+      "checked_at": "2026-11-18T23:49:31.781172497Z",
+      "duration_ms": 47,
+      "diagnosis": "Integration is not configured",
+      "next_safe_action": "Set CONNECTOR_IMPALA_URL and scoped authentication",
+      "error_type": "",
+      "required_for_readiness": false,
+      "details": {
+        "attempts": 1
+      }
+    },
+    {
+      "check_id": "253ff893-a7e8-44d3-a7b5-f81fdf30348d",
+      "service": "zookeeper",
+      "capability": "configuration",
+      "status": "NOT_CONFIGURED",
+      "source_mode": "NOT_CONFIGURED",
+      "evidence_source": "backend configuration presence",
+      "checked_at": "2026-11-18T23:49:31.781184849Z",
+      "duration_ms": 47,
+      "diagnosis": "Integration is not configured",
+      "next_safe_action": "Configure explicit isolated legacy ZooKeeper fixture; never required by KRaft",
+      "error_type": "",
+      "required_for_readiness": false,
+      "details": {
+        "attempts": 1
+      }
+    },
+    {
+      "check_id": "372ac47e-40de-4a77-9215-bd18f0134bd9",
+      "service": "cloudera-manager",
+      "capability": "configuration",
+      "status": "NOT_CONFIGURED",
+      "source_mode": "NOT_CONFIGURED",
+      "evidence_source": "backend configuration presence",
+      "checked_at": "2026-11-18T23:49:31.781194898Z",
+      "duration_ms": 47,
+      "diagnosis": "Integration is not configured",
+      "next_safe_action": "Set CONNECTOR_CLOUDERA_MANAGER_URL and scoped authentication",
+      "error_type": "",
+      "required_for_readiness": false,
+      "details": {
+        "attempts": 1
+      }
+    },
+    {
+      "check_id": "05c4dc01-93f2-4e8f-b6f5-aea270496d94",
+      "service": "atlas",
+      "capability": "configuration",
+      "status": "NOT_CONFIGURED",
+      "source_mode": "NOT_CONFIGURED",
+      "evidence_source": "backend configuration presence",
+      "checked_at": "2026-11-18T23:49:31.781210750Z",
+      "duration_ms": 47,
+      "diagnosis": "Integration is not configured",
+      "next_safe_action": "Set CONNECTOR_ATLAS_URL and scoped authentication",
+      "error_type": "",
+      "required_for_readiness": false,
+      "details": {
+        "attempts": 1
+      }
+    },
+    {
+      "check_id": "e44ae555-d55e-43ac-9c83-fa7f06aefc30",
+      "service": "ranger",
+      "capability": "configuration",
+      "status": "NOT_CONFIGURED",
+      "source_mode": "NOT_CONFIGURED",
+      "evidence_source": "backend configuration presence",
+      "checked_at": "2026-11-18T23:49:31.781220978Z",
+      "duration_ms": 47,
+      "diagnosis": "Integration is not configured",
+      "next_safe_action": "Set CONNECTOR_RANGER_URL and scoped authentication",
+      "error_type": "",
+      "required_for_readiness": false,
+      "details": {
+        "attempts": 1
+      }
+    },
+    {
+      "check_id": "2942e180-91aa-40fd-800c-3a7fc9f5684c",
+      "service": "hive-metastore",
+      "capability": "configuration",
+      "status": "NOT_CONFIGURED",
+      "source_mode": "NOT_CONFIGURED",
+      "evidence_source": "backend configuration presence",
+      "checked_at": "2026-11-18T23:49:31.781232851Z",
+      "duration_ms": 47,
+      "diagnosis": "Integration is not configured",
+      "next_safe_action": "Set CONNECTOR_HIVE_METASTORE_URL and backend SASL identity",
+      "error_type": "",
+      "required_for_readiness": false,
+      "details": {
+        "attempts": 1
+      }
+    }
+  ]
+}

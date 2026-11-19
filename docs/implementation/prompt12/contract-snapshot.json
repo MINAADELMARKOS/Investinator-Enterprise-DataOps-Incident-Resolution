@@ -1,0 +1,49 @@
+{
+  "provenance": "actual local Java HTTP; keys only; fixture content omitted",
+  "schema_migrations": 8,
+  "health_keys": [
+    "checked_at",
+    "checks",
+    "delivery_mode",
+    "partial",
+    "report_id",
+    "success"
+  ],
+  "check_keys": [
+    "capability",
+    "check_id",
+    "checked_at",
+    "details",
+    "diagnosis",
+    "duration_ms",
+    "error_type",
+    "evidence_source",
+    "next_safe_action",
+    "required_for_readiness",
+    "service",
+    "source_mode",
+    "status"
+  ],
+  "history_keys": [
+    "id",
+    "incident_id",
+    "messages"
+  ],
+  "assistant_detail_keys": [
+    "analysis",
+    "content",
+    "created_at",
+    "evidence_ids",
+    "mode",
+    "model",
+    "provider_status",
+    "response_mode",
+    "role",
+    "source_mode",
+    "tool_trace",
+    "usage"
+  ],
+  "default_python_contract": "../baseline/openapi-main.json",
+  "browser_python_compatibility": "PASS; results.json",
+  "knowledge_revocation": "OperatorUiContractTest: current ACL/revocation rechecked"
+}

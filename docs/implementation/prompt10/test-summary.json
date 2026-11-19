@@ -1,0 +1,39 @@
+{
+  "full_java": {
+    "tests": 89,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "final_monitoring_focused": {
+    "tests": 9,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "cli": {
+    "tests": 26,
+    "failures": 0
+  },
+  "python": 12,
+  "mypy": "PASS 17 files",
+  "ruff": "PASS",
+  "evaluation_replay": "PASS_FUNCTIONAL_ONLY",
+  "process_restart": {
+    "status": "PASS",
+    "actual_health_samples": 1,
+    "prometheus_gauges": "PASS",
+    "source_mode": "SIMULATED",
+    "actual_transport": "local PostgreSQL + restarted Java process",
+    "duplicate_deliveries": 100,
+    "unique_processed": 2,
+    "logical_incidents": 1,
+    "offset_survives_restart": true,
+    "duplicate_after_restart": true,
+    "external_action": false,
+    "paid_provider_calls": 0
+  },
+  "paid_calls": 0,
+  "production_actions": 0,
+  "hosted_ci": "NOT_RUN"
+}

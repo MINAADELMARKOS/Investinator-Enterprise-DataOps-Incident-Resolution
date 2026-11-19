@@ -1,0 +1,60 @@
+{
+  "date": "2026-11-19",
+  "local_links_checked": 101,
+  "missing_links": [],
+  "source_inventory": {
+    "routes": 86,
+    "module_groups": 21,
+    "declared_tables": 37,
+    "static_configuration_names": 90
+  },
+  "inventory_check": "PASS",
+  "utility_ruff": "PASS",
+  "baseline_contract_and_link_validator": "PASS",
+  "native_doctor": "PASS",
+  "native_health": "PASS",
+  "browser_rehearsal_checks": 14,
+  "provider_presence": "NOT_CONFIGURED",
+  "paid_provider_calls": 0,
+  "public_links": [
+    {
+      "url": "https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution",
+      "http_status": 200,
+      "resolved_url": "https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution",
+      "result": "PASS"
+    },
+    {
+      "url": "https://minaadelmarkos.github.io/Investinator-Enterprise-DataOps-Incident-Resolution/",
+      "result": "BLOCKED",
+      "error_type": "URLError"
+    },
+    {
+      "url": "https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/actions/runs/44397526897",
+      "http_status": 200,
+      "resolved_url": "https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/actions/runs/44397526897",
+      "result": "PASS"
+    }
+  ],
+  "private_value_scan": {
+    "public_paths": 539,
+    "matches": 0
+  },
+  "runtime_suites": "Reused actual P14 evidence; no runtime/lock/schema changes in P15",
+  "normal_cleanup": "No volume deletion; owned rehearsal disposable processes cleaned",
+  "production_release": "BLOCKED",
+  "destructive_commands": "Documented and source-reviewed only; reset not executed",
+  "source_pages": "Static source/base path inspected; availability proxy CONNECT403",
+  "hosted_ci": {
+    "run": "44409852034",
+    "commit": "5497fab542fb266aee1ad7cf4eab89f980044ba8",
+    "jobs": 5,
+    "status": "ALL_PASS"
+  },
+  "native_log_retrieval": {
+    "status": "PASS",
+    "records": 3,
+    "window_hours": 4,
+    "workload": "SIMULATED",
+    "timestamps_modified": false
+  }
+}

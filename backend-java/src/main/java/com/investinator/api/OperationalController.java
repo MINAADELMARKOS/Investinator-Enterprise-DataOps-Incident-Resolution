@@ -107,10 +107,10 @@ public class OperationalController {
             "root_causes",item.likely_root_causes.stream().filter(c->!c.equals("insufficient_evidence")).map(c->obj("title",c,"explanation","Deterministic runbook hypothesis","confidence",item.confidence,"evidence_ids",item.evidence.stream().limit(2).map(Evidence::id).toList())).toList(),"next_checks",item.recovery_actions.stream().filter(a->!a.dangerous).map(a->a.action).toList(),"uncertainty","No model call was made; inspect evidence before accepting the hypothesis."));
     }
     @PostMapping("/api/v1/investigator/messages") public Object chat(@Valid @RequestBody ChatMessage input,HttpServletRequest request){return chats.admit(()->command(request,input,()->chats.handle(tenant(),input)));}
-    @GetMapping("/api/v1/investigator/conversations/{id}") public Object conversation(@PathVariable String id){return read(()->{
+    @GetMapping("/api/v1/investigator/conversations/{id}") public Object conversation(@PathVariable String id,@RequestParam(defaultValue="false") boolean details){return read(()->{
         var row=db.select(Table.CONVERSATIONS,tenant(),"id=?",id);if(row.isEmpty())throw new ApiFailure(404,"Conversation not found");
         var messages=new ArrayList<>(db.select(Table.MESSAGES,tenant(),"conversation_id=?",id));Collections.reverse(messages);
-        return obj("id",id,"incident_id",row.getFirst().get("incident_id"),"messages",messages.stream().map(r->withPayload(r,"role","content","created_at")).toList());
+        return obj("id",id,"incident_id",row.getFirst().get("incident_id"),"messages",messages.stream().map(r->{var item=withPayload(r,"role","content","created_at");var metadata=item.remove("turn_metadata");if(details&&metadata instanceof Map<?,?>)item.putAll(map(metadata));return item;}).toList());
     });}
     @GetMapping("/api/v1/integrations/kafka/health") public Object kafkaHealth(){tenant();return com.investinator.connectors.KafkaConnectivity.health(env.getProperty("KAFKA_BOOTSTRAP_SERVERS"));}
     @GetMapping("/api/v1/integrations") public Object integrations() {

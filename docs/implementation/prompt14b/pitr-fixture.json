@@ -1,0 +1,19 @@
+{
+  "status": "PASS_FUNCTIONAL_FIXTURE_ONLY",
+  "source_mode": "SIMULATED_DISPOSABLE_DATABASE",
+  "production_source_writes": 0,
+  "retained_lab_touched": false,
+  "offsite_encryption_ha_certificate": "NOT_TESTED",
+  "rpo_rto_certificate": "NOT_APPROVED",
+  "restored_event_ids": [
+    1,
+    2
+  ],
+  "excluded_later_event": 3,
+  "separate_owner_sentinel": 7,
+  "archived_segments": 5,
+  "recovery_in_progress": false,
+  "elapsed_seconds": 13.34,
+  "cleanup_test_owned_only": true,
+  "backups_or_credentials_exported": false
+}

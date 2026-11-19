@@ -1,0 +1,18 @@
+{
+  "status": "PASS_LOCAL_BROWSER",
+  "checks": 4,
+  "checks_executed": [
+    "simulated operational view",
+    "native browser offline answer explicitly not GPT",
+    "keyboard focus",
+    "promise-return scroll protocol fixture does not become effect cleanup"
+  ],
+  "source_mode": "SIMULATED_PUBLIC_UI_ON_ACTUAL_LOCAL_BROWSER",
+  "browser_version": "156.0.8078.79",
+  "outside_requests_blocked": 0,
+  "model_calls": 0,
+  "deployment_tested": false,
+  "formal_accessibility_certificate": "NOT_TESTED",
+  "promise_return_case": "EXPLICIT_PROTOCOL_FIXTURE",
+  "elapsed_seconds": 5.979
+}

@@ -1,0 +1,1415 @@
+{
+  "method": "source inventory, not runtime OpenAPI or endpoint authorization proof",
+  "module_files": {
+    "bootstrap": [
+      "backend-java/src/main/java/com/investinator/InvestinatorApplication.java"
+    ],
+    "agent": [
+      "backend-java/src/main/java/com/investinator/agent/DeterministicInvestigator.java",
+      "backend-java/src/main/java/com/investinator/agent/package-info.java"
+    ],
+    "ai": [
+      "backend-java/src/main/java/com/investinator/ai/package-info.java"
+    ],
+    "api": [
+      "backend-java/src/main/java/com/investinator/api/ApiExceptionHandler.java",
+      "backend-java/src/main/java/com/investinator/api/ApiFailure.java",
+      "backend-java/src/main/java/com/investinator/api/ConnectorController.java",
+      "backend-java/src/main/java/com/investinator/api/ConversationController.java",
+      "backend-java/src/main/java/com/investinator/api/CorrelationController.java",
+      "backend-java/src/main/java/com/investinator/api/EvidenceController.java",
+      "backend-java/src/main/java/com/investinator/api/IntegrationHealthController.java",
+      "backend-java/src/main/java/com/investinator/api/KnowledgeController.java",
+      "backend-java/src/main/java/com/investinator/api/MonitoringController.java",
+      "backend-java/src/main/java/com/investinator/api/OperationalController.java",
+      "backend-java/src/main/java/com/investinator/api/PlatformHealthController.java",
+      "backend-java/src/main/java/com/investinator/api/RemediationController.java"
+    ],
+    "chat": [
+      "backend-java/src/main/java/com/investinator/chat/ChatGateway.java",
+      "backend-java/src/main/java/com/investinator/chat/ChatService.java",
+      "backend-java/src/main/java/com/investinator/chat/ConversationReadService.java",
+      "backend-java/src/main/java/com/investinator/chat/InvestigationAnswer.java",
+      "backend-java/src/main/java/com/investinator/chat/ReadToolExtension.java",
+      "backend-java/src/main/java/com/investinator/chat/ReadTools.java",
+      "backend-java/src/main/java/com/investinator/chat/StateCipher.java"
+    ],
+    "config": [
+      "backend-java/src/main/java/com/investinator/config/ConnectorConfiguration.java",
+      "backend-java/src/main/java/com/investinator/config/EvidenceConfiguration.java",
+      "backend-java/src/main/java/com/investinator/config/OpenAiProperties.java",
+      "backend-java/src/main/java/com/investinator/config/PersistenceConfiguration.java"
+    ],
+    "connectors": [
+      "backend-java/src/main/java/com/investinator/connectors/ConnectorCertification.java",
+      "backend-java/src/main/java/com/investinator/connectors/ConnectorConfig.java",
+      "backend-java/src/main/java/com/investinator/connectors/ConnectorHttp.java",
+      "backend-java/src/main/java/com/investinator/connectors/ConnectorRegistry.java",
+      "backend-java/src/main/java/com/investinator/connectors/DiagnosticConnector.java",
+      "backend-java/src/main/java/com/investinator/connectors/HiveMetastoreConnector.java",
+      "backend-java/src/main/java/com/investinator/connectors/HiveServer2Connector.java",
+      "backend-java/src/main/java/com/investinator/connectors/KafkaConnectivity.java",
+      "backend-java/src/main/java/com/investinator/connectors/KuduDiagnosticConnector.java",
+      "backend-java/src/main/java/com/investinator/connectors/LegacyZooKeeperConnector.java",
+      "backend-java/src/main/java/com/investinator/connectors/RestDiagnosticConnector.java",
+      "backend-java/src/main/java/com/investinator/connectors/package-info.java"
+    ],
+    "correlation": [
+      "backend-java/src/main/java/com/investinator/correlation/CorrelationEngine.java",
+      "backend-java/src/main/java/com/investinator/correlation/CorrelationService.java",
+      "backend-java/src/main/java/com/investinator/correlation/DependencyGraph.java"
+    ],
+    "domain": [
+      "backend-java/src/main/java/com/investinator/domain/Contracts.java",
+      "backend-java/src/main/java/com/investinator/domain/Json.java",
+      "backend-java/src/main/java/com/investinator/domain/package-info.java"
+    ],
+    "evidence": [
+      "backend-java/src/main/java/com/investinator/evidence/EvidenceFixtureGenerator.java",
+      "backend-java/src/main/java/com/investinator/evidence/EvidenceSearch.java",
+      "backend-java/src/main/java/com/investinator/evidence/NormalizedEvidence.java",
+      "backend-java/src/main/java/com/investinator/evidence/package-info.java"
+    ],
+    "health": [
+      "backend-java/src/main/java/com/investinator/health/CorePersistenceHealth.java",
+      "backend-java/src/main/java/com/investinator/health/DiagnosticProviders.java",
+      "backend-java/src/main/java/com/investinator/health/HealthAggregator.java",
+      "backend-java/src/main/java/com/investinator/health/HealthCheckResult.java",
+      "backend-java/src/main/java/com/investinator/health/HealthProbe.java",
+      "backend-java/src/main/java/com/investinator/health/HealthSettings.java",
+      "backend-java/src/main/java/com/investinator/health/KafkaFixtureSeeder.java",
+      "backend-java/src/main/java/com/investinator/health/KafkaHealthProbe.java",
+      "backend-java/src/main/java/com/investinator/health/KafkaReadOnlyVerifier.java",
+      "backend-java/src/main/java/com/investinator/health/ProbeCatalog.java",
+      "backend-java/src/main/java/com/investinator/health/ProbeHttp.java",
+      "backend-java/src/main/java/com/investinator/health/package-info.java"
+    ],
+    "incidents": [
+      "backend-java/src/main/java/com/investinator/incidents/package-info.java"
+    ],
+    "knowledge": [
+      "backend-java/src/main/java/com/investinator/knowledge/KnowledgeDocument.java",
+      "backend-java/src/main/java/com/investinator/knowledge/KnowledgeIndex.java",
+      "backend-java/src/main/java/com/investinator/knowledge/KnowledgeService.java",
+      "backend-java/src/main/java/com/investinator/knowledge/KnowledgeTools.java",
+      "backend-java/src/main/java/com/investinator/knowledge/package-info.java"
+    ],
+    "model": [
+      "backend-java/src/main/java/com/investinator/model/OpenAiLiveProbe.java",
+      "backend-java/src/main/java/com/investinator/model/ProviderBudget.java",
+      "backend-java/src/main/java/com/investinator/model/ProviderClients.java",
+      "backend-java/src/main/java/com/investinator/model/ProviderConfigured.java"
+    ],
+    "monitoring": [
+      "backend-java/src/main/java/com/investinator/monitoring/DetectionRules.java",
+      "backend-java/src/main/java/com/investinator/monitoring/MonitoringContracts.java",
+      "backend-java/src/main/java/com/investinator/monitoring/MonitoringMetrics.java",
+      "backend-java/src/main/java/com/investinator/monitoring/MonitoringScheduler.java",
+      "backend-java/src/main/java/com/investinator/monitoring/MonitoringService.java",
+      "backend-java/src/main/java/com/investinator/monitoring/NativeSignalContract.java"
+    ],
+    "observability": [
+      "backend-java/src/main/java/com/investinator/observability/CorrelationFilter.java",
+      "backend-java/src/main/java/com/investinator/observability/InvestigationMetrics.java"
+    ],
+    "persistence": [
+      "backend-java/src/main/java/com/investinator/persistence/Store.java",
+      "backend-java/src/main/java/com/investinator/persistence/Table.java",
+      "backend-java/src/main/java/com/investinator/persistence/package-info.java"
+    ],
+    "policy": [
+      "backend-java/src/main/java/com/investinator/policy/package-info.java"
+    ],
+    "remediation": [
+      "backend-java/src/main/java/com/investinator/remediation/ActionRegistry.java",
+      "backend-java/src/main/java/com/investinator/remediation/RemediationPolicy.java",
+      "backend-java/src/main/java/com/investinator/remediation/ReplayExecutor.java"
+    ],
+    "security": [
+      "backend-java/src/main/java/com/investinator/security/DataUsePolicy.java",
+      "backend-java/src/main/java/com/investinator/security/Redaction.java",
+      "backend-java/src/main/java/com/investinator/security/SecurityConfiguration.java",
+      "backend-java/src/main/java/com/investinator/security/StagingJwtValidator.java"
+    ],
+    "workflows": [
+      "backend-java/src/main/java/com/investinator/workflows/DemoSeed.java",
+      "backend-java/src/main/java/com/investinator/workflows/WorkflowService.java",
+      "backend-java/src/main/java/com/investinator/workflows/package-info.java"
+    ]
+  },
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/api/v1/connectors",
+      "source": "backend-java/src/main/java/com/investinator/api/ConnectorController.java",
+      "line": 14,
+      "bean_condition": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/connectors/certification",
+      "source": "backend-java/src/main/java/com/investinator/api/ConnectorController.java",
+      "line": 15,
+      "bean_condition": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/connectors/{service}/{capability}",
+      "source": "backend-java/src/main/java/com/investinator/api/ConnectorController.java",
+      "line": 16,
+      "bean_condition": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/investigator/conversations",
+      "source": "backend-java/src/main/java/com/investinator/api/ConversationController.java",
+      "line": 10,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/investigator/conversations/{id}/evidence/{evidence}",
+      "source": "backend-java/src/main/java/com/investinator/api/ConversationController.java",
+      "line": 11,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/dependencies/fixtures",
+      "source": "backend-java/src/main/java/com/investinator/api/CorrelationController.java",
+      "line": 16,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/dependencies/graphs/{id}",
+      "source": "backend-java/src/main/java/com/investinator/api/CorrelationController.java",
+      "line": 17,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/dependencies/incidents/{id}/graph",
+      "source": "backend-java/src/main/java/com/investinator/api/CorrelationController.java",
+      "line": 18,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/dependencies/incidents/{id}/investigation",
+      "source": "backend-java/src/main/java/com/investinator/api/CorrelationController.java",
+      "line": 19,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/evidence/search",
+      "source": "backend-java/src/main/java/com/investinator/api/EvidenceController.java",
+      "line": 16,
+      "bean_condition": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/evidence/health",
+      "source": "backend-java/src/main/java/com/investinator/api/EvidenceController.java",
+      "line": 23,
+      "bean_condition": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/health/integrations",
+      "source": "backend-java/src/main/java/com/investinator/api/IntegrationHealthController.java",
+      "line": 9,
+      "bean_condition": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/knowledge/revisions",
+      "source": "backend-java/src/main/java/com/investinator/api/KnowledgeController.java",
+      "line": 15,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/knowledge/revisions/{id}/{revision}",
+      "source": "backend-java/src/main/java/com/investinator/api/KnowledgeController.java",
+      "line": 16,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/knowledge/revisions/{id}/{revision}/review",
+      "source": "backend-java/src/main/java/com/investinator/api/KnowledgeController.java",
+      "line": 17,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/knowledge/revisions/{id}/{revision}/publish",
+      "source": "backend-java/src/main/java/com/investinator/api/KnowledgeController.java",
+      "line": 18,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/knowledge/search",
+      "source": "backend-java/src/main/java/com/investinator/api/KnowledgeController.java",
+      "line": 19,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/knowledge/documents/{id}/{revision}",
+      "source": "backend-java/src/main/java/com/investinator/api/KnowledgeController.java",
+      "line": 20,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/knowledge/feedback",
+      "source": "backend-java/src/main/java/com/investinator/api/KnowledgeController.java",
+      "line": 21,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/knowledge/feedback/{incident}",
+      "source": "backend-java/src/main/java/com/investinator/api/KnowledgeController.java",
+      "line": 22,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/knowledge/feedback/{id}/review",
+      "source": "backend-java/src/main/java/com/investinator/api/KnowledgeController.java",
+      "line": 23,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/monitor/status",
+      "source": "backend-java/src/main/java/com/investinator/api/MonitoringController.java",
+      "line": 11,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/monitor/rules",
+      "source": "backend-java/src/main/java/com/investinator/api/MonitoringController.java",
+      "line": 12,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/monitor/settings",
+      "source": "backend-java/src/main/java/com/investinator/api/MonitoringController.java",
+      "line": 13,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/monitor/pause",
+      "source": "backend-java/src/main/java/com/investinator/api/MonitoringController.java",
+      "line": 14,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/monitor/resume",
+      "source": "backend-java/src/main/java/com/investinator/api/MonitoringController.java",
+      "line": 15,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/monitor/events",
+      "source": "backend-java/src/main/java/com/investinator/api/MonitoringController.java",
+      "line": 16,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/monitor/dry-run",
+      "source": "backend-java/src/main/java/com/investinator/api/MonitoringController.java",
+      "line": 17,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/monitor/tick",
+      "source": "backend-java/src/main/java/com/investinator/api/MonitoringController.java",
+      "line": 18,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/monitor/incidents/{id}",
+      "source": "backend-java/src/main/java/com/investinator/api/MonitoringController.java",
+      "line": 19,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/monitor/incidents/{id}/transition",
+      "source": "backend-java/src/main/java/com/investinator/api/MonitoringController.java",
+      "line": 21,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/health",
+      "source": "backend-java/src/main/java/com/investinator/api/OperationalController.java",
+      "line": 44,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/health",
+      "source": "backend-java/src/main/java/com/investinator/api/OperationalController.java",
+      "line": 44,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/about",
+      "source": "backend-java/src/main/java/com/investinator/api/OperationalController.java",
+      "line": 45,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/platform/health",
+      "source": "backend-java/src/main/java/com/investinator/api/OperationalController.java",
+      "line": 50,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/command-center",
+      "source": "backend-java/src/main/java/com/investinator/api/OperationalController.java",
+      "line": 50,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/telemetry/metrics",
+      "source": "backend-java/src/main/java/com/investinator/api/OperationalController.java",
+      "line": 62,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/pulse",
+      "source": "backend-java/src/main/java/com/investinator/api/OperationalController.java",
+      "line": 62,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/telemetry/metrics",
+      "source": "backend-java/src/main/java/com/investinator/api/OperationalController.java",
+      "line": 63,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/telemetry/{kind}",
+      "source": "backend-java/src/main/java/com/investinator/api/OperationalController.java",
+      "line": 64,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/topology",
+      "source": "backend-java/src/main/java/com/investinator/api/OperationalController.java",
+      "line": 69,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/nerve-map",
+      "source": "backend-java/src/main/java/com/investinator/api/OperationalController.java",
+      "line": 69,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/topology/{entity}/blast-radius",
+      "source": "backend-java/src/main/java/com/investinator/api/OperationalController.java",
+      "line": 74,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/alerts",
+      "source": "backend-java/src/main/java/com/investinator/api/OperationalController.java",
+      "line": 75,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/incidents",
+      "source": "backend-java/src/main/java/com/investinator/api/OperationalController.java",
+      "line": 76,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/incidents",
+      "source": "backend-java/src/main/java/com/investinator/api/OperationalController.java",
+      "line": 76,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/incidents/{id}",
+      "source": "backend-java/src/main/java/com/investinator/api/OperationalController.java",
+      "line": 77,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/incidents/{id}",
+      "source": "backend-java/src/main/java/com/investinator/api/OperationalController.java",
+      "line": 77,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/incidents/analyze",
+      "source": "backend-java/src/main/java/com/investinator/api/OperationalController.java",
+      "line": 78,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/incidents/analyze",
+      "source": "backend-java/src/main/java/com/investinator/api/OperationalController.java",
+      "line": 78,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/incidents/{id}/timeline",
+      "source": "backend-java/src/main/java/com/investinator/api/OperationalController.java",
+      "line": 82,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/incidents/{id}/evidence",
+      "source": "backend-java/src/main/java/com/investinator/api/OperationalController.java",
+      "line": 83,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/replay/runs",
+      "source": "backend-java/src/main/java/com/investinator/api/OperationalController.java",
+      "line": 84,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/replay/runs",
+      "source": "backend-java/src/main/java/com/investinator/api/OperationalController.java",
+      "line": 85,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/replay/scenarios",
+      "source": "backend-java/src/main/java/com/investinator/api/OperationalController.java",
+      "line": 86,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/incidents/{id}/actions/{action}/approval",
+      "source": "backend-java/src/main/java/com/investinator/api/OperationalController.java",
+      "line": 87,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/incidents/{id}/actions/{action}/approval",
+      "source": "backend-java/src/main/java/com/investinator/api/OperationalController.java",
+      "line": 87,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/incidents/{id}/actions/{action}/execute",
+      "source": "backend-java/src/main/java/com/investinator/api/OperationalController.java",
+      "line": 89,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/incidents/{id}/verify",
+      "source": "backend-java/src/main/java/com/investinator/api/OperationalController.java",
+      "line": 90,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/incidents/{id}/verify",
+      "source": "backend-java/src/main/java/com/investinator/api/OperationalController.java",
+      "line": 90,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/incidents/{id}/postmortem",
+      "source": "backend-java/src/main/java/com/investinator/api/OperationalController.java",
+      "line": 91,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/knowledge",
+      "source": "backend-java/src/main/java/com/investinator/api/OperationalController.java",
+      "line": 96,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/runbooks",
+      "source": "backend-java/src/main/java/com/investinator/api/OperationalController.java",
+      "line": 96,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/approvals",
+      "source": "backend-java/src/main/java/com/investinator/api/OperationalController.java",
+      "line": 97,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/audit",
+      "source": "backend-java/src/main/java/com/investinator/api/OperationalController.java",
+      "line": 98,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/audit",
+      "source": "backend-java/src/main/java/com/investinator/api/OperationalController.java",
+      "line": 98,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/evaluations",
+      "source": "backend-java/src/main/java/com/investinator/api/OperationalController.java",
+      "line": 99,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/ai/usage",
+      "source": "backend-java/src/main/java/com/investinator/api/OperationalController.java",
+      "line": 100,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/ai/health",
+      "source": "backend-java/src/main/java/com/investinator/api/OperationalController.java",
+      "line": 100,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/incidents/{id}/investigate",
+      "source": "backend-java/src/main/java/com/investinator/api/OperationalController.java",
+      "line": 104,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/investigator/messages",
+      "source": "backend-java/src/main/java/com/investinator/api/OperationalController.java",
+      "line": 109,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/investigator/conversations/{id}",
+      "source": "backend-java/src/main/java/com/investinator/api/OperationalController.java",
+      "line": 110,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/integrations/kafka/health",
+      "source": "backend-java/src/main/java/com/investinator/api/OperationalController.java",
+      "line": 115,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/integrations",
+      "source": "backend-java/src/main/java/com/investinator/api/OperationalController.java",
+      "line": 116,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/metrics",
+      "source": "backend-java/src/main/java/com/investinator/api/OperationalController.java",
+      "line": 125,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/platform/health",
+      "source": "backend-java/src/main/java/com/investinator/api/PlatformHealthController.java",
+      "line": 14,
+      "bean_condition": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/remediation/registry",
+      "source": "backend-java/src/main/java/com/investinator/api/RemediationController.java",
+      "line": 13,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/remediation/plans",
+      "source": "backend-java/src/main/java/com/investinator/api/RemediationController.java",
+      "line": 14,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/remediation/plans",
+      "source": "backend-java/src/main/java/com/investinator/api/RemediationController.java",
+      "line": 15,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/remediation/dry-run",
+      "source": "backend-java/src/main/java/com/investinator/api/RemediationController.java",
+      "line": 16,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/remediation/plans/{id}",
+      "source": "backend-java/src/main/java/com/investinator/api/RemediationController.java",
+      "line": 17,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/remediation/plans/{id}/audit",
+      "source": "backend-java/src/main/java/com/investinator/api/RemediationController.java",
+      "line": 18,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/remediation/plans/{id}/postmortem",
+      "source": "backend-java/src/main/java/com/investinator/api/RemediationController.java",
+      "line": 19,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/remediation/plans/{id}/approval",
+      "source": "backend-java/src/main/java/com/investinator/api/RemediationController.java",
+      "line": 20,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/remediation/plans/{id}/execute",
+      "source": "backend-java/src/main/java/com/investinator/api/RemediationController.java",
+      "line": 21,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/remediation/plans/{id}/sample",
+      "source": "backend-java/src/main/java/com/investinator/api/RemediationController.java",
+      "line": 22,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/remediation/plans/{id}/verify",
+      "source": "backend-java/src/main/java/com/investinator/api/RemediationController.java",
+      "line": 23,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/remediation/plans/{id}/recover",
+      "source": "backend-java/src/main/java/com/investinator/api/RemediationController.java",
+      "line": 24,
+      "bean_condition": [
+        "name=\"investinator.persistence.enabled\",havingValue=\"true\""
+      ]
+    }
+  ],
+  "framework_routes": [
+    "GET /actuator/health/liveness",
+    "GET /actuator/health/readiness",
+    "GET /actuator/prometheus (scoped token)"
+  ],
+  "configuration_variable_sources": {
+    "CONNECTOR_ALLOWED_SERVICES": [
+      "backend-java/src/main/java/com/investinator/connectors/ConnectorRegistry.java"
+    ],
+    "CONNECTOR_API_TOKEN": [
+      "infra/lab/compose.yaml"
+    ],
+    "EVIDENCE_ADMIN_PASSWORD": [
+      "infra/lab/compose.yaml"
+    ],
+    "EVIDENCE_API_TOKEN": [
+      "backend-java/src/main/resources/application.yaml",
+      "infra/lab/compose.yaml"
+    ],
+    "EVIDENCE_INDEX": [
+      "backend-java/src/main/resources/application.yaml"
+    ],
+    "EVIDENCE_READER_PASSWORD": [
+      "infra/lab/compose.yaml"
+    ],
+    "EVIDENCE_SEARCH_ENABLED": [
+      "backend-java/src/main/resources/application.yaml"
+    ],
+    "EVIDENCE_SEARCH_PASSWORD": [
+      "backend-java/src/main/resources/application.yaml"
+    ],
+    "EVIDENCE_SEARCH_URL": [
+      "backend-java/src/main/resources/application.yaml"
+    ],
+    "EVIDENCE_SEARCH_USER": [
+      "backend-java/src/main/resources/application.yaml"
+    ],
+    "EVIDENCE_WRITER_PASSWORD": [
+      "infra/lab/compose.yaml"
+    ],
+    "GRAPH_ADMIN_TOKEN": [
+      "infra/lab/compose.yaml"
+    ],
+    "HEALTH_API_TOKEN": [
+      "backend-java/src/main/resources/application.yaml",
+      "infra/lab/compose.yaml"
+    ],
+    "HEALTH_DEADLINE_MS": [
+      "backend-java/src/main/resources/application.yaml"
+    ],
+    "HEALTH_FRESHNESS_SECONDS": [
+      "backend-java/src/main/resources/application.yaml"
+    ],
+    "HEALTH_INTERVAL_MS": [
+      "backend-java/src/main/resources/application.yaml"
+    ],
+    "HEALTH_OTEL_URL": [
+      "backend-java/src/main/java/com/investinator/health/ProbeCatalog.java"
+    ],
+    "HEALTH_PROMETHEUS_URL": [
+      "backend-java/src/main/java/com/investinator/health/ProbeCatalog.java"
+    ],
+    "HEALTH_SCHEDULED": [
+      "backend-java/src/main/resources/application.yaml"
+    ],
+    "HEALTH_SELF_URL": [
+      "backend-java/src/main/java/com/investinator/health/ProbeCatalog.java"
+    ],
+    "HEALTH_TIMEOUT_MS": [
+      "backend-java/src/main/resources/application.yaml"
+    ],
+    "HEALTH_WEB_URL": [
+      "backend-java/src/main/java/com/investinator/health/ProbeCatalog.java"
+    ],
+    "HTTPS_PROXY": [
+      "backend-java/src/main/java/com/investinator/model/ProviderClients.java"
+    ],
+    "INVESTIGATION_API_TOKEN": [
+      "infra/lab/compose.yaml"
+    ],
+    "INVESTINATOR_AI_ALLOWED_SERVICES": [
+      "backend-java/src/main/java/com/investinator/chat/ReadTools.java"
+    ],
+    "INVESTINATOR_CHAT_STATE_KEY": [
+      "backend-java/src/main/java/com/investinator/chat/StateCipher.java",
+      "infra/lab/compose.yaml"
+    ],
+    "INVESTINATOR_CREATOR_NAME": [
+      "backend-java/src/main/java/com/investinator/api/OperationalController.java"
+    ],
+    "INVESTINATOR_CREATOR_TITLE": [
+      "backend-java/src/main/java/com/investinator/api/OperationalController.java"
+    ],
+    "INVESTINATOR_DEMO_MODE": [
+      "backend-java/src/main/resources/application.yaml"
+    ],
+    "INVESTINATOR_DEMO_TENANT": [
+      "backend-java/src/main/resources/application.yaml"
+    ],
+    "INVESTINATOR_ELASTICSEARCH_API_KEY": [
+      "docker-compose.yml"
+    ],
+    "INVESTINATOR_ELASTICSEARCH_INDEX": [
+      "docker-compose.yml"
+    ],
+    "INVESTINATOR_ELASTICSEARCH_TENANT_FIELD": [
+      "docker-compose.yml"
+    ],
+    "INVESTINATOR_ELASTICSEARCH_URL": [
+      "docker-compose.yml"
+    ],
+    "INVESTINATOR_GITHUB_URL": [
+      "backend-java/src/main/java/com/investinator/api/OperationalController.java"
+    ],
+    "INVESTINATOR_LINKEDIN_URL": [
+      "backend-java/src/main/java/com/investinator/api/OperationalController.java"
+    ],
+    "INVESTINATOR_MAX_AI_CALLS": [
+      "backend-java/src/main/resources/application.yaml"
+    ],
+    "INVESTINATOR_MODEL_DATA_CLASS": [
+      "backend-java/src/main/java/com/investinator/chat/ChatGateway.java"
+    ],
+    "INVESTINATOR_MODEL_TRANSFER_APPROVED": [
+      "backend-java/src/main/java/com/investinator/chat/ChatGateway.java"
+    ],
+    "INVESTINATOR_MONITOR_ENABLED": [
+      "infra/lab/compose.yaml"
+    ],
+    "INVESTINATOR_OPENAI_ALLOWED_HOSTS": [
+      "backend-java/src/main/java/com/investinator/model/ProviderClients.java"
+    ],
+    "INVESTINATOR_OPENAI_APPROVAL_REF": [
+      "backend-java/src/main/java/com/investinator/model/OpenAiLiveProbe.java",
+      "backend-java/src/main/java/com/investinator/model/ProviderBudget.java"
+    ],
+    "INVESTINATOR_OPENAI_BASE_URL": [
+      "backend-java/src/main/java/com/investinator/model/ProviderClients.java"
+    ],
+    "INVESTINATOR_OPENAI_COST_APPROVED": [
+      "backend-java/src/main/java/com/investinator/model/OpenAiLiveProbe.java",
+      "backend-java/src/main/java/com/investinator/model/ProviderBudget.java"
+    ],
+    "INVESTINATOR_OPENAI_ENABLED": [
+      "backend-java/src/main/java/com/investinator/model/OpenAiLiveProbe.java",
+      "backend-java/src/main/resources/application.yaml",
+      "infra/lab/compose.yaml"
+    ],
+    "INVESTINATOR_OPENAI_FAST_MODEL": [
+      "backend-java/src/main/java/com/investinator/chat/ChatGateway.java",
+      "docker-compose.yml",
+      "infra/lab/compose.yaml"
+    ],
+    "INVESTINATOR_OPENAI_MODEL": [
+      "backend-java/src/main/java/com/investinator/model/OpenAiLiveProbe.java",
+      "backend-java/src/main/resources/application.yaml",
+      "docker-compose.yml",
+      "infra/lab/compose.yaml"
+    ],
+    "INVESTINATOR_OPENAI_PAID_OPT_IN": [
+      "backend-java/src/main/java/com/investinator/model/OpenAiLiveProbe.java",
+      "backend-java/src/main/java/com/investinator/model/ProviderBudget.java"
+    ],
+    "INVESTINATOR_OPENAI_REASONING_MODEL": [
+      "backend-java/src/main/java/com/investinator/chat/ChatGateway.java",
+      "docker-compose.yml",
+      "infra/lab/compose.yaml"
+    ],
+    "INVESTINATOR_OPENAI_TEST_ENDPOINT": [
+      "backend-java/src/main/java/com/investinator/model/ProviderClients.java"
+    ],
+    "INVESTINATOR_PORTFOLIO_URL": [
+      "backend-java/src/main/java/com/investinator/api/OperationalController.java"
+    ],
+    "INVESTINATOR_TOPOLOGY_GRAPH": [
+      "backend-java/src/main/java/com/investinator/api/OperationalController.java",
+      "infra/lab/compose.yaml"
+    ],
+    "JAVA_BIND_ADDRESS": [
+      "backend-java/src/main/resources/application.yaml"
+    ],
+    "JAVA_DATABASE_PASSWORD": [
+      "backend-java/src/main/resources/application.yaml",
+      "infra/lab/compose.yaml"
+    ],
+    "JAVA_DATABASE_SCHEMA": [
+      "backend-java/src/main/resources/application.yaml"
+    ],
+    "JAVA_DATABASE_URL": [
+      "backend-java/src/main/resources/application.yaml"
+    ],
+    "JAVA_DATABASE_USER": [
+      "backend-java/src/main/resources/application.yaml"
+    ],
+    "JAVA_PERSISTENCE_ENABLED": [
+      "backend-java/src/main/resources/application.yaml"
+    ],
+    "JAVA_PORT": [
+      "backend-java/src/main/resources/application.yaml"
+    ],
+    "JAVA_TLS_BUNDLE": [
+      "backend-java/src/main/resources/application-enterprise.yaml"
+    ],
+    "KAFKA_BOOTSTRAP_SERVERS": [
+      "backend-java/src/main/java/com/investinator/api/OperationalController.java",
+      "backend-java/src/main/java/com/investinator/health/KafkaHealthProbe.java"
+    ],
+    "KAFKA_DIAGNOSTIC_PASSWORD": [
+      "infra/lab/compose.yaml"
+    ],
+    "KNOWLEDGE_FEEDBACK_TOKEN": [
+      "backend-java/src/main/java/com/investinator/knowledge/KnowledgeService.java",
+      "infra/lab/compose.yaml"
+    ],
+    "KNOWLEDGE_READ_TOKEN": [
+      "infra/lab/compose.yaml"
+    ],
+    "KNOWLEDGE_REVIEW_TOKEN": [
+      "backend-java/src/main/java/com/investinator/knowledge/KnowledgeService.java",
+      "infra/lab/compose.yaml"
+    ],
+    "KNOWLEDGE_WRITER_PASSWORD": [
+      "backend-java/src/main/java/com/investinator/knowledge/KnowledgeIndex.java",
+      "infra/lab/compose.yaml"
+    ],
+    "KNOWLEDGE_WRITER_USER": [
+      "backend-java/src/main/java/com/investinator/knowledge/KnowledgeIndex.java"
+    ],
+    "KNOWLEDGE_WRITE_TOKEN": [
+      "backend-java/src/main/java/com/investinator/knowledge/KnowledgeService.java",
+      "infra/lab/compose.yaml"
+    ],
+    "LAB_API_PORT": [
+      "infra/lab/compose.yaml"
+    ],
+    "LAB_JAVA_IMAGE": [
+      "infra/lab/compose.yaml"
+    ],
+    "LAB_KAFKA_CLUSTER_ID": [
+      "infra/lab/compose.yaml"
+    ],
+    "LAB_KAFKA_PASSWORD": [
+      "infra/lab/compose.yaml"
+    ],
+    "LAB_KAFKA_PORT": [
+      "infra/lab/compose.yaml"
+    ],
+    "LAB_OTEL_HEALTH_PORT": [
+      "infra/lab/compose.yaml"
+    ],
+    "LAB_OTLP_PORT": [
+      "infra/lab/compose.yaml"
+    ],
+    "LAB_PROM_PORT": [
+      "infra/lab/compose.yaml"
+    ],
+    "LAB_SEARCH_PORT": [
+      "infra/lab/compose.yaml"
+    ],
+    "LAB_WEB_IMAGE": [
+      "infra/lab/compose.yaml"
+    ],
+    "LAB_WEB_PORT": [
+      "infra/lab/compose.yaml"
+    ],
+    "METRICS_TOKEN": [
+      "backend-java/src/main/resources/application.yaml",
+      "infra/lab/compose.yaml"
+    ],
+    "MONITOR_API_TOKEN": [
+      "infra/lab/compose.yaml"
+    ],
+    "NO_PROXY": [
+      "infra/lab/compose.yaml"
+    ],
+    "OPENAI_API_KEY": [
+      "backend-java/src/main/java/com/investinator/model/OpenAiLiveProbe.java",
+      "backend-java/src/main/java/com/investinator/model/ProviderClients.java",
+      "backend-java/src/main/java/com/investinator/model/ProviderConfigured.java",
+      "docker-compose.yml",
+      "infra/lab/compose.yaml"
+    ],
+    "OTEL_EXPORTER_OTLP_ENDPOINT": [
+      "backend-java/src/main/java/com/investinator/api/OperationalController.java"
+    ],
+    "REMEDIATION_APPROVE_TOKEN": [
+      "infra/lab/compose.yaml"
+    ],
+    "REMEDIATION_EXECUTE_TOKEN": [
+      "infra/lab/compose.yaml"
+    ],
+    "REMEDIATION_PLAN_TOKEN": [
+      "infra/lab/compose.yaml"
+    ],
+    "REMEDIATION_VERIFY_TOKEN": [
+      "infra/lab/compose.yaml"
+    ],
+    "UI_APPROVER_LOGIN_TOKEN": [
+      "infra/lab/compose.yaml"
+    ],
+    "UI_EXECUTOR_LOGIN_TOKEN": [
+      "infra/lab/compose.yaml"
+    ],
+    "UI_OPERATOR_LOGIN_TOKEN": [
+      "infra/lab/compose.yaml"
+    ],
+    "UI_PLANNER_LOGIN_TOKEN": [
+      "infra/lab/compose.yaml"
+    ],
+    "UI_SESSION_SECRET": [
+      "infra/lab/compose.yaml"
+    ],
+    "UI_VERIFIER_LOGIN_TOKEN": [
+      "infra/lab/compose.yaml"
+    ],
+    "UI_VIEWER_LOGIN_TOKEN": [
+      "infra/lab/compose.yaml"
+    ]
+  },
+  "configuration_inventory_limit": "Static names; dynamic CONNECTOR_<SERVICE>_* families documented separately. No private values read.",
+  "schema_owner": "Java Flyway: investinator_java by default; Python Alembic remains separate",
+  "migrations": [
+    "V1__operational_schema.sql",
+    "V2__durable_idempotency.sql",
+    "V3__versioned_dependency_evidence.sql",
+    "V4__private_chat_state_and_citations.sql",
+    "V5__reviewed_knowledge_and_outcomes.sql",
+    "V6__monitoring_queue_and_lifecycle.sql",
+    "V7__governed_replay_remediation.sql",
+    "V8__operator_monitor_controls.sql",
+    "V9__durable_provider_budget.sql"
+  ],
+  "tables": [
+    {
+      "table": "ai_usage",
+      "migration": "V1__operational_schema.sql"
+    },
+    {
+      "table": "approvals",
+      "migration": "V1__operational_schema.sql"
+    },
+    {
+      "table": "audit_events",
+      "migration": "V1__operational_schema.sql"
+    },
+    {
+      "table": "conversations",
+      "migration": "V1__operational_schema.sql"
+    },
+    {
+      "table": "entities",
+      "migration": "V1__operational_schema.sql"
+    },
+    {
+      "table": "evaluations",
+      "migration": "V1__operational_schema.sql"
+    },
+    {
+      "table": "incidents",
+      "migration": "V1__operational_schema.sql"
+    },
+    {
+      "table": "knowledge_documents",
+      "migration": "V1__operational_schema.sql"
+    },
+    {
+      "table": "relationships",
+      "migration": "V1__operational_schema.sql"
+    },
+    {
+      "table": "replay_runs",
+      "migration": "V1__operational_schema.sql"
+    },
+    {
+      "table": "telemetry",
+      "migration": "V1__operational_schema.sql"
+    },
+    {
+      "table": "alerts",
+      "migration": "V1__operational_schema.sql"
+    },
+    {
+      "table": "messages",
+      "migration": "V1__operational_schema.sql"
+    },
+    {
+      "table": "request_keys",
+      "migration": "V2__durable_idempotency.sql"
+    },
+    {
+      "table": "execution_records",
+      "migration": "V2__durable_idempotency.sql"
+    },
+    {
+      "table": "dependency_graphs",
+      "migration": "V3__versioned_dependency_evidence.sql"
+    },
+    {
+      "table": "correlation_observations",
+      "migration": "V3__versioned_dependency_evidence.sql"
+    },
+    {
+      "table": "incident_graph_bindings",
+      "migration": "V3__versioned_dependency_evidence.sql"
+    },
+    {
+      "table": "provider_conversation_state",
+      "migration": "V4__private_chat_state_and_citations.sql"
+    },
+    {
+      "table": "citation_evidence",
+      "migration": "V4__private_chat_state_and_citations.sql"
+    },
+    {
+      "table": "knowledge_revisions",
+      "migration": "V5__reviewed_knowledge_and_outcomes.sql"
+    },
+    {
+      "table": "knowledge_outcomes",
+      "migration": "V5__reviewed_knowledge_and_outcomes.sql"
+    },
+    {
+      "table": "knowledge_epochs",
+      "migration": "V5__reviewed_knowledge_and_outcomes.sql"
+    },
+    {
+      "table": "monitor_controls",
+      "migration": "V6__monitoring_queue_and_lifecycle.sql"
+    },
+    {
+      "table": "monitor_events",
+      "migration": "V6__monitoring_queue_and_lifecycle.sql"
+    },
+    {
+      "table": "monitor_offsets",
+      "migration": "V6__monitoring_queue_and_lifecycle.sql"
+    },
+    {
+      "table": "monitor_incidents",
+      "migration": "V6__monitoring_queue_and_lifecycle.sql"
+    },
+    {
+      "table": "monitor_streaks",
+      "migration": "V6__monitoring_queue_and_lifecycle.sql"
+    },
+    {
+      "table": "monitor_outbox",
+      "migration": "V6__monitoring_queue_and_lifecycle.sql"
+    },
+    {
+      "table": "monitor_deliveries",
+      "migration": "V6__monitoring_queue_and_lifecycle.sql"
+    },
+    {
+      "table": "monitor_health_samples",
+      "migration": "V6__monitoring_queue_and_lifecycle.sql"
+    },
+    {
+      "table": "remediation_plans",
+      "migration": "V7__governed_replay_remediation.sql"
+    },
+    {
+      "table": "remediation_outbox",
+      "migration": "V7__governed_replay_remediation.sql"
+    },
+    {
+      "table": "replay_resources",
+      "migration": "V7__governed_replay_remediation.sql"
+    },
+    {
+      "table": "remediation_effects",
+      "migration": "V7__governed_replay_remediation.sql"
+    },
+    {
+      "table": "remediation_samples",
+      "migration": "V7__governed_replay_remediation.sql"
+    },
+    {
+      "table": "remediation_postmortems",
+      "migration": "V7__governed_replay_remediation.sql"
+    },
+    {
+      "table": "provider_budget_accounts",
+      "migration": "V9__durable_provider_budget.sql"
+    },
+    {
+      "table": "provider_budget_prices",
+      "migration": "V9__durable_provider_budget.sql"
+    },
+    {
+      "table": "provider_budget_reservations",
+      "migration": "V9__durable_provider_budget.sql"
+    }
+  ],
+  "additional_framework_table": "flyway_schema_history"
+}

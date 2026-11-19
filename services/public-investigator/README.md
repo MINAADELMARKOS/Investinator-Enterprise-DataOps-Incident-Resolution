@@ -1,3 +1,12 @@
+> Prompt 14B safety update: this gateway remains NOT_CONFIGURED in this task. No
+> deployment, credential setup or paid request is authorized. Real use additionally
+> requires explicit OPENAI_ENABLED, OPENAI_PAID_OPT_IN, OPENAI_COST_APPROVED and
+> MODEL_TRANSFER_APPROVED=true plus an owner-approved OPENAI_APPROVAL_REF. Defaults
+> are off. Flags/references are configuration claims, not human review signatures.
+> The durable object caps requests, not USD invoices; monetary/price reconciliation,
+> privacy, platform logging/retention and real deployment certification stay BLOCKED.
+> Java's private budget ledger does not certify this separate public service.
+
 # InvestiNator Public Investigator — secure GPT gateway
 
 **Status:** Implementation and no-cost tests can be verified on GitHub. **Live GPT is not enabled by simply merging this code.** The public GitHub Pages website is a static Vite bundle and cannot store OpenAI credentials or execute a Java backend. Deploy this Worker separately after connecting your own Cloudflare account and OpenAI API project.

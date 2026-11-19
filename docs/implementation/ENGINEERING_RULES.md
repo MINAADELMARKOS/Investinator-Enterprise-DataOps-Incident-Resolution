@@ -1,13 +1,18 @@
+Current authorization (2026-11-19): execute the user’s Prompt 14B gap-closure master only,
+preserve completed Prompt 15, push a new reviewed topic branch and prepare its PR.
+No merge into main, production deployment, credential setup or paid provider call is authorized.
+The older stage limits below are historical; all safety controls remain applicable.
+
 # Engineering execution contract
 
 Read STATE.md and DECISIONS.md before changing code in every session. The user
-authorizes completed stages 00–09 and Architecture v2 Prompt 09A only in this
-session. Read docs/roadmap/JAVA_AI_ARCHITECTURE_V2.md and POST_P09_PROMPTS_V2.md;
-the v2 sequence supersedes the original chain from 09A onward. Prompt 09B and
-10 onward require a subsequent request. Prompt 09 human review remains pending
+authorizes completed stages through 14 and Architecture v2 Prompt 15 only
+in this session. This is an assessment, not permission to deploy. Read docs/roadmap/JAVA_AI_ARCHITECTURE_V2.md and POST_P09_PROMPTS_V2.md;
+the v2 sequence supersedes the original chain from 09A onward. Prompt 16 requires a subsequent request and independently verified release gates. No live provider request without
+configured credentials and an independently approved testing budget. Prompt 09 human review remains pending
 and blocks measured AI-quality claims, not repository synchronization. Keep one commit per completed stage and stop at
 failed acceptance gates. The user explicitly authorizes pushing feature/java-ai-audit and opening its PR
-after verification for 09A. Never force-push or merge main without authorization.
+after verification for 09A and 13. Never force-push or merge main without authorization.
 
 Preserve Next.js design, APIs and aliases, data, audit, demo scenarios and approval
 semantics. Keep Python until tested contractual parity and approved switchover.

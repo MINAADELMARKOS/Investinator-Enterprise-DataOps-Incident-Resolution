@@ -1,0 +1,591 @@
+{
+  "local_full_verify": {
+    "tests": 110,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0
+  },
+  "subsequent_focused_budget_suite": {
+    "tests": 11,
+    "failures": 0,
+    "one_added_test": true
+  },
+  "combined_distinct_junit_cases": 112,
+  "cli_tests": 29,
+  "python_tests": 12,
+  "frontend_tests": 11,
+  "browser_checks": 14,
+  "promtool_rules": 6,
+  "promtool_nan_cases": 2,
+  "provenance": "actual local suites; provider responses MOCKED where tests declare; actual GPT NOT_CONFIGURED",
+  "cases": [
+    {
+      "class": "com.investinator.ConnectorConfigurationTest",
+      "name": "disabledConnectorRequiresNoModelButEnabledConfigurationIsValidated",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.DependencyCompatibilityTest",
+      "name": "standaloneWireMockIsCompatibleWithTheTestRuntime",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.DependencyCompatibilityTest",
+      "name": "vendorTypesLoadAndClientConstructionDoesNotRequirePaidNetworkCalls",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.ScaffoldTest",
+      "name": "livenessAndReadinessAreIndependentOfUnconfiguredConnectors",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.ScaffoldTest",
+      "name": "requestIdsAreBoundedAndCannotInjectLogFields",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.ScaffoldTest",
+      "name": "platformReportsScaffoldWithoutInventingMeasurements",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.ScaffoldTest",
+      "name": "metricsRequireExplicitSecretAndOtherManagementRoutesAreDenied",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.api.ErrorMappingTest",
+      "name": "exceptionResponsesDoNotLeakProviderOrCredentialDetails",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.config.MigrationOwnershipTest",
+      "name": "publicAndSystemSchemasAreRefusedBeforeAnyMigration",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.config.MigrationOwnershipTest",
+      "name": "existingAlembicSchemaIsNeverAdoptedOrModified",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.api.OperatorUiContractTest",
+      "name": "historicalInspectorRechecksKnowledgeRevocationAndReadableChunk",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.api.OperatorUiContractTest",
+      "name": "detailHistoryAndEvidenceAreScopedWithoutExposingPrivateContinuation",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.api.OperatorUiContractTest",
+      "name": "boundedSettingsPauseRulesAndSuppressNotificationsWithoutErasingIncidents",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.health.ProbeHttpTest",
+      "name": "responseSizeIsBounded",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.health.ProbeHttpTest",
+      "name": "authenticatedGetPreservesStatusAndRefusesRedirects",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.knowledge.KnowledgeReviewIdentityTest",
+      "name": "ingestionAndFeedbackCredentialsCannotDoubleAsIndependentReviewIdentity",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.PersistenceWorkflowTest",
+      "name": "unknownProductionActionsAndMigrationOwnershipAreNotPermitted",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.PersistenceWorkflowTest",
+      "name": "pythonAndJavaContractsMatchForSeededReadsAndWorkflowTraces",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.PersistenceWorkflowTest",
+      "name": "negativeContractsCannotForgeTenantApprovalOrVerification",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.PersistenceWorkflowTest",
+      "name": "concurrentRetriesDoNotDuplicateReplayOrAlertWrites",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.PersistenceWorkflowTest",
+      "name": "conversationHistoryAndFailedCommandsRollback",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.PersistenceWorkflowTest",
+      "name": "allReplayScenariosAndRejectionPreserveExpectedState",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.PersistenceWorkflowTest",
+      "name": "replayApprovalVerificationAndAuditAreTransactionalAndTenantScoped",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.evidence.EvidenceApiSecurityTest",
+      "name": "callerCannotSupplyTenantIndexUrlOrDslEvenWithAValidCredential",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.evidence.EvidenceApiSecurityTest",
+      "name": "credentialsAreRequiredAndAbsentBackendIsTruthfullyNotConfigured",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.connectors.ConnectorApiSecurityTest",
+      "name": "scopeIsRequiredCallerCannotChooseUrlSqlTenantOrCommandAndWritesAreDenied",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.chat.ChatGatewayTest",
+      "name": "requestContextAndArgumentBudgetsAreEnforcedWithoutNetworkLoop",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.chat.ChatGatewayTest",
+      "name": "stateCipherBindsTenantAndConversationAndNeverStoresPlainReasoning",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.chat.ChatGatewayTest",
+      "name": "actualSdkLoopReturnsToolResultByCallIdAndCarriesAllReasoningItems",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.chat.ChatGatewayTest",
+      "name": "unknownToolIsDeniedAndFakeApprovalInFinalOutputIsRejected",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.chat.ChatGatewayTest",
+      "name": "structuredRedactionPreservesJsonAndStripsSensitiveKeysAndStringValues",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.chat.ChatGatewayTest",
+      "name": "nonexistentOrWrongTimestampCitationAndFakeLiveModeFail",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.chat.ChatGatewayTest",
+      "name": "providerTimeoutIsBoundedHasNoRetryAndNeverReturnsFabricatedModelSuccess",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.chat.ChatGatewayTest",
+      "name": "providerFailuresHaveSafeDistinctStatus",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.chat.ChatGatewayTest",
+      "name": "toolAndTenantRateBudgetsStopBeforeAdditionalToolsOrProviderSpend",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.chat.ChatGatewayTest",
+      "name": "generalQuestionUsesNoIncidentAndFollowUpIncludesPriorContext",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.chat.ChatGatewayTest",
+      "name": "multiCallBatchPreservesEveryCallIdAndReturnsBothReadResults",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.correlation.CorrelationApiTest",
+      "name": "immutableRevisionsTenantEvidenceAndAuthenticatedJavaQueries",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.knowledge.KnowledgeIntegrationTest",
+      "name": "reviewPackageCapturesNativeRetrievalRankingsAndAdversarialDiagnostics",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.knowledge.KnowledgeIntegrationTest",
+      "name": "reviewAndFeedbackAreIndependentNoAutomaticPromotionAndInjectionIsQuarantined",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.knowledge.KnowledgeIntegrationTest",
+      "name": "historicalCitationsAreRecheckedAfterAclOrReviewChangesAndCannotBecomeFreshObservations",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.knowledge.KnowledgeIntegrationTest",
+      "name": "realBm25FiltersTenantAclVersionsModesAndRevalidatesRevocations",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.knowledge.KnowledgeIntegrationTest",
+      "name": "provisionalFixtureEvaluationMeasuresBm25PrecisionAndDeterministicCausalRanking",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.evidence.NormalizedEvidenceTest",
+      "name": "stableSourceTimeAndTenantDeduplicateWithoutConflatingTenants",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.evidence.NormalizedEvidenceTest",
+      "name": "redactsBeforeIndexingAndPreservesEventTimeWithLagAndClockSkewFlags",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.evidence.NormalizedEvidenceTest",
+      "name": "boundsPayloadsAndRejectsInvalidIdentity",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.remediation.RemediationIntegrationTest",
+      "name": "changedParametersDefinitionOrReviewHashAreRejected",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.remediation.RemediationIntegrationTest",
+      "name": "databaseFailureBeforeReceiptRollsBackReplayMutation",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.remediation.RemediationIntegrationTest",
+      "name": "tokensAndBodyRoleSpoofingCannotConferApproval",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.remediation.RemediationIntegrationTest",
+      "name": "legacyAliasesCannotBypassGovernedPlanAndReadOnlyEnterpriseModesDenyWrites",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.remediation.RemediationIntegrationTest",
+      "name": "approvalAndAckNeverResolveWithoutIndependentFreshPostState",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.remediation.RemediationIntegrationTest",
+      "name": "expiredRevokedAndStaleResourcePreconditionsDenyExecution",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.remediation.RemediationIntegrationTest",
+      "name": "monitoredDiskIncidentCanBindOnlyAnExplicitReplaySandboxAndFollowLifecycle",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.remediation.RemediationIntegrationTest",
+      "name": "partialSuccessRetainsReceiptAndRequiresExplicitRecovery",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.remediation.RemediationIntegrationTest",
+      "name": "repeatedParallelAndWrongTenantExecutionHaveOnlyOneEffect",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.remediation.RemediationIntegrationTest",
+      "name": "acknowledgementWithoutEffectIsNotSuccess",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.remediation.RemediationIntegrationTest",
+      "name": "interruptedAfterEffectRecoversReceiptButStillRequiresIndependentSample",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.remediation.RemediationIntegrationTest",
+      "name": "interruptedBeforeEffectIsManualAndNeverAutomaticallyRetried",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.remediation.RemediationIntegrationTest",
+      "name": "namedRollbackRequiresOwnApprovalAndIndependentRestorationVerification",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.remediation.RemediationIntegrationTest",
+      "name": "staleSamplesAndCallerClaimedChecksCannotVerify",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.chat.MissingProviderConfigurationTest",
+      "name": "absentOptionalKeyNeverBlocksCoreStartupOrCreatesProviderClient",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.chat.ChatPersistenceTest",
+      "name": "functionLoopExecutesActualReadOnlyKafkaAdminAgainstRealKraftBroker",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.chat.ChatPersistenceTest",
+      "name": "officialSdkBeanPersistsRedactedHistoryEncryptedContinuationAndIdempotentFollowups",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.chat.ChatPersistenceTest",
+      "name": "toolsRejectCrossTenantArgumentsNoIncidentAndUnsupportedApproval",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.connectors.RestDiagnosticConnectorTest",
+      "name": "missingConfigurationUnsupportedRangerAndUnsafeEndpointDoNotMakeNetworkCalls",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.connectors.RestDiagnosticConnectorTest",
+      "name": "everySupportedRestAdapterUsesAuthenticatedGetOnlyAndBoundsReturnedFacts",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.connectors.RestDiagnosticConnectorTest",
+      "name": "authorizationVersionMalformedAndServerFailuresNeverLookHealthy",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.connectors.RestDiagnosticConnectorTest",
+      "name": "configuredSemanticFailuresAreDegraded",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.config.EvidenceTransportConfigurationTest",
+      "name": "nonLocalPlaintextUserinfoAndEnterpriseModeAreRejected",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.config.EvidenceTransportConfigurationTest",
+      "name": "officialTransportConstructsAndClosesWithoutNetworkCalls",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.connectors.KafkaModeTest",
+      "name": "brokerConfigReliablySeparatesKraftFromLegacyAndUnknown",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.knowledge.KnowledgeDocumentTest",
+      "name": "configurationSourcesRedactQuotedCredentialsAndPrivateKeysWithoutLosingStructure",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.knowledge.KnowledgeDocumentTest",
+      "name": "hashesChunksNormalizationAndDedupAreDeterministicAndTenantSpecific",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.knowledge.KnowledgeDocumentTest",
+      "name": "injectionQuarantineAndSourceReferenceValidation",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.connectors.HiveMetastoreConnectorTest",
+      "name": "actualDigestSaslThriftFixtureAllowsOnlyVersionAndNamespaceReads",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.connectors.NativeConnectorTest",
+      "name": "hiveOnlyExecutesOneFixedBoundedReadAndClosesResources",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.connectors.NativeConnectorTest",
+      "name": "hiveUnsafeTransportDuplicateTlsAndUninstalledDriverAreExplicit",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.connectors.NativeConnectorTest",
+      "name": "nativePrivateServicesWithoutCredentialsAreNotConfigured",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.connectors.NativeConnectorTest",
+      "name": "kuduUsesOnlyOfficialReadRpcsAndDoesNotInventQuorumOrServerVersion",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.correlation.CorrelationEngineTest",
+      "name": "timeVersionedGraphDoesNotUseFutureOrExpiredEdges",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.correlation.CorrelationEngineTest",
+      "name": "modeSkewReverseTimeAndHealthyCounterevidenceAreRespected",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.correlation.CorrelationEngineTest",
+      "name": "independentKraftAndLegacyChainsRankUpstreamWithTraceableEvidence",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.correlation.CorrelationEngineTest",
+      "name": "healthyZooKeeperAndExhaustedDiskPreferDiskNotCoordination",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.correlation.CorrelationEngineTest",
+      "name": "simulatedDataCannotCorroborateLiveHypothesis",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.correlation.CorrelationEngineTest",
+      "name": "crossTenantConflictingEvidenceAndInventedGraphEdgesFail",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.correlation.CorrelationEngineTest",
+      "name": "noEvidenceNormalDuplicatesAndInjectionNeverCreateConfirmedCause",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.monitoring.MonitoringIntegrationTest",
+      "name": "legacyAndNifiHdfsRulesAreExplicitlyVersionScoped",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.monitoring.MonitoringIntegrationTest",
+      "name": "connector503SamplesAreUnknownNotSynthesizedAsHealthyOrPrompted",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.monitoring.MonitoringIntegrationTest",
+      "name": "duplicateStormOutOfOrderUpstreamChangesAndMissingProviderStayBounded",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.monitoring.MonitoringIntegrationTest",
+      "name": "dbFailureRollsBackIncidentOutboxAndCheckpointThenResumes",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.monitoring.MonitoringIntegrationTest",
+      "name": "hdfsOriginPrecedesNifiBackpressureAndDatasetDelay",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.monitoring.MonitoringIntegrationTest",
+      "name": "unknownStaleModeIsolationAndHysteresisDoNotInventHealth",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.monitoring.MonitoringIntegrationTest",
+      "name": "longFlapCooldownAndNewCauseAreNotConfused",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.monitoring.MonitoringIntegrationTest",
+      "name": "parallelWorkersRestartCheckpointAndLifecycleAreDurable",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.monitoring.MonitoringIntegrationTest",
+      "name": "notificationOutageHasBoundedRetriesAndDoesNotCallGpt",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.knowledge.KnowledgeUnavailableTest",
+      "name": "configuredButUnavailableIndexCannotClaimLiveRetrievalOrInventHits",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.health.HealthAggregatorTest",
+      "name": "concurrentRefreshesShareCompletedReportInsteadOfAnEmptyResult",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.health.HealthAggregatorTest",
+      "name": "cacheDoesNotIssueNewCallsAndOptionalNotConfiguredIsExplicit",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.health.HealthAggregatorTest",
+      "name": "retriesTransientFailuresButNeverEchoesExceptionSecrets",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.health.HealthAggregatorTest",
+      "name": "boundedParallelismAndQueueSaturationAreTruthful",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.health.HealthAggregatorTest",
+      "name": "settingsRejectUnboundedConcurrency",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.health.HealthAggregatorTest",
+      "name": "persistentFailureOpensCircuitAndRecoversAfterCooldown",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.health.HealthAggregatorTest",
+      "name": "timeoutReturnsPartialWithoutLosingSuccessfulChecks",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.health.HealthAggregatorTest",
+      "name": "mandatoryUnconfiguredCannotBeReady",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.security.EnterpriseIngressTest",
+      "name": "probesAreMinimalAndMetricsNeverPublic",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.security.EnterpriseIngressTest",
+      "name": "nonDemoBlocksPlatformAndBusinessDataEvenWithDemoCapabilities",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.evidence.EvidenceEnabledContextTest",
+      "name": "enabledSdkBeanIsFullyIntrospectableWithoutRemoteCalls",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.health.HealthApiSecurityTest",
+      "name": "privateReportRequiresScopedTokenAndReportsNoPaidCalls",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.observability.InvestigationMetricsTest",
+      "name": "actualSdkSpanEndsWithoutCapturingQuestionOrExceptionSecrets",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.observability.InvestigationMetricsTest",
+      "name": "missingUsageIsUnknownAndUnconfiguredTurnIsNotProviderTraffic",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.connectors.LegacyZooKeeperConnectorTest",
+      "name": "actualIsolatedServerRequiresDigestAclAndDiagnosisNeverChangesZnode",
+      "status": "PASS"
+    },
+    {
+      "class": "com.investinator.connectors.LegacyZooKeeperConnectorTest",
+      "name": "kraftNeverContactsZooKeeperEvenIfEndpointIsConfigured",
+      "status": "PASS"
+    }
+  ],
+  "focused_tracing_and_budget_tests": 13,
+  "hosted_ci": {
+    "run": "44397526897",
+    "commit": "8e41c2cc74d35ae302c2d76e5cb00a7caf0f4252",
+    "jobs": 5,
+    "status": "ALL_PASS",
+    "source": "public GitHub conclusions; no authenticated logs downloaded"
+  }
+}

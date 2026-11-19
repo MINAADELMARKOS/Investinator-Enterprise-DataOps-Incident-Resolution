@@ -1,0 +1,220 @@
+{
+  "source_mode": "LIVE_LOCAL_TRANSPORT",
+  "workload": "SIMULATED_DATA",
+  "concurrency": 1,
+  "measurements": {
+    "/api/v1/health": {
+      "requests": 30,
+      "errors": 0,
+      "median_ms": 3.977,
+      "p95_ms": 7.766,
+      "max_ms": 8.248
+    },
+    "/api/v1/incidents": {
+      "requests": 30,
+      "errors": 0,
+      "median_ms": 16.188,
+      "p95_ms": 40.329,
+      "max_ms": 40.474
+    }
+  },
+  "metrics_snapshot": [
+    "investinator_monitor_active 4.0",
+    "investinator_monitor_events{state=\"COOLDOWN\"} 0.0",
+    "investinator_monitor_events{state=\"EVIDENCE_BUDGET\"} 0.0",
+    "investinator_monitor_events{state=\"HEALTHY\"} 0.0",
+    "investinator_monitor_events{state=\"HYSTERESIS\"} 4.0",
+    "investinator_monitor_events{state=\"INCIDENT_BUDGET\"} 0.0",
+    "investinator_monitor_events{state=\"INCOMPATIBLE\"} 0.0",
+    "investinator_monitor_events{state=\"OLD_GRAPH_REVISION\"} 0.0",
+    "investinator_monitor_events{state=\"OUT_OF_ORDER\"} 0.0",
+    "investinator_monitor_events{state=\"PROCESSED\"} 36.0",
+    "investinator_monitor_events{state=\"QUEUED\"} 0.0",
+    "investinator_monitor_events{state=\"RULE_DISABLED\"} 0.0",
+    "investinator_monitor_events{state=\"STALE_OR_FUTURE\"} 0.0",
+    "investinator_monitor_events{state=\"UNKNOWN\"} 0.0",
+    "investinator_monitor_health_age_seconds NaN",
+    "investinator_monitor_outbox{kind=\"INVESTIGATE\",state=\"AWAITING_OPERATOR_BUDGET\"} 0.0",
+    "investinator_monitor_outbox{kind=\"INVESTIGATE\",state=\"MANUAL_INTERVENTION\"} 0.0",
+    "investinator_monitor_outbox{kind=\"INVESTIGATE\",state=\"NOT_CONFIGURED\"} 4.0",
+    "investinator_monitor_outbox{kind=\"INVESTIGATE\",state=\"PENDING\"} 0.0",
+    "investinator_monitor_outbox{kind=\"INVESTIGATE\",state=\"SIMULATED_DELIVERY\"} 0.0",
+    "investinator_monitor_outbox{kind=\"INVESTIGATE\",state=\"SUPPRESSED\"} 0.0",
+    "investinator_monitor_outbox{kind=\"NOTIFY\",state=\"AWAITING_OPERATOR_BUDGET\"} 0.0",
+    "investinator_monitor_outbox{kind=\"NOTIFY\",state=\"MANUAL_INTERVENTION\"} 0.0",
+    "investinator_monitor_outbox{kind=\"NOTIFY\",state=\"NOT_CONFIGURED\"} 0.0",
+    "investinator_monitor_outbox{kind=\"NOTIFY\",state=\"PENDING\"} 0.0",
+    "investinator_monitor_outbox{kind=\"NOTIFY\",state=\"SIMULATED_DELIVERY\"} 4.0",
+    "investinator_monitor_outbox{kind=\"NOTIFY\",state=\"SUPPRESSED\"} 0.0",
+    "investinator_monitor_outbox_age_seconds 0.0",
+    "investinator_monitor_queue_age_seconds 0.0",
+    "jvm_gc_pause_seconds_count{action=\"end of minor GC\",cause=\"G1 Evacuation Pause\",gc=\"G1 Young Generation\"} 6",
+    "jvm_memory_used_bytes{area=\"heap\",id=\"G1 Eden Space\"} 1.6777216E7",
+    "jvm_memory_used_bytes{area=\"heap\",id=\"G1 Old Gen\"} 3.050492E7",
+    "jvm_memory_used_bytes{area=\"heap\",id=\"G1 Survivor Space\"} 9243976.0",
+    "jvm_memory_used_bytes{area=\"nonheap\",id=\"CodeHeap 'non-nmethods'\"} 2082944.0",
+    "jvm_memory_used_bytes{area=\"nonheap\",id=\"CodeHeap 'non-profiled nmethods'\"} 7664768.0",
+    "jvm_memory_used_bytes{area=\"nonheap\",id=\"CodeHeap 'profiled nmethods'\"} 2.3053056E7",
+    "jvm_memory_used_bytes{area=\"nonheap\",id=\"Compressed Class Space\"} 1.1664512E7",
+    "jvm_memory_used_bytes{area=\"nonheap\",id=\"Metaspace\"} 9.481784E7",
+    "system_cpu_usage 0.22589210802856252"
+  ],
+  "metrics_scope": "application-lifetime fixed dimensions; missing counters unknown, not financial totals",
+  "core_readiness": true,
+  "checks": [
+    {
+      "service": "java",
+      "status": "HEALTHY",
+      "source_mode": "LIVE",
+      "duration_ms": 30,
+      "checked_at": "2026-11-18T23:49:32.697682207Z"
+    },
+    {
+      "service": "postgresql",
+      "status": "HEALTHY",
+      "source_mode": "LIVE",
+      "duration_ms": 4,
+      "checked_at": "2026-11-18T23:49:32.671810313Z"
+    },
+    {
+      "service": "nextjs",
+      "status": "HEALTHY",
+      "source_mode": "LIVE",
+      "duration_ms": 46,
+      "checked_at": "2026-11-18T23:49:32.713518621Z"
+    },
+    {
+      "service": "search",
+      "status": "HEALTHY",
+      "source_mode": "LIVE",
+      "duration_ms": 46,
+      "checked_at": "2026-11-18T23:49:32.713748484Z"
+    },
+    {
+      "service": "kafka",
+      "status": "HEALTHY",
+      "source_mode": "LIVE",
+      "duration_ms": 78,
+      "checked_at": "2026-11-18T23:49:32.743831838Z"
+    },
+    {
+      "service": "otel",
+      "status": "HEALTHY",
+      "source_mode": "LIVE",
+      "duration_ms": 53,
+      "checked_at": "2026-11-18T23:49:32.720949476Z"
+    },
+    {
+      "service": "prometheus",
+      "status": "HEALTHY",
+      "source_mode": "LIVE",
+      "duration_ms": 55,
+      "checked_at": "2026-11-18T23:49:32.722775295Z"
+    },
+    {
+      "service": "gpt",
+      "status": "NOT_CONFIGURED",
+      "source_mode": "NOT_CONFIGURED",
+      "duration_ms": 46,
+      "checked_at": "2026-11-18T23:49:32.713831511Z"
+    },
+    {
+      "service": "spark",
+      "status": "NOT_CONFIGURED",
+      "source_mode": "NOT_CONFIGURED",
+      "duration_ms": 46,
+      "checked_at": "2026-11-18T23:49:32.713858190Z"
+    },
+    {
+      "service": "yarn",
+      "status": "NOT_CONFIGURED",
+      "source_mode": "NOT_CONFIGURED",
+      "duration_ms": 46,
+      "checked_at": "2026-11-18T23:49:32.713866703Z"
+    },
+    {
+      "service": "hdfs",
+      "status": "NOT_CONFIGURED",
+      "source_mode": "NOT_CONFIGURED",
+      "duration_ms": 46,
+      "checked_at": "2026-11-18T23:49:32.713872393Z"
+    },
+    {
+      "service": "hive",
+      "status": "NOT_CONFIGURED",
+      "source_mode": "NOT_CONFIGURED",
+      "duration_ms": 46,
+      "checked_at": "2026-11-18T23:49:32.713881168Z"
+    },
+    {
+      "service": "kudu",
+      "status": "NOT_CONFIGURED",
+      "source_mode": "NOT_CONFIGURED",
+      "duration_ms": 46,
+      "checked_at": "2026-11-18T23:49:32.713889345Z"
+    },
+    {
+      "service": "nifi",
+      "status": "NOT_CONFIGURED",
+      "source_mode": "NOT_CONFIGURED",
+      "duration_ms": 46,
+      "checked_at": "2026-11-18T23:49:32.713895306Z"
+    },
+    {
+      "service": "airflow",
+      "status": "NOT_CONFIGURED",
+      "source_mode": "NOT_CONFIGURED",
+      "duration_ms": 46,
+      "checked_at": "2026-11-18T23:49:32.713900849Z"
+    },
+    {
+      "service": "impala",
+      "status": "NOT_CONFIGURED",
+      "source_mode": "NOT_CONFIGURED",
+      "duration_ms": 46,
+      "checked_at": "2026-11-18T23:49:32.713908301Z"
+    },
+    {
+      "service": "zookeeper",
+      "status": "NOT_CONFIGURED",
+      "source_mode": "NOT_CONFIGURED",
+      "duration_ms": 45,
+      "checked_at": "2026-11-18T23:49:32.713918438Z"
+    },
+    {
+      "service": "cloudera-manager",
+      "status": "NOT_CONFIGURED",
+      "source_mode": "NOT_CONFIGURED",
+      "duration_ms": 45,
+      "checked_at": "2026-11-18T23:49:32.713923904Z"
+    },
+    {
+      "service": "atlas",
+      "status": "NOT_CONFIGURED",
+      "source_mode": "NOT_CONFIGURED",
+      "duration_ms": 45,
+      "checked_at": "2026-11-18T23:49:32.713929670Z"
+    },
+    {
+      "service": "ranger",
+      "status": "NOT_CONFIGURED",
+      "source_mode": "NOT_CONFIGURED",
+      "duration_ms": 45,
+      "checked_at": "2026-11-18T23:49:32.713934931Z"
+    },
+    {
+      "service": "hive-metastore",
+      "status": "NOT_CONFIGURED",
+      "source_mode": "NOT_CONFIGURED",
+      "duration_ms": 45,
+      "checked_at": "2026-11-18T23:49:32.713942880Z"
+    }
+  ],
+  "production_availability": "NOT_MEASURED",
+  "production_detection_latency": "NOT_MEASURED",
+  "production_mtta_mtti_mttr": "NOT_MEASURED",
+  "business_roi": "NOT_MEASURED",
+  "gpt_cost": null,
+  "paid_provider_calls": 0,
+  "production_writes": 0
+}
