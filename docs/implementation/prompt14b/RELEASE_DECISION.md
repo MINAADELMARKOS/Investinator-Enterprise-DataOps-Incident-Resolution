@@ -6,8 +6,10 @@ is CONDITIONAL on scoped private capabilities, synthetic source labels, Python d
 Java opt-in, disabled native ingestion, paused new tenants, no provider enablement and
 only the two named ReplayLab actions. Engineering tests are not owner certification.
 
-Hosted topic CI is pending publication in this checkpoint; no old run is substituted.
-The exact code-validation run and final publication revision will be recorded separately.
+Hosted implementation checkpoint32069f2 passed seven jobs on44425318558. A later
+public browser regression was fixed and locally retested (four cases); final-head
+CI is a separate mandatory check, reported in the completion response. No older
+run is substituted for that final source. See hosted-ci.json/publication.json.
 
 | Risk | Proposed accountable owner role (not a signature) | Evidence still required |
 |---|---|---|

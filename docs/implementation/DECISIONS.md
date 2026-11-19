@@ -1,3 +1,21 @@
+Publication/verification update (2026-11-19): the topic is pushed. Implementation
+checkpoint 32069f2 passed all SEVEN jobs on run44425318558; public annotations show
+OSV233 default and234 optional-Hive metadata packages / zero findings. This is not
+shaded-content or image certification. A later native public-browser smoke found a
+React effect cleanup error missed by build/unit tests; fixed in77f19b6 and covered by
+four local checks (native + labeled Promise-return fixture), including repository
+prefix mode, now added to CI. The final publication HEAD needs its OWN seven-job
+conclusion; see the live topic checks and final completion response, not an old green
+SHA. [Hosted checkpoint](prompt14b/hosted-ci.json), [publication](prompt14b/publication.json).
+PR_CREATION_BLOCKED: actual gh GraphQL request returned Forbidden; no new topic PR
+is claimed. [Actual compare](https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/compare/main...feature/p14b-gap-closure?expand=1) returnsHTTP200.
+Production remains BLOCKED; no billing, deployment, merge into main or next prompt.
+
+Compatibility disclosure: the governed registry still has exactly two named ReplayLab
+actions. Existing fixed legacy DEMO workflow aliases are preserved for non-governed
+incidents and cannot bypass a governed plan; they are not enterprise authorization.
+Full alias retirement is not claimed. No new live/native/production executor was added.
+
 ADR-026 / Prompt 14B: preserve SQL as current knowledge authority; filter approved
 ACL/version/mode chunk identities before BM25 without deleting historical sources.
 Bound materialization and report partial/UNKNOWN. Separate retrieval mechanics from
@@ -11,7 +29,7 @@ private source/identity/financial authority or infer deployment. Local fixtures 
 hosted CI cannot approve production; real owner evidence is mandatory.
 
 Current authoritative checkpoint — Prompt 14B (2026-11-19, Africa/Cairo).
-**Local engineering verified; topic publication / hosted CI pending. Production BLOCKED.**
+**Local engineering verified; hosted checkpoint passed; production BLOCKED.**
 See [14B report](prompt14b/REPORT.md), [per-risk matrix](prompt14b/GAP_CLOSURE_MATRIX.json),
 [actual commands](prompt14b/VALIDATION.json) and [release decision](prompt14b/RELEASE_DECISION.md).
 Initial main e5ca171 and source Java e7be724 (includes completed P15) were preserved;

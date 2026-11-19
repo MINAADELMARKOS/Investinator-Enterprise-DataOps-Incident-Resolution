@@ -12,7 +12,7 @@ const socket=createServer();await new Promise(r=>socket.listen(0,'127.0.0.1',r))
 const port=socket.address().port;await new Promise(r=>socket.close(r));
 const origin=`http://127.0.0.1:${port}`;
 const repo=process.env.GITHUB_REPOSITORY?.split('/')[1];
-const base=repo?`/${repo}/`:'/';
+const base=process.env.GITHUB_ACTIONS&&repo?`/${repo}/`:'/';
 const server=spawn(process.execPath,[resolve(root,'apps/showcase/node_modules/vite/bin/vite.js'),'preview','--host','127.0.0.1','--port',String(port),'--strictPort'],{cwd:resolve(root,'apps/showcase'),stdio:'ignore'});
 let browser;let outsideBlocked=0;
 const start=Date.now();const checks=[];

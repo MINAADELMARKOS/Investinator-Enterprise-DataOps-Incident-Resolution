@@ -754,6 +754,65 @@
       "test_number": 15,
       "source_provenance": "Public Worker/reference unit fixtures and Vite/TypeScript build; ZERO provider traffic/deployment",
       "ci_run_link": null
+    },
+    {
+      "stage": "first-hosted-checkpoint",
+      "command": "GitHub Actions CI run 44425318558; public job conclusions and security annotations",
+      "sha": "32069f2ae558637ee4fde6674e9a1bbc2fb8aaea",
+      "exit_status": 0,
+      "test_number": null,
+      "source_provenance": "Actual hosted seven jobs; authenticated logs/artifacts not downloaded",
+      "ci_run_link": "https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/actions/runs/44425318558",
+      "security_annotations": [
+        "PASS; resolved_packages=234; findings=0",
+        "PASS; resolved_packages=233; findings=0"
+      ],
+      "scope": "Before subsequently discovered public rendered-chat cleanup regression; not proof for that later fix"
+    },
+    {
+      "stage": "public-browser-initial",
+      "command": "Native Chromium offline public chat smoke",
+      "sha": "32069f2ae558637ee4fde6674e9a1bbc2fb8aaea",
+      "exit_status": 1,
+      "test_number": 3,
+      "source_provenance": "Actual local browser; React cleanup TypeError prevented offline response; no external/model traffic",
+      "ci_run_link": null,
+      "status": "FAILED_AND_FIXED_IN_77f19b6"
+    },
+    {
+      "stage": "public-browser-regression",
+      "command": "npm --prefix apps/showcase run build; node scripts/verify_showcase_ui.mjs",
+      "sha": "77f19b65eae4e4c7eceb94b97a1915e62c8c7354",
+      "working_tree_changes": true,
+      "exit_status": 0,
+      "test_number": 4,
+      "source_provenance": "Actual Chromium156 local UI; fourth case explicitly simulates Promise return; no external/model traffic",
+      "ci_run_link": null,
+      "evidence": [
+        "showcase-browser.json",
+        "showcase-browser-prefix.json"
+      ],
+      "scope": "Both native root path and GitHub Actions repository-prefixed build pass"
+    },
+    {
+      "stage": "pr-creation",
+      "command": "gh pr create --base main --head feature/p14b-gap-closure --draft --body-file docs/implementation/prompt14b/PR_DESCRIPTION.md",
+      "sha": "32069f2ae558637ee4fde6674e9a1bbc2fb8aaea",
+      "exit_status": 1,
+      "test_number": null,
+      "source_provenance": "Actual GitHub GraphQL request rejected with Forbidden; PR not claimed",
+      "ci_run_link": null,
+      "status": "PR_CREATION_BLOCKED"
+    },
+    {
+      "stage": "post-push-ref-verification",
+      "command": "git rev-parse origin/feature/p14b-gap-closure (then add narrow fetch refspec and fetch exact topic ref)",
+      "sha": "32069f2ae558637ee4fde6674e9a1bbc2fb8aaea",
+      "exit_status": 128,
+      "corrected_exit_status": 0,
+      "test_number": null,
+      "source_provenance": "Push itself succeeded; initial local ref missing due prior narrow fetchspec. Normal fetch confirms remote HEAD32069f2; upstream synchronized",
+      "ci_run_link": null
     }
   ],
   "source_consistency": {
@@ -761,5 +820,11 @@
     "latest_source_sha": "e38938e2550ca63fa4cb7adffc2f10daed692433",
     "java_next_python_unchanged_since_full_maven": true,
     "newer_main_public_modules_tested_separately": true
+  },
+  "hosted_checkpoint": {
+    "sha": "32069f2ae558637ee4fde6674e9a1bbc2fb8aaea",
+    "run": "https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/actions/runs/44425318558",
+    "jobs_passed": 7,
+    "new_public_browser_fix_requires_final_head_ci": true
   }
 }

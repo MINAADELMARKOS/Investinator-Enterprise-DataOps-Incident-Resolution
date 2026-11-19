@@ -1,0 +1,24 @@
+{
+  "implementation_checkpoint_sha": "32069f2ae558637ee4fde6674e9a1bbc2fb8aaea",
+  "remote_branch": "feature/p14b-gap-closure",
+  "branch_url": "https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/tree/feature/p14b-gap-closure",
+  "compare_url": "https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/compare/main...feature/p14b-gap-closure?expand=1",
+  "compare_http_status": 200,
+  "pr_status": "PR_CREATION_BLOCKED",
+  "pr_command": "gh pr create --base main --head feature/p14b-gap-closure --draft --title <review title> --body-file docs/implementation/prompt14b/PR_DESCRIPTION.md",
+  "pr_exit_status": 1,
+  "pr_error": "Post https://api.github.com/graphql: Forbidden",
+  "pr_url": null,
+  "existing_source_branch_pr": "https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/pull/7",
+  "existing_pr_is_not_the_new_topic_pr": true,
+  "push_method": "Normal git push; no force; later report publication updates same topic ref",
+  "main_merged_into_topic": [
+    "1ca09a1",
+    "0f75a45"
+  ],
+  "merged_into_main": false,
+  "deployed": false,
+  "actual_paid_provider_calls_by_this_work": 0,
+  "local_public_browser_fix_commit": "77f19b6",
+  "final_publication_tracking": "The final completion response gives actual pushed HEAD and its separate seven-job CI run; this file preserves the earlier implementation checkpoint without rewriting its SHA."
+}

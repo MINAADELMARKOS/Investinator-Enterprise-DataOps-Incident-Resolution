@@ -1,5 +1,5 @@
 {
-  "assessment": "LOCAL_ENGINEERING_VERIFIED_HOSTED_PENDING",
+  "assessment": "ENGINEERING_VERIFIED_WITH_EXTERNAL_BLOCKERS",
   "production": "BLOCKED",
   "immutable_starting_release_inventory_sha256": "50307131ee049d76ac4ccefdf7d7425dbf68a54c4c55a6b582a024d84daa6c00",
   "owner_roles_are_proposed_not_human_signoffs": true,
@@ -284,7 +284,7 @@
       "scope": "Local engineering; independent production certification excluded",
       "priority": "MEDIUM",
       "proposed_patch": "Platform-specific reproducible constraints and vendor SBOM/shaded dependency review",
-      "actual_patch": "Default + optional Hive resolved metadata SBOM/OSV CI; Python/Next/showcase audits preserved",
+      "actual_patch": "Default + optional Hive resolved metadata SBOM/OSV CI; Python/Next/showcase audits preserved; hosted OSV metadata scans pass233 default/234 optional, zero findings",
       "required_evidence": "Platform-specific reproducible constraints and vendor SBOM/shaded dependency review",
       "external_dependency": "Image vulnerability DB forbidden; shaded internal classes/licenses and every deployed image NOT_CERTIFIED; Python reproducible constraints and pentest pending",
       "acceptance": "Named functional checks; independent release owner must supply external evidence",
@@ -305,7 +305,7 @@
         "VALIDATION.json",
         "junit-summary.json"
       ],
-      "blocker": "Image vulnerability DB forbidden; shaded internal classes/licenses and every deployed image NOT_CERTIFIED; Python reproducible constraints and pentest pending"
+      "blocker": "Image vulnerability DB forbidden; shaded internal classes/licenses and every deployed image NOT_CERTIFIED; Python constraints and independent pentest pending"
     },
     {
       "gap_id": "P14-09",
@@ -683,7 +683,7 @@
       "evidence": [
         "VALIDATION.json"
       ],
-      "blocker": "Real OIDC + independent humans/change control; no native executor added"
+      "blocker": "Real OIDC + independent humans/change control; no native executor added; fixed legacy demo compatibility routes retained for non-governed incidents, full alias retirement not completed"
     },
     {
       "gap_id": "P12-01",
@@ -787,12 +787,12 @@
       "scope": "Owned local lab or explicitly labeled fixtures",
       "priority": "P1",
       "proposed_patch": "141 Java,34 CLI,12 Python,13 frontend; actual E2E/browser8 outages/process/evidence/recovery; hosted current SHA pending",
-      "actual_patch": "141 Java,34 CLI,12 Python,13 frontend; actual E2E/browser8 outages/process/evidence/recovery; hosted current SHA pending",
+      "actual_patch": "Local full regression and seven-job hosted implementation checkpoint; native public UI smoke found and fixed an additional cleanup error, now in CI",
       "required_evidence": "junit-summary.json; e2e.json; outages.json; retained-lifecycle.json",
       "external_dependency": "Hosted latest topic CI pending at initial report commit; not inferred green from old SHA",
       "acceptance": "No ACL/stale/mode leak or hidden degradation; no production/billing authority",
       "safe_rollback": "Disable optional capability; preserve source/data/history; normal reviewed revert",
-      "status": "PARTIALLY_IMPLEMENTED",
+      "status": "FIXED_AND_TESTED",
       "release_disposition": "BLOCKED",
       "changed_code": [
         "docs/implementation/prompt14b/VALIDATION.json"
@@ -804,9 +804,12 @@
         " retained-lifecycle.json"
       ],
       "evidence": [
-        "VALIDATION.json"
+        "VALIDATION.json",
+        "hosted-ci.json",
+        "showcase-browser.json",
+        "showcase-browser-prefix.json"
       ],
-      "blocker": "Hosted latest topic CI pending at initial report commit; not inferred green from old SHA"
+      "blocker": "Final-head checks must be observed for later browser fix; no production certification inferred"
     },
     {
       "gap_id": "P13-02",
@@ -863,7 +866,8 @@
         " E2E rerun",
         "15 public tests",
         "showcase build/audit",
-        "Worker dry-run"
+        "Worker dry-run",
+        "verify_showcase_ui.mjs:4 actual browser/native-protocol regression checks"
       ],
       "evidence": [
         "VALIDATION.json"
@@ -872,5 +876,7 @@
     }
   ],
   "latest_local_implementation_sha": "045e14c549c73de0ec0a435758435a1ab965e018",
-  "source_publication": "PENDING_PUSH"
+  "source_publication": "TOPIC_PUSHED; PR_CREATION_BLOCKED",
+  "hosted_checkpoint": "https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/actions/runs/44425318558",
+  "latest_source_note": "Public rendered-chat cleanup regression fixed locally with 4 browser cases; final publication CI must independently verify latest head"
 }

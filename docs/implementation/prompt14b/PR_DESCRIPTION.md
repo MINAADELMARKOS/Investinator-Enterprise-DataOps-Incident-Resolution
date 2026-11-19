@@ -34,3 +34,10 @@ No paid provider calls, production actions, merge into main or release authoriza
 
 Review docs/implementation/prompt14b/REPORT.md, GAP_CLOSURE_MATRIX.json,
 RELEASE_DECISION.md and CONFLICT_LEDGER.md. No automatic merge requested.
+
+The first hosted checkpoint32069f2 passed all seven jobs on44425318558; final-head
+checks must independently pass. Additional actual public-browser testing found and
+fixed a React effect cleanup return-value failure; four rendered/protocol cases
+now run in local-e2e, including repository-prefix mode. No old green SHA substitutes
+for this new source. Existing fixed legacy DEMO aliases remain for non-governed
+incidents; governed-plan bypass is denied, but full alias retirement is not claimed.

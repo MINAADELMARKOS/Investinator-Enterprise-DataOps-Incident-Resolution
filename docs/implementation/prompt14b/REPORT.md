@@ -1,6 +1,6 @@
 # Prompt 14B — gap closure and synchronization report
 
-2026-11-19 (Africa/Cairo). **Local engineering checks pass; hosted topic validation pending publication. Production NO-GO / BLOCKED.** No release, production routing, Pages publication, Worker deployment, credential setup, remote notification or paid provider call is authorized or performed. This is a bounded engineering improvement stage, not “all gaps fixed.”
+2026-11-19 (Africa/Cairo). **Local engineering verified and seven-job implementation checkpoint passed. Production NO-GO / BLOCKED.** No release, production routing, Pages publication, Worker deployment, credential setup, remote notification or paid provider call is authorized or performed. This is a bounded engineering improvement stage, not “all gaps fixed.”
 
 ## Source, preservation and conflicts
 
@@ -85,7 +85,7 @@
 
 ## Architecture and rollback
 
-The five-layer modular Java monolith and default Python/Next routing remain. V9 creates only three Java-private budget tables and an audit export index; Alembic ownership is untouched. No production executor, native collector, new tenant auto-monitoring, automatic notification or model-policy authority was added. Only REPLAY_DISK_RECOVER_V1 and REPLAY_DISK_RESTORE_V1 execute simulated state changes.
+The five-layer modular Java monolith and default Python/Next routing remain. V9 creates only three Java-private budget tables and an audit export index; Alembic ownership is untouched. No production executor, native collector, new tenant auto-monitoring, automatic notification or model-policy authority was added. The governed registry has REPLAY_DISK_RECOVER_V1 and REPLAY_DISK_RESTORE_V1. Fixed legacy DEMO aliases remain for non-governed incidents and are denied once a governed plan exists; full alias retirement is not claimed. No new executor is added.
 
 Disable provider/collector flags before rollback; retain V9/source knowledge/index/history and unresolved reservations. Revert logical application changes only through review, or keep Java opt-in disabled with Python default. Never drop schemas/volumes or restore an unbudgeted probe to make rollback green. Public Worker has its own unconfigured deployment and must not inherit the Java financial certificate. See [FinOps](FINOPS.md), [recovery](RECOVERY_RUNBOOK.md), [identity](IDENTITY_STAGING_DESIGN.md), [governance](GOVERNANCE.md) and [native boundary](MONITORING_CONTRACT.md).
 
@@ -105,3 +105,24 @@ Those newer public modules were independently checked with 15 unit cases, showca
 build/audit and no-deployment Wrangler dry-run. Secret scan found no known generated
 credential values or sensitive environment/private-key files; this is not an
 independent penetration or DLP certificate. RELEASE_RISKS.json is byte-unchanged.
+
+## Hosted publication and final review boundary
+
+Topic feature/p14b-gap-closure is pushed. [Run44425318558](https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/actions/runs/44425318558)
+passed all seven jobs at32069f2ae558637ee4fde6674e9a1bbc2fb8aaea, including default233/
+optional234-package OSV metadata scans, zero findings. Public status/annotations are
+observed; authenticated logs/artifact downloads remain unavailable. [Evidence](hosted-ci.json).
+
+After that checkpoint, an additional ACTUAL public UI smoke found a scrollIntoView
+return value being treated as a React cleanup function, blanking offline chat.
+The effect now returns nothing; four checks pass natively and with an explicitly
+labeled Promise-return fixture, including GitHub repository-prefix mode. This
+regression is now in the existing local-e2e job. It is not hidden behind older green
+CI: the final publication requires its own seven-job conclusion, reported in the
+completion response and [live topic checks](https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/actions?query=branch%3Afeature%2Fp14b-gap-closure).
+
+PR_CREATION_BLOCKED: gh pr create GraphQL returned Forbidden. No topic PR is invented.
+The [actual compare URL](https://github.com/MINAADELMARKOS/Investinator-Enterprise-DataOps-Incident-Resolution/compare/main...feature/p14b-gap-closure?expand=1)
+returnsHTTP200; [PR body](PR_DESCRIPTION.md) is ready. Existing PR7 belongs to the old
+Java source branch and is not falsely presented as this topic's PR. See [publication](publication.json).
+No merge into main, deployment, Pages publication, credentials or paid call occurred.
