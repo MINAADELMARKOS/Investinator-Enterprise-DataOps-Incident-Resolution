@@ -70,7 +70,7 @@ try {
   for (const src of sources) { const text = await (await context.request.get(src)).text(); for (const secret of Object.values(state.secrets)) if (typeof secret === 'string' && secret.length >= 24 && text.includes(secret)) throw new Error('Secret in client bundle'); } pass(step);
   step = 'stale conversation';
   await expect(page.getByRole('button', { name: 'Reload conversation', exact: true })).toBeEnabled();
-  await page.addInitScript(() => localStorage.setItem('investinator.conversation.java', 'nonexistent-conversation')); 
+  await page.addInitScript(() => localStorage.setItem('investinator.conversation.java', 'nonexistent-conversation'));
   await page.reload(); await expect(page.getByRole('alert').filter({hasText:'Conversation unavailable'})).toContainText('Conversation unavailable'); pass(step);
   await context.close();
   step = 'owned replay fixture';

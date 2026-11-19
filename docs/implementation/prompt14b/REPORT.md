@@ -126,3 +126,8 @@ The [actual compare URL](https://github.com/MINAADELMARKOS/Investinator-Enterpri
 returnsHTTP200; [PR body](PR_DESCRIPTION.md) is ready. Existing PR7 belongs to the old
 Java source branch and is not falsely presented as this topic's PR. See [publication](publication.json).
 No merge into main, deployment, Pages publication, credentials or paid call occurred.
+
+Final full-review-range whitespace check found two inherited feature-branch formatting
+warnings. Only a trailing space in verify_operator_ui.mjs and a blank EOF in the
+historical promtool output were normalized; recorded outcome and original git
+history remain. No threshold, test logic, secret or release inventory changed.

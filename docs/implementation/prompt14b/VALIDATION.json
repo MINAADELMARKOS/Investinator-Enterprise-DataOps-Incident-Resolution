@@ -813,6 +813,15 @@
       "test_number": null,
       "source_provenance": "Push itself succeeded; initial local ref missing due prior narrow fetchspec. Normal fetch confirms remote HEAD32069f2; upstream synchronized",
       "ci_run_link": null
+    },
+    {
+      "stage": "final-full-review-range",
+      "command": "git diff --check origin/main...HEAD",
+      "sha": "ca64810b45ff4c3e25bd2b606783892430789e39",
+      "exit_status": 2,
+      "test_number": null,
+      "source_provenance": "Two inherited formatting-only warnings in source Java branch; trailing space and blank EOF normalized without changing code/test outcomes; original bytes preserved in git history",
+      "ci_run_link": null
     }
   ],
   "source_consistency": {
