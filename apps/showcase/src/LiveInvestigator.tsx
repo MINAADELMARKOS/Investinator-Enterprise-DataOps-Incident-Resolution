@@ -96,7 +96,7 @@ export default function LiveInvestigator() {
     }
     return ()=>{active=false;if(timeout)clearInterval(timeout);if(idRef.current&&window.turnstile){window.turnstile.remove(idRef.current);idRef.current=null;}};
   },[live,configuration?.site_key]);
-  useEffect(()=>lastRef.current?.scrollIntoView({behavior:"smooth",block:"nearest"}),[turns,pending]);
+  useEffect(()=>{lastRef.current?.scrollIntoView({behavior:"smooth",block:"nearest"});},[turns,pending]);
   function reset(){setTurns([]);setInput("");setError("");}
   function changeScenario(value:CaseId){setSelected(value);reset();}
   async function send(event:FormEvent){

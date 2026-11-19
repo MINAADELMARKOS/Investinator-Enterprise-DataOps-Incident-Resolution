@@ -120,6 +120,8 @@ jobs:
       - run: npm ci --prefix apps/web
       - run: cd apps/web && npx playwright install --with-deps chromium
       - run: python scripts/verify_e2e_lab.py --outages
+      - run: npm ci --prefix apps/showcase && npm --prefix apps/showcase run build
+      - run: node scripts/verify_showcase_ui.mjs --output .runtime/showcase-acceptance.json
       - run: python scripts/verify_backup_restore.py --output .runtime/backup-restore.json
       - run: python scripts/verify_pitr_fixture.py --output .runtime/pitr-fixture.json
       - run: python scripts/capture_operational_baseline.py --samples 10 --output .runtime/operational-baseline.json
@@ -132,6 +134,7 @@ jobs:
             .runtime/backup-restore.json
             .runtime/pitr-fixture.json
             .runtime/read-soak.json
+            .runtime/showcase-acceptance.json
             .runtime/operational-baseline.json
             .runtime/e2e.json
             .runtime/outages.json
